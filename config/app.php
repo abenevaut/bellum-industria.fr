@@ -146,6 +146,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         'Zizaco\Entrust\EntrustServiceProvider',
+
+        Chrisbjr\ApiGuard\Providers\ApiGuardServiceProvider::class,
     ],
 
     /*
