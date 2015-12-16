@@ -11,17 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
+
+Route::group(['prefix' => 'vitrine'], function () {
+
+    Route::get('index', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
+
 });
 
 
 Route::group(['prefix' => 'clients'], function () {
 
+    Route::get('users', '\App\CVEPDB\Clients\Controllers\UsersController@index');
 
-    Route::get('users', function ()    {
-        // Matches The "/admin/users" URL
+});
+
+Route::group(['prefix' => 'api'], function () {
+    Route::group(['prefix' => 'v1'], function () {
+
+        Route::get('users/{id}', '\App\CVEPDB\Api\Controllers\UsersController@show');
+        Route::get('users', '\App\CVEPDB\Api\Controllers\UsersController@all');
+
     });
-
-
 });
