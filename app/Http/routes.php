@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::group(['prefix' => 'clients'], function () {
+
+
+    Route::get('users', function ()    {
+        // Matches The "/admin/users" URL
+    });
+
+
+});
