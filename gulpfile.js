@@ -13,17 +13,20 @@ var config = {
     build: './public/dist'
 };
 
-//TASKS
 gulp.task('less', function () {
+    gulp.src(config.assets + '/less/style.less')
+        .pipe(less({paths: [config.assets + '/less/']}))
+        .pipe(gulp.dest(config.pages + '/css/'));
     gulp.src(config.pages + '/less/pages.less')
-        .pipe(less({
-            paths: [config.pages + '/less/']
-        }))
+        .pipe(less({paths: [config.pages + '/less/']}))
         .pipe(gulp.dest(config.pages + '/css/'));
 });
 
 gulp.task('watch', function () {
-    gulp.watch(config.pages + '/less/*.less', function (event) {
+    gulp.watch([
+        config.pages + '/less/*.less',
+        config.assets + '/less/*.less'
+    ], function (event) {
         gulp.run('less');
     });
 });
@@ -37,7 +40,18 @@ gulp.task('clean', function () {
 });
 
 gulp.task('copy', ['clean'], function () {
-    return gulp.src(['./**/*', '!**/node_modules/**', '!.gitgnore', '!package.json', '!Gruntfile.js', '!gulpfile.js'])
+    return gulp.src([
+            config.assets + '/**',
+            '!' + config.assets + '/less/**',
+            config.pages + '/**',
+            '!' + config.pages + '/less/**',
+            '!' + config.pages + '/sass/**',
+            '!**/node_modules/**',
+            '!.gitgnore',
+            '!package.json',
+            '!Gruntfile.js',
+            '!gulpfile.js'
+        ])
         .pipe(gulp.dest(config.build + ''));
 });
 
