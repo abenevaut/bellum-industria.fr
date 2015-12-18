@@ -1,0 +1,12 @@
+.layout__body-wrapper__content-wrapper__inner__widget-portfolio__filter li {
+    color: #616161
+}
+.layout__body-wrapper__content-wrapper__inner__widget-portfolio__filter li a:hover,
+.layout__body-wrapper__content-wrapper__inner__widget-portfolio__filter li a.active {
+    background-color: #dbda7d;
+    color: #292929;
+}
+.layout__body-wrapper__content-wrapper__inner__widget-portfolio__filter li a {
+    color: #aaa;
+    background-color: #222;
+}

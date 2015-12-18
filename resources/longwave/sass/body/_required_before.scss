@@ -1,0 +1,178 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+input,
+textarea,
+select {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    width: 100%;
+    letter-spacing: 0.2px;
+}
+p {
+    padding-bottom: 20px
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    word-spacing: 1px;
+    margin-bottom: 10px;
+}
+h1 {
+    font-size: 24px
+}
+h2 {
+    font-size: 20px
+}
+h3 {
+    font-size: 18px
+}
+h4 {
+    font-size: 16px
+}
+h5 {
+    font-size: 14px
+}
+h6 {
+    font-size: 12px
+}
+h5 span {
+    font-weight: 400;
+    text-transform: none;
+    font-size: 11px;
+    padding-left: 5px;
+    letter-spacing: 0.5px;
+}
+hr {
+    border: none;
+    height: 3px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+blockquote {
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 32px;
+    padding-bottom: 20px;
+}
+a {
+    text-decoration: none;
+    -webkit-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+    &:hover {
+    }
+    &:focus {
+    }
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+img.margin {
+    margin-bottom: 20px
+}
+ul.unordered {
+    padding-bottom: 20px
+}
+ul.unordered li:before {
+    font-family: 'fontello';
+    content: "\e78b";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    font-size: 13px;
+    padding-right: 8px;
+}
+ol {
+    list-style: decimal;
+    list-style-position: inside;
+    padding-bottom: 20px;
+}
+ol li {
+    padding: 0;
+    margin: 0;
+}
+pre {
+    margin: 0 0px 20px 0px;
+    padding: 5px 10px;
+    display: block;
+    clear: both;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Base layout
+/*-----------------------------------------------------------------------------------*/
+
+.layout {}
+.layout__body {}
+
+/*-----------------------------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------------------------*/
+
+/* iPad Landscape */
+$dimension_ipad_min-width: 768px !default;
+$dimension_ipad_max-width: 1200px !default;
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+$dimension_portrait_min-width: 768px !default;
+$dimension_portrait_max-width: 959px !default;
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+$dimension_mobile_min-width: 480px !default;
+$dimension_mobile_max-width: 767px !default;
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+$dimension_portrait_mobile_max-width: 479px !default;
+
+/* iPad Landscape */
+@media only screen and (min-width: $dimension_ipad_min-width) and (max-width: $dimension_ipad_max-width) {
+
+}
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: $dimension_portrait_min-width) and (max-width: $dimension_portrait_max-width) {
+    h4.alignleft {
+        float: none;
+        width: 100%;
+    }
+} /* END Smaller than standard 960 (devices and browsers) */
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: $dimension_mobile_min-width) and (max-width: $dimension_mobile_max-width) {
+    img.right,
+    img.alignright,
+    img.left,
+    img.alignleft {
+        float: none;
+        margin: 0 0 20px 0;
+    }
+    h4.alignleft,
+    .title.alignleft {
+        float: none;
+        width: 100%;
+    }
+} /* END Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: $dimension_portrait_mobile_max-width) {
+    img.right,
+    img.alignright,
+    img.left,
+    img.alignleft {
+        float: none;
+        margin: 0 0 20px 0;
+    }
+} /* END Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */

@@ -1,0 +1,88 @@
+/*-----------------------------------------------------------------------------------*/
+/*	BOX LAYOUT
+/*-----------------------------------------------------------------------------------*/
+.layout--box {
+    padding: 50px 0;
+    background: transparent url($path_images + 'bg/bg7.jpg') repeat fixed;
+}
+.layout__body-wrapper--box {
+    width: 1140px;
+    margin: 0 auto;
+    -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.17);
+    -moz-box-shadow: 0 0 3px 0 rgba(0,0,0,0.17);
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.17);
+}
+
+
+
+
+
+
+/*
+ * Todo : Class a examiner, semble correspondre a du JS
+ */
+
+.layout--box .fullcontent-slider-getaway-wrapper {
+    max-width:1140px;
+    width:100%;
+    top:auto;
+    left:auto;
+}
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------------------------*/
+
+/* iPad Landscape */
+$dimension_ipad_min-width: 768px !default;
+$dimension_ipad_max-width: 1200px !default;
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+$dimension_portrait_min-width: 768px !default;
+$dimension_portrait_max-width: 959px !default;
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+$dimension_mobile_min-width: 480px !default;
+$dimension_mobile_max-width: 767px !default;
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+$dimension_portrait_mobile_max-width: 479px !default;
+
+/* iPad Landscape */
+@media only screen and (min-width: $dimension_ipad_min-width) and (max-width: $dimension_ipad_max-width) {
+    .layout--box {
+        padding: 0;
+    }
+    .layout--box .layout__body-wrapper {
+        width: 100%;
+    }
+}
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: $dimension_portrait_min-width) and (max-width: $dimension_portrait_max-width) {
+    .layout--box {
+        padding: 0;
+    }
+    .layout--box .layout__body-wrapper {
+        width: 100%;
+    }
+} /* END Smaller than standard 960 (devices and browsers) */
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: $dimension_mobile_min-width) and (max-width: $dimension_mobile_max-width) {
+    .layout--box {
+        padding: 0;
+    }
+    .layout--box .layout__body-wrapper {
+        width: 100%;
+    }
+} /* END Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: $dimension_portrait_mobile_max-width) {
+    .layout--box {
+        padding: 0;
+    }
+    .layout--box .layout__body-wrapper {
+        width: 100%;
+    }
+} /* END Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */

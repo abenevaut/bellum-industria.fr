@@ -1,0 +1,12 @@
+.layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame {
+    @extend .layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame;
+
+    color: rgb(121, 121, 121);
+
+    background: #FFF;
+}
+.layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame img {
+    //@extend .layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame img;
+
+    background: #f9f9f9;
+}

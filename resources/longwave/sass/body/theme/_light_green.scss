@@ -1,0 +1,23 @@
+body {
+    @extend body;
+    background: #FFF;
+    color: #797979;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #707070
+}
+a {
+    @extend a;
+
+    color: #88d5c2
+}
+a:hover {
+    @extend a:hover;
+
+    color: #cd5465
+}

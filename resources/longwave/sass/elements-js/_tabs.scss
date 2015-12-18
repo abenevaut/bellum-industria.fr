@@ -1,0 +1,48 @@
+/*-----------------------------------------------------------------------------------*/
+/*	TABS
+/*-----------------------------------------------------------------------------------*/
+.etabs {
+    margin: 0;
+    padding: 0;
+    overflow: inherit;
+}
+.tab {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    background: #f9f9f9;
+    border: 1px solid #e7e7e7;
+    border-bottom: none;
+    top: 1px;
+    position: relative;
+    z-index: 1;
+    margin-right: 1px;
+}
+.tab a {
+    display: block;
+    padding: 7px 17px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #616161;
+}
+.tab a.active,
+.tab a:hover {
+    color: #88d5c2
+}
+.tab.active {
+    background: #fff;
+    position: relative;
+    z-index: 3;
+}
+.tab-container .panel-container {
+    border-top: 1px solid #e7e7e7;
+    position: relative;
+    z-index: 1;
+}
+.tab-container .panel-container div {
+    padding: 20px 0 0 0
+}

@@ -1,0 +1,5 @@
+.colored {
+    @extend .colored;
+
+    color: #dbda7d;
+}

@@ -1,0 +1,279 @@
+h5 span {
+    color: #7c7c7c
+}
+hr {
+    @extend hr;
+
+    background: transparent url($path_images + 'line-dark.png') repeat-x top left;
+}
+a {
+    @extend a;
+
+    color: #dbda7d
+}
+a:hover {
+    @extend a:hover;
+
+    color: #bf5858
+}
+pre {
+    background: #292929;
+    border: 1px solid #252525;
+}
+
+
+
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/*	SLIDER
+/*-----------------------------------------------------------------------------------*/
+.caption.white {
+    color: #FFF
+}
+.caption.icon {
+    color: #FFF;
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.11);
+}
+.caption.shadow {
+    color: #c1a588;
+    text-shadow: 0px 1px 0 rgba(255,255,255,0.8);
+}
+.tp-bullets.simplebullets .bullet {
+    background: #292929;
+    -webkit-box-shadow: 0 0 0 3px #222;
+    -moz-box-shadow: 0 0 0 3px #222;
+    box-shadow: 0 0 0 3px #222;
+}
+.tp-bullets.simplebullets .bullet:hover,
+.tp-bullets.simplebullets .bullet.selected {
+    -webkit-box-shadow: 0 0 0 3px #dbda7d;
+    -moz-box-shadow: 0 0 0 3px #dbda7d;
+    box-shadow: 0 0 0 3px #dbda7d;
+}
+.tparrows {
+    background: #FFF;
+    color: #8e8e8e;
+}
+.tparrows:hover {
+    background-color: #dbda7d;
+    color: #292929;
+}
+.tp-bannertimer {
+    background-image: url($path_images + 'timer.png')
+}
+.tp-loader {
+    background-image: url($path_images + 'loading.gif');
+    background-color: #222;
+}
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
+    .tp-loader {
+        background-image: url($path_images + 'loading@2x.gif')
+    }
+}
+/*-----------------------------------------------------------------------------------*/
+/*	BLOG
+/*-----------------------------------------------------------------------------------*/
+.content .post {
+    background: transparent url($path_images + 'line-dark.png') left bottom repeat-x
+}
+/*-----------------------------------------------------------------------------------*/
+/*	RELATED
+/*-----------------------------------------------------------------------------------*/
+.content .related {
+    background: transparent url($path_images + 'line-dark.png') left bottom repeat-x
+}
+/*-----------------------------------------------------------------------------------*/
+/*	SIDEBAR
+/*-----------------------------------------------------------------------------------*/
+.sidebox {
+    background: transparent url($path_images + 'line-dark.png') left top repeat-x
+}
+/*-----------------------------------------------------------------------------------*/
+/*	POPULAR POSTS
+/*-----------------------------------------------------------------------------------*/
+.post-list h6 a {
+    color: #9c9c9c
+}
+.post-list h6 a:hover {
+    color: #dbda7d
+}
+.post-list .meta em {
+    color: #7c7c7c
+}
+/*-----------------------------------------------------------------------------------*/
+/*	PAGE NAVIGATION
+/*-----------------------------------------------------------------------------------*/
+.page-navi ul li a {
+    color: #aaa;
+    background-color: #222;
+}
+.page-navi ul li a:hover,
+.page-navi ul li a.current {
+    background-color: #dbda7d;
+    color: #292929;
+}
+/*-----------------------------------------------------------------------------------*/
+/*	COMMENTS
+/*-----------------------------------------------------------------------------------*/
+#comments .message {
+    background-color: #292929;
+    border: 1px solid #252525;
+}
+#comments .info h2 a {
+    color: #bababa
+}
+#comments .info h2 a:hover {
+    color: #dbda7d
+}
+#comments .info .meta {
+    color: #7c7c7c
+}
+#comments a.reply-link {
+    color: #707070
+}
+#comments a.reply-link:hover {
+    color: #dbda7d
+}
+/*-----------------------------------------------------------------------------------*/
+/*	DIRECTION AWARE HOVER ON FRAME
+/*-----------------------------------------------------------------------------------*/
+.frame a div {
+    background: rgba(0,0,0,0.85) url($path_images + 'image-hover.png') repeat
+}
+.frame a div:before {
+    color: #FFF;
+    text-shadow: 0px 1px 0px rgba(0,0,0,0.75);
+}
+/*-----------------------------------------------------------------------------------*/
+/*	PORTFOLIO NAVIGATION
+/*-----------------------------------------------------------------------------------*/
+.navigation a i {
+    background: #222;
+    color: #aaa;
+}
+.navigation a:hover i {
+    background-color: #dbda7d;
+    color: #292929;
+}
+/*-----------------------------------------------------------------------------------*/
+/*	FOOTER
+/*-----------------------------------------------------------------------------------*/
+i.contact {
+    color: #dbda7d
+}
+.footer-wrapper,
+.footer-wrapper a {
+    color: #9c9c9c
+}
+.footer-wrapper a:hover {
+    color: #dbda7d
+}
+/*-----------------------------------------------------------------------------------*/
+/*	TWITTER
+/*-----------------------------------------------------------------------------------*/
+#twitter em a {
+    color: #7c7c7c
+}
+#twitter em a:hover {
+    color: #dbda7d
+}
+#twitter ul li:before {
+    color: #dbda7d
+}
+/*-----------------------------------------------------------------------------------*/
+/*	DRIBBBLE
+/*-----------------------------------------------------------------------------------*/
+ul.dribbble.feed li {
+    background: #303030
+}
+/*-----------------------------------------------------------------------------------*/
+/*	SUBFOOTER
+/*-----------------------------------------------------------------------------------*/
+.subfooter-wrapper,
+.subfooter-wrapper a {
+    color: #9c9c9c
+}
+.subfooter-wrapper a:hover {
+    color: #dbda7d
+}
+.subfooter-wrapper a:hover {
+    color: #dbda7d
+}
+/*-----------------------------------------------------------------------------------*/
+/*	FORMS
+/*-----------------------------------------------------------------------------------*/
+.form-container .response {
+    background: #d1f7b6;
+    border: 1px solid #8bca61;
+    color: #5e9537;
+}
+.forms fieldset .text-input,
+.forms fieldset .text-area,
+.searchform input,
+.comment-form input,
+.comment-form textarea {
+    background-color: #292929;
+    border: 1px solid #252525;
+    color: #9c9c9c;
+}
+.forms fieldset .text-input:focus,
+.forms fieldset .text-area:focus,
+.searchform input:focus,
+.comment-form input:focus,
+.comment-form textarea:focus {
+    border: 1px solid #3c3c3c
+}
+.forms li.error input,
+.forms li.error textarea {
+    border: 1px solid #d18282
+}
+/*-----------------------------------------------------------------------------------*/
+/*	TABS
+/*-----------------------------------------------------------------------------------*/
+.tab {
+    background: #292929;
+    border: 1px solid #252525;
+    border-bottom: none;
+}
+.tab a {
+    color: #bebebe
+}
+.tab a.active,
+.tab a:hover {
+    color: #dbda7d
+}
+.tab.active {
+    background: #303030
+}
+.tab-container .panel-container {
+    border-top: 1px solid #252525
+}
+/*-----------------------------------------------------------------------------------*/
+/*	TOGGLE
+/*-----------------------------------------------------------------------------------*/
+.toggle h4.title {
+    color: #bebebe;
+    background-color: #292929;
+}
+.toggle h4.title:hover,
+.toggle h4.title.active {
+    background-color: #dbda7d;
+    color: #292929;
+}
+.togglebox {
+    background-color: #292929
+}
+/*-----------------------------------------------------------------------------------*/
+/*	TESTIMONIALS
+/*-----------------------------------------------------------------------------------*/
+ul.testimonials li .quote {
+    background-color: #292929
+}
+ul.testimonials li.odd .quote:after {
+    border-color: #252525 transparent
+}
+ul.testimonials li.even .quote:after {
+    border-color: #252525 transparent
+}

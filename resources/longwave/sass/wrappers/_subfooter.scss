@@ -1,0 +1,62 @@
+.layout__body-wrapper__content-wrapper--subfooter {
+    background: #3d3d3d
+}
+.layout__body-wrapper__content-wrapper__inner--subfooter {
+    padding: 25px 0
+}
+.layout__body-wrapper__content-wrapper__inner--subfooter,
+.layout__body-wrapper__content-wrapper__inner--subfooter a {
+    color: #d9d9d9
+}
+.layout__body-wrapper__content-wrapper__inner--subfooter a:hover {
+    color: #88d5c2
+}
+.layout__body-wrapper__content-wrapper__inner--subfooter a:hover {
+    color: #88d5c2
+}
+.layout__body-wrapper__content-wrapper__inner--subfooter p {
+    float: left;
+    padding: 5px 0 0 0;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------------------------*/
+
+/* iPad Landscape */
+$dimension_ipad_min-width: 768px !default;
+$dimension_ipad_max-width: 1200px !default;
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+$dimension_portrait_min-width: 768px !default;
+$dimension_portrait_max-width: 959px !default;
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+$dimension_mobile_min-width: 480px !default;
+$dimension_mobile_max-width: 767px !default;
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+$dimension_portrait_mobile_max-width: 479px !default;
+
+/* iPad Landscape */
+@media only screen and (min-width: $dimension_ipad_min-width) and (max-width: $dimension_ipad_max-width) {
+
+}
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: $dimension_portrait_min-width) and (max-width: $dimension_portrait_max-width) {
+
+} /* END Smaller than standard 960 (devices and browsers) */
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: $dimension_mobile_min-width) and (max-width: $dimension_mobile_max-width) {
+    .layout__body-wrapper__content-wrapper__inner--subfooter p {
+        float: none;
+        padding-bottom: 15px;
+    }
+} /* END Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: $dimension_portrait_mobile_max-width) {
+    .layout__body-wrapper__content-wrapper__inner--subfooter p {
+        float: none;
+        padding-bottom: 15px;
+    }
+} /* END Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */

@@ -1,0 +1,19 @@
+/*-----------------------------------------------------------------------------------*/
+/*	RETINA ICONS
+/*-----------------------------------------------------------------------------------*/
+ul.retina-icons {
+    width: 110%;
+    overflow: hidden;
+    margin-right: -3%;
+}
+ul.retina-icons li {
+    width: 22%;
+    display: block;
+    padding-left: 1px;
+    margin-right: 3%;
+    float: left;
+    line-height: 30px;
+}
+ul.retina-icons li span {
+    margin-left: 10px
+}

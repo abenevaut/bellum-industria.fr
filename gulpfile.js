@@ -3,6 +3,7 @@
 var path = require('path');
 var gulp = require('gulp');
 var less = require('gulp-less');
+var sass = require('gulp-sass');
 var clean = require('gulp-clean');
 var minifycss = require('gulp-minify-css');
 
@@ -22,16 +23,28 @@ gulp.task('less', function () {
         .pipe(gulp.dest(config.pages + '/css/'));
 });
 
+gulp.task('sass', function () {
+    gulp.src(config.assets + '/sass/style.sass')
+        .pipe(sass({paths: [config.assets + '/sass/']}))
+        .pipe(gulp.dest(config.pages + '/css/'));
+    gulp.src(config.pages + '/sass/pages.sass')
+        .pipe(sass({paths: [config.pages + '/sass/']}))
+        .pipe(gulp.dest(config.pages + '/css/'));
+});
+
 gulp.task('watch', function () {
     gulp.watch([
         config.pages + '/less/*.less',
-        config.assets + '/less/*.less'
+        config.assets + '/less/*.less',
+        config.pages + '/sass/*.sass',
+        config.assets + '/sass/*.sass'
     ], function (event) {
         gulp.run('less');
+        gulp.run('sass');
     });
 });
 
-gulp.task('build', ['less', 'copy'], function () {
+gulp.task('build', ['less', 'sass', 'copy'], function () {
     gulp.run('css-min');
 });
 
@@ -43,6 +56,7 @@ gulp.task('copy', ['clean'], function () {
     return gulp.src([
             config.assets + '/**',
             '!' + config.assets + '/less/**',
+            '!' + config.assets + '/sass/**',
             config.pages + '/**',
             '!' + config.pages + '/less/**',
             '!' + config.pages + '/sass/**',
@@ -52,11 +66,14 @@ gulp.task('copy', ['clean'], function () {
             '!Gruntfile.js',
             '!gulpfile.js'
         ])
-        .pipe(gulp.dest(config.build + ''));
+        .pipe(gulp.dest(config.build));
 });
 
-gulp.task('css-min', function () {
-    return gulp.src([config.build + config.assets + '/css/*.css', config.build + config.pages + '/css/*.css'])
+gulp.task('css-min', ['less', 'sass'], function () {
+    return gulp.src([
+            config.assets + '/css/*.css',
+            config.pages + '/css/*.css'
+        ])
         .pipe(minifycss());
 });
 

@@ -1,0 +1,46 @@
+a.button {
+    font-weight: 900;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    padding: 7px 20px;
+    margin: 0;
+    display: inline-block;
+    -webkit-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: auto;
+    border: none;
+}
+a.button:hover {
+}
+a.button.green:hover {
+    background-color: #88d5c2
+}
+a.button.blue:hover {
+    background-color: #88b7d5
+}
+a.button.purple:hover {
+    background-color: #aa95d6
+}
+a.button.red:hover {
+    background-color: #d58888
+}
+a.button.black:hover {
+    background-color: #555
+}
+a.button.pink:hover {
+    background-color: #e0abd7
+}
+a.button.yellow:hover {
+    background-color: #d5cd88
+}
+a.button.brown:hover {
+    background-color: #c09b7c
+}
+a.button.orange:hover {
+    background-color: #f4a85e
+}

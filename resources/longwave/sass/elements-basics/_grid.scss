@@ -1,0 +1,126 @@
+.grid {
+    width: 110%;
+    margin-right: -50px;
+    margin-bottom: -40px;
+}
+.one-half {
+    width: 48%
+}
+.one-third {
+    width: 30.66%
+}
+.two-third {
+    width: 65.33%
+}
+.one-fourth {
+    width: 22%
+}
+.three-fourth {
+    width: 74%
+}
+.one-fifth {
+    width: 16.8%
+}
+.two-fifth {
+    width: 37.6%
+}
+.three-fifth {
+    width: 58.4%
+}
+.four-fifth {
+    width: 67.2%
+}
+.one-sixth {
+    width: 13.33%
+}
+.five-sixth {
+    width: 82.67%
+}
+.one-half,
+.one-third,
+.two-third,
+.three-fourth,
+.one-fourth,
+.one-fifth,
+.two-fifth,
+.three-fifth,
+.four-fifth,
+.one-sixth,
+.five-sixth {
+    position: relative;
+    margin-right: 4%;
+    float: left;
+}
+.last {
+    margin-right: 0 !important;
+    clear: right;
+}
+
+/*
+ * Todo Class a etudier
+ */
+.column-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------------------------*/
+
+/* iPad Landscape */
+$dimension_ipad_min-width: 768px !default;
+$dimension_ipad_max-width: 1200px !default;
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+$dimension_portrait_min-width: 768px !default;
+$dimension_portrait_max-width: 959px !default;
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+$dimension_mobile_min-width: 480px !default;
+$dimension_mobile_max-width: 767px !default;
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+$dimension_portrait_mobile_max-width: 479px !default;
+
+/* iPad Landscape */
+@media only screen and (min-width: $dimension_ipad_min-width) and (max-width: $dimension_ipad_max-width) {
+
+}
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: $dimension_portrait_min-width) and (max-width: $dimension_portrait_max-width) {
+
+} /* END Smaller than standard 960 (devices and browsers) */
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: $dimension_mobile_min-width) and (max-width: $dimension_mobile_max-width) {
+    .one-half,
+    .one-third,
+    .two-third,
+    .three-fourth,
+    .one-fourth,
+    .one-fifth,
+    .one-sixth {
+        margin: 0;
+        width: 100%;
+        margin-bottom: 20px;
+        float: none;
+    }
+} /* END Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: $dimension_portrait_mobile_max-width) {
+    .one-half,
+    .one-third,
+    .two-third,
+    .three-fourth,
+    .one-fourth,
+    .one-fifth,
+    .one-sixth {
+        margin: 0;
+        width: 100%;
+        margin-bottom: 20px;
+        float: none;
+    }
+    .grid {
+        margin-bottom: -5px;
+    }
+} /* END Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */

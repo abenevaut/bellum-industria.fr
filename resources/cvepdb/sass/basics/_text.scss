@@ -1,0 +1,9 @@
+.center {
+    text-align: center
+}
+.text {
+
+}
+.text--center {
+    @extend .center;
+}

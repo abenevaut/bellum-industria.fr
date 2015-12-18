@@ -1,0 +1,14 @@
+a.button {
+    @extend a.button;
+
+    color: #616161;
+
+    background-color: #EBEBEB;
+}
+a.button:hover {
+    @extend a.button:hover;
+
+    color: #FFF;
+
+    background-color: #88d5c2;
+}

@@ -1,0 +1,169 @@
+.layout__body-wrapper__content-wrapper__inner__menu {
+    float: right
+}
+.layout__body-wrapper__content-wrapper__inner__menu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    position: relative;
+    overflow: inherit;
+    z-index: 1000;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    margin-top: 12px;
+}
+.layout__body-wrapper__content-wrapper__inner__menu ul li {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    margin-left: 40px;
+}
+.layout__body-wrapper__content-wrapper__inner__menu ul li a {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #c0c0c0;
+    -webkit-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+}
+.layout__body-wrapper__content-wrapper__inner__menu ul li.active a,
+.layout__body-wrapper__content-wrapper__inner__menu ul li a:hover,
+.layout__body-wrapper__content-wrapper__inner__menu ul li a.selected {
+    color: #88d5c2
+}
+.layout__body-wrapper__content-wrapper__inner__menu ul li.active ul li a {
+    color: #88d5c2
+}
+.layout__body-wrapper__content-wrapper__inner__menu ul li.active ul li a:hover {
+    color: #88d5c2
+}
+.layout__body-wrapper__content-wrapper__inner__menu ul li ul {
+    position: absolute;
+    left: 0;
+    display: none;
+    visibility: hidden;
+    width: 168px;
+    margin-top: 10px;
+    padding: 0;
+}
+.layout__body-wrapper__content-wrapper__inner__menu ul li ul li {
+    display: list-item;
+    margin: 0;
+    border-top: 1px solid #3b3b3b;
+    background: #454545;
+}
+.layout__body-wrapper__content-wrapper__inner__menu ul li ul li:first-child {
+    border-top: none;
+}
+.layout__body-wrapper__content-wrapper__inner__menu ul li ul li ul {
+    top: 0
+}
+.layout__body-wrapper__content-wrapper__inner__menu ul li ul li a {
+    margin: 0;
+    border: none;
+    padding: 13px;
+    line-height: 1;
+    font-size: 11px;
+    color: #dfdfdf;
+}
+.layout__body-wrapper__content-wrapper__inner__menu ul li ul li a:hover {
+    background-color: #88d5c2;
+    color: #FFF;
+}
+    .layout__body-wrapper__content-wrapper__inner__menu--multigaming {
+        padding-top:80px;
+    }
+* html .layout__body-wrapper__content-wrapper__inner__menu {
+    height: 1%
+}
+.selectnav {
+    display: none;
+    width: 280px;
+    margin: 0 auto;
+    background: transparent url($path_images + 'dropdown-arrow.png') no-repeat right center;
+    border-radius: 0;
+    border: 0;
+    background-color: #ebebeb;
+    max-width: 100%;
+    padding: 7px 10px;
+    line-height: 20px;
+    background-size: 30px 28px;
+    -webkit-appearance: none;
+}
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5) {
+    .selectnav {
+        background-image: url($path_images + 'dropdown-arrow@2x.png')
+    }
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------------------------*/
+
+/* iPad Landscape */
+$dimension_ipad_min-width: 768px !default;
+$dimension_ipad_max-width: 1200px !default;
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+$dimension_portrait_min-width: 768px !default;
+$dimension_portrait_max-width: 959px !default;
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+$dimension_mobile_min-width: 480px !default;
+$dimension_mobile_max-width: 767px !default;
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+$dimension_portrait_mobile_max-width: 479px !default;
+
+/* iPad Landscape */
+@media only screen and (min-width: $dimension_ipad_min-width) and (max-width: $dimension_ipad_max-width) {
+    .layout__body-wrapper__content-wrapper__inner__menu--multigaming {
+        padding-top:80px;
+    }
+}
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: $dimension_portrait_min-width) and (max-width: $dimension_portrait_max-width) {
+    .layout__body-wrapper__content-wrapper__inner__menu {
+        float: none;
+        text-align: center;
+    }
+    .layout__body-wrapper__content-wrapper__inner__menu ul li {
+        margin: 0 20px;
+    }
+    .layout__body-wrapper__content-wrapper__inner__menu ul ul {
+        text-align: left;
+    }
+    .layout__body-wrapper__content-wrapper__inner__menu--multigaming {
+        padding-top:0px;
+    }
+} /* END Smaller than standard 960 (devices and browsers) */
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: $dimension_mobile_min-width) and (max-width: $dimension_mobile_max-width) {
+    .layout__body-wrapper__content-wrapper__inner__menu ul.layout__body-wrapper__content-wrapper__inner__menu__list {
+        display: none
+    }
+    .selectnav {
+        width: 440px;
+        display: block;
+    }
+    .layout__body-wrapper__content-wrapper__inner__menu--multigaming {
+        padding-top:0px;
+    }
+} /* END Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: $dimension_portrait_mobile_max-width) {
+    .layout__body-wrapper__content-wrapper__inner__menu ul.layout__body-wrapper__content-wrapper__inner__menu__list {
+        display: none
+    }
+    .selectnav {
+        display: block;
+    }
+    .layout__body-wrapper__content-wrapper__inner__menu--multigaming {
+        padding-top:0px;
+    }
+} /* END Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */

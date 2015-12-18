@@ -1,0 +1,19 @@
+/**
+ * Debug class
+ * .debug, .debug-1, .debug-n ... N depend of numbers of $basics_debug_colors specified
+ */
+
+$basics_debug_colors: green, yellow, red !default;
+
+@for $i from 1 through length($basics_debug_colors) {
+    @if ($i == 1){
+        .debug {
+            border: 1px solid nth($basics_debug_colors, $i);
+        }
+    }
+    @else {
+        .debug-#{$i - 1} {
+            border: 1px solid nth($basics_debug_colors, $i);
+        }
+    }
+}
