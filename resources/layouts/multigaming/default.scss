@@ -4,80 +4,80 @@
  * @author Antoine Benevaut <antoine@cavaencoreparlerdebits.fr>
  */
 
-@import '../../longwave/reset';
-@import '../../longwave/bootstrap';
+@import '../../longwave/sass/reset';
+@import '../../longwave/sass/bootstrap';
 
 /*
  * HTML basics configuration and base layouts
  */
-@import '../../longwave/body/required_before';
-@import '../../longwave/body/box';
-@import '../../longwave/body/light';
-@import '../../longwave/body/theme/light_red';
+@import '../../longwave/sass/body/required_before';
+@import '../../longwave/sass/body/box';
+@import '../../longwave/sass/body/light';
+@import '../../longwave/sass/body/theme/light_red';
 
 /*
  * Elements
  */
-@import '../../longwave/elements-basics/required_before';
-@import '../../longwave/elements-basics/buttons';
-@import '../../longwave/elements-basics/theme/buttons/buttons_light';
-@import '../../longwave/elements-basics/colored';
-@import '../../longwave/elements-basics/theme/colored/colored_light_red';
-@import '../../longwave/elements-basics/dribble';
-@import '../../longwave/elements-basics/dropcap';
-@import '../../longwave/elements-basics/forms';
-@import '../../longwave/elements-basics/grid';
-@import '../../longwave/elements-basics/info-box';
-@import '../../longwave/elements-basics/line';
-@import '../../longwave/elements-basics/theme/line/line_light';
-@import '../../longwave/elements-basics/lite';
-@import '../../longwave/elements-basics/retina-icons';
-@import '../../longwave/elements-basics/social-icons';
-@import '../../longwave/elements-basics/special';
-@import '../../longwave/elements-basics/testimonials';
-@import '../../longwave/elements-basics/twitter';
+@import '../../longwave/sass/elements-basics/required_before';
+@import '../../longwave/sass/elements-basics/buttons';
+@import '../../longwave/sass/elements-basics/theme/buttons/buttons_light';
+@import '../../longwave/sass/elements-basics/colored';
+@import '../../longwave/sass/elements-basics/theme/colored/colored_light_red';
+@import '../../longwave/sass/elements-basics/dribble';
+@import '../../longwave/sass/elements-basics/dropcap';
+@import '../../longwave/sass/elements-basics/forms';
+@import '../../longwave/sass/elements-basics/grid';
+@import '../../longwave/sass/elements-basics/info-box';
+@import '../../longwave/sass/elements-basics/line';
+@import '../../longwave/sass/elements-basics/theme/line/line_light';
+@import '../../longwave/sass/elements-basics/lite';
+@import '../../longwave/sass/elements-basics/retina-icons';
+@import '../../longwave/sass/elements-basics/social-icons';
+@import '../../longwave/sass/elements-basics/special';
+@import '../../longwave/sass/elements-basics/testimonials';
+@import '../../longwave/sass/elements-basics/twitter';
 
 /*
  * Elements JS
  */
-@import '../../longwave/elements-js/hoverdir';
-@import '../../longwave/elements-js/tabs';
-@import '../../longwave/elements-js/toggle';
+@import '../../longwave/sass/elements-js/hoverdir';
+@import '../../longwave/sass/elements-js/tabs';
+@import '../../longwave/sass/elements-js/toggle';
 
 /*
  * Content wrappers (inside layouts)
  */
-@import '../../longwave/wrappers/required_before';
-@import '../../longwave/wrappers/even';
-@import '../../longwave/wrappers/theme/even_evil'
+@import '../../longwave/sass/wrappers/required_before';
+@import '../../longwave/sass/wrappers/even';
+@import '../../longwave/sass/wrappers/theme/even_evil'
 ;
-@import '../../longwave/wrappers/footer';
-@import '../../longwave/wrappers/header';
-@import '../../longwave/wrappers/breadcrumbs';
-@import '../../longwave/wrappers/intro';
-@import '../../longwave/wrappers/odd';
-@import '../../longwave/wrappers/page-title';
-@import '../../longwave/wrappers/subfooter';
-@import '../../longwave/wrappers/theme/subfooter_red';
+@import '../../longwave/sass/wrappers/footer';
+@import '../../longwave/sass/wrappers/header';
+@import '../../longwave/sass/wrappers/breadcrumbs';
+@import '../../longwave/sass/wrappers/intro';
+@import '../../longwave/sass/wrappers/odd';
+@import '../../longwave/sass/wrappers/page-title';
+@import '../../longwave/sass/wrappers/subfooter';
+@import '../../longwave/sass/wrappers/theme/subfooter_red';
 
 /*
  * Content wrapper widgets
  */
-@import '../../longwave/wrappers/widgets/widget-clients-list';
-@import '../../longwave/wrappers/widgets/theme/clients-list/widget-clients-list-light';
-@import '../../longwave/wrappers/widgets/widget-content';
-@import '../../longwave/wrappers/widgets/widget-footer';
-@import '../../longwave/wrappers/widgets/widget-logo';
-@import '../../longwave/wrappers/widgets/widget-menu-right';
-@import '../../longwave/wrappers/widgets/theme/menu-right/widget-menu-right_light_red';
-@import '../../longwave/wrappers/widgets/widget-services';
-@import '../../longwave/wrappers/widgets/widget-posts';
-@import '../../longwave/wrappers/widgets/theme/posts/widget-posts_light_red';
-@import '../../longwave/wrappers/widgets/widget-portfolio';
-@import '../../longwave/wrappers/widgets/widget-share';
-@import '../../longwave/wrappers/widgets/widget-slider-revolution';
-@import '../../longwave/wrappers/widgets/widget-details';
-@import '../../longwave/wrappers/widgets/theme/details/widget-details_light';
+@import '../../longwave/sass/wrappers/widgets/widget-clients-list';
+@import '../../longwave/sass/wrappers/widgets/theme/clients-list/widget-clients-list-light';
+@import '../../longwave/sass/wrappers/widgets/widget-content';
+@import '../../longwave/sass/wrappers/widgets/widget-footer';
+@import '../../longwave/sass/wrappers/widgets/widget-logo';
+@import '../../longwave/sass/wrappers/widgets/widget-menu-right';
+@import '../../longwave/sass/wrappers/widgets/theme/menu-right/widget-menu-right_light_red';
+@import '../../longwave/sass/wrappers/widgets/widget-services';
+@import '../../longwave/sass/wrappers/widgets/widget-posts';
+@import '../../longwave/sass/wrappers/widgets/theme/posts/widget-posts_light_red';
+@import '../../longwave/sass/wrappers/widgets/widget-portfolio';
+@import '../../longwave/sass/wrappers/widgets/widget-share';
+@import '../../longwave/sass/wrappers/widgets/widget-slider-revolution';
+@import '../../longwave/sass/wrappers/widgets/widget-details';
+@import '../../longwave/sass/wrappers/widgets/theme/details/widget-details_light';
 
 /*
  * cvepdbJS
@@ -85,7 +85,7 @@
 
 $basics_debug_colors: red, yellow, green;
 
-@import '../../cvepdbjs/basics/align';
-@import '../../cvepdbjs/basics/debug';
-@import '../../cvepdbjs/basics/text';
-@import '../../cvepdbjs/basicsjs/required-before';
+@import '../../cvepdb/sass/basics/align';
+@import '../../cvepdb/sass/basics/debug';
+@import '../../cvepdb/sass/basics/text';
+@import '../../cvepdb/sass/basicsjs/required-before';
