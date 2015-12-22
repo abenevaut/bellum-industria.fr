@@ -44,7 +44,13 @@ Route::get('/', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
 Route::group(['prefix' => 'vitrine'], function () {
 
     Route::get('index', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
+    Route::get('about', '\App\CVEPDB\Vitrine\Controllers\IndexController@about');
+    Route::get('services', '\App\CVEPDB\Vitrine\Controllers\IndexController@services');
 
+    Route::group(['prefix' => 'portfolio'], function () {
+        Route::get('index', '\App\CVEPDB\Vitrine\Controllers\PortfolioController@index');
+        Route::get('view', '\App\CVEPDB\Vitrine\Controllers\PortfolioController@view');
+    });
 });
 
 

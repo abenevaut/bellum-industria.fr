@@ -14,4 +14,14 @@ class IndexController extends BaseController
     {
         return view('cvepdb.vitrine.index');
     }
+
+    public function services()
+    {
+        return view('cvepdb.vitrine.services');
+    }
+
+    public function about()
+    {
+        return view('cvepdb.vitrine.about');
+    }
 }
