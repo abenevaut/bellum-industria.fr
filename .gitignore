@@ -8,3 +8,6 @@ tests/_output/*
 
 .idea
 .idea/*
+
+public/dist
+public/dist/*
