@@ -11,10 +11,6 @@
 |
 */
 
-
-
-
-
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -32,13 +28,7 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
-
-
-
-
-
-
-
+// Group Vitrine
 Route::group(['prefix' => '/'], function () {
 
     Route::get('/', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
@@ -48,18 +38,21 @@ Route::group(['prefix' => '/'], function () {
     Route::get('contact', '\App\CVEPDB\Vitrine\Controllers\IndexController@contact');
 
     Route::group(['prefix' => 'portfolio'], function () {
+
         Route::get('index', '\App\CVEPDB\Vitrine\Controllers\PortfolioController@index');
         Route::get('view', '\App\CVEPDB\Vitrine\Controllers\PortfolioController@view');
+
     });
 });
 
-
+// Group Clients
 Route::group(['prefix' => 'clients'], function () {
 
     Route::get('users', '\App\CVEPDB\Clients\Controllers\UsersController@index');
 
 });
 
+// Group API
 Route::group(['prefix' => 'api'], function () {
     Route::group(['prefix' => 'v1'], function () {
 

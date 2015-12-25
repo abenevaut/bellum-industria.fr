@@ -16,6 +16,20 @@
                 <li>
                     <a href="{{ url('/contact') }}">Contact</a>
                 </li>
+                <li>
+                    @if (Auth::check())
+                        <a href="#">{{ Auth::user()->name }}</a>
+                        <ul>
+                            <li><a href="{{ url('auth/logout') }}">Logout</a></li>
+                        </ul>
+                    @else
+                        <a href="{{ url('auth/login') }}">Login</a>
+                        <ul>
+                            <li><a href="{{ url('auth/login') }}">Login</a></li>
+                            <li><a href="{{ url('auth/register') }}">Registration</a></li>
+                        </ul>
+                    @endif
+                </li>
             </ul>
         </div>
         <!-- End Menu -->
