@@ -18,7 +18,7 @@
                 </li>
                 <li>
                     @if (Auth::check())
-                        <a href="#">{{ Auth::user()->name }}</a>
+                        <a href="#">{{ Auth::user()->first_name }}&nbsp;{{ Auth::user()->last_name }}</a>
                         <ul>
                             <li><a href="{{ url('auth/logout') }}">Logout</a></li>
                         </ul>

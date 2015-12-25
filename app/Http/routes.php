@@ -33,6 +33,7 @@ Route::group(['prefix' => '/'], function () {
 
     Route::get('/', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
     Route::get('index', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
+    Route::get('home', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
     Route::get('about', '\App\CVEPDB\Vitrine\Controllers\IndexController@about');
     Route::get('services', '\App\CVEPDB\Vitrine\Controllers\IndexController@services');
     Route::get('contact', '\App\CVEPDB\Vitrine\Controllers\IndexController@contact');
