@@ -8,7 +8,7 @@
 
 
 
-        <p>© 2012 Longwave. All rights reserved. Theme by <a href="http://elemisfreebies.com">elemis</a>.</p>
+        <p>© 2012-{{ date('Y') }} <a href="{{ url('/') }}">Ca va ENCORE parler de bits!</a> Tous droits réservés.</p>
 
 
         <ul class="social">

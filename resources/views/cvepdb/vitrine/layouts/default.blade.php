@@ -11,10 +11,10 @@
             @include('cvepdb.vitrine.partials.subfooter')
         </div>
         <!-- End Body Wrapper -->
-        <script type="text/javascript" src="../js/cvepdbjs/libs/jquery/dist/jquery.min.js"></script>
-        <script type="text/javascript" src="../js/cvepdbjs/libs/jquery-ui/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="../js/cvepdbjs/libs/headjs/dist/1.0.0/head.min.js"></script>
-        <script type="text/javascript" src="../js/cvepdbjs/cvepdb.js"></script>
-        <script type="text/javascript" src="../js/longwave/longwave.js"></script>
+        <script type="text/javascript" src="/dist/cvepdbjs/libs/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="/dist/cvepdbjs/libs/jquery-ui/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/dist/cvepdbjs/libs/headjs/dist/1.0.0/head.min.js"></script>
+        <script type="text/javascript" src="/dist/cvepdbjs/cvepdb.js"></script>
+        <script type="text/javascript" src="/dist/js/longwave/longwave.js"></script>
     </body>
 </html>

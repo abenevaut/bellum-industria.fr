@@ -39,13 +39,13 @@ Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 
 
-Route::get('/', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
+Route::group(['prefix' => '/'], function () {
 
-Route::group(['prefix' => 'vitrine'], function () {
-
+    Route::get('/', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
     Route::get('index', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
     Route::get('about', '\App\CVEPDB\Vitrine\Controllers\IndexController@about');
     Route::get('services', '\App\CVEPDB\Vitrine\Controllers\IndexController@services');
+    Route::get('contact', '\App\CVEPDB\Vitrine\Controllers\IndexController@contact');
 
     Route::group(['prefix' => 'portfolio'], function () {
         Route::get('index', '\App\CVEPDB\Vitrine\Controllers\PortfolioController@index');

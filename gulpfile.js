@@ -14,6 +14,7 @@ var config = {
     longwave: './resources/longwave',
     layouts: './resources/layouts',
     cvepdb: './resources/cvepdb',
+    clip: './resources/clip/clip-2',
     build: './public/dist'
 };
 
@@ -81,7 +82,14 @@ gulp.task('copy', ['clean'], function () {
             '!' + config.layouts + '/multigaming/**',
             '!' + config.layouts + '/vitrine/**',
 
-            config.layouts + '/**',
+            config.cvepdb + '/**',
+            '!' + config.cvepdb + '/sass/**',
+
+            config.clip + '/**',
+        
+            config.longwave + '/**',
+            '!' + config.longwave + '/images/art/**',
+            '!' + config.longwave + '/sass/**',
 
             '!**/node_modules/**',
             '!.gitgnore',

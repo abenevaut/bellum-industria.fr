@@ -148,6 +148,8 @@ return [
         'Zizaco\Entrust\EntrustServiceProvider',
 
         Chrisbjr\ApiGuard\Providers\ApiGuardServiceProvider::class,
+
+        'Illuminate\Html\HtmlServiceProvider',
     ],
 
     /*
@@ -199,6 +201,9 @@ return [
 
 
         'Entrust' => 'Zizaco\Entrust\EntrustFacade',
+
+        'Form'=> 'Illuminate\Html\FormFacade',
+        'HTML'=> 'Illuminate\Html\HtmlFacade'
 
     ],
 

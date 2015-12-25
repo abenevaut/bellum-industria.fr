@@ -1,0 +1,38 @@
+body,
+input,
+textarea,
+select,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h5 span,
+a.button,
+.forms fieldset .btn-submit,
+.comment-form .btn-submit,
+.menu ul,
+.intro h1.title,
+.page-title h1.title,
+.items li a div h5 span,
+.filter li,
+.post-list h6,
+.page-navi ul li a,
+.tab a {
+	letter-spacing: normal;
+}
+.items li a div,
+.frame a div {
+    background: #222;
+}
+.forms fieldset .text-input,
+.forms fieldset .text-area,
+.searchform input,
+.comment-form input,
+.comment-form textarea {
+    padding-top: 8px;
+}
+.content .post img {
+    max-width: 250px;
+}
