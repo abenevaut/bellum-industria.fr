@@ -7,6 +7,14 @@
         <!-- Begin Body Wrapper -->
         <div class="layout__body-wrapper layout__body-wrapper--full">
             @include('cvepdb.vitrine.partials.header')
+            @include('cvepdb.vitrine.partials.breadcrumbs')
+
+            @if (Session::has('message'))
+                <div class="{{ Session::get('alert-class', 'info-box') }}">
+                    {{ Session::get('message') }}
+                </div>
+            @endif
+
             @yield('content')
             @include('cvepdb.vitrine.partials.subfooter')
         </div>

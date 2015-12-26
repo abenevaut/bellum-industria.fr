@@ -12,6 +12,13 @@ class IndexController extends BaseController
 
     public function index()
     {
+
+        \Session::flash('message', 'This is a message!');
+//        \Session::flash('alert-class', 'info-box');
+//        \Session::flash('alert-class', 'download-box');
+//        \Session::flash('alert-class', 'warning-box');
+        \Session::flash('alert-class', 'note-box');
+
         return view('cvepdb.vitrine.index');
     }
 
