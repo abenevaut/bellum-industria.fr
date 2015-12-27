@@ -150,6 +150,8 @@ return [
         Chrisbjr\ApiGuard\Providers\ApiGuardServiceProvider::class,
 
         'Illuminate\Html\HtmlServiceProvider',
+
+        Invisnik\LaravelSteamAuth\SteamServiceProvider::class,
     ],
 
     /*

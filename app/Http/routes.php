@@ -37,6 +37,8 @@ Route::group(['prefix' => '/'], function () {
     Route::get('about', '\App\CVEPDB\Vitrine\Controllers\IndexController@about');
     Route::get('services', '\App\CVEPDB\Vitrine\Controllers\IndexController@services');
     Route::get('contact', '\App\CVEPDB\Vitrine\Controllers\IndexController@contact');
+    Route::get('contact', ['as' => 'contact', 'uses' => '\App\CVEPDB\Vitrine\Controllers\AboutController@create']);
+    Route::post('contact', ['as' => 'contact_store', 'uses' => '\App\CVEPDB\Vitrine\Controllers\AboutController@store']);
 
     Route::group(['prefix' => 'portfolio'], function () {
 
@@ -50,6 +52,13 @@ Route::group(['prefix' => '/'], function () {
 Route::group(['prefix' => 'clients'], function () {
 
     Route::get('users', '\App\CVEPDB\Clients\Controllers\UsersController@index');
+
+});
+
+// Group Multigaming
+Route::group(['prefix' => 'multigaming'], function () {
+
+    Route::get('login', '\App\CVEPDB\Multigaming\Controllers\AuthController@login');
 
 });
 

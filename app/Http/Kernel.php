@@ -18,6 +18,8 @@ class Kernel extends HttpKernel
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         \App\Http\Middleware\VerifyCsrfToken::class,
+
+        \App\Http\Middleware\SetLocaleMiddleware::class,
     ];
 
     /**
@@ -32,5 +34,7 @@ class Kernel extends HttpKernel
         'role' => 'Zizaco\Entrust\Middleware\EntrustRole',
         'permission' => 'Zizaco\Entrust\Middleware\EntrustPermission',
         'ability' => 'Zizaco\Entrust\Middleware\EntrustAbility',
+
+        'setlocale' => \App\Http\Middleware\SetLocaleMiddleware::class,
     ];
 }

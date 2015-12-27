@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "55d6c3509a3af39b47b4c847cf7be77c",
-    "content-hash": "f598b606804d8b9d61013248af882caa",
+    "hash": "d5369ab003002e1d830543d2b49186d2",
+    "content-hash": "078dea1aee7d3f99b903d3d0c8712f05",
     "packages": [
         {
             "name": "chrisbjr/api-guard",
@@ -105,6 +105,99 @@
                 "preload"
             ],
             "time": "2015-11-09 22:51:51"
+        },
+        {
+            "name": "creitive/breadcrumbs",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/creitive/breadcrumbs.git",
+                "reference": "c85a23b54c3fb85a607dfcf6970046170413708e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/creitive/breadcrumbs/zipball/c85a23b54c3fb85a607dfcf6970046170413708e",
+                "reference": "c85a23b54c3fb85a607dfcf6970046170413708e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.4",
+                "symfony/css-selector": "~2.0",
+                "symfony/dom-crawler": "~2.0",
+                "way/laravel-test-helpers": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Creitive\\Breadcrumbs\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT License"
+            ],
+            "authors": [
+                {
+                    "name": "Luka Macun",
+                    "email": "luka.macun@creitive.rs"
+                },
+                {
+                    "name": "Miloš Levačić",
+                    "email": "milos.levacic@creitive.rs"
+                }
+            ],
+            "description": "Simple breadcrumbs class",
+            "homepage": "https://github.com/creitive/breadcrumbs",
+            "keywords": [
+                "breadcrumbs"
+            ],
+            "time": "2015-03-07 18:16:10"
+        },
+        {
+            "name": "creitive/laravel5-breadcrumbs",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/creitive/laravel5-breadcrumbs.git",
+                "reference": "d33c30aa141ee287e7b64a8e2b0580afef035dad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/creitive/laravel5-breadcrumbs/zipball/d33c30aa141ee287e7b64a8e2b0580afef035dad",
+                "reference": "d33c30aa141ee287e7b64a8e2b0580afef035dad",
+                "shasum": ""
+            },
+            "require": {
+                "creitive/breadcrumbs": "~2.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Creitive\\Breadcrumbs\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT License"
+            ],
+            "authors": [
+                {
+                    "name": "Miloš Levačić",
+                    "email": "milos.levacic@creitive.rs"
+                }
+            ],
+            "description": "Breadcrumbs integration for Laravel 5",
+            "homepage": "https://github.com/creitive/laravel5-breadcrumbs",
+            "keywords": [
+                "breadcrumbs",
+                "laravel"
+            ],
+            "time": "2015-03-07 18:48:36"
         },
         {
             "name": "danielstjules/stringy",
@@ -367,6 +460,48 @@
                 }
             ],
             "time": "2015-01-01 16:31:18"
+        },
+        {
+            "name": "invisnik/laravel-steam-auth",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/invisnik/laravel-steam-auth.git",
+                "reference": "d75eda53996495db831eda1b7ea78326128544ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/invisnik/laravel-steam-auth/zipball/d75eda53996495db831eda1b7ea78326128544ab",
+                "reference": "d75eda53996495db831eda1b7ea78326128544ab",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Invisnik\\LaravelSteamAuth\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Brytkov",
+                    "email": "invis.nik@gmail.com"
+                }
+            ],
+            "description": "Laravel Steam Auth",
+            "keywords": [
+                "auth",
+                "laravel",
+                "steam"
+            ],
+            "time": "2015-08-19 12:25:26"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1097,6 +1232,56 @@
                 "random"
             ],
             "time": "2015-12-10 14:48:13"
+        },
+        {
+            "name": "predis/predis",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nrk/predis.git",
+                "reference": "84060b9034d756b4d79641667d7f9efe1aeb8e04"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/84060b9034d756b4d79641667d7f9efe1aeb8e04",
+                "reference": "84060b9034d756b4d79641667d7f9efe1aeb8e04",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "ext-curl": "Allows access to Webdis when paired with phpiredis",
+                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Predis\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
+                }
+            ],
+            "description": "Flexible and feature-complete PHP client library for Redis",
+            "homepage": "http://github.com/nrk/predis",
+            "keywords": [
+                "nosql",
+                "predis",
+                "redis"
+            ],
+            "time": "2015-07-30 18:34:15"
         },
         {
             "name": "psr/log",

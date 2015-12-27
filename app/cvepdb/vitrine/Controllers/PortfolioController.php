@@ -2,7 +2,7 @@
 
 namespace App\CVEPDB\Vitrine\Controllers;
 
-use Illuminate\Routing\Controller as BaseController;
+use App\CVEPDB\Vitrine\Controllers\AbsBaseController as BaseController;
 
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 
@@ -12,11 +12,11 @@ class PortfolioController extends BaseController
 
     public function index()
     {
-        return view('cvepdb.vitrine.portfolio.index');
+        return view('cvepdb.vitrine.portfolio.index', ['breadcrumbs' => $this->breadcrumbs]);
     }
 
     public function view($id = 0)
     {
-        return view('cvepdb.vitrine.portfolio.view');
+        return view('cvepdb.vitrine.portfolio.view', ['breadcrumbs' => $this->breadcrumbs]);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\CVEPDB\Vitrine\Controllers;
 
-use Illuminate\Routing\Controller as BaseController;
+use App\CVEPDB\Vitrine\Controllers\AbsBaseController as BaseController;
 
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 
@@ -12,28 +12,24 @@ class IndexController extends BaseController
 
     public function index()
     {
-
         \Session::flash('message', 'This is a message!');
 //        \Session::flash('alert-class', 'info-box');
 //        \Session::flash('alert-class', 'download-box');
 //        \Session::flash('alert-class', 'warning-box');
         \Session::flash('alert-class', 'note-box');
 
-        return view('cvepdb.vitrine.index');
+        return view('cvepdb.vitrine.index', ['breadcrumbs' => $this->breadcrumbs]);
     }
 
     public function services()
     {
-        return view('cvepdb.vitrine.services');
+        $this->breadcrumbs->addCrumb('Services', '/services');
+        return view('cvepdb.vitrine.services', ['breadcrumbs' => $this->breadcrumbs]);
     }
 
     public function about()
     {
-        return view('cvepdb.vitrine.about');
-    }
-
-    public function contact()
-    {
-        return view('cvepdb.vitrine.contact');
+        $this->breadcrumbs->addCrumb('About', '/about');
+        return view('cvepdb.vitrine.about', ['breadcrumbs' => $this->breadcrumbs]);
     }
 }
