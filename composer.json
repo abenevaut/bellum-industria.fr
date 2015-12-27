@@ -13,7 +13,8 @@
         "mpdf/mpdf": "^6.0",
         "predis/predis": "^1.0",
         "creitive/laravel5-breadcrumbs": "^1.0",
-        "invisnik/laravel-steam-auth": "^2.0"
+        "invisnik/laravel-steam-auth": "^2.0",
+        "xpaw/php-source-query-class": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
