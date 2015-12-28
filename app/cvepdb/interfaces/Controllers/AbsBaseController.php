@@ -1,6 +1,6 @@
 <?php
 
-namespace App\CVEPDB\Vitrine\Controllers;
+namespace App\CVEPDB\Interfaces\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 

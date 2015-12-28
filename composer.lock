@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "278c9bcdb4fa3fcc90371fdada009939",
-    "content-hash": "ce79a34398b13a0a6c67ffba2891933d",
+    "hash": "5a49b8eac803cf495402f5b45627fb23",
+    "content-hash": "04c23353f180cc643758ddaa7b20ee77",
     "packages": [
         {
             "name": "chrisbjr/api-guard",

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use Validator;
 //use App\Http\Controllers\Controller;
-use App\CVEPDB\Vitrine\Controllers\AbsController as Controller;
+use App\CVEPDB\Interfaces\Controllers\AbsController as Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

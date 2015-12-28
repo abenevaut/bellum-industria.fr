@@ -46,6 +46,7 @@ Route::group(['prefix' => '/'], function () {
     Route::get('home', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
     Route::get('about', '\App\CVEPDB\Vitrine\Controllers\IndexController@about');
     Route::get('services', '\App\CVEPDB\Vitrine\Controllers\IndexController@services');
+    Route::get('boutique', '\App\CVEPDB\Vitrine\Controllers\IndexController@boutique');
     Route::get('contact', '\App\CVEPDB\Vitrine\Controllers\IndexController@contact');
     Route::get('contact', ['as' => 'contact', 'uses' => '\App\CVEPDB\Vitrine\Controllers\AboutController@create']);
     Route::post('contact', ['as' => 'contact_store', 'uses' => '\App\CVEPDB\Vitrine\Controllers\AboutController@store']);
@@ -68,7 +69,14 @@ Route::group(['prefix' => 'clients'], function () {
 // Group Multigaming
 Route::group(['prefix' => 'multigaming'], function () {
 
-    Route::get('login', '\App\CVEPDB\Multigaming\Controllers\AuthController@login');
+    Route::group(['prefix' => 'auth'], function () {
+        Route::get('login', '\App\CVEPDB\Multigaming\Controllers\AuthController@login');
+        Route::get('logout', '\App\CVEPDB\Multigaming\Controllers\AuthController@logout');
+    });
+
+    Route::get('/', '\App\CVEPDB\Multigaming\Controllers\IndexController@index');
+    Route::get('index', '\App\CVEPDB\Multigaming\Controllers\IndexController@index');
+    Route::get('boutique', '\App\CVEPDB\Multigaming\Controllers\IndexController@boutique');
 
 });
 

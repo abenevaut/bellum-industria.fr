@@ -2,7 +2,7 @@
 
 namespace App\CVEPDB\Vitrine\Controllers;
 
-use App\CVEPDB\Vitrine\Controllers\AbsBaseController as BaseController;
+use App\CVEPDB\Interfaces\Controllers\AbsBaseController as BaseController;
 
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 

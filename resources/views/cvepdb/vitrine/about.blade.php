@@ -1,6 +1,15 @@
 @extends('cvepdb.vitrine.layouts.default')
 
 @section('content')
+<!-- Begin Gray Wrapper -->
+<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even layout__body-wrapper__content-wrapper--intro">
+    <!-- Begin Inner -->
+    <div class="layout__body-wrapper__content-wrapper__inner layout__body-wrapper__content-wrapper__inner--intro">
+        <p>{!! trans('cvepdb/vitrine/about.title') !!}</p>
+    </div>
+    <!-- End Inner -->
+</div>
+<!-- End Gray Wrapper -->
 <!-- Begin White Wrapper -->
 <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
     <!-- Begin Inner -->
@@ -31,8 +40,8 @@
 
 
         <div class="two-third last">
-            <h2 class="colored"> {!! trans('cvepdb/vitrine/about.title') !!}</h2>
-            {!! trans('cvepdb/vitrine/about.description') !!}
+            <h2 class="colored"> {!! trans('cvepdb/vitrine/about.title_general') !!}</h2>
+            {!! trans('cvepdb/vitrine/about.description_general') !!}
             <div class="clear"></div>
 
             <!-- Begin Toggle -->

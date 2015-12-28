@@ -11,6 +11,6 @@ return [
     |
     */
 
-    'title' => 'Partager ce site :',
+    'title' => 'Partager cette page :',
 
 ];

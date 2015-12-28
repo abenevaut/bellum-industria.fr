@@ -11,6 +11,6 @@ return [
     |
     */
 
-    'title' => 'Share this website :',
+    'title' => 'Share this page :',
 
 ];

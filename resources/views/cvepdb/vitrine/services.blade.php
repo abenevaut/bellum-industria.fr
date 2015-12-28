@@ -208,7 +208,9 @@
         </div>
         <div class="clear"></div>
 
-        @include('cvepdb.vitrine.partials.share')
+        <hr/>
+
+        @include('cvepdb.vitrine.partials.share_inline')
         <div class="clear"></div>
 
 

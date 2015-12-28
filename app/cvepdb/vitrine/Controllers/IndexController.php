@@ -2,7 +2,7 @@
 
 namespace App\CVEPDB\Vitrine\Controllers;
 
-use App\CVEPDB\Vitrine\Controllers\AbsBaseController as BaseController;
+use App\CVEPDB\Interfaces\Controllers\AbsBaseController as BaseController;
 
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 
@@ -31,5 +31,11 @@ class IndexController extends BaseController
     {
         $this->breadcrumbs->addCrumb('About', '/about');
         return view('cvepdb.vitrine.about', ['breadcrumbs' => $this->breadcrumbs]);
+    }
+
+    public function boutique()
+    {
+        $this->breadcrumbs->addCrumb('Boutique', '/boutique');
+        return view('cvepdb.vitrine.boutique', ['breadcrumbs' => $this->breadcrumbs]);
     }
 }

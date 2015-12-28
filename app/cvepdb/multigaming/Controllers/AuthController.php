@@ -2,7 +2,7 @@
 
 namespace App\CVEPDB\Multigaming\Controllers;
 
-use App\CVEPDB\Vitrine\Controllers\AbsController as Controller;
+use App\CVEPDB\Interfaces\Controllers\AbsController as Controller;
 use Invisnik\LaravelSteamAuth\SteamAuth;
 use App\User;
 
@@ -21,21 +21,26 @@ class AuthController extends Controller
     public function login()
     {
         if ($this->steam->validate()) {
+
             $info = $this->steam->getUserInfo();
+
             if (!is_null($info)) {
-                $user = User::where('steamid', $info->getSteamID64())->first();
-                if (! is_null($user)) {
-                    Auth::login($user, true);
-                    return redirect('/'); // redirect to site
-                }
-                else {
+
+                $user = User::where('steam_token', $info->getSteamID64())->first();
+
+                if (!is_null($user)) {
+                    \Auth::login($user, true);
+                    return redirect('multigaming'); // redirect to site
+                } else {
                     $user = User::create([
-                        'username' => $info->getNick(),
-                        'avatar'   => $info->getProfilePictureFull(),
-                        'steamid'  => $info->getSteamID64()
+                        'first_name' => $info->getNick(),
+                        'last_name' => '',
+                        'email' => '',
+                        'password' => '',
+                        'steam_token' => $info->getSteamID64()
                     ]);
-                    Auth::login($user, true);
-                    return redirect('/'); // redirect to site
+                    \Auth::login($user, true);
+                    return redirect('multigaming'); // redirect to site
                 }
             }
         } else {
@@ -43,4 +48,10 @@ class AuthController extends Controller
         }
     }
 
+    public function logout()
+    {
+        \Auth::logout();
+        return redirect('multigaming');
+
+    }
 }

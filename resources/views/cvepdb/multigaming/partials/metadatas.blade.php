@@ -1,9 +1,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>Longwave</title>
-<link rel="shortcut icon" type="image/x-icon" href="/dist/images/cvepdb/favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="/dist/images/multigaming/favicon.ico" />
 
-<link rel="stylesheet" type="text/css" href="/dist/css/layouts/vitrine/default.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/dist/css/layouts/multigaming/default.css" media="all" />
 <!--[if IE 8]>
 <link rel="stylesheet" type="text/css" href="../css/ie8.css" media="all" />
 <![endif]-->

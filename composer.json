@@ -16,7 +16,8 @@
         "invisnik/laravel-steam-auth": "^2.0",
         "xpaw/php-source-query-class": "^1.0",
         "da-mitchell/steam-api": "^2.1",
-        "laravel/socialite": "^2.0"
+        "laravel/socialite": "^2.0",
+        "guzzlehttp/guzzle": "^6.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
