@@ -4,6 +4,14 @@ namespace App\CVEPDB\Multigaming\Controllers;
 
 use App\CVEPDB\Interfaces\Controllers\AbsBaseController as BaseController;
 
+
+use GuzzleHttp\Client;
+use Steam\Configuration;
+use Steam\Runner\GuzzleRunner;
+use Steam\Runner\DecodeJsonStringRunner;
+use Steam\Steam;
+use Steam\Utility\GuzzleUrlBuilder;
+
 class IndexController extends BaseController
 {
     public function __construct() {
@@ -15,6 +23,35 @@ class IndexController extends BaseController
 
     public function index()
     {
+
+
+
+
+
+        $steam = new Steam(new Configuration([Configuration::STEAM_KEY => 'C884A1B1B3EEDABFCFDB889C17FFEE10']));
+        $steam->addRunner(new GuzzleRunner(new Client(), new GuzzleUrlBuilder()));
+        $steam->addRunner(new DecodeJsonStringRunner());
+
+        /** @var array $result */
+//        $result = $steam->run(new \Steam\Command\Apps\GetAppList());
+//        $result = $steam->run(new \Steam\Command\Apps\GetServersAtAddress('62.210.71.164:27015'));
+//        $result = $steam->run(new \Steam\Command\CSGOServers\GetGameServersStatus());
+        $result = $steam->run(new \Steam\Command\User\GetPlayerSummaries([76561197987229786]));
+
+        dd($result); exit;
+
+
+
+
+
+
+
+
+
+
+
+        /***/
+
 
         $limit = 4;
         $group_name = 'Bellum-Industria';
