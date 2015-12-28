@@ -69,7 +69,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Redirect the user to the GitHub authentication page.
+     * Redirect the user to a provider authentication page.
      *
      * @return Response
      */
@@ -79,7 +79,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Obtain the user information from GitHub.
+     * Obtain the user information from a provider.
      *
      * @return Response
      */
@@ -87,7 +87,8 @@ class AuthController extends Controller
     {
         $user = Socialite::driver($provider)->user();
 
-
+        // Todo : Si logguer -> ajouter le token au compte courant
+        // Todo : Si pas logguer -> on enregistre l'utilisateur
     }
 
 }
