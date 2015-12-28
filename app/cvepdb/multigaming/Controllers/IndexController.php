@@ -12,6 +12,9 @@ use Steam\Runner\DecodeJsonStringRunner;
 use Steam\Steam;
 use Steam\Utility\GuzzleUrlBuilder;
 
+
+use xPaw\SourceQuery\SourceQuery as SourceQuery;
+
 class IndexController extends BaseController
 {
     public function __construct() {
@@ -25,20 +28,55 @@ class IndexController extends BaseController
     {
 
 
+//        // Edit this ->
+//        define( 'SQ_SERVER_ADDR', '62.210.71.164' );
+//        define( 'SQ_SERVER_PORT', 27015 );
+//        define( 'SQ_TIMEOUT',     3 );
+//        define( 'SQ_ENGINE',      SourceQuery::SOURCE );
+//        // Edit this <-
+//
+//        $Timer = MicroTime( true );
+//
+//        $Query = new SourceQuery( );
+//
+//        $Info    = Array( );
+//        $Rules   = Array( );
+//        $Players = Array( );
+//
+//        try
+//        {
+//            $Query->Connect( SQ_SERVER_ADDR, SQ_SERVER_PORT, SQ_TIMEOUT, SQ_ENGINE );
+//            //$Query->SetUseOldGetChallengeMethod( true ); // Use this when players/rules retrieval fails on games like Starbound
+//
+//            $Info    = $Query->GetInfo( );
+//            $Players = $Query->GetPlayers( );
+//            $Rules   = $Query->GetRules( );
+//        }
+//        catch( Exception $e )
+//        {
+//            $Exception = $e;
+//        }
+//        finally
+//        {
+//            $Query->Disconnect( );
+//        }
+//
+//        $Timer = Number_Format( MicroTime( true ) - $Timer, 4, '.', '' );
+//
+//        dd($Info);
 
 
-
-        $steam = new Steam(new Configuration([Configuration::STEAM_KEY => 'C884A1B1B3EEDABFCFDB889C17FFEE10']));
-        $steam->addRunner(new GuzzleRunner(new Client(), new GuzzleUrlBuilder()));
-        $steam->addRunner(new DecodeJsonStringRunner());
-
-        /** @var array $result */
-//        $result = $steam->run(new \Steam\Command\Apps\GetAppList());
-//        $result = $steam->run(new \Steam\Command\Apps\GetServersAtAddress('62.210.71.164:27015'));
-//        $result = $steam->run(new \Steam\Command\CSGOServers\GetGameServersStatus());
-        $result = $steam->run(new \Steam\Command\User\GetPlayerSummaries([76561197987229786]));
-
-        dd($result); exit;
+//        $steam = new Steam(new Configuration([Configuration::STEAM_KEY => 'C884A1B1B3EEDABFCFDB889C17FFEE10']));
+//        $steam->addRunner(new GuzzleRunner(new Client(), new GuzzleUrlBuilder()));
+//        $steam->addRunner(new DecodeJsonStringRunner());
+//
+//        /** @var array $result */
+////        $result = $steam->run(new \Steam\Command\Apps\GetAppList());
+////        $result = $steam->run(new \Steam\Command\Apps\GetServersAtAddress('62.210.71.164:27015'));
+////        $result = $steam->run(new \Steam\Command\CSGOServers\GetGameServersStatus());
+//        $result = $steam->run(new \Steam\Command\User\GetPlayerSummaries([76561197987229786]));
+//
+//        dd($result); exit;
 
 
 
