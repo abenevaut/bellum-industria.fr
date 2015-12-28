@@ -7,6 +7,10 @@ use App\User;
 use App\CVEPDB\Api\Transformers\UserTransformer;
 use Chrisbjr\ApiGuard\Http\Controllers\ApiGuardController;
 
+/**
+ * TODO : Change API package https://github.com/dingo/api
+ */
+
 class UsersController extends ApiGuardController
 {
     protected $apiMethods = [

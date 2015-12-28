@@ -152,6 +152,8 @@ return [
         'Illuminate\Html\HtmlServiceProvider',
 
         Invisnik\LaravelSteamAuth\SteamServiceProvider::class,
+
+        Laravel\Socialite\SocialiteServiceProvider::class,
     ],
 
     /*
@@ -205,7 +207,9 @@ return [
         'Entrust' => 'Zizaco\Entrust\EntrustFacade',
 
         'Form'=> 'Illuminate\Html\FormFacade',
-        'HTML'=> 'Illuminate\Html\HtmlFacade'
+        'HTML'=> 'Illuminate\Html\HtmlFacade',
+
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

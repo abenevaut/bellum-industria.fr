@@ -22,12 +22,13 @@ class AuthController extends Controller
     {
         if ($this->steam->validate()) {
             $info = $this->steam->getUserInfo();
-            if (! is_null($info)) {
+            if (!is_null($info)) {
                 $user = User::where('steamid', $info->getSteamID64())->first();
                 if (! is_null($user)) {
                     Auth::login($user, true);
                     return redirect('/'); // redirect to site
-                }else{
+                }
+                else {
                     $user = User::create([
                         'username' => $info->getNick(),
                         'avatar'   => $info->getProfilePictureFull(),
