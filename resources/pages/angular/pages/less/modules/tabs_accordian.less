@@ -5,7 +5,6 @@
 /* Tabs
 ------------------------------------
 */
-
 .nav-tabs {
   & > li {
     padding-left: 0;
@@ -22,7 +21,7 @@
     & > a {
       border-radius: 0;
       padding: 15px 20px;
-      margin-right: 0;
+      .margin-right(0);
       font-family: 'Montserrat';
       font-weight: 400;
       color: fade(@color-master,
@@ -38,7 +37,7 @@
         color: @color-master;
       }
       .tab-icon {
-        margin-right: 6px;
+        .margin-right(6px);
       }
     }
   }
@@ -77,12 +76,14 @@
   }
   &.nav-tabs-left {
     float: left;
+    padding-right:0;
     & ~ .tab-content {
       border-left: 1px solid rgba(0, 0, 0, 0.1);
     }
   }
   &.nav-tabs-right {
     float: right;
+    padding-right: 0;
     & ~ .tab-content {
       border-right: 1px solid rgba(0, 0, 0, 0.1);
     }
@@ -222,12 +223,12 @@
         &:after {
           border-top-color: @body-background;
           border-width: 10px;
-          margin-left: -10px;
+          .margin-left(-10px);
         }
         &:before {
           border-top-color: rgba(0, 0, 0, 0.2);
           border-width: 11px;
-          margin-left: -11px;
+          .margin-left(-11px);
         }
       }
     }
@@ -266,7 +267,7 @@
           border-bottom: 10px solid transparent;
           border-left: 10px solid @body-background;
           margin-top: 1px;
-          margin-right: 2px;
+          .margin-right(2px);
         }
         & > a:after,
         & > a:before {
@@ -293,7 +294,7 @@
           border-bottom: 10px solid transparent;
           border-right: 10px solid @body-background;
           margin-top: 1px;
-          margin-left: -9px;
+          .margin-left(-9px);
         }
         & > a:after,
         & > a:before {
@@ -477,6 +478,44 @@
   }
 }
 
+.nav-tabs-header{
+  overflow: scroll;
+  width: 100%;
+  .nav-tabs{
+    width:auto;
+    white-space: nowrap;
+     & > li{
+        display:inline-block;
+        float: inherit;
+      }
+  }
+  &.nav-tabs-linetriangle{
+    height:61px;
+    overflow-y: hidden;
+    &:after{
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      width: 100%;
+      position: relative;
+      bottom: 3px;
+      z-index: 120;    
+      content: "";
+      clear: both;    
+    }
+    &  ~ .tab-content{
+      position: relative;
+      top:-12px;
+    }
+  }
+}
+.nav-tabs-header ~ .tab-content{
+  overflow: hidden;
+  padding: 15px;
+}
+.nav-tab-dropdown .cs-select{
+  width: 100% !important;
+  max-width: 100%;
+}
+
 /* Panel Groups
 ------------------------------------
 */
@@ -511,7 +550,7 @@
           font-family: 'FontAwesome';
           content: "\f056";
           position: absolute;
-          right: 13px;
+          .right(13px);
           top: 36%;
           color: @color-master;
         }
@@ -553,8 +592,10 @@
       }
     }
   }
+
 }
 @media (max-width:767px) {
+
   .nav.nav-tabs.nav-stack-sm {
     li {
       float: none;

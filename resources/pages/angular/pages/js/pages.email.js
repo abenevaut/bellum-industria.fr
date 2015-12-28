@@ -1,6 +1,8 @@
 (function($) {
     'use strict';
 
+    var emailList = $('[data-email="list"]');
+    var emailOpened = $('[data-email="opened"]');
     // Wysiwyg editor custom options
 
     var editorTemplate = {
@@ -43,7 +45,7 @@
     });
 
     // Load list of emails
-    $('.email-list').length && $.ajax({
+    emailList.length && $.ajax({
         dataType: "json",
         url: "http://revox.io/json/emails.json",
         success: function(data) {
@@ -95,9 +97,9 @@
                 });
 
                 listViewGroupCont.append(ul);
-                $('#emailList').append(listViewGroupCont);
+                emailList.append(listViewGroupCont);
             });
-            $("#emailList").ioslist();
+            emailList.ioslist();
 
         }
     });
@@ -129,7 +131,6 @@
 
                     if (email != null) return;
                 });
-                var emailOpened = $('.email-opened');
 
                 emailOpened.find('.sender .name').text(email.from);
                 emailOpened.find('.sender .datetime').text(email.datetime);
@@ -139,11 +140,11 @@
                 var thumbnailClasses = thumbnailWrapper.attr('class').replace('d32', 'd48');
                 emailOpened.find('.thumbnail-wrapper').html(thumbnailWrapper.html()).attr('class', thumbnailClasses);
 
-                $('.no-email').hide();
+                $('.no-result').hide();
                 $('.actions-dropdown').toggle();
                 $('.actions, .email-content-wrapper').show();
                 if ($.Pages.isVisibleSm() || $.Pages.isVisibleXs()) {
-                    $('.email-list').toggleClass('slideLeft');
+                    $('.split-list').toggleClass('slideLeft');
                 }
 
                 !$('.email-reply').data('wysihtml5') && $('.email-reply').wysihtml5(editorOptions);
@@ -163,27 +164,27 @@
     });
 
     // Toggle email sidebar on mobile view
-    $('.toggle-email-sidebar').click(function(e) {
+    $('.toggle-secondary-sidebar').click(function(e) {
         e.stopPropagation();
-        $('.email-sidebar').toggle();
+        $('.secondary-sidebar').toggle();
     });
 
-    $('.email-list-toggle').click(function() {
-        $('.email-list').toggleClass('slideLeft');
+    $('.split-list-toggle').click(function() {
+        $('.split-list').toggleClass('slideLeft');
     });
 
-    $('.email-sidebar').click(function(e) {
+    $('.secondary-sidebar').click(function(e) {
         e.stopPropagation();
     })
 
     $(window).resize(function() {
 
         if ($(window).width() <= 1024) {
-            $('.email-sidebar').hide();
+            $('.secondary-sidebar').hide();
 
         } else {
-            $('.email-list').length && $('.email-list').removeClass('slideLeft');
-            $('.email-sidebar').show();
+            $('.split-list').length && $('.split-list').removeClass('slideLeft');
+            $('.secondary-sidebar').show();
         }
     });
 

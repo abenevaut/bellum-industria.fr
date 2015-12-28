@@ -48,7 +48,7 @@
             }
         }
         .panel-controls{
-            float: right;
+            .float(right);
             margin-top: -3px;
             ul{
                 margin: 0;
@@ -122,7 +122,7 @@
     &.panel-featured {
         .box-shadow(-1px 1px 3px 0px rgba(121, 129, 135, 0.14));
         width: calc(~'100% - 50px');
-        float: right;
+        .float(right);
         .panel-title {
             h4 {
                 font-family: 'Montserrat';
@@ -149,9 +149,9 @@
                     display: inline;
                     list-style: none;
                     font-weight: bold;
-                    margin-left: 20px;
+                    .margin-left(20px);
                     &:first-child {
-                        margin-left: 0;
+                        .margin-left(0);
                     }
                 }
                 .heart {
@@ -166,8 +166,8 @@
         .ribbon {
             width: 38px;
             height: 38px;
-            margin-left: -39px;
-            float: left;
+            .margin-left(-39px);
+            .float(left);
             .box-shadow( inset -3px 0px 3px 0px rgba(0,0,0,0.14) );
             &.green {
                 background: @color-complete;
@@ -236,7 +236,7 @@
 .portlet-progress > .portlet-bar-indeterminate{
     display: block;
     left: 50%;
-    margin-left: -17px;
+    .margin-left(-17px);
     margin-top: -17px;
     position: absolute;
     top: 50%;
@@ -247,7 +247,7 @@
 }
 .panel-maximized{
     position: fixed !important;
-    left: @layout-sidepanel-width-collapsed;
+    .left(@layout-sidepanel-width-collapsed);
     top: @layout-header-height - 1px;
     bottom: 0;
     right: 0;
@@ -261,9 +261,11 @@
     z-index: @zIndex-portlet + 2;
 }
 
-.panel-heading a{
+.panel-heading a:not(.btn){
     color: @color-master !important;
     opacity: .4;
+    padding-top: 10px;
+    padding-bottom: 10px;
     &.portlet-refresh{
         .transition(opacity .3s ease);
         &.refreshing{
@@ -272,10 +274,14 @@
         
     }
 }
-.panel-heading a[data-toggle]:hover{
+.panel-heading {
+    .dropdown ul li a, .dropdown-menu li a{
+        padding: 0 20px;
+    }
+    a[data-toggle]:hover{
     opacity: 1;
+    }
 }
-
 
 .portlet-icon{
     -moz-osx-font-smoothing: grayscale;

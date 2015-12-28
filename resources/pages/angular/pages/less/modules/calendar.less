@@ -25,21 +25,41 @@ Events / .event-container
 			display: none;
 		}
 	}
+	&.month{
+		padding-left:5px;
+		.options .date{
+			margin-bottom: 22px;
+		}
+		.week-dragger{
+			display: none;
+		}
+		.calendar-container{
+			border-top: 1px solid @color-master-light;
+			padding-top: 0;
+			height:calc(~'100% - 169px');
+			.view .tble{
+				width: 100%;
+				.thead .tcell .weekday{
+					margin-left: 10px;
+				}
+			}
+		}
+	}
 	.calendar-header{
 			height: 43px;
 			background-color: @color-master-lightest;
 			line-height: 43px;
-			padding-left: 60px;
+			.padding-left(60px);
 		& > .drager{
 			width:calc(~'100% - 141px');
-			border-right: 1px solid rgba(0, 0, 0, 0.33);
-			margin-top: 7px;
+			.border-right(1px solid rgba(0, 0, 0, 0.33));
 			line-height: 35px;
 		}
 		.years{
 			width: auto;
 			list-style: none;
 			white-space: nowrap;
+			margin-top: 5px;
 			.year{
 				display: inline-block;
 				width: 69px;
@@ -68,7 +88,7 @@ Events / .event-container
 		}
 	}
 	.options{
-		padding-left: 60px;
+		.padding-left(60px);
 		margin-top: 15px;
 		.months{
 			width: auto;
@@ -110,33 +130,33 @@ Events / .event-container
 	}
 	.week-dragger{
 		border-bottom: 1px solid #e6e6e6;
+		.margin-left(-20px);
 	}
 	.weeks-wrapper{
 		width: auto;
 		white-space: nowrap;
-		padding-left: 10px;
+		.padding-left(10px);
 		padding-bottom: 12px;
-		margin-left: -20px;
 		margin-bottom: 5px;
 		.week{
 			display: inline-block;
 			position: relative;
-			padding-left: 30px;
-			padding-right: 30px;
+			.padding-left(30px);
+			.padding-right(30px);
 			&:first-child{
-				padding-left: 0px;
+				.padding-left(4px);
 			}
 			&:last-child{
-				padding-left: 0;
+				.padding-left(0px);
 			}
 			&:before{
 				content: '';
 				position: absolute;
-				right: -20px;
+				.right(-20px);
 				bottom: 6px;
 				height: 20px;
 				width: 20px;
-				border-left: 1px dotted rgba(0, 0, 0, 0.3);
+				.border-left(1px dotted rgba(0, 0, 0, 0.3));
 			}
 			&.active{
 				.day-wrapper .week-date{
@@ -218,15 +238,95 @@ Events / .event-container
 		position: relative;
 		height: calc(~'100% - 200px');
 		padding-top: 10px;
-		.week-view{
+		.view{
+			&.month-view{
+				.tble .trow .tcell{
+					position: relative;
+					height: 20%;
+					clear: both;
+					.cell-inner{
+						.holder{
+						position: absolute;
+						top: 37px;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						}
+					}
+					&.active{
+						background: #fff;
+						.cell-inner{
+							background-color: #fef8e7;
+						}
+					}
+					&.not{
+						background-color: @color-master-lightest;
+					}
+					&.drop-target{
+						.cell-inner{
+							background-color: @color-master-lightest;
+						}
+					}
+					.cell-inner:only-child, .cell-inner{
+						height: 100%;
+						border-bottom: 1px solid @color-master-light;
+						position: relative;
+					}
+					.month-date{
+						position: relative;
+						text-align: center;
+						margin-top: 10px;
+						margin-right: 6px;
+						width: 25px;
+						height: 25px;
+						padding-top: 2px;
+						margin: 6px;
+						float: right;
+						display: block;
+						z-index:1;
+						.border-radius(99px);
+						&.current-date{
+							background-color: @color-master-light;
+						}
+						&.active{
+							background-color: @color-success;
+							font-weight: bold;
+							opacity: 1;
+							color: #fff;
+						}
+					}
+					.event-container{
+						height: 30px;
+						position: relative !important;
+						min-height: 30px !important;
+						.event-inner{
+						 	padding: 8px;
+						}
+					}
+				}
+				.ghost-element{
+					height: 30px;
+    				position: relative;
+    				width: 100%;
+				}
+				.grid .tble{
+					height: 100%;
+					width: 100%;	
+				}
+				.event-container .event-title{
+					font-size: 12px;
+				}
+			}
 			width: 100%;
 			height: 100%;
 			white-space: nowrap;
 			-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;
+			//DEFAULT WEEKVIEW WITH 30 min Slot
 			.tble{
 				display: inline-table;
 				width: calc(~'100% - 50px');
 				vertical-align: top;
+				position: relative;
 				.thead{
 					display: table-row;
 					width: 100%;
@@ -262,8 +362,8 @@ Events / .event-container
 							display: inline-block;
 							width: 8px;
 							height: 8px;
-							margin-left: 5px;
-							float: right;
+							.margin-left(5px);
+							.float(right);
 							.border-radius(30px);
 						}
 					}
@@ -298,11 +398,28 @@ Events / .event-container
 							& > *{
 								border-color: rgba(0, 0, 0, 0.1) !important;
 							}
+						}
+						&.disable{
+							background-color: @color-master-lightest;
 						}	
 					}
-					
+				}
+				.loading{
+					left: 10px;
 				}
 			}
+		}
+		.loading{
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: rgba(255, 255, 255, 0.5);
+			z-index: 100;
+		}
+		.pgn-wrapper{
+			position: absolute;
 		}
 		.even-holder{
 			position: absolute;
@@ -322,6 +439,9 @@ Events / .event-container
 			position: absolute !important;
 			z-index: 10;
 			overflow: hidden;
+			margin-bottom: 5px;
+			min-height: 40px !important;
+			.transition(width .16s ease);
 			.event-inner{
 				padding: 15px;
 				&:before{
@@ -331,14 +451,16 @@ Events / .event-container
 					content: '';
 					background-color: rgba(255, 255, 255,0.8);
 					border-radius: 999px;
-					right: 14px;
+					.right(14px);
 					top: 11px;
 				}
 			}
 			.time-wrap{
 				line-height: 12px;
-				text-align: left;
-				color: rgba(0, 0, 0, 0.77)
+				.text-align(left);
+				color: rgba(0, 0, 0, 0.77);
+				overflow: hidden;
+    			text-overflow: ellipsis;
 			}
 			.event-start-time, .event-end-time{
 				font-size: 12px;
@@ -351,8 +473,9 @@ Events / .event-container
 				overflow: hidden;
 				text-overflow: ellipsis;
 			}
-			.ui-resizable-handle{
+			.resizable-handle{
 				position: absolute;
+				opacity: 1;
 				z-index: 3;
 				left: 0;
 				right: 0;
@@ -369,24 +492,49 @@ Events / .event-container
 				color: rgba(0, 0, 0, 0.44);
 				}
 			}
+			&.dragging{
+				z-index: 100;
+			}
 		}
 		.grid{
 			display: block;
 			overflow: scroll;
 			height: calc(~'100% - 40px');
 			-webkit-overflow-scrolling: touch;
+			//Time Slots
+			&.slot-60{
+				.tble .trow .tcell .cell-inner{
+					height: @cell-height * 1px;
+					border-bottom: 1px solid @color-master-light;
+				}
+			}
+			&.slot-15{
+				.tble .trow .tcell {
+					height: 100/4 * 1px;
+					.cell-inner{
+						height: 100/4 * 1px;
+						border-bottom: 1px dotted @color-master-light;
+						&:last-child{
+							border-bottom: 1px solid @color-master-light;
+						}
+					}
+				}
+				.time-slot-wrapper .time-slot{
+					height: 100px;
+				}
+			}
 		}
 		.allday-cell{
 			height: @cell-height/2 * 1px;
 			display: inline-block;
 			width: 50px;
-			float: left;
+			.float(left);
 		}
 	}
 	.time-slot-wrapper{
 		display: inline-block;
 		width: 50px;
-		float: left;
+		.float(left);
 		height: 100%;
 		.time-slot{
 			display: block;
@@ -399,14 +547,14 @@ Events / .event-container
 				}
 			}
 			& > span{
-				float: right;
+				.float(right);
 				font-size: 12px;
 				position: relative;
 				top: -15%;
 				color: rgba(0, 0, 0, 0.46);
 				font-weight: bold;
 				font-size: 12px;
-				right: 5px;
+				.right(5px);
 			}
 		}
 	}
@@ -414,7 +562,7 @@ Events / .event-container
 }
 .calendar-event{
 	width: 330px;
-	right: -330px;
+	.right(-330px);
 	.scrollable{
 		height: 100%;
 	}
@@ -433,10 +581,10 @@ Responsive Util
 	}
 	.options{
 		margin-top:0;
-		padding-left:10px;
+		.padding-left(10px);
 		.months{
-			height: 21px;
 			line-height: 21px;
+			padding-top: 14px;
 		}
 		.date{
 			margin-bottom: 10px;
@@ -444,7 +592,7 @@ Responsive Util
 	}
 	.calendar-container {
 		height:100%;
-		.week-view .tble{
+		.view.week-view .tble{
 			white-space: nowrap;
 			.thead{
 				white-space: nowrap;
@@ -452,30 +600,85 @@ Responsive Util
 				display: inline-block;
 			}
 			.tcell{
-				display: inline-block;
+				display: none;
 				max-width: 100%;
-				width: 100%;		
+				width: 100%;
+				&.active{
+					display: inline-block;
+					background-color:#fff;
+				}		
 			}
 			.trow{
 				display: block;
 				height: 80px;
 			}
 		}
+		.view.month-view {
+			.allday-cell{
+				display: none;
+			}
+			.grid .tble{
+			padding-left: 0;
+			}
+			.tble {
+				.thead .tcell{
+					padding: 3px;
+					padding-top: 10px;
+				}
+				.trow .tcell{
+					padding: 0 6px;
+				}
+			}
+			.tble .trow .tcell .event-container{
+				.border-radius(99px);
+				position: absolute !important;
+				height: 16px !important;
+				width: 16px !important;
+				min-height: 16px !important;
+				margin: 0 auto;
+    			left: 0;
+    			right: 0;
+				.event-inner{
+					display: none;
+				}
+			}
+		}
+		&.month{
+			height: calc(~'100% - 101px');
+		}
 	}
 	.weeks-wrapper{
 		margin-bottom: 0;
 	}
-
+	&.month{
+		padding-left:0;
+		.calendar-container{
+			height: calc(~'100% - 108px');
+		}
+	}
 }
 .calendar-event{
 	width: 240px;
-	right: -240px;
+	.right(-240px);
 }
 .months-drager{
-	margin-left: 27px;
+	.margin-left(27px);
 	width: calc(~'100% - 80px');
-	margin-top: 14px;
-	border-right: 1px solid @color-master-light;
+	.border-right(1px solid @color-master-light);
 	padding-top: 0;
 }
+}
+@media (max-width: 640px) {
+	.calendar.month .calendar-container .view .tble .thead .tcell {
+		text-align: center;
+		&:before{
+			width: 100%;
+		}
+		.weekday{
+			width: 11px;
+		    overflow: hidden;
+		    letter-spacing: 4px;
+		    font-weight: bold;
+		}
+	}
 }

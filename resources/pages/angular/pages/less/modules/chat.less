@@ -28,7 +28,7 @@
 		padding: 4px 12px;
 		font-size: 14px;
 		line-height: 16px;
-		margin: 5px 0px 0 5px;
+		.margin(5px, 0px, 0, 5px);
 		max-width: 60%;
 		white-space: normal;
 		& > p{
@@ -38,7 +38,7 @@
 			background:@color-complete-lighter;
 			color:@color-master-dark;
 			opacity: 0.8; 
-			float: right;
+			.float(right);
 			border: 1px solid rgba(0, 0, 0, 0.07);
 		}
 		&.from-them {
@@ -47,7 +47,7 @@
 			background:@color-master-lighter;
 			position:relative;
 			opacity: 0.8; 
-		  	float: left;
+		  	.float(left);
 		  	border: 1px solid mix(@color-complete-darker, #fff, 7%);
 
 		}

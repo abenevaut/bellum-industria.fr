@@ -7,7 +7,12 @@
 	height: 100%;
 	display: block;
 	white-space: nowrap;
-	overflow: hidden;
+    word-spacing: 0;
+    font-size: 0;
+    overflow: hidden;
+    & > *{
+      font-size: initial;
+    }
 	.navbar{
 		border-radius: 0;
 		padding-left: 0;
@@ -22,15 +27,15 @@
 			height: 50px;
 			vertical-align: middle;
 		}
-		.action{
-			position: absolute;
-			top:0;
-			line-height: 50px;
-			z-index: 1;
-			&.pull-right{
-				right: 0;
-			}
-		}
+        .action{
+            position: absolute;
+            top:0;
+            line-height: 50px;
+            z-index: 1;
+            &.pull-right{
+                .right(0);
+            }
+        }
 		.view-heading{
 			font-size: 15px;
 			text-align: center;
@@ -70,12 +75,9 @@
 				z-index: -1
 			}
 		}
-		&:last-child{
-			margin-left: -4px
-		}
 		&:only-child{
-			margin: 0;
-		}
+            margin: 0;
+        }
 	}
 	&.from-top{
 		& > .view{

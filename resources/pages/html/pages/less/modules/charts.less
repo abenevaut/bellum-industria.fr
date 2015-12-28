@@ -63,7 +63,7 @@
         }
     }
     .nvtooltip table{
-        margin: 12px 10px 14px 15px;
+        .margin(12px, 10px, 14px, 15px);
     }
     .nvtooltip.xy-tooltip.nv-pointer-events-none{
         border-color : rgba(0, 0, 0, 0.12);
@@ -225,11 +225,11 @@
 */
 .rickshaw-chart{
     &.rickshaw_graph .detail{
-            padding-left: 15px;
+            .padding-left(15px);
             transform: translateX(-15px);
             width: 30px;
             background: rgba(0,0,0,.04);
-            right: -15px;
+            .right(-15px);
 
             .item, .x_label{
                 transform: translateX(15px);
@@ -254,7 +254,7 @@
 
       .detail .x_label { display: none }
         .detail .item { line-height: 1.4; padding: 0.5em }
-        .detail_swatch { float: right; display: inline-block; width: 10px; height: 10px; margin: 0 4px 0 0 }
+        .detail_swatch { .float(right); display: inline-block; width: 10px; height: 10px; margin: 0 4px 0 0 }
         .detail .date { font-size:11px; color: #a0a0a0; opacity: .5; }
 
   }
@@ -270,7 +270,7 @@
         background: rgba(255,255,255,.8);
         bottom: 0;
         width: 40px;
-        left: 0;
+        .left(0);
         z-index: 1;
         .rickshaw_graph .y_ticks path, .rickshaw_graph .x_ticks_d3 path{
             fill: none;
@@ -293,7 +293,7 @@
         }
         &.rickshaw_graph .detail .x_label { display: none }
         &.rickshaw_graph .detail .item { line-height: 1.4; padding: 0.5em }
-        .detail_swatch { float: right; display: inline-block; width: 10px; height: 10px; margin: 0 4px 0 0 }
+        .detail_swatch { .float(right); display: inline-block; width: 10px; height: 10px; margin: 0 4px 0 0 }
         &.rickshaw_graph .detail .date { font-size:11px; color: #a0a0a0; opacity: .5; }
     }
 }
@@ -332,8 +332,8 @@
     position: absolute;
     bottom: 40px;
     top: 150px;
-    left: 33px;
-    right: 0;
+    .left(33px);
+    .right(0);
     width: auto;
     .x_tick.plain .title{
        font-family: 'Montserrat';
@@ -345,14 +345,14 @@
     position: absolute;
     top: 150px;
     width: 40px;
-    left: -6px;
+    .left(-6px);
   }
 
   .rickshaw_graph .x_tick{
     border-color: transparent;
     .title{
       bottom: -24px;
-      left: -15px;
+      .left(-15px);
     }
   }
 }

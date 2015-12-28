@@ -11,13 +11,13 @@
     color: @color-master-darkest;
     line-height: 32px;
     height: 32px;
-    padding-left: 10px;
+    .padding-left(10px);
     & > i{
       width: 32px;
       font-size: 14px;
       display: inline-block;
-      text-align: right;
-      margin-right: 10px;
+      .text-align(right);
+      .margin-right(10px);
     }
   }
 }
@@ -27,7 +27,7 @@
 .thumbnail-wrapper{
     display: inline-block;
     overflow: hidden;    
-    float:left;
+    .float(left);
     &.circular{
        .border-radius(50%);
     }
@@ -132,17 +132,17 @@
       & > a{
         padding-top: 3px;
         padding-bottom: 3px;
-        padding-right: 19px;
+        .padding-right(19px);
       }
     }
     & > a{
       opacity: .5;
       .transition(opacity ease .3s);
-      padding-left: 17px;
-      padding-right: 37px;
+      .padding-left(17px);
+      .padding-right(37px);
       min-width: 138px;
       & > i {
-        margin-right: 5px;
+        .margin-right(5px);
       }
       &:hover{
         opacity: 1;
@@ -246,7 +246,20 @@
   position:absolute !important;
   top: 0;
 }
-
+.pull-left{
+  .float(left) !important;
+}
+.pull-right{
+  .float(right) !important;
+}
+.pull-center{
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: table;
+  z-index: 1;
+}
 .cursor{
   cursor: pointer;
 }
@@ -260,16 +273,16 @@
 
 .generate-paddings-options(20);
 
-.generate-paddings-options(@n, @i: 1) when (@i =< @n) {
+.generate-paddings-options(@n, @i: 0) when (@i =< @n) {
   @step : @i*5;	
   .p-t-@{step} {
     padding-top: (@step*1px) !important;
   }
   .p-r-@{step} {
-    padding-right: (@step*1px) !important;
+    .padding-right((@step*1px))!important;
   }
    .p-l-@{step} {
-    padding-left: (@step*1px) !important;
+    .padding-left((@step*1px)) !important;
   }
    .p-b-@{step} {
     padding-bottom: (@step*1px) !important;
@@ -290,10 +303,10 @@
     margin-top: (@step*1px);
   }
   .m-r-@{step} {
-    margin-right: (@step*1px);
+    .margin-right((@step*1px));
   }
    .m-l-@{step} {
-    margin-left: (@step*1px);
+    .margin-left((@step*1px));
   }
    .m-b-@{step} {
     margin-bottom: (@step*1px);
@@ -333,10 +346,10 @@
 }
 
 .b-r{
-	border-right-width:1px;
+	.border-right-width(1px);
 }
 .b-l{
-  border-left-width:1px;
+  .border-left-width(1px);
 }
 .b-t{
   border-top-width:1px;
@@ -404,7 +417,7 @@
 /** Profile Wrappers **/
 .profile-img-wrapper{
 	display:inline-block;
-	float:left;
+	.float(left);
 	border-radius: 100px 100px 100px 100px;
   display: inline-block;
   height: 35px;
@@ -419,7 +432,7 @@
     width: 68px;
 }
 .profile-img-wrapper.with-left-space-custom{
-	margin-left:7px;
+	.margin-left(7px);
 }
 
 .relative{
@@ -460,12 +473,12 @@
 // Dashboard widget heights
 
 .sm-gutter .row > [class^="col-"], .sm-gutter .row > [class*="col-"] {
-    padding-left: @layout-gutter-sm;
-    padding-right: @layout-gutter-sm;
+    .padding-left(@layout-gutter-sm);
+    .padding-right(@layout-gutter-sm);
 }
 .sm-gutter .row {
-    margin-left: -@layout-gutter-sm;
-    margin-right: -@layout-gutter-sm;
+    .margin-left(-@layout-gutter-sm);
+    .margin-right(-@layout-gutter-sm);
 }
 
 /* Aspect ratio */
@@ -569,23 +582,23 @@
 }
 
 .v-align-bottom{
-  vertical-align: bottom;
+  vertical-align: bottom !important;
 }
 .v-align-top{
-  vertical-align: top;
+  vertical-align: top !important;
 }
 .v-align-middle{
-  vertical-align: middle;
+  vertical-align: middle !important;
 }
 /* vertical alignment styles */
 .col-top {
-    vertical-align:top;
+    vertical-align:top !important;
 }
 .col-middle {
-    vertical-align:middle;
+    vertical-align:middle !important;
 }
 .col-bottom {
-    vertical-align:bottom;
+    vertical-align:bottom !important;
 }
 
 /* columns of same height styles 

@@ -46,7 +46,7 @@
   &::-moz-placeholder           { color: @color; opacity: 1; } // Firefox 19+
   &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
   &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
-  &.placeholder       					{ color: @color; } // Fallback
+  &.placeholder                 { color: @color; } // Fallback
 }
 
 // Placeholder text
@@ -124,7 +124,7 @@
      border-top-left-radius: @radius;
 }
 .border-radius(@radius) {
-	 border-radius: @radius;
+   border-radius: @radius;
    -webkit-border-radius:@radius;
    -moz-border-radius: @radius;
 }
@@ -186,20 +186,31 @@
       -ms-transform: translateY(@y); // IE9+
           transform: translateY(@y);
 }
-.translateX(@x) {
+.translateX(@x) when not (@rtl) {
   -webkit-transform: translateX(@x);
       -ms-transform: translateX(@x); // IE9+
           transform: translateX(@x);
+}
+.translateX(@x) when (@rtl) {
+  -webkit-transform: translateX(-1*(@x));
+      -ms-transform: translateX(-1*(@x)); // IE9+
+          transform: translateX(-1*(@x));
 }
 .skew(@x; @y) {
   -webkit-transform: skew(@x, @y);
       -ms-transform: skewX(@x) skewY(@y); // See https://github.com/twbs/bootstrap/issues/4885; IE9+
           transform: skew(@x, @y);
 }
-.translate3d(@x; @y; @z) {
+.translate3d(@x; @y; @z) when not (@rtl) {
   -webkit-transform: translate3d(@x, @y, @z);
           transform: translate3d(@x, @y, @z);
       -ms-transform:translate(@x, @y);
+}
+
+.translate3d(@x; @y; @z) when (@rtl) {
+  -webkit-transform: translate3d(-1*(@x), @y, @z);
+          transform: translate3d(-1*(@x), @y, @z);
+      -ms-transform:translate(-1*(@x), @y);
 }
 
 .rotateX(@degrees) {

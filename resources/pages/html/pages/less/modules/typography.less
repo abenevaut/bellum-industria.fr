@@ -140,7 +140,7 @@ label {
 }
 ul,ol {
     & > li {
-        padding-left: 3px;
+        .padding-left(3px);
         line-height: 24px;
     }
     &.lg-icon{
@@ -153,7 +153,7 @@ ul,ol {
     }
     &.no-style{
         list-style: none;
-        padding-left: 5px;
+        .padding-left(5px);
     }
 }
 address {
@@ -169,8 +169,8 @@ blockquote {
         content: '';
         font-family: FontAwesome;
         content: "\f10d";
-        margin-right: 13px;
-        float: left;
+        .margin-right(13px);
+        .float(left);
     }
     p {
         font-size: 16px;
@@ -178,7 +178,7 @@ blockquote {
     small {
         line-height: 29px;
         color: #8b91a0;
-        padding-left: 30px;
+        .padding-left(30px);
         &:before {
             content: "";
         }
@@ -492,10 +492,10 @@ hr{
 */
 
 .text-right {
-    text-align: right !important;
+    .text-align(right) !important;
 }
 .text-left {
-    text-align: left !important;
+    .text-align(left) !important;
 }
 .text-center {
     text-align: center !important;

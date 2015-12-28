@@ -19,7 +19,7 @@
             padding: 0;
             position: absolute;
             top:0;
-            right: 10px;
+            .right(10px);
             z-index: 120;
             padding-top: 10px;
             padding-bottom: 10px;
@@ -50,7 +50,7 @@
 	font: normal 11px/14px 'Montserrat',Arial;
     text-transform: uppercase;
 	margin: 0;
-	padding: 6px 0 5px 15px;
+	.padding(6px, 0, 5px, 15px);
 	position: absolute;
     border-top: 1px solid @panel-border-color;
     border-bottom: 1px solid @panel-border-color;
@@ -98,7 +98,7 @@ input.list-view-search{
         border-bottom: 1px solid rgba(0, 0, 0, 0.07);
     }
     li{
-        padding-left:15px;
+        .padding-left(15px);
         white-space: nowrap;
         cursor: pointer;
         width: 100%;
@@ -114,7 +114,7 @@ input.list-view-search{
             line-height: 19px;
         }
         & > a{
-            margin-right: 15px;
+            .margin-right(15px);
             display: table;
             width: 100%;
         }

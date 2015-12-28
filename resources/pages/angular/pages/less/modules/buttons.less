@@ -28,8 +28,8 @@
     text-shadow: none;
     box-shadow: none;
     line-height: 21px;
-    padding-left: @padding-base-horizontal;
-    padding-right: @padding-base-horizontal;
+    .padding-left(@padding-base-horizontal);
+    .padding-right(@padding-base-horizontal);
     position: relative;
     transition: color 0.1s linear 0s,background-color 0.1s linear 0s,opacity 0.2s linear 0s !important;
     &:hover{
@@ -47,9 +47,9 @@
         outline-style: none;
     }
     .caret {
-        margin-left: 3px;
+        .margin-left(3px);
         &.single {
-            margin-left: 0px;
+            .margin-left(0px);
         }
     }
     &:hover,
@@ -129,7 +129,7 @@ Alternate buttons
 .btn-file input[type=file] {
     position: absolute;
     top: 0;
-    right: 0;
+    .right(0);
     min-width: 100%;
     min-height: 100%;
     font-size: 100px;
@@ -146,13 +146,13 @@ Button Sizes
 */
 
 .btn-lg, .btn-group-lg > .btn{
-    padding-left: @padding-lg-horizontal;
-    padding-right: @padding-lg-horizontal;
+    .padding-left(@padding-lg-horizontal);
+    .padding-right(@padding-lg-horizontal);
     line-height: 23px;
 }
 .btn-sm, .btn-group-sm > .btn{
-    padding-left: @padding-sm-horizontal;
-    padding-right: @padding-sm-horizontal;
+    .padding-left(@padding-sm-horizontal);
+    .padding-right(@padding-sm-horizontal);
     font-size: 11.9px;
     line-height: 20px;
 }
@@ -161,7 +161,7 @@ Button Sizes
     font-size: 10.5px;
 }
 .btn-cons {
-    margin-right: 5px;
+    .margin-right(5px);
     min-width: 120px;
 }
 
@@ -277,7 +277,7 @@ Rounded buttons
         }
         .dropdown-menu{
             margin-bottom: -40px;
-            padding: 0 3px 44px 0 !important;
+            .padding(0, 3px, 44px, 0)!important;
             transform-origin: center bottom 0;
             &:after{
                 bottom: 43px;
@@ -287,11 +287,11 @@ Rounded buttons
     }
     .btn.dropdown-toggle{
         text-align: left;
-        padding-right: @padding-base-horizontal + 10px;
+        .padding-right( @padding-base-horizontal + 10px);
         &.btn-lg{
-            padding-right: @padding-lg-horizontal + 14px;
+            .padding-right(@padding-lg-horizontal + 14px);
             .caret{
-                right: 26px;
+                .right(26px);
             }
             & + .dropdown-menu{
                 margin-top: -47px;
@@ -302,9 +302,9 @@ Rounded buttons
             }
         }
         &.btn-sm{
-            padding-right: @padding-sm-horizontal + 10px;
+            .padding-right( @padding-sm-horizontal + 10px);
             .caret{
-                right: 16px;
+                .right(16px);
             }
             & + .dropdown-menu{
                 margin-top: -34px;
@@ -315,9 +315,9 @@ Rounded buttons
             }
         }
         &.btn-xs{
-            padding-right: @padding-xs-horizontal + 12px;
+            .padding-right( @padding-xs-horizontal + 12px);
             .caret{
-                right: 8px;
+                .right(8px);
             }
             & + .dropdown-menu{
                 margin-top: -29px;
@@ -329,14 +329,14 @@ Rounded buttons
         }
         .caret{
             position: absolute;
-            right: 15px;
+            .right(15px);
             top:50%;
             margin-top: -2px;
         }
     }
     .btn-rounded{
-        padding-left: 17px;
-        padding-right: 17px;
+        .padding-left(17px);
+        .padding-right(17px);
     }
     .btn-rounded + .dropdown-menu{
         border-radius: 17px;
@@ -356,7 +356,7 @@ Rounded buttons
             content: "";
             position: absolute;
             height: 1px;
-            left: 0;
+            .left(0);
             top: 42px;
             background: @color-master-light;
             width: 100%;
@@ -379,7 +379,7 @@ Rounded buttons
     margin: 0;
     background: @color-master-lightest;
     min-width: 50px;
-    z-index: @zIndex-dropdown;
+    z-index: @zIndex-dropdown !important;
     .divider {
         background-color: @color-master-light;
         height: 1px;
@@ -425,7 +425,7 @@ Rounded buttons
             color: @color-master;
             padding: 0 20px;
             border-radius: 3px;
-            text-align: left;
+            .text-align(left);
             &:hover, &:focus{
                 color: @color-master-darker;
                 text-decoration: none;
@@ -472,7 +472,7 @@ Animated buttons
     }
     &.from-top{
         &:before{
-            left: 0;
+            .left(0);
             top: -100%;
         }
         &:hover, &.show-icon{
@@ -486,12 +486,12 @@ Animated buttons
     }
     &.from-left{
         &:before{
-            left: -100%;
+            .left(-100%);
             top: 0;
         }
         &:hover, &.show-icon{
             &:before{
-            left: 0;
+            .left(0);
             }
             & > span{
                 .translateX(200%);

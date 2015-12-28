@@ -59,7 +59,7 @@
 }
 .notification-toggle{
     top: 35px;
-    left: -26px;
+    .left(-26px);
     padding: 0;
     &:before{
         border-bottom:0px !important;
@@ -78,9 +78,9 @@
         overflow: hidden;
         .notification-item{
             position: relative;
-            margin-left: 25px;
+            .margin-left(25px);
             background-color: #fff;
-            padding-right: 26px;
+            .padding-right(26px);
             &.unread{
                  .heading{
                     opacity: 1;
@@ -94,11 +94,11 @@
             }
             .heading{
                 line-height: 43px;
-                margin-right: 5px;
+                .margin-right(5px);
                 background: #fff;
                 border-bottom: 1px solid @color-master-light;
                 position: relative;
-                float: left;
+                .float(left);
                 width: 100%;
                 font-size: 14px;
                 opacity: 0.7;
@@ -108,7 +108,7 @@
                     width: 5px;
                     height: 100%;
                     background-color: #fff;
-                    right: 0;
+                    .right(0);
                     top: 1px;
 
                 }
@@ -121,7 +121,7 @@
                 }
                 .time{
                     font-size: 11px;
-                    margin-right: 8px;
+                    .margin-right(8px);
                 }
                 &.open{
                     display: block;
@@ -144,19 +144,20 @@
                 clear: both;
                 position: relative;
                 .more-details-inner{    
-                    margin-left: 10px;
-                    padding-left: 28px;
+                    .margin-left(10px);
+                    .padding-left(28px);
                     padding-top: 15px;
                     margin-bottom: 20px;
                     position: relative;
-                    border-left: 1px solid fade(@color-master-light, 70%);
+                    .border-left(1px solid fade(@color-master-light, 70%));
+                    .text-align(left);
                     &:after{
                         width: 14px;
                         height: 14px;
                         position: absolute;
                         content: '';
                         background-color: #fff;
-                        left: -7px;
+                        .left(-7px);
                         top: 25px;
                         border: 1px solid fade(@color-master-light, 90%);
                         .border-radius(99px);
@@ -165,7 +166,7 @@
                         color:  mix(@color-master, #fff, 40%);
                         position: absolute;
                         bottom: 0;
-                        left: -5px;
+                        .left(-5px);
                         content: ' \25CF';
                         font-size: 13px;
                         line-height: 5px;
@@ -183,7 +184,7 @@
                 position: absolute;
                 height: 44px;
                 width: 26px;
-                right: 0;
+                .right(0);
                 text-align: center;
                 vertical-align: middle;
                 line-height: 44px;
@@ -255,7 +256,7 @@
         position: relative;
         .close{
             position: absolute;
-            right: 9px;
+            .right(9px);
             top: 15px;
         }
     }
@@ -268,17 +269,17 @@
 body.menu-pin > .pgn-wrapper[data-position$='-left'],
 body.menu-pin > .pgn-wrapper[data-position="top"],
 body.menu-pin > .pgn-wrapper[data-position="bottom"]{
-    left: @layout-sidepanel-pin-width;
+    .left(@layout-sidepanel-pin-width);
 }
 .pgn-wrapper {
     position: fixed;
     z-index: 1000;
 }
 .pgn-wrapper[data-position$='-left'] {
-    left: 30px;
+    .left(30px);
 }
 .pgn-wrapper[data-position$='-right'] {
-    right: 20px;
+    .right(20px);
 }
 .pgn-wrapper[data-position^='top-'] {
     top: 20px;
@@ -390,7 +391,7 @@ body.menu-pin > .pgn-wrapper[data-position="bottom"]{
     -webkit-animation: fadeInCircle .3s ease forwards, resizeCircle .3s .4s cubic-bezier(0.25, 0.25, 0.4, 1.6) forwards;
     height: 60px;
     overflow: hidden;
-    padding: 6px 55px 6px 6px;
+    .padding(6px, 55px, 6px, 6px);
     -webkit-transform: translateZ(0);
     position: relative;
 }
@@ -413,7 +414,7 @@ body.menu-pin > .pgn-wrapper[data-position="bottom"]{
 .pgn-circle .alert > div > div.pgn-message > div {
     opacity: 0;
     height: 47px;
-    padding-left: 9px;
+    .padding-left(9px);
     animation: fadeIn .3s .5s ease forwards;
     -webkit-animation: fadeIn .3s .5s ease forwards;
     overflow: hidden;
@@ -431,7 +432,7 @@ padding:12px 0;
 .pgn-circle .alert .close {
     margin-top: -12px;
     position: absolute;
-    right: 18px;
+    .right(18px);
     top: 50%;
     opacity: 0;
     animation: fadeIn .3s .5s ease forwards;
@@ -586,15 +587,15 @@ padding:12px 0;
 /* Pages Notification customizations */
 body > .pgn-wrapper[data-position="top"] {
     top: @layout-header-height;
-    left: @layout-sidepanel-width-collapsed;
+    .left(@layout-sidepanel-width-collapsed);
 }
 body > .pgn-wrapper[data-position="bottom"] {
-    left: @layout-sidepanel-width-collapsed;
+    .left(@layout-sidepanel-width-collapsed);
 }
 
 body > .pgn-wrapper[data-position$='-left'] {
-    left: @layout-sidepanel-width-collapsed + 20px;
-    right: auto;
+    .left(@layout-sidepanel-width-collapsed + 20px);
+    .right(auto);
 }
 
 body > .pgn-wrapper[data-position^='top-'] {
@@ -612,10 +613,10 @@ body > .pgn-wrapper{
 
 @media (max-width: 979px) {
     body > .pgn-wrapper[data-position="top"]{
-        left: 0;
+        .left(0);
     }
     body > .pgn-wrapper[data-position="bottom"] {
-        left: 0;
+        .left(0);
     }
 }
 @media (max-width: 767px) {

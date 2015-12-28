@@ -44,13 +44,13 @@ return [
     'facebook' => [
         'client_id' => env('FACEBOOK_APP_ID'),
         'client_secret' => env('FACEBOOK_APP_SECRET'),
-        'redirect' => env('FACEBOOK_ROUTE_CALLBACK'),
+        'redirect' => env('FACEBOOK_URL_CALLBACK'),
     ],
 
     'twitter' => [
         'client_id' => env('TWITTER_APP_ID'),
         'client_secret' => env('TWITTER_APP_SECRET'),
-        'redirect' => env('TWITTER_ROUTE_CALLBACK'),
+        'redirect' => env('TWITTER_URL_CALLBACK'),
     ],
 
 //    'google' => [

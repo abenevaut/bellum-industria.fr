@@ -36,7 +36,7 @@ input[type="checkbox"]:focus {
 }
 
 form legend {
-    margin: 15px 0px 10px 0px;
+    .margin(15px, 0px, 10px, 0px);
 }
 
 .form-control {
@@ -288,6 +288,10 @@ input[type=radio]:checked + label:before{
         }
     }
 }
+//RTL
+body.rtl .checkbox label::after{
+    left: -1.2px;
+}
 
 input[type=checkbox]:checked + label{
     .checkbox.check-success &:before{
@@ -319,6 +323,24 @@ input[type=checkbox]:checked + label{
     }
     
 }
+.input-group-addon:first-child{
+    .border-right(0);
+    .border-left(1px solid @form-control-border-color);
+    .border-top-left-radius(2px);
+    .border-bottom-left-radius(2px);
+    .border-top-right-radius(0);
+    .border-bottom-right-radius(0);
+}
+.input-group-addon:last-child{
+    .border-right(1px solid @form-control-border-color);
+    .border-left(0);
+    .border-top-right-radius(2px);
+    .border-bottom-right-radius(2px);
+}
+.input-group .form-control:first-child{
+    .border-top-right-radius(0);
+    .border-bottom-right-radius(0)
+}
 
 .input-group{
     &.transparent{
@@ -342,15 +364,15 @@ input[type=checkbox]:checked + label{
 
             &:not(:first-child),
             &:not(:last-child) {
-                padding-right: 7px;
-                padding-left: 7px;
+                .padding-right(7px);
+                .padding-left(7px);
             }
 
             &:first-child{
-                padding-left: 0;
+                .padding-left(0);
             }
             &:last-child{
-                padding-right: 0;
+                .padding-right(0);
             }
         }  
     }
@@ -381,7 +403,7 @@ input[type=checkbox]:checked + label{
             opacity: 1;
         }
         .control-label{
-            text-align: left;
+            .text-align(left);
             opacity: .42;
             .transition(opacity ease .3s)
         }
@@ -400,42 +422,38 @@ input[type=checkbox]:checked + label{
         &:first-child{
             &.row > [class*='col-']{
                 &:first-child .form-group-default{
-                    border-top-left-radius: 2px;
+                    .border-top-left-radius(2px);
                 }
                 &:last-child .form-group-default{
-                    border-top-right-radius: 2px;
+                    .border-top-right-radius(2px);
                 }
             } 
             &.form-group-default{
-                border-top-left-radius: 2px;
-                border-top-right-radius: 2px;
+                .border-top-left-radius(2px);
+                .border-top-right-radius(2px);
             }
         }
        
         &:last-child{ 
             &.row > [class*='col-']{
                 &:first-child .form-group-default{
-                    border-bottom-left-radius: 2px;
+                    .border-bottom-left-radius(2px);
                 }
                 &:last-child .form-group-default{
-                    border-bottom-right-radius: 2px;
+                    .border-bottom-right-radius(2px);
                 }
             } 
             &.form-group-default{
-                border-bottom-left-radius: 2px;
-                border-bottom-right-radius: 2px;
+                .border-bottom-left-radius(2px);
+                .border-bottom-right-radius(2px);
             }
         }
         &.row > [class*='col-']{
             padding-right: 0 !important;
             padding-left: 0 !important;
-            & > .form-group-default{
-                display: table;
-                width: 100%;
-            }
         }
         &.row > [class*='col-']:not(:only-child):not(:last-child) > .form-group-default{
-            border-right-color: transparent;
+            .border-right-color(transparent);
         }
         &:not(:last-child) .form-group-default, 
         &:not(:last-child).form-group-default{
@@ -456,13 +474,7 @@ input[type=checkbox]:checked + label{
 
 @media only screen and (min-width: 768px) {
     .form-group-attached > div.row{
-        display: table;
-        width: 100%;
         & > [class*='col-']{
-            display: table-cell;
-            height: 100%;
-            float: none;
-            vertical-align: top;
             .form-group{
                 height: 100%;
                 width: 100%;
@@ -482,7 +494,7 @@ input[type=checkbox]:checked + label{
         font-weight: 600;
     }
     label .help{
-        margin-left: 8px;
+        .margin-left(8px);
      
     }
     .help {
@@ -508,8 +520,8 @@ input[type=checkbox]:checked + label{
         font-family: arial;
         font-size: 20px;
         position: absolute;
-        right: 15px;
-        top: 9px;
+        .right(12px);
+        top: 6px;
     }
     &.disabled {
         input {
@@ -551,12 +563,16 @@ input[type=checkbox]:checked + label{
         padding: 0;
         & > label{
             margin-top: 6px;
-            padding-left: 12px;
+            .padding-left(12px);
+            &.inline{
+                margin-top: 16px;
+                float: left;
+            }
         }
         & > .form-control{
            margin-top: -2px;
            margin-bottom: 3px;
-           padding-left: 12px;
+           .padding-left(12px);
         }
         .input-group-addon{
             height: calc(@form-group-height - 4px);
@@ -613,7 +629,7 @@ input[type=checkbox]:checked + label{
     & > .input-lg {
         height: 29px;
         min-height: 29px;
-        padding-left: 1px;
+        .padding-left(1px);
     }
     & > .input-sm {
         min-height: 18px;
@@ -627,19 +643,24 @@ input[type=checkbox]:checked + label{
                 height: 23px;
             }
         }
+        .ui-select-container{
+            .select2-choices{
+                border:0px; 
+            }
+        }
     }
     &.form-group-default-select2{
         padding: 0;
         & > label{
             position: absolute;
             z-index: 10;
-            padding: 7px 12px 0 12px;
+            .padding(7px, 12px, 0, 12px);
             &.label-lg{
-                left: 0;
+                .left(0);
                 top: 0;
             }
             &.label-sm{
-                left: 0;
+                .left(0);
                 top: 0;                
             }
         }
@@ -651,7 +672,7 @@ input[type=checkbox]:checked + label{
                     top: 20px;
                 }
                 .select2-chosen{
-                    padding-left: 3px;
+                    .padding-left(3px);
                     padding-top: 1px;
                 }
             }
@@ -684,7 +705,7 @@ input[type=checkbox]:checked + label{
         & > label{
             position: absolute;
             z-index: 10;
-            padding: 7px 12px 0 12px;
+            .padding(7px, 12px, 0, 12px);
             &.label-lg{
                 left: 0;
                 top: 0;
@@ -698,7 +719,7 @@ input[type=checkbox]:checked + label{
             .cs-placeholder{
                 padding-top: 28px;
                 height: 52px;
-                padding-left: 12px;
+                .padding-left(12px);
             }
             .cs-select{
                 height: auto;
@@ -797,7 +818,7 @@ input[type=checkbox]:checked + label{
     }
     .arrow {
         position: relative;
-        right: -6px;
+        .right(-6px);
         color: #D1DADE;
         z-index: 100;
         &:before {
@@ -805,7 +826,7 @@ input[type=checkbox]:checked + label{
             content:"\f0da";
             font-size: 23px;
             position: absolute;
-            left: 17px;
+            .left(17px);
             top: -2px;
         }
     }
@@ -816,7 +837,7 @@ input[type=checkbox]:checked + label{
                 content:"\f0d9";
                 font-size: 23px;
                 position: absolute;
-                left: -23px;
+                .left(-23px);
                 top: -2px;
             }
         }
@@ -1018,6 +1039,8 @@ http://ivaynberg.github.io/select2/
         transition: border 0.2s linear 0s;
         height: 35px;
         .select2-arrow {
+            .right(0);
+            .left(auto);
             background: transparent;
             border-left: 0px;
             .transition(all 0.3s ease);
@@ -1027,10 +1050,14 @@ http://ivaynberg.github.io/select2/
                     content:"\f0d7";
                     position: relative;
                     top: 2px;
-                    right: 5px;
+                    .right(5px);
                     font-size: 12px;
                 }
             }
+        }
+        & > .select2-chosen{
+            .margin-right(26px);
+            .margin-left(0);
         }
     }
     &.select2-drop-above {
@@ -1096,7 +1123,7 @@ http://ivaynberg.github.io/select2/
     }
 }
 .select2-results {
-    margin: 3px 10px 10px 3px;
+    .margin( 3px, 10px, 10px, 3px);
     li {
         color: @color-master;
         &.select2-result-with-children {
@@ -1121,7 +1148,7 @@ http://ivaynberg.github.io/select2/
         background: none;
         color: @color-master;
         font-size: 12px;
-        padding-left: 8px;
+        .padding-left(8px);
         padding-top: 0px;
         position: relative;
         top: -5px;
@@ -1149,8 +1176,8 @@ http://ivaynberg.github.io/select2/
             box-shadow: none;
             color: inherit;
             border-radius: 8px;
-            margin: 8px -5px 7px 10px;
-            padding: 4px 8px 4px 21px;
+            margin:8px -5px 7px 10px;
+            .padding(4px, 8px, 4px, 21px);
         }
     }
     &.select2-container-active {
@@ -1163,13 +1190,13 @@ http://ivaynberg.github.io/select2/
         }
     }
     .select2-search-choice-close {
-        left: 6px;
+        .left(6px);
     }
 }
 .select2-search-choice-close {
     background: none;
     top: 4px;
-    right: 0;
+    .right(0);
     &:hover {
         text-decoration: none;
     }
@@ -1216,6 +1243,9 @@ http://ivaynberg.github.io/select2/
     .select2-drop-active{
         z-index: 1051;
     }
+    .datepicker.dropdown-menu{
+        z-index: 1051 !important;
+    }
     .select2-drop-mask{
         z-index: 1050;
     }
@@ -1246,7 +1276,7 @@ https://github.com/timschlechter/bootstrap-tagsinput
 
 .form-group-default .bootstrap-tagsinput{
     border:0px;
-    padding-left: 0;
+    .padding-left(0);
 }
 .bootstrap-tagsinput {
     background-color: transparent;
@@ -1268,7 +1298,7 @@ https://github.com/timschlechter/bootstrap-tagsinput
     .tag {
         vertical-align: middle;
         padding: 6px 9px;
-        padding-right: 6px;
+        .padding-right(6px);
         border-radius: 3px;
         line-height: 30px;
     }
@@ -1319,8 +1349,8 @@ https://github.com/Waxolunist/bootstrap3-wysihtml5-bower
                 opacity: 1;
             }
             &.dropdown-toggle {
-                padding-left: 10px;
-                padding-right: 20px;
+                .padding-left(10px);
+                .padding-right(20px);
                 .current-font {
                     opacity: .5;
                     font-size: 14px;
@@ -1354,7 +1384,7 @@ https://github.com/Waxolunist/bootstrap3-wysihtml5-bower
         line-height: 50px;
         padding: 0 15px;
         position: absolute;
-        right: 0;
+        .right(0);
     }
     .wysihtml5-sandbox{
         border: none !important;
@@ -1367,7 +1397,7 @@ https://github.com/Waxolunist/bootstrap3-wysihtml5-bower
 }
 .toggle-wysiwyg {
     position: absolute;
-    right: 15px;
+    .right(15px);
     top: 0;
     li {
         display: inline-block;
@@ -1553,9 +1583,8 @@ div.cs-select {
     display: inline-block;
     vertical-align: middle;
     position: relative;
-    text-align: left;
+    .text-align(left);
     background: #fff;
-    z-index: @zIndex-dropdown;
     width: 100%;
     max-width: 500px;
     -webkit-touch-callout: none;
@@ -1586,7 +1615,7 @@ div.cs-select:focus {
 
 /* Placeholder and selected option */
 .cs-select > span {
-    padding-right: 3em;
+    .padding-right(3em);
 }
 
 .cs-select > span::after,
@@ -1602,12 +1631,12 @@ div.cs-select:focus {
 
 .cs-select > span::after {
     content: '\25BE';
-    right: 1em;
+    .right(1em);
 }
 
 .cs-select .cs-selected span::after {
     content: '\2713';
-    margin-left: 1em;
+    .margin-left(1em);
 }
 
 .cs-select.cs-active > span::after {
@@ -1645,7 +1674,7 @@ div.cs-select:focus {
 
 /* Optgroup and optgroup label */
 .cs-select li.cs-optgroup ul {
-    padding-left: 1em;
+    .padding-left(1em);
 }
 
 .cs-select li.cs-optgroup > span {
@@ -1711,9 +1740,8 @@ div.cs-skin-slide::before {
     height: 400%;
     padding: 1.9em 0;
     top: 50%;
-    left: 50%;
-    -webkit-transform: translate3d(-50%,-50%,0);
-    transform: translate3d(-50%,-50%,0);
+    .left(50%);
+    .translate3d(-50%,-50%,0);
 }
 
 @media screen and (max-width: 30em) {
@@ -1764,7 +1792,7 @@ div.cs-skin-slide::before {
     font-weight: 500;
     letter-spacing: 2px;
     font-size: 65%;
-    padding: 0.8em 1em 0.8em 2.5em;
+    .padding(0.8em, 1em, 0.8em, 2.5em);
 }
 
 .cs-skin-slide .cs-options li span:hover,
@@ -1782,7 +1810,7 @@ div.cs-skin-slide::before {
 /* Pages Select  overriding */
 
 .form-group-default .cs-skin-slide > span{
-    padding: 0 30px 0 0;
+    .padding( 0, 30px, 0, 0);
     height: 22px;
     line-height: 21px;
 }
@@ -1828,8 +1856,9 @@ div.cs-skin-slide{
     }
     & > span{
         height: 35px;
-        padding: 6px 33px 6px 17px;
+        .padding(6px, 33px, 6px, 17px);
         line-height: 23px;
+        z-index: 1;
     }
     &.cs-active{
         z-index: @zIndex-navbar - 10;
@@ -1857,6 +1886,7 @@ div.cs-skin-slide{
         max-height: 350px;
         transform: translate3d(1,1,1);
         overflow: hidden;
+        z-index: 1;
           ul{
             width: 100%;
             display: table;
@@ -1889,7 +1919,6 @@ div.cs-skin-slide{
     position: absolute;
     right: 0;
     top: 0;
-    z-index: -1;
     .transition(all .3s ease);
     
 }

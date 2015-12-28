@@ -1,14 +1,5 @@
 //*********************************** START PLUGIN EXTENTIONS  ***************************** 
 
-/* Set the defaults for DataTables initialisation */
-$.extend(true, $.fn.dataTable.defaults, {
-    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span12'p i>>",
-    "sPaginationType": "bootstrap",
-    "oLanguage": {
-        "sLengthMenu": "_MENU_"
-    }
-});
-
 
 /* Default class modification */
 $.extend($.fn.dataTableExt.oStdClasses, {
@@ -112,42 +103,6 @@ $.extend($.fn.dataTableExt.oPagination, {
     }
 });
 
-
-/*
- * TableTools Bootstrap compatibility
- * Required TableTools 2.1+
- */
-
-// Set the classes that TableTools uses to something suitable for Bootstrap
-$.extend(true, $.fn.DataTable.TableTools.classes, {
-    "container": "DTTT btn-group",
-    "buttons": {
-        "normal": "btn btn-white",
-        "disabled": "disabled"
-    },
-    "collection": {
-        "container": "DTTT_dropdown dropdown-menu",
-        "buttons": {
-            "normal": "",
-            "disabled": "disabled"
-        }
-    },
-    "print": {
-        "info": "DTTT_print_info modal"
-    },
-    "select": {
-        "row": "active"
-    }
-});
-
-// Have the collection use a bootstrap compatible dropdown
-$.extend(true, $.fn.DataTable.TableTools.DEFAULTS.oTags, {
-    "collection": {
-        "container": "ul",
-        "button": "li",
-        "liner": "a"
-    }
-});
 
 $(".select2-wrapper").length && $.fn.select2 && $(".select2-wrapper").select2({
     minimumResultsForSearch: -1

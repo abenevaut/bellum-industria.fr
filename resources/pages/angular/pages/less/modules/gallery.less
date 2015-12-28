@@ -87,7 +87,7 @@
         width: 845px;
         max-width: 845px;
         padding: 0;
-        text-align: left;
+        .text-align(left);
         border: 1px solid rgba(0, 0, 0, 0.8);
         .dialog__overview {
             height: 516px;
@@ -95,7 +95,7 @@
             .buy-now {
                 position: absolute;
                 bottom: 20px;
-                right: 35px;
+                .right(35px);
             }
             .item-slideshow .slide {
                 width: 516px;
@@ -120,7 +120,7 @@
                 background: rgba(255, 255, 255, .1);
                 position: absolute;
                 height: 27px;
-                right: 0;
+                .right(0);
                 top: 24px;
             }
             .recommended {
@@ -139,12 +139,12 @@
         }
         .close {
             top: 15px;
-            right: 15px;
+            .right(15px);
             z-index: 100;
         }
     }
     .owl-nav {
-        left: 0;
+        .left(0);
         position: absolute;
         top: 50%;
         width: 100%;
@@ -153,10 +153,10 @@
         font-size: 18px;
         padding: 0 20px;
         .owl-prev {
-            float: left;
+            .float(left);
         }
         .owl-next {
-            float: right;
+            .float(right);
         }
     }
     .owl-dots {
@@ -169,14 +169,16 @@
             border-radius: 10px;
             display: inline-block;
             background: rgba(0, 0, 0, .3);
-            margin-left: 6px;
+            .margin-left(6px);
             &.active {
                 background: #fff;
             }
         }
     }
 }
-
+.owl-carousel .owl-stage-outer{
+    direction: ltr;
+}
 .gallery-filters{
     position: absolute;
     left: 0;
@@ -214,7 +216,7 @@
             height: auto !important;
             .buy-now {
                 position: static !important;
-                float: right;
+                .float(right);
                 margin-bottom: 20px;
             }
         }

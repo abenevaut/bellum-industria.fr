@@ -87,6 +87,8 @@ class AuthController extends Controller
     {
         $user = Socialite::driver($provider)->user();
 
+        dd($user);
+
         // Todo : Si logguer -> ajouter le token au compte courant
         // Todo : Si pas logguer -> on enregistre l'utilisateur
     }
