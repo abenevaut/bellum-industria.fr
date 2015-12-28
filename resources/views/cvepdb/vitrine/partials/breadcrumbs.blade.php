@@ -1,7 +1,7 @@
 <!-- Begin White Wrapper -->
 <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
     <!-- Begin Inner -->
-    <div class="layout__body-wrapper__content-wrapper__inner">
+    <div class="layout__body-wrapper__content-wrapper__inner layout__body-wrapper__content-wrapper__inner--breadcrumbs">
         <div class="alignleft">
             {!! $breadcrumbs or '' !!}
         </div>

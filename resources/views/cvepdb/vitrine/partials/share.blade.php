@@ -1,5 +1,5 @@
 <div>
-    <h4 class="aligncenter">{{ trans('cvepdb.vitrine.index.share') }}</h4>
+    <h4 class="aligncenter">{{ trans('cvepdb/vitrine/partials/share.title') }}</h4>
     <br>
     <ul class="layout__body-wrapper__content-wrapper__inner__widget-share layout__body-wrapper__content-wrapper__inner__widget-share--2line js-layout__body-wrapper__content-wrapper__inner__widget-share aligncenter">
 

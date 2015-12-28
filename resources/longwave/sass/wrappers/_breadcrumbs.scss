@@ -3,6 +3,17 @@
     padding: 15px 0px;
 }
 
+ul.breadcrumbs {
+    margin-top: 6px;
+
+    list-style: none;
+    overflow: hidden;
+}
+
+ul.breadcrumbs li {
+    float: left;
+}
+
 #language_switcher.dropdown,
 #language_switcher.only-dropdown
 {

@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Vitrine / layouts / default.blade
+    | Vitrine / index.blade
     |--------------------------------------------------------------------------
     |
     | The following language lines are used during vitrine.index

@@ -12,7 +12,7 @@ class AbsBaseController extends BaseController
 
     public function __construct() {
         $this->breadcrumbs = new Breadcrumbs;
-        $this->breadcrumbs->setDivider('/');
+        $this->breadcrumbs->setDivider('<i class="icon-right-dir"></i>');
         // $this->breadcrumbs->setListElement('');
         $this->breadcrumbs->addCrumb('Home', '/');
     }
