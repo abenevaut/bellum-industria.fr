@@ -2,7 +2,7 @@
 
 namespace App\CVEPDB\Multigaming\Controllers;
 
-use App\CVEPDB\Interfaces\Controllers\AbsController as Controller;
+use App\CVEPDB\Multigaming\Controllers\Abs\AbsController as Controller;
 use Invisnik\LaravelSteamAuth\SteamAuth;
 use App\User;
 

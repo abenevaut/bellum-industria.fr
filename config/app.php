@@ -154,6 +154,8 @@ return [
         Invisnik\LaravelSteamAuth\SteamServiceProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
+
+        Barryvdh\Debugbar\ServiceProvider::class
     ],
 
     /*
@@ -210,6 +212,8 @@ return [
         'HTML'=> 'Illuminate\Html\HtmlFacade',
 
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 

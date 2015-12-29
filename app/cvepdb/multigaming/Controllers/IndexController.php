@@ -2,7 +2,7 @@
 
 namespace App\CVEPDB\Multigaming\Controllers;
 
-use App\CVEPDB\Interfaces\Controllers\AbsBaseController as BaseController;
+use App\CVEPDB\Multigaming\Controllers\Abs\AbsBaseController as BaseController;
 
 
 use GuzzleHttp\Client;
@@ -24,7 +24,7 @@ class IndexController extends BaseController
         $this->breadcrumbs->addCrumb('Home', 'multigaming/');
     }
 
-    public function index()
+    public function getIndex()
     {
 
 
@@ -306,7 +306,7 @@ class IndexController extends BaseController
         return view('cvepdb.multigaming.index', ['breadcrumbs' => $this->breadcrumbs, 'threads' => $threads]);
     }
 
-    public function boutique()
+    public function getBoutique()
     {
         $this->breadcrumbs->addCrumb('Boutique', 'multigaming/boutique');
         return view('cvepdb.multigaming.boutique', ['breadcrumbs' => $this->breadcrumbs]);

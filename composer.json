@@ -33,7 +33,8 @@
         "da-mitchell/steam-api": "^2.1",
         "laravel/socialite": "^2.0",
         "guzzlehttp/guzzle": "^6.1",
-        "cvepdb/abstract": "dev-master"
+        "cvepdb/abstract": "dev-master",
+        "barryvdh/laravel-debugbar": "^2.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

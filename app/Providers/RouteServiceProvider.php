@@ -14,7 +14,11 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'App\Http\Controllers';
+    //    protected $namespace = 'App\Http\Controllers';
+    protected $namespace_vitrine = 'App\CVEPDB\Vitrine\Controllers';
+    protected $namespace_clients = 'App\CVEPDB\Clients\Controllers';
+    protected $namespace_multigaming = 'App\CVEPDB\Multigaming\Controllers';
+    protected $namespace_api = 'App\CVEPDB\Api\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -37,8 +41,48 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map(Router $router)
     {
-        $router->group(['namespace' => $this->namespace], function ($router) {
-            require app_path('Http/routes.php');
+        //        $router->group(['namespace' => $this->namespace], function ($router) {
+        //            require app_path('Http/routes.php');
+        //        });
+
+        /*
+        |--------------------------------------------------------------------------
+        | Vitrine Router
+        |--------------------------------------------------------------------------
+        */
+
+        $router->group(['namespace' => $this->namespace_vitrine], function ($router) {
+            require app_path('cvepdb/vitrine/routes.php');
+        });
+
+        /*
+        |--------------------------------------------------------------------------
+        | Clients Router
+        |--------------------------------------------------------------------------
+        */
+
+        $router->group(['namespace' => $this->namespace_clients], function ($router) {
+            require app_path('cvepdb/clients/routes.php');
+        });
+
+        /*
+        |--------------------------------------------------------------------------
+        | Multigaming Router
+        |--------------------------------------------------------------------------
+        */
+
+        $router->group(['namespace' => $this->namespace_multigaming], function ($router) {
+            require app_path('cvepdb/multigaming/routes.php');
+        });
+
+        /*
+        |--------------------------------------------------------------------------
+        | Api Router
+        |--------------------------------------------------------------------------
+        */
+
+        $router->group(['namespace' => $this->namespace_api], function ($router) {
+            require app_path('cvepdb/api/routes.php');
         });
     }
 }
