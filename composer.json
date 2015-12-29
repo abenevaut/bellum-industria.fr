@@ -4,6 +4,21 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "cvepdb/abstract",
+                "version": "dev-master",
+                "type": "package",
+                "source": {
+                    "url": "git@gitlab.com:cvepdb/abstract.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
@@ -17,7 +32,8 @@
         "xpaw/php-source-query-class": "^1.0",
         "da-mitchell/steam-api": "^2.1",
         "laravel/socialite": "^2.0",
-        "guzzlehttp/guzzle": "^6.1"
+        "guzzlehttp/guzzle": "^6.1",
+        "cvepdb/abstract": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

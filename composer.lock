@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5a49b8eac803cf495402f5b45627fb23",
-    "content-hash": "04c23353f180cc643758ddaa7b20ee77",
+    "hash": "8aed9961e2c210c3bd90b6db328cfdff",
+    "content-hash": "5559887f31a5ba1e7762673ab8fe2965",
     "packages": [
         {
             "name": "chrisbjr/api-guard",
@@ -200,17 +200,28 @@
             "time": "2015-03-07 18:48:36"
         },
         {
+            "name": "cvepdb/abstract",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb/abstract.git",
+                "reference": "master"
+            },
+            "type": "package",
+            "time": "2015-10-02 19:07:38"
+        },
+        {
             "name": "da-mitchell/steam-api",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DaMitchell/steam-api-php.git",
-                "reference": "8554eecda2a0f48bedbffe4f2ec2d591d40555fa"
+                "reference": "c004d4eecfeaf85d48a262b820934deebce82678"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DaMitchell/steam-api-php/zipball/8554eecda2a0f48bedbffe4f2ec2d591d40555fa",
-                "reference": "8554eecda2a0f48bedbffe4f2ec2d591d40555fa",
+                "url": "https://api.github.com/repos/DaMitchell/steam-api-php/zipball/c004d4eecfeaf85d48a262b820934deebce82678",
+                "reference": "c004d4eecfeaf85d48a262b820934deebce82678",
                 "shasum": ""
             },
             "require": {
@@ -252,7 +263,7 @@
                 "dota",
                 "steam"
             ],
-            "time": "2015-12-28 01:29:25"
+            "time": "2015-12-28 17:42:46"
         },
         {
             "name": "danielstjules/stringy",
@@ -4321,7 +4332,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "zizaco/entrust": 20
+        "zizaco/entrust": 20,
+        "cvepdb/abstract": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
