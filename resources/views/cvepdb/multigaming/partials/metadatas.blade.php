@@ -38,11 +38,13 @@
         margin: 10px 0px;
         padding: 13px 15px;
     }
-
     .required {
         color: #ff0000;
     }
     .forms fieldset .has-error .text-input {
         border-color: #ff0000;
+    }
+    .forms fieldset .has-success .text-input {
+        border-color: #2E7D32;
     }
 </style>

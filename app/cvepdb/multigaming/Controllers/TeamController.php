@@ -7,6 +7,7 @@ use Session;
 
 use App\CVEPDB\Multigaming\Controllers\Abs\AbsBaseController as BaseController;
 use App\CVEPDB\Multigaming\Repositories\TeamRepository as TeamRepository;
+use App\CVEPDB\Multigaming\Requests\TeamFormRequest as TeamFormRequest;
 
 use  App\CVEPDB\Multigaming\Models\User;
 use GuzzleHttp\Middleware;
@@ -70,16 +71,19 @@ class TeamController extends BaseController
      *
      * @return mixed
      */
-    public function postStoreTeam()
+    public function postStoreTeam(TeamFormRequest $request)
     {
         if (!Auth::check()) {
             redirect('multigaming');
         }
 
-        if ( Session::token() !== Input::get( '_token' ) ) {
-            return Response::json( array(
-                'msg' => 'Erreur!'
-            ) );
-        }
+        dd( $request->get('name') );
+
+        $this->teams->create([
+            'name' => $request->get('name')
+        ]);
+
+        return \Redirect::route('multigaming/teams')
+            ->with('message', 'The team was successfully added!');
     }
 }

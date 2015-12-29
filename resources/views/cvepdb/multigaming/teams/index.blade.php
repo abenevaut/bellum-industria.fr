@@ -45,23 +45,30 @@
 
                 <div class="form-container">
                     <div class="response"></div>
-                    <form id="teams_add" class="forms js-call-form_validation" action="" method="post">
+                    {!! Form::open(array(
+                        'url' => '/multigaming/teams/store-team',
+                        'method' => 'post',
+                        'id' => "teams_add",
+                        'class' => "forms js-call-form_validation"
+                       )) !!}
                         <fieldset>
                             <ol>
                                 <li class="form-row">
-                                    <label for="">Team name <span class="required">*</span></label>
-                                    <input type="text" name="team_name" class="text-input" title="Team name (Required)">
+                                    {!! Form::label('Team name') !!} <span class="required">*</span>
+                                    {!! Form::text('team_name', null,
+                                        array('required',
+                                              'class'=>'text-input',
+                                              'placeholder'=>'Your name',
+                                              'title' => "Team name (Required)"
+                                              )) !!}
                                 </li>
                                 <li class="button-row">
-                                    <input type="submit" value="Submit" name="submit" class="btn-submit">
+                                    {!! Form::submit('Submit', array('class'=>'btn-submit')) !!}
                                 </li>
                             </ol>
                         </fieldset>
-                    </form>
+                    {!! Form::close() !!}
                 </div>
-
-
-
 
 
             </div>
