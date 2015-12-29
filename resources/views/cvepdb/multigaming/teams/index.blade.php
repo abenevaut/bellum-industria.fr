@@ -35,7 +35,7 @@
     @if (Auth::check())
         <!-- Begin Gray Wrapper -->
         <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even js-teams-init js-teams-admin_box"
-                style="display:none;">
+                style="">
             <!-- Begin Inner -->
             <div class="layout__body-wrapper__content-wrapper__inner">
 
@@ -46,7 +46,7 @@
                 <div class="form-container">
                     <div class="response"></div>
                     {!! Form::open(array(
-                        'url' => '/multigaming/teams/store-team',
+                        'route' => 'teams_store',
                         'method' => 'post',
                         'id' => "teams_add",
                         'class' => "forms js-call-form_validation"
@@ -55,7 +55,7 @@
                             <ol>
                                 <li class="form-row">
                                     {!! Form::label('Team name') !!} <span class="required">*</span>
-                                    {!! Form::text('team_name', null,
+                                    {!! Form::text('name', null,
                                         array('required',
                                               'class'=>'text-input',
                                               'placeholder'=>'Your name',

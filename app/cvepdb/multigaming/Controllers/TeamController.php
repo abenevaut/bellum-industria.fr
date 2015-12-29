@@ -77,13 +77,11 @@ class TeamController extends BaseController
             redirect('multigaming');
         }
 
-        dd( $request->get('name') );
-
         $this->teams->create([
             'name' => $request->get('name')
         ]);
 
-        return \Redirect::route('multigaming/teams')
+        return \Redirect::route('teams')
             ->with('message', 'The team was successfully added!');
     }
 }

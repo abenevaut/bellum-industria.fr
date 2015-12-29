@@ -19,38 +19,25 @@
     };
 
     _teams.teams = {
-
         admin_box: $('.js-teams-admin_box'),
         admin_btn_add: $('.js-teams-add_new_team'),
-
         init_add_form: function () {
             cvepdb.debug('teams.js > init_add_form : success : Start');
-
             _teams.teams.admin_btn_add.click(function () {
                 if (!_teams.teams.admin_box.is(":visible")) {
                     _teams.teams.admin_box.slideDown("slow");
-
-                    _teams.teams.admin_btn_add.find('i').removeClass('icon-plus-1').addClass('icon-minus-1');
+                    _teams.teams.admin_btn_add.find('i')
+                        .removeClass('icon-plus-1')
+                        .addClass('icon-minus-1');
                 }
                 else {
                     _teams.teams.admin_box.slideUp("slow");
-                    _teams.teams.admin_btn_add.find('i').removeClass('icon-minus-1').addClass('icon-plus-1');
+                    _teams.teams.admin_btn_add.find('i')
+                        .removeClass('icon-minus-1')
+                        .addClass('icon-plus-1');
                 }
             });
-
             cvepdb.debug('teams.js > init_add_form : success : End');
-        },
-        display_add_form: function () {
-            cvepdb.debug('teams.js > display_add_form : success : Start');
-            cvepdb.debug('teams.js > display_add_form : success : End');
-        },
-        hide_add_form: function () {
-            cvepdb.debug('teams.js > hide_add_form : success : Start');
-            cvepdb.debug('teams.js > hide_add_form : success : End');
-        },
-        submit_add_form: function () {
-            cvepdb.debug('teams.js > submit_add_form : success : Start');
-            cvepdb.debug('teams.js > submit_add_form : success : End');
         }
     };
 
@@ -64,39 +51,43 @@
         cvepdb.debug('teams.js > CVEPDB_FORM_VALIDATION_JQREADY : success : Start');
 
         cvepdb.fv.on_submit(function () {
-            return false;
+            return true;
         });
 
         cvepdb.fv.set_rules('form#teams_add', {
             errorPlacement: function (error, element) {
 
-                if (element.attr('type') == 'checkbox') {
-                    error.insertBefore(element.closest('div'));
-                } else {
-                    error.insertAfter(element);
-                }
-                var current_form_group = element.closest(".form-group");
+                error.insertAfter(element);
+
+                var current_form_group = element.closest(".form-row");
                 current_form_group.removeClass("has-success");
                 current_form_group.addClass("has-error");
 
-            }, errorElement: "div", errorClass: 'required', rules: {
-                email: {
-                    required: true, email: true
+            },
+            errorElement: "div",
+            errorClass: 'required',
+            rules: {
+                team_name: {
+                    required: true
                 }
-            }, messages: {
-                name: {
+            },
+            messages: {
+                team_name: {
                     required: cvepdb.globalize.translate('FIELD_REQUIRED')
                 }
-            }, highlight: function (element) { // <-- fires when element has error
-                var current_form_group = $(element).closest(".form-group");
+            },
+            highlight: function (element) { // <-- fires when element has error
+                var current_form_group = $(element).closest(".form-row");
                 current_form_group.removeClass("has-success");
                 current_form_group.addClass("has-error");
-            }, unhighlight: function (element) { // <-- fires when element is valid
-                var current_form_group = $(element).closest(".form-group");
+            },
+            unhighlight: function (element) { // <-- fires when element is valid
+                var current_form_group = $(element).closest(".form-row");
                 current_form_group.removeClass("has-error");
                 current_form_group.addClass("has-success");
-            }, success: function (element) {
-                var current_form_group = element.closest(".form-group");
+            },
+            success: function (element) {
+                var current_form_group = element.closest(".form-row");
                 current_form_group.removeClass("has-error");
                 current_form_group.addClass("has-success");
             }
