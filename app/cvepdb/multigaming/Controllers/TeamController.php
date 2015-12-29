@@ -37,7 +37,7 @@ class TeamController extends BaseController
             'cvepdb.multigaming.teams.index',
             [
                 'breadcrumbs' => $this->breadcrumbs,
-                'teams' => $this->teams->all()
+                'teams' => $this->teams->paginate(5)
             ]
         );
     }

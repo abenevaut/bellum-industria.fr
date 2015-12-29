@@ -16,7 +16,7 @@ class TeamRepository //implements RepositoryInterface
 
     public function paginate($perPage = 15, $columns = array('*'))
     {
-        return TeamModel::all()->paginate($perPage);
+        return TeamModel::paginate($perPage);
     }
 
     public function create(array $data)

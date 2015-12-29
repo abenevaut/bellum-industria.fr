@@ -117,6 +117,8 @@
 
             @endforeach
 
+            {!! $teams->render() !!}
+
         </div>
         <!-- Begin Inner -->
     </div>
