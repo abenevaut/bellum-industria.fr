@@ -13,6 +13,7 @@ var config = {
     assets: './resources/pages/assets',
     longwave: './resources/longwave',
     layouts: './resources/layouts',
+    partials: './resources/partials',
     cvepdb: './resources/cvepdb',
     clip: './resources/clip/clip-2',
     build: './public/dist'
@@ -81,6 +82,10 @@ gulp.task('copy', ['clean'], function () {
             config.layouts + '/**',
             '!' + config.layouts + '/multigaming/**',
             '!' + config.layouts + '/vitrine/**',
+
+            config.partials + '/**',
+            '!' + config.partials + '/multigaming/**',
+            '!' + config.partials + '/vitrine/**',
 
             config.cvepdb + '/**',
             '!' + config.cvepdb + '/sass/**',

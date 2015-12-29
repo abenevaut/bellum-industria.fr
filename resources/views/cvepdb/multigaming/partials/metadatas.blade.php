@@ -14,11 +14,11 @@
         ENV_REF: 'dev',
         ENV_THEME: '',
         IDUSER: 0,
-        LANG: 'fr',
+        LANG: '{{ App::getLocale()  }}',
         URI_BASE: '',
         URL_BASE: '',
         URL_SITE: '',
-        URL_THEME: '../',
+        URL_THEME: '/',
         BASE_PATH: 'dist/cvepdbjs/',
         LIVEREALOAD: {
             //			url: '',
@@ -37,5 +37,12 @@
         clear: both;
         margin: 10px 0px;
         padding: 13px 15px;
+    }
+
+    .required {
+        color: #ff0000;
+    }
+    .forms fieldset .has-error .text-input {
+        border-color: #ff0000;
     }
 </style>
