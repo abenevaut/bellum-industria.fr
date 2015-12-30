@@ -67,8 +67,7 @@ class TeamController extends BaseController
     }
 
     /**
-     * AJAX
-     *
+     * @param TeamFormRequest $request
      * @return mixed
      */
     public function postStoreTeam(TeamFormRequest $request)
@@ -80,6 +79,29 @@ class TeamController extends BaseController
         $this->teams->create([
             'name' => $request->get('name')
         ]);
+
+        return \Redirect::route('teams')
+            ->with('message', 'The team was successfully added!');
+    }
+
+    /**
+     * @param TeamFormRequest $request
+     * @return mixed
+     */
+    public function putStoreTeam(TeamFormRequest $request, $team_id)
+    {
+        if (!Auth::check()) {
+            redirect('multigaming');
+        }
+
+        $team = $this->teams->find($team_id);
+
+        $this->teams->update(
+            $team,
+            [
+                'name' => $request->get('name')
+            ]
+        );
 
         return \Redirect::route('teams')
             ->with('message', 'The team was successfully added!');

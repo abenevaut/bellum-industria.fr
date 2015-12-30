@@ -104,11 +104,13 @@
 
                     @endforeach
 
+                    &nbsp;
+
                 </div>
 
                 <div class="one-third last">
 
-
+                    <a href="javascript:void(0);" class="js-teams-edit" data-team_id="{{ $team->id }}">Edit</a>
 
                 </div>
 
