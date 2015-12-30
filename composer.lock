@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d424936f3a4dd73f39fd05dd866dec90",
-    "content-hash": "19ec1d4dd7e0866b8468d3d32258f6d3",
+    "hash": "2dec5efc6899b6dd0dbbcd015e5bd1fc",
+    "content-hash": "e3347527d8f2a0cb8eb0baa88ff0df88",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -977,6 +977,58 @@
             "time": "2015-04-20 18:58:01"
         },
         {
+            "name": "jenssegers/raven",
+            "version": "v1.4.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jenssegers/laravel-raven.git",
+                "reference": "6cde4eefe6f1636acb36ee840a0cadbcdfe5ebd6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jenssegers/laravel-raven/zipball/6cde4eefe6f1636acb36ee840a0cadbcdfe5ebd6",
+                "reference": "6cde4eefe6f1636acb36ee840a0cadbcdfe5ebd6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.*|5.*",
+                "php": ">=5.3",
+                "raven/raven": "~0.11"
+            },
+            "require-dev": {
+                "mockery/mockery": "*",
+                "orchestra/testbench": "3.0.*",
+                "satooshi/php-coveralls": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jenssegers\\Raven\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Segers",
+                    "homepage": "http://jenssegers.be"
+                }
+            ],
+            "description": "Sentry (Raven) error monitoring integration for Laravel projects",
+            "keywords": [
+                "error",
+                "getsentry",
+                "laravel",
+                "logging",
+                "monitoring",
+                "raven",
+                "sentry"
+            ],
+            "time": "2015-05-30 21:28:15"
+        },
+        {
             "name": "jeremeamia/SuperClosure",
             "version": "2.2.0",
             "source": {
@@ -1565,49 +1617,6 @@
             "time": "2015-10-14 12:51:02"
         },
         {
-            "name": "mpdf/mpdf",
-            "version": "v6.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mpdf/mpdf.git",
-                "reference": "a15743d030ce3b5b7be36c6e83f76589b27c3f2c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mpdf/mpdf/zipball/a15743d030ce3b5b7be36c6e83f76589b27c3f2c",
-                "reference": "a15743d030ce3b5b7be36c6e83f76589b27c3f2c",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": ">=4.3.10"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "mpdf.php",
-                    "classes"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-1.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Ian Back"
-                }
-            ],
-            "description": "A PHP class to generate PDF files from HTML with Unicode/UTF-8 and CJK support",
-            "homepage": "http://www.mpdf1.com/mpdf/index.php",
-            "keywords": [
-                "pdf",
-                "php",
-                "utf-8"
-            ],
-            "time": "2015-03-01 10:27:49"
-        },
-        {
             "name": "mtdowling/cron-expression",
             "version": "v1.0.4",
             "source": {
@@ -2005,6 +2014,60 @@
                 "shell"
             ],
             "time": "2015-11-12 16:18:56"
+        },
+        {
+            "name": "raven/raven",
+            "version": "0.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/getsentry/raven-php.git",
+                "reference": "1d5be07afc001df98a3528d1f928eeb2241afce6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/getsentry/raven-php/zipball/1d5be07afc001df98a3528d1f928eeb2241afce6",
+                "reference": "1d5be07afc001df98a3528d1f928eeb2241afce6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.2.4"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "^1.8.0",
+                "phpunit/phpunit": "^4.6.6"
+            },
+            "bin": [
+                "bin/raven"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.13.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Raven_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "David Cramer",
+                    "email": "dcramer@gmail.com"
+                }
+            ],
+            "description": "A PHP client for Sentry (http://getsentry.com)",
+            "homepage": "http://getsentry.com",
+            "keywords": [
+                "log",
+                "logging"
+            ],
+            "time": "2015-09-09 18:12:58"
         },
         {
             "name": "swiftmailer/swiftmailer",

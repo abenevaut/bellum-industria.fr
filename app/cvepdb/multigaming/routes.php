@@ -24,7 +24,8 @@ Route::group(['prefix' => 'multigaming'], function () {
     Route::group(['prefix' => 'teams'], function () {
         Route::get('/', ['as' => 'teams', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@getIndex']);
         Route::get('show/{team_id?}', '\App\CVEPDB\Multigaming\Controllers\TeamController@getShow');
-        Route::put('put-team/{team_id?}', ['as' => 'teams_put', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@putStoreTeam']);
+        Route::get('store-team/{team_id?}', ['as' => 'teams_put', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@putStoreTeam']);
         Route::post('store-team', ['as' => 'teams_store', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@postStoreTeam']);
+        Route::delete('remove-team/{team_id?}', ['as' => 'teams_delete', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@deleteRemoveTeam']);
     });
 });

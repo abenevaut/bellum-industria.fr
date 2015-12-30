@@ -35,7 +35,7 @@
     @if (Auth::check())
         <!-- Begin Gray Wrapper -->
         <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even js-teams-init js-teams-admin_box"
-                style="">
+                style="display:none;">
             <!-- Begin Inner -->
             <div class="layout__body-wrapper__content-wrapper__inner">
 
@@ -47,9 +47,11 @@
                     <div class="response"></div>
                     {!! Form::open(array(
                         'route' => 'teams_store',
-                        'method' => 'post',
+                        'method' => 'POST',
                         'id' => "teams_add",
-                        'class' => "forms js-call-form_validation"
+                        'class' => "forms js-call-form_validation",
+                        'data-route_post' => route('teams_store'),
+                        'data-route_put' => route('teams_put')
                        )) !!}
                         <fieldset>
                             <ol>
@@ -110,7 +112,17 @@
 
                 <div class="one-third last">
 
-                    <a href="javascript:void(0);" class="js-teams-edit" data-team_id="{{ $team->id }}">Edit</a>
+                    <a href="javascript:void(0);" class="js-teams-edit"
+                       data-team_id="{{ $team->id }}"
+                       data-team_name="{{ $team->name }}">Edit</a>
+
+
+                    {!! Form::open(array(
+                        'route' => array('teams_delete', $team->id),
+                        'method' => 'DELETE',
+                        'class' => "forms js-teams_delete")) !!}
+                    {!! Form::submit('Submit', array('class' => 'btn-submit')) !!}
+                    {!! Form::close() !!}
 
                 </div>
 

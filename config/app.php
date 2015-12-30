@@ -155,7 +155,9 @@ return [
 
         Laravel\Socialite\SocialiteServiceProvider::class,
 
-        Barryvdh\Debugbar\ServiceProvider::class
+        Barryvdh\Debugbar\ServiceProvider::class,
+
+        'Jenssegers\Raven\RavenServiceProvider',
     ],
 
     /*
@@ -214,6 +216,8 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
+        'Raven'           => 'Jenssegers\Raven\Facades\Raven',
 
     ],
 

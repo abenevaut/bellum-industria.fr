@@ -35,6 +35,11 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'raven' => [
+        'dsn'   => env('SENTRY_DSN'),
+        'level' => env('SENTRY_LEVEL')
+    ],
+
 //    'github' => [
 //        'client_id' => 'your-github-app-id',
 //        'client_secret' => 'your-github-app-secret',

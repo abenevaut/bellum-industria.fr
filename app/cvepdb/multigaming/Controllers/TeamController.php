@@ -88,7 +88,7 @@ class TeamController extends BaseController
      * @param TeamFormRequest $request
      * @return mixed
      */
-    public function putStoreTeam(TeamFormRequest $request, $team_id)
+    public function putStoreTeam($team_id, TeamFormRequest $request)
     {
         if (!Auth::check()) {
             redirect('multigaming');
@@ -104,6 +104,22 @@ class TeamController extends BaseController
         );
 
         return \Redirect::route('teams')
-            ->with('message', 'The team was successfully added!');
+            ->with('message', 'The team was successfully edited!');
+    }
+
+    /**
+     * @param $team_id
+     * @return mixed
+     */
+    public function deleteRemoveTeam($team_id)
+    {
+        if (!Auth::check()) {
+            redirect('multigaming');
+        }
+
+        $this->teams->delete($this->teams->find($team_id));
+
+        return \Redirect::route('teams')
+            ->with('message', 'The team was successfully removed!');
     }
 }
