@@ -11,6 +11,15 @@ class Team extends Model
     use LogTrait;
 
     /**
+     * @var array LogTrait property
+     */
+    protected static $recordEvents = [
+        'created',
+        'updated',
+        'deleted',
+    ];
+
+    /**
      * The database table used by the model.
      *
      * @var string

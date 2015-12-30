@@ -31,7 +31,9 @@ class TeamRepository //implements RepositoryInterface
 
     public function delete(TeamModel $team)
     {
-        return $team->users()->detach() && $team->delete();
+        // Delete pivot table entries
+        $team->users()->detach();
+        return $team->delete();
     }
 
     public function find($id, $columns = array('*'))
