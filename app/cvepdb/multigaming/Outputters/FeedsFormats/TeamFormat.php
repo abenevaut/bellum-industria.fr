@@ -25,7 +25,7 @@ class TeamFormat extends AbsOutputterFeedsFormat
 
     public function getAuthor()
     {
-        return '';
+        return null;
     }
 
     public function getId()
@@ -35,16 +35,16 @@ class TeamFormat extends AbsOutputterFeedsFormat
 
     public function getCreated()
     {
-        return '';
+        return null;
     }
 
     public function getDescription()
     {
-        return '';
+        return null;
     }
 
     public function getContent()
     {
-        return '';
+        return null;
     }
 }
