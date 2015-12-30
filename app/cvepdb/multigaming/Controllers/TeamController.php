@@ -121,7 +121,7 @@ class TeamController extends BaseController
             redirect('multigaming');
         }
 
-        $this->teams->delete($this->teams->find($team_id));
+        $this->teams->deleteById($team_id);
 
         return \Redirect::route('teams')
             ->with('message', 'The team was successfully removed!')
