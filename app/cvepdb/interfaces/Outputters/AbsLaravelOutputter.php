@@ -4,12 +4,13 @@ namespace App\CVEPDB\Interfaces\Outputters;
 
 use App;
 use URL;
+use PDF;
 use Session;
 use Redirect;
 
 use \Creitive\Breadcrumbs\Breadcrumbs as Breadcrumbs;
 
-class AbsLaravelOutputter implements IOutputter, IOutputterHTML, IOutputterSitemap
+class AbsLaravelOutputter implements IOutputter, IOutputterHTML, IOutputterSitemap, IOutputterPDF
 {
     /**
      * @var Breadcrumbs|null
@@ -145,5 +146,54 @@ class AbsLaravelOutputter implements IOutputter, IOutputterHTML, IOutputterSitem
 
         $sitemap->setCache('laravel.' . $sitemap_cache_file_prefix, $sitemap_cache_time);
         return $sitemap->render('sitemapindex', 'sitemap');
+    }
+
+    /**
+     * @param string $partial_path
+     * @param array $partial_data
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function outputPDF($partial_path, $partial_data)
+    {
+        return view(
+            $partial_path,
+            ['breadcrumbs' => $this->breadcrumbs] + $partial_data
+        );
+    }
+
+    /**
+     * @param string $partial_path
+     * @param string $partial_data
+     * @param string $file_name File name without extention
+     * @return mixed
+     */
+    public function downloadPDF($partial_path, $partial_data, $file_name)
+    {
+        return PDF::loadView($partial_path, $partial_data)
+            ->download($file_name . '.pdf');
+    }
+
+    /**
+     * @param string $partial_path
+     * @param string $partial_data
+     * @param string $file_name File name without extention
+     * @return mixed
+     */
+    public function displayPDF($partial_path, $partial_data, $file_name)
+    {
+        return PDF::loadView($partial_path, $partial_data)
+            ->stream($file_name . '.pdf');
+    }
+
+    /**
+     * @param string $partial_path
+     * @param string $partial_data
+     * @param string $file_name File path with the file name without extention
+     * @return mixed
+     */
+    public function storePDF($partial_path, $partial_data, $file_name)
+    {
+        return PDF::loadView($partial_path, $partial_data)
+            ->save($file_name . '.pdf');
     }
 }
