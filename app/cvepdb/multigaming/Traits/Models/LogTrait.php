@@ -26,7 +26,7 @@ trait LogTrait
     {
         foreach (static::getRecordActivityEvents() as $eventName) {
             static::$eventName(function (Model $model) use ($eventName) {
-//                try {
+                try {
                     $reflect = new ReflectionClass($model);
                     return Log::create([
                         'user_id' => Auth::user()->id,
@@ -36,9 +36,9 @@ trait LogTrait
                         'description' => ucfirst($eventName) . " a " . $reflect->getShortName(),
                         'details' => json_encode($model->getDirty())
                     ]);
-//                } catch (Exception $e) {
-//                    ;
-//                }
+                } catch (Exception $e) {
+                    return 1;
+                }
             });
         }
     }
