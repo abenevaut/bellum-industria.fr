@@ -11,12 +11,12 @@ class TeamRepository //implements RepositoryInterface
 {
     public function all(array $columns = array('*'))
     {
-        return TeamModel::all();
+        return TeamModel::all($columns)->load('users');
     }
 
     public function paginate($perPage = 15, $columns = array('*'))
     {
-        return TeamModel::paginate($perPage);
+        return TeamModel::paginate($perPage)->load('users');
     }
 
     public function create(array $data)
@@ -31,16 +31,16 @@ class TeamRepository //implements RepositoryInterface
 
     public function delete(TeamModel $team)
     {
-        return $team->delete();
+        return $team->users()->detach() && $team->delete();
     }
 
     public function find($id, $columns = array('*'))
     {
-        return TeamModel::findOrFail($id);
+        return TeamModel::findOrFail($id)->load('users');
     }
 
     public function findBy($field, $value, $columns = array('*'))
     {
-        return TeamModel::where($field, $value);
+        return TeamModel::where($field, $value)->get($columns)->load('users');
     }
 }

@@ -131,7 +131,7 @@
 
                 @endforeach
 
-                {!! $teams->render() !!}
+{{--                {!! $teams->render() !!}--}}
 
             @else
 

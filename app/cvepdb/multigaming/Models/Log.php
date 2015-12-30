@@ -4,18 +4,14 @@ namespace App\CVEPDB\Multigaming\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\CVEPDB\Multigaming\Traits\Models\LogTrait;
-
-class Team extends Model
+class Log extends Model
 {
-    use LogTrait;
-
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'multigaming_teams';
+    protected $table = 'multigaming_logs';
 
     /**
      * The attributes that are mass assignable.
@@ -23,7 +19,12 @@ class Team extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'user_id',
+        'contentId',
+        'contentType',
+        'action',
+        'description',
+        'details'
     ];
 
     /**
@@ -38,6 +39,6 @@ class Team extends Model
      */
     public function users()
     {
-        return $this->belongsToMany('App\CVEPDB\Multigaming\Models\User', 'multigaming_team_user');
+        return $this->hasOne('App\CVEPDB\Multigaming\Models\User');
     }
 }

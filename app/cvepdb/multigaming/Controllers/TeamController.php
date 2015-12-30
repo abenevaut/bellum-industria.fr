@@ -9,9 +9,10 @@ use App\CVEPDB\Multigaming\Controllers\Abs\AbsBaseController as BaseController;
 use App\CVEPDB\Multigaming\Repositories\TeamRepository as TeamRepository;
 use App\CVEPDB\Multigaming\Requests\TeamFormRequest as TeamFormRequest;
 
-use  App\CVEPDB\Multigaming\Models\User;
-use GuzzleHttp\Middleware;
-
+/**
+ * Class TeamController
+ * @package App\CVEPDB\Multigaming\Controllers
+ */
 class TeamController extends BaseController
 {
     protected $teams;
@@ -86,6 +87,7 @@ class TeamController extends BaseController
     }
 
     /**
+     * @param $team_id
      * @param TeamFormRequest $request
      * @return mixed
      */
