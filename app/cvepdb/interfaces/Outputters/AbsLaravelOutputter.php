@@ -170,6 +170,7 @@ class AbsLaravelOutputter implements IOutputter, IOutputterHTML, IOutputterSitem
         $feed->setCache($feeds_cache_time, $feeds_cache_file_prefix);
 
         if (!$feed->isCached()) {
+
             $feed->title = $format->header['title'];
             $feed->description = $format->header['description'];
             $feed->logo = $format->header['logo_url'];
