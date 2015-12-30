@@ -57,4 +57,16 @@ Route::group(['prefix' => '/'], function () {
         Route::get('view', '\App\CVEPDB\Vitrine\Controllers\PortfolioController@view');
 
     });
+
+    Route::get('/pdf/view', function() {
+
+        //
+
+//        $pdf = App::make('dompdf.wrapper');
+//        $pdf->loadHTML('<h1>Test</h1>');
+//        return $pdf->stream();
+
+//        $pdf = PDF::loadView('cvepdb.vitrine.pdf.index', ['test' => 'test']);
+//        return $pdf->download('invoice.pdf');
+    });
 });

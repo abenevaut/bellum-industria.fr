@@ -8,6 +8,9 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
+use Auth;
+use Log;
+
 class Handler extends ExceptionHandler
 {
     /**
@@ -30,6 +33,12 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $e)
     {
+        $user = Auth::check()
+            ? ['id' => Auth::user()->id , 'email' => Auth::user()->email]
+            : [];
+
+        Log::error($e, ['user' => $user, 'tags' => ['report' => 'LaravelHandler']]);
+
         return parent::report($e);
     }
 
