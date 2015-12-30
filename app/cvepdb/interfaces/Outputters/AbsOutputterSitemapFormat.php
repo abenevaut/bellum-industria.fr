@@ -2,13 +2,8 @@
 
 namespace App\CVEPDB\Interfaces\Outputters;
 
-class AbsOutputterSitemapFormat
+abstract class AbsOutputterSitemapFormat implements IOutputterSitemapFormat
 {
-    public function __construct()
-    {
-
-    }
-
     public function getLoc()
     {
         return null;

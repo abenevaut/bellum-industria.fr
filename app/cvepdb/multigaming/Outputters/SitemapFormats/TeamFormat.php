@@ -6,11 +6,6 @@ use App\CVEPDB\Interfaces\Outputters\AbsOutputterSitemapFormat;
 
 class TeamFormat extends AbsOutputterSitemapFormat
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     public function getLoc()
     {
         return 'id';
