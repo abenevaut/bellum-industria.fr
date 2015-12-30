@@ -10,7 +10,7 @@ use App\CVEPDB\Multigaming\Outputters\TeamOutputter as TeamOutputter;
 
 /**
  * Class TeamDomain
- * @package App\CVEPDB\Multigaming\Controllers
+ * @package App\CVEPDB\Multigaming\Domains
  */
 class TeamDomain
 {
