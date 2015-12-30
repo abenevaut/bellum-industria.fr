@@ -11,3 +11,5 @@ tests/_output/*
 
 public/dist
 public/dist/*
+public/*.xml
+public/*.pdf
