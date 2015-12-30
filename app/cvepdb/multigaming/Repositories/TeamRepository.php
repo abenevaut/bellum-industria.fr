@@ -36,7 +36,7 @@ class TeamRepository //implements RepositoryInterface
 
     public function find($id, $columns = array('*'))
     {
-        return TeamModel::where('id', $id)->first();
+        return TeamModel::findOrFail($id);
     }
 
     public function findBy($field, $value, $columns = array('*'))

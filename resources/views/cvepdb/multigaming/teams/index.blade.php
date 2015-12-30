@@ -85,53 +85,61 @@
         <!-- Begin Inner -->
         <div class="layout__body-wrapper__content-wrapper__inner">
 
+            @if (count($teams))
+                @foreach ($teams as $team)
 
-            @foreach ($teams as $team)
+                <div class="row">
 
-            <div class="row">
+                    <div class="one-third">
 
-                <div class="one-third">
+                        <a href="{{ url('multigaming/teams/show/'.$team->id) }}" title="{!! $team->name !!}">
+                            {!! $team->name !!}
+                        </a>
 
-                    <a href="{{ url('multigaming/teams/show/'.$team->id) }}" title="{!! $team->name !!}">
-                        {!! $team->name !!}
-                    </a>
+                    </div>
+
+                    <div class="one-third">
+
+                        @foreach ($team->users as $teammate)
+
+                            {!! $teammate->first_name !!} - {!! $teammate->steam_token !!} <br>
+
+                        @endforeach
+
+                        &nbsp;
+
+                    </div>
+
+                    <div class="one-third last">
+
+                        <a href="javascript:void(0);" class="js-teams-edit"
+                           data-team_id="{{ $team->id }}"
+                           data-team_name="{{ $team->name }}">Edit</a>
+
+
+                        {!! Form::open(array(
+                            'route' => array('teams_delete', $team->id),
+                            'method' => 'DELETE',
+                            'class' => "forms js-teams_delete")) !!}
+                        {!! Form::submit('Submit', array('class' => 'btn-submit')) !!}
+                        {!! Form::close() !!}
+
+                    </div>
 
                 </div>
+                <div class="clear"></div>
 
-                <div class="one-third">
+                @endforeach
 
-                    @foreach ($team->users as $teammate)
+                {!! $teams->render() !!}
 
-                        {!! $teammate->first_name !!} - {!! $teammate->steam_token !!} <br>
+            @else
 
-                    @endforeach
-
-                    &nbsp;
-
+                <div class="info-box">
+                    Il n'y a aucune équipe pour le moment.
                 </div>
 
-                <div class="one-third last">
-
-                    <a href="javascript:void(0);" class="js-teams-edit"
-                       data-team_id="{{ $team->id }}"
-                       data-team_name="{{ $team->name }}">Edit</a>
-
-
-                    {!! Form::open(array(
-                        'route' => array('teams_delete', $team->id),
-                        'method' => 'DELETE',
-                        'class' => "forms js-teams_delete")) !!}
-                    {!! Form::submit('Submit', array('class' => 'btn-submit')) !!}
-                    {!! Form::close() !!}
-
-                </div>
-
-            </div>
-            <div class="clear"></div>
-
-            @endforeach
-
-            {!! $teams->render() !!}
+            @endif
 
         </div>
         <!-- Begin Inner -->

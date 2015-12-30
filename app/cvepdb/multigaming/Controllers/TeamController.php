@@ -81,7 +81,8 @@ class TeamController extends BaseController
         ]);
 
         return \Redirect::route('teams')
-            ->with('message', 'The team was successfully added!');
+            ->with('message', 'The team was successfully added!')
+            ->with('alert-class', 'download-box');
     }
 
     /**
@@ -104,7 +105,8 @@ class TeamController extends BaseController
         );
 
         return \Redirect::route('teams')
-            ->with('message', 'The team was successfully edited!');
+            ->with('message', 'The team was successfully edited!')
+            ->with('alert-class', 'download-box');
     }
 
     /**
@@ -120,6 +122,7 @@ class TeamController extends BaseController
         $this->teams->delete($this->teams->find($team_id));
 
         return \Redirect::route('teams')
-            ->with('message', 'The team was successfully removed!');
+            ->with('message', 'The team was successfully removed!')
+            ->with('alert-class', 'download-box');
     }
 }

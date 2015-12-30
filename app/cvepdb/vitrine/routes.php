@@ -60,13 +60,15 @@ Route::group(['prefix' => '/'], function () {
 
     Route::get('/pdf/view', function() {
 
-        //
-
 //        $pdf = App::make('dompdf.wrapper');
 //        $pdf->loadHTML('<h1>Test</h1>');
 //        return $pdf->stream();
 
-//        $pdf = PDF::loadView('cvepdb.vitrine.pdf.index', ['test' => 'test']);
-//        return $pdf->download('invoice.pdf');
+        $pdf = PDF::loadView('cvepdb.vitrine.pdf.index', ['test' => 'test']);
+        return $pdf->stream('invoice.pdf');
+        return $pdf->download('invoice.pdf');
+
+        $pdf->save('invoice.pdf');
+        return ;
     });
 });
