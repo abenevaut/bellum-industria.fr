@@ -135,4 +135,13 @@ class TeamDomain
         $teams = $this->teams->all();
         return $this->Outputter->generateTeamsSitemap($teams);
     }
+
+    /**
+     * @return mixed
+     */
+    public function teamsFeeds()
+    {
+        $teams = $this->teams->all();
+        return $this->Outputter->generateTeamsFeeds($teams);
+    }
 }

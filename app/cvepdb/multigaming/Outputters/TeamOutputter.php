@@ -3,7 +3,8 @@
 namespace App\CVEPDB\Multigaming\Outputters;
 
 use App\CVEPDB\Interfaces\Outputters\AbsLaravelOutputter;
-use App\CVEPDB\Multigaming\Outputters\SitemapFormats\TeamFormat as TeamFormat;
+use App\CVEPDB\Multigaming\Outputters\SitemapFormats\TeamFormat as TeamSitemapFormat;
+use App\CVEPDB\Multigaming\Outputters\FeedsFormats\TeamFormat as TeamFeedsFormat;
 
 class TeamOutputter extends AbsLaravelOutputter
 {
@@ -137,10 +138,24 @@ class TeamOutputter extends AbsLaravelOutputter
     public function generateTeamsSitemap($teams)
     {
         return $this->generateSitemap(
-            new TeamFormat,
+            new TeamSitemapFormat,
             $teams->toArray(),
             'multigaming/teams/show/',
             'sitemap-multigaming-teams-',
+            'sitemap-multigaming-teams'
+        );
+    }
+
+    /**
+     * @param $teams
+     * @return mixed
+     */
+    public function generateTeamsFeeds($teams)
+    {
+        return $this->generateFeeds(
+            new TeamFeedsFormat,
+            $teams->toArray(),
+            'multigaming/teams/show/',
             'sitemap-multigaming-teams'
         );
     }

@@ -3,6 +3,7 @@
 namespace App\CVEPDB\Interfaces\Outputters;
 
 use App;
+use Feed;
 use URL;
 use PDF;
 use Session;
@@ -10,7 +11,7 @@ use Redirect;
 
 use \Creitive\Breadcrumbs\Breadcrumbs as Breadcrumbs;
 
-class AbsLaravelOutputter implements IOutputter, IOutputterHTML, IOutputterSitemap, IOutputterPDF
+class AbsLaravelOutputter implements IOutputter, IOutputterHTML, IOutputterSitemap, IOutputterFeeds, IOutputterPDF
 {
     /**
      * @var Breadcrumbs|null
@@ -146,6 +147,58 @@ class AbsLaravelOutputter implements IOutputter, IOutputterHTML, IOutputterSitem
 
         $sitemap->setCache('laravel.' . $sitemap_cache_file_prefix, $sitemap_cache_time);
         return $sitemap->render('sitemapindex', 'sitemap');
+    }
+
+    /**
+     * @param AbsOutputterFeedsFormat $format
+     * @param array $data
+     * @param string $uri
+     * @param string $feeds_cache_file_prefix
+     * @param int $feeds_cache_time
+     * @return mixed
+     */
+    public function generateFeeds(
+        AbsOutputterFeedsFormat $format,
+        array $data,
+        $uri,
+        $feeds_cache_file_prefix,
+        $feeds_cache_time = 3600
+    )
+    {
+        $feed = Feed::make();
+
+        $feed->setCache($feeds_cache_time, $feeds_cache_file_prefix);
+
+        if (!$feed->isCached()) {
+            $feed->title = $format->header['title'];
+            $feed->description = $format->header['description'];
+            $feed->logo = $format->header['logo_url'];
+            $feed->link = $format->header['site_url'];
+            $feed->setDateFormat('datetime'); // 'datetime', 'timestamp' or 'carbon'
+            $feed->pubdate = $format->header['first_post'];
+            $feed->lang = $format->header['lang'];
+            $feed->setShortening(true); // true or false
+            $feed->setTextLimit(100); // maximum length of description text
+
+            foreach ($data as $row) {
+                $feed->add(
+                    $format->getTitle() ? $row[$format->getTitle()] : null,
+                    $format->getAuthor() ? $row[$format->getAuthor()] : null,
+                    $format->getId() ? url($uri . $row[$format->getId()]) : null,
+                    $format->getCreated() ? $row[$format->getCreated()] : null,
+                    $format->getDescription() ? $row[$format->getDescription()] : null,
+                    $format->getContent() ? $row[$format->getContent()] : null
+                );
+            }
+        }
+
+        // first param is the feed format
+        // optional: second param is cache duration (value of 0 turns off caching)
+        // optional: you can set custom cache key with 3rd param as string
+        return $feed->render('atom');
+
+        // to return your feed as a string set second param to -1
+        // $xml = $feed->render('atom', -1);
     }
 
     /**
