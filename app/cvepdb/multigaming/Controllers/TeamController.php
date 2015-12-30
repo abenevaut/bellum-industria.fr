@@ -31,7 +31,7 @@ class TeamController extends BaseController
     }
 
     /**
-     * @param int $team_id
+     * @param $team_id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function getShow($team_id)

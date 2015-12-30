@@ -5,16 +5,17 @@ namespace App\CVEPDB\Interfaces\Outputters;
 use App;
 use URL;
 use Session;
+use Redirect;
 
 use \Creitive\Breadcrumbs\Breadcrumbs as Breadcrumbs;
 
 class AbsLaravelOutputter implements IOutputter, IOutputterHTML, IOutputterSitemap
 {
-    protected $breadcrumbs;
-
     /**
-     *
+     * @var Breadcrumbs|null
      */
+    protected $breadcrumbs = null;
+
     public function __construct()
     {
         $this->breadcrumbs = new Breadcrumbs;
@@ -30,7 +31,7 @@ class AbsLaravelOutputter implements IOutputter, IOutputterHTML, IOutputterSitem
     }
 
     /**
-     * @param $divider
+     * @param string $divider
      */
     public function setBreadcrumbDivider($divider)
     {
@@ -59,13 +60,21 @@ class AbsLaravelOutputter implements IOutputter, IOutputterHTML, IOutputterSitem
     }
 
     /**
+     * @param string $route
+     */
+    public function routeTo($route)
+    {
+        return Redirect::route($route);
+    }
+
+    /**
      * @param array $uris
      * @param string $sitemap_cache_file_prefix
      * @param int $sitemap_cache_time
      * @return mixed
      */
     public function generateSitemapIndex(
-        $uris,
+        array $uris,
         $sitemap_cache_file_prefix,
         $sitemap_cache_time = 3600
     )
@@ -90,7 +99,7 @@ class AbsLaravelOutputter implements IOutputter, IOutputterHTML, IOutputterSitem
      */
     public function generateSitemap(
         AbsOutputterSitemapFormat $format,
-        $data,
+        array $data,
         $uri,
         $sitemap_file_prefix,
         $sitemap_cache_file_prefix,

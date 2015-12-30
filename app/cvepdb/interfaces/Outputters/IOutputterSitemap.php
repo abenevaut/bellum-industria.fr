@@ -11,7 +11,7 @@ interface IOutputterSitemap
      * @return mixed
      */
     public function generateSitemapIndex(
-        $uris,
+        array $uris,
         $sitemap_cache_file_prefix,
         $sitemap_cache_time
     );
@@ -27,7 +27,7 @@ interface IOutputterSitemap
      */
     public function generateSitemap(
         AbsOutputterSitemapFormat $format,
-        $data,
+        array $data,
         $uri,
         $sitemap_file_prefix,
         $sitemap_cache_file_prefix,

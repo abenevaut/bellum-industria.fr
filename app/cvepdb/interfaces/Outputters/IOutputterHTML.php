@@ -29,4 +29,9 @@ interface IOutputterHTML
      * @return mixed
      */
     public function redirectTo($uri);
+
+    /**
+     * @param string $route
+     */
+    public function routeTo($route);
 }

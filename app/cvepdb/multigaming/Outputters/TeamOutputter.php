@@ -2,10 +2,8 @@
 
 namespace App\CVEPDB\Multigaming\Outputters;
 
-use Redirect;
-
 use App\CVEPDB\Interfaces\Outputters\AbsLaravelOutputter;
-use App\CVEPDB\Interfaces\Outputters\AbsOutputterSitemapFormat;
+use App\CVEPDB\Multigaming\Outputters\SitemapFormats\TeamFormat as TeamFormat;
 
 class TeamOutputter extends AbsLaravelOutputter
 {
@@ -37,7 +35,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamIndexWithErrorNoTeamId()
     {
-        return Redirect::route('teams')
+        return $this->routeTo('teams')
             ->with('message', 'You must specify a team id to use this functionality!')
             ->with('alert-class', 'warning-box');
     }
@@ -47,7 +45,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamIndexWithErrorTeamNotExists()
     {
-        return Redirect::route('teams')
+        return $this->routeTo('teams')
             ->with('message', 'The team was not deleted because no team exists!')
             ->with('alert-class', 'warning-box');
     }
@@ -57,7 +55,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamRecordWithSuccess()
     {
-        return Redirect::route('teams')
+        return $this->routeTo('teams')
             ->with('message', 'The team was successfully added!')
             ->with('alert-class', 'download-box');
     }
@@ -67,7 +65,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamRecordWithErrorAuth()
     {
-        return Redirect::route('teams')
+        return $this->routeTo('teams')
             ->with('message', 'You must be authentificated to use this functionality!')
             ->with('alert-class', 'warning-box');
     }
@@ -77,7 +75,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamUpdateWithSuccess()
     {
-        return Redirect::route('teams')
+        return $this->routeTo('teams')
             ->with('message', 'The team was successfully edited!')
             ->with('alert-class', 'download-box');
     }
@@ -87,7 +85,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamUpdateWithErrorNoTeamId()
     {
-        return Redirect::route('teams')
+        return $this->routeTo('teams')
             ->with('message', 'You must specify a team id to use this functionality!')
             ->with('alert-class', 'warning-box');
     }
@@ -97,7 +95,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamUpdateWithErrorTeamNotExists()
     {
-        return Redirect::route('teams')
+        return $this->routeTo('teams')
             ->with('message', 'The team was not deleted because no team exists!')
             ->with('alert-class', 'warning-box');
     }
@@ -107,7 +105,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamUpdateWithErrorAuth()
     {
-        return Redirect::route('teams')
+        return $this->routeTo('teams')
             ->with('message', 'You must be authentificated to use this functionality!')
             ->with('alert-class', 'warning-box');
     }
@@ -117,7 +115,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamDeleteWithSuccess()
     {
-        return Redirect::route('teams')
+        return $this->routeTo('teams')
             ->with('message', 'The team was successfully removed!')
             ->with('alert-class', 'download-box');
     }
@@ -127,20 +125,19 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamDeleteWithErrorAuth()
     {
-        return Redirect::route('teams')
+        return $this->routeTo('teams')
             ->with('message', 'You must be authentificated to use this functionality!')
             ->with('alert-class', 'warning-box');
     }
 
     /**
-     * @param AbsOutputterSitemapFormat $format
      * @param $teams
      * @return mixed
      */
-    public function generateTeamsSitemap(AbsOutputterSitemapFormat $format, $teams)
+    public function generateTeamsSitemap($teams)
     {
         return $this->generateSitemap(
-            $format,
+            new TeamFormat,
             $teams->toArray(),
             'multigaming/teams/show/',
             'sitemap-multigaming-teams-',

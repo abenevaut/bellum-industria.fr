@@ -7,7 +7,6 @@ use Auth;
 use App\CVEPDB\Multigaming\Repositories\TeamRepository as TeamRepository;
 use App\CVEPDB\Multigaming\Requests\TeamFormRequest as TeamFormRequest;
 use App\CVEPDB\Multigaming\Outputters\TeamOutputter as TeamOutputter;
-use App\CVEPDB\Multigaming\Outputters\SitemapFormats\TeamFormat as TeamFormat;
 
 /**
  * Class TeamDomain
@@ -15,12 +14,16 @@ use App\CVEPDB\Multigaming\Outputters\SitemapFormats\TeamFormat as TeamFormat;
  */
 class TeamDomain
 {
-    protected $teams;
-    protected $Outputter;
+    /**
+     * @var TeamRepository|null
+     */
+    protected $teams = null;
 
     /**
-     * @param TeamRepository $teams
+     * @var TeamOutputter|null
      */
+    protected $Outputter = null;
+
     public function __construct()
     {
         $this->teams = new TeamRepository;
@@ -31,7 +34,7 @@ class TeamDomain
     }
 
     /**
-     * Retourne la vue des teams
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function teamsIndex()
     {
@@ -43,6 +46,7 @@ class TeamDomain
 
     /**
      * @param $team_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function teamIndex($team_id)
     {
@@ -123,11 +127,12 @@ class TeamDomain
         return $this->Outputter->redirectTeamDeleteWithSuccess();
     }
 
+    /**
+     * @return mixed
+     */
     public function teamsSitemap()
     {
-        $format = new TeamFormat;
         $teams = $this->teams->all();
-
-        return $this->Outputter->generateTeamsSitemap($format, $teams);
+        return $this->Outputter->generateTeamsSitemap($teams);
     }
 }
