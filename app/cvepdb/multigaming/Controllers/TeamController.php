@@ -2,6 +2,8 @@
 
 namespace App\CVEPDB\Multigaming\Controllers;
 
+use App;
+use URL;
 use Auth;
 use Session;
 
@@ -126,5 +128,70 @@ class TeamController extends BaseController
         return \Redirect::route('teams')
             ->with('message', 'The team was successfully removed!')
             ->with('alert-class', 'download-box');
+    }
+
+    public function getSitemap()
+    {
+        // create new sitemap object
+        $sitemap = App::make("sitemap");
+
+        // get all products from db (or wherever you store them)
+        $teams = $this->teams->all();
+
+        // counters
+        $counter = 0;
+        $sitemapCounter = 0;
+
+        // add every product to multiple sitemaps with one sitemapindex
+        foreach ($teams as $team)
+        {
+            if ($counter < 50000)
+            {
+                // add product to items array
+                $sitemap->add(
+                    $loc = url('multigaming/teams/show/' . $team->id),
+                    $lastmod = $team->updated_at,
+                    $priority = null,
+                    $freq = null,
+                    $images = null,
+                    $title = $team->name,
+                    $translations = null,
+                    $videos = null,
+                    $googlenews = null,
+                    $alternates  = null
+                );
+                // count number of elements
+                $counter++;
+            }
+            else
+            {
+                // generate new sitemap file
+                $sitemap->store('xml','sitemap-multigaming-teams-' . $sitemapCounter);
+                // add the file to the sitemaps array
+                $sitemap->addSitemap(url('sitemap-multigaming-teams-' . $sitemapCounter . '.xml'));
+                // reset items array (clear memory)
+                $sitemap->model->resetItems();
+                // reset the counter
+                $counter = 0;
+                // count generated sitemap
+                $sitemapCounter++;
+            }
+        }
+
+        // you need to check for unused items
+        if (!empty($sitemap->model->getItems()))
+        {
+            // generate sitemap with last items
+            $sitemap->store('xml','sitemap-multigaming-teams-' . $sitemapCounter);
+            // add sitemap to sitemaps array
+            $sitemap->addSitemap(url('sitemap-multigaming-teams-' . $sitemapCounter.'.xml'));
+            // reset items array
+            $sitemap->model->resetItems();
+        }
+
+        $sitemap->setCache('laravel.sitemap-multigaming-teams', 3600);
+
+        // generate new sitemapindex that will contain all generated sitemaps above
+        return $sitemap->render('sitemapindex','sitemap');
     }
 }

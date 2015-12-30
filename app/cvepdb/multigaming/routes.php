@@ -15,6 +15,7 @@ Route::group(['prefix' => 'multigaming'], function () {
 
     Route::get('/', '\App\CVEPDB\Multigaming\Controllers\IndexController@getIndex');
     Route::get('boutique', '\App\CVEPDB\Multigaming\Controllers\IndexController@getBoutique');
+    Route::get('sitemap', '\App\CVEPDB\Multigaming\Controllers\IndexController@getSitemap');
 
     Route::group(['prefix' => 'auth'], function () {
         Route::get('login', '\App\CVEPDB\Multigaming\Controllers\AuthController@login');
@@ -27,5 +28,6 @@ Route::group(['prefix' => 'multigaming'], function () {
         Route::get('store-team/{team_id?}', ['as' => 'teams_put', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@putStoreTeam']);
         Route::post('store-team', ['as' => 'teams_store', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@postStoreTeam']);
         Route::delete('remove-team/{team_id?}', ['as' => 'teams_delete', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@deleteRemoveTeam']);
+        Route::get('sitemap', ['as' => 'teams_sitemap', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@getSitemap']);
     });
 });

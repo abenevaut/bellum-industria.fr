@@ -160,6 +160,10 @@ return [
         'Jenssegers\Raven\RavenServiceProvider',
 
         Barryvdh\DomPDF\ServiceProvider::class,
+
+        'Roumen\Sitemap\SitemapServiceProvider',
+
+        'Roumen\Feed\FeedServiceProvider',
     ],
 
     /*
@@ -222,6 +226,8 @@ return [
         'Raven' => 'Jenssegers\Raven\Facades\Raven',
 
         'PDF' => Barryvdh\DomPDF\Facade::class,
+
+        'Feed' => 'Roumen\Feed\Facades\Feed',
     ],
 
 ];

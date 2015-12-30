@@ -2,6 +2,9 @@
 
 namespace App\CVEPDB\Multigaming\Controllers;
 
+use App;
+use URL;
+
 use App\CVEPDB\Multigaming\Controllers\Abs\AbsBaseController as BaseController;
 
 
@@ -17,7 +20,8 @@ use xPaw\SourceQuery\SourceQuery as SourceQuery;
 
 class IndexController extends BaseController
 {
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
 
         $this->breadcrumbs->removeAll();
@@ -79,15 +83,6 @@ class IndexController extends BaseController
 //        dd($result); exit;
 
 
-
-
-
-
-
-
-
-
-
         /***/
 
 
@@ -108,7 +103,7 @@ class IndexController extends BaseController
 
         $divs = $doc->getElementsByTagName('div');
 
-        $index   = 0;
+        $index = 0;
         $threads = array();
         while ($div = $divs->item($index++)) {
             $class_node = $div->attributes->getNamedItem('class');
@@ -139,7 +134,7 @@ class IndexController extends BaseController
 
                     $divs_content = $doc2->getElementsByTagName('div');
 
-                    $i       = 0;
+                    $i = 0;
                     while ($div_content = $divs_content->item($i++)) {
 //						echo "Class is : "
 //						  . $div_content->attributes->getNamedItem('class')->value
@@ -169,7 +164,7 @@ class IndexController extends BaseController
 
                             $divs_toggle = $doc3->getElementsByTagName('div');
 
-                            $i       = 0;
+                            $i = 0;
                             while ($div_toggle = $divs_toggle->item($i++)) {
 
                                 $div_toggle_class_node = $div_toggle->attributes->getNamedItem('class');
@@ -191,7 +186,7 @@ class IndexController extends BaseController
 
                                         //$threads[$index]['intro'] = mb_convert_encoding($threads[$index]['intro'], 'ISO-8859-1', 'UTF-8');
 
-                                       // dd($threads[$index]['intro']);
+                                        // dd($threads[$index]['intro']);
 
                                         substr(
                                             $threads[$index]['intro'],
@@ -268,7 +263,7 @@ class IndexController extends BaseController
 
                     $divs_content = $doc2->getElementsByTagName('a');
 
-                    $i       = 0;
+                    $i = 0;
                     while ($div_content = $divs_content->item($i++)) {
 //						echo "Class is : "
 //						  . $div_content->attributes->getNamedItem('class')->value
@@ -310,5 +305,20 @@ class IndexController extends BaseController
     {
         $this->breadcrumbs->addCrumb('Boutique', 'multigaming/boutique');
         return view('cvepdb.multigaming.boutique', ['breadcrumbs' => $this->breadcrumbs]);
+    }
+
+    public function getSitemap()
+    {
+        // create sitemap
+        $sitemap = App::make("sitemap");
+
+        // set cache
+        $sitemap->setCache('laravel.sitemap-multigaming-index', 3600);
+
+        // Sub sitemap files
+        $sitemap->addSitemap(URL::to('multigaming/teams/sitemap'));
+
+        // show sitemap
+        return $sitemap->render('sitemapindex');
     }
 }
