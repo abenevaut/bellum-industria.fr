@@ -184,15 +184,15 @@
 
 
                             <ul style="list-style-type: none;">
-                                {{--<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">--}}
-                                    {{--<a href="javascript:void(0);" class="gwi-thumbs" original-title="En ligne sur Steam ?">--}}
-                                        {{--@if ($teammate['steam_token']['personastateflags'] == 1)--}}
-                                            {{--<i class="icon-light-up"></i>--}}
-                                        {{--@else--}}
-                                            {{--<i class="icon-light-up"></i>--}}
-                                        {{--@endif--}}
-                                    {{--</a>--}}
-                                {{--</li>--}}
+                                <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
+                                    <a href="javascript:void(0);" class="gwi-thumbs" original-title="En ligne sur Steam ?">
+                                        @if ($teammate['steam_token']['profilestate'] == 1)
+                                            <i class="icon-light-up"></i>
+                                        @else
+                                            <i class="icon-moon"></i>
+                                        @endif
+                                    </a>
+                                </li>
                                 <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
                                     <a href="http://steamcommunity.com/profiles/{!! $teammate['steam_token']['steamid'] !!}/" class="gwi-thumbs"
                                        original-title="Profile Steam" target="_blank">

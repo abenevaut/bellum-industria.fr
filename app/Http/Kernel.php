@@ -36,5 +36,9 @@ class Kernel extends HttpKernel
         'ability' => 'Zizaco\Entrust\Middleware\EntrustAbility',
 
         'setlocale' => \App\Http\Middleware\SetLocaleMiddleware::class,
+
+        'role' => 'Zizaco\Entrust\Middleware\EntrustRole',
+        'permission' => 'Zizaco\Entrust\Middleware\EntrustPermission',
+        'ability' => 'Zizaco\Entrust\Middleware\EntrustAbility',
     ];
 }
