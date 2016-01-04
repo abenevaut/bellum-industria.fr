@@ -56,8 +56,7 @@
                 <ol>
                     <li class="form-row">
                         {!! Form::label('Teammate') !!} <span class="required">*</span>
-                        {!! Form::select('members', $users, null, ['multiple' => 'multiple', 'name' => 'members[]']) !!}
-
+                        {!! Form::select('members', $users, array_column($team->users->toArray(), 'id'), ['multiple' => 'multiple', 'name' => 'members[]']) !!}
                         {!! Form::hidden('name', $team->name) !!}
                     </li>
                     <li class="button-row">

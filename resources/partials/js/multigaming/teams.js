@@ -133,7 +133,16 @@
 
         var input_members = $('select[name="members[]"]');
 
-        input_members.select2();
+        input_members.select2()
+            .on("change", function(e) {
+
+                cvepdb.debug(
+                    "teams.js > select[name=members[]]:select2(on:change) : success :"
+                    + " element = " + select_entite.attr('name')
+                    + " val = " + e.val
+                );
+
+            });
 
 
         cvepdb.debug('teams.js > CVEPDB_SELECT2_JQREADY : success : End');
