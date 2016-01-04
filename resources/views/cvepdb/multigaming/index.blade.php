@@ -85,31 +85,35 @@
                         <ul class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list">
                             @foreach ($team_bot as $team)
 
-                                @foreach ($team->users as $teammate)
+                                @foreach ($team['users'] as $teammate)
                                     <li class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame"
                                         style="opacity: 0.7;">
 
-                                        {!! $teammate->first_name !!} {!! $teammate->last_name !!}
+                                        {!! $teammate['steam_token']['personaname'] !!}
 
-                                        <a href="#"><img
-                                                    src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/92/92ae6811171704d99e1e53562a7fa4dd66fbe96a_full.jpg"
-                                                    alt=""></a>
+                                        <a href="{!! $teammate['steam_token']['profileurl'] !!}">
+                                            <img src="{!! $teammate['steam_token']['avatarfull'] !!}" alt="{!! $teammate['steam_token']['personaname'] !!}">
+                                        </a>
 
 
                                         <ul style="list-style-type: none;">
+                                            {{--<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">--}}
+                                            {{--<a href="javascript:void(0);" class="gwi-thumbs" original-title="En ligne sur Steam ?">--}}
+                                            {{--@if ($teammate['steam_token']['personastateflags'] == 1)--}}
+                                            {{--<i class="icon-light-up"></i>--}}
+                                            {{--@else--}}
+                                            {{--<i class="icon-light-up"></i>--}}
+                                            {{--@endif--}}
+                                            {{--</a>--}}
+                                            {{--</li>--}}
                                             <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-                                                <a href="#" class="gwi-thumbs" original-title="En ligne sur Steam">
-                                                    <i class="icon-light-up"></i>
-                                                </a>
-                                            </li>
-                                            <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-                                                <a href="http://steamcommunity.com/profiles/{!! $teammate->steam_token !!}/" class="gwi-thumbs"
+                                                <a href="http://steamcommunity.com/profiles/{!! $teammate['steam_token']['steamid'] !!}/" class="gwi-thumbs"
                                                    original-title="Profile Steam" target="_blank">
                                                     <i class="icon-user"></i>
                                                 </a>
                                             </li>
                                             <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-                                                <a href="steam://friends/add/{!! $teammate->steam_token !!}" class="gwi-thumbs"
+                                                <a href="steam://friends/add/{!! $teammate['steam_token']['steamid'] !!}" class="gwi-thumbs"
                                                    original-title="Ajouté comme Steam ami" target="_blank">
                                                     <i class="icon-user-add"></i>
                                                 </a>
@@ -156,7 +160,7 @@
 
             @foreach ($team_bellumindustria as $team)
 
-            <h4 class="colored">Bellum Industria</h4>
+            <h4 class="colored">{!! $team['name'] !!}</h4>
 
 
             <div class="row">
@@ -168,31 +172,35 @@
 
 
 
-                        @foreach ($team->users as $teammate)
+                        @foreach ($team['users'] as $teammate)
                         <li class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame"
                             style="opacity: 0.7;">
 
-                            {!! $teammate->first_name !!} {!! $teammate->last_name !!}
+                            {!! $teammate['steam_token']['personaname'] !!}
 
-                            <a href="#"><img
-                                        src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/92/92ae6811171704d99e1e53562a7fa4dd66fbe96a_full.jpg"
-                                        alt=""></a>
+                            <a href="{!! $teammate['steam_token']['profileurl'] !!}">
+                                <img src="{!! $teammate['steam_token']['avatarfull'] !!}" alt="{!! $teammate['steam_token']['personaname'] !!}">
+                            </a>
 
 
                             <ul style="list-style-type: none;">
+                                {{--<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">--}}
+                                    {{--<a href="javascript:void(0);" class="gwi-thumbs" original-title="En ligne sur Steam ?">--}}
+                                        {{--@if ($teammate['steam_token']['personastateflags'] == 1)--}}
+                                            {{--<i class="icon-light-up"></i>--}}
+                                        {{--@else--}}
+                                            {{--<i class="icon-light-up"></i>--}}
+                                        {{--@endif--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
                                 <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-                                    <a href="#" class="gwi-thumbs" original-title="En ligne sur Steam">
-                                        <i class="icon-light-up"></i>
-                                    </a>
-                                </li>
-                                <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-                                    <a href="http://steamcommunity.com/profiles/{!! $teammate->steam_token !!}/" class="gwi-thumbs"
+                                    <a href="http://steamcommunity.com/profiles/{!! $teammate['steam_token']['steamid'] !!}/" class="gwi-thumbs"
                                        original-title="Profile Steam" target="_blank">
                                         <i class="icon-user"></i>
                                     </a>
                                 </li>
                                 <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-                                    <a href="steam://friends/add/{!! $teammate->steam_token !!}" class="gwi-thumbs"
+                                    <a href="steam://friends/add/{!! $teammate['steam_token']['steamid'] !!}" class="gwi-thumbs"
                                        original-title="Ajouté comme Steam ami" target="_blank">
                                         <i class="icon-user-add"></i>
                                     </a>

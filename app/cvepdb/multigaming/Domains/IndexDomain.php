@@ -46,9 +46,24 @@ class IndexDomain
 
     public function indexIndex()
     {
+        $team_bot = $this->teams->findBy('name', 'Bot CVEPDB')->toArray();
+        $team_bellumindustria = $this->teams->findBy('name', 'Bellum Industria')->toArray();
+
+        foreach ($team_bot as $tkey => $team) {
+            foreach ($team['users'] as $ukey => $user) {
+                $team_bot[$tkey]['users'][$ukey]['steam_token'] = $this->steam->playerSummaries($user['steam_token']);
+            }
+        }
+
+        foreach ($team_bellumindustria as $tkey => $team) {
+            foreach ($team['users'] as $ukey => $user) {
+                $team_bellumindustria[$tkey]['users'][$ukey]['steam_token'] = $this->steam->playerSummaries($user['steam_token']);
+            }
+        }
+
         return $this->Outputter->outputIndex([
-            'team_bot' => $this->teams->findBy('name', 'Bot CVEPDB'),
-            'team_bellumindustria' => $this->teams->findBy('name', 'Bellum Industria'),
+            'team_bot' => $team_bot,
+            'team_bellumindustria' => $team_bellumindustria,
             'threads' => $this->steam->paginate('Bellum-Industria', 4)
         ]);
     }

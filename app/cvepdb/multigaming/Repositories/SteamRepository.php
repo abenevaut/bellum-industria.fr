@@ -6,12 +6,30 @@ namespace App\CVEPDB\Multigaming\Repositories;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
 
+use Steam\Configuration;
+use Steam\Runner\GuzzleRunner;
+use Steam\Runner\DecodeJsonStringRunner;
+use Steam\Steam;
+use Steam\Utility\GuzzleUrlBuilder;
+
 /**
  * Class TeamRepository
  * @package App\CVEPDB\Multigaming\Repositories
  */
 class SteamRepository //implements RepositoryInterface
 {
+    /**
+     * @var null|Steam
+     */
+    private $steam = null;
+
+    public function __construct()
+    {
+        $this->steam = new Steam(new Configuration([Configuration::STEAM_KEY => env('STEAM_APIKEY')]));
+        $this->steam->addRunner(new GuzzleRunner(new GuzzleHttpClient(), new GuzzleUrlBuilder()));
+        $this->steam->addRunner(new DecodeJsonStringRunner());
+    }
+
     /**
      * @param array $columns
      * @return $this
@@ -227,5 +245,32 @@ class SteamRepository //implements RepositoryInterface
     public function deleteById($team_id)
     {
         return null;
+    }
+
+    /**
+     * @param array|int $steam_id
+     */
+    public function playerSummaries($steam_id)
+    {
+        $is_array = true;
+
+        if (!is_array($steam_id)) {
+            $steam_id = [$steam_id];
+            $is_array = false;
+        }
+
+        $result = $this->steam->run(new \Steam\Command\User\GetPlayerSummaries($steam_id));
+
+        return $is_array ? $result : $result['response']['players'][0];
+    }
+
+    public function test()
+    {
+        /** @var array $result */
+//        $result = $this->steam->run(new \Steam\Command\Apps\GetAppList());
+//        $result = $this->steam->run(new \Steam\Command\Apps\GetServersAtAddress('62.210.71.164:27015'));
+        $result = $this->steam->run(new \Steam\Command\CSGOServers\GetGameServersStatus());
+
+        dd($result); exit;
     }
 }

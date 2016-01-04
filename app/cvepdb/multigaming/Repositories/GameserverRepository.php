@@ -4,12 +4,6 @@ namespace App\CVEPDB\Multigaming\Repositories;
 
 //use CVEPDB\Repositories\RepositoryInterface;
 
-use Steam\Configuration;
-use Steam\Runner\GuzzleRunner;
-use Steam\Runner\DecodeJsonStringRunner;
-use Steam\Steam;
-use Steam\Utility\GuzzleUrlBuilder;
-
 use xPaw\SourceQuery\SourceQuery as SourceQuery;
 
 /**
@@ -111,22 +105,6 @@ class GameServerRepository //implements RepositoryInterface
         $Timer = Number_Format( MicroTime( true ) - $Timer, 4, '.', '' );
 
         dd($Info);
-
-
-        $steam = new Steam(new Configuration([Configuration::STEAM_KEY => 'C884A1B1B3EEDABFCFDB889C17FFEE10']));
-        $steam->addRunner(new GuzzleRunner(new Client(), new GuzzleUrlBuilder()));
-        $steam->addRunner(new DecodeJsonStringRunner());
-
-        /** @var array $result */
-//        $result = $steam->run(new \Steam\Command\Apps\GetAppList());
-//        $result = $steam->run(new \Steam\Command\Apps\GetServersAtAddress('62.210.71.164:27015'));
-//        $result = $steam->run(new \Steam\Command\CSGOServers\GetGameServersStatus());
-        $result = $steam->run(new \Steam\Command\User\GetPlayerSummaries([76561197987229786]));
-
-        dd($result); exit;
-
-
-
 
         return null;
     }
