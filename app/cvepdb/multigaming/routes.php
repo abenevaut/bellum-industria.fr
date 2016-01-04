@@ -22,7 +22,7 @@ Route::group(['domain' => 'multigaming.site.cvepdb.local'], function () {
         Route::get('logout', '\App\CVEPDB\Multigaming\Controllers\AuthController@logout');
     });
 
-    Route::group(['prefix' => 'teams'], function () {
+    Route::group(['prefix' => 'teams', 'middleware' => ['role:admin']], function () {
         Route::get('/', ['as' => 'teams', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@getIndex']);
         Route::get('show/{team_id?}', '\App\CVEPDB\Multigaming\Controllers\TeamController@getShow');
         Route::get('store-team/{team_id?}', ['as' => 'teams_put', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@putStoreTeam']);

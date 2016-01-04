@@ -60,6 +60,16 @@ class IndexController extends BaseController
 
 
 
+
+
+
+//        dd($user->hasRole('admin'));
+//        dd($user->hasPermission('create-team'));
+
+//        $u = \Auth::user();
+
+//        dd( $u->id );
+
         return $this->domain->indexIndex();
     }
 
