@@ -12,6 +12,17 @@
 
 
         <ul class="social">
+            {{--<li><a href="#"><i class="icon-s-rss"></i></a></li>--}}
+            <li>
+                <a href="https://plus.google.com/u/0/b/107121701522514662112/107121701522514662112" target="_blank">
+                    <i class="icon-s-gplus"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/channel/UCSBq3Ozx_nY6eQ4RJDvxSCA" target="_blank">
+                    <i class="icon-s-youtube"></i>
+                </a>
+            </li>
         </ul>
         <div class="clear"></div>
 

@@ -15,7 +15,7 @@
     <!-- Begin Inner -->
     <div class="layout__body-wrapper__content-wrapper__inner">
 
-        <iframe height="1800"
+        <iframe height="1500"
                 width="100%"
                 src="http://cvepdb.spreadshirt.fr/"
                 name="Spreadshop"
@@ -23,7 +23,11 @@
                 frameborder="0"
                 onload="window.scrollTo(0, 0);"></iframe>
 
-        Les produits proposés dans notre boutique proviennent directement de <a href="http://www.spreadshirt.fr">Spreadshirt</a>, la plateforme spécialisée dans la personnalisation de t-shirts et accessoires.
+        <div class="align-center">
+            <a href="//www.spreadshirt.fr/garantie-spreadshirt-C4070" onclick="window.open(this.href,'','height=520,width=640,scrollbars=yes'); return false;">
+                <img src="http://cache.spreadshirt.net/Public/Media/eu/yourspread/marketing/trustedspread/trust_icon_100_fr.png" alt="Garantie Spreadshirt" />
+            </a>
+        </div>
 
     </div>
     <!-- Begin Inner -->
