@@ -1,0 +1,8 @@
+Deploy:
+  script:
+  - composer install
+  - cd resources/cvepdb/cvepdbjs
+  - bower install
+  - cd ../../..
+  - npm install
+  - gulp build
