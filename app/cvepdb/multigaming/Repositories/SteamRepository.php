@@ -254,9 +254,8 @@ class SteamRepository //implements RepositoryInterface
     {
         $is_array = true;
 
-        if (!is_array($steam_id)) {
+        if (!($is_array = is_array($steam_id))) {
             $steam_id = [$steam_id];
-            $is_array = false;
         }
 
         $result = $this->steam->run(new \Steam\Command\User\GetPlayerSummaries($steam_id));
