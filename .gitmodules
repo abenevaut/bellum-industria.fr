@@ -1,0 +1,3 @@
+[submodule "resources/cvepdb/cvepdbjs"]
+	path = resources/cvepdb/cvepdbjs
+	url = git@gitlab.com:42antoine/cvepdb-cvepdbjs.git
