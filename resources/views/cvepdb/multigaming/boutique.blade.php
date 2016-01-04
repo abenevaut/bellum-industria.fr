@@ -5,7 +5,7 @@
 <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even layout__body-wrapper__content-wrapper--intro">
     <!-- Begin Inner -->
     <div class="layout__body-wrapper__content-wrapper__inner layout__body-wrapper__content-wrapper__inner--intro">
-        <p>{{ trans('cvepdb/vitrine/boutique.title') }}</p>
+        <p>{{ trans('cvepdb/multigaming/boutique.title') }}</p>
     </div>
     <!-- End Inner -->
 </div>
