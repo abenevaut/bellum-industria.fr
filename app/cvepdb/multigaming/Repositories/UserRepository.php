@@ -93,7 +93,18 @@ class UserRepository //implements RepositoryInterface
      */
     public function findBy($field, $value, $columns = array('*'))
     {
-        return UserModel::where($field, $value)->get($columns)->load('users');
+        return UserModel::where($field, $value)->get($columns)->load('teams');
+    }
+
+    /**
+     * @param $field
+     * @param $value
+     * @param array $columns
+     * @return mixed
+     */
+    public function findUniqueBy($field, $value, $columns = array('*'))
+    {
+        return UserModel::where($field, $value)->get($columns)->load('teams')->first();
     }
 
     /**

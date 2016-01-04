@@ -45,7 +45,7 @@ class TeamDomain
      */
     public function teamsIndex()
     {
-        $this->Outputter->addBreadcrumb('Teams', '/multigaming/teams');
+        $this->Outputter->addBreadcrumb('Teams', 'teams');
         return $this->Outputter->outputTeamsIndex([
             'teams' => $this->teams->paginate(5)
         ]);
@@ -68,8 +68,8 @@ class TeamDomain
 //            $this->Outputter->redirectTeamIndexWithErrorTeamNotExists();
 //        }
 
-        $this->Outputter->addBreadcrumb('Teams', '/multigaming/teams');
-        $this->Outputter->addBreadcrumb($team->name, '/multigaming/teams/show/' . $team_id);
+        $this->Outputter->addBreadcrumb('Teams', 'teams');
+        $this->Outputter->addBreadcrumb($team->name, 'teams/show/' . $team_id);
         return $this->Outputter->outputTeamIndex([
             'team' => $team,
             'users' => $this->users->dropdown()

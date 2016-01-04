@@ -63,15 +63,6 @@
                             </div>
                         </li>
 
-
-                        <li>
-                            <div>
-                                <img src="http://multigaming.cvepdb.local/files/large/counter-strike-global-offensive-xbox-360-1331045784-019.jpg"
-                                     alt="">
-                            </div>
-                        </li>
-
-
                     </ul>
                     <div class="tp-bannertimer tp-bottom"></div>
                 </div>
@@ -90,60 +81,47 @@
             <div class="row">
 
                 <div class="one-third">
-
                     <div class="layout__body-wrapper__content-wrapper__inner__widget-clients-list">
                         <ul class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list">
+                            @foreach ($team_bot as $team)
+
+                                @foreach ($team->users as $teammate)
+                                    <li class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame"
+                                        style="opacity: 0.7;">
+
+                                        {!! $teammate->first_name !!} {!! $teammate->last_name !!}
+
+                                        <a href="#"><img
+                                                    src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/92/92ae6811171704d99e1e53562a7fa4dd66fbe96a_full.jpg"
+                                                    alt=""></a>
 
 
+                                        <ul style="list-style-type: none;">
+                                            <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
+                                                <a href="#" class="gwi-thumbs" original-title="En ligne sur Steam">
+                                                    <i class="icon-light-up"></i>
+                                                </a>
+                                            </li>
+                                            <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
+                                                <a href="http://steamcommunity.com/profiles/{!! $teammate->steam_token !!}/" class="gwi-thumbs"
+                                                   original-title="Profile Steam" target="_blank">
+                                                    <i class="icon-user"></i>
+                                                </a>
+                                            </li>
+                                            <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
+                                                <a href="steam://friends/add/{!! $teammate->steam_token !!}" class="gwi-thumbs"
+                                                   original-title="Ajouté comme Steam ami" target="_blank">
+                                                    <i class="icon-user-add"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
 
-
-
-
-
-                            <li class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame"
-                                style="opacity: 0.7;box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.38);-webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.38);">
-
-                                J0r
-
-                                <a href="#"><img
-                                            src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/92/92ae6811171704d99e1e53562a7fa4dd66fbe96a_full.jpg"
-                                            alt=""></a>
-
-
-                                <ul style="list-style-type: none;">
-                                    <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-                                        <a href="#" class="gwi-thumbs" original-title="En ligne sur Steam">
-                                            <i class="icon-light-up"></i>
-                                        </a>
                                     </li>
-                                    <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-                                        <a href="http://steamcommunity.com/profiles/76561197960401734/" class="gwi-thumbs"
-                                           original-title="Profile Steam" target="_blank">
-                                            <i class="icon-user"></i>
-                                        </a>
-                                    </li>
-                                    <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-                                        <a href="steam://friends/add/76561197960401734" class="gwi-thumbs"
-                                           original-title="Ajouté comme Steam ami" target="_blank">
-                                            <i class="icon-user-add"></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                                @endforeach
 
-                            </li>
-
-
-
-
-
-
-
-
-
+                            @endforeach
                         </ul>
                     </div>
-
-
                 </div>
 
                 <div class="one-third">
@@ -176,6 +154,7 @@
         <!-- Begin Inner -->
         <div class="layout__body-wrapper__content-wrapper__inner">
 
+            @foreach ($team_bellumindustria as $team)
 
             <h4 class="colored">Bellum Industria</h4>
 
@@ -189,11 +168,11 @@
 
 
 
-
+                        @foreach ($team->users as $teammate)
                         <li class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame"
                             style="opacity: 0.7;">
 
-                            J0r
+                            {!! $teammate->first_name !!} {!! $teammate->last_name !!}
 
                             <a href="#"><img
                                         src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/92/92ae6811171704d99e1e53562a7fa4dd66fbe96a_full.jpg"
@@ -207,13 +186,13 @@
                                     </a>
                                 </li>
                                 <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-                                    <a href="http://steamcommunity.com/profiles/76561197960401734/" class="gwi-thumbs"
+                                    <a href="http://steamcommunity.com/profiles/{!! $teammate->steam_token !!}/" class="gwi-thumbs"
                                        original-title="Profile Steam" target="_blank">
                                         <i class="icon-user"></i>
                                     </a>
                                 </li>
                                 <li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-                                    <a href="steam://friends/add/76561197960401734" class="gwi-thumbs"
+                                    <a href="steam://friends/add/{!! $teammate->steam_token !!}" class="gwi-thumbs"
                                        original-title="Ajouté comme Steam ami" target="_blank">
                                         <i class="icon-user-add"></i>
                                     </a>
@@ -221,6 +200,7 @@
                             </ul>
 
                         </li>
+                        @endforeach
 
 
 
@@ -235,6 +215,7 @@
             </div>
 
             <div class="clear"></div>
+            @endforeach
 
 
         </div>

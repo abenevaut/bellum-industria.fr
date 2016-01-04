@@ -5,11 +5,6 @@ namespace App\CVEPDB\Multigaming\Repositories;
 //use CVEPDB\Repositories\RepositoryInterface;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
-use Steam\Configuration;
-use Steam\Runner\GuzzleRunner;
-use Steam\Runner\DecodeJsonStringRunner;
-use Steam\Steam;
-use Steam\Utility\GuzzleUrlBuilder;
 
 /**
  * Class TeamRepository

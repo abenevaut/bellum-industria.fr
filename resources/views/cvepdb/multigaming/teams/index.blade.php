@@ -92,7 +92,7 @@
 
                     <div class="one-third">
 
-                        <a href="{{ url('multigaming/teams/show/'.$team->id) }}" title="{!! $team->name !!}">
+                        <a href="{{ url('teams/show/'.$team->id) }}" title="{!! $team->name !!}">
                             {!! $team->name !!}
                         </a>
 

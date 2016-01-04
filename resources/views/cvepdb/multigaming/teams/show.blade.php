@@ -12,7 +12,7 @@
         <h1 class="title alignleft"> {!! $team->name !!}</h1>
 
         <div class="layout__body-wrapper__content-wrapper__inner__navigation alignright">
-            <a href="{{ url('multigaming/teams') }}" id="gwi-thumbs" title="All Items"><i class="icon-th"></i></a>
+            <a href="{{ url('teams') }}" id="gwi-thumbs" title="All Items"><i class="icon-th"></i></a>
 
             @if (Auth::check())
 
