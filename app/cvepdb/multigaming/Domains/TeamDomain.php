@@ -4,6 +4,7 @@ namespace App\CVEPDB\Multigaming\Domains;
 
 use Auth;
 
+use App\CVEPDB\Multigaming\Repositories\UserRepository as UserRepository;
 use App\CVEPDB\Multigaming\Repositories\TeamRepository as TeamRepository;
 use App\CVEPDB\Multigaming\Requests\TeamFormRequest as TeamFormRequest;
 use App\CVEPDB\Multigaming\Outputters\TeamOutputter as TeamOutputter;
@@ -20,6 +21,11 @@ class TeamDomain
     protected $teams = null;
 
     /**
+     * @var UserRepository|null
+     */
+    protected $users = null;
+
+    /**
      * @var TeamOutputter|null
      */
     protected $Outputter = null;
@@ -27,6 +33,7 @@ class TeamDomain
     public function __construct()
     {
         $this->teams = new TeamRepository;
+        $this->users = new UserRepository;
         $this->Outputter = new TeamOutputter;
 
         $this->Outputter->addBreadcrumb('Home', '/');
@@ -40,7 +47,7 @@ class TeamDomain
     {
         $this->Outputter->addBreadcrumb('Teams', '/multigaming/teams');
         return $this->Outputter->outputTeamsIndex([
-                'teams' => $this->teams->paginate(5)
+            'teams' => $this->teams->paginate(5)
         ]);
     }
 
@@ -64,7 +71,8 @@ class TeamDomain
         $this->Outputter->addBreadcrumb('Teams', '/multigaming/teams');
         $this->Outputter->addBreadcrumb($team->name, '/multigaming/teams/show/' . $team_id);
         return $this->Outputter->outputTeamIndex([
-            'team' => $team
+            'team' => $team,
+            'users' => $this->users->dropdown()
         ]);
     }
 
@@ -107,8 +115,21 @@ class TeamDomain
 //        }
 
         $this->teams->update($team, [
-                'name' => $request->get('name')
+            'name' => $request->get('name')
         ]);
+
+
+        $users = $request->only('members');
+
+        if (count($users) > 0) {
+
+            $team->users()->detach();
+
+            foreach ($users as $user_id) {
+                $team->users()->attach($user_id);
+            }
+        }
+
         return $this->Outputter->redirectTeamUpdateWithSuccess();
     }
 

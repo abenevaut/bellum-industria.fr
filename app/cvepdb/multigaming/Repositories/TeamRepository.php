@@ -4,7 +4,6 @@ namespace App\CVEPDB\Multigaming\Repositories;
 
 //use CVEPDB\Repositories\RepositoryInterface;
 
-use App\CVEPDB\Multigaming\Models\User as UserModel;
 use App\CVEPDB\Multigaming\Models\Team as TeamModel;
 
 /**

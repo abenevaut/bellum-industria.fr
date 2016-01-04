@@ -21,9 +21,18 @@
     _teams.teams = {
         admin_box: $('.js-teams-admin_box'),
         admin_btn_add: $('.js-teams-add_new_team'),
+        admin_btn_edit: $('.js-teams-edit'),
         init_add_form: function () {
             cvepdb.debug('teams.js > init_add_form : success : Start');
+
+            var $form = _teams.teams.admin_box.find('form#teams_add');
+
             _teams.teams.admin_btn_add.click(function () {
+
+                $form.attr('action', $form.attr('data-route_store'));
+                $form.find('input[name="_method"]').val('POST');
+                $form.attr('method', 'POST');
+
                 if (!_teams.teams.admin_box.is(":visible")) {
                     _teams.teams.admin_box.slideDown("slow");
                     _teams.teams.admin_btn_add.find('i')
@@ -37,6 +46,25 @@
                         .addClass('icon-plus-1');
                 }
             });
+
+            _teams.teams.admin_btn_edit.click(function () {
+
+                var team_id = $(this).attr('data-team_id');
+                var team_name = $(this).attr('data-team_name');
+
+                $form.attr('action', $form.attr('data-route_put') + '/' + team_id);
+                $form.find('input[name="_method"]').val('PUT');
+                $form.attr('method', 'PUT');
+                $form.find('input[name="name"]').val(team_name);
+
+                // Todo : desactiver les boutons edit et prochainement supprimer
+
+                _teams.teams.admin_box.slideDown("slow");
+                _teams.teams.admin_btn_add.find('i')
+                    .removeClass('icon-plus-1')
+                    .addClass('icon-minus-1');
+            });
+
             cvepdb.debug('teams.js > init_add_form : success : End');
         }
     };
@@ -94,6 +122,21 @@
         });
 
         cvepdb.debug('teams.js > CVEPDB_FORM_VALIDATION_JQREADY : success : End');
+    });
+
+    /**
+     * A la fin du chargement de la library select2
+     */
+    head.ready('CVEPDB_SELECT2_JQREADY', function(){
+        cvepdb.debug('teams.js > CVEPDB_SELECT2_JQREADY : success : Start');
+
+
+        var input_members = $('select[name="members[]"]');
+
+        input_members.select2();
+
+
+        cvepdb.debug('teams.js > CVEPDB_SELECT2_JQREADY : success : End');
     });
 
 })(jQuery, window, document);

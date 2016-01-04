@@ -233,9 +233,18 @@ CVEPDBException = function(){
 		{
 			script: {
 				CVEPDB_EASYTABS:
-				  (cvepdb_config.URL_THEME + cvepdb_config.BASE_PATH + 'libs/easytabs/lib/jquery.easytabs.min.js')
+					(cvepdb_config.URL_THEME + cvepdb_config.BASE_PATH + 'libs/easytabs/lib/jquery.easytabs.min.js')
 			},
 			trigger: '.js-call-easytabs',
+			mobile: true,
+			browser: true
+		},
+		{
+			script: {
+				CVEPDB_SELECT2:
+					(cvepdb_config.URL_THEME + cvepdb_config.BASE_PATH + 'scripts/select2.js')
+			},
+			trigger: '.js-call-select2',
 			mobile: true,
 			browser: true
 		}
@@ -995,6 +1004,15 @@ CVEPDBException = function(){
 		_cvepdb.debug('cvepdb.js > CVEPDB_EASYTABS : success : Start');
 		$(D).trigger('CVEPDB_EASYTABS_READY');
 		_cvepdb.debug('cvepdb.js > CVEPDB_EASYTABS : success : End');
+	});
+
+	/**
+	 * Initialize select2 library
+	 */
+	head.ready('CVEPDB_SELECT2', function(){
+		_cvepdb.debug('cvepdb.js > CVEPDB_SELECT2 : success : Start');
+		$(D).trigger('CVEPDB_SELECT2_READY');
+		_cvepdb.debug('cvepdb.js > CVEPDB_SELECT2 : success : End');
 	});
 
 	/**

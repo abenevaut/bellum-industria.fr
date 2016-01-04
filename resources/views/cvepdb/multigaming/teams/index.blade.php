@@ -47,7 +47,7 @@
                     <div class="response"></div>
                     {!! Form::open(array(
                         'route' => 'teams_store',
-                        'method' => 'POST',
+                        'method' => 'PUT',
                         'id' => "teams_add",
                         'class' => "forms js-call-form_validation",
                         'data-route_post' => route('teams_store'),
