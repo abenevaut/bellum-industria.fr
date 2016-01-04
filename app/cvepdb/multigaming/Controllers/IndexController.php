@@ -2,11 +2,8 @@
 
 namespace App\CVEPDB\Multigaming\Controllers;
 
-use App;
-use URL;
-
 use App\CVEPDB\Multigaming\Controllers\Abs\AbsBaseController as BaseController;
-
+use App\CVEPDB\Multigaming\Outputters\IndexOutputter as IndexOutputter;
 
 use GuzzleHttp\Client;
 use Steam\Configuration;
