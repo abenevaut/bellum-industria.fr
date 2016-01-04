@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['prefix' => 'multigaming'], function () {
+Route::group(['domain' => 'multigaming.site.cvepdb.local'], function () {
 
     Route::get('/', '\App\CVEPDB\Multigaming\Controllers\IndexController@getIndex');
     Route::get('boutique', '\App\CVEPDB\Multigaming\Controllers\IndexController@getBoutique');

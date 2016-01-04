@@ -2,7 +2,8 @@
 
 namespace App\CVEPDB\Multigaming\Domains;
 
-use App\CVEPDB\Multigaming\Repositories\ServerRepository as ServerRepository;
+use App\CVEPDB\Multigaming\Repositories\GameServerRepository as GameServerRepository;
+use App\CVEPDB\Multigaming\Repositories\SteamRepository as SteamRepository;
 use App\CVEPDB\Multigaming\Outputters\IndexOutputter as indexOutputter;
 
 /**
@@ -12,9 +13,14 @@ use App\CVEPDB\Multigaming\Outputters\IndexOutputter as indexOutputter;
 class IndexDomain
 {
     /**
-     * @var ServerRepository|null
+     * @var GameServerRepository|null
      */
-    protected $servers = null;
+    protected $game_servers = null;
+
+    /**
+     * @var SteamRepository|null
+     */
+    protected $steam = null;
 
     /**
      * @var IndexOutputter|null
@@ -23,11 +29,19 @@ class IndexDomain
 
     public function __construct()
     {
-        $this->servers = new ServerRepository;
+        $this->game_servers = new GameServerRepository;
+        $this->steam = new SteamRepository;
         $this->Outputter = new IndexOutputter;
 
         $this->Outputter->addBreadcrumb('Home', '/');
         $this->Outputter->setBreadcrumbDivider('<i class="icon-right-dir"></i>');
+    }
+
+    public function indexIndex()
+    {
+        return $this->Outputter->outputIndex([
+            'threads' => $this->steam->paginate('Bellum-Industria', 4)
+        ]);
     }
 
     /**
@@ -36,8 +50,17 @@ class IndexDomain
     public function indexBoutique()
     {
         $this->Outputter->addBreadcrumb('Boutique', '/multigaming/boutique');
-        return $this->Outputter->outputIndex([
+        return $this->Outputter->outputBoutique([
             //
         ]);
+    }
+
+    public function indexSitemap()
+    {
+        return $this->Outputter->generateSitemapIndex(
+            'multigaming/teams/sitemap',
+            'sitemap-multigaming-index',
+            3600
+        );
     }
 }

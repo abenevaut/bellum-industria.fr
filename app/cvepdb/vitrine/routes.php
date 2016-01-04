@@ -39,7 +39,7 @@
 //});
 
 // Group Vitrine
-Route::group(['prefix' => '/'], function () {
+Route::group(['domain' => 'site.cvepdb.local'], function () {
 
     Route::get('/', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
     Route::get('index', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');

@@ -17,7 +17,7 @@ class IndexOutputter extends AbsLaravelOutputter
      */
     public function outputIndex($data)
     {
-        return $this->output('cvepdb.multigaming.teams.index', $data);
+        return $this->output('cvepdb.multigaming.index', $data);
     }
 
     /**
@@ -26,6 +26,6 @@ class IndexOutputter extends AbsLaravelOutputter
      */
     public function outputBoutique($data)
     {
-        return $this->output('cvepdb.multigaming.teams.index', $data);
+        return $this->output('cvepdb.multigaming.boutique', $data);
     }
 }

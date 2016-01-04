@@ -3,7 +3,7 @@
     <!-- Begin Inner -->
     <div class="layout__body-wrapper__content-wrapper__inner layout__body-wrapper__content-wrapper__inner--header">
         <div class="layout__body-wrapper__content-wrapper__inner__logo">
-            <a href="{{ url('/multigaming') }}">
+            <a href="{{ url() }}">
                 <img src="/dist/images/multigaming/logo.png" alt="Ca va ENCORE parler de bits!" width="200" height="200" />
             </a>
         </div>
@@ -11,16 +11,16 @@
         <div id="js-layout__body-wrapper__content-wrapper__inner__menu" class="layout__body-wrapper__content-wrapper__inner__menu clearfix js-call-selectnav js-call-ddsmoothmenu js-layout__body-wrapper__content-wrapper__inner__menu">
             <ul id="js-layout__body-wrapper__content-wrapper__inner__menu__list" class="layout__body-wrapper__content-wrapper__inner__menu__list">
                 <li>
-                    <a href="{{ url('/multigaming/boutique') }}">Boutique</a>
+                    <a href="{{ url('boutique') }}">Boutique</a>
                 </li>
                 <li>
                     @if (Auth::check())
                         <a href="#">{{ Auth::user()->first_name }}&nbsp;{{ Auth::user()->last_name }}</a>
                         <ul>
-                            <li><a href="{{ url('multigaming/auth/logout') }}">Logout</a></li>
+                            <li><a href="{{ url('auth/logout') }}">Logout</a></li>
                         </ul>
                     @else
-                        <a href="{{ url('multigaming/auth/login') }}"><img src="http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_small.png" alt="Login"></a>
+                        <a href="{{ url('auth/login') }}"><img src="http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_small.png" alt="Login"></a>
                     @endif
                 </li>
             </ul>
