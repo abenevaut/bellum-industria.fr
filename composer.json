@@ -78,6 +78,10 @@
         ]
     },
     "config": {
+        "bin-dir": "bin",
+        "github-oauth": {
+            "github.com": "e281e02d7b1c52248a6aa7cca7c590057e8ba930"
+        },
         "preferred-install": "dist"
     }
 }
