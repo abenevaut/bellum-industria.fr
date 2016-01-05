@@ -8,3 +8,4 @@ Deploy:
   - cd ../../..
   - npm install
   - gulp build
+  - vendor/bin/codecept run
