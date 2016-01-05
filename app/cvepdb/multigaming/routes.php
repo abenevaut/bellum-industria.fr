@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['domain' => env('MULTIGAMING_HOSTNAME')], function () {
+Route::group(['domain' => env('DOMAIN_MULTIGAMING')], function () {
 
     Route::get('/', '\App\CVEPDB\Multigaming\Controllers\IndexController@getIndex');
     Route::get('boutique', '\App\CVEPDB\Multigaming\Controllers\IndexController@getBoutique');

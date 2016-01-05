@@ -39,7 +39,7 @@
 //});
 
 // Group Vitrine
-Route::group(['domain' => env('APP_HOSTNAME')], function () {
+Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
 
     Route::get('/', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
     Route::get('index', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
