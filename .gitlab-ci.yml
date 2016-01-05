@@ -2,7 +2,7 @@ Deploy:
   script:
   - git submodule init
   - git submodule update
-  - composer install --dev
+  - composer install --dev --prefer-source --no-interaction
   - cd resources/cvepdb/cvepdbjs
   - bower install
   - cd ../../..
