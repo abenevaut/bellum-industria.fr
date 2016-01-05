@@ -15,3 +15,5 @@ public/dist
 public/dist/*
 public/*.xml
 public/*.pdf
+
+storage/databases/testing.sqlite
