@@ -13,7 +13,7 @@ class AlterUsersTableToAddProviderSteam extends Migration
     public function up()
     {
         Schema::table('users', function($table){
-            $table->string('steam_token');
+            $table->string('steam_token')->nullable();
         });
     }
 

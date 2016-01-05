@@ -44,7 +44,8 @@
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0",
         "phpspec/phpspec": "~2.1",
-        "codeception/codeception": "*"
+        "codeception/codeception": "*",
+        "doctrine/dbal": "~2.3"
     },
     "autoload": {
         "classmap": [

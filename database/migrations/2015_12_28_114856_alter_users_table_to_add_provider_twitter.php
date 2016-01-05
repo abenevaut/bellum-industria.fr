@@ -13,7 +13,7 @@ class AlterUsersTableToAddProviderTwitter extends Migration
     public function up()
     {
         Schema::table('users', function($table){
-            $table->string('twitter_token');
+            $table->string('twitter_token')->nullable();
         });
     }
 

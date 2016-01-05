@@ -13,7 +13,7 @@ class AlterUsersTableToAddProviderFacebook extends Migration
     public function up()
     {
         Schema::table('users', function($table){
-            $table->string('facebook_token');
+            $table->string('facebook_token')->nullable();
         });
     }
 
