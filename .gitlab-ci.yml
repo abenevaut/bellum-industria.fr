@@ -2,10 +2,10 @@ Deploy:
   script:
   - git submodule init
   - git submodule update
-  - composer install
+  - composer install --dev
   - cd resources/cvepdb/cvepdbjs
   - bower install
   - cd ../../..
   - npm install
   - gulp build
-  - vendor/bin/codecept run
+  - vendor/codeception/codeception/codecept run
