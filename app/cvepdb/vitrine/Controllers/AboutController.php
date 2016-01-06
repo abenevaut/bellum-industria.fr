@@ -7,14 +7,16 @@ use App\CVEPDB\Vitrine\Requests\ContactFormRequest;
 
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 
-class AboutController extends BaseController {
+class AboutController extends BaseController
+{
 
-    public function create() {
-        $this->breadcrumbs->addCrumb('Contact', '/contact');
-        return view('cvepdb.vitrine.contact', ['breadcrumbs' => $this->breadcrumbs]);
+    public function create()
+    {
+        return view('cvepdb.vitrine.contact');
     }
 
-    public function store(ContactFormRequest $request) {
+    public function store(ContactFormRequest $request)
+    {
 
         \Mail::send(
             'cvepdb.vitrine.emails.contact',
@@ -23,7 +25,7 @@ class AboutController extends BaseController {
                 'email' => $request->get('email'),
                 'user_message' => $request->get('message')
             ),
-            function($message) {
+            function ($message) {
                 $message->from('wj@wjgilmore.com');
                 $message->to('wj@wjgilmore.com', 'Admin')->subject('TODOParrot Feedback');
             }

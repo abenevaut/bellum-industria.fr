@@ -12,11 +12,11 @@ class PortfolioController extends BaseController
 
     public function index()
     {
-        return view('cvepdb.vitrine.portfolio.index', ['breadcrumbs' => $this->breadcrumbs]);
+        return view('cvepdb.vitrine.portfolio.index');
     }
 
     public function view($id = 0)
     {
-        return view('cvepdb.vitrine.portfolio.view', ['breadcrumbs' => $this->breadcrumbs]);
+        return view('cvepdb.vitrine.portfolio.view');
     }
 }

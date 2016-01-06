@@ -9,18 +9,14 @@ settings:
     bootstrap: _bootstrap.php
     colors: true
     memory_limit: 1024M
+    log: true
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
 modules:
+    enabled: [Laravel5, Filesystem, PhpBrowser, REST]
     config:
-        Db:
-            dsn: ''
-            user: ''
-            password: ''
-            dump: tests/_data/dump.sql
-    enabled:
-        - Laravel5:
+        Laravel5:
             environment_file: .env.testing
             cleanup: false
             bootstrap: bootstrap/app.php
@@ -28,3 +24,9 @@ modules:
             packages: workbench
             disable_middleware: false
             disable_events: false
+        PhpBrowser:
+            url: 'http://localhost:8000'
+        REST:
+            url: 'http://localhost:8000'
+            depends: PhpBrowser
+error_level: "E_ALL & ~E_STRICT & ~E_DEPRECATED"
