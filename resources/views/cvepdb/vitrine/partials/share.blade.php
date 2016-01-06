@@ -18,9 +18,14 @@
                 <i class="icon-gplus"></i>&nbsp;+1
             </a>
         </li>
+        {{--<li>--}}
+            {{--<a style="opacity: 1;" href="http://pinterest.com/pin/create/link/?url={{  url('/') }}" target="_blank" class="pinterest">--}}
+                {{--<i class="icon-s-pinterest"></i>&nbsp;Pin It--}}
+            {{--</a>--}}
+        {{--</li>--}}
         <li>
-            <a style="opacity: 1;" href="http://pinterest.com/pin/create/link/?url={{  url('/') }}" target="_blank" class="pinterest">
-                <i class="icon-s-pinterest"></i>&nbsp;Pin It
+            <a style="opacity: 1;" href="mailto:?subject=look at this website&body=Hi,I found this website and thought you might like it {{  url('/') }}" class="pinterest">
+                <i class="icon-mail-1"></i>&nbsp;Mail
             </a>
         </li>
     </ul>

@@ -12,13 +12,9 @@
 
 
         <ul class="social">
-            <li><a href="#"><i class="icon-s-rss"></i></a></li>
-            <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-            <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-            <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
-            <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-            <li><a href="#"><i class="icon-s-flickr"></i></a></li>
-            <li><a href="#"><i class="icon-s-vimeo"></i></a></li>
+            {{--<li><a href="#"><i class="icon-s-rss"></i></a></li>--}}
+            <li><a href="https://twitter.com/42_antoine"><i class="icon-s-twitter"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCRit4sV0dh71lr8gXcDFq4g"><i class="icon-s-youtube"></i></a></li>
         </ul>
         <div class="clear"></div>
 

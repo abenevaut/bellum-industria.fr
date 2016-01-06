@@ -16,6 +16,7 @@
             @endif
 
             @yield('content')
+            @include('cvepdb.vitrine.partials.footer')
             @include('cvepdb.vitrine.partials.subfooter')
         </div>
         <!-- End Body Wrapper -->
