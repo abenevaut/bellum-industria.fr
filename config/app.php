@@ -164,6 +164,8 @@ return [
         'Roumen\Sitemap\SitemapServiceProvider',
 
         'Roumen\Feed\FeedServiceProvider',
+
+        'Toin0u\Geocoder\GeocoderServiceProvider',
     ],
 
     /*
@@ -228,6 +230,8 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
 
         'Feed' => 'Roumen\Feed\Facades\Feed',
+
+        'Geocoder' => 'Toin0u\Geocoder\Facade\Geocoder',
     ],
 
 ];

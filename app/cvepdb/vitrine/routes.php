@@ -52,5 +52,9 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
 
     Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function () {
         Route::get('dashboard', '\App\CVEPDB\Vitrine\Controllers\Admin\DashboardController@index');
+        Route::get('contacts', '\App\CVEPDB\Vitrine\Controllers\Admin\ContactController@index');
+        Route::get('roles', '\App\CVEPDB\Vitrine\Controllers\Admin\RoleController@index');
+        Route::get('permissions', '\App\CVEPDB\Vitrine\Controllers\Admin\PermissionController@index');
+        Route::get('users', '\App\CVEPDB\Vitrine\Controllers\Admin\UserController@index');
     });
 });

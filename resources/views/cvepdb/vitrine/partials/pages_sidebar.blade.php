@@ -28,8 +28,7 @@
 
             <li class="m-t-30">
                 <a href="#" class="detailed">
-                    <span class="title">Page 1</span>
-                    <span class="details">234 notifications</span>
+                    <span class="title">Mes projets</span>
                 </a>
                 <span class="icon-thumbnail "><i class="pg-mail"></i></span>
             </li>
@@ -37,7 +36,8 @@
 
             <li class="">
                 <a href="#">
-                    <span class="title">Page 2</span>
+                    <span class="title">Mes factures</span>
+                    <span class="details">X en attente de reglement</span>
                 </a>
                 <span class="icon-thumbnail "><i class="pg-social"></i></span>
             </li>
@@ -51,20 +51,16 @@
                 <span class="icon-thumbnail"><i class="pg-grid"></i></span>
                 <ul class="sub-menu">
                     <li class="">
-                        <a href="#">Users</a>
+                        <a href="{{ url('admin/users') }}">Users</a>
                         <span class="icon-thumbnail">U</span>
                     </li>
                     <li class="">
-                        <a href="#">Contacts logs</a>
+                        <a href="{{ url('admin/contacts') }}">Contacts logs</a>
                         <span class="icon-thumbnail">C</span>
                     </li>
                     <li class="">
-                        <a href="#">Roles</a>
+                        <a href="{{ url('admin/roles') }}">Roles</a>
                         <span class="icon-thumbnail">R</span>
-                    </li>
-                    <li class="">
-                        <a href="#">Permissions</a>
-                        <span class="icon-thumbnail">P</span>
                     </li>
                 </ul>
             </li>
