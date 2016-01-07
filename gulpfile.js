@@ -9,8 +9,7 @@ var minifycss = require('gulp-minify-css');
 
 //CONFIG PATHS
 var config = {
-    pages: './resources/pages/pages',
-    assets: './resources/pages/assets',
+    pages: './resources/pages/html/pages',
     longwave: './resources/longwave',
     layouts: './resources/layouts',
     partials: './resources/partials',
@@ -20,9 +19,6 @@ var config = {
 };
 
 gulp.task('less', function () {
-    gulp.src(config.assets + '/less/style.less')
-        .pipe(less({paths: [config.assets + '/less/']}))
-        .pipe(gulp.dest(config.assets + '/css/'));
     gulp.src(config.pages + '/less/pages.less')
         .pipe(less({paths: [config.pages + '/less/']}))
         .pipe(gulp.dest(config.pages + '/css/'));
@@ -31,9 +27,6 @@ gulp.task('less', function () {
 gulp.task('sass', ['layouts-sass'],function () {});
 
 gulp.task('pages-sass', function () {
-    gulp.src(config.assets + '/sass/style.scss')
-        .pipe(sass({paths: [config.assets + '/sass/']}))
-        .pipe(gulp.dest(config.assets + '/css/'));
     gulp.src(config.pages + '/sass/pages.scss')
         .pipe(sass({paths: [config.pages + '/sass/']}))
         .pipe(gulp.dest(config.pages + '/css/'));
@@ -51,7 +44,6 @@ gulp.task('layouts-sass', function () {
 gulp.task('watch', function () {
     gulp.watch([
         config.pages + '/less/*.less',
-        config.assets + '/less/*.less',
         config.pages + '/sass/*.scss',
         config.assets + '/sass/*.scss'
     ], function (event) {
@@ -70,10 +62,6 @@ gulp.task('clean', function () {
 
 gulp.task('copy', ['clean'], function () {
     return gulp.src([
-
-            config.assets + '/**',
-            '!' + config.assets + '/less/**',
-            '!' + config.assets + '/sass/**',
 
             config.pages + '/**',
             '!' + config.pages + '/less/**',
@@ -107,7 +95,6 @@ gulp.task('copy', ['clean'], function () {
 
 gulp.task('css-min', ['less', 'sass'], function () {
     return gulp.src([
-            config.assets + '/css/*.css',
             config.pages + '/css/*.css',
             config.layouts + '/css/layouts/multigaming/*.css',
             config.layouts + '/css/layouts/vitrine/*.css'

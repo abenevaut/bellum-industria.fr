@@ -29,6 +29,13 @@ class IndexController extends BaseController
 //        $admin->save();
 
 
+//        $admin = new \App\Role();
+//        $admin->name         = 'client';
+//        $admin->display_name = 'User Customer'; // optional
+//        $admin->description  = 'User is allowed to manage and edit projects'; // optional
+//        $admin->save();
+
+
 
         $user = \App\User::where('id', '=', '1')->first();
         $admin = \App\Role::where('id', '=', '1')->first();

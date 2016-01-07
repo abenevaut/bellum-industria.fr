@@ -63,7 +63,7 @@
                 <div class="clear"></div>
             </div>
             <hr/>
-            @include('cvepdb.vitrine.partials.share')
+            @include('cvepdb.vitrine.partials.longwave_share')
         </div>
         <!-- Begin Inner -->
     </div>

@@ -11,33 +11,6 @@
 |
 */
 
-// Authentication routes...
-//Route::group(['prefix' => 'auth'], function () {
-//    // Registration routes...
-//    Route::get('register', 'Auth\AuthController@getRegister');
-//    Route::post('register', 'Auth\AuthController@postRegister');
-//
-//    // Authentication routes...
-//    Route::get('login', 'Auth\AuthController@getLogin');
-//    Route::post('login', 'Auth\AuthController@postLogin');
-//    Route::get('logout', 'Auth\AuthController@getLogout');
-//
-//    // Social Login
-//    Route::get('login/{provider?}', ['uses' => 'Auth\AuthController@redirectToProvider']);
-//    // Login callbacks
-//    Route::get('login/callback/{provider?}', ['uses' => 'Auth\AuthController@handleProviderCallback']);
-//
-//});
-//
-//Route::group(['prefix' => 'password'], function () {
-//    // Password reset link request routes...
-//    Route::get('email', 'Auth\PasswordController@getEmail');
-//    Route::post('email', 'Auth\PasswordController@postEmail');
-//    // Password reset routes...
-//    Route::get('reset/{token}', 'Auth\PasswordController@getReset');
-//    Route::post('reset', 'Auth\PasswordController@postReset');
-//});
-
 // Group Vitrine
 Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
 
@@ -51,82 +24,33 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
     Route::get('contact', ['as' => 'contact', 'uses' => '\App\CVEPDB\Vitrine\Controllers\AboutController@create']);
     Route::post('contact', ['as' => 'contact_store', 'uses' => '\App\CVEPDB\Vitrine\Controllers\AboutController@store']);
 
-    Route::group(['prefix' => 'portfolio'], function () {
+    // Authentication routes...
+    Route::group(['prefix' => 'auth'], function () {
+        // Registration routes...
+        Route::get('register', '\App\Http\Controllers\Auth\AuthController@getRegister');
+        Route::post('register', '\App\Http\Controllers\Auth\AuthController@postRegister');
 
-        Route::get('index', '\App\CVEPDB\Vitrine\Controllers\PortfolioController@index');
-        Route::get('view', '\App\CVEPDB\Vitrine\Controllers\PortfolioController@view');
+        // Authentication routes...
+        Route::get('login', '\App\Http\Controllers\Auth\AuthController@getLogin');
+        Route::post('login', '\App\Http\Controllers\Auth\AuthController@postLogin');
+        Route::get('logout', '\App\Http\Controllers\Auth\AuthController@getLogout');
 
+        // Social Login
+        Route::get('login/{provider?}', ['uses' => '\App\Http\Controllers\Auth\AuthController@redirectToProvider']);
+        // Login callbacks
+        Route::get('login/callback/{provider?}', ['uses' => '\App\Http\Controllers\Auth\AuthController@handleProviderCallback']);
     });
 
-    Route::get('/pdf/view', function() {
-
-//        $pdf = App::make('dompdf.wrapper');
-//        $pdf->loadHTML('<h1>Test</h1>');
-//        return $pdf->stream();
-
-        $pdf = PDF::loadView('cvepdb.vitrine.pdf.index', ['test' => 'test']);
-        return $pdf->stream('invoice.pdf');
-        return $pdf->download('invoice.pdf');
-
-        $pdf->save('invoice.pdf');
-        return ;
+    Route::group(['prefix' => 'password'], function () {
+        // Password reset link request routes...
+        Route::get('email', '\App\Http\Controllers\Auth\PasswordController@getEmail');
+        Route::post('email', '\App\Http\Controllers\Auth\PasswordController@postEmail');
+        // Password reset routes...
+        Route::get('reset/{token}', '\App\Http\Controllers\Auth\PasswordController@getReset');
+        Route::post('reset', '\App\Http\Controllers\Auth\PasswordController@postReset');
     });
 
-    Route::get('sitemap', function()
-    {
-        // create sitemap
-        $sitemap = App::make("sitemap");
-
-        // set cache
-        $sitemap->setCache('laravel.sitemap-vitrine-index', 3600);
-
-        // Sub sitemap files
-        $sitemap->addSitemap(URL::to('multigaming/sitemap'));
-
-        // show sitemap
-        return $sitemap->render('sitemapindex');
-    });
-
-    Route::get('feed', function(){
-
-        // create new feed
-        $feed = Feed::make();
-
-        // cache the feed for 60 minutes (second parameter is optional)
-        $feed->setCache(60, 'laravelFeedKey');
-
-        // check if there is cached feed and build new only if is not
-        if (!$feed->isCached())
-        {
-            // creating rss feed with our most recent 20 posts
-            $posts = DB::table('posts')->orderBy('created_at', 'desc')->take(20)->get();
-
-            // set your feed's title, description, link, pubdate and language
-            $feed->title = 'Your title';
-            $feed->description = 'Your description';
-            $feed->logo = 'http://yoursite.tld/logo.jpg';
-            $feed->link = URL::to('feed');
-            $feed->setDateFormat('datetime'); // 'datetime', 'timestamp' or 'carbon'
-            $feed->pubdate = $posts[0]->created_at;
-            $feed->lang = 'en';
-            $feed->setShortening(true); // true or false
-            $feed->setTextLimit(100); // maximum length of description text
-
-            foreach ($posts as $post)
-            {
-                // set item's title, author, url, pubdate, description and content
-                $feed->add($post->title, $post->author, URL::to($post->slug), $post->created, $post->description, $post->content);
-            }
-
-        }
-
-        // first param is the feed format
-        // optional: second param is cache duration (value of 0 turns off caching)
-        // optional: you can set custom cache key with 3rd param as string
-        return $feed->render('atom');
-
-        // to return your feed as a string set second param to -1
-        // $xml = $feed->render('atom', -1);
-
+    Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function () {
+        Route::get('dashboard', '\App\CVEPDB\Vitrine\Controllers\Admin\DashboardController@index');
     });
 });
