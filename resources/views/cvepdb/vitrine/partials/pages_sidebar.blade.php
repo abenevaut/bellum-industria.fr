@@ -42,6 +42,13 @@
                 <span class="icon-thumbnail "><i class="pg-social"></i></span>
             </li>
 
+            <li class="m-t-30">
+                <a href="{{ url('admin/entites') }}" class="detailed">
+                    <span class="title">Mes entites</span>
+                </a>
+                <span class="icon-thumbnail "><i class="pg-mail"></i></span>
+            </li>
+
 
             <li class="">
                 <a href="javascript:;">

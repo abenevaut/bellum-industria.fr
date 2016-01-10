@@ -56,5 +56,10 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
         Route::get('roles', '\App\CVEPDB\Vitrine\Controllers\Admin\RoleController@index');
         Route::get('permissions', '\App\CVEPDB\Vitrine\Controllers\Admin\PermissionController@index');
         Route::get('users', '\App\CVEPDB\Vitrine\Controllers\Admin\UserController@index');
+
+        Route::group(['prefix' => 'entites'], function () {
+            Route::get('/', '\App\CVEPDB\Vitrine\Controllers\Admin\EntiteController@getIndex');
+            Route::get('new', '\App\CVEPDB\Vitrine\Controllers\Admin\EntiteController@getAddEntite');
+        });
     });
 });

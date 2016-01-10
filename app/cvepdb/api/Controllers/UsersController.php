@@ -2,14 +2,9 @@
 
 namespace App\CVEPDB\Api\Controllers;
 
-use Mail;
 use App\User;
 use App\CVEPDB\Api\Transformers\UserTransformer;
 use Chrisbjr\ApiGuard\Http\Controllers\ApiGuardController;
-
-/**
- * TODO : Change API package https://github.com/dingo/api
- */
 
 class UsersController extends ApiGuardController
 {
@@ -33,6 +28,21 @@ class UsersController extends ApiGuardController
         ]
     ];
 
+    public function initialize()
+    {
+        // Get API key
+        $this->apiKey;
+
+        // Get user associated
+        // Login user
+        // Use Auth::user();
+    }
+
+    /**
+     * curl --header "X-Authorization: 6f4ef411098fbb37743f27c4990a69ba4b5cb653" http://api.site.cvepdb.local/v1/users
+     *
+     * @return mixed
+     */
     public function all()
     {
         $users = User::all();

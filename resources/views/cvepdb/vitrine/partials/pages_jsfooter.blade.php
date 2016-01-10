@@ -14,8 +14,16 @@
 <script type="text/javascript" src="/dist/plugins/classie/classie.js"></script>
 <script src="/dist/plugins/switchery/js/switchery.min.js" type="text/javascript"></script>
 <script src="/dist/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+<script src="/dist/plugins/jquery-datatable/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="/dist/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js" type="text/javascript"></script>
+<script src="/dist/plugins/jquery-datatable/media/js/dataTables.bootstrap.js" type="text/javascript"></script>
+<script src="/dist/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js" type="text/javascript"></script>
+<script type="text/javascript" src="/dist/plugins/datatables-responsive/js/datatables.responsive.js"></script>
+<script type="text/javascript" src="/dist/plugins/datatables-responsive/js/lodash.min.js"></script>
 <!-- END VENDOR JS -->
 <script src="/dist/js/pages.min.js"></script>
+<script src="/dist/js/pages_scripts/tables.js" type="text/javascript"></script>
+<script src="/dist/js/pages_scripts/scripts.js" type="text/javascript"></script>
 <script>
     $(function()
     {

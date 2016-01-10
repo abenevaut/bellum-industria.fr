@@ -20,6 +20,9 @@
 <link href="/dist/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="/dist/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="/dist/plugins/switchery/css/switchery.min.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/dist/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="/dist/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css" rel="stylesheet" type="text/css"/>
+<link href="/dist/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen"/>
 <link href="/dist/css/pages-icons.css" rel="stylesheet" type="text/css">
 <link class="main-stylesheet" href="/dist/css/pages.css" rel="stylesheet" type="text/css" />
 <!--[if lte IE 9]>
