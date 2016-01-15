@@ -13,6 +13,7 @@
 <script type="text/javascript" src="/dist/plugins/bootstrap-select2/select2.min.js"></script>
 <script type="text/javascript" src="/dist/plugins/classie/classie.js"></script>
 <script src="/dist/plugins/switchery/js/switchery.min.js" type="text/javascript"></script>
+<script src="/dist/plugins/summernote/js/summernote.min.js" type="text/javascript"></script>
 <script src="/dist/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 <script src="/dist/plugins/jquery-datatable/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="/dist/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js" type="text/javascript"></script>
@@ -28,5 +29,15 @@
     $(function()
     {
         $('#form-login').validate()
-    })
+
+        $('#summernote').summernote({
+            height: 200,
+            onfocus: function(e) {
+                $('body').addClass('overlay-disabled');
+            },
+            onblur: function(e) {
+                $('body').removeClass('overlay-disabled');
+            }
+        });
+    });
 </script>

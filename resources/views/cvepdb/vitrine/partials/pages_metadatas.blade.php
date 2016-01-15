@@ -23,6 +23,7 @@
 <link href="/dist/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="/dist/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css" rel="stylesheet" type="text/css"/>
 <link href="/dist/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="/dist/plugins/summernote/css/summernote.css" rel="stylesheet" type="text/css" media="screen"/>
 <link href="/dist/css/pages-icons.css" rel="stylesheet" type="text/css">
 <link class="main-stylesheet" href="/dist/css/pages.css" rel="stylesheet" type="text/css" />
 <!--[if lte IE 9]>

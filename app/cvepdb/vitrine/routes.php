@@ -61,5 +61,10 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
             Route::get('/', '\App\CVEPDB\Vitrine\Controllers\Admin\EntiteController@getIndex');
             Route::get('new', '\App\CVEPDB\Vitrine\Controllers\Admin\EntiteController@getAddEntite');
         });
+
+        Route::group(['prefix' => 'factures'], function () {
+            Route::get('/', '\App\CVEPDB\Vitrine\Controllers\Admin\FactureController@getIndex');
+            Route::post('generate', ['as' => 'facture_generate', 'uses' => '\App\CVEPDB\Vitrine\Controllers\Admin\FactureController@postGenerate']);
+        });
     });
 });

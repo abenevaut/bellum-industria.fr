@@ -209,7 +209,7 @@ return array(
          *
          * @var bool
          */
-        "DOMPDF_ENABLE_PHP" => false,
+        "DOMPDF_ENABLE_PHP" => env('DOMPDF_ENABLE_PHP', false),
 
         /**
          * Enable inline Javascript
