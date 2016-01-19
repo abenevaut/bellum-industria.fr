@@ -60,6 +60,7 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
         Route::group(['prefix' => 'entites'], function () {
             Route::get('/', '\App\CVEPDB\Vitrine\Controllers\Admin\EntiteController@getIndex');
             Route::get('new', '\App\CVEPDB\Vitrine\Controllers\Admin\EntiteController@getAddEntite');
+            Route::post('new', ['as' => 'entite_store', 'uses' => '\App\CVEPDB\Vitrine\Controllers\Admin\EntiteController@postAddEntite']);
         });
 
         Route::group(['prefix' => 'factures'], function () {

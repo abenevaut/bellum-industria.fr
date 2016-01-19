@@ -6,51 +6,65 @@
         <div class="col-md-12">
 
             <div class="panel panel-default">
+
+
                 <div class="panel-heading">
-                    <div class="panel-title">
-                        Option #one
+
+                    <div class="btn-group pull-left m-b-10">
+                        <a class="btn btn-default" href="{{ url('admin/entites') }}">Retour</a>
                     </div>
+
+                    <div class="panel-title">
+                        <br/>&nbsp;&nbsp;&nbsp;Ajouter une entité
+                    </div>
+
+                    {{--<div class="btn-group pull-right m-b-10">--}}
+                        {{--<a class="btn btn-default" href="{{ url('admin/entites') }}">Retour</a>--}}
+                    {{--</div>--}}
+
+                    <div class="clear"></div>
+
                 </div>
+                <div class="clear"></div>
+
+
                 <div class="panel-body">
                     <h5>
-                        Pages default style
+                        Nouvelle entiteé
                     </h5>
-                    <form class="" role="form">
+                    {!! Form::open(array('route' => 'entite_store', 'class' => 'forms')) !!}
+
                         <div class="form-group form-group-default required">
-                            <label>Project</label>
-                            <input type="email" class="form-control" required="">
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="name" required="">
                         </div>
+
+                        <div class="form-group form-group-default required">
+                            <label>SIRET</label>
+                            <input type="text" class="form-control" name="siret" required="">
+                        </div>
+
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default required">
-                                    <label>First name</label>
-                                    <input type="text" class="form-control" required="">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" required="required" name="email">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
-                                    <label>Last name</label>
-                                    <input type="text" class="form-control">
+                                    <label>Phone</label>
+                                    <input type="text" class="form-control" name="phone">
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group form-group-default required">
-                            <label>Password</label>
-                            <input type="password" class="form-control" required="">
-                        </div>
-                        <div class="form-group  form-group-default required">
-                            <label>Placeholder</label>
-                            <input type="email" class="form-control" placeholder="ex: some@example.com" required="">
-                        </div>
-                        <div class="form-group form-group-default disabled">
-                            <label>Disabled</label>
-                            <input type="email" class="form-control" value="You can put anything here" disabled="">
-                        </div>
 
-                        <button class="btn btn-primary" type="submit">Create a new account</button>
+                        <button class="btn btn-primary" type="submit">Ajoute l'entité</button>
 
-                    </form>
+                    {!! Form::close() !!}
                 </div>
+
+
             </div>
 
         </div>
