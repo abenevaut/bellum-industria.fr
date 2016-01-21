@@ -5,7 +5,7 @@
 <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even layout__body-wrapper__content-wrapper--intro">
     <!-- Begin Inner -->
     <div class="layout__body-wrapper__content-wrapper__inner layout__body-wrapper__content-wrapper__inner--intro">
-        <p>{!! trans('cvepdb/vitrine/index.slogan') !!}</p>
+        <p>{!! trans('cvepdb/vitrine/contact.title') !!}</p>
     </div>
     <!-- End Inner -->
 </div>

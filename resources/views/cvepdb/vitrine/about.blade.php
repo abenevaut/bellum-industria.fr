@@ -17,7 +17,7 @@
 
 
         <div class="one-third center">
-            <img src="" class="margin" alt="Avatar">
+            <img src="http://www.gravatar.com/avatar/<?php echo md5('antoine@cvepdb.fr'); ?>?s=400" class="margin" alt="Avatar">
             <h5>{!! trans('cvepdb/global.cvepdb_author') !!} <span>{!! trans('cvepdb/global.cvepdb_author_grade') !!}</span></h5>
 
 

@@ -10,9 +10,10 @@
         <div class="one-third layout__body-wrapper__content-wrapper__inner__widget-footer">
             <h3 class="colored">Navigation</h3>
 
-            Link <br />
-            Link <br />
-            Link <br />
+            <a href="{{ url('/about') }}">{!! trans('cvepdb/vitrine/about.title') !!}</a><br />
+            <a href="{{ url('/services') }}">{{ trans('cvepdb/vitrine/services.title') }}</a><br />
+            <a href="{{ url('/boutique') }}">{{ trans('cvepdb/vitrine/boutique.title') }}</a><br />
+            <a href="{{ url('/contact') }}">{!! trans('cvepdb/vitrine/contact.title') !!}</a><br />
 
         </div>
 

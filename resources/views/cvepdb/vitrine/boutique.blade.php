@@ -15,7 +15,7 @@
     <!-- Begin Inner -->
     <div class="layout__body-wrapper__content-wrapper__inner">
 
-        <iframe height="1800"
+        <iframe height="1350"
                 width="100%"
                 src="http://cvepdb.spreadshirt.fr/"
                 name="Spreadshop"
@@ -23,7 +23,9 @@
                 frameborder="0"
                 onload="window.scrollTo(0, 0);"></iframe>
 
-        Les produits proposés dans notre boutique proviennent directement de <a href="http://www.spreadshirt.fr">Spreadshirt</a>, la plateforme spécialisée dans la personnalisation de t-shirts et accessoires.
+        <div class="info-box">
+            Les produits proposés dans notre boutique proviennent directement de <a href="http://cvepdb.spreadshirt.fr" target="_blank">Spreadshirt</a>.
+        </div>
 
     </div>
     <!-- Begin Inner -->

@@ -4,13 +4,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Vitrine / layouts / default.blade
+    | Vitrine / boutique.blade
     |--------------------------------------------------------------------------
     |
-    | The following language lines are used during vitrine.layouts.default
+    | The following language lines are used during vitrine.boutique
     |
     */
 
-    '' => '',
+    'title' => 'Boutique',
 
 ];
