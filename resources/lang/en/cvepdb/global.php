@@ -18,4 +18,7 @@ return [
     'siret' => 'SIRET',
     'telephone' => 'Phone',
     'email' => 'E-mail',
+    'home' => 'Home',
+    'login' => 'Login',
+    'logout' => 'Logout',
 ];

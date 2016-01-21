@@ -32,13 +32,12 @@
                                     <a href="{{ url('clients/dashboard') }}">Espace client</a>
                                 </li>
                             @endif
-                            <li><a href="{{ url('auth/logout') }}">Logout</a></li>
+                            <li><a href="{{ url('auth/logout') }}">{!! trans('cvepdb/global.logout') !!}</a></li>
                         </ul>
                     @else
-                        <a href="{{ url('auth/login') }}">Login</a>
+                        <a href="{{ url('auth/login') }}">{!! trans('cvepdb/global.login') !!}</a>
                         <ul>
-                            <li><a href="{{ url('auth/login') }}">Login</a></li>
-                            <li><a href="{{ url('auth/register') }}">Registration</a></li>
+                            <li><a href="{{ url('auth/login') }}">{!! trans('cvepdb/global.login') !!}</a></li>
                         </ul>
                     @endif
                 </li>
