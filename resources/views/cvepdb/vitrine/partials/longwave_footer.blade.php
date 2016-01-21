@@ -49,12 +49,12 @@
 
 
         <div class="one-third last layout__body-wrapper__content-wrapper__inner__widget-footer">
-            <h3 class="colored">Get In Touch</h3>
+            <h3 class="colored">{!! trans('cvepdb/vitrine/contact.address_title') !!}</h3>
 
-            <p>Nous vous recevons dans nos locaux pour discuter de vos projets.</p>
-            <i class="icon-location layout__body-wrapper__content-wrapper__inner__widget-footer__contact"></i> 37 rue Richard Lenoir 75011 Paris<br />
-            <i class="icon-phone layout__body-wrapper__content-wrapper__inner__widget-footer__contact"></i> <a href="tel:+33652478431">+33 6 52 47 84 31</a><br />
-            <i class="icon-mail layout__body-wrapper__content-wrapper__inner__widget-footer__contact"></i> <a href="mailto:contact@cvepdb.fr">contact@cvepdb.fr</a>
+            <p>{!! trans('cvepdb/vitrine/contact.address_intro') !!}</p>
+            <i class="icon-location layout__body-wrapper__content-wrapper__inner__widget-footer__contact"></i> {!! trans('cvepdb/vitrine/contact.address_address') !!}<br />
+            <i class="icon-phone layout__body-wrapper__content-wrapper__inner__widget-footer__contact"></i> <a href="tel:{!! str_replace([' ', '.'], ['', ''], trans('cvepdb/vitrine/contact.address_phone')) !!}">{!! trans('cvepdb/vitrine/contact.address_phone') !!}</a><br />
+            <i class="icon-mail layout__body-wrapper__content-wrapper__inner__widget-footer__contact"></i> <a href="mailto:{!! trans('cvepdb/vitrine/contact.address_mail') !!}">{!! trans('cvepdb/vitrine/contact.address_mail') !!}</a>
         </div>
         <div class="clear"></div>
 

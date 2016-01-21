@@ -23,12 +23,12 @@
     <div class="layout__body-wrapper__content-wrapper__inner">
         <!-- Begin Content -->
         <div class="layout__body-wrapper__content-wrapper__inner__content">
-            <h3>GET IN TOUCH</h3>
-            <p>Contact me if you need anything!</p>
+            <h3>{!! trans('cvepdb/vitrine/contact.form_title') !!}</h3>
+            <p>{!! trans('cvepdb/vitrine/contact.form_intro') !!}</p>
             <ul class="retina-icons">
-                <li style="width:30%;"><i class="icon-check-1"></i> Support for software, or information about a product.</li>
-                <li style="width:30%;"><i class="icon-check-1"></i> About a purchase that you made or to request a new feature.</li>
-                <li style="width:30%;"><i class="icon-check-1"></i> Council / Error Report.</li>
+                <li style="width:30%;"><i class="icon-check-1"></i> {!! trans('cvepdb/vitrine/contact.bullets_one') !!}</li>
+                <li style="width:30%;"><i class="icon-check-1"></i> {!! trans('cvepdb/vitrine/contact.bullets_two') !!}</li>
+                <li style="width:30%;"><i class="icon-check-1"></i> {!! trans('cvepdb/vitrine/contact.bullets_three') !!}</li>
             </ul>
             <hr/>
 
@@ -43,22 +43,22 @@
                     <fieldset>
                         <ol>
                             <li class="form-row text-input-row name-field">
-                                {!! Form::text('last_name', null, ['required', 'class' => 'form-control text-input', 'placeholder' => 'Your name']) !!}
+                                {!! Form::text('last_name', null, ['required', 'class' => 'form-control text-input', 'placeholder' => trans('cvepdb/vitrine/contact.form_first_name')]) !!}
                             </li>
                             <li class="form-row text-input-row email-field">
-                                {!! Form::text('first_name', null, ['required', 'class' => 'form-control text-input', 'placeholder' => 'Your name']) !!}
+                                {!! Form::text('first_name', null, ['required', 'class' => 'form-control text-input', 'placeholder' => trans('cvepdb/vitrine/contact.form_last_name')]) !!}
                             </li>
                             <li class="form-row text-input-row subject-field">
-                                {!! Form::text('email', null, ['required', 'class' => 'form-control text-input', 'placeholder' => 'Your e-mail address']) !!}
+                                {!! Form::text('email', null, ['required', 'class' => 'form-control text-input', 'placeholder' => trans('cvepdb/vitrine/contact.form_mail')]) !!}
                             </li>
                             <li class="form-row text-area-row">
-                                {!! Form::text('subject', null, ['required', 'class' => 'form-control text-input', 'placeholder' => 'Subject']) !!}
+                                {!! Form::text('subject', null, ['required', 'class' => 'form-control text-input', 'placeholder' => trans('cvepdb/vitrine/contact.form_subject')]) !!}
                             </li>
                             <li class="form-row text-area-row">
-                                {!! Form::textarea('message', null, ['required', 'class' => 'form-control text-area', 'placeholder' => 'Your message']) !!}
+                                {!! Form::textarea('message', null, ['required', 'class' => 'form-control text-area', 'placeholder' => trans('cvepdb/vitrine/contact.form_message')]) !!}
                             </li>
                             <li class="button-row">
-                                {!! Form::submit('Contact Us!', ['class'=>'btn-submit']) !!}
+                                {!! Form::submit(trans('cvepdb/vitrine/contact.form_button'), ['class'=>'btn-submit']) !!}
                             </li>
                         </ol>
                     </fieldset>
@@ -70,11 +70,11 @@
         <!-- Begin Sidebar -->
         <div class="layout__body-wrapper__content-wrapper__inner__sidebar">
             <div class="layout__body-wrapper__content-wrapper__inner__sidebar__sidebox">
-                <h3>Address</h3>
-                <p>Nous vous recevons dans nos locaux pour discuter de vos projets.</p>
-                <i class="icon-location contact"></i> 37 rue Richard Lenoir 75011 Paris<br />
-                <i class="icon-phone contact"></i> <a href="tel:+33652478431">+33 6 52 47 84 31</a><br />
-                <i class="icon-mail contact"></i> <a href="mailto:contact@cvepdb.fr">contact@cvepdb.fr</a>
+                <h3>{!! trans('cvepdb/vitrine/contact.address_title') !!}</h3>
+                <p>{!! trans('cvepdb/vitrine/contact.address_intro') !!}</p>
+                <i class="icon-location contact"></i> {!! trans('cvepdb/vitrine/contact.address_address') !!}<br />
+                <i class="icon-phone contact"></i> <a href="tel:{!! str_replace([' ', '.'], ['', ''], trans('cvepdb/vitrine/contact.address_phone')) !!}">{!! trans('cvepdb/vitrine/contact.address_phone') !!}</a><br />
+                <i class="icon-mail contact"></i> <a href="mailto:{!! trans('cvepdb/vitrine/contact.address_mail') !!}">{!! trans('cvepdb/vitrine/contact.address_mail') !!}</a>
             </div>
         </div>
         <!-- End Sidebar -->
