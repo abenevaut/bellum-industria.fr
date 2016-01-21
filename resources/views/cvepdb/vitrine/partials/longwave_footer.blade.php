@@ -5,17 +5,16 @@
 
 
 
-
-
         <div class="one-third layout__body-wrapper__content-wrapper__inner__widget-footer">
-            <h3 class="colored">Navigation</h3>
+            <h3 class="colored">{!! trans('cvepdb/vitrine/contact.address_title') !!}</h3>
 
-            <a href="{{ url('/about') }}">{!! trans('cvepdb/vitrine/about.title') !!}</a><br />
-            <a href="{{ url('/services') }}">{{ trans('cvepdb/vitrine/services.title') }}</a><br />
-            <a href="{{ url('/boutique') }}">{{ trans('cvepdb/vitrine/boutique.title') }}</a><br />
-            <a href="{{ url('/contact') }}">{!! trans('cvepdb/vitrine/contact.title') !!}</a><br />
-
+            <p>{!! trans('cvepdb/vitrine/contact.address_intro') !!}</p>
+            <i class="icon-location layout__body-wrapper__content-wrapper__inner__widget-footer__contact"></i> {!! trans('cvepdb/vitrine/contact.address_address') !!}<br />
+            <i class="icon-phone layout__body-wrapper__content-wrapper__inner__widget-footer__contact"></i> <a href="tel:{!! str_replace([' ', '.'], ['', ''], trans('cvepdb/vitrine/contact.address_phone')) !!}">{!! trans('cvepdb/vitrine/contact.address_phone') !!}</a><br />
+            <i class="icon-mail layout__body-wrapper__content-wrapper__inner__widget-footer__contact"></i> <a href="mailto:{!! trans('cvepdb/vitrine/contact.address_mail') !!}">{!! trans('cvepdb/vitrine/contact.address_mail') !!}</a>
         </div>
+
+
 
 
         <div class="one-third layout__body-wrapper__content-wrapper__inner__widget-footer">
@@ -45,17 +44,19 @@
                 {{--<a href="#" style="font-size: 9pt;">icon</a> <a href="#" style="font-size: 9pt;">coda</a>--}}
                 {{--<a href="#" style="font-size: 20pt;">jquery</a> <a href="#" style="font-size: 9pt;">cms</a>--}}
             {{--</div>--}}
-        </div>
 
+        </div>
 
         <div class="one-third last layout__body-wrapper__content-wrapper__inner__widget-footer">
-            <h3 class="colored">{!! trans('cvepdb/vitrine/contact.address_title') !!}</h3>
+            <h3 class="colored">Navigation</h3>
 
-            <p>{!! trans('cvepdb/vitrine/contact.address_intro') !!}</p>
-            <i class="icon-location layout__body-wrapper__content-wrapper__inner__widget-footer__contact"></i> {!! trans('cvepdb/vitrine/contact.address_address') !!}<br />
-            <i class="icon-phone layout__body-wrapper__content-wrapper__inner__widget-footer__contact"></i> <a href="tel:{!! str_replace([' ', '.'], ['', ''], trans('cvepdb/vitrine/contact.address_phone')) !!}">{!! trans('cvepdb/vitrine/contact.address_phone') !!}</a><br />
-            <i class="icon-mail layout__body-wrapper__content-wrapper__inner__widget-footer__contact"></i> <a href="mailto:{!! trans('cvepdb/vitrine/contact.address_mail') !!}">{!! trans('cvepdb/vitrine/contact.address_mail') !!}</a>
+            <a href="{{ url('/about') }}">{!! trans('cvepdb/vitrine/about.title') !!}</a><br />
+            <a href="{{ url('/services') }}">{{ trans('cvepdb/vitrine/services.title') }}</a><br />
+            <a href="{{ url('/boutique') }}">{{ trans('cvepdb/vitrine/boutique.title') }}</a><br />
+            <a href="{{ url('/contact') }}">{!! trans('cvepdb/vitrine/contact.title') !!}</a><br />
+
         </div>
+
         <div class="clear"></div>
 
 
