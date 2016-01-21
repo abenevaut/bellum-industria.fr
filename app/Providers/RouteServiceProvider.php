@@ -61,7 +61,7 @@ class RouteServiceProvider extends ServiceProvider
         */
 
         $router->group(['namespace' => $this->namespace_vitrine], function ($router) {
-            require app_path('cvepdb/admin/routes.php');
+            require app_path('cvepdb/Admin/routes.php');
         });
 
         /*
