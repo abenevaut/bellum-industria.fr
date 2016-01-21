@@ -38,4 +38,25 @@
         margin: 10px 0px;
         padding: 13px 15px;
     }
+
+    .idea {
+        border-left: 3px solid #88b7d5;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
+    .talk-define {
+        border-left: 3px solid #d58888;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
+    .work-together {
+        border-left: 3px solid #f4a85e;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
+    .gain-control {
+        border-left: 3px solid #aa95d6;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
 </style>
