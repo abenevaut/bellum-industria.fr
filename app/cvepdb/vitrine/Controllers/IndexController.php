@@ -2,31 +2,86 @@
 
 namespace App\CVEPDB\Vitrine\Controllers;
 
+use Illuminate\Http\Request as Request;
+
+use App\CVEPDB\Interfaces\Controllers\ICRUDRessourceController as ICRUDRessourceController;
 use App\CVEPDB\Interfaces\Controllers\AbsBaseController as BaseController;
 
-use Zizaco\Entrust\Traits\EntrustUserTrait;
-
-class IndexController extends BaseController
+class IndexController extends BaseController implements ICRUDRessourceController
 {
-    use EntrustUserTrait;
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
     public function index()
     {
         return view('cvepdb.vitrine.index');
     }
 
-    public function services()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function create()
     {
-        return view('cvepdb.vitrine.services');
+        //
     }
 
-    public function about()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function store(Request $request)
     {
-        return view('cvepdb.vitrine.about');
+        //
     }
 
-    public function boutique()
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function show($id)
     {
-        return view('cvepdb.vitrine.boutique');
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function update($id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

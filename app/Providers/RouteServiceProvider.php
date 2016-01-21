@@ -56,6 +56,16 @@ class RouteServiceProvider extends ServiceProvider
 
         /*
         |--------------------------------------------------------------------------
+        | Admin Router
+        |--------------------------------------------------------------------------
+        */
+
+        $router->group(['namespace' => $this->namespace_vitrine], function ($router) {
+            require app_path('cvepdb/admin/routes.php');
+        });
+
+        /*
+        |--------------------------------------------------------------------------
         | Multigaming Router
         |--------------------------------------------------------------------------
         */

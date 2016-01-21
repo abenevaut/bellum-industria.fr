@@ -1,1 +1,0 @@
-Utilisateurs partagee avec clients.

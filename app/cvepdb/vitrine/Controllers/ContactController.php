@@ -6,8 +6,10 @@ use Illuminate\Http\Request as Request;
 
 use App\CVEPDB\Interfaces\Controllers\ICRUDRessourceController as ICRUDRessourceController;
 use App\CVEPDB\Interfaces\Controllers\AbsBaseController as BaseController;
+use App\CVEPDB\Vitrine\Models\LogContact;
+use App\CVEPDB\Vitrine\Requests\ContactFormRequest;
 
-class AboutController extends BaseController implements ICRUDRessourceController
+class ContactController extends BaseController implements ICRUDRessourceController
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +18,7 @@ class AboutController extends BaseController implements ICRUDRessourceController
      */
     public function index()
     {
-        return view('cvepdb.vitrine.about');
+        return view('cvepdb.vitrine.contact');
     }
 
     /**
@@ -38,7 +40,34 @@ class AboutController extends BaseController implements ICRUDRessourceController
      */
     public function store(Request $request)
     {
-        //
+        $fv = new ContactFormRequest();
+//        $fv->validate();
+
+        $m_contacts = new LogContact();
+        $m_contacts->first_name = $request->get('first_name');
+        $m_contacts->last_name = $request->get('last_name');
+        $m_contacts->email = $request->get('email');
+        $m_contacts->subject = $request->get('subject');
+        $m_contacts->message = $request->get('message');
+        $m_contacts->save();
+
+        \Mail::send(
+            'cvepdb.vitrine.emails.contact',
+            array(
+                'name' => $m_contacts->first_name.' '.$m_contacts->last_name,
+                'email' => $m_contacts->email,
+                'user_message' => $m_contacts->message
+            ),
+            function ($message) use ($m_contacts){
+                $message->from('contact@cavaencoreparlerdebits.fr')
+                    ->to($m_contacts->email, $m_contacts->first_name.' '.$m_contacts->last_name)
+                    ->cc('mailwatch@cavaencoreparlerdebits.fr')
+                    ->subject('Prise de contact : ' . $m_contacts->subject);
+            }
+        );
+
+        return \Redirect::route('contact.index')
+            ->with('message', 'Thanks for contacting us!');
     }
 
     /**

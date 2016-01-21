@@ -7,8 +7,7 @@ use Illuminate\Http\Request as Request;
 use App\CVEPDB\Interfaces\Controllers\ICRUDRessourceController as ICRUDRessourceController;
 use App\CVEPDB\Interfaces\Controllers\AbsBaseController as BaseController;
 
-
-class PortfolioController extends BaseController implements ICRUDRessourceController
+class ServiceController extends BaseController implements ICRUDRessourceController
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,7 @@ class PortfolioController extends BaseController implements ICRUDRessourceContro
      */
     public function index()
     {
-        return view('cvepdb.vitrine.portfolio.index');
+        return view('cvepdb.vitrine.services');
     }
 
     /**
@@ -50,7 +49,7 @@ class PortfolioController extends BaseController implements ICRUDRessourceContro
      */
     public function show($id)
     {
-        return view('cvepdb.vitrine.portfolio.view');
+        //
     }
 
     /**

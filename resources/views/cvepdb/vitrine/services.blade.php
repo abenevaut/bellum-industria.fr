@@ -210,7 +210,7 @@
 
         <hr/>
 
-        @include('cvepdb.vitrine.partials.share_inline')
+        @include('cvepdb.vitrine.partials.longwave_share_inline')
         <div class="clear"></div>
 
 

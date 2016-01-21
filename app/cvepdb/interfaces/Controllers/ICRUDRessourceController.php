@@ -1,34 +1,25 @@
 <?php
 
-namespace App\CVEPDB\Vitrine\Controllers;
+namespace App\CVEPDB\Interfaces\Controllers;
 
 use Illuminate\Http\Request as Request;
 
-use App\CVEPDB\Interfaces\Controllers\ICRUDRessourceController as ICRUDRessourceController;
-use App\CVEPDB\Interfaces\Controllers\AbsBaseController as BaseController;
-
-
-class PortfolioController extends BaseController implements ICRUDRessourceController
+interface ICRUDRessourceController
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function index()
-    {
-        return view('cvepdb.vitrine.portfolio.index');
-    }
+    public function index();
 
     /**
      * Show the form for creating a new resource.
      *
      * @return Response
      */
-    public function create()
-    {
-        //
-    }
+    public function create();
 
     /**
      * Store a newly created resource in storage.
@@ -37,10 +28,7 @@ class PortfolioController extends BaseController implements ICRUDRessourceContro
      *
      * @return Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function store(Request $request);
 
     /**
      * Display the specified resource.
@@ -48,10 +36,7 @@ class PortfolioController extends BaseController implements ICRUDRessourceContro
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
-    {
-        return view('cvepdb.vitrine.portfolio.view');
-    }
+    public function show($id);
 
     /**
      * Show the form for editing the specified resource.
@@ -59,10 +44,7 @@ class PortfolioController extends BaseController implements ICRUDRessourceContro
      * @param  int  $id
      * @return Response
      */
-    public function edit($id)
-    {
-        //
-    }
+    public function edit($id);
 
     /**
      * Update the specified resource in storage.
@@ -70,10 +52,7 @@ class PortfolioController extends BaseController implements ICRUDRessourceContro
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
-    {
-        //
-    }
+    public function update($id);
 
     /**
      * Remove the specified resource from storage.
@@ -81,8 +60,6 @@ class PortfolioController extends BaseController implements ICRUDRessourceContro
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+    public function destroy($id);
+
 }

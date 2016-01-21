@@ -1,0 +1,61 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register all of the routes for an application.
+| It's a breeze. Simply tell Laravel the URIs it should respond to
+| and give it the controller to call when that URI is requested.
+|
+*/
+
+// Group Vitrine
+Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
+
+    // Authentication routes...
+    Route::group(['prefix' => 'auth'], function () {
+        // Registration routes...
+        Route::get('register', '\App\Http\Controllers\Auth\AuthController@getRegister');
+        Route::post('register', '\App\Http\Controllers\Auth\AuthController@postRegister');
+
+        // Authentication routes...
+        Route::get('login', '\App\Http\Controllers\Auth\AuthController@getLogin');
+        Route::post('login', '\App\Http\Controllers\Auth\AuthController@postLogin');
+        Route::get('logout', '\App\Http\Controllers\Auth\AuthController@getLogout');
+
+        // Social Login
+        Route::get('login/{provider?}', ['uses' => '\App\Http\Controllers\Auth\AuthController@redirectToProvider']);
+        // Login callbacks
+        Route::get('login/callback/{provider?}', ['uses' => '\App\Http\Controllers\Auth\AuthController@handleProviderCallback']);
+    });
+
+    Route::group(['prefix' => 'password'], function () {
+        // Password reset link request routes...
+        Route::get('email', '\App\Http\Controllers\Auth\PasswordController@getEmail');
+        Route::post('email', '\App\Http\Controllers\Auth\PasswordController@postEmail');
+        // Password reset routes...
+        Route::get('reset/{token}', '\App\Http\Controllers\Auth\PasswordController@getReset');
+        Route::post('reset', '\App\Http\Controllers\Auth\PasswordController@postReset');
+    });
+
+    Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function () {
+        Route::get('dashboard', '\App\CVEPDB\Vitrine\Controllers\Admin\DashboardController@index');
+        Route::get('contacts', '\App\CVEPDB\Vitrine\Controllers\Admin\ContactController@index');
+        Route::get('roles', '\App\CVEPDB\Vitrine\Controllers\Admin\RoleController@index');
+        Route::get('permissions', '\App\CVEPDB\Vitrine\Controllers\Admin\PermissionController@index');
+        Route::get('users', '\App\CVEPDB\Vitrine\Controllers\Admin\UserController@index');
+
+        Route::group(['prefix' => 'entites'], function () {
+            Route::get('/', '\App\CVEPDB\Vitrine\Controllers\Admin\EntiteController@getIndex');
+            Route::get('new', '\App\CVEPDB\Vitrine\Controllers\Admin\EntiteController@getAddEntite');
+            Route::post('new', ['as' => 'entite_store', 'uses' => '\App\CVEPDB\Vitrine\Controllers\Admin\EntiteController@postAddEntite']);
+        });
+
+        Route::group(['prefix' => 'factures'], function () {
+            Route::get('/', '\App\CVEPDB\Vitrine\Controllers\Admin\FactureController@getIndex');
+            Route::post('generate', ['as' => 'facture_generate', 'uses' => '\App\CVEPDB\Vitrine\Controllers\Admin\FactureController@postGenerate']);
+        });
+    });
+});
