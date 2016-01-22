@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         @include('emails.partials.metadatas')
-        <title>Clip</title>
+        <title>Ca va ENCORE parler de bits!</title>
     </head>
     <body>
         @include('emails.partials.header')

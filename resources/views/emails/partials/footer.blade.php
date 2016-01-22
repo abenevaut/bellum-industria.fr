@@ -49,18 +49,17 @@
                                             <td height="15"></td>
                                         </tr>
                                         <tr valign="top">
-                                            <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:18px; color:#34495e; font-weight:bold;">Setting</td>
+                                            <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:18px; color:#34495e; font-weight:bold;">Navigation</td>
                                         </tr>
                                         <tr>
                                             <td height="10"></td>
                                         </tr>
                                         <tr valign="top">
                                             <td class="textbutton" style="line-height:28px; font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#bdc3c7;">
-                                                <a href="#">Webversion</a>
-                                                <br>
-                                                <a href="#">Unsubscribe</a>
-                                                <br>
-                                                <a href="#">Preference</a>
+                                                <a href="{{ url('/about') }}">{!! trans('cvepdb/vitrine/about.title') !!}</a><br />
+                                                <a href="{{ url('/services') }}">{{ trans('cvepdb/vitrine/services.title') }}</a><br />
+                                                <a href="{{ url('/boutique') }}">{{ trans('cvepdb/vitrine/boutique.title') }}</a><br />
+                                                <a href="{{ url('/contact') }}">{!! trans('cvepdb/vitrine/contact.title') !!}</a><br />
                                             </td>
                                         </tr>
                                     </table>
@@ -91,21 +90,21 @@
                                         <tr>
                                             <td height="15"></td>
                                         </tr>
-                                        <tr valign="top">
-                                            <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:18px; color:#34495e; font-weight:bold;">Link</td>
-                                        </tr>
-                                        <tr>
-                                            <td height="10"></td>
-                                        </tr>
-                                        <tr valign="top">
-                                            <td class="textbutton" style="line-height:28px; font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#999999;">
-                                                <a href="#">Products list</a>
-                                                <br>
-                                                <a href="#">Question</a>
-                                                <br>
-                                                <a href="#">Services</a>
-                                            </td>
-                                        </tr>
+                                        {{--<tr valign="top">--}}
+                                            {{--<td style="font-family: 'Open Sans', Arial, sans-serif; font-size:18px; color:#34495e; font-weight:bold;">Link</td>--}}
+                                        {{--</tr>--}}
+                                        {{--<tr>--}}
+                                            {{--<td height="10"></td>--}}
+                                        {{--</tr>--}}
+                                        {{--<tr valign="top">--}}
+                                            {{--<td class="textbutton" style="line-height:28px; font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#999999;">--}}
+                                                {{--<a href="#">Products list</a>--}}
+                                                {{--<br>--}}
+                                                {{--<a href="#">Question</a>--}}
+                                                {{--<br>--}}
+                                                {{--<a href="#">Services</a>--}}
+                                            {{--</td>--}}
+                                        {{--</tr>--}}
                                     </table>
 
                                     <!--End Link-->
@@ -139,14 +138,29 @@
                                                         <td height="15"></td>
                                                     </tr>
                                                     <tr>
-                                                        <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:18px; color:#34495e; font-weight:bold;">Contact us</td>
+                                                        <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:18px; color:#34495e; font-weight:bold;">{!! trans('cvepdb/vitrine/contact.address_title') !!}</td>
                                                     </tr>
                                                     <tr>
                                                         <td height="15"></td>
                                                     </tr>
                                                     <tr>
                                                         <td valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#999999; line-height:28px;">
-                                                            Support requests: can get help quickly and easily at the Envato Help Center.
+                                                            {!! trans('cvepdb/vitrine/contact.address_intro') !!}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#999999; line-height:28px;">
+                                                            {!! trans('cvepdb/vitrine/contact.address_address') !!}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#999999; line-height:28px;">
+                                                            <a href="tel:{!! str_replace([' ', '.'], ['', ''], trans('cvepdb/vitrine/contact.address_phone')) !!}">{!! trans('cvepdb/vitrine/contact.address_phone') !!}</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#999999; line-height:28px;">
+                                                            <a href="mailto:{!! trans('cvepdb/vitrine/contact.address_mail') !!}">{!! trans('cvepdb/vitrine/contact.address_mail') !!}</a>
                                                         </td>
                                                     </tr>
                                                     <tr>

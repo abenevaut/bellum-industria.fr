@@ -52,16 +52,32 @@ class ContactController extends BaseController implements ICRUDRessourceControll
         $m_contacts->save();
 
         \Mail::send(
+            'cvepdb.admin.emails.contact',
+            array(
+                'name' => $m_contacts->first_name.' '.$m_contacts->last_name,
+                'email' => $m_contacts->email,
+                'user_subject' => $m_contacts->subject,
+                'user_message' => $m_contacts->message
+            ),
+            function ($message) use ($m_contacts){
+                $message->from('contact@cavaencoreparlerdebits.fr')
+                    ->to('contact@cavaencoreparlerdebits.fr')
+                    ->cc('mailwatch@cavaencoreparlerdebits.fr')
+                    ->subject('Prise de contact : ' . $m_contacts->subject);
+            }
+        );
+
+        \Mail::send(
             'cvepdb.vitrine.emails.contact',
             array(
                 'name' => $m_contacts->first_name.' '.$m_contacts->last_name,
                 'email' => $m_contacts->email,
+                'user_subject' => $m_contacts->subject,
                 'user_message' => $m_contacts->message
             ),
             function ($message) use ($m_contacts){
                 $message->from('contact@cavaencoreparlerdebits.fr')
                     ->to($m_contacts->email, $m_contacts->first_name.' '.$m_contacts->last_name)
-                    ->cc('mailwatch@cavaencoreparlerdebits.fr')
                     ->subject('Prise de contact : ' . $m_contacts->subject);
             }
         );
