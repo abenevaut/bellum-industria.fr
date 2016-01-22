@@ -53,29 +53,23 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
         Route::get('dashboard', '\App\CVEPDB\Admin\Controllers\DashboardController@index');
 
         Route::resource('payments', '\App\CVEPDB\Admin\Controllers\PaymentController');
+        Route::resource('contacts', '\App\CVEPDB\Admin\Controllers\ContactController');
+        Route::resource('roles', '\App\CVEPDB\Admin\Controllers\RoleController');
+        Route::resource('users', '\App\CVEPDB\Admin\Controllers\UserController');
+        Route::resource('entites', '\App\CVEPDB\Admin\Controllers\EntiteController');
 
 
 
 
-
-
-
-
-//        Route::get('contacts', '\App\CVEPDB\Admin\Controllers\ContactController@index');
-//        Route::get('roles', '\App\CVEPDB\Admin\Controllers\RoleController@index');
 //        Route::get('permissions', '\App\CVEPDB\Admin\Controllers\PermissionController@index');
-//        Route::get('users', '\App\CVEPDB\Admin\Controllers\UserController@index');
-//
-//        Route::group(['prefix' => 'entites'], function () {
-//            Route::get('/', '\App\CVEPDB\Admin\Controllers\EntiteController@getIndex');
-//            Route::get('new', '\App\CVEPDB\Admin\Controllers\EntiteController@getAddEntite');
-//            Route::post('new', ['as' => 'entite_store', 'uses' => '\App\CVEPDB\Admin\Controllers\EntiteController@postAddEntite']);
-//        });
-//
-//        Route::group(['prefix' => 'factures'], function () {
-//            Route::get('/', '\App\CVEPDB\Admin\Controllers\FactureController@getIndex');
-//            Route::post('generate', ['as' => 'facture_generate', 'uses' => '\App\CVEPDB\Admin\Controllers\FactureController@postGenerate']);
-//        });
+
+
+
+
+        Route::group(['prefix' => 'factures'], function () {
+            Route::get('/', '\App\CVEPDB\Admin\Controllers\FactureController@getIndex');
+            Route::post('generate', ['as' => 'facture_generate', 'uses' => '\App\CVEPDB\Admin\Controllers\FactureController@postGenerate']);
+        });
 
 
 

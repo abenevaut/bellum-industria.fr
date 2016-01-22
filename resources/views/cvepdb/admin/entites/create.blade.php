@@ -32,7 +32,7 @@
                     <h5>
                         Nouvelle entiteé
                     </h5>
-                    {!! Form::open(array('route' => 'entite_store', 'class' => 'forms')) !!}
+                    {!! Form::open(array('route' => 'admin.entites.store', 'class' => 'forms')) !!}
 
                         <div class="form-group form-group-default required">
                             <label>Name</label>

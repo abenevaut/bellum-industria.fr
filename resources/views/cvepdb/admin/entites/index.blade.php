@@ -11,7 +11,7 @@
                     Entités
                 </div>
                 <div class="btn-group pull-right m-b-10">
-                    <a class="btn btn-default" href="{{ url('admin/entites/new') }}">Add new</a>
+                    <a class="btn btn-default" href="{{ url('admin/entites/create') }}">Add new</a>
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
                     </button>

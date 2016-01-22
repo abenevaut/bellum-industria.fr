@@ -33,6 +33,51 @@
 
                 <div class="clearfix"></div>
             </div>
+
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <div class="dataTables_wrapper form-inline no-footer">
+
+                        <table class="table table-hover dataTable no-footer" role="grid">
+                            <thead>
+                            <tr role="row">
+
+                                <th style="width: 50%;">
+                                    Année
+                                </th>
+
+                                <th style="width: 50%;">
+                                    Montant total (&euro; T.T.C.)
+                                </th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+                            @foreach ($total_amount_per_year as $year => $total_amount_this_year)
+
+                                <tr role="row" class="odd">
+
+                                    <td class="v-align-middle">
+                                        <p>{{ $year }}</p>
+                                    </td>
+                                    <td class="v-align-middle">
+                                        <p>{{ $total_amount_this_year }} &euro;</p>
+                                    </td>
+
+                                </tr>
+
+                            @endforeach
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="panel-body">
                 <div class="table-responsive">
                     <div id="basicTable_wrapper" class="dataTables_wrapper form-inline no-footer">

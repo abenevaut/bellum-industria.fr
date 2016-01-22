@@ -8,38 +8,89 @@ use App\CVEPDB\Admin\Requests\EntiteFormRequest;
 
 class EntiteController extends Controller
 {
-    public function getIndex()
+    public function index()
     {
         $entites = Entite::paginate(15);
 
-        return view('cvepdb.vitrine.admin.entite', ['entites' => $entites]);
+        return view('cvepdb.admin.entites.index', ['entites' => $entites]);
     }
 
-    public function getAddEntite()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function create()
     {
-        return view('cvepdb.vitrine.admin.entite_new');
+        return view('cvepdb.admin.entites.create');
     }
 
-    public function postAddEntite(EntiteFormRequest $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param EntiteFormRequest $request
+     *
+     * @return Response
+     */
+    public function store(EntiteFormRequest $request)
     {
-
         Entite::create([
             'name' => $request->get('name'),
             'siret' => $request->get('siret'),
             'email' => $request->get('email'),
             'phone' => $request->get('phone'),
         ]);
-
         return redirect('admin/entites');
     }
 
-    public function getEditEntite()
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function show($id)
     {
-        return view('cvepdb.vitrine.admin.entite_edit');
+        //
     }
 
-    public function postEditEntite()
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function edit($id)
     {
-        return view('cvepdb.vitrine.admin.entite_edit');
+        return view('cvepdb.admin.entites.edit');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function update($id, EntiteFormRequest $request)
+    {
+        $entite = new Entite();
+        $entite->findOrFail($id);
+        $entite->name = $request->get('name');
+        $entite->siret = $request->get('siret');
+        $entite->email = $request->get('email');
+        $entite->phone = $request->get('naphoneme');
+        $entite->save();
+        return redirect('admin/entites');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }
