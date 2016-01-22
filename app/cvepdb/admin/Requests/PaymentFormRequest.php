@@ -4,7 +4,7 @@ namespace App\CVEPDB\Admin\Requests;
 
 use App\Http\Requests\Request;
 
-class EntiteFormRequest extends Request
+class PaymentFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,9 @@ class EntiteFormRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required',
-            'siret' => 'required',
-            'email' => 'required|email',
-            'phone' => '',
+            'facture_reference' => 'required',
+            'date' => 'required',
+            'amount' => 'required',
         ];
     }
 }

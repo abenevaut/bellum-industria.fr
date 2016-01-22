@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    @include('cvepdb.vitrine.partials.pages_metadatas')
+    @include('cvepdb.admin.partials.pages_metadatas')
 </head>
 <body class="fixed-header">
-@include('cvepdb.vitrine.partials.pages_sidebar')
+@include('cvepdb.admin.partials.pages_sidebar')
 
         <!-- START PAGE-CONTAINER -->
 <div class="page-container">
     <!-- START PAGE HEADER WRAPPER -->
-    @include('cvepdb.vitrine.partials.pages_header')
+    @include('cvepdb.admin.partials.pages_header')
     <!-- END PAGE HEADER WRAPPER -->
     <!-- START PAGE CONTENT WRAPPER -->
     <div class="page-content-wrapper">
         <!-- START PAGE CONTENT -->
         <div class="content">
-            @include('cvepdb.vitrine.partials.pages_breadcrumbs')
+            @include('cvepdb.admin.partials.pages_breadcrumbs')
             <!-- START CONTAINER FLUID -->
             <div class="container-fluid container-fixed-lg">
                 <!-- BEGIN PlACE PAGE CONTENT HERE -->
@@ -25,7 +25,7 @@
             <!-- END CONTAINER FLUID -->
         </div>
         <!-- END PAGE CONTENT -->
-        @include('cvepdb.vitrine.partials.pages_footer')
+        @include('cvepdb.admin.partials.pages_footer')
     </div>
     <!-- END PAGE CONTENT WRAPPER -->
 </div>
@@ -33,6 +33,6 @@
 
 @yield('quickview')
 @yield('overlay')
-@include('cvepdb.vitrine.partials.pages_jsfooter')
+@include('cvepdb.admin.partials.pages_jsfooter')
 </body>
 </html>

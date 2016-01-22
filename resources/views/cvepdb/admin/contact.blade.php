@@ -1,4 +1,4 @@
-@extends('cvepdb.vitrine.layouts.admin')
+@extends('cvepdb.admin.layouts.default')
 
 @section('content')
 

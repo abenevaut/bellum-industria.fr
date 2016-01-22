@@ -1,10 +1,10 @@
 <?php
 
-namespace App\CVEPDB\Vitrine\Controllers\Admin;
+namespace App\CVEPDB\Admin\Controllers;
 
-use App\CVEPDB\Vitrine\Controllers\Abs\AbsController as Controller;
+use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
 use App\User;
-use App\CVEPDB\Vitrine\Requests\UserFormRequest;
+use App\CVEPDB\Admin\Requests\UserFormRequest;
 
 class UserController extends Controller
 {
@@ -22,7 +22,7 @@ class UserController extends Controller
 //            echo $e->getMessage(); exit;
 //        }
 
-        return view('cvepdb.vitrine.admin.user', ['users' => $users]);
+        return view('cvepdb.admin.user', ['users' => $users]);
     }
 
     public function postAddUser(UserFormRequest $request)

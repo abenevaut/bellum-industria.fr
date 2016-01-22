@@ -1,8 +1,8 @@
 <?php
 
-namespace App\CVEPDB\Vitrine\Controllers\Admin;
+namespace App\CVEPDB\Admin\Controllers;
 
-use App\CVEPDB\Vitrine\Controllers\Abs\AbsController as Controller;
+use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
 use App\Role;
 
 class RoleController extends Controller
@@ -11,6 +11,6 @@ class RoleController extends Controller
     {
         $roles = Role::paginate(15);
 
-        return view('cvepdb.vitrine.admin.role', ['roles' => $roles]);
+        return view('cvepdb.admin.role', ['roles' => $roles]);
     }
 }

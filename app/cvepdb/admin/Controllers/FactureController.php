@@ -1,9 +1,9 @@
 <?php
 
-namespace App\CVEPDB\Vitrine\Controllers\Admin;
+namespace App\CVEPDB\Vitrine\Controllers;
 
-use App\CVEPDB\Vitrine\Controllers\Abs\AbsController as Controller;
-use App\CVEPDB\Vitrine\Requests\FactureFormRequest as FactureFormRequest;
+use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
+use App\CVEPDB\Admin\Requests\FactureFormRequest as FactureFormRequest;
 
 class FactureController extends Controller
 {

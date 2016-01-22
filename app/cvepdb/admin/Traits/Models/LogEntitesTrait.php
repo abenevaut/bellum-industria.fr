@@ -1,6 +1,6 @@
 <?php
 
-namespace App\CVEPDB\Vitrine\Traits\Models;
+namespace App\CVEPDB\Admin\Traits\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

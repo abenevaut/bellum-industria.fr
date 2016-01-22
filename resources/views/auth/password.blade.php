@@ -1,4 +1,4 @@
-@extends('cvepdb.vitrine.layouts.default')
+@extends('cvepdb.admin.layouts.default')
 
 @section('content')
     <form method="POST" action="/password/email">

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\CVEPDB\Vitrine\Controllers\Abs;
+namespace App\CVEPDB\Admin\Controllers\Abs;
 
 use App\CVEPDB\Interfaces\Controllers\AbsBaseController as BaseController;
 

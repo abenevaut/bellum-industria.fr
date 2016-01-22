@@ -2,28 +2,69 @@
 
 @section('content')
 
-    <table class="table table-condensed table-hover">
-        <tbody>
-            @foreach ($users as $user)
-            <tr>
-                <td class="font-montserrat all-caps fs-12 col-lg-2">
-                    {{ $user->first_name }} {{ $user->last_name }}
-                </td>
+    <div class="row">
+        <div class="col-md-12">
 
-                <td class="font-montserrat all-caps fs-12 col-lg-3">
-                    {{ $user->email }}
-                </td>
+            <div class="panel panel-default">
 
-                <td class="col-lg-4">
-                    <button class="btn btn-complete btn-cons">Edit</button>
-                    <button class="btn btn-complete btn-cons">Delete</button>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
 
-    {!! $users->render() !!}
+                <div class="panel-heading">
+
+                    <div class="btn-group pull-left m-b-10">
+                        <a class="btn btn-default" href="{{ url('admin/payments') }}">Retour</a>
+                    </div>
+
+                    <div class="panel-title">
+                        <br/>&nbsp;&nbsp;&nbsp;Ajouter un paiement
+                    </div>
+
+                    {{--<div class="btn-group pull-right m-b-10">--}}
+                        {{--<a class="btn btn-default" href="{{ url('admin/entites') }}">Retour</a>--}}
+                    {{--</div>--}}
+
+                    <div class="clear"></div>
+
+                </div>
+                <div class="clear"></div>
+
+
+                <div class="panel-body">
+                    <h5>
+                        Nouvelle entiteé
+                    </h5>
+                    {!! Form::open(array('route' => 'admin.payments.store', 'class' => 'forms')) !!}
+
+                        <div class="form-group form-group-default required">
+                            <label>Reference de la facture</label>
+                            <input type="text" class="form-control" name="facture_reference" required="required">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group form-group-default required">
+                                    <label>Date</label>
+                                    <input type="text" class="form-control" required="required" name="date">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group form-group-default" required>
+                                    <label>Montant</label>
+                                    <input type="text" class="form-control" required="required" name="amount">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" type="submit">Ajoute le paiement</button>
+
+                    {!! Form::close() !!}
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
 
 @endsection
 
@@ -168,7 +209,7 @@
 @endsection
 
 @section('quickview')
-        <!--START QUICKVIEW -->
+<!--START QUICKVIEW -->
 <div id="quickview" class="quickview-wrapper" data-pages="quickview">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs">

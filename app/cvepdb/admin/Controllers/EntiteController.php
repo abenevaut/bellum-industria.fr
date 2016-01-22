@@ -1,10 +1,10 @@
 <?php
 
-namespace App\CVEPDB\Vitrine\Controllers\Admin;
+namespace App\CVEPDB\Admin\Controllers;
 
-use App\CVEPDB\Vitrine\Controllers\Abs\AbsController as Controller;
-use App\CVEPDB\Vitrine\Models\Entite;
-use App\CVEPDB\Vitrine\Requests\EntiteFormRequest;
+use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
+use App\CVEPDB\Admin\Models\Entite;
+use App\CVEPDB\Admin\Requests\EntiteFormRequest;
 
 class EntiteController extends Controller
 {

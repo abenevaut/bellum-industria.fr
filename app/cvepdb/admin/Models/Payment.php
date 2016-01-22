@@ -4,14 +4,14 @@ namespace App\CVEPDB\Admin\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LogEntite extends Model
+class Payment extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'log_entites';
+    protected $table = 'payments';
 
     /**
      * The attributes that are mass assignable.
@@ -19,12 +19,9 @@ class LogEntite extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
-        'contentId',
-        'contentType',
-        'action',
-        'description',
-        'details'
+        'facture_reference',
+        'date',
+        'amount',
     ];
 
     /**
@@ -33,12 +30,4 @@ class LogEntite extends Model
      * @var array
      */
     protected $hidden = [];
-
-    /**
-     * The users that belong to the role.
-     */
-    public function users()
-    {
-        return $this->hasOne('App\CVEPDB\Multigaming\Models\User');
-    }
 }

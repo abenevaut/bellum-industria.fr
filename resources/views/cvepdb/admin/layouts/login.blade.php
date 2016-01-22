@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    @include('cvepdb.vitrine.partials.pages_metadatas')
+    @include('cvepdb.admin.partials.pages_metadatas')
 </head>
 <body class="fixed-header ">
 <div class="login-wrapper ">
@@ -94,6 +94,6 @@
     </div>
     <!-- END Login Right Container-->
 </div>
-@include('cvepdb.vitrine.partials.pages_jsfooter')
+@include('cvepdb.admin.partials.pages_jsfooter')
 </body>
 </html>

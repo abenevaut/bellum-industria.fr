@@ -1,8 +1,8 @@
 <?php
 
-namespace App\CVEPDB\Vitrine\Models;
+namespace App\CVEPDB\Admin\Models;
 
-use App\CVEPDB\Vitrine\Traits\Models\LogEntitesTrait;
+use App\CVEPDB\Admin\Traits\Models\LogEntitesTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Entite extends Model
