@@ -33,4 +33,9 @@ class BankAccountController extends Controller
         ]);
         return redirect('admin/bankaccounts');
     }
+
+    public function postAjaxGetBankAccount()
+    {
+        return ['results' => BankAccount::all()];
+    }
 }

@@ -24,6 +24,10 @@
 <link href="/dist/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css" rel="stylesheet" type="text/css"/>
 <link href="/dist/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen"/>
 <link href="/dist/plugins/summernote/css/summernote.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="/dist/plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+<link href="/dist/plugins/bootstrap-tag/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
+<link href="/dist/plugins/dropzone/css/dropzone.css" rel="stylesheet" type="text/css" />
+<link href="/dist/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" media="screen">
 <link href="/dist/css/pages-icons.css" rel="stylesheet" type="text/css">
 <link class="main-stylesheet" href="/dist/css/pages.css" rel="stylesheet" type="text/css" />
 <!--[if lte IE 9]>

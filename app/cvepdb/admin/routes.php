@@ -54,8 +54,10 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
         Route::get('entites/ajax/getclients', '\App\CVEPDB\Admin\Controllers\EntiteController@postAjaxGetClientsEntites');
 
         Route::resource('bills', '\App\CVEPDB\Admin\Controllers\BillController');
+        Route::get('bills/ajax/getbills', '\App\CVEPDB\Admin\Controllers\BillController@postAjaxGetBills');
 
         Route::resource('bankaccounts', '\App\CVEPDB\Admin\Controllers\BankAccountController');
+        Route::get('bankaccounts/ajax/getbankaccounts', '\App\CVEPDB\Admin\Controllers\BankAccountController@postAjaxGetBankAccount');
 
     });
 });

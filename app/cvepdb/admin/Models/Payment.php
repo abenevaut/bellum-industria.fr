@@ -19,9 +19,9 @@ class Payment extends Model
      * @var array
      */
     protected $fillable = [
-        'facture_reference',
+        'bank_account_id',
         'date',
-        'amount',
+        'bill_id',
     ];
 
     /**

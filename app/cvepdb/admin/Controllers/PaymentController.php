@@ -63,9 +63,9 @@ class PaymentController extends Controller
     public function store(PaymentFormRequest $request)
     {
         Payment::create([
-            'facture_reference' => $request->get('facture_reference'),
+            'bill_id' => $request->get('bill_id'),
+            'bank_account_id' => $request->get('bank_account_id'),
             'date' => $request->get('date'),
-            'amount' => $request->get('amount'),
         ]);
         return redirect('admin/payments');
     }

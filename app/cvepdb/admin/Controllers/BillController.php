@@ -48,4 +48,9 @@ class BillController extends Controller
 
         return redirect('admin/bills');
     }
+
+    public function postAjaxGetBills()
+    {
+        return ['results' => Bill::all()];
+    }
 }

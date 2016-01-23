@@ -24,9 +24,9 @@ class PaymentFormRequest extends Request
     public function rules()
     {
         return [
-            'facture_reference' => 'required',
+            'bank_account_id' => 'required',
             'date' => 'required',
-            'amount' => 'required',
+            'bill_id' => 'required',
         ];
     }
 }
