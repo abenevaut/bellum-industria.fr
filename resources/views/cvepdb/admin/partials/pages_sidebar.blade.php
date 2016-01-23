@@ -41,7 +41,10 @@
             </li>
 
 
-            <li class="m-t-30">
+            <li class="m-t-30
+                @if (in_array(Request::path(), ['admin/contacts']))
+                    open active
+                @endif">
                 <a href="javascript:;">
                     <span class="title">Prospections</span>
                     <span class=" arrow"></span>
@@ -61,7 +64,10 @@
 
 
 
-            <li class="m-t-30">
+            <li class="m-t-30
+                @if (in_array(Request::path(), ['admin/entites', 'admin/factures', 'admin/payments']))
+                    open active
+                @endif">
                 <a href="javascript:;">
                     <span class="title">Clients</span>
                     <span class=" arrow"></span>
@@ -89,7 +95,10 @@
 
 
 
-            <li class="m-t-30">
+            <li class="m-t-30
+                @if (in_array(Request::path(), ['admin/users','admin/roles']))
+                    open active
+                @endif">
                 <a href="javascript:;">
                     <span class="title">Settings</span>
                     <span class=" arrow"></span>

@@ -137,9 +137,9 @@
                         {{--<a href="#"><i class="pg-outdent"></i> Feedback</a>--}}
                     {{--</li>--}}
 
-                    {{--<li>--}}
-                        {{--<a href="#"><i class="pg-signals"></i> Help</a>--}}
-                    {{--</li>--}}
+                    <li>
+                        <a href="#"><i class="pg-signals"></i> Help</a>
+                    </li>
 
 
                     <li class="bg-master-lighter">
