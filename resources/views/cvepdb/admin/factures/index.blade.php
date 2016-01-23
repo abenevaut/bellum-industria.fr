@@ -19,6 +19,31 @@
                             Informations sur le vendeur
                         </h5>
 
+
+
+                        <div class="form-group form-group-default form-group-default-select2 required">
+                            <label class="">Project</label>
+                            <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+
+
+                                <optgroup label="Alaskan/Hawaiian Time Zone">
+                                    <option value="AK">Alaska</option>
+                                    <option value="HI">Hawaii</option>
+                                </optgroup>
+                                <optgroup label="Pacific Time Zone">
+                                    <option value="CA">California</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="WA">Washington</option>
+                                </optgroup>
+
+
+                            </select>
+                        </div>
+
+
+
+
                         <div class="form-group form-group-default required">
                             <label>Nom</label>
                             <input type="text" class="form-control" name="vendeur_name" required="" value="Antoine BENEVAUT">

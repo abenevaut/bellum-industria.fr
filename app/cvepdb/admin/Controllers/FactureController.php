@@ -1,19 +1,27 @@
 <?php
 
-namespace App\CVEPDB\Vitrine\Controllers;
+namespace App\CVEPDB\Admin\Controllers;
 
 use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
 use App\CVEPDB\Admin\Requests\FactureFormRequest as FactureFormRequest;
+use App\CVEPDB\Admin\Models\Entite;
 
 class FactureController extends Controller
 {
     public function getIndex()
     {
+
+
+
+
         return view('cvepdb.admin.factures.index');
     }
 
     public function postGenerate(FactureFormRequest $request)
     {
+        $entite_cvepdb = Entite::where('type', 'cvepdb')->all();
+        $entite_client = Entite::where('type', 'client')->all();
+
         $data = [
             'vendeur_name' => $request->get('vendeur_name'),
             'vendeur_adress' => $request->get('vendeur_adress'),

@@ -28,6 +28,13 @@ class EntiteFormRequest extends Request
             'siret' => 'required',
             'email' => 'required|email',
             'phone' => '',
+
+            'address' => 'required',
+            'zipcode' => 'required',
+            'city' => 'required',
+            'country' => 'required',
+
+            'type' => 'required',
         ];
     }
 }
