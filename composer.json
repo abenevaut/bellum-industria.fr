@@ -38,7 +38,8 @@
         "barryvdh/laravel-dompdf": "0.6.*",
         "roumen/sitemap": "^2.5",
         "roumen/feed": "^2.9",
-        "toin0u/geocoder-laravel": "@stable"
+        "toin0u/geocoder-laravel": "@stable",
+        "nesbot/carbon": "^1.21"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

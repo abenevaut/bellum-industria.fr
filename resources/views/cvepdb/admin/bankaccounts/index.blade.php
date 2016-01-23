@@ -11,7 +11,7 @@
                     Bills
                 </div>
                 <div class="btn-group pull-right m-b-10">
-                    <a class="btn btn-default" href="{{ url('admin/bills/create') }}">Add new</a>
+                    <a class="btn btn-default" href="{{ url('admin/bankaccounts/create') }}">Add new</a>
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
                     </button>
@@ -42,17 +42,12 @@
                                 </th>
 
                                 <th style="width: 20%;" class="sorting" tabindex="0" aria-controls="basicTable"
-                                    rowspan="1" colspan="1" aria-label="Places: activate to sort column ascending">Client name
+                                    rowspan="1" colspan="1" aria-label="Places: activate to sort column ascending">IBAN
                                 </th>
 
                                 <th style="width: 20%;" class="sorting" tabindex="0" aria-controls="basicTable"
                                     rowspan="1" colspan="1" aria-label="Activities: activate to sort column ascending">
-                                    Vendor name
-                                </th>
-
-                                <th style="width: 15%;" class="sorting" tabindex="0" aria-controls="basicTable"
-                                    rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">
-                                    Date d'emission
+                                    BIC
                                 </th>
 
                                 <th style="width: 24%;" rowspan="1" colspan="1">Actions</th>
@@ -62,27 +57,24 @@
                             <tbody>
 
 
-                            @foreach ($bills as $bill)
+                            @foreach ($bankaccounts as $bankaccount)
 
                                 <tr role="row" class="odd">
                                     <td class="v-align-middle">
                                         <div class="checkbox ">
-                                            <input type="checkbox" value="{{ $bill->id }}"
-                                                   id="checkbox{{ $bill->id }}">
-                                            <label for="checkbox{{ $bill->id }}"></label>
+                                            <input type="checkbox" value="{{ $bankaccount->id }}"
+                                                   id="checkbox{{ $bankaccount->id }}">
+                                            <label for="checkbox{{ $bankaccount->id }}"></label>
                                         </div>
                                     </td>
                                     <td class="v-align-middle sorting_1">
-                                        <p>{{ $bill->reference }}</p>
+                                        <p>{{ $bankaccount->reference }}</p>
                                     </td>
                                     <td class="v-align-middle">
-                                        <p>{{ $bill->client->name }}</p>
+                                        <p>{{ $bankaccount->iban }}</p>
                                     </td>
                                     <td class="v-align-middle">
-                                        <p>{{ $bill->vendor->name }}</p>
-                                    </td>
-                                    <td class="v-align-middle">
-                                        <p>{{ $bill->date_emission }}</p>
+                                        <p>{{ $bankaccount->bic }}</p>
                                     </td>
                                     <td class="v-align-middle">
                                         <button class="btn btn-complete btn-cons">Edit</button>

@@ -14,34 +14,25 @@ class CreateBillsTable extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('entite_vendor_id')->unsigned();
+            $table->integer('entite_client_id')->unsigned();
             $table->string('reference')->unique();
             $table->date('date_emission');
             $table->string('currency');
             $table->timestamps();
+            $table->index(['entite_vendor_id', 'entite_client_id']);
         });
 
         Schema::create('bills_parts', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('bill_id')->unsigned();
             $table->string('designation');
             $table->string('quantity');
             $table->string('unit_price_without_vat');
             $table->string('price_without_vat');
             $table->string('amount_vat');
             $table->timestamps();
-        });
-
-        // Create table for associating permissions to roles (Many-to-Many)
-        Schema::create('bill_billpart', function (Blueprint $table) {
-            $table->integer('bill_id')->unsigned();
-            $table->integer('bill_part_id')->unsigned();
-
-            $table->foreign('bill_id')->references('id')->on('bills')
-                ->onUpdate('cascade')->onDelete('cascade');
-
-            $table->foreign('bill_part_id')->references('id')->on('bills_parts')
-                ->onUpdate('cascade')->onDelete('cascade');
-
-            $table->primary(['bill_id', 'bill_part_id']);
+            $table->index(['bill_id']);
         });
     }
 
@@ -52,7 +43,6 @@ class CreateBillsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('bill_billpart');
         Schema::drop('bills');
         Schema::drop('bills_parts');
     }

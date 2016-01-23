@@ -107,6 +107,11 @@
                 <ul class="sub-menu">
 
                     <li class="">
+                        <a href="{{ url('admin/bankaccounts') }}">Comptes bancaires</a>
+                        <span class="icon-thumbnail">CB</span>
+                    </li>
+
+                    <li class="">
                         <a href="{{ url('admin/users') }}">Users</a>
                         <span class="icon-thumbnail">U</span>
                     </li>

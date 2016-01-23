@@ -55,5 +55,7 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
 
         Route::resource('bills', '\App\CVEPDB\Admin\Controllers\BillController');
 
+        Route::resource('bankaccounts', '\App\CVEPDB\Admin\Controllers\BankAccountController');
+
     });
 });
