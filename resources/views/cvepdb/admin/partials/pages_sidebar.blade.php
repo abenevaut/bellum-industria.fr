@@ -65,7 +65,7 @@
 
 
             <li class="m-t-30
-                @if (in_array(Request::path(), ['admin/entites', 'admin/factures', 'admin/payments']))
+                @if (in_array(Request::path(), ['admin/entites', 'admin/bills', 'admin/payments']))
                     open active
                 @endif">
                 <a href="javascript:;">
@@ -81,7 +81,7 @@
                     </li>
 
                     <li class="">
-                        <a href="{{ url('admin/factures') }}" class="detailed">Mes factures</a>
+                        <a href="{{ url('admin/bills') }}" class="detailed">Mes factures</a>
                         <span class="icon-thumbnail">U</span>
                     </li>
 

@@ -46,6 +46,16 @@
                         </select>
                     </div>
 
+                    <div class="form-group form-group-default form-group-default-select2 required">
+                        <label class="">Status de l'entreprise</label>
+                        <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2" name="type">
+
+                            <option value="active">Active</option>
+                            <option value="disabled">Disabled</option>
+
+                        </select>
+                    </div>
+
                     <div class="form-group form-group-default required">
                         <label>Name</label>
                         <input type="text" class="form-control" name="name" required="">

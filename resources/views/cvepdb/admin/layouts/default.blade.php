@@ -34,5 +34,6 @@
 @yield('quickview')
 @yield('overlay')
 @include('cvepdb.admin.partials.pages_jsfooter')
+@yield('jsfooter')
 </body>
 </html>

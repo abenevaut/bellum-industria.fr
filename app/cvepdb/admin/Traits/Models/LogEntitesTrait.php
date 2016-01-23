@@ -8,7 +8,7 @@ use Auth;
 use ReflectionClass;
 use Exception;
 
-use App\CVEPDB\Vitrine\Models\LogEntite;
+use App\CVEPDB\Admin\Models\LogEntite;
 
 /**
  * Class ModelEventLogger

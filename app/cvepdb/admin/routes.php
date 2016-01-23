@@ -13,18 +13,15 @@
 
 // Group Vitrine
 Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
-
     // Authentication routes...
     Route::group(['prefix' => 'auth'], function () {
         // Registration routes...
         Route::get('register', '\App\Http\Controllers\Auth\AuthController@getRegister');
         Route::post('register', '\App\Http\Controllers\Auth\AuthController@postRegister');
-
         // Authentication routes...
         Route::get('login', '\App\Http\Controllers\Auth\AuthController@getLogin');
         Route::post('login', '\App\Http\Controllers\Auth\AuthController@postLogin');
         Route::get('logout', '\App\Http\Controllers\Auth\AuthController@getLogout');
-
         // Social Login
         Route::get('login/{provider?}', ['uses' => '\App\Http\Controllers\Auth\AuthController@redirectToProvider']);
         // Login callbacks
@@ -40,41 +37,23 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
         Route::post('reset', '\App\Http\Controllers\Auth\PasswordController@postReset');
     });
 
-
-
-
     Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function () {
-
-
-
-
-
         Route::get('/', '\App\CVEPDB\Admin\Controllers\DashboardController@index');
         Route::get('dashboard', '\App\CVEPDB\Admin\Controllers\DashboardController@index');
 
         Route::resource('payments', '\App\CVEPDB\Admin\Controllers\PaymentController');
+
         Route::resource('contacts', '\App\CVEPDB\Admin\Controllers\ContactController');
+
         Route::resource('roles', '\App\CVEPDB\Admin\Controllers\RoleController');
+
         Route::resource('users', '\App\CVEPDB\Admin\Controllers\UserController');
+
         Route::resource('entites', '\App\CVEPDB\Admin\Controllers\EntiteController');
+        Route::get('entites/ajax/getvendors', '\App\CVEPDB\Admin\Controllers\EntiteController@postAjaxGetVendorsEntites');
+        Route::get('entites/ajax/getclients', '\App\CVEPDB\Admin\Controllers\EntiteController@postAjaxGetClientsEntites');
 
-
-
-
-//        Route::get('permissions', '\App\CVEPDB\Admin\Controllers\PermissionController@index');
-
-
-
-
-        Route::group(['prefix' => 'factures'], function () {
-            Route::get('/', '\App\CVEPDB\Admin\Controllers\FactureController@getIndex');
-            Route::post('generate', ['as' => 'facture_generate', 'uses' => '\App\CVEPDB\Admin\Controllers\FactureController@postGenerate']);
-        });
-
-
-
-
-
+        Route::resource('bills', '\App\CVEPDB\Admin\Controllers\BillController');
 
     });
 });

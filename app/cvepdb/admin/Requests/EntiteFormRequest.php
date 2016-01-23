@@ -35,6 +35,7 @@ class EntiteFormRequest extends Request
             'country' => 'required',
 
             'type' => 'required',
+            'status' => 'required',
         ];
     }
 }

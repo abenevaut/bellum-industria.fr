@@ -26,6 +26,14 @@ class Entite extends Model
         'siret',
         'phone',
         'email',
+
+        'address',
+        'zipcode',
+        'city',
+        'country',
+
+        'type',
+        'status',
     ];
 
     /**

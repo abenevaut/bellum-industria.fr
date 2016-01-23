@@ -39,6 +39,14 @@ class EntiteController extends Controller
             'siret' => $request->get('siret'),
             'email' => $request->get('email'),
             'phone' => $request->get('phone'),
+
+            'address' => $request->get('address'),
+            'zipcode' => $request->get('zipcode'),
+            'city' => $request->get('city'),
+            'country' => $request->get('country'),
+
+            'type' => $request->get('type'),
+            'status' => $request->get('status'),
         ]);
         return redirect('admin/entites');
     }
@@ -92,5 +100,23 @@ class EntiteController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function postAjaxGetVendorsEntites()
+    {
+        $entite_vendor = Entite::where('type', 'cvepdb')
+            ->where('status', 'active')
+            ->orderBy('name', 'desc')
+            ->get();
+        return ['results' => $entite_vendor];
+    }
+
+    public function postAjaxGetClientsEntites()
+    {
+        $entite_client = Entite::where('type', 'client')
+            ->where('status', 'active')
+            ->orderBy('name', 'desc')
+            ->get();
+        return ['results' => $entite_client];
     }
 }
