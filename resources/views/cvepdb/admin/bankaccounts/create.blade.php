@@ -27,7 +27,7 @@
                         <div class="col-md-4">
                             <div class="form-group form-group-default form-group-default-select2 required">
                                 <label class="">Status de l'entreprise</label>
-                                <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2" name="type">
+                                <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2" name="status">
 
                                     <option value="active">Active</option>
                                     <option value="disabled">Disabled</option>
