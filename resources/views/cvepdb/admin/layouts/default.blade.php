@@ -3,7 +3,7 @@
 <head>
     @include('cvepdb.admin.partials.pages_metadatas')
 </head>
-<body class="fixed-header">
+<body class="fixed-header   mac desktop pace-done menu-pin menu-behind">
 @include('cvepdb.admin.partials.pages_sidebar')
 
         <!-- START PAGE-CONTAINER -->

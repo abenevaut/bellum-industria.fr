@@ -9,7 +9,7 @@ class FactureController extends Controller
 {
     public function getIndex()
     {
-        return view('cvepdb.vitrine.admin.facture_new');
+        return view('cvepdb.admin.factures.index');
     }
 
     public function postGenerate(FactureFormRequest $request)
@@ -47,6 +47,6 @@ class FactureController extends Controller
             'facture_description_footer' => $request->get('facture_description_footer'),
         ];
 
-        return \PDF::loadView('cvepdb.vitrine.pdf.invoice', $data)->stream('facture.pdf');
+        return \PDF::loadView('cvepdb.admin.pdf.invoice', $data)->stream('facture.pdf');
     }
 }
