@@ -15,30 +15,10 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payments = Payment::all();
-//        $payments = Payment::paginate(15);
-
-        $total_amount_per_year = [];
-
-        foreach ($payments as $payment) {
-
-            $year = date('Y', strtotime($payment->date));
-
-            if (!array_key_exists($year, $total_amount_per_year)) {
-                $total_amount_per_year[$year] = 0;
-            }
-
-            $total_amount_per_year[$year] += str_replace([' ', ','], ['', '.'], $payment->amount);
-
-        }
-
-        krsort($total_amount_per_year);
-
         return view(
             'cvepdb.admin.payments.index',
             [
-                'payments' => $payments,
-                'total_amount_per_year' => $total_amount_per_year
+                'payments' => Payment::all()
             ]
         );
     }

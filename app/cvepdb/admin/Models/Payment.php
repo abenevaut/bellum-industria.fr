@@ -30,4 +30,20 @@ class Payment extends Model
      * @var array
      */
     protected $hidden = [];
+
+    /**
+     * Get the bill
+     */
+    public function bill()
+    {
+        return $this->hasOne('App\CVEPDB\Admin\Models\Bill', 'id', 'bill_id');
+    }
+
+    /**
+     * Get the bankaccount
+     */
+    public function bankaccount()
+    {
+        return $this->hasOne('App\CVEPDB\Admin\Models\BankAccount');
+    }
 }

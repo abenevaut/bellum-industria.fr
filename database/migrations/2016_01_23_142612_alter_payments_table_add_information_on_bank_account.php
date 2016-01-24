@@ -23,7 +23,7 @@ class AlterPaymentsTableAddInformationOnBankAccount extends Migration
         });
 
         Schema::table('payments', function($table){
-            $table->string('bank_acount_id')->nullable();
+            $table->string('bank_account_id')->nullable();
         });
     }
 
@@ -36,7 +36,7 @@ class AlterPaymentsTableAddInformationOnBankAccount extends Migration
     {
         Schema::drop('bank_accounts');
         Schema::table('payments', function($table){
-            $table->dropColumn('bank_acount_id');
+            $table->dropColumn('bank_account_id');
         });
     }
 }

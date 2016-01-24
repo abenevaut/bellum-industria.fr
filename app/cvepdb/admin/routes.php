@@ -55,6 +55,7 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
 
         Route::resource('bills', '\App\CVEPDB\Admin\Controllers\BillController');
         Route::get('bills/ajax/getbills', '\App\CVEPDB\Admin\Controllers\BillController@postAjaxGetBills');
+        Route::get('bills/pdf/{id?}', '\App\CVEPDB\Admin\Controllers\BillController@pdf');
 
         Route::resource('bankaccounts', '\App\CVEPDB\Admin\Controllers\BankAccountController');
         Route::get('bankaccounts/ajax/getbankaccounts', '\App\CVEPDB\Admin\Controllers\BankAccountController@postAjaxGetBankAccount');

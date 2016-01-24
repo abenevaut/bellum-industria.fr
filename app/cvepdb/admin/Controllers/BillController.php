@@ -49,6 +49,13 @@ class BillController extends Controller
         return redirect('admin/bills');
     }
 
+    public function pdf($id)
+    {
+        $bill = Bill::findOrFail($id);
+        return \PDF::loadView('cvepdb.admin.pdf.invoice', ['bill' => $bill])
+            ->stream('facture_'.$bill->reference.'.pdf');
+    }
+
     public function postAjaxGetBills()
     {
         return ['results' => Bill::all()];
