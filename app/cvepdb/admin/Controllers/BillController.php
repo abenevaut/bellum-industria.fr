@@ -28,10 +28,23 @@ class BillController extends Controller
 
     public function store(BillFormRequest $request)
     {
+
+        if ($request->file('file')->isValid()) {
+            $request->file('file')->move(
+                storage_path().'/cvepdb/bills/'
+                    .date('Y', strtotime($request->get('date_emission')))
+                    .'/'.$request->get('reference'),
+                $request->file('file')->getClientOriginalName()
+            );
+        }
+
+
+        dd($request);
+
         $bill = Bill::create([
             'entite_vendor_id' => $request->get('entite_vendor_id'),
             'entite_client_id' => $request->get('entite_client_id'),
-
+            'description' => $request->get('description'),
             'reference' => $request->get('reference'),
             'currency' => $request->get('currency'),
             'date_emission' => $request->get('date_emission'),
@@ -63,6 +76,23 @@ class BillController extends Controller
                 'bill' => Bill::findOrFail($id)
             ]
         );
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @param BillFormRequest $request
+     * @return Response
+     */
+    public function update($id, BillFormRequest $request)
+    {
+        $bill = Bill::findOrFail($id);
+
+        $bill->date_emission = $request->get('date_emission');
+        $bill->description = $request->get('description');
+
+        return redirect('admin/bills');
     }
 
     public function pdf($id)

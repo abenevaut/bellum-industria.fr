@@ -21,6 +21,7 @@ class Bill extends Model
     protected $fillable = [
         'entite_vendor_id',
         'entite_client_id',
+        'description',
         'reference',
         'date_emission',
         'currency',

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    {!! Form::open(['route' => 'admin.bills.store', 'role' => 'form']) !!}
+    {!! Form::open(['route' => ['admin.bills.update', $bill->id], 'role' => 'form', 'method' => 'put', 'files' => true]) !!}
 
     <div class="row">
         <div class="col-md-6">
@@ -83,6 +83,12 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group form-group-default required">
+                        <label>Description</label>
+                        <textarea class="form-control" id="description" name="description">{{ $bill->description }}</textarea>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -132,7 +138,7 @@
                         </div>
                     </div>
                     <div class="form-group form-group-default required">
-                        <label>Description</label>
+                        <label>Designation</label>
                         <textarea class="form-control" id="designation" name="designation">{{ $part->designation }}</textarea>
                     </div>
                 </div>

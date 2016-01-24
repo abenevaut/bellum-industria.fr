@@ -27,6 +27,7 @@ class BillFormRequest extends Request
             'entite_vendor_id' => 'required',
             'entite_client_id' => 'required',
 
+            'description' => 'required',
             'reference' => 'required',
             'currency' => 'required',
             'date_emission' => 'required',
@@ -36,6 +37,7 @@ class BillFormRequest extends Request
             'unit_price_without_vat' => 'required',
             'price_without_vat' => 'required',
             'amount_vat' => 'required',
+            'file' => 'required|mimes:pdf,png',
 
         ];
     }
