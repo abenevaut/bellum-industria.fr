@@ -85,7 +85,7 @@
                                         <p>{{ $bill->date_emission }}</p>
                                     </td>
                                     <td class="v-align-middle">
-                                        <button class="btn btn-complete btn-cons">Edit</button>
+                                        <a href="{{ url('admin/bills/'.$bill->id.'/edit') }}" class="btn btn-complete btn-cons">Edit</a>
                                         <button class="btn btn-complete btn-cons">Delete</button>
                                     </td>
                                 </tr>

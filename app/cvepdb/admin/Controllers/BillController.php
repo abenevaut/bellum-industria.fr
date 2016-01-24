@@ -49,6 +49,22 @@ class BillController extends Controller
         return redirect('admin/bills');
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        return view(
+            'cvepdb.admin.bills.edit',
+            [
+                'bill' => Bill::findOrFail($id)
+            ]
+        );
+    }
+
     public function pdf($id)
     {
         $bill = Bill::findOrFail($id);
