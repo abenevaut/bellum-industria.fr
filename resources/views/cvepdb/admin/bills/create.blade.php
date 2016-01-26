@@ -2,7 +2,7 @@
 
 @section('content')
 
-    {!! Form::open(['route' => 'admin.bills.store', 'role' => 'form', 'files' => true, 'class' => 'dropzone no-margin dz-clickable']) !!}
+    {!! Form::open(['route' => 'admin.bills.store', 'role' => 'form', 'files' => true, 'class' => '']) !!}
 
     <div class="row">
         <div class="col-md-6">
@@ -136,36 +136,6 @@
                         <label>Designation</label>
                         <textarea class="form-control" id="designation" name="designation"></textarea>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            {{--<div class="panel panel-default">--}}
-                {{--<div class="panel-heading">--}}
-                    {{--<div class="panel-title">--}}
-                        {{--Fichier--}}
-                    {{--</div>--}}
-                    {{--<div class="tools">--}}
-                        {{--<a class="collapse" href="javascript:;"></a>--}}
-                        {{--<a class="config" data-toggle="modal" href="#grid-config"></a>--}}
-                        {{--<a class="reload" href="javascript:;"></a>--}}
-                        {{--<a class="remove" href="javascript:;"></a>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="panel-body no-scroll no-padding">--}}
-                        {{--<div class="dz-default dz-message">--}}
-                            {{--<span>Drop files here to upload</span>--}}
-                        {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="clear"></div>--}}
-
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <input type="file" name="file">
                 </div>
             </div>
         </div>
