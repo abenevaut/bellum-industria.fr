@@ -39,8 +39,24 @@
         <!-- Begin Inner -->
     </div>
     <!-- End White Wrapper -->
+
     <!-- Begin Gray Wrapper -->
     <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
+        <!-- Begin Inner -->
+        <div class="layout__body-wrapper__content-wrapper__inner">
+            <h3 class="colored">{{ trans('cvepdb/vitrine/portfolio.title') }}</h3>
+
+            <div class="info-box">
+                {{ trans('cvepdb/vitrine/portfolio.maintenance') }}
+            </div>
+
+        </div>
+        <!-- Begin Inner -->
+    </div>
+    <!-- End Gray Wrapper -->
+
+    <!-- Begin White Wrapper -->
+    <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
         <!-- Begin Inner -->
         <div class="layout__body-wrapper__content-wrapper__inner">
             <div class="layout__body-wrapper__content-wrapper__inner__widget-services">
@@ -62,8 +78,16 @@
                 </div>
                 <div class="clear"></div>
             </div>
-            <hr/>
-            @include('cvepdb.vitrine.partials.longwave_share')
+            <div class="clear"></div>
+        </div>
+        <!-- Begin Inner -->
+    </div>
+    <!-- End White Wrapper -->
+    <!-- Begin Gray Wrapper -->
+    <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
+        <!-- Begin Inner -->
+        <div class="layout__body-wrapper__content-wrapper__inner">
+            @include('cvepdb.vitrine.partials.longwave_share_inline')
         </div>
         <!-- Begin Inner -->
     </div>

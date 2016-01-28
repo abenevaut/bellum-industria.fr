@@ -15,6 +15,9 @@ return [
     'cvepdb_author_grade' => 'Freelancer',
     'cvepdb_siret' => '80352602900019',
 
+    'admin_panel' => 'Admin panel',
+    'client_panel' => 'Client panel',
+
     'siret' => 'SIRET',
     'telephone' => 'Phone',
     'email' => 'E-mail',

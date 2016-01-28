@@ -25,11 +25,11 @@
                         <ul>
                             @if (Auth::check() && Auth::user()->hasRole('admin'))
                                 <li>
-                                    <a href="{{ url('admin/dashboard') }}">Espace d'administration</a>
+                                    <a href="{{ url('admin/dashboard') }}">{!! trans('cvepdb/global.admin_panel') !!}</a>
                                 </li>
                             @elseif (Auth::check() && Auth::user()->hasRole('client'))
                                 <li>
-                                    <a href="{{ url('clients/dashboard') }}">Espace client</a>
+                                    <a href="{{ url('clients/dashboard') }}">{!! trans('cvepdb/global.client_panel') !!}</a>
                                 </li>
                             @endif
                             <li><a href="{{ url('auth/logout') }}">{!! trans('cvepdb/global.logout') !!}</a></li>
