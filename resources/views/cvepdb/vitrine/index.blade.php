@@ -44,21 +44,6 @@
     <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
         <!-- Begin Inner -->
         <div class="layout__body-wrapper__content-wrapper__inner">
-            <h3 class="colored">{{ trans('cvepdb/vitrine/portfolio.title') }}</h3>
-
-            <div class="info-box">
-                {{ trans('cvepdb/vitrine/portfolio.maintenance') }}
-            </div>
-
-        </div>
-        <!-- Begin Inner -->
-    </div>
-    <!-- End Gray Wrapper -->
-
-    <!-- Begin White Wrapper -->
-    <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
-        <!-- Begin Inner -->
-        <div class="layout__body-wrapper__content-wrapper__inner">
             <div class="layout__body-wrapper__content-wrapper__inner__widget-services">
                 <div class="one-fourth">
                     <i class="icon-webmobile-hand special green"></i>
@@ -76,9 +61,31 @@
                     <i class="icon-mail-1 special"></i>
                     <h5><a href="{{  url('/contact') }}" class="button">{!! trans('cvepdb/vitrine/index.pages_contact_me') !!}</a></h5>
                 </div>
-                <div class="clear"></div>
             </div>
             <div class="clear"></div>
+        </div>
+        <!-- Begin Inner -->
+    </div>
+    <!-- End Gray Wrapper -->
+
+    <!-- Begin White Wrapper -->
+    <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
+        <!-- Begin Inner -->
+        <div class="layout__body-wrapper__content-wrapper__inner">
+            <h3 class="colored">{{ trans('cvepdb/vitrine/portfolio.title') }}</h3>
+
+            <div class="info-box">
+                {{ trans('cvepdb/vitrine/portfolio.maintenance') }}
+            </div>
+
+            {{--<hr>--}}
+            {{----}}
+            {{--<h3 class="colored">{{ trans('cvepdb/vitrine/blog.title') }}</h3>--}}
+
+            {{--<div class="info-box">--}}
+                {{--{{ trans('cvepdb/vitrine/blog.maintenance') }}--}}
+            {{--</div>--}}
+
         </div>
         <!-- Begin Inner -->
     </div>
@@ -92,4 +99,5 @@
         <!-- Begin Inner -->
     </div>
     <!-- End Gray Wrapper -->
+
 @stop

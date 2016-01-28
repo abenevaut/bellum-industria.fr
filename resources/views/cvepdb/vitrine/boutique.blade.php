@@ -30,5 +30,15 @@
     </div>
     <!-- Begin Inner -->
 </div>
+<!-- End White Wrapper -->
+<!-- Begin Gray Wrapper -->
+<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
+    <!-- Begin Inner -->
+    <div class="layout__body-wrapper__content-wrapper__inner">
+        @include('cvepdb.vitrine.partials.longwave_share_inline')
+        <div class="clear"></div>
+    </div>
+    <!-- Begin Inner -->
+</div>
 <!-- End Gray Wrapper -->
 @stop
