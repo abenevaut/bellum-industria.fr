@@ -11,8 +11,8 @@ tests/_output/*
 .idea
 .idea/*
 
-public/dist
-public/dist/*
+public/assets
+public/assets/*
 public/*.xml
 public/*.pdf
 

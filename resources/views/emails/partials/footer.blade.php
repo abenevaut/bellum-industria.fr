@@ -14,7 +14,7 @@
                                     <table align="center" class="table-inner" width="520" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
                                             <td align="center" style="line-height: 0px;">
-                                                <img style="display:block; line-height:0px; font-size:0px; border:0px;" class="pattern" src="{{ asset('dist/images/pattern-line.png') }}" width="519" height="9" />
+                                                <img style="display:block; line-height:0px; font-size:0px; border:0px;" class="pattern" src="{{ asset('assets/images/pattern-line.png') }}" width="519" height="9" />
                                             </td>
                                         </tr>
                                     </table>
@@ -28,7 +28,7 @@
                 </tr>
                 <tr>
                     <td  align="center" style="line-height: 0px;">
-                        <img style="display:block; line-height:0px; font-size:0px; border:0px;" class="img1" src="{{ asset('dist/images/footer-top.png') }}" width="600" height="81" />
+                        <img style="display:block; line-height:0px; font-size:0px; border:0px;" class="img1" src="{{ asset('assets/images/footer-top.png') }}" width="600" height="81" />
                     </td>
                 </tr>
                 <tr>
@@ -187,7 +187,7 @@
                 </tr>
                 <tr>
                     <td align="center" style="line-height: 0px;">
-                        <img style="display:block; line-height:0px; font-size:0px; border:0px;" class="img1" src="{{ asset('dist/images/footer-bottom.png') }}" width="600" height="41" />
+                        <img style="display:block; line-height:0px; font-size:0px; border:0px;" class="img1" src="{{ asset('assets/images/footer-bottom.png') }}" width="600" height="41" />
                     </td>
                 </tr>
                 <tr>

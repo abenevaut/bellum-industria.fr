@@ -68,7 +68,7 @@
                                 <tr>
                                     <td align="center" style="line-height: 0px;">
                                         <img style="display:block; line-height:0px; font-size:0px; border:0px;"
-                                             class="pattern" src="{{ asset('dist/images/pattern-line.png') }}"
+                                             class="pattern" src="{{ asset('assets/images/pattern-line.png') }}"
                                              width="519" height="9">
                                     </td>
                                 </tr>
