@@ -109,8 +109,13 @@ class AuthController extends Controller
             $route = 'clients/dashboard';
         }
 
-        $request->session()->flash('message', 'You succefully loged in.');
+        $request->session()->flash('message', trans('auth.message_success_loggedin'));
 
         return redirect()->intended($route);
+    }
+
+    public function logout()
+    {
+        \Session::flash('message', trans('auth.message_success_loggedout'));
     }
 }

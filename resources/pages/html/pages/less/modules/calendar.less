@@ -317,6 +317,29 @@ Events / .event-container
 					font-size: 12px;
 				}
 			}
+			&.day-view .tble{
+				white-space: nowrap;
+				.thead{
+					white-space: nowrap;
+					overflow: hidden;
+					display: inline-block;
+				}
+				.tcell{
+					display: none;
+					max-width: 100%;
+					width: 100%;
+					&.active{
+						display: inline-block;
+					}		
+				}
+				.trow{
+					display: block;
+					height: 80px;
+					.tcell.active{
+						background-color:#fff;
+					}
+				}
+			}
 			width: 100%;
 			height: 100%;
 			white-space: nowrap;
@@ -570,11 +593,12 @@ Events / .event-container
 .date-selector{
 	cursor: pointer;
 }
+
 /*
 Responsive Util
 */
 @media (max-width: 991px) {
-.calendar {
+.calendar{
 	background-color: #fff;
 	.calendar-header{
 		display: none;

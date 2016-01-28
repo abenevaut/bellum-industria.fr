@@ -16,4 +16,6 @@ return [
     'failed' => 'Ces informations d\'identification ne correspondent pas à nos données.',
     'throttle' => 'Trop de tentatives de connexion. S\'il vous plaît essayer de nouveau dans :seconds secondes.',
 
+    'message_success_loggedin' => 'Vous vous êtes connecté avec succès.',
+    'message_success_loggedout' => 'Vous vous êtes déconnecté avec succès.',
 ];

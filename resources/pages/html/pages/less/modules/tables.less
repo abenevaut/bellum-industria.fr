@@ -19,7 +19,7 @@
                 vertical-align: middle;
                 border-bottom: 1px solid fade(@color-master-light, 70%);
                 color:fade(@color-master-dark, 35%);
-                &[class*='sorting_'] {
+                &[class*='sorting_']:not([class='sorting_disabled']){
                     color:@color-master-dark;
                 }
                 &:first-child {
@@ -111,7 +111,7 @@
                 }
             }
         }
-        thead tr th, tbody tr td, tbody tr td * {
+        thead tr th, tbody tr td, tbody tr td *:not(.dropdown-default){
             white-space: nowrap;
             vertical-align: middle;
             overflow: hidden;
@@ -266,9 +266,7 @@
 }
 .dataTables_wrapper .dataTables_paginate ul > li.active > a{
     font-weight: bold;
-    color: #fff;
-    background: @color-master;
-    border-color: @color-master;
+    color: @color-master;
     opacity: 1;
 }
 .export-options-container a{

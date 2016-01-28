@@ -1,4 +1,4 @@
-//Pages Calendar - Version 2.1.0
+//Pages Calendar - Version 2.1.2
 
 (function($) {
     var PagesCalendar = function(element, options) {
@@ -336,6 +336,7 @@
         var dateSelector = function(container){
             this.container = container;
             this.render();
+            this._bindEvents();
         }
         dateSelector.prototype = {
             /**
@@ -374,7 +375,6 @@
                 $(this.container).append(Calendar.content);
                 $('.weeks-wrapper .week .day-wrapper .week-date.active').closest(".week").addClass('active');
                 Calendar.dragHandler('weeks-wrapper');
-                this._bindEvents();
             },
             /**
             * @function _setActive
@@ -400,7 +400,6 @@
                     Calendar._onDayChange();                
                 });
             }
-
         }
         /**
          * Factory Class.
@@ -424,7 +423,12 @@
                 //Week View
                 case "week":
                     this.miniCalendar = new dateSelector(".weeks-wrapper");
-                    this.grid =  new wView(".calendar-container");
+                    this.grid =  new wView(".calendar-container",this.layout);
+                    break;
+                //Day View
+                case "day":
+                    this.miniCalendar = new dateSelector(".weeks-wrapper");
+                    this.grid =  new wView(".calendar-container",this.layout);
                     break;
             }            
         }
@@ -470,7 +474,8 @@
          * @description Creates the Week View Grid
          * @param {dom} container
          */ 
-        var wView = function(container){
+        var wView = function(container,layout){
+            this.layout = layout;
             view.call(this, container);
             this.render();
             this.snapGridWidth = null;
@@ -511,7 +516,7 @@
 
             $(this.container).html("");
             Calendar.content = '';
-            Calendar.content += '<div class="view week-view">';
+            Calendar.content += '<div class="view '+this.layout+'-view">';
             Calendar.content += '<div class="allday-cell">';
             Calendar.content += '</div>';
             Calendar.content += '<div class="tble" id="viewTableHead">';
@@ -1445,6 +1450,7 @@
             },
             _onDayChange:function(){
                 this._buildCurrentDateHeader();
+                this.gridLayout.miniCalendar.render();
                 var val = this.gridLayout.refresh();
                 var range = {
                     start : val[0],

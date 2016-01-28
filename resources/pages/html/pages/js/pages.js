@@ -11,7 +11,7 @@
      * @property {object}  $body - Cache Body.
      */
     var Pages = function() {
-        this.VERSION = "2.0.0";
+        this.VERSION = "2.1.2";
         this.AUTHOR = "Revox";
         this.SUPPORT = "support@revox.io";
 
@@ -1285,17 +1285,17 @@
         if (this.$element.hasClass('panel-collapsed')) {
             this.$element.removeClass('panel-collapsed');
             icon.removeClass().addClass('pg-arrow_maximize');
-            $.isFunction(this.options.onExpand) && this.options.onExpand();
+            $.isFunction(this.options.onExpand) && this.options.onExpand(this);
             return
         }
         this.$element.addClass('panel-collapsed');
         icon.removeClass().addClass('pg-arrow_minimize');
-        $.isFunction(this.options.onCollapse) && this.options.onCollapse();
+        $.isFunction(this.options.onCollapse) && this.options.onCollapse(this);
     }
 
     Portlet.prototype.close = function() {
         this.$element.remove();
-        $.isFunction(this.options.onClose) && this.options.onClose();
+        $.isFunction(this.options.onClose) && this.options.onClose(this);
     }
 
     Portlet.prototype.maximize = function() {
@@ -1304,11 +1304,11 @@
         if (this.$element.hasClass('panel-maximized')) {
             this.$element.removeClass('panel-maximized');
             icon.removeClass('pg-fullscreen_restore').addClass('pg-fullscreen');
-            $.isFunction(this.options.onRestore) && this.options.onRestore();
+            $.isFunction(this.options.onRestore) && this.options.onRestore(this);
         } else {
             this.$element.addClass('panel-maximized');
             icon.removeClass('pg-fullscreen').addClass('pg-fullscreen_restore');
-            $.isFunction(this.options.onMaximize) && this.options.onMaximize();
+            $.isFunction(this.options.onMaximize) && this.options.onMaximize(this);
         }
     }
 
@@ -1372,7 +1372,7 @@
             // End fix
             this.$loader.fadeIn();
 
-            $.isFunction(this.options.onRefresh) && this.options.onRefresh();
+            $.isFunction(this.options.onRefresh) && this.options.onRefresh(this);
 
         } else {
             var _this = this;
@@ -1444,12 +1444,12 @@
         collapseButton: '[data-toggle="collapse"]',
         closeButton: '[data-toggle="close"]'
 
-        // onRefresh: function() {},
-        // onCollapse: function() {},
-        // onExpand: function() {},
-        // onMaximize: function() {},
-        // onRestore: function() {},
-        // onClose: function() {}
+        // onRefresh: function(portlet) {},
+        // onCollapse: function(portlet) {},
+        // onExpand: function(portlet) {},
+        // onMaximize: function(portlet) {},
+        // onRestore: function(portlet) {},
+        // onClose: function(portlet) {}
     }
 
     // PORTLET NO CONFLICT
@@ -1501,6 +1501,7 @@
     })
 
 })(window.jQuery);
+
 /* ============================================================
  * Pages Mobile View
  * ============================================================ */
