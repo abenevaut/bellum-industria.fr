@@ -13,7 +13,7 @@
                         window.location = "{{ Request::url() }}/?lang="+url;
                     }
                 </script>
-                <img alt="{{ Session::get('lang') }}" src="{{ asset('/dist/images/lang/png/'.Session::get('lang').'.png') }}">
+                <img alt="{{ Session::get('lang') }}" src="{{ asset('/assets/images/lang/png/'.Session::get('lang').'.png') }}">
                 <select name="language_switcher" class="" onchange="switchLanguage(this);">
                     <option value="en" @if ('en' === Session::get('lang'))selected="selected"@endif>{!! trans('cvepdb/global.lang_en') !!}</option>
                     <option value="fr" @if ('fr' === Session::get('lang'))selected="selected"@endif>{!! trans('cvepdb/global.lang_fr') !!}</option>

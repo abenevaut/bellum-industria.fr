@@ -4,7 +4,7 @@
     <div class="layout__body-wrapper__content-wrapper__inner layout__body-wrapper__content-wrapper__inner--header">
         <div class="layout__body-wrapper__content-wrapper__inner__logo">
             <a href="{{ url('/') }}">
-                <img src="/dist/images/cvepdb/logo.png" alt="Ca va ENCORE parler de bits!" width="200" height="80" />
+                <img src="/assets/images/cvepdb/logo.png" alt="Ca va ENCORE parler de bits!" width="200" height="80" />
             </a>
         </div>
         <!-- Begin Menu -->
