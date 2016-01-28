@@ -29,7 +29,7 @@
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
 
 
-            <div class="" style="float:right;">
+            <div class="" style="float:right;margin-top:30px;">
                 <div id="language_switcher" class="dropdown">
                     <script type="text/javascript">
                         function switchLanguage(sel) {
@@ -40,8 +40,8 @@
                     <img alt="{{ Session::get('lang') }}"
                          src="{{ asset('/dist/images/lang/png/'.Session::get('lang').'.png') }}">
                     <select name="language_switcher" class="" onchange="switchLanguage(this);">
-                        <option value="en" @if ('en' === Session::get('lang'))selected="selected"@endif>en</option>
-                        <option value="fr" @if ('fr' === Session::get('lang'))selected="selected"@endif>fr</option>
+                        <option value="en" @if ('en' === Session::get('lang'))selected="selected"@endif>{!! trans('cvepdb/global.lang_en') !!}</option>
+                        <option value="fr" @if ('fr' === Session::get('lang'))selected="selected"@endif>{!! trans('cvepdb/global.lang_fr') !!}</option>
                     </select>
                 </div>
                 <div style="clear:both"></div>
@@ -90,9 +90,9 @@
                                 <label for="checkbox1">{!! trans('cvepdb/global.keep_loged_in') !!}</label>
                             </div>
                         </div>
-                        {{--<div class="col-md-6 text-right">--}}
-                        {{--<a href="#" class="text-info small">Help? Contact Support</a>--}}
-                        {{--</div>--}}
+                        <div class="col-md-6 text-right">
+                        {{--<a href="#" class="text-info small">Aide ou Mot de passe perdu ?</a>--}}
+                        </div>
                     </div>
                     <!-- END Form Control-->
                     <button class="btn btn-primary btn-cons m-t-10"
@@ -129,5 +129,10 @@
     <!-- END Login Right Container-->
 </div>
 @include('cvepdb.admin.partials.pages_jsfooter')
+<script>
+    $('select[name="language_switcher"]').select2({
+        minimumResultsForSearch: -1
+    });
+</script>
 </body>
 </html>
