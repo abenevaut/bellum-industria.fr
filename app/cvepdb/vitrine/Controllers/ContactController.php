@@ -40,9 +40,6 @@ class ContactController extends BaseController implements ICRUDRessourceControll
      */
     public function store(Request $request)
     {
-        $fv = new ContactFormRequest();
-//        $fv->validate();
-
         $m_contacts = new LogContact();
         $m_contacts->first_name = $request->get('first_name');
         $m_contacts->last_name = $request->get('last_name');
@@ -62,7 +59,7 @@ class ContactController extends BaseController implements ICRUDRessourceControll
             function ($message) use ($m_contacts){
                 $message->from('contact@cavaencoreparlerdebits.fr')
                     ->to('contact@cavaencoreparlerdebits.fr')
-                    ->cc('mailwatch@cavaencoreparlerdebits.fr')
+                    ->bcc('mailwatch@cavaencoreparlerdebits.fr')
                     ->subject('Prise de contact : ' . $m_contacts->subject);
             }
         );
@@ -78,6 +75,7 @@ class ContactController extends BaseController implements ICRUDRessourceControll
             function ($message) use ($m_contacts){
                 $message->from('contact@cavaencoreparlerdebits.fr')
                     ->to($m_contacts->email, $m_contacts->first_name.' '.$m_contacts->last_name)
+                    ->bcc('mailwatch@cavaencoreparlerdebits.fr')
                     ->subject('Prise de contact : ' . $m_contacts->subject);
             }
         );

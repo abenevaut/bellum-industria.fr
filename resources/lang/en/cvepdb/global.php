@@ -23,5 +23,8 @@ return [
     'email' => 'E-mail',
     'home' => 'Home',
     'login' => 'Login',
+    'keep_loged_in' => 'Keep me signed in',
     'logout' => 'Logout',
+    'password' => 'Password',
+    'back_home' => 'Back to the home page',
 ];

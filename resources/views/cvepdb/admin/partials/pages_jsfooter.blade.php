@@ -22,6 +22,9 @@
 <script type="text/javascript" src="/dist/plugins/datatables-responsive/js/datatables.responsive.js"></script>
 <script type="text/javascript" src="/dist/plugins/datatables-responsive/js/lodash.min.js"></script>
 <script src="/dist/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+<script src="/dist/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="/dist/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="/dist/plugins/jquery-inputmask/jquery.inputmask.min.js"></script>
 <script src="/dist/plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <script type="text/javascript" src="/dist/plugins/jquery-autonumeric/autoNumeric.js"></script>
 <script type="text/javascript" src="/dist/plugins/dropzone/dropzone.min.js"></script>

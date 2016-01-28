@@ -10,8 +10,13 @@
             @include('cvepdb.vitrine.partials.longwave_breadcrumbs')
 
             @if (Session::has('message'))
-                <div class="{{ Session::get('alert-class', 'info-box') }}">
-                    {{ Session::get('message') }}
+                <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
+                    <!-- Begin Inner -->
+                    <div class="layout__body-wrapper__content-wrapper__inner" style="padding: 15px 0;">
+                        <div class="{{ Session::get('alert-class', 'info-box') }}">
+                            {{ Session::get('message') }}
+                        </div>
+                    </div>
                 </div>
             @endif
 

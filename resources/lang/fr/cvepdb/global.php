@@ -23,5 +23,8 @@ return [
     'email' => 'Courriel',
     'home' => 'Accueil',
     'login' => 'Se connecter',
+    'keep_loged_in' => 'Restez connecter',
     'logout' => 'se déconnecter',
+    'password' => 'Mot de passe',
+    'back_home' => 'Retourner à la page d\'accueil',
 ];
