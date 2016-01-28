@@ -26,7 +26,7 @@
         <div class="header-inner">
 
             <div class="brand inline">
-                <img src="/dist/images/cvepdb/logo.png" alt="logo" data-src="/dist/images/cvepdb/logo.png"
+                <img src="/assets/images/cvepdb/logo.png" alt="logo" data-src="/dist/images/cvepdb/logo.png"
                      data-src-retina="/dist/images/cvepdb/logo.png" width="100" height="40">
             </div>
 

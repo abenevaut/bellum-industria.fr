@@ -7,31 +7,32 @@
 <meta content="" name="description" />
 <meta content="" name="author" />
 
-<title>Pages - Admin Dashboard UI Kit - Lock Screen</title>
+<title>Panel admin | Ca va ENCORE parler de bits!</title>
 
 <link rel="apple-touch-icon" href="pages/ico/60.png">
 <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
 <link rel="apple-touch-icon" sizes="120x120" href="pages/ico/120.png">
 <link rel="apple-touch-icon" sizes="152x152" href="pages/ico/152.png">
 <link rel="icon" type="image/x-icon" href="favicon.ico" />
-<link href="/dist/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" />
-<link href="/dist/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<link href="/dist/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
-<link href="/dist/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="/dist/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="/dist/plugins/switchery/css/switchery.min.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="/dist/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<link href="/dist/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css" rel="stylesheet" type="text/css"/>
-<link href="/dist/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen"/>
-<link href="/dist/plugins/summernote/css/summernote.css" rel="stylesheet" type="text/css" media="screen"/>
-<link href="/dist/plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
-<link href="/dist/plugins/bootstrap-tag/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
-<link href="/dist/plugins/dropzone/css/dropzone.css" rel="stylesheet" type="text/css" />
-<link href="/dist/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" media="screen">
-<link href="/dist/css/pages-icons.css" rel="stylesheet" type="text/css">
-<link class="main-stylesheet" href="/dist/css/pages.css" rel="stylesheet" type="text/css" />
+
+<link href="/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/assets/plugins/switchery/css/switchery.min.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/assets/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="/assets/plugins/summernote/css/summernote.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="/assets/plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/bootstrap-tag/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/dropzone/css/dropzone.css" rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" media="screen">
+<link href="/assets/css/pages-icons.css" rel="stylesheet" type="text/css">
+<link class="main-stylesheet" href="/assets/css/pages.css" rel="stylesheet" type="text/css" />
 <!--[if lte IE 9]>
-<link href="/dist/css/ie9.css" rel="stylesheet" type="text/css" />
+<link href="/assets/css/ie9.css" rel="stylesheet" type="text/css" />
 <![endif]-->
 
 <script type="text/javascript">
@@ -39,6 +40,6 @@
     {
         // fix for windows 8
         if (navigator.appVersion.indexOf("Windows NT 6.2") != -1)
-            document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="/dist/css/windows.chrome.fix.css" />'
+            document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="/assets/css/windows.chrome.fix.css" />'
     }
 </script>

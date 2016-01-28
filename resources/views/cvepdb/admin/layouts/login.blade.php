@@ -8,9 +8,9 @@
     <!-- START Login Background Pic Wrapper-->
     <div class="bg-pic">
         <!-- START Background Pic-->
-        <img src="/dist/images/back2.png"
-             data-src="/dist/images/back2.png"
-             data-src-retina="/dist/images/ux-788002.jpg"
+        <img src="/assets/images/admin/back2.png"
+             data-src="/assets/images/admin/back2.png"
+             data-src-retina="/assets/images/admin/back2-full.jpg"
              alt=""
              class="lazy">
         <!-- END Background Pic-->
@@ -38,7 +38,7 @@
                         }
                     </script>
                     <img alt="{{ Session::get('lang') }}"
-                         src="{{ asset('/dist/images/lang/png/'.Session::get('lang').'.png') }}">
+                         src="{{ asset('/assets/images/lang/png/'.Session::get('lang').'.png') }}">
                     <select name="language_switcher" class="" onchange="switchLanguage(this);">
                         <option value="en" @if ('en' === Session::get('lang'))selected="selected"@endif>{!! trans('cvepdb/global.lang_en') !!}</option>
                         <option value="fr" @if ('fr' === Session::get('lang'))selected="selected"@endif>{!! trans('cvepdb/global.lang_fr') !!}</option>
@@ -49,8 +49,8 @@
             <div class="clear"></div>
 
 
-            <img src="/dist/images/cvepdb/logo.png" alt="logo" data-src="/dist/images/cvepdb/logo.png"
-                 data-src-retina="/dist/images/cvepdb/logo.png" width="200" height="80">
+            <img src="/assets/images/cvepdb/logo.png" alt="logo" data-src="/assets/images/cvepdb/logo.png"
+                 data-src-retina="/assets/images/cvepdb/logo.png" width="200" height="80">
 
             <p class="p-t-35">{!! trans('cvepdb/auth/login.intro') !!}</p>
 
