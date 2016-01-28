@@ -7,3 +7,6 @@
 [submodule "resources/assets/cvepdb/cvepdbjs"]
 	path = resources/assets/cvepdb/cvepdbjs
 	url = git@gitlab.com:42antoine/cvepdb-cvepdbjs.git
+[submodule "resources/assets/longwave"]
+	path = resources/assets/longwave
+	url = git@gitlab.com:cvepdb/longwave-sass.git
