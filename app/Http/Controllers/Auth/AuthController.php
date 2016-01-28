@@ -93,4 +93,24 @@ class AuthController extends Controller
         // Todo : Si pas logguer -> on enregistre l'utilisateur
     }
 
+    /**
+     * Once autheticated on site
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function authenticated(\Illuminate\Http\Request $request, \App\User $user)
+    {
+        $route = 'home';
+        if (\Auth::check() && \Auth::user()->hasRole('admin')) {
+            $route = 'admin/dashboard';
+        } else if (\Auth::check() && \Auth::user()->hasRole('client')) {
+            $route = 'clients/dashboard';
+        }
+
+        $request->session()->flash('message', 'You succefully loged in.');
+
+        return redirect()->intended($route);
+    }
 }

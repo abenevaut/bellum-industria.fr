@@ -28,5 +28,5 @@ return [
     'password' => 'Mot de passe',
     'back_home' => 'Retourner à la page d\'accueil',
     'lang_fr' => 'Français',
-    'lang_en' => 'Anglais',
+    'lang_en' => 'English',
 ];

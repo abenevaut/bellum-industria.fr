@@ -6,9 +6,17 @@ use Illuminate\Http\Request as Request;
 
 use App\CVEPDB\Interfaces\Controllers\ICRUDRessourceController as ICRUDRessourceController;
 use App\CVEPDB\Interfaces\Controllers\AbsBaseController as BaseController;
+use App\CVEPDB\Vitrine\Outputters\SimplePageOutputter as SimplePageOutputter;
 
 class IndexController extends BaseController implements ICRUDRessourceController
 {
+    private $outputter = null;
+
+    public function __construct()
+    {
+        $this->outputter = new SimplePageOutputter();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -83,5 +91,18 @@ class IndexController extends BaseController implements ICRUDRessourceController
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Index sitemap
+     */
+    public function sitemap()
+    {
+        $this->outputter->generateIndexSitemap([
+            'home',
+            'services',
+            'about',
+            'boutique',
+        ]);
     }
 }

@@ -27,6 +27,6 @@ return [
     'logout' => 'Logout',
     'password' => 'Password',
     'back_home' => 'Back to the home page',
-    'lang_fr' => 'French',
+    'lang_fr' => 'Français',
     'lang_en' => 'English',
 ];

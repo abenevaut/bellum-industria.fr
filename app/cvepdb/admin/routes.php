@@ -39,7 +39,7 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
 
     Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function () {
         Route::get('/', '\App\CVEPDB\Admin\Controllers\DashboardController@index');
-        Route::get('dashboard', '\App\CVEPDB\Admin\Controllers\DashboardController@index');
+        Route::resource('dashboard', '\App\CVEPDB\Admin\Controllers\DashboardController');
 
         Route::resource('payments', '\App\CVEPDB\Admin\Controllers\PaymentController');
 
