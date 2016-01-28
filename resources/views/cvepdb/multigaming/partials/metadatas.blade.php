@@ -1,9 +1,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>Longwave</title>
-<link rel="shortcut icon" type="image/x-icon" href="/dist/images/multigaming/favicon.ico" />
 
-<link rel="stylesheet" type="text/css" href="/dist/css/layouts/multigaming/default.css" media="all" />
+<base href="{{ url() }}"/>
+
+<title>Multigamgin#CVEPDB | Ca va ENCORE parler de bits!</title>
+
+<link href="/assets/images/multigaming/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="/assets/images/multigaming/apple-touch-icon.png" rel="apple-touch-icon" type="image/x-icon" />
+<link href="/assets/images/multigaming/apple-touch-icon-precomposed.png" rel="apple-touch-icon" type="image/x-icon" />
+<link href="/assets/images/multigaming/apple-touch-icon-57x57-precomposed.png" rel="apple-touch-icon" type="image/x-icon" />
+<link href="/assets/images/multigaming/apple-touch-icon-72x72-precomposed.png" rel="apple-touch-icon" type="image/x-icon" />
+<link href="/assets/images/multigaming/apple-touch-icon-114x114-precomposed.png" rel="apple-touch-icon" type="image/x-icon" />
+
+<link rel="stylesheet" type="text/css" href="/assets/css/multigaming/default.css" media="all" />
 <!--[if IE 8]>
 <link rel="stylesheet" type="text/css" href="../css/ie8.css" media="all" />
 <![endif]-->
@@ -19,7 +28,7 @@
         URL_BASE: '',
         URL_SITE: '',
         URL_THEME: '/',
-        BASE_PATH: 'dist/cvepdbjs/',
+        BASE_PATH: 'assets/cvepdbjs/',
         LIVEREALOAD: {
             //			url: '',
             //			port: '',

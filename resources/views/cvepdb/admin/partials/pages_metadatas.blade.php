@@ -7,13 +7,16 @@
 <meta content="" name="description" />
 <meta content="" name="author" />
 
+<base href="{{ url() }}"/>
+
 <title>Panel admin | Ca va ENCORE parler de bits!</title>
 
-<link rel="apple-touch-icon" href="pages/ico/60.png">
-<link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
-<link rel="apple-touch-icon" sizes="120x120" href="pages/ico/120.png">
-<link rel="apple-touch-icon" sizes="152x152" href="pages/ico/152.png">
-<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link href="/assets/images/cvepdb/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="/assets/images/cvepdb/apple-touch-icon.png" rel="apple-touch-icon" type="image/x-icon" />
+<link href="/assets/images/cvepdb/apple-touch-icon-precomposed.png" rel="apple-touch-icon" type="image/x-icon" />
+<link href="/assets/images/cvepdb/apple-touch-icon-57x57-precomposed.png" rel="apple-touch-icon" type="image/x-icon" />
+<link href="/assets/images/cvepdb/apple-touch-icon-72x72-precomposed.png" rel="apple-touch-icon" type="image/x-icon" />
+<link href="/assets/images/cvepdb/apple-touch-icon-114x114-precomposed.png" rel="apple-touch-icon" type="image/x-icon" />
 
 <link href="/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" />
 <link href="/assets/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />

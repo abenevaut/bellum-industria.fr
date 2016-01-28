@@ -1,7 +1,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<base href="{{ url() }}"/>
+
 <title>Ca va ENCORE parler de bits!</title>
-<link rel="shortcut icon" type="image/x-icon" href="/assets/images/cvepdb/favicon.ico" />
+
+<link href="/assets/images/cvepdb/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="/assets/images/cvepdb/apple-touch-icon.png" rel="apple-touch-icon" type="image/x-icon" />
+<link href="/assets/images/cvepdb/apple-touch-icon-precomposed.png" rel="apple-touch-icon" type="image/x-icon" />
+<link href="/assets/images/cvepdb/apple-touch-icon-57x57-precomposed.png" rel="apple-touch-icon" type="image/x-icon" />
+<link href="/assets/images/cvepdb/apple-touch-icon-72x72-precomposed.png" rel="apple-touch-icon" type="image/x-icon" />
+<link href="/assets/images/cvepdb/apple-touch-icon-114x114-precomposed.png" rel="apple-touch-icon" type="image/x-icon" />
+
 <link rel="stylesheet" type="text/css" href="/assets/css/vitrine/default.css" media="all" />
 <!--[if IE 8]>
 <link rel="stylesheet" type="text/css" href="../css/ie8.css" media="all" />

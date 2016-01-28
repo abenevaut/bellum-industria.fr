@@ -3631,7 +3631,7 @@ ul.testimonials li.even .quote:after {
 /* iPad Landscape */
 @media only screen and (min-width: 1200px) {
   .layout__body-wrapper__content-wrapper--even-evil {
-    background-image: url("/assets/images/logo-evil-light.png");
+    background-image: url("/assets/images/multigaming/logo-evil-light.png");
     background-repeat: no-repeat;
     background-attachment: inherit;
     background-position: -125px -50px; } }

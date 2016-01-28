@@ -5,7 +5,7 @@
     <div class="sidebar-header">
 
 
-        <img src="/dist/images/cvepdb/logo.png" alt="logo" class="brand" data-src="/dist/images/cvepdb/logo.png" data-src-retina="/dist/images/cvepdb/logo.png" width="50" height="20">
+        <img src="/assets/images/cvepdb/logo.png" alt="logo" class="brand" data-src="/assets/images/cvepdb/logo.png" data-src-retina="/assets/images/cvepdb/logo.png" width="50" height="20">
 
 
         <div class="sidebar-header-controls">

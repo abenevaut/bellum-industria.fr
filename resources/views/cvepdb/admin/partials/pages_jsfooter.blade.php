@@ -31,9 +31,13 @@
 <script type="text/javascript" src="/assets/plugins/bootstrap-tag/bootstrap-tagsinput.min.js"></script>
 <!-- END VENDOR JS -->
 <script src="/assets/js/pages.min.js"></script>
-<script src="/assets/js/pages_scripts/tables.js" type="text/javascript"></script>
-<script src="/assets/js/pages_scripts/form_elements.js" type="text/javascript"></script>
-<script src="/assets/js/pages_scripts/scripts.js" type="text/javascript"></script>
+
+
+<script src="/assets/js/pages/tables.js" type="text/javascript"></script>
+<script src="/assets/js/pages/form_elements.js" type="text/javascript"></script>
+<script src="/assets/js/pages/scripts.js" type="text/javascript"></script>
+
+
 <script>
     $(function()
     {

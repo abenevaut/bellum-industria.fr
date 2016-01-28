@@ -26,8 +26,8 @@
         <div class="header-inner">
 
             <div class="brand inline">
-                <img src="/assets/images/cvepdb/logo.png" alt="logo" data-src="/dist/images/cvepdb/logo.png"
-                     data-src-retina="/dist/images/cvepdb/logo.png" width="100" height="40">
+                <img src="/assets/images/cvepdb/logo.png" alt="logo" data-src="/assets/images/cvepdb/logo.png"
+                     data-src-retina="/assets/images/cvepdb/logo.png" width="100" height="40">
             </div>
 
             <!-- BEGIN NOTIFICATION DROPDOWN -->
@@ -119,7 +119,7 @@
                 <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                     {{--<span class="thumbnail-wrapper d32 circular inline m-t-5">--}}
-                        {{--<img src="/dist/img/profiles/avatar.jpg" alt="" data-src="/dist/img/profiles/avatar.jpg" data-src-retina="/dist/img/profiles/avatar_small2x.jpg" width="32" height="32">--}}
+                        {{--<img src="/assets/img/profiles/avatar.jpg" alt="" data-src="/assets/img/profiles/avatar.jpg" data-src-retina="/assets/img/profiles/avatar_small2x.jpg" width="32" height="32">--}}
                     {{--</span>--}}
 
                     <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
