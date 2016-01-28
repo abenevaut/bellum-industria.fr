@@ -10,3 +10,6 @@
 [submodule "resources/assets/longwave"]
 	path = resources/assets/longwave
 	url = git@gitlab.com:cvepdb/longwave-sass.git
+[submodule "resources/assets/pages"]
+	path = resources/assets/pages
+	url = git@gitlab.com:cvepdb/pages-theme.git
