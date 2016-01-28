@@ -59,4 +59,10 @@
         border-bottom-right-radius: 2px;
         border-bottom-left-radius: 2px;
     }
+
+    .icon-webmobile-hand:before { content: '\261e'; } /* '☞' */
+    @media only screen and (max-width: 767px) {
+        .icon-webmobile-hand:before { content: '\261f'; } /* '☟' */
+    }
+
 </style>

@@ -45,7 +45,7 @@
         <div class="layout__body-wrapper__content-wrapper__inner">
             <div class="layout__body-wrapper__content-wrapper__inner__widget-services">
                 <div class="one-fourth">
-                    <i class="icon-right-hand special green"></i>
+                    <i class="icon-webmobile-hand special green"></i>
                     <h5>{!! trans('cvepdb/vitrine/index.pages_more_info') !!}</h5>
                 </div>
                 <div class="one-fourth">

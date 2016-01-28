@@ -3248,7 +3248,7 @@ ul.retina-icons li span {
 .social a:hover .icon-s-soundcloud {
   color: #ff680d; }
 
-i.special, i.special.blue, i.special.red, i.special.green, i.special.purple, .layout__body-wrapper__content-wrapper--even-evil i.special {
+i.special, i.special.blue, i.special.red, i.special.green, i.special.purple, i.special.orange, .layout__body-wrapper__content-wrapper--even-evil i.special {
   font-size: 41px;
   padding-top: 28px;
   width: 100px;
@@ -3260,7 +3260,7 @@ i.special, i.special.blue, i.special.red, i.special.green, i.special.purple, .la
   letter-spacing: normal;
   margin-bottom: 20px; }
 
-i.special, i.special.blue, i.special.red, i.special.green, i.special.purple, .layout__body-wrapper__content-wrapper--even-evil i.special {
+i.special, i.special.blue, i.special.red, i.special.green, i.special.purple, i.special.orange, .layout__body-wrapper__content-wrapper--even-evil i.special {
   background-color: #88d5c2;
   color: #FFF; }
 
@@ -3275,6 +3275,9 @@ i.green.special {
 
 i.purple.special {
   background-color: #a188d5; }
+
+i.orange.special {
+  background-color: #f4a85e; }
 
 /*-----------------------------------------------------------------------------------*/
 /*	TESTIMONIALS

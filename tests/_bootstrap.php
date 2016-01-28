@@ -15,4 +15,4 @@ exec('cp '.storage_path('databases/database.sqlite').' '.storage_path(env('SQLIT
 Artisan::call('migrate');
 //Artisan::call('db:seed', ['--class' => 'TestingDatabaseSeeder']);
 
-exec("php artisan serve >/dev/null 2>&1 &");
+//exec("php artisan serve >/dev/null 2>&1 &");

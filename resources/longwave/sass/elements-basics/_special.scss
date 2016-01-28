@@ -36,3 +36,8 @@ i.special.purple {
 
     background-color: #a188d5
 }
+i.special.orange {
+    @extend i.special;
+
+    background-color: #f4a85e
+}

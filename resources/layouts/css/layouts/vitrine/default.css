@@ -3190,7 +3190,7 @@ ul.retina-icons li span {
 .social a:hover .icon-s-soundcloud {
   color: #ff680d; }
 
-i.special, i.special.blue, i.special.red, i.special.green, i.special.purple {
+i.special, i.special.blue, i.special.red, i.special.green, i.special.purple, i.special.orange {
   font-size: 41px;
   padding-top: 28px;
   width: 100px;
@@ -3202,7 +3202,7 @@ i.special, i.special.blue, i.special.red, i.special.green, i.special.purple {
   letter-spacing: normal;
   margin-bottom: 20px; }
 
-i.special, i.special.blue, i.special.red, i.special.green, i.special.purple {
+i.special, i.special.blue, i.special.red, i.special.green, i.special.purple, i.special.orange {
   background-color: #88d5c2;
   color: #FFF; }
 
@@ -3217,6 +3217,9 @@ i.green.special {
 
 i.purple.special {
   background-color: #a188d5; }
+
+i.orange.special {
+  background-color: #f4a85e; }
 
 /*-----------------------------------------------------------------------------------*/
 /*	TESTIMONIALS
