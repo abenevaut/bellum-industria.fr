@@ -4,7 +4,7 @@ Deploy:
   - git submodule init
   - git submodule update
   - composer install --dev --prefer-source --no-interaction
-  - cd resources/cvepdb/cvepdbjs
+  - cd resources/assets/cvepdb/cvepdbjs
   - bower install
   - cd ../../..
   - npm install
