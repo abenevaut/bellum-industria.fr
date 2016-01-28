@@ -12,8 +12,8 @@ var bower = require('gulp-bower');
 var config = {
     clip: './resources/assets/clip/clip-2',
     cvepdb: './resources/assets/cvepdb',
-    longwave: './resources/longwave',
-    pages: './resources/pages/html',
+    longwave: './resources/assets/longwave',
+    pages: './resources/assets/pages/html',
     build: './public/assets'
 };
 
@@ -77,38 +77,43 @@ gulp.task('clean', function () {
 gulp.task('copy', ['clean'], function () {
     return gulp.src([
 
-
         config.cvepdb + '/**',
+        '!' + config.cvepdb + '/longwave/**',
+        '!' + config.cvepdb + '/pages/**',
         '!' + config.cvepdb + '/sass/**',
-
+        '!' + config.cvepdb + '/cvepdbjs/demo/**',
+        '!' + config.cvepdb + '/cvepdbjs/documentation-cvepdbJS.html',
+        '!' + config.cvepdb + '/cvepdbjs/readme.md',
+        '!' + config.cvepdb + '/cvepdbjs/bower.json',
 
         config.clip + '/**',
-
+        '!' + config.clip + '/index.html',
 
         config.longwave + '/**',
+        '!' + config.longwave + '/html/**',
         '!' + config.longwave + '/images/art/**',
-        '!' + config.longwave + '/sass/**',
+        '!' + config.longwave + '/original/**',
+        '!' + config.longwave + '/scss/**',
 
-
-        config.pages + '/**',
-        '!' + config.pages + '/less/**',
-        '!' + config.pages + '/sass/**',
-
+        config.pages + '/assets/**',
+        config.pages + '/pages/**',
+        '!' + config.pages + '/pages/less/**',
+        '!' + config.pages + '/pages/scss/**',
 
         '!**/node_modules/**',
         '!.gitgnore',
         '!package.json',
         '!Gruntfile.js',
         '!gulpfile.js'
-    ])
-        .pipe(gulp.dest(config.build));
+    ]).pipe(gulp.dest(config.build));
 });
 
 gulp.task('default', function () {
     console.log("\nPage - Gulp Command List \n");
     console.log("----------------------------\n");
     console.log("gulp watch");
-    console.log("gulp less");
+    console.log("gulp sass");
+    console.log("gulp clean");
     console.log("gulp build \n");
     console.log("----------------------------\n");
 });
