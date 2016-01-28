@@ -4,3 +4,6 @@
 [submodule "nodejs/teamspeakbot"]
 	path = nodejs/teamspeakbot
 	url = git@gitlab.com:multigaming-cvepdb/teamspeakbot.git
+[submodule "resources/assets/cvepdb/cvepdbjs"]
+	path = resources/assets/cvepdb/cvepdbjs
+	url = git@gitlab.com:42antoine/cvepdb-cvepdbjs.git
