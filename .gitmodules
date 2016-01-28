@@ -13,3 +13,6 @@
 [submodule "resources/assets/pages"]
 	path = resources/assets/pages
 	url = git@gitlab.com:cvepdb/pages-theme.git
+[submodule "resources/assets/clip"]
+	path = resources/assets/clip
+	url = git@gitlab.com:cvepdb/clip-theme.git
