@@ -65,6 +65,19 @@ return [
             'strict'    => false,
         ],
 
+        'mysql_multigaming' => [
+            'driver'    => 'mysql',
+            'host'      => env('DB_HOST_MMG', 'localhost'),
+            'database'  => env('DB_DATABASE_MMG', 'forge'),
+            'username'  => env('DB_USERNAME_MMG', 'forge'),
+            'password'  => env('DB_PASSWORD_MMG', ''),
+            'unix_socket'  => env('DB_UNIX_SOCKET_MMG', ''),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+            'strict'    => false,
+        ],
+
         'pgsql' => [
             'driver'   => 'pgsql',
             'host'     => env('DB_HOST', 'localhost'),

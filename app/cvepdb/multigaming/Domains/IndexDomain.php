@@ -5,6 +5,7 @@ namespace App\CVEPDB\Multigaming\Domains;
 use App\CVEPDB\Multigaming\Repositories\GameServerRepository as GameServerRepository;
 use App\CVEPDB\Multigaming\Repositories\SteamRepository as SteamRepository;
 use App\CVEPDB\Multigaming\Repositories\TeamRepository as TeamRepository;
+use App\CVEPDB\Multigaming\Repositories\SMWA\StammRepository;
 use App\CVEPDB\Multigaming\Outputters\IndexOutputter as indexOutputter;
 
 /**
@@ -61,6 +62,8 @@ class IndexDomain
             }
         }
 
+        $this->test();
+
         return $this->Outputter->outputIndex([
             'team_bot' => $team_bot,
             'team_bellumindustria' => $team_bellumindustria,
@@ -86,5 +89,20 @@ class IndexDomain
             'sitemap-multigaming-index',
             3600
         );
+    }
+
+    public function test(){
+        $sr = new StammRepository();
+        $sr->init();
+//        dd($sr->getPlayer('STEAM_0:0:13482029'));
+//        dd($sr->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_1'));
+
+        var_dump($sr->getPlayerOnServer('STEAM_0:0:98407167', 'sm_multigaming_csgo_2'));
+
+
+        $sr->addStammPointsToPlayer('STEAM_0:0:98407167', 100);
+
+
+        var_dump($sr->getPlayerOnServer('STEAM_0:0:98407167', 'sm_multigaming_csgo_2'));
     }
 }
