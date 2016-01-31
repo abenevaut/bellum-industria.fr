@@ -97,12 +97,12 @@ class IndexDomain
 //        dd($sr->getPlayer('STEAM_0:0:13482029'));
 //        dd($sr->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_1'));
 
-        var_dump($sr->getPlayerOnServer('STEAM_0:0:98407167', 'sm_multigaming_csgo_2'));
+//        var_dump($sr->getPlayerOnServer('STEAM_0:0:98407167', 'sm_multigaming_csgo_2'));
 
 
-        $sr->addStammPointsToPlayer('STEAM_0:0:98407167', 100);
+//        $sr->addStammPointsToPlayer('STEAM_0:0:98407167', 100);
 
 
-        var_dump($sr->getPlayerOnServer('STEAM_0:0:98407167', 'sm_multigaming_csgo_2'));
+//        var_dump($sr->getPlayerOnServer('STEAM_0:0:98407167', 'sm_multigaming_csgo_2'));
     }
 }
