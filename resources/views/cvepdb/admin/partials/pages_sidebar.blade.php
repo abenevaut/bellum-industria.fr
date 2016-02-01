@@ -4,9 +4,9 @@
     <!-- BEGIN SIDEBAR HEADER -->
     <div class="sidebar-header">
 
-
-        <img src="/assets/images/cvepdb/logo.png" alt="logo" class="brand" data-src="/assets/images/cvepdb/logo.png" data-src-retina="/assets/images/cvepdb/logo.png" width="50" height="20">
-
+        <a href="{{ url('admin') }}">
+            <img src="/assets/images/cvepdb/logo.png" alt="logo" class="brand" data-src="/assets/images/cvepdb/logo.png" data-src-retina="/assets/images/cvepdb/logo.png" width="50" height="20">
+        </a>
 
         <div class="sidebar-header-controls">
 

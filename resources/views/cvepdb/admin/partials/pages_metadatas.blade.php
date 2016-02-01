@@ -5,7 +5,7 @@
 <meta name="apple-touch-fullscreen" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta content="" name="description" />
-<meta content="" name="author" />
+<meta content="Antoine Benevaut" name="author" />
 
 <base href="{{ url() }}"/>
 
@@ -22,6 +22,7 @@
 <link href="/assets/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
 <link href="/assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen" />
+
 <link href="/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="/assets/plugins/switchery/css/switchery.min.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="/assets/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -32,8 +33,11 @@
 <link href="/assets/plugins/bootstrap-tag/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
 <link href="/assets/plugins/dropzone/css/dropzone.css" rel="stylesheet" type="text/css" />
 <link href="/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" media="screen">
+
 <link href="/assets/css/pages-icons.css" rel="stylesheet" type="text/css">
-<link class="main-stylesheet" href="/assets/css/pages.css" rel="stylesheet" type="text/css" />
+
+<link class="main-stylesheet" href="/assets/css/admin/default.css" rel="stylesheet" type="text/css" />
+
 <!--[if lte IE 9]>
 <link href="/assets/css/ie9.css" rel="stylesheet" type="text/css" />
 <![endif]-->

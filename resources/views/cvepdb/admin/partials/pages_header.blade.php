@@ -26,8 +26,10 @@
         <div class="header-inner">
 
             <div class="brand inline">
-                <img src="/assets/images/cvepdb/logo.png" alt="logo" data-src="/assets/images/cvepdb/logo.png"
-                     data-src-retina="/assets/images/cvepdb/logo.png" width="100" height="40">
+                <a href="{{ url('admin') }}">
+                    <img src="/assets/images/cvepdb/logo.png" alt="logo" data-src="/assets/images/cvepdb/logo.png"
+                         data-src-retina="/assets/images/cvepdb/logo.png" width="100" height="40">
+                </a>
             </div>
 
             <!-- BEGIN NOTIFICATION DROPDOWN -->
