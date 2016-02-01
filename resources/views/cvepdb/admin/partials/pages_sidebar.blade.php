@@ -52,29 +52,6 @@
 
 
             <li class="m-t-30
-                @if (in_array(Request::path(), ['admin/contacts']))
-                    open active
-                @endif">
-                <a href="javascript:;">
-                    <span class="title">Prospections</span>
-                    <span class=" arrow @if (in_array(Request::path(), ['admin/contacts'])) open active @endif"></span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-search"></i></span>
-                <ul class="sub-menu">
-
-                    <li class="">
-                        <a href="{{ url('admin/contacts') }}">Prises de contacts</a>
-                        <span class="icon-thumbnail"><i class="pg-mail"></i></span>
-                    </li>
-
-                </ul>
-            </li>
-
-
-
-
-
-            <li class="m-t-30
                 @if (in_array(Request::path(), ['admin/entites', 'admin/bills', 'admin/payments']))
                     open active
                 @endif">
@@ -102,6 +79,36 @@
 
                 </ul>
             </li>
+
+
+
+
+
+
+            <li class="m-t-30
+                @if (in_array(Request::path(), ['admin/contacts']))
+                    open active
+                @endif">
+                <a href="javascript:;">
+                    <span class="title">Prospections</span>
+                    <span class=" arrow @if (in_array(Request::path(), ['admin/contacts'])) open active @endif"></span>
+                </a>
+                <span class="icon-thumbnail"><i class="pg-search"></i></span>
+                <ul class="sub-menu">
+
+                    <li class="">
+                        <a href="{{ url('admin/contacts') }}">Prises de contacts</a>
+                        <span class="icon-thumbnail"><i class="pg-mail"></i></span>
+                    </li>
+
+                </ul>
+            </li>
+
+
+
+
+
+
 
 
 

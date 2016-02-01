@@ -33,9 +33,6 @@
                         </ul>
                     @else
                         <a href="{{ url('auth/login') }}">{!! trans('cvepdb/global.login') !!}</a>
-                        <ul>
-                            <li><a href="{{ url('auth/login') }}">{!! trans('cvepdb/global.login') !!}</a></li>
-                        </ul>
                     @endif
                 </li>
             </ul>

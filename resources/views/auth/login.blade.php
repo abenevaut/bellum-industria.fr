@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 text-right">
-                        {{--<a href="#" class="text-info small">Aide ou Mot de passe perdu ?</a>--}}
+                        <a href="{{ url('password/email') }}" class="text-info small">Mot de passe perdu ?</a>
                     </div>
                 </div>
                 <!-- END Form Control-->
