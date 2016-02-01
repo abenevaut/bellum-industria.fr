@@ -78,12 +78,6 @@
 
 @endsection
 
-@section('overlay')
-@endsection
-
-@section('quickview')
-@endsection
-
 @section('jsfooter')
     <script src="/assets/js/admin/contacts/index.js"></script>
 @endsection

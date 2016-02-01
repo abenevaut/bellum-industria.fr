@@ -47,14 +47,14 @@
                 @endif">
                 <a href="javascript:;">
                     <span class="title">Prospections</span>
-                    <span class=" arrow"></span>
+                    <span class=" arrow @if (in_array(Request::path(), ['admin/contacts'])) open active @endif"></span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-search"></i></span>
                 <ul class="sub-menu">
 
                     <li class="">
-                        <a href="{{ url('admin/contacts') }}">Contacts logs</a>
-                        <span class="icon-thumbnail">C</span>
+                        <a href="{{ url('admin/contacts') }}">Prises de contacts</a>
+                        <span class="icon-thumbnail"><i class="pg-mail"></i></span>
                     </li>
 
                 </ul>
@@ -70,7 +70,7 @@
                 @endif">
                 <a href="javascript:;">
                     <span class="title">Clients</span>
-                    <span class=" arrow"></span>
+                    <span class=" arrow @if (in_array(Request::path(), ['admin/entites', 'admin/bills', 'admin/payments'])) open active @endif"></span>
                 </a>
                 <span class="icon-thumbnail"><i class="sl-user"></i></span>
                 <ul class="sub-menu">
@@ -101,7 +101,7 @@
                 @endif">
                 <a href="javascript:;">
                     <span class="title">Settings</span>
-                    <span class=" arrow"></span>
+                    <span class=" arrow @if (in_array(Request::path(), ['admin/users','admin/roles'])) open active @endif"></span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-grid"></i></span>
                 <ul class="sub-menu">

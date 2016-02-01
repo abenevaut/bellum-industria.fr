@@ -57,7 +57,7 @@
 
                     <div class="form-group form-group-default required">
                         <label>Courriel</label>
-                        <input type="text" class="form-control" name="email" required="required" value="{{ $contact->email }}">
+                        <input type="email" class="form-control" name="email" required="required" value="{{ $contact->email }}">
                     </div>
 
 
@@ -73,8 +73,6 @@
     </div>
 @endsection
 
-@section('overlay')
-@endsection
-
-@section('quickview')
+@section('jsfooter')
+    <script src="/assets/js/admin/contacts/create_user.js"></script>
 @endsection

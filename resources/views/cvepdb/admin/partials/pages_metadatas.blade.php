@@ -50,3 +50,27 @@
             document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="/assets/css/windows.chrome.fix.css" />'
     }
 </script>
+
+<script>
+    var cvepdb_config = {
+        ENV: 'development',
+        ENV_REF: 'dev',
+        ENV_THEME: '',
+        IDUSER: 0,
+        LANG: '{{ Session::get('lang') }}',
+        URI_BASE: '',
+        URL_BASE: '',
+        URL_SITE: '',
+        URL_THEME: '../',
+        BASE_PATH: 'assets/cvepdbjs/',
+        LIVEREALOAD: {
+            //			url: '',
+            //			port: '',
+            project: '0'
+        },
+        UA: {
+            MOBILE: false,
+            BROWSER: true
+        }
+    };
+</script>
