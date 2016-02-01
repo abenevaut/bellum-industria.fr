@@ -34,8 +34,7 @@
                                 <tr>
                                     <td align="left"
                                         style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#999999; line-height:28px;">
-                                        votre message de prise de contact a bien été pris en compte. Nous y répondrons
-                                        dans les meilleurs délais.
+                                        {{ trans('cvepdb/vitrine/emails/emails.contact_form') }}
                                     </td>
                                 </tr>
                                 @include('emails.partials.signature')
@@ -69,7 +68,7 @@
                                     <td align="center" style="line-height: 0px;">
                                         <img style="display:block; line-height:0px; font-size:0px; border:0px;"
                                              class="pattern" src="{{ asset('assets/images/pattern-line.png') }}"
-                                             width="519" height="9">
+                                              height="9">
                                     </td>
                                 </tr>
                                 <tr>
@@ -79,7 +78,7 @@
                                 <tr>
                                     <td align="left"
                                         style="font-family: 'Open Sans', Arial, sans-serif; font-weight: bold; color:#3498db; font-size:24px;">
-                                        {{ $user_subject }}
+                                        {{ str_limit($user_subject, 40, '...') }}
                                     </td>
                                 </tr>
                                 <!--end title-->
@@ -90,7 +89,9 @@
                                 <tr>
                                     <td align="left"
                                         style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#999999; line-height:28px;">
-                                        {{ $user_message }}
+                                        <div style="white-space:normal;word-break:keep-all;word-wrap:break-word;max-width: 90%;">
+                                            {!! $user_message !!}
+                                        </div>
                                     </td>
                                 </tr>
                                 <!--end content-->
