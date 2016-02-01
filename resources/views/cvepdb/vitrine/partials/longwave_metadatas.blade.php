@@ -8,7 +8,7 @@
 <meta property="og:type" content="website">
 <meta property="og:type" content="vitrine:page">
 <meta property="og:title" content="Ca va ENCORE parler de bits!">
-<meta property="og:description" content="">
+<meta property="og:description" content="My web portfolio presents my adventures in the world of development and software testing.">
 <meta property="og:image" content="{{ url('/assets/images/cvepdb/apple-touch-icon-114x114-precomposed.png') }}">
 {{--<meta property="fb:app_id" content="1389892087910588">--}}
 {{--<meta property="fb:admins" content="579622216,709634581">--}}
