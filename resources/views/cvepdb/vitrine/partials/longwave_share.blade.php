@@ -24,7 +24,7 @@
             {{--</a>--}}
         {{--</li>--}}
         <li>
-            <a style="opacity: 1;" href="mailto:?subject=look at this website&body=Hi,I found this website and thought you might like it {{ URL::current() }}" class="pinterest">
+            <a style="opacity: 1;" href="mailto:?subject={{ trans('cvepdb/global.share_mail_title') }}&body={{ trans('cvepdb/global.share_mail_body') }}{{ URL::current() }}" class="pinterest">
                 <i class="icon-mail-1"></i>&nbsp;Mail
             </a>
         </li>

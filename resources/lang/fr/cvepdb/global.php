@@ -18,6 +18,9 @@ return [
     'admin_panel' => 'Espace d\'administration',
     'client_panel' => 'Espace client',
 
+    'share_mail_title' => 'Look at this website',
+    'share_mail_body' => "Bonjour, j'ai trouvé ce site et j'ai pensé que vous aimeriez :",
+
     'siret' => 'SIRET',
     'telephone' => 'Téléphone',
     'email' => 'Courriel',

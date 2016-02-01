@@ -18,6 +18,9 @@ return [
     'admin_panel' => 'Admin panel',
     'client_panel' => 'Client panel',
 
+    'share_mail_title' => 'Look at this website',
+    'share_mail_body' => "Hello, I found this website and I thought you might like : ",
+
     'siret' => 'SIRET',
     'telephone' => 'Phone',
     'email' => 'E-mail',
