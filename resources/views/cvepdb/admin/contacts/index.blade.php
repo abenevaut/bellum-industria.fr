@@ -48,7 +48,7 @@
                                         {{ $contact->first_name }} {{ $contact->last_name }}
                                     </td>
                                     <td class="font-montserrat all-caps fs-12 col-lg-3">
-                                        {{ $contact->email }}
+                                        <a href="mailto:{{ $contact->email }}">{{ $contact->email }}</a>
                                     </td>
                                     <td class="font-montserrat all-caps fs-12 col-lg-3">
                                         {{ $contact->subject }}

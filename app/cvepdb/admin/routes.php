@@ -16,8 +16,8 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
     // Authentication routes...
     Route::group(['prefix' => 'auth'], function () {
         // Registration routes...
-        Route::get('register', '\App\Http\Controllers\Auth\AuthController@getRegister');
-        Route::post('register', '\App\Http\Controllers\Auth\AuthController@postRegister');
+//        Route::get('register', '\App\Http\Controllers\Auth\AuthController@getRegister');
+//        Route::post('register', '\App\Http\Controllers\Auth\AuthController@postRegister');
         // Authentication routes...
         Route::get('login', '\App\Http\Controllers\Auth\AuthController@getLogin');
         Route::post('login', '\App\Http\Controllers\Auth\AuthController@postLogin');

@@ -16,7 +16,7 @@
                             <!--title-->
                             <tr>
                                 <td align="center" style="font-family: 'Open Sans', Arial, sans-serif; font-weight: bold; color:#3498db; font-size:24px;">
-                                    Click here to reset your password: {{ url('password/reset/'.$token) }}
+                                    Click here to reset your password : <a href="{{ url('password/reset/'.$token) }}">Lien</a>
                                 </td>
                             </tr>
                             <!--end title-->

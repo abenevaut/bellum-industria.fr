@@ -4,6 +4,7 @@ namespace App\CVEPDB\Admin\Controllers;
 
 use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
 use App\User;
+use App\Role;
 use App\CVEPDB\Admin\Requests\UserFormRequest;
 
 class UserController extends Controller
@@ -32,6 +33,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        return view('cvepdb.admin.users.create');
     }
 
     /**
@@ -43,11 +45,30 @@ class UserController extends Controller
      */
     public function store(UserFormRequest $request)
     {
-        User::create([
+        $user = User::create([
             'first_name' => $request->get('first_name'),
             'last_name' => $request->get('last_name'),
             'email' => $request->get('email'),
         ]);
+
+        $client = Role::where('name', 'client')->first();
+
+        if (is_null($client)) {
+//            $client = new Role();
+//            $client->name         = 'client';
+//            $client->display_name = 'User Customer'; // optional
+//            $client->description  = 'User is allowed to manage and edit projects'; // optional
+//            $client->save();
+
+            $client = new Role();
+            $client->name         = 'user';
+            $client->display_name = 'User'; // optional
+            $client->description  = 'User is allowed to visit'; // optional
+            $client->save();
+        }
+
+        $user->attachRole($client);
+
         return redirect('admin/users');
     }
 

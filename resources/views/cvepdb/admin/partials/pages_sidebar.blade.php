@@ -25,12 +25,19 @@
     <div class="sidebar-menu">
         <ul class="menu-items">
 
+
+
+
             <li class="m-t-30">
                 <a href="{{ url('admin') }}" class="">
                     <span class="title">Dashboard</span>
                 </a>
-                <span class="icon-thumbnail "><i class="pg-home"></i></span>
+                <span class="icon-thumbnail "><i class="fa-dashboard"></i></span>
             </li>
+
+
+
+
 
             <li class="m-t-30">
                 <a href="#" class="detailed">
@@ -39,6 +46,9 @@
                 </a>
                 <span class="icon-thumbnail "><i class="fa-terminal"></i></span>
             </li>
+
+
+
 
 
             <li class="m-t-30
@@ -95,6 +105,7 @@
 
 
 
+
             <li class="m-t-30
                 @if (in_array(Request::path(), ['admin/users','admin/roles']))
                     open active
@@ -103,26 +114,29 @@
                     <span class="title">Settings</span>
                     <span class=" arrow @if (in_array(Request::path(), ['admin/users','admin/roles'])) open active @endif"></span>
                 </a>
-                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
+                <span class="icon-thumbnail"><i class="pg-settings"></i></span>
                 <ul class="sub-menu">
 
                     <li class="">
                         <a href="{{ url('admin/bankaccounts') }}">Comptes bancaires</a>
-                        <span class="icon-thumbnail">CB</span>
+                        <span class="icon-thumbnail"><i class="pg-credit_card"></i></span>
                     </li>
 
                     <li class="">
                         <a href="{{ url('admin/users') }}">Users</a>
-                        <span class="icon-thumbnail">U</span>
+                        <span class="icon-thumbnail"><i class="fa-users"></i></span>
                     </li>
 
                     <li class="">
                         <a href="{{ url('admin/roles') }}">Roles</a>
-                        <span class="icon-thumbnail">R</span>
+                        <span class="icon-thumbnail">RO</span>
                     </li>
 
                 </ul>
             </li>
+
+
+
 
 
         </ul>
