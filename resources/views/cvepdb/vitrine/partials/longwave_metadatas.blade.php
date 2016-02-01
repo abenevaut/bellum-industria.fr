@@ -3,6 +3,16 @@
 
 <base href="{{ url() }}"/>
 
+<meta property="og:site_name" content="Ca va ENCORE parler de bits!">
+<meta property="og:url" content="{{ url() }}">
+<meta property="og:type" content="website">
+<meta property="og:type" content="vitrine:page">
+<meta property="og:title" content="Ca va ENCORE parler de bits!">
+<meta property="og:description" content="">
+<meta property="og:image" content="{{ url('/assets/images/cvepdb/apple-touch-icon-114x114-precomposed.png') }}">
+{{--<meta property="fb:app_id" content="1389892087910588">--}}
+{{--<meta property="fb:admins" content="579622216,709634581">--}}
+
 <title>Ca va ENCORE parler de bits!</title>
 
 <link href="/assets/images/cvepdb/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -23,6 +33,7 @@
         ENV_REF: 'dev',
         ENV_THEME: '',
         IDUSER: 0,
+        LANG: '{{ Session::get('lang') }}',
         URI_BASE: '',
         URL_BASE: '',
         URL_SITE: '',
