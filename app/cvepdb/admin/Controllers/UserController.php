@@ -45,7 +45,7 @@ class UserController extends Controller
     {
         User::create([
             'first_name' => $request->get('first_name'),
-            'last_siret' => $request->get('last_siret'),
+            'last_name' => $request->get('last_name'),
             'email' => $request->get('email'),
         ]);
         return redirect('admin/users');

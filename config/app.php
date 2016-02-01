@@ -166,6 +166,8 @@ return [
         'Roumen\Feed\FeedServiceProvider',
 
         'Toin0u\Geocoder\GeocoderServiceProvider',
+
+        'Felixkiss\UniqueWithValidator\UniqueWithValidatorServiceProvider',
     ],
 
     /*

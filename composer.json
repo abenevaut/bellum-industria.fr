@@ -39,7 +39,8 @@
         "roumen/sitemap": "^2.5",
         "roumen/feed": "^2.9",
         "toin0u/geocoder-laravel": "@stable",
-        "nesbot/carbon": "^1.21"
+        "nesbot/carbon": "^1.21",
+        "felixkiss/uniquewith-validator": "2.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

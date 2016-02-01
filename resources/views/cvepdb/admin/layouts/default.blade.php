@@ -7,7 +7,7 @@
 @include('cvepdb.admin.partials.pages_sidebar')
 
         <!-- START PAGE-CONTAINER -->
-<div class="page-container">
+<div class="page-container bg-white">
     <!-- START PAGE HEADER WRAPPER -->
     @include('cvepdb.admin.partials.pages_header')
             <!-- END PAGE HEADER WRAPPER -->

@@ -11,7 +11,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $contacts = LogContact::paginate(15);
+        $contacts = LogContact::orderBy('id', 'desc')->paginate(50);
 
         return view('cvepdb.admin.contacts.index', ['contacts' => $contacts]);
     }
@@ -78,5 +78,12 @@ class ContactController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function createUser($id)
+    {
+        $contact = LogContact::findOrFail($id);
+
+        return view('cvepdb.admin.contacts.create_user', ['contact' => $contact]);
     }
 }

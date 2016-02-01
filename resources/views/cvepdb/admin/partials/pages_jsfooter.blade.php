@@ -32,23 +32,3 @@
 
 <!-- END VENDOR JS -->
 <script src="/assets/js/pages.min.js"></script>
-
-<script src="/assets/js/pages/tables.js"></script>
-<script src="/assets/js/pages/form_elements.js"></script>
-<script src="/assets/js/pages/scripts.js"></script>
-
-<script>
-    $(function(){
-        $('#form-login').validate();
-
-        $('#summernote').summernote({
-            height: 200,
-            onfocus: function(e) {
-                $('body').addClass('overlay-disabled');
-            },
-            onblur: function(e) {
-                $('body').removeClass('overlay-disabled');
-            }
-        });
-    });
-</script>

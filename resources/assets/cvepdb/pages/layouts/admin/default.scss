@@ -42,6 +42,10 @@ Generated From LESS
 // Import Vars
 @import "../../../../pages/html/pages/scss/var";
 
+// CVEPDB overload
+$base-img-url: "../../img";
+$assets-url: "../../../assets";
+
 // Mixins tools
 @import "../../../../pages/html/pages/scss/mixins";
 

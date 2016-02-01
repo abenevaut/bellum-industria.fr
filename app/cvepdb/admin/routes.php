@@ -44,6 +44,8 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
         Route::resource('payments', '\App\CVEPDB\Admin\Controllers\PaymentController');
 
         Route::resource('contacts', '\App\CVEPDB\Admin\Controllers\ContactController');
+        Route::get('contacts/createuser/{id?}', ['as' => 'admin.contacts.create_client', 'uses' => '\App\CVEPDB\Admin\Controllers\ContactController@createUser']);
+        Route::post('contacts/storeuser', ['as' => 'admin.contacts.store_client', 'uses' => '\App\CVEPDB\Admin\Controllers\ContactController@storeUser']);
 
         Route::resource('roles', '\App\CVEPDB\Admin\Controllers\RoleController');
 
