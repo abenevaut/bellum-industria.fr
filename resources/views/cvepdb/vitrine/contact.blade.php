@@ -39,7 +39,7 @@
             <!-- Begin Form -->
             <div class="form-container">
                 <div class="response"></div>
-                {!! Form::open(array('route' => 'contact.store', 'class' => 'forms')) !!}
+                {!! Form::open(array('route' => 'contact.store', 'class' => 'forms js-call-form_validation', 'id' => 'contact')) !!}
                     <fieldset>
                         <ol>
                             <li class="form-row text-input-row name-field">

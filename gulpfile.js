@@ -22,31 +22,21 @@ gulp.task('sass', ['cvepdb-longwave-layouts-sass', 'cvepdb-pages-layouts-sass'],
 });
 
 gulp.task('cvepdb-longwave-layouts-sass', function () {
-
     gulp.src(config.cvepdb + '/longwave/layouts/multigaming/*.scss')
         .pipe(sass({paths: [config.cvepdb + '/sass/']}))
+        .pipe(minifycss())
         .pipe(gulp.dest(config.cvepdb + '/css/multigaming'));
-
     gulp.src(config.cvepdb + '/longwave/layouts/vitrine/*.scss')
         .pipe(sass({paths: [config.cvepdb + '/sass/']}))
+        .pipe(minifycss())
         .pipe(gulp.dest(config.cvepdb + '/css/vitrine'));
-
 });
 
 gulp.task('cvepdb-pages-layouts-sass', function () {
-
     gulp.src(config.cvepdb + '/pages/layouts/admin/*.scss')
         .pipe(sass({paths: [config.cvepdb + '/sass/']}))
-        .pipe(gulp.dest(config.cvepdb + '/css/admin'));
-
-});
-
-gulp.task('css-min', ['sass'], function () {
-    return gulp.src([
-        config.cvepdb + '/css/admin/*.css',
-        config.cvepdb + '/css/multigaming/*.css',
-        config.cvepdb + '/css/vitrine/*.css'
-    ]).pipe(minifycss());
+        .pipe(minifycss())
+        .pipe(gulp.dest(config.cvepdb + '/css/admin/'));
 });
 
 gulp.task('cvepdb-cvepdbjs-bower', function() {
@@ -55,20 +45,15 @@ gulp.task('cvepdb-cvepdbjs-bower', function() {
 
 gulp.task('watch', function () {
     gulp.watch([
-
         config.cvepdb + '/longwave/layouts/multigaming/*.scss',
         config.cvepdb + '/longwave/layouts/vitrine/*.scss',
-
         config.cvepdb + '/pages/layouts/admin/*.scss'
-
     ], function (event) {
         gulp.run('sass');
     });
 });
 
-gulp.task('build', ['cvepdb-cvepdbjs-bower', 'sass', 'copy'], function () {
-    gulp.run('css-min');
-});
+gulp.task('build', ['cvepdb-cvepdbjs-bower', 'sass', 'copy'], function () {});
 
 gulp.task('clean', function () {
     return gulp.src(config.build + '', {read: false}).pipe(clean());

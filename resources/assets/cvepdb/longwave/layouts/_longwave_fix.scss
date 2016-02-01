@@ -1,0 +1,19 @@
+#language_switcher.dropdown,
+#language_switcher.only-dropdown {
+  width: 125px;
+}
+.special.orange {
+  background-color: #f4a85e;
+}
+form div.required {
+  font-size: 12px;
+  color: red;
+}
+form input.has-success,
+form textarea.has-success {
+  border: 1px solid green !important;
+}
+form.forms input.has-error,
+form.forms textarea.has-error {
+  border: 1px solid red !important;
+}
