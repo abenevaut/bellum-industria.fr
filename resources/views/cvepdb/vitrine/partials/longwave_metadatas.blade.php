@@ -1,5 +1,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="description" content="My web portfolio presents my adventures in the world of development and software testing.">
+<meta name="keywords" content="HTML,CSS,XML,JavaScript,PHP,internet,mobile,site,website">
+<meta name="author" content="Antoine Benevaut">
 
 <base href="{{ url() }}"/>
 
