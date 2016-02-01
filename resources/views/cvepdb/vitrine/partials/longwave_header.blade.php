@@ -14,9 +14,6 @@
                     <a href="{{ url('/services') }}">{{ trans('cvepdb/vitrine/services.title') }}</a>
                 </li>
                 <li>
-                    <a href="{{ url('/boutique') }}">{{ trans('cvepdb/vitrine/boutique.title') }}</a>
-                </li>
-                <li>
                     <a href="{{ url('/contact') }}">{!! trans('cvepdb/vitrine/contact.title') !!}</a>
                 </li>
                 <li>
