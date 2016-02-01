@@ -9,7 +9,6 @@
     $(D).bind('CVEPDB_FORM_VALIDATION_JQREADY', function () {
         cvepdb.debug('contact.js > CVEPDB_FORM_VALIDATION_READY : success : Start');
 
-
         cvepdb.fv.on_submit(function () {
             var return_value = true;
             return return_value;
@@ -19,24 +18,7 @@
          * On lance la validation du formulaire
          */
         cvepdb.fv.set_rules('form#contact', {
-            errorPlacement: function(error, element) {
-
-                element
-                    .removeClass("has-success")
-                    .addClass("has-error");
-
-                if (element.attr('type') == 'checkbox') {
-                    error.insertBefore(element.closest('div'));
-                }
-                else {
-                    error.insertAfter(element);
-                }
-            },
-            errorElement: "div",
-            errorClass: 'required',
-            ignore: [':textarea:hidden.not(".js-call-tinymce")'],
             rules: {
-
                 last_name: {
                     required: true,
                     maxlength: 254
@@ -57,32 +39,30 @@
                 message: {
                     required: true
                 }
-
             },
             messages: {
-
                 last_name: {
-                    required: "Ce champ est obligatoire",
-                    maxlength: "Ce champ est limité à {0} caractères"
+                    required: cvepdb.globalize.translate('FIELD_REQUIRED'),
+                    maxlength: cvepdb.globalize.translate('FIELD_MAXLENGTH').replace('%text%', '{0}')
                 },
                 first_name: {
-                    required: "Ce champ est obligatoire",
-                    maxlength: "Ce champ est limité à {0} caractères"
+                    required: cvepdb.globalize.translate('FIELD_REQUIRED'),
+                    maxlength: cvepdb.globalize.translate('FIELD_MAXLENGTH').replace('%text%', '{0}')
                 },
                 email: {
-                    required: "Ce champ est obligatoire",
-                    maxlength: "Ce champ est limité à {0} caractères",
-                    email: "Ce champ doit être remplit avec un courriel valide"
+                    required: cvepdb.globalize.translate('FIELD_REQUIRED'),
+                    maxlength: cvepdb.globalize.translate('FIELD_MAXLENGTH').replace('%text%', '{0}'),
+                    email: cvepdb.globalize.translate('FIELD_VALID_EMAIL')
                 },
                 subject: {
-                    required: "Ce champ est obligatoire",
-                    maxlength: "Ce champ est limité à {0} caractères"
+                    required: cvepdb.globalize.translate('FIELD_REQUIRED'),
+                    maxlength: cvepdb.globalize.translate('FIELD_MAXLENGTH').replace('%text%', '{0}')
                 },
                 message: {
-                    required: "Ce champ est obligatoire"
+                    required: cvepdb.globalize.translate('FIELD_REQUIRED')
                 }
-
             },
+            ignore: [':textarea:hidden.not(".js-call-tinymce")'],
             highlight: function(element) { // <-- fires when element has error
                 $(element)
                     .removeClass("has-success")
@@ -97,6 +77,20 @@
                 element
                     .removeClass("has-error")
                     .addClass("has-success");
+            },
+            errorElement: "div",
+            errorClass: 'required',
+            errorPlacement: function(error, element) {
+                element
+                    .removeClass("has-success")
+                    .addClass("has-error");
+
+                if (element.attr('type') == 'checkbox') {
+                    error.insertBefore(element.closest('div'));
+                }
+                else {
+                    error.insertAfter(element);
+                }
             }
         });
 

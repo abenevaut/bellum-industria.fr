@@ -23,7 +23,6 @@
         ENV_REF: 'dev',
         ENV_THEME: '',
         IDUSER: 0,
-        LANG: '{{ App::getLocale()  }}',
         URI_BASE: '',
         URL_BASE: '',
         URL_SITE: '',
