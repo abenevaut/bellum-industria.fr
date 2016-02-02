@@ -150,9 +150,9 @@
 
 
 
-    @endsection
+@endsection
 
-    @section('modals')
+@section('modals')
             <!-- MODAL STICK UP SMALL ALERT -->
     <div class="modal fade slide-right" id="modalSlideLeft" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm">
