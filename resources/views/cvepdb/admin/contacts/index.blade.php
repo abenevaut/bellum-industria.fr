@@ -54,7 +54,7 @@
                                         {{ $contact->subject }}
                                     </td>
                                     <td class="col-lg-4">
-                                        <a class="btn btn-complete btn-cons" href="{{ url('admin/contacts/createuser') }}/{{ $contact->id }}">Créer le client</a>
+                                        <a class="btn btn-complete btn-cons" href="{{ url('admin/contacts/createclient') }}/{{ $contact->id }}">Créer le client</a>
                                     </td>
                                 </tr>
                             @endforeach

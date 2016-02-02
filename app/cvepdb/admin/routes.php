@@ -44,12 +44,12 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
         Route::resource('payments', '\App\CVEPDB\Admin\Controllers\PaymentController');
 
         Route::resource('contacts', '\App\CVEPDB\Admin\Controllers\ContactController');
-        Route::get('contacts/createuser/{id?}', ['as' => 'admin.contacts.create_client', 'uses' => '\App\CVEPDB\Admin\Controllers\ContactController@createUser']);
-        Route::post('contacts/storeuser', ['as' => 'admin.contacts.store_client', 'uses' => '\App\CVEPDB\Admin\Controllers\ContactController@storeUser']);
+        Route::get('contacts/createclient/{id?}', ['as' => 'admin.contacts.create_client', 'uses' => '\App\CVEPDB\Admin\Controllers\ContactController@createClient']);
 
         Route::resource('roles', '\App\CVEPDB\Admin\Controllers\RoleController');
 
         Route::resource('users', '\App\CVEPDB\Admin\Controllers\UserController');
+        Route::resource('clients', '\App\CVEPDB\Admin\Controllers\ClientController');
 
         Route::resource('entites', '\App\CVEPDB\Admin\Controllers\EntiteController');
         Route::get('entites/ajax/getvendors', '\App\CVEPDB\Admin\Controllers\EntiteController@postAjaxGetVendorsEntites');

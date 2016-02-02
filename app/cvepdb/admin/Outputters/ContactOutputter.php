@@ -1,31 +1,37 @@
 <?php
 
-namespace App\CVEPDB\Admin\Controllers;
+namespace App\CVEPDB\Admin\Outputters;
 
-use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
-use App\CVEPDB\Interfaces\Controllers\ICRUDRessourceController as CRUD;
-use Illuminate\Http\Request as Request;
+use App\CVEPDB\Interfaces\Outputters\AbsLaravelOutputter;
+use App\CVEPDB\Admin\Repositories\ContactRepository;
 
-use App\CVEPDB\Admin\Outputters\ContactOutputter;
-
-class ContactController extends Controller implements CRUD
+class ContactOutputter extends AbsLaravelOutputter
 {
     /**
-     * @var null Contact outputter
+     * @var null LogContact repository
      */
-    private $outputter = null;
+    private $r_LogContact = null;
 
-    public function __construct(ContactOutputter $outputter)
+    public function __construct(ContactRepository $r_LogContact)
     {
-        $this->outputter = $outputter;
+        parent::__construct();
+
+        $this->r_LogContact = $r_LogContact;
     }
 
     /**
-     * @return mixed
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        return $this->outputter->index();
+        $contacts = $this->r_LogContact->index();
+
+        return $this->output(
+            'cvepdb.admin.contacts.index',
+            [
+                'contacts' => $contacts
+            ]
+        );
     }
 
     /**
@@ -40,6 +46,7 @@ class ContactController extends Controller implements CRUD
      * Store a newly created resource in storage.
      *
      * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
@@ -91,14 +98,15 @@ class ContactController extends Controller implements CRUD
         //
     }
 
-    /**
-     * Show the form for creating a new client.
-     *
-     * @param $id
-     * @return mixed
-     */
     public function createClient($id)
     {
-        return $this->outputter->createClient($id);
+        $contact = $this->r_LogContact->get($id);
+
+        return view(
+            'cvepdb.admin.contacts.create_client',
+            [
+                'contact' => $contact
+            ]
+        );
     }
 }

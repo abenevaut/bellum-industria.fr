@@ -3,39 +3,83 @@
 namespace App\CVEPDB\Admin\Controllers;
 
 use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
-use App\CVEPDB\Admin\Requests\BankAccountFormRequest as BankAccountFormRequest;
-use App\CVEPDB\Admin\Models\BankAccount;
+use App\CVEPDB\Interfaces\Controllers\ICRUDRessourceController as CRUD;
+use Illuminate\Http\Request as Request;
 
-class BankAccountController extends Controller
+use App\CVEPDB\Admin\Outputters\BankAccountOutputter;
+
+class BankAccountController extends Controller implements CRUD
 {
+    private $outputter = null;
+
+    public function __construct(BankAccountOutputter $outputter)
+    {
+        parent::__construct();
+
+        $this->outputter = $outputter;
+    }
+
     public function index()
     {
-        return view(
-            'cvepdb.admin.bankaccounts.index',
-            [
-                'bankaccounts' => BankAccount::all()
-            ]
-        );
+        return $this->outputter->index();
     }
 
     public function create()
     {
-        return view('cvepdb.admin.bankaccounts.create');
+        return $this->outputter->create();
     }
 
-    public function store(BankAccountFormRequest $request)
+    public function store(Request $request)
     {
-        BankAccount::create([
-            'reference' => $request->get('reference'),
-            'iban' => $request->get('iban'),
-            'bic' => $request->get('bic'),
-            'status' => $request->get('status'),
-        ]);
-        return redirect('admin/bankaccounts');
+        return $this->outputter->store($request);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function update($id, Request $request)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 
     public function postAjaxGetBankAccount()
     {
-        return ['results' => BankAccount::all()];
+        return $this->outputter->postAjaxGetBankAccount();
     }
 }

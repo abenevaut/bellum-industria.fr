@@ -4,7 +4,7 @@ namespace App\CVEPDB\Admin\Controllers\Abs;
 
 use App\CVEPDB\Interfaces\Controllers\AbsController as Controller;
 
-class AbsController extends Controller
+abstract class AbsController extends Controller
 {
     public function __construct()
     {

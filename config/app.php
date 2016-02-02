@@ -168,6 +168,8 @@ return [
         'Toin0u\Geocoder\GeocoderServiceProvider',
 
         'Felixkiss\UniqueWithValidator\UniqueWithValidatorServiceProvider',
+
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
     ],
 
     /*

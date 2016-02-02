@@ -15,6 +15,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     //    protected $namespace = 'App\Http\Controllers';
+    protected $namespace_admin = 'App\CVEPDB\Admin\Controllers';
     protected $namespace_vitrine = 'App\CVEPDB\Vitrine\Controllers';
     protected $namespace_multigaming = 'App\CVEPDB\Multigaming\Controllers';
     protected $namespace_api = 'App\CVEPDB\Api\Controllers';
@@ -60,7 +61,7 @@ class RouteServiceProvider extends ServiceProvider
         |--------------------------------------------------------------------------
         */
 
-        $router->group(['namespace' => $this->namespace_vitrine], function ($router) {
+        $router->group(['namespace' => $this->namespace_admin], function ($router) {
             require app_path('cvepdb/admin/routes.php');
         });
 

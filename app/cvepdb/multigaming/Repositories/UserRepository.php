@@ -14,6 +14,43 @@ use App\CVEPDB\Multigaming\Models\User as UserModel;
  */
 class UserRepository //implements RepositoryInterface
 {
+
+    /**
+     * Create a new user with role RoleRepository::USER
+     *
+     * @param $new_user ['first_name', 'last_name', 'email']
+     */
+    public function create_user($new_user)
+    {
+        $user = User::create([
+            'first_name' => $new_user['first_name'],
+            'last_name' => $new_user['last_name'],
+            'email' => $new_user['email'],
+        ]);
+        $this->attach_user_to_role($user, RoleRepository::USER);
+    }
+
+    /**
+     * Create a new user with role RoleRepository::CLIENT
+     *
+     * @param $new_user ['first_name', 'last_name', 'email']
+     */
+    public function create_client($new_user)
+    {
+        $user = User::create([
+            'first_name' => $new_user['first_name'],
+            'last_name' => $new_user['last_name'],
+            'email' => $new_user['email'],
+        ]);
+        $this->attach_user_to_role($user, RoleRepository::CLIENT);
+    }
+
+    protected function attach_user_to_role($user, $role)
+    {
+        $client = RoleRepository::role_exists($role);
+        $user->attachRole($client);
+    }
+
     /**
      * @param array $columns
      * @return $this

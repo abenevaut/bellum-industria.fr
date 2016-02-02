@@ -1,31 +1,37 @@
 <?php
 
-namespace App\CVEPDB\Admin\Controllers;
+namespace App\CVEPDB\Admin\Outputters;
 
-use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
-use App\CVEPDB\Interfaces\Controllers\ICRUDRessourceController as CRUD;
+use App\CVEPDB\Interfaces\Outputters\AbsLaravelOutputter;
 use Illuminate\Http\Request as Request;
 
-use App\CVEPDB\Admin\Outputters\ContactOutputter;
+use App\CVEPDB\Admin\Repositories\BankAccountRepository;
 
-class ContactController extends Controller implements CRUD
+class BankAccountOutputter extends AbsLaravelOutputter
 {
     /**
-     * @var null Contact outputter
+     * @var null LogContact repository
      */
-    private $outputter = null;
+    private $r_BankAccount = null;
 
-    public function __construct(ContactOutputter $outputter)
+    public function __construct(BankAccountRepository $bankAccountRepository)
     {
-        $this->outputter = $outputter;
+        parent::__construct();
+
+        $this->r_BankAccount = $bankAccountRepository;
     }
 
     /**
-     * @return mixed
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        return $this->outputter->index();
+        return view(
+            'cvepdb.admin.bankaccounts.index',
+            [
+                'bankaccounts' => $this->r_BankAccount->all()
+            ]
+        );
     }
 
     /**
@@ -33,18 +39,23 @@ class ContactController extends Controller implements CRUD
      */
     public function create()
     {
-        //
+        return view('cvepdb.admin.bankaccounts.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
     {
-        //
+        $validator = $this->r_BankAccount->store($request);
+        if ($validator->passes()) {
+            return redirect('admin/bankaccounts');
+        }
+        return \Redirect::back()->withErrors($validator);
     }
 
     /**
@@ -91,14 +102,8 @@ class ContactController extends Controller implements CRUD
         //
     }
 
-    /**
-     * Show the form for creating a new client.
-     *
-     * @param $id
-     * @return mixed
-     */
-    public function createClient($id)
+    public function postAjaxGetBankAccount()
     {
-        return $this->outputter->createClient($id);
+        return ['results' => $this->r_BankAccount->all()];
     }
 }

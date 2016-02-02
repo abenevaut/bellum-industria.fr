@@ -40,7 +40,8 @@
         "roumen/feed": "^2.9",
         "toin0u/geocoder-laravel": "@stable",
         "nesbot/carbon": "^1.21",
-        "felixkiss/uniquewith-validator": "2.*"
+        "felixkiss/uniquewith-validator": "2.*",
+        "prettus/l5-repository": "^2.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -2,49 +2,41 @@
 
 namespace App\CVEPDB\Admin\Controllers;
 
-use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
-use App\CVEPDB\Interfaces\Controllers\ICRUDRessourceController as CRUD;
-use Illuminate\Http\Request as Request;
+use App\CVEPDB\Admin\Controllers\UserController as Controller;
+use App\CVEPDB\Admin\Requests\UserFormRequest;
 
-use App\CVEPDB\Admin\Outputters\ContactOutputter;
-
-class ContactController extends Controller implements CRUD
+class ClientController extends Controller
 {
-    /**
-     * @var null Contact outputter
-     */
-    private $outputter = null;
-
-    public function __construct(ContactOutputter $outputter)
-    {
-        $this->outputter = $outputter;
-    }
-
-    /**
-     * @return mixed
-     */
     public function index()
     {
-        return $this->outputter->index();
+        //
     }
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @return Response
      */
     public function create()
     {
-        //
+        return view('cvepdb.admin.clients.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
+     *
      * @return Response
      */
-    public function store(Request $request)
+    public function store(UserFormRequest $request)
     {
-        //
+        $this->r_user->create_client([
+            'first_name' => $request->get('first_name'),
+            'last_name' => $request->get('last_name'),
+            'email' => $request->get('email'),
+        ]);
+        return redirect('admin/users');
     }
 
     /**
@@ -89,16 +81,5 @@ class ContactController extends Controller implements CRUD
     public function destroy($id)
     {
         //
-    }
-
-    /**
-     * Show the form for creating a new client.
-     *
-     * @param $id
-     * @return mixed
-     */
-    public function createClient($id)
-    {
-        return $this->outputter->createClient($id);
     }
 }

@@ -3,8 +3,10 @@
 namespace App\CVEPDB\Admin\Requests;
 
 use App\Http\Requests\Request;
+use App\CVEPDB\Interfaces\Requests\IFormRequest;
+use App\CVEPDB\Admin\Repositories\BankAccountRepository;
 
-class BankAccountFormRequest extends Request
+class BankAccountFormRequest extends Request implements IFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +25,6 @@ class BankAccountFormRequest extends Request
      */
     public function rules()
     {
-        return [
-            'reference' => 'required',
-            'iban' => 'required',
-            'bic' => 'required',
-            'status' => 'required',
-        ];
+        return BankAccountRepository::rules();
     }
 }

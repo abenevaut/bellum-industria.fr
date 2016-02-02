@@ -3,8 +3,9 @@
 namespace App\CVEPDB\Admin\Requests;
 
 use App\Http\Requests\Request;
+use App\CVEPDB\Interfaces\Requests\IFormRequest;
 
-class UserFormRequest extends Request
+class UserFormRequest extends Request implements IFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

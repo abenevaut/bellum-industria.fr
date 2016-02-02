@@ -43,7 +43,7 @@
                     <h5>
                         Nouveau client
                     </h5>
-                    {!! Form::open(array('route' => 'admin.users.store', 'class' => 'forms')) !!}
+                    {!! Form::open(array('route' => 'admin.clients.store', 'class' => 'forms')) !!}
 
                     <div class="form-group form-group-default required">
                         <label>Nom</label>
