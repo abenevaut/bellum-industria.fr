@@ -2,10 +2,12 @@
 
 namespace App\CVEPDB\Domain\Users;
 
+use Illuminate\Container\Container as Application;
+
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\CVEPDB\Domain\Users\UserRepository;
-//use App\CVEPDB\Domain\Roles\RoleRepositoryEloquent;
+use App\CVEPDB\Domain\Roles\RoleRepositoryEloquent;
 use App\CVEPDB\Domain\Users\User;
 
 /**
@@ -28,12 +30,12 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         'email'
     ];
 
-//    public function __construct(RoleRepositoryEloquent $r_roles)
-//    {
-//        parent::__construct();
-//
-//        $this->r_roles = $r_roles;
-//    }
+    public function __construct(Application $app, RoleRepositoryEloquent $r_roles)
+    {
+        parent::__construct($app);
+
+        $this->r_roles = $r_roles;
+    }
 
     /**
      * Specify Model class name
@@ -60,12 +62,12 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
      */
     public function create_user($first_name, $last_name, $email)
     {
-        $user = User::create([
+        $user = $this->create([
             'first_name' => $first_name,
             'last_name' => $last_name,
             'email' => $email,
         ]);
-//        $this->attach_user_to_role($user, RoleRepositoryEloquent::USER);
+        $this->attach_user_to_role($user, RoleRepositoryEloquent::USER);
     }
 
     /**
@@ -80,7 +82,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
             'last_name' => $last_name,
             'email' => $email,
         ]);
-//        $this->attach_user_to_role($user, RoleRepositoryEloquent::CLIENT);
+        $this->attach_user_to_role($user, RoleRepositoryEloquent::CLIENT);
     }
 
     /**
@@ -89,7 +91,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
      */
     protected function attach_user_to_role($user, $role_name)
     {
-//        $role = $this->r_roles->role_exists($role_name);
-//        $user->attachRole($role);
+        $role = $this->r_roles->role_exists($role_name);
+        $user->attachRole($role);
     }
 }

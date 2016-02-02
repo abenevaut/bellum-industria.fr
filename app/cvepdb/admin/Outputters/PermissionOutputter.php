@@ -7,7 +7,7 @@ use App\CVEPDB\Interfaces\Outputters\AbsLaravelOutputter;
 use App\CVEPDB\Interfaces\Requests\IFormRequest;
 use App\CVEPDB\Domain\Users\UserRepositoryEloquent;
 
-class UserOutputter extends AbsLaravelOutputter implements ICRUDOutputter
+class PermissionOutputter extends AbsLaravelOutputter implements ICRUDOutputter
 {
     /**
      * @var null UserRepositoryEloquent
@@ -61,7 +61,7 @@ class UserOutputter extends AbsLaravelOutputter implements ICRUDOutputter
             $request->get('last_name'),
             $request->get('email')
         );
-        return redirect('admin/users');
+        return $this->redirectTo('admin/users');
     }
 
     /**
@@ -106,17 +106,5 @@ class UserOutputter extends AbsLaravelOutputter implements ICRUDOutputter
     public function destroy($id)
     {
         //
-    }
-
-    public function createClient($id)
-    {
-        $contact = $this->r_LogContact->get($id);
-
-        return view(
-            'cvepdb.admin.contacts.create_client',
-            [
-                'contact' => $contact
-            ]
-        );
     }
 }

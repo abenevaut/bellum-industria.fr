@@ -15,6 +15,9 @@
     <div class="page-content-wrapper">
         <!-- START PAGE CONTENT -->
         <div class="content">
+
+            @yield('modals')
+
             @include('cvepdb.admin.partials.pages_breadcrumbs')
                     <!-- START CONTAINER FLUID -->
             <div class="container-fluid container-fixed-lg">

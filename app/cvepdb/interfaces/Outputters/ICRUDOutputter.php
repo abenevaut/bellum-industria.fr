@@ -1,12 +1,11 @@
 <?php
 
-namespace App\CVEPDB\Interfaces\Controllers;
+namespace App\CVEPDB\Interfaces\Outputters;
 
-use Illuminate\Http\Request as Request;
+use App\CVEPDB\Interfaces\Requests\IFormRequest;
 
-interface ICRUDRessourceController
+interface ICRUDOutputter
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +27,7 @@ interface ICRUDRessourceController
      *
      * @return Response
      */
-    public function store(Request $request);
+    public function store(IFormRequest $request);
 
     /**
      * Display the specified resource.
@@ -52,7 +51,7 @@ interface ICRUDRessourceController
      * @param  int  $id
      * @return Response
      */
-    public function update($id, Request $request);
+    public function update($id, IFormRequest $request);
 
     /**
      * Remove the specified resource from storage.

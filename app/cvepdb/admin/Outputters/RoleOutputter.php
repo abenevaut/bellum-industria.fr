@@ -2,12 +2,11 @@
 
 namespace App\CVEPDB\Admin\Outputters;
 
-use App\CVEPDB\Interfaces\Outputters\ICRUDOutputter;
 use App\CVEPDB\Interfaces\Outputters\AbsLaravelOutputter;
 use App\CVEPDB\Interfaces\Requests\IFormRequest;
 use App\CVEPDB\Domain\Users\UserRepositoryEloquent;
 
-class UserOutputter extends AbsLaravelOutputter implements ICRUDOutputter
+class RoleOutputter extends AbsLaravelOutputter
 {
     /**
      * @var null UserRepositoryEloquent
@@ -106,17 +105,5 @@ class UserOutputter extends AbsLaravelOutputter implements ICRUDOutputter
     public function destroy($id)
     {
         //
-    }
-
-    public function createClient($id)
-    {
-        $contact = $this->r_LogContact->get($id);
-
-        return view(
-            'cvepdb.admin.contacts.create_client',
-            [
-                'contact' => $contact
-            ]
-        );
     }
 }
