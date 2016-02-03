@@ -96,7 +96,7 @@ initBasicTable();
         var user_delete_name = $('#js-user_delete_name');
 
         user_delete_btn.click(function(){
-            user_delete_form.attr('action', 'admin/users/' + $(this).attr('data-user_id');
+            user_delete_form.attr('action', 'admin/users/' + $(this).attr('data-user_id'));
             user_delete_name.html($(this).attr('data-user_name'));
         });
 

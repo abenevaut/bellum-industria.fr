@@ -13,7 +13,7 @@ return [
 
     'emails' => [
         'from' => [
-            'contact' => 'contact@cavaencoreparlerdebits.fr'
+            'contact' => 'contact@cvepdb.fr'
         ],
         'copy' => [
             'mailwatch' => 'mailwatch@cavaencoreparlerdebits.fr'

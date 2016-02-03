@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c4afcd0557363af357e615a192ce9fcc",
+    "hash": "efb31854fc68b726383ac1cfea4f2d61",
     "content-hash": "1c95cf79585ba74d7faaa1ac252c3669",
     "packages": [
         {
@@ -307,7 +307,7 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb/abstract.git",
-                "reference": "52150eb5778a84582c32b2184088ab1138ffddc5"
+                "reference": "13179b9894fc7b6c205cab8c4a561934825b4f22"
             },
             "require": {
                 "chrisbjr/api-guard": "^2.3",
@@ -351,7 +351,7 @@
                 "Interfaces",
                 "Laravel"
             ],
-            "time": "2016-02-03 11:38:15"
+            "time": "2016-02-03 14:17:50"
         },
         {
             "name": "da-mitchell/steam-api",
@@ -5351,16 +5351,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.0.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "3df409958a646dad2bc5046c3fb671ee24a1a691"
+                "reference": "3cf0709d7fe936e97bee9e954382e449003f1d9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/3df409958a646dad2bc5046c3fb671ee24a1a691",
-                "reference": "3df409958a646dad2bc5046c3fb671ee24a1a691",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/3cf0709d7fe936e97bee9e954382e449003f1d9a",
+                "reference": "3cf0709d7fe936e97bee9e954382e449003f1d9a",
                 "shasum": ""
             },
             "require": {
@@ -5396,7 +5396,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2015-12-26 13:39:53"
+            "time": "2016-02-02 13:44:19"
         }
     ],
     "aliases": [],

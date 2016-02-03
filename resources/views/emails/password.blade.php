@@ -13,13 +13,38 @@
                     <td align="center">
                         <table class="table-inner" width="520" border="0" align="center" cellpadding="0" cellspacing="0">
 
-                            <!--title-->
                             <tr>
-                                <td align="center" style="font-family: 'Open Sans', Arial, sans-serif; font-weight: bold; color:#3498db; font-size:24px;">
-                                    Click here to reset your password : <a href="{{ url('password/reset/'.$token) }}">Lien</a>
+                                <td align="center">
+                                    <table width="520" border="0" align="center" cellpadding="0" cellspacing="0"
+                                           class="table-inner">
+                                        <tbody>
+                                        <tr>
+                                            <!--Title-->
+                                            <td align="left"
+                                                style="font-family: 'Open Sans', Arial, sans-serif; font-size:18px; color:#34495e; font-weight:bold;">
+                                                {{$user->last_name}} {{$user->first_name}},
+                                            </td>
+                                            <!--End Title-->
+                                        </tr>
+                                        <tr>
+                                            <td height="15" align="center" style="border-bottom:1px dotted #bdc3c7;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td height="30"></td>
+                                        </tr>
+                                        <!--content-->
+                                        <tr>
+                                            <td align="left"
+                                                style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#999999; line-height:28px;">
+                                                Click here to reset your password : <a href="{{ url('password/reset/'.$token) }}">Lien</a>
+                                            </td>
+                                        </tr>
+                                        @include('emails.partials.signature')
+                                                <!--end content-->
+                                        </tbody>
+                                    </table>
                                 </td>
                             </tr>
-                            <!--end title-->
 
                         </table>
                     </td>

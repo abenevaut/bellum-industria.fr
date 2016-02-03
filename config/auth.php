@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => App\User::class,
+    'model' => CVEPDB\Repositories\Users\User::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -59,7 +59,7 @@ return [
     */
 
     'password' => [
-        'email' => 'emails.password',
+        'email' => 'cvepdb.emails.password',
         'table' => 'password_resets',
         'expire' => 60,
     ],
