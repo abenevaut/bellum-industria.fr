@@ -46,12 +46,12 @@
                 <div class="form-container">
                     <div class="response"></div>
                     {!! Form::open(array(
-                        'route' => 'teams_store',
+                        'route' => 'teams.store',
                         'method' => 'PUT',
                         'id' => "teams_add",
                         'class' => "forms js-call-form_validation",
-                        'data-route_post' => route('teams_store'),
-                        'data-route_put' => route('teams_put')
+                        'data-route_post' => route('teams.store'),
+                        'data-route_put' => route('teams.update')
                        )) !!}
                         <fieldset>
                             <ol>

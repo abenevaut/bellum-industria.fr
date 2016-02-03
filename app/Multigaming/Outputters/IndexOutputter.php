@@ -3,7 +3,6 @@
 namespace App\Multigaming\Outputters;
 
 use CVEPDB\Services\Outputters\AbsLaravelOutputter;
-
 use App\Multigaming\Repositories\GameServerRepository as GameServerRepository;
 use App\Multigaming\Repositories\SteamRepository as SteamRepository;
 use App\Multigaming\Repositories\TeamRepository as TeamRepository;
