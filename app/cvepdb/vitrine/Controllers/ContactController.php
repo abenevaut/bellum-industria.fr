@@ -7,9 +7,17 @@ use Illuminate\Http\Request as Request;
 use App\CVEPDB\Interfaces\Controllers\AbsBaseController as BaseController;
 use App\CVEPDB\Admin\Models\LogContact;
 use App\CVEPDB\Vitrine\Requests\ContactFormRequest;
+use App\CVEPDB\Domain\Services\Mails\ContactMailService;
 
 class ContactController extends BaseController
 {
+    private $mailer = null;
+
+    public function __construct(ContactMailService $cmailer)
+    {
+        $this->mailer = $cmailer;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,37 +55,7 @@ class ContactController extends BaseController
         $m_contacts->message = $request->get('message');
         $m_contacts->save();
 
-        \Mail::send(
-            'cvepdb.admin.emails.contact',
-            array(
-                'name' => $m_contacts->first_name.' '.$m_contacts->last_name,
-                'email' => $m_contacts->email,
-                'user_subject' => $m_contacts->subject,
-                'user_message' => $m_contacts->message
-            ),
-            function ($message) use ($m_contacts){
-                $message->from('contact@cavaencoreparlerdebits.fr')
-                    ->to('contact@cavaencoreparlerdebits.fr')
-                    ->bcc('mailwatch@cavaencoreparlerdebits.fr')
-                    ->subject('Prise de contact : ' . $m_contacts->subject);
-            }
-        );
-
-        \Mail::send(
-            'cvepdb.vitrine.emails.contact',
-            array(
-                'name' => $m_contacts->first_name.' '.$m_contacts->last_name,
-                'email' => $m_contacts->email,
-                'user_subject' => $m_contacts->subject,
-                'user_message' => $m_contacts->message
-            ),
-            function ($message) use ($m_contacts){
-                $message->from('contact@cavaencoreparlerdebits.fr')
-                    ->to($m_contacts->email, $m_contacts->first_name.' '.$m_contacts->last_name)
-                    ->bcc('mailwatch@cavaencoreparlerdebits.fr')
-                    ->subject('Prise de contact : ' . $m_contacts->subject);
-            }
-        );
+        $this->mailer->contact_form($m_contacts);
 
         return \Redirect::route('contact.index')
             ->with('message', 'Thanks for contacting us!');
