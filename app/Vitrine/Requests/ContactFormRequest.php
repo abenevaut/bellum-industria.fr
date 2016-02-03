@@ -2,7 +2,7 @@
 
 namespace App\CVEPDB\Vitrine\Requests;
 
-use App\Http\Requests\Request;
+use CVEPDB\Requests\Request;
 
 class ContactFormRequest extends Request
 {

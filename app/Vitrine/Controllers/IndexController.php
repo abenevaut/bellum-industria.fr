@@ -5,7 +5,7 @@ namespace App\CVEPDB\Vitrine\Controllers;
 use Illuminate\Http\Request as Request;
 use CVEPDB\Controllers\AbsBaseController as BaseController;
 
-use App\CVEPDB\Vitrine\Outputters\SimplePageOutputter as SimplePageOutputter;
+use App\Vitrine\Outputters\SimplePageOutputter;
 
 class IndexController extends BaseController
 {

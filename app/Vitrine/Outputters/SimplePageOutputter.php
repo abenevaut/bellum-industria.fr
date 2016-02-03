@@ -1,9 +1,9 @@
 <?php
 
-namespace App\CVEPDB\Vitrine\Outputters;
+namespace App\Vitrine\Outputters;
 
-use App\CVEPDB\Interfaces\Outputters\AbsLaravelOutputter;
-use App\CVEPDB\Vitrine\Outputters\SitemapFormats\SimplePageFormat;
+use CVEPDB\Outputters\AbsLaravelOutputter;
+use App\Vitrine\Outputters\SitemapFormats\SimplePageFormat;
 
 class SimplePageOutputter extends AbsLaravelOutputter
 {

@@ -11,17 +11,18 @@
 |
 */
 
-// Group Vitrine
 Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
-    Route::get('/', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
-    Route::get('home', '\App\CVEPDB\Vitrine\Controllers\IndexController@index');
 
-//    Todo mettre en place le sitemap
-//    Route::get('sitemap', '\App\CVEPDB\Vitrine\Controllers\IndexController@sitemap');
+    Route::resource('index', '\App\Vitrine\Controllers\IndexController');
+    Route::get('/', '\App\Vitrine\Controllers\IndexController@index');
+    Route::get('home', '\App\Vitrine\Controllers\IndexController@index');
 
-    Route::resource('index', '\App\CVEPDB\Vitrine\Controllers\IndexController');
-    Route::resource('about', '\App\CVEPDB\Vitrine\Controllers\AboutController');
-    Route::resource('services', '\App\CVEPDB\Vitrine\Controllers\ServiceController');
-    Route::resource('boutique', '\App\CVEPDB\Vitrine\Controllers\BoutiqueController');
-    Route::resource('contact', '\App\CVEPDB\Vitrine\Controllers\ContactController');
+    Route::resource('about', '\App\Vitrine\Controllers\AboutController');
+    Route::resource('services', '\App\Vitrine\Controllers\ServiceController');
+    Route::resource('boutique', '\App\Vitrine\Controllers\BoutiqueController');
+    Route::resource('contact', '\App\Vitrine\Controllers\ContactController');
+
+    //    Todo mettre en place le sitemap
+    //    Route::get('sitemap', '\App\CVEPDB\Vitrine\Controllers\IndexController@sitemap');
+
 });
