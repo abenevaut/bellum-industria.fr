@@ -3,7 +3,6 @@
 namespace App\CVEPDB\Domain\Services\Mails;
 
 use Mail;
-use App\CVEPDB\Domain\Services\Mails\IMailService;
 
 abstract class MailService implements IMailService
 {

@@ -2,7 +2,6 @@
 
 namespace App\CVEPDB\Domain\Services\Mails;
 
-use App\CVEPDB\Domain\Services\Mails\MailService;
 use App\CVEPDB\Admin\Models\LogContact as LogContact;
 
 class ContactMailService extends MailService
