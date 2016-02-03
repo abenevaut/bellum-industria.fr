@@ -1,10 +1,10 @@
 <?php
 
-namespace App\CVEPDB\Multigaming\Controllers;
+namespace App\Multigaming\Controllers;
 
-use App\CVEPDB\Multigaming\Controllers\Abs\AbsBaseController as BaseController;
-use App\CVEPDB\Multigaming\Domains\TeamDomain as TeamDomain;
-use App\CVEPDB\Multigaming\Requests\TeamFormRequest as TeamFormRequest;
+use CVEPDB\Controllers\AbsBaseController as BaseController;
+use App\Multigaming\Domains\TeamDomain as TeamDomain;
+use App\Multigaming\Requests\TeamFormRequest as TeamFormRequest;
 
 /**
  * Class TeamController
@@ -17,15 +17,15 @@ class TeamController extends BaseController
      */
     private $domain = null;
 
-    public function __construct()
+    public function __construct(TeamDomain $domain)
     {
-        $this->domain = new TeamDomain;
+        $this->domain = $domain;
     }
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getIndex()
+    public function index()
     {
         return $this->domain->teamsIndex();
     }
@@ -34,7 +34,7 @@ class TeamController extends BaseController
      * @param $team_id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getShow($team_id)
+    public function show($team_id)
     {
         return $this->domain->teamIndex($team_id);
     }
@@ -43,7 +43,7 @@ class TeamController extends BaseController
      * @param TeamFormRequest $request
      * @return mixed
      */
-    public function postStoreTeam(TeamFormRequest $request)
+    public function store(TeamFormRequest $request)
     {
         return $this->domain->teamRecord($request);
     }
@@ -53,7 +53,7 @@ class TeamController extends BaseController
      * @param TeamFormRequest $request
      * @return mixed
      */
-    public function putStoreTeam($team_id, TeamFormRequest $request)
+    public function update($team_id, TeamFormRequest $request)
     {
         return $this->domain->teamUpdate($team_id, $request);
     }
@@ -62,7 +62,7 @@ class TeamController extends BaseController
      * @param $team_id
      * @return mixed
      */
-    public function deleteRemoveTeam($team_id)
+    public function destroy($team_id)
     {
         return $this->domain->teamDelete($team_id);
     }
@@ -70,7 +70,7 @@ class TeamController extends BaseController
     /**
      * @return mixed
      */
-    public function getSitemap()
+    public function sitemap()
     {
         return $this->domain->teamsSitemap();
     }

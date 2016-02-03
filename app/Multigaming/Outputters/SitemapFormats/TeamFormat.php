@@ -1,8 +1,8 @@
 <?php
 
-namespace App\CVEPDB\Multigaming\Outputters\SitemapFormats;
+namespace App\Multigaming\Outputters\SitemapFormats;
 
-use App\CVEPDB\Interfaces\Outputters\AbsOutputterSitemapFormat;
+use CVEPDB\Services\Outputters\AbsOutputterSitemapFormat;
 
 class TeamFormat extends AbsOutputterSitemapFormat
 {

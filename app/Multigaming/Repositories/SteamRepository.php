@@ -1,8 +1,6 @@
 <?php
 
-namespace App\CVEPDB\Multigaming\Repositories;
-
-//use CVEPDB\Repositories\RepositoryInterface;
+namespace App\Multigaming\Repositories;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
 

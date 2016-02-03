@@ -1,36 +1,39 @@
 <?php
 
-namespace App\CVEPDB\Multigaming\Controllers;
+namespace App\Multigaming\Controllers;
 
-use App\CVEPDB\Multigaming\Controllers\Abs\AbsBaseController as BaseController;
-use App\CVEPDB\Multigaming\Domains\IndexDomain as IndexDomain;
+use CVEPDB\Controllers\AbsBaseController as BaseController;
+use App\Multigaming\Outputters\IndexOutputter;
 
+/**
+ * Class IndexController
+ * @package App\Multigaming\Controllers
+ */
 class IndexController extends BaseController
 {
     /**
-     * @var IndexDomain|null Domain object
+     * @var IndexOutputter|null
      */
-    private $domain = null;
+    private $outputter = null;
 
-    public function __construct()
+    public function __construct(IndexOutputter $outputter)
     {
         parent::__construct();
-
-        $this->domain = new IndexDomain;
+        $this->outputter = $outputter;
     }
 
-    public function getIndex()
+    public function index()
     {
-        return $this->domain->indexIndex();
+        return $this->outputter->index();
     }
 
-    public function getBoutique()
+    public function boutique()
     {
-        return $this->domain->indexBoutique();
+        return $this->outputter->boutique();
     }
 
-    public function getSitemap()
+    public function sitemap()
     {
-        return $this->domain->indexSitemap();
+        return $this->outputter->sitemap();
     }
 }

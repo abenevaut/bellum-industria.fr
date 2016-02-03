@@ -1,10 +1,8 @@
 <?php
 
-namespace App\CVEPDB\Multigaming\Repositories;
+namespace App\Multigaming\Repositories;
 
-//use CVEPDB\Repositories\RepositoryInterface;
-
-use App\CVEPDB\Multigaming\Models\Team as TeamModel;
+use App\Multigaming\Models\Team as TeamModel;
 
 /**
  * Class TeamRepository

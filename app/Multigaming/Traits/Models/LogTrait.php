@@ -1,6 +1,6 @@
 <?php
 
-namespace App\CVEPDB\Multigaming\Traits\Models;
+namespace App\Multigaming\Traits\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,7 +8,7 @@ use Auth;
 use ReflectionClass;
 use Exception;
 
-use App\CVEPDB\Multigaming\Models\Log;
+use App\Multigaming\Models\Log;
 
 /**
  * Class ModelEventLogger

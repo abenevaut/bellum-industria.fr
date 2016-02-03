@@ -1,10 +1,10 @@
 <?php
 
-namespace App\CVEPDB\Multigaming\Models;
+namespace App\Multigaming\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\CVEPDB\Multigaming\Traits\Models\LogTrait;
+use App\Multigaming\Traits\Models\LogTrait;
 
 class Team extends Model
 {
@@ -47,6 +47,6 @@ class Team extends Model
      */
     public function users()
     {
-        return $this->belongsToMany('App\CVEPDB\Multigaming\Models\User', 'multigaming_team_user');
+        return $this->belongsToMany('App\Multigaming\Models\User', 'multigaming_team_user');
     }
 }

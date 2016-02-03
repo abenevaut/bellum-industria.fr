@@ -1,6 +1,6 @@
 <?php
 
-namespace App\CVEPDB\Multigaming\Repositories\SMWA;
+namespace App\Multigaming\Repositories\SMWA;
 
 /**
  * Class StammRepository

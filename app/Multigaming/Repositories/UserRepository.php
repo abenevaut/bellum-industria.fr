@@ -1,18 +1,17 @@
 <?php
 
-namespace App\CVEPDB\Multigaming\Repositories;
+namespace App\Multigaming\Repositories;
 
 use DB;
-
-//use CVEPDB\Repositories\RepositoryInterface;
-
-use App\CVEPDB\Multigaming\Models\User as UserModel;
+use CVEPDB\Repositories\Users\UserRepositoryEloquent;
+use App\Multigaming\Repositories\RoleRepository;
+use App\Multigaming\Models\User as UserModel;
 
 /**
  * Class TeamRepository
  * @package App\CVEPDB\Multigaming\Repositories
  */
-class UserRepository //implements RepositoryInterface
+class UserRepository extends UserRepositoryEloquent
 {
 
     /**
@@ -20,14 +19,14 @@ class UserRepository //implements RepositoryInterface
      *
      * @param $new_user ['first_name', 'last_name', 'email']
      */
-    public function create_user($new_user)
+    public function create_gamer($new_user)
     {
         $user = User::create([
             'first_name' => $new_user['first_name'],
             'last_name' => $new_user['last_name'],
             'email' => $new_user['email'],
         ]);
-        $this->attach_user_to_role($user, RoleRepository::USER);
+        $this->attach_user_to_role($user, RoleRepository::GAMER_USER);
     }
 
     /**
@@ -35,14 +34,14 @@ class UserRepository //implements RepositoryInterface
      *
      * @param $new_user ['first_name', 'last_name', 'email']
      */
-    public function create_client($new_user)
+    public function create_gamer_admin($new_user)
     {
         $user = User::create([
             'first_name' => $new_user['first_name'],
             'last_name' => $new_user['last_name'],
             'email' => $new_user['email'],
         ]);
-        $this->attach_user_to_role($user, RoleRepository::CLIENT);
+        $this->attach_user_to_role($user, RoleRepository::GAMER_ADMIN);
     }
 
     protected function attach_user_to_role($user, $role)

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\CVEPDB\Multigaming\Models;
+namespace App\Multigaming\Models;
 
-use App\User as UserBaseModel;
+use CVEPDB\Repositories\Users\User as UserBaseModel;
 
-use App\CVEPDB\Multigaming\Traits\Models\LogTrait;
+use App\Multigaming\Traits\Models\LogTrait;
 
 class User extends UserBaseModel
 {
@@ -24,6 +24,6 @@ class User extends UserBaseModel
      */
     public function teams()
     {
-        return $this->belongsToMany('App\CVEPDB\Multigaming\Models\Team', 'multigaming_team_user');
+        return $this->belongsToMany('App\Multigaming\Models\Team', 'multigaming_team_user');
     }
 }

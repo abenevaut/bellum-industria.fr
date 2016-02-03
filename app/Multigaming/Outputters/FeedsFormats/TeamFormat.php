@@ -1,8 +1,8 @@
 <?php
 
-namespace App\CVEPDB\Multigaming\Outputters\FeedsFormats;
+namespace App\Multigaming\Outputters\FeedsFormats;
 
-use App\CVEPDB\Interfaces\Outputters\AbsOutputterFeedsFormat;
+use CVEPDB\Services\Outputters\AbsOutputterFeedsFormat;
 
 class TeamFormat extends AbsOutputterFeedsFormat
 {

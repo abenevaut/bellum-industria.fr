@@ -13,22 +13,23 @@
 
 Route::group(['domain' => env('DOMAIN_MULTIGAMING')], function () {
 
-    Route::get('/', '\App\CVEPDB\Multigaming\Controllers\IndexController@getIndex');
-    Route::get('boutique', '\App\CVEPDB\Multigaming\Controllers\IndexController@getBoutique');
-    Route::get('sitemap', '\App\CVEPDB\Multigaming\Controllers\IndexController@getSitemap');
+    Route::resource('index', '\App\Multigaming\Controllers\IndexController');
+    Route::get('/', '\App\Multigaming\Controllers\IndexController@index');
+    Route::get('boutique', '\App\Multigaming\Controllers\IndexController@boutique');
+    Route::get('sitemap', '\App\Multigaming\Controllers\IndexController@sitemap');
 
     Route::group(['prefix' => 'auth'], function () {
-        Route::get('login', '\App\CVEPDB\Multigaming\Controllers\AuthController@login');
-        Route::get('logout', '\App\CVEPDB\Multigaming\Controllers\AuthController@logout');
+        Route::get('login', '\App\Multigaming\Controllers\AuthController@login');
+        Route::get('logout', '\App\Multigaming\Controllers\AuthController@logout');
     });
 
     Route::group(['prefix' => 'teams', 'middleware' => ['role:admin']], function () {
-        Route::get('/', ['as' => 'teams', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@getIndex']);
-        Route::get('show/{team_id?}', '\App\CVEPDB\Multigaming\Controllers\TeamController@getShow');
-        Route::get('store-team/{team_id?}', ['as' => 'teams_put', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@putStoreTeam']);
-        Route::put('store-team/{team_id?}', ['as' => 'teams_put', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@putStoreTeam']);
-        Route::post('store-team', ['as' => 'teams_store', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@postStoreTeam']);
-        Route::delete('remove-team/{team_id?}', ['as' => 'teams_delete', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@deleteRemoveTeam']);
-        Route::get('sitemap', ['as' => 'teams_sitemap', 'uses' => '\App\CVEPDB\Multigaming\Controllers\TeamController@getSitemap']);
+        Route::get('/', ['as' => 'teams', 'uses' => '\App\Multigaming\Controllers\TeamController@getIndex']);
+        Route::get('show/{team_id?}', '\App\Multigaming\Controllers\TeamController@getShow');
+        Route::get('store-team/{team_id?}', ['as' => 'teams_put', 'uses' => '\App\Multigaming\Controllers\TeamController@putStoreTeam']);
+        Route::put('store-team/{team_id?}', ['as' => 'teams_put', 'uses' => '\App\Multigaming\Controllers\TeamController@putStoreTeam']);
+        Route::post('store-team', ['as' => 'teams_store', 'uses' => '\App\Multigaming\Controllers\TeamController@postStoreTeam']);
+        Route::delete('remove-team/{team_id?}', ['as' => 'teams_delete', 'uses' => '\App\Multigaming\Controllers\TeamController@deleteRemoveTeam']);
+        Route::get('sitemap', ['as' => 'teams_sitemap', 'uses' => '\App\Multigaming\Controllers\TeamController@getSitemap']);
     });
 });

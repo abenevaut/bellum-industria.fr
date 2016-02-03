@@ -1,9 +1,9 @@
 <?php
 
-namespace App\CVEPDB\Multigaming\Controllers;
+namespace App\Multigaming\Controllers;
 
-use App\CVEPDB\Multigaming\Controllers\Abs\AbsController as Controller;
-use App\CVEPDB\Multigaming\Repositories\UserRepository as UserRepository;
+use CVEPDB\Controllers\AbsController as Controller;
+use App\Multigaming\Repositories\UserRepository as UserRepository;
 use Invisnik\LaravelSteamAuth\SteamAuth;
 use App\User;
 
