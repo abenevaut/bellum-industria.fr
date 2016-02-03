@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8c970b82b6ff6ed7a43e06d84712971e",
-    "content-hash": "e66779bf004ca212270c41c67ae8ad63",
+    "hash": "c4afcd0557363af357e615a192ce9fcc",
+    "content-hash": "1c95cf79585ba74d7faaa1ac252c3669",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -307,10 +307,51 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb/abstract.git",
-                "reference": "master"
+                "reference": "52150eb5778a84582c32b2184088ab1138ffddc5"
             },
-            "type": "package",
-            "time": "2015-10-02 19:07:38"
+            "require": {
+                "chrisbjr/api-guard": "^2.3",
+                "creitive/laravel5-breadcrumbs": "^1.0",
+                "felixkiss/uniquewith-validator": "2.*",
+                "jenssegers/raven": "^1.4",
+                "laravel/socialite": "^2.0",
+                "nesbot/carbon": "^1.21",
+                "php": ">=5.5.9",
+                "predis/predis": "^1.0",
+                "prettus/l5-repository": "^2.1",
+                "roumen/feed": "^2.9",
+                "roumen/sitemap": "^2.5",
+                "toin0u/geocoder-laravel": "@stable",
+                "zizaco/entrust": "dev-laravel-5"
+            },
+            "require-dev": {
+                "codeception/codeception": "*",
+                "doctrine/dbal": "~2.3"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "Cvepdb\\Abstract\\": "src"
+                }
+            },
+            "license": [
+                "open"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "All abstract classes",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "API",
+                "Abstract classes",
+                "Interfaces",
+                "Laravel"
+            ],
+            "time": "2016-02-03 11:38:15"
         },
         {
             "name": "da-mitchell/steam-api",
