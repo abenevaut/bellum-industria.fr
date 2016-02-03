@@ -1,8 +1,9 @@
 <?php
 
-namespace App\CVEPDB\Domain\Services\Mails;
+namespace App\CVEPDB\Services\Mails;
 
-use App\CVEPDB\Admin\Models\LogContact as LogContact;
+use CVEPDB\Services\Mails\MailService;
+use App\Admin\Models\LogContact as LogContact;
 
 class ContactMailService extends MailService
 {

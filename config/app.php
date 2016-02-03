@@ -131,7 +131,6 @@ return [
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
         Illuminate\Redis\RedisServiceProvider::class,
-//        Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
@@ -146,38 +145,19 @@ return [
         App\Providers\RouteServiceProvider::class,
 
 
-
-
-
         CVEPDB\Providers\PasswordResetServiceProvider::class,
-
-
-
-
         'Zizaco\Entrust\EntrustServiceProvider',
-
         Chrisbjr\ApiGuard\Providers\ApiGuardServiceProvider::class,
-
         'Illuminate\Html\HtmlServiceProvider',
-
         Invisnik\LaravelSteamAuth\SteamServiceProvider::class,
-
         Laravel\Socialite\SocialiteServiceProvider::class,
-
         Barryvdh\Debugbar\ServiceProvider::class,
-
         'Jenssegers\Raven\RavenServiceProvider',
-
         Barryvdh\DomPDF\ServiceProvider::class,
-
         'Roumen\Sitemap\SitemapServiceProvider',
-
         'Roumen\Feed\FeedServiceProvider',
-
         'Toin0u\Geocoder\GeocoderServiceProvider',
-
         'Felixkiss\UniqueWithValidator\UniqueWithValidatorServiceProvider',
-
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
     ],
 
@@ -228,22 +208,14 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-
         'Entrust' => 'Zizaco\Entrust\EntrustFacade',
-
         'Form' => 'Illuminate\Html\FormFacade',
         'HTML' => 'Illuminate\Html\HtmlFacade',
-
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-
         'Raven' => 'Jenssegers\Raven\Facades\Raven',
-
         'PDF' => Barryvdh\DomPDF\Facade::class,
-
         'Feed' => 'Roumen\Feed\Facades\Feed',
-
         'Geocoder' => 'Toin0u\Geocoder\Facade\Geocoder',
     ],
 

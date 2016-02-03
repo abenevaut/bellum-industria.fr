@@ -1,13 +1,13 @@
 <?php
 
-namespace App\CVEPDB\Vitrine\Controllers;
+namespace App\Vitrine\Controllers;
 
 use Illuminate\Http\Request as Request;
 use CVEPDB\Controllers\AbsBaseController as BaseController;
 
 use App\Admin\Models\LogContact;
-use App\CVEPDB\Vitrine\Requests\ContactFormRequest;
-use App\CVEPDB\Domain\Services\Mails\ContactMailService;
+use App\Vitrine\Requests\ContactFormRequest;
+use App\CVEPDB\Services\Mails\ContactMailService;
 
 class ContactController extends BaseController
 {

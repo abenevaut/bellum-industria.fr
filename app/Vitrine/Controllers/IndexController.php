@@ -1,21 +1,12 @@
 <?php
 
-namespace App\CVEPDB\Vitrine\Controllers;
+namespace App\Vitrine\Controllers;
 
 use Illuminate\Http\Request as Request;
 use CVEPDB\Controllers\AbsBaseController as BaseController;
 
-use App\Vitrine\Outputters\SimplePageOutputter;
-
 class IndexController extends BaseController
 {
-    private $outputter = null;
-
-    public function __construct()
-    {
-        $this->outputter = new SimplePageOutputter();
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,18 +15,5 @@ class IndexController extends BaseController
     public function index()
     {
         return view('cvepdb.vitrine.index');
-    }
-
-    /**
-     * Index sitemap
-     */
-    public function sitemap()
-    {
-        $this->outputter->generateIndexSitemap([
-            'home',
-            'services',
-            'about',
-            'boutique',
-        ]);
     }
 }

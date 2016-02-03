@@ -1,6 +1,6 @@
 <?php
 
-namespace App\CVEPDB\Admin\Models;
+namespace App\Admin\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -36,7 +36,7 @@ class Payment extends Model
      */
     public function bill()
     {
-        return $this->hasOne('App\CVEPDB\Admin\Models\Bill', 'id', 'bill_id');
+        return $this->hasOne('App\Admin\Models\Bill', 'id', 'bill_id');
     }
 
     /**
@@ -44,6 +44,6 @@ class Payment extends Model
      */
     public function bankaccount()
     {
-        return $this->hasOne('App\CVEPDB\Admin\Models\BankAccount');
+        return $this->hasOne('App\Admin\Models\BankAccount');
     }
 }

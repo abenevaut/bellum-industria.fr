@@ -1,6 +1,6 @@
 <?php
 
-namespace App\CVEPDB\Admin\Models;
+namespace App\Admin\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -39,6 +39,6 @@ class BillPart extends Model
      */
     public function bill()
     {
-        return $this->hasOne('App\CVEPDB\Admin\Models\Bill');
+        return $this->hasOne('App\Admin\Models\Bill');
     }
 }

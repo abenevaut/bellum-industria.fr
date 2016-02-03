@@ -1,6 +1,6 @@
 <?php
 
-namespace App\CVEPDB\Admin\Models;
+namespace App\Admin\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -39,6 +39,6 @@ class LogEntite extends Model
      */
     public function users()
     {
-        return $this->hasOne('App\CVEPDB\Multigaming\Models\User');
+        return $this->hasOne('App\Multigaming\Models\User');
     }
 }

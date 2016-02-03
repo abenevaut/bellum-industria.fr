@@ -2,6 +2,8 @@
 
 namespace App\CVEPDB\Domain\Services\SMS;
 
+use CVEPDB\Services\SMS\SMSService;
+
 class TestSMSService extends SMSService
 {
     /**

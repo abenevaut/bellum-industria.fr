@@ -1,6 +1,6 @@
 <?php
 
-namespace App\CVEPDB\Admin\Models;
+namespace App\Admin\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -39,7 +39,7 @@ class Bill extends Model
      */
     public function parts()
     {
-        return $this->hasMany('App\CVEPDB\Admin\Models\BillPart');
+        return $this->hasMany('App\Admin\Models\BillPart');
     }
 
     /**
@@ -47,7 +47,7 @@ class Bill extends Model
      */
     public function vendor()
     {
-        return $this->hasOne('App\CVEPDB\Admin\Models\Entite', 'id', 'entite_vendor_id');
+        return $this->hasOne('App\Admin\Models\Entite', 'id', 'entite_vendor_id');
     }
 
     /**
@@ -55,7 +55,7 @@ class Bill extends Model
      */
     public function client()
     {
-        return $this->hasOne('App\CVEPDB\Admin\Models\Entite', 'id', 'entite_client_id');
+        return $this->hasOne('App\Admin\Models\Entite', 'id', 'entite_client_id');
     }
 
     /**
@@ -63,6 +63,6 @@ class Bill extends Model
      */
     public function payment()
     {
-        return $this->hasOne('App\CVEPDB\Admin\Models\Payment');
+        return $this->hasOne('App\Admin\Models\Payment');
     }
 }
