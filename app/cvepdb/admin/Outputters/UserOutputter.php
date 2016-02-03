@@ -105,14 +105,14 @@ class UserOutputter extends AbsLaravelOutputter implements ICRUDOutputter
      */
     public function destroy($id)
     {
-        //
+        return 'T\'es pas fou! On supprime pas les utilisateurs!';
     }
 
     public function createClient($id)
     {
         $contact = $this->r_LogContact->get($id);
 
-        return view(
+        return $this->output(
             'cvepdb.admin.contacts.create_client',
             [
                 'contact' => $contact

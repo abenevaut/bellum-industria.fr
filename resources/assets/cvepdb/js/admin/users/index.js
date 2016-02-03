@@ -87,3 +87,20 @@ var initBasicTable = function () {
 initBasicTable();
 
 
+(function($){
+
+    $(D).bind('CVEPDB_READY', function(){
+
+        var user_delete_btn = $('.js-user_delete_btn');
+        var user_delete_form = $('#js-user_delete_form');
+        var user_delete_name = $('#js-user_delete_name');
+
+        user_delete_btn.click(function(){
+            user_delete_form.attr('action', 'admin/users/' + $(this).attr('data-user_id');
+            user_delete_name.html($(this).attr('data-user_name'));
+        });
+
+    });
+
+})(jQuery);
+

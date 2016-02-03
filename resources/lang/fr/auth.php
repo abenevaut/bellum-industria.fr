@@ -18,4 +18,6 @@ return [
 
     'message_success_loggedin' => 'Vous vous êtes connecté avec succès.',
     'message_success_loggedout' => 'Vous vous êtes déconnecté avec succès.',
+
+    'mail_reset_password_title' => 'Votre lien de récupèration de mot de passe',
 ];

@@ -31,7 +31,9 @@
 <script src="/assets/plugins/bootstrap-tag/bootstrap-tagsinput.min.js"></script>
 
 <!-- END VENDOR JS -->
-<script src="/assets/js/pages.min.js"></script>
+<script src="/assets/js/pages.js"></script>
 
 <script type="text/javascript" src="/assets/cvepdbjs/libs/headjs/dist/1.0.0/head.min.js"></script>
 <script src="/assets/cvepdbjs/cvepdb.js"></script>
+
+<script src="/assets/js/admin/script.js"></script>

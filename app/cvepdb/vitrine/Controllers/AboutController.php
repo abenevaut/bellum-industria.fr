@@ -4,10 +4,9 @@ namespace App\CVEPDB\Vitrine\Controllers;
 
 use Illuminate\Http\Request as Request;
 
-use App\CVEPDB\Interfaces\Controllers\ICRUDRessourceController as ICRUDRessourceController;
 use App\CVEPDB\Interfaces\Controllers\AbsBaseController as BaseController;
 
-class AboutController extends BaseController implements ICRUDRessourceController
+class AboutController extends BaseController
 {
     /**
      * Display a listing of the resource.

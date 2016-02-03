@@ -18,4 +18,6 @@ return [
 
     'message_success_loggedin' => 'You have successfully logged in.',
     'message_success_loggedout' => 'You are logged out successfully.',
+
+    'mail_reset_password_title' => 'Your Password Reset Link',
 ];

@@ -12,8 +12,9 @@
             <div class="clearfix"></div>
             <div class="btn-group pull-right m-b-10">
 
-                <a class="btn btn-primary btn-cons" href="{{ url('admin/users/create') }}"><i class="fa fa-plus"></i>
-                    Add new</a>
+                <a class="btn btn-primary btn-cons" href="{{ url('admin/users/create') }}">
+                    <i class="fa fa-plus"></i> Add new
+                </a>
                 {{--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">--}}
                 {{--<span class="caret"></span>--}}
                 {{--</button>--}}
@@ -49,7 +50,10 @@
                             <tr role="row">
 
                                 <th style="width:1%">
-                                    <button class="btn .js-table_unlock"><i class="fa fa-lock"></i></button>
+
+                                    <button class="btn .js-table_unlock" data-toggle="tooltip" type="button" data-original-title="Je ne fais rien!">
+                                        <i class="fa fa-lock"></i>
+                                    </button>
                                 </th>
 
                                 <th style="width: 24%;">
@@ -97,34 +101,34 @@
                                             @endforeach</p>
                                     </td>
                                     <td class="v-align-middle">
-                                        {{--                                        {!! Form::open(['route' => ['admin.users.destroy', $user->id], 'method' => 'delete']) !!}--}}
 
-                                        <div class="btn-group dropdown-default"><a class="btn dropdown-toggle"
-                                                                                   data-toggle="dropdown" href="#"
-                                                                                   style="width: 141px;"
-                                                                                   aria-expanded="false"> Default <span
-                                                        class="caret"></span> </a>
+
+                                        <div class="btn-group dropdown-default">
+                                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"
+                                               style="width: 141px;" aria-expanded="false">
+                                                <i class="fa fa-plus"></i> d'actions
+                                                <span class="caret"></span> </a>
                                             <ul class="dropdown-menu " style="width: 141px;">
                                                 <li>
                                                     <a href="#">Reset Password</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{ url('admin/users/'.$user->id.'/edit') }}">Edit</a>
+                                                    <a href="{{ url('admin/users/'.$user->id.'/edit') }}">Editer</a>
                                                 </li>
                                             </ul>
                                         </div>
 
 
                                         {{--<button class="btn btn-warning btn-cons">Edit</button>--}}
-                                        <button class="btn btn-green btn-lg pull-right" data-toggle="modal">Generate
+
+                                        <button data-target="#modalSlideLeft" data-toggle="modal" type="submit"
+                                                class="btn btn-danger btn-cons js-user_delete_btn"
+                                                data-user_id="{{ $user->id }}"
+                                                data-user_name="{{ $user->first_name }} {{ $user->last_name }}">
+                                            Supprimer
                                         </button>
 
-                                        <button data-target="#modalSlideLeft" type="submit"
-                                                class="btn btn-danger btn-cons">Delete
-                                        </button>
 
-
-                                        {{--                                        {!! Form::close() !!}--}}
                                     </td>
                                 </tr>
 
@@ -153,8 +157,8 @@
 @endsection
 
 @section('modals')
-            <!-- MODAL STICK UP SMALL ALERT -->
-    <div class="modal fade slide-right" id="modalSlideLeft" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade slide-right" id="modalSlideLeft" tabindex="-1" role="dialog" aria-hidden="true"
+         style="display: none;">
         <div class="modal-dialog modal-sm">
             <div class="modal-content-wrapper">
                 <div class="modal-content">
@@ -163,12 +167,23 @@
                     </button>
                     <div class="container-xs-height full-height">
                         <div class="row-xs-height">
-                            <div class="modal-body col-xs-height col-middle text-center   ">
-                                <h5 class="text-primary ">Before you <span class="semi-bold">proceed</span>, you have to
-                                    login to make the necessary changes</h5>
+                            <div class="modal-body col-xs-height col-middle text-center">
+                                <h5 class="text-primary ">
+                                    <span class="semi-bold">
+                                        Vous êtes sûr de vouloir supprimer le dossier de <br>
+                                        <span id="js-user_delete_name"></span> ?
+                                    </span>
+                                </h5>
                                 <br>
-                                <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Continue
+
+                                <p>L'utilisateur n'aura plus acces a la plateforme</p>
+                                <br>
+                                {!! Form::open(['route' => ['admin.users.destroy', 0], 'method' => 'delete', 'id' => 'js-user_delete_form']) !!}
+                                <button type="submit" class="btn btn-danger btn-block">
+                                    Supprimer
                                 </button>
+                                {!! Form::close() !!}
+
                                 <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel
                                 </button>
                             </div>
@@ -176,11 +191,10 @@
                     </div>
                 </div>
             </div>
-            <!-- /.modal-content -->
+
         </div>
-        <!-- /.modal-dialog -->
+
     </div>
-    <!-- END MODAL STICK UP SMALL ALERT -->
 @endsection
 
 @section('jsfooter')

@@ -4,11 +4,10 @@ namespace App\CVEPDB\Vitrine\Controllers;
 
 use Illuminate\Http\Request as Request;
 
-use App\CVEPDB\Interfaces\Controllers\ICRUDRessourceController as ICRUDRessourceController;
 use App\CVEPDB\Interfaces\Controllers\AbsBaseController as BaseController;
 use App\CVEPDB\Vitrine\Outputters\SimplePageOutputter as SimplePageOutputter;
 
-class IndexController extends BaseController implements ICRUDRessourceController
+class IndexController extends BaseController
 {
     private $outputter = null;
 

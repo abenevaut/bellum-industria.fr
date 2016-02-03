@@ -4,12 +4,11 @@ namespace App\CVEPDB\Vitrine\Controllers;
 
 use Illuminate\Http\Request as Request;
 
-use App\CVEPDB\Interfaces\Controllers\ICRUDRessourceController as ICRUDRessourceController;
 use App\CVEPDB\Interfaces\Controllers\AbsBaseController as BaseController;
 use App\CVEPDB\Admin\Models\LogContact;
 use App\CVEPDB\Vitrine\Requests\ContactFormRequest;
 
-class ContactController extends BaseController implements ICRUDRessourceController
+class ContactController extends BaseController
 {
     /**
      * Display a listing of the resource.
