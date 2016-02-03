@@ -15,10 +15,10 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     //    protected $namespace = 'App\Http\Controllers';
-    protected $namespace_admin = 'App\CVEPDB\Admin\Controllers';
-    protected $namespace_vitrine = 'App\CVEPDB\Vitrine\Controllers';
-    protected $namespace_multigaming = 'App\CVEPDB\Multigaming\Controllers';
-    protected $namespace_api = 'App\CVEPDB\Api\Controllers';
+    protected $namespace_admin = 'App\Admin\Controllers';
+    protected $namespace_vitrine = 'App\Vitrine\Controllers';
+    protected $namespace_multigaming = 'App\Multigaming\Controllers';
+    protected $namespace_api = 'App\API\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -52,7 +52,7 @@ class RouteServiceProvider extends ServiceProvider
         */
 
         $router->group(['namespace' => $this->namespace_vitrine], function ($router) {
-            require app_path('cvepdb/vitrine/routes.php');
+            require app_path('Vitrine/routes.php');
         });
 
         /*
@@ -62,7 +62,7 @@ class RouteServiceProvider extends ServiceProvider
         */
 
         $router->group(['namespace' => $this->namespace_admin], function ($router) {
-            require app_path('cvepdb/admin/routes.php');
+            require app_path('Admin/routes.php');
         });
 
         /*
@@ -72,7 +72,7 @@ class RouteServiceProvider extends ServiceProvider
         */
 
         $router->group(['namespace' => $this->namespace_multigaming], function ($router) {
-            require app_path('cvepdb/multigaming/routes.php');
+            require app_path('Multigaming/routes.php');
         });
 
         /*
@@ -82,7 +82,7 @@ class RouteServiceProvider extends ServiceProvider
         */
 
         $router->group(['namespace' => $this->namespace_api], function ($router) {
-            require app_path('cvepdb/api/routes.php');
+            require app_path('API/routes.php');
         });
     }
 }
