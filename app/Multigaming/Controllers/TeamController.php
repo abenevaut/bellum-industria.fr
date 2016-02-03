@@ -30,24 +30,25 @@ class TeamController extends BaseController
         return $this->outputter->index();
     }
 
-//    /**
-//     * @param $team_id
-//     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-//     */
-//    public function show($team_id)
-//    {
-//        return $this->domain->teamIndex($team_id);
-//    }
-//
-//    /**
-//     * @param TeamFormRequest $request
-//     * @return mixed
-//     */
-//    public function store(TeamFormRequest $request)
-//    {
-//        return $this->domain->teamRecord($request);
-//    }
-//
+    /**
+     * @param $team_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function show($team_id)
+    {
+        return $this->outputter->show($team_id);
+    }
+
+    /**
+     * @param TeamFormRequest $request
+     * @return mixed
+     */
+    public function store(TeamFormRequest $request)
+    {
+        die($request->get('name'));
+        return $this->outputter->store($request);
+    }
+
 //    /**
 //     * @param $team_id
 //     * @param TeamFormRequest $request
@@ -55,7 +56,7 @@ class TeamController extends BaseController
 //     */
 //    public function update($team_id, TeamFormRequest $request)
 //    {
-//        return $this->domain->teamUpdate($team_id, $request);
+//        return $this->outputter->update($team_id, $request);
 //    }
 //
 //    /**
@@ -64,7 +65,7 @@ class TeamController extends BaseController
 //     */
 //    public function destroy($team_id)
 //    {
-//        return $this->domain->teamDelete($team_id);
+//        return $this->outputter->delete($team_id);
 //    }
 //
 //    /**
@@ -72,6 +73,6 @@ class TeamController extends BaseController
 //     */
 //    public function sitemap()
 //    {
-//        return $this->domain->teamsSitemap();
+//        return $this->outputter->sitemap();
 //    }
 }

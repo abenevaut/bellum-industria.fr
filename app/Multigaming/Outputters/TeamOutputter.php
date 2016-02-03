@@ -3,15 +3,14 @@
 namespace App\Multigaming\Outputters;
 
 use CVEPDB\Services\Outputters\AbsLaravelOutputter;
+use CVEPDB\Requests\IFormRequest;
 use App\Multigaming\Outputters\SitemapFormats\TeamFormat as TeamSitemapFormat;
 use App\Multigaming\Outputters\FeedsFormats\TeamFormat as TeamFeedsFormat;
-use App\Multigaming\Repositories\TeamRepository as TeamRepository;
-use App\Multigaming\Repositories\UserRepository as UserRepository;
-use App\Multigaming\Requests\TeamFormRequest as TeamFormRequest;
+use App\Multigaming\Repositories\TeamRepository;
+use App\Multigaming\Repositories\UserRepository;
 
 class TeamOutputter extends AbsLaravelOutputter
 {
-
     /**
      * @var TeamRepository|null
      */
@@ -52,9 +51,73 @@ class TeamOutputter extends AbsLaravelOutputter
      * @param $data
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function outputTeamIndex($data)
+    public function show($id)
     {
-        return $this->output('cvepdb.multigaming.teams.show', $data);
+        if (!$id || !is_numeric($id)) {
+            $this->redirectTeamIndexWithErrorNoTeamId();
+        }
+
+        $team = $this->teams->find($id);
+
+        // Todo : check si l'objet n'est pas vide en terme de donnee
+//        if (!$team) {
+//            $this->Outputter->redirectTeamIndexWithErrorTeamNotExists();
+//        }
+
+        $this->addBreadcrumb('Teams', 'teams');
+        $this->addBreadcrumb($team->name, 'teams/show/' . $id);
+
+        return $this->output(
+            'cvepdb.multigaming.teams.show',
+            [
+                'team' => $team,
+                'users' => $this->users->dropdown()
+            ]
+        );
+    }
+
+    public function store(IFormRequest $request)
+    {
+        die($request->get('name'));
+
+        if (!\Auth::check()) {
+            $this->redirectTeamRecordWithErrorAuth();
+        }
+
+        $this->teams->create([
+            'name' => $request->get('name')
+        ]);
+        return $this->redirectTeamRecordWithSuccess();
+    }
+
+    /**
+     * @param $teams
+     * @return mixed
+     */
+    public function generateTeamsSitemap($teams)
+    {
+        return $this->generateSitemap(
+            new TeamSitemapFormat,
+            $teams->toArray(),
+            'multigaming/teams/show/',
+            'sitemap-multigaming-teams-',
+            'sitemap-multigaming-teams'
+        );
+    }
+
+    /**
+     * @param $teams
+     * @return mixed
+     */
+    public function generateTeamsFeeds()
+    {
+        $teams = $this->teams->all();
+        return $this->generateFeeds(
+            new TeamFeedsFormat,
+            $teams->toArray(),
+            'multigaming/teams/show/',
+            'sitemap-multigaming-teams'
+        );
     }
 
     /**
@@ -155,35 +218,5 @@ class TeamOutputter extends AbsLaravelOutputter
         return $this->routeTo('teams')
             ->with('message', 'You must be authentificated to use this functionality!')
             ->with('alert-class', 'warning-box');
-    }
-
-    /**
-     * @param $teams
-     * @return mixed
-     */
-    public function generateTeamsSitemap($teams)
-    {
-        return $this->generateSitemap(
-            new TeamSitemapFormat,
-            $teams->toArray(),
-            'multigaming/teams/show/',
-            'sitemap-multigaming-teams-',
-            'sitemap-multigaming-teams'
-        );
-    }
-
-    /**
-     * @param $teams
-     * @return mixed
-     */
-    public function generateTeamsFeeds()
-    {
-        $teams = $this->teams->all();
-        return $this->generateFeeds(
-            new TeamFeedsFormat,
-            $teams->toArray(),
-            'multigaming/teams/show/',
-            'sitemap-multigaming-teams'
-        );
     }
 }

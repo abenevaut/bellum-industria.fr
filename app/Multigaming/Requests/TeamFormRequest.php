@@ -1,6 +1,6 @@
 <?php
 
-namespace App\CVEPDB\Multigaming\Requests;
+namespace App\Multigaming\Requests;
 
 use CVEPDB\Requests\Request;
 
