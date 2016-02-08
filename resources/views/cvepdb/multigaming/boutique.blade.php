@@ -1,36 +1,24 @@
-@extends('cvepdb.multigaming.layouts.default')
+@extends('cvepdb.multigaming.layouts.boutique')
 
 @section('content')
-        <!-- Begin Gray Wrapper -->
-<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even layout__body-wrapper__content-wrapper--intro">
-    <!-- Begin Inner -->
-    <div class="layout__body-wrapper__content-wrapper__inner layout__body-wrapper__content-wrapper__inner--intro">
-        <p>{{ trans('cvepdb/multigaming/boutique.title') }}</p>
-    </div>
-    <!-- End Inner -->
-</div>
-<!-- End Gray Wrapper -->
-<!-- Begin White Wrapper -->
-<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
-    <!-- Begin Inner -->
-    <div class="layout__body-wrapper__content-wrapper__inner">
-
-        <iframe height="1500"
-                width="100%"
-                src="http://cvepdb.spreadshirt.fr/"
-                name="Spreadshop"
-                id="Spreadshop"
-                frameborder="0"
-                onload="window.scrollTo(0, 0);"></iframe>
-
-        <div class="align-center">
-            <a href="//www.spreadshirt.fr/garantie-spreadshirt-C4070" onclick="window.open(this.href,'','height=520,width=640,scrollbars=yes'); return false;">
-                <img src="http://cache.spreadshirt.net/Public/Media/eu/yourspread/marketing/trustedspread/trust_icon_100_fr.png" alt="Garantie Spreadshirt" />
-            </a>
+    <div id="myShop"><a href="//shop.spreadshirt.de/cvepdb">cvepdb</a></div>
+    <script>
+        var spread_shop_config = {
+            shopName: 'cvepdb',
+            locale: 'fr_FR',
+            prefix: '//shop.spreadshirt.de',
+            baseId: 'myShop'
+        };
+    </script>
+    <script type="text/javascript" src="//shop.spreadshirt.de/shopfiles/shopclient/shopclient.nocache.js"></script>
+    <!-- Begin Gray Wrapper -->
+    <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
+        <!-- Begin Inner -->
+        <div class="layout__body-wrapper__content-wrapper__inner">
+            @include('cvepdb.vitrine.partials.longwave_share_inline')
+            <div class="clear"></div>
         </div>
-
+        <!-- Begin Inner -->
     </div>
-    <!-- Begin Inner -->
-</div>
-<!-- End Gray Wrapper -->
+    <!-- End Gray Wrapper -->
 @stop
