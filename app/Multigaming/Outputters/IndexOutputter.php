@@ -68,7 +68,8 @@ class IndexOutputter extends AbsLaravelOutputter
             }
         }
 
-        $this->game_servers->find('cvepdb.fr', 27015);
+        $game_servers[] = $this->game_servers->find('cvepdb.fr', 27015);
+        $game_servers[] = $this->game_servers->find('cvepdb.fr', 27017);
 
         //$this->test();
 
@@ -77,7 +78,8 @@ class IndexOutputter extends AbsLaravelOutputter
             [
                 'team_bot' => $team_bot,
                 'team_bellumindustria' => $team_bellumindustria,
-                'threads' => $this->steam->paginate('Bellum-Industria', 4)
+                'threads' => $this->steam->paginate('Bellum-Industria', 4),
+                'game_servers' => $game_servers
             ]
         );
     }
