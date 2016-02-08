@@ -26,7 +26,6 @@ Route::group(['domain' => env('DOMAIN_MULTIGAMING')], function () {
     Route::group(['middleware' => ['role:admin,gamer-admin']], function () {
 
         Route::resource('teams', '\App\Multigaming\Controllers\TeamController');
-        Route::get('/', '\App\Multigaming\Controllers\TeamController@index');
-//        Route::get('sitemap', ['as' => 'teams.sitemap', 'uses' => '\App\Multigaming\Controllers\TeamController@sitemap']);
+        Route::get('teams/sitemap', ['as' => 'teams.sitemap', 'uses' => '\App\Multigaming\Controllers\TeamController@sitemap']);
     });
 });

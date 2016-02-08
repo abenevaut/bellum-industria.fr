@@ -3,9 +3,9 @@
 namespace App\Multigaming\Outputters;
 
 use CVEPDB\Services\Outputters\AbsLaravelOutputter;
-use App\Multigaming\Repositories\GameServerRepository as GameServerRepository;
-use App\Multigaming\Repositories\SteamRepository as SteamRepository;
-use App\Multigaming\Repositories\TeamRepository as TeamRepository;
+use App\Multigaming\Repositories\GameServerRepository;
+use App\Multigaming\Repositories\SteamRepository;
+use App\Multigaming\Repositories\TeamRepository;
 use App\Multigaming\Repositories\SMWA\StammRepository;
 
 class IndexOutputter extends AbsLaravelOutputter
@@ -53,7 +53,7 @@ class IndexOutputter extends AbsLaravelOutputter
      */
     public function index()
     {
-        $team_bot = $this->teams->findBy('name', 'Bot CVEPDB')->toArray();
+        $team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
         $team_bellumindustria = $this->teams->findBy('name', 'Bellum Industria')->toArray();
 
         foreach ($team_bot as $tkey => $team) {
@@ -67,6 +67,8 @@ class IndexOutputter extends AbsLaravelOutputter
                 $team_bellumindustria[$tkey]['users'][$ukey]['steam_token'] = $this->steam->playerSummaries($user['steam_token']);
             }
         }
+
+        $this->game_servers->find('cvepdb.fr', 27015);
 
         //$this->test();
 

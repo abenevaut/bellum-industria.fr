@@ -34,9 +34,9 @@ class TeamController extends BaseController
      * @param $team_id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($team_id)
+    public function show($id)
     {
-        return $this->outputter->show($team_id);
+        return $this->outputter->show($id);
     }
 
     /**
@@ -46,7 +46,7 @@ class TeamController extends BaseController
     public function store(TeamFormRequest $request)
     {
         die($request->get('name'));
-        return $this->outputter->store($request);
+//        return $this->outputter->store($request);
     }
 
 //    /**

@@ -2,128 +2,63 @@
 
 namespace App\Multigaming\Repositories;
 
+use Cache;
+
 use xPaw\SourceQuery\SourceQuery as SourceQuery;
 
 /**
  * Class TeamRepository
  * @package App\CVEPDB\Multigaming\Repositories
  */
-class GameServerRepository //implements RepositoryInterface
+class GameServerRepository
 {
-    /**
-     * @param array $columns
-     * @return $this
-     */
-    public function all(array $columns = array('*'))
-    {
-        return null;
-    }
+    const KIND_SourceQuery = SourceQuery::SOURCE;
 
-    /**
-     * @param int $perPage
-     * @param array $columns
-     * @return mixed
-     */
-    public function paginate($group_name, $perPage = 15, $columns = array('*'))
-    {
-        return null;
-    }
+    const BASE_CACHE_KEY = 'GameServerRepository';
 
-    /**
-     * @param array $data
-     * @return static
-     */
-    public function create(array $data)
-    {
-        return null;
-    }
-
-    /**
-     * @param TeamModel $team
-     * @param array $data
-     * @return bool|int
-     */
-    public function update(TeamModel $team, array $data)
-    {
-        return null;
-    }
-
-    /**
-     * @param TeamModel $team
-     * @return bool|null
-     * @throws \Exception
-     */
-    public function delete(TeamModel $team)
-    {
-        return null;
-    }
+    private $debug = false;
 
     /**
      * @param $id
      * @param array $columns
      * @return mixed
      */
-    public function find($id, $columns = array('*'))
+    public function find($ip, $port, $columns = array('*'), $timeout = 3)
     {
+        $cache_key = self::BASE_CACHE_KEY . '_find_' . str_replace('.', '_', $ip) . '-' . $port;
 
+        if (!Cache::has($cache_key)) {
 
-        // Edit this ->
-        define( 'SQ_SERVER_ADDR', '62.210.71.164' );
-        define( 'SQ_SERVER_PORT', 27015 );
-        define( 'SQ_TIMEOUT',     3 );
-        define( 'SQ_ENGINE',      SourceQuery::SOURCE );
-        // Edit this <-
+            if ($this->debug) {
+                $timer = MicroTime(true);
+            }
 
-        $Timer = MicroTime( true );
+            $info = [];
+            $rules = [];
+            $players = [];
 
-        $Query = new SourceQuery( );
+            $sq = new SourceQuery();
 
-        $Info    = Array( );
-        $Rules   = Array( );
-        $Players = Array( );
+            try {
+                $sq->Connect($ip, $port, $timeout, self::KIND_SourceQuery);
+                $info = $sq->GetInfo();
+                $players = $sq->GetPlayers();
+                $rules = $sq->GetRules();
+            } catch (Exception $e) {
+                $Exception = $e;
+            } finally {
+                $sq->Disconnect();
+            }
 
-        try
-        {
-            $Query->Connect( SQ_SERVER_ADDR, SQ_SERVER_PORT, SQ_TIMEOUT, SQ_ENGINE );
-            //$Query->SetUseOldGetChallengeMethod( true ); // Use this when players/rules retrieval fails on games like Starbound
+            if ($this->debug) {
+                $timer = Number_Format(MicroTime(true) - $timer, 4, '.', '');
+            }
 
-            $Info    = $Query->GetInfo( );
-            $Players = $Query->GetPlayers( );
-            $Rules   = $Query->GetRules( );
+            $infos = ['info' => $info, 'rules' => $rules, 'players' => $players];
+
+            Cache::put($cache_key, $infos, 5);
         }
-        catch( Exception $e )
-        {
-            $Exception = $e;
-        }
-        finally
-        {
-            $Query->Disconnect( );
-        }
 
-        $Timer = Number_Format( MicroTime( true ) - $Timer, 4, '.', '' );
-
-        dd($Info);
-
-        return null;
-    }
-
-    /**
-     * @param $field
-     * @param $value
-     * @param array $columns
-     * @return mixed
-     */
-    public function findBy($field, $value, $columns = array('*'))
-    {
-        return null;
-    }
-
-    /**
-     * @param $team_id
-     * @return bool|null
-     */
-    public function deleteById($team_id)
-    {
-        return null;
+        return Cache::get($cache_key);
     }
 }
