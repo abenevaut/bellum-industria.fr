@@ -49,7 +49,7 @@ class RoleRepository extends RoleRepositoryEloquent
     {
         $role = Role::where('name', $role_name)->first();
 
-        if (is_null($role) && array_key_exists($role_name, self::$list)) {
+        if (is_null($role) && array_key_exists($role_name, self::$gamer_list)) {
             $role = new Role();
             $role->name = $role_name;
             $role->display_name = self::$gamer_list[$role_name]['display_name']; // optional

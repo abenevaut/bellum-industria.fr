@@ -5,7 +5,7 @@ namespace App\Multigaming\Controllers;
 use CVEPDB\Controllers\AbsController as Controller;
 use App\Multigaming\Repositories\UserRepository as UserRepository;
 use Invisnik\LaravelSteamAuth\SteamAuth;
-use App\User;
+use CVEPDB\Repositories\Users\User;
 
 class AuthController extends Controller
 {
@@ -19,12 +19,12 @@ class AuthController extends Controller
      */
     private $users = null;
 
-    public function __construct(SteamAuth $steam)
+    public function __construct(SteamAuth $steam, UserRepository $r_user)
     {
         parent::__construct();
 
         $this->steam = $steam;
-        $this->users = new UserRepository;
+        $this->users = $r_user;
     }
 
     public function login()
@@ -35,10 +35,10 @@ class AuthController extends Controller
 
             if (!is_null($info)) {
 
-                $user = $this->users->findUniqueBy('steam_token', $info->getSteamID64());
+                $user = $this->users->findByField('steam_token', $info->getSteamID64())->first();
 
                 if (is_null($user)) {
-                    $user = $this->users->create([
+                    $this->users->create_gamer([
                         'first_name' => $info->getNick(),
                         'last_name' => '',
                         'email' => NULL,
