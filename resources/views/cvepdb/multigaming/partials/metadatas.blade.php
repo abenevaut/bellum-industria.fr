@@ -13,6 +13,7 @@
 <link href="/assets/images/multigaming/apple-touch-icon-114x114-precomposed.png" rel="apple-touch-icon" type="image/x-icon" />
 
 <link rel="stylesheet" type="text/css" href="/assets/css/multigaming/default.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/assets/cvepdbjs/libs/jquery-ui/themes/base/all.css" media="all" />
 <!--[if IE 8]>
 <link rel="stylesheet" type="text/css" href="../css/ie8.css" media="all" />
 <![endif]-->
@@ -23,11 +24,11 @@
         ENV_REF: 'dev',
         ENV_THEME: '',
         IDUSER: 0,
-        LANG: '{{ App::getLocale()  }}',
+        LANG: '{{ Session::get('lang') }}',
         URI_BASE: '',
         URL_BASE: '',
         URL_SITE: '',
-        URL_THEME: '/',
+        URL_THEME: '../',
         BASE_PATH: 'assets/cvepdbjs/',
         LIVEREALOAD: {
             //			url: '',

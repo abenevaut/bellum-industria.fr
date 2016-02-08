@@ -9,10 +9,22 @@
      *  Class setup
      */
     _teams = {
+        dictionary: {
+            en: {
+                'QUESTION_TO_CONFIRM_TEAM_DELETION': 'Would you really delete this team ?'
+            },
+            fr: {
+                'QUESTION_TO_CONFIRM_TEAM_DELETION': 'Etes-vous sur de vouloir supprimer cette equipe ?'
+            }
+        },
         setup: function () {
             cvepdb.debug('teams.js > setup : success : Start');
+
+            cvepdb.globalize.addMessages(_teams.dictionary[cvepdb_config.LANG]);
+
             if ($('.js-teams-init').length >= 1) {
                 _teams.teams.init_add_form();
+                _teams.teams.init_delete_form();
             }
             cvepdb.debug('teams.js > setup : success : End');
         }
@@ -71,6 +83,25 @@
             });
 
             cvepdb.debug('teams.js > init_add_form : success : End');
+        },
+        init_delete_form: function() {
+            var form_submit = $('form.js-teams_delete .btn-submit');
+            form_submit.click(function(){
+                _teams.teams.confirm_deletion($(this).closest('form'));
+                return false;
+            });
+        },
+        confirm_deletion: function($form){
+
+            var question = cvepdb.globalize.translate('QUESTION_TO_CONFIRM_TEAM_DELETION');
+
+            return cvepdb.jquery_ui.confirmation(question).then(function(answer){
+                var answer_bool = answer.toString() == "true" ? true : false;
+                if (answer_bool) {
+                    $form.submit();
+                }
+                return answer_bool;
+            });
         }
     };
 

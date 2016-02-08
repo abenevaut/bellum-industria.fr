@@ -82,7 +82,11 @@
 
         @foreach ($team->users as $teammate)
 
-            {!! $teammate->first_name !!} - {!! $teammate->steam_token !!} <br>
+            <div style="border-bottom: 1px solid #eee; margin-bottom:15px;">
+            {!! $teammate->first_name !!}<br>
+
+            {{--{!! $teammate->steam_token !!}--}}
+            </div>
 
         @endforeach
 

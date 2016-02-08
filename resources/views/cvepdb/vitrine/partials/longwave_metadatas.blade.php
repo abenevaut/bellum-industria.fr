@@ -26,6 +26,7 @@
 <link href="/assets/images/cvepdb/apple-touch-icon-114x114-precomposed.png" rel="apple-touch-icon" type="image/x-icon" />
 
 <link rel="stylesheet" type="text/css" href="/assets/css/vitrine/default.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/assets/cvepdbjs/libs/jquery-ui/themes/base/all.css" media="all" />
 <!--[if IE 8]>
 <link rel="stylesheet" type="text/css" href="../css/ie8.css" media="all" />
 <![endif]-->
