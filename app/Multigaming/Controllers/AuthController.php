@@ -38,11 +38,9 @@ class AuthController extends Controller
                 $user = $this->users->findByField('steam_token', $info->getSteamID64())->first();
 
                 if (is_null($user)) {
-                    $this->users->create_gamer([
+                    $user = $this->users->create_gamer([
                         'first_name' => $info->getNick(),
                         'last_name' => '',
-                        'email' => NULL,
-                        'password' => '',
                         'steam_token' => $info->getSteamID64()
                     ]);
                 }

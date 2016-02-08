@@ -39,7 +39,7 @@ class UserRepository extends UserRepositoryEloquent
         $user = User::create([
             'first_name' => $new_user['first_name'],
             'last_name' => $new_user['last_name'],
-            'email' => $new_user['email'],
+            'steam_token' => $new_user['steam_token'],
         ]);
         $this->attach_user_to_role($user, RoleRepository::GAMER_USER);
         return $user;
@@ -50,16 +50,17 @@ class UserRepository extends UserRepositoryEloquent
      *
      * @param $new_user ['first_name', 'last_name', 'email']
      */
-    public function create_gamer_admin($new_user)
-    {
-        $user = User::create([
-            'first_name' => $new_user['first_name'],
-            'last_name' => $new_user['last_name'],
-            'email' => $new_user['email'],
-        ]);
-        $this->attach_user_to_role($user, RoleRepository::GAMER_ADMIN);
-        return $user;
-    }
+//    public function create_gamer_admin($new_user)
+//    {
+//        $user = User::create([
+//            'first_name' => $new_user['first_name'],
+//            'last_name' => $new_user['last_name'],
+//            'email' => $new_user['email'],
+//            'steam_token' => $new_user['steam_token'],
+//        ]);
+//        $this->attach_user_to_role($user, RoleRepository::GAMER_ADMIN);
+//        return $user;
+//    }
 
     protected function attach_user_to_role($user, $role)
     {
@@ -73,7 +74,7 @@ class UserRepository extends UserRepositoryEloquent
      */
     public function dropdown()
     {
-        return UserModel::select('id', DB::raw('CONCAT(last_Name, " ", first_Name) AS full_name'))
+        return User::select('id', DB::raw('CONCAT(last_Name, " ", first_Name) AS full_name'))
             ->orderBy('last_name', 'asc')
             ->lists('full_name', 'id');
     }

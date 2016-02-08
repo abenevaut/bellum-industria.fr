@@ -56,11 +56,15 @@ class IndexOutputter extends AbsLaravelOutputter
         $team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
         $team_bellumindustria = $this->teams->findBy('name', 'Bellum Industria')->toArray();
 
+//        dd($team_bot);
+
         foreach ($team_bot as $tkey => $team) {
             foreach ($team['users'] as $ukey => $user) {
                 $team_bot[$tkey]['users'][$ukey]['steam_token'] = $this->steam->playerSummaries($user['steam_token']);
             }
         }
+
+//        dd($team_bot);
 
         foreach ($team_bellumindustria as $tkey => $team) {
             foreach ($team['users'] as $ukey => $user) {
