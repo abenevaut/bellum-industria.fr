@@ -45,8 +45,7 @@ class TeamController extends BaseController
      */
     public function store(TeamFormRequest $request)
     {
-        dd($request->get('name'));
-        // return $this->outputter->store($request);
+        return $this->outputter->store($request);
     }
 
     /**
@@ -56,8 +55,7 @@ class TeamController extends BaseController
      */
     public function update($team_id, TeamFormRequest $request)
     {
-        dd($request->get('name'));
-        // return $this->outputter->update($team_id, $request);
+        return $this->outputter->update($team_id, $request);
     }
 
     /**

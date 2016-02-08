@@ -21,6 +21,8 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     protected $users = null;
 
+    protected $groups_restrictions = ['admin', 'gamer-admin'];
+
     public function __construct(TeamRepository $r_team, UserRepository $r_user)
     {
         parent::__construct();
@@ -78,8 +80,6 @@ class TeamOutputter extends AbsLaravelOutputter
 
     public function store(IFormRequest $request)
     {
-        die($request->get('name'));
-
         if (!\Auth::check()) {
             $this->redirectTeamRecordWithErrorAuth();
         }

@@ -2,7 +2,7 @@
 
 namespace App\Multigaming\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use CVEPDB\Requests\Request;
 
 class TeamFormRequest extends Request
 {

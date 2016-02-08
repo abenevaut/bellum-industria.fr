@@ -29,9 +29,12 @@
 
             _teams.teams.admin_btn_add.click(function () {
 
-                $form.attr('action', $form.attr('data-route_store'));
+                var post_url = decodeURIComponent($form.attr('data-route_post'));
+
+                $form.attr('action', post_url);
+
                 $form.find('input[name="_method"]').val('POST');
-                $form.attr('method', 'POST');
+                $form.find('input[name="name"]').val('');
 
                 if (!_teams.teams.admin_box.is(":visible")) {
                     _teams.teams.admin_box.slideDown("slow");
@@ -55,9 +58,8 @@
                 var put_url = decodeURIComponent($form.attr('data-route_put'));
                 put_url = put_url.replace('{teams}', '');
 
-                $form.attr('action', put_url + '/' + team_id);
+                $form.attr('action', put_url + team_id);
                 $form.find('input[name="_method"]').val('PUT');
-                $form.attr('method', 'PUT');
                 $form.find('input[name="name"]').val(team_name);
 
                 // Todo : desactiver les boutons edit et prochainement supprimer
