@@ -307,7 +307,7 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb/abstract.git",
-                "reference": "82fb6d795d723f67590251d8bcbbd2cb026b048c"
+                "reference": "86fb5196ffbff21af5bb4ba0544307e9153d572d"
             },
             "require": {
                 "chrisbjr/api-guard": "^2.3",
@@ -351,7 +351,7 @@
                 "Interfaces",
                 "Laravel"
             ],
-            "time": "2016-02-03 15:47:27"
+            "time": "2016-02-08 13:38:20"
         },
         {
             "name": "da-mitchell/steam-api",
@@ -1935,16 +1935,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.6",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "e6f80ab77885151908d0ec743689ca700886e8b0"
+                "reference": "b0e69d10852716b2ccbdff69c75c477637220790"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/e6f80ab77885151908d0ec743689ca700886e8b0",
-                "reference": "e6f80ab77885151908d0ec743689ca700886e8b0",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/b0e69d10852716b2ccbdff69c75c477637220790",
+                "reference": "b0e69d10852716b2ccbdff69c75c477637220790",
                 "shasum": ""
             },
             "require": {
@@ -1979,7 +1979,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-01-29 16:19:52"
+            "time": "2016-02-06 03:52:05"
         },
         {
             "name": "phenx/php-font-lib",
@@ -2340,26 +2340,25 @@
         },
         {
             "name": "roumen/feed",
-            "version": "v2.9.9",
+            "version": "v2.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RoumenDamianoff/laravel-feed.git",
-                "reference": "f923473cfd7df2af73b1026c8f23a6f873f84027"
+                "reference": "4c7a0e3b0f1b252e96c617bfc27a138809f8fbb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-feed/zipball/f923473cfd7df2af73b1026c8f23a6f873f84027",
-                "reference": "f923473cfd7df2af73b1026c8f23a6f873f84027",
+                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-feed/zipball/4c7a0e3b0f1b252e96c617bfc27a138809f8fbb3",
+                "reference": "4c7a0e3b0f1b252e96c617bfc27a138809f8fbb3",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "~5",
-                "paragonie/random_compat": "~1",
+                "illuminate/support": "^5.0",
                 "php": ">=5.5.9"
             },
             "require-dev": {
-                "orchestra/testbench": "2.2.*",
-                "phpunit/phpunit": "3.7.*"
+                "orchestra/testbench": "^3.0",
+                "phpunit/phpunit": "^4.8"
             },
             "type": "library",
             "autoload": {
@@ -2388,20 +2387,20 @@
                 "laravel",
                 "rss"
             ],
-            "time": "2015-12-27 15:38:43"
+            "time": "2016-02-07 13:47:41"
         },
         {
             "name": "roumen/sitemap",
-            "version": "v2.6.1",
+            "version": "v2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RoumenDamianoff/laravel-sitemap.git",
-                "reference": "45fd4b604ef23cb3fda2faa28cc2ca4ab12f3e35"
+                "reference": "86ec1cc5c1f3bd0b86f3431049d5781a8d8ae1d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-sitemap/zipball/45fd4b604ef23cb3fda2faa28cc2ca4ab12f3e35",
-                "reference": "45fd4b604ef23cb3fda2faa28cc2ca4ab12f3e35",
+                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-sitemap/zipball/86ec1cc5c1f3bd0b86f3431049d5781a8d8ae1d3",
+                "reference": "86ec1cc5c1f3bd0b86f3431049d5781a8d8ae1d3",
                 "shasum": ""
             },
             "require": {
@@ -2437,7 +2436,7 @@
                 "generator",
                 "laravel"
             ],
-            "time": "2015-12-30 17:13:35"
+            "time": "2016-02-07 17:02:43"
         },
         {
             "name": "swiftmailer/swiftmailer",

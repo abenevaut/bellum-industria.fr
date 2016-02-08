@@ -90,6 +90,53 @@ class TeamOutputter extends AbsLaravelOutputter
         return $this->redirectTeamRecordWithSuccess();
     }
 
+    public function update($id, IFormRequest $request)
+    {
+        if (!\Auth::check()) {
+            $this->redirectTeamUpdateWithErrorAuth();
+        }
+
+        if (!$id || !is_numeric($id)) {
+            $this->redirectTeamUpdateWithErrorNoTeamId();
+        }
+
+        $team = $this->teams->find($id);
+
+        // Todo : check si l'objet n'est pas vide en terme de donnee
+//        if (!$team) {
+//            $this->Outputter->redirectTeamUpdateWithErrorTeamNotExists();
+//        }
+
+        $this->teams->update($team, [
+            'name' => $request->get('name')
+        ]);
+
+
+        $users = $request->only('members');
+
+        if (count($users) > 0) {
+
+            $team->users()->detach();
+
+            foreach ($users as $user_id) {
+                $team->users()->attach($user_id);
+            }
+        }
+
+        return $this->redirectTeamUpdateWithSuccess();
+    }
+
+    public function delete($id)
+    {
+        if (!\Auth::check()) {
+            $this->redirectTeamDeleteWithErrorAuth();
+        }
+
+        $this->teams->deleteById($id);
+
+        return $this->redirectTeamDeleteWithSuccess();
+    }
+
     /**
      * @param $teams
      * @return mixed
@@ -127,7 +174,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamIndexWithErrorNoTeamId()
     {
-        return $this->routeTo('teams')
+        return $this->routeTo('teams.index')
             ->with('message', 'You must specify a team id to use this functionality!')
             ->with('alert-class', 'warning-box');
     }
@@ -137,7 +184,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamIndexWithErrorTeamNotExists()
     {
-        return $this->routeTo('teams')
+        return $this->routeTo('teams.index')
             ->with('message', 'The team was not deleted because no team exists!')
             ->with('alert-class', 'warning-box');
     }
@@ -147,7 +194,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamRecordWithSuccess()
     {
-        return $this->routeTo('teams')
+        return $this->routeTo('teams.index')
             ->with('message', 'The team was successfully added!')
             ->with('alert-class', 'download-box');
     }
@@ -157,7 +204,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamRecordWithErrorAuth()
     {
-        return $this->routeTo('teams')
+        return $this->routeTo('teams.index')
             ->with('message', 'You must be authentificated to use this functionality!')
             ->with('alert-class', 'warning-box');
     }
@@ -167,7 +214,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamUpdateWithSuccess()
     {
-        return $this->routeTo('teams')
+        return $this->routeTo('teams.index')
             ->with('message', 'The team was successfully edited!')
             ->with('alert-class', 'download-box');
     }
@@ -177,7 +224,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamUpdateWithErrorNoTeamId()
     {
-        return $this->routeTo('teams')
+        return $this->routeTo('teams.index')
             ->with('message', 'You must specify a team id to use this functionality!')
             ->with('alert-class', 'warning-box');
     }
@@ -187,7 +234,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamUpdateWithErrorTeamNotExists()
     {
-        return $this->routeTo('teams')
+        return $this->routeTo('teams.index')
             ->with('message', 'The team was not deleted because no team exists!')
             ->with('alert-class', 'warning-box');
     }
@@ -197,7 +244,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamUpdateWithErrorAuth()
     {
-        return $this->routeTo('teams')
+        return $this->routeTo('teams.index')
             ->with('message', 'You must be authentificated to use this functionality!')
             ->with('alert-class', 'warning-box');
     }
@@ -207,7 +254,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamDeleteWithSuccess()
     {
-        return $this->routeTo('teams')
+        return $this->routeTo('teams.index')
             ->with('message', 'The team was successfully removed!')
             ->with('alert-class', 'download-box');
     }
@@ -217,7 +264,7 @@ class TeamOutputter extends AbsLaravelOutputter
      */
     public function redirectTeamDeleteWithErrorAuth()
     {
-        return $this->routeTo('teams')
+        return $this->routeTo('teams.index')
             ->with('message', 'You must be authentificated to use this functionality!')
             ->with('alert-class', 'warning-box');
     }

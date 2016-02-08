@@ -77,6 +77,99 @@
     <!-- Begin Inner -->
     <div class="layout__body-wrapper__content-wrapper__inner">
 
+        <h2 class="colored">From community</h2>
+
+
+        <div class="layout__body-wrapper__content-wrapper__inner__widget-posts">
+            <div class="grid">
+
+
+                @foreach ($threads as $thread)
+
+                    <div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
+                        <div class="frame alignleft">
+                            <a href="{{ $thread['url'] }}" target="_blank">
+                                <img src="/assets/images/multigaming/logo.png" alt="Ca va ENCORE parler de bits!"
+                                     width="142" height="100"/>
+
+                                <div></div>
+                            </a>
+                        </div>
+                        <div class="post-content">
+                            <h5><a href="{{ $thread['url'] }}" target="_blank">{{ $thread['title'] }}</a></h5>
+
+                            <div class="meta">
+                                <span class="date">{{-- date($thread['created']) --}}</span>
+                            </div>
+                            {!! $thread['intro'] !!}
+                        </div>
+                    </div>
+
+                @endforeach
+
+
+            </div>
+        </div>
+        <div class="clear"></div>
+
+
+
+    </div>
+    <!-- Begin Inner -->
+</div>
+<!-- End White Wrapper -->
+
+<!-- Begin Gray Wrapper -->
+<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
+    <!-- Begin Inner -->
+    <div class="layout__body-wrapper__content-wrapper__inner">
+
+
+        <h2 class="colored">Servers</h2>
+
+
+        <div class="layout__body-wrapper__content-wrapper__inner__widget-posts">
+            <div class="grid">
+
+                @foreach ($game_servers as $server)
+
+
+                    <div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
+                        <div class="frame alignleft">
+                            <a href="steam://connect/cvepdb.fr:{{$server['info']['GamePort']}}" target="_blank">
+                                <img src="/assets/images/multigaming/csgo/maps/{{ $server['info']['Map'] }}.jpg" alt="Ca va ENCORE parler de bits!"
+                                     width="142" height="100"/>
+
+                                <div></div>
+                            </a>
+                        </div>
+                        <div class="post-content">
+                            <h5><a href="steam://connect/cvepdb.fr:{{$server['info']['GamePort']}}" target="_blank">cvepdb.fr:{{$server['info']['GamePort']}}</a></h5>
+
+                            <div class="meta">
+                                <span class="date">{{$server['info']['ModDesc']}}</span>
+                            </div>
+                            {{ $server['info']['HostName'] }}
+                        </div>
+                    </div>
+
+                @endforeach
+
+            </div>
+        </div>
+        <div class="clear"></div>
+
+
+    </div>
+    <!-- Begin Inner -->
+</div>
+<!-- End Gray Wrapper -->
+
+<!-- Begin White Wrapper -->
+<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
+    <!-- Begin Inner -->
+    <div class="layout__body-wrapper__content-wrapper__inner">
+
         <div class="row">
 
 
@@ -147,118 +240,11 @@
         </div>
         <div class="clear"></div>
 
-    </div>
-    <!-- Begin Inner -->
-</div>
-<!-- End White Wrapper -->
-
-<!-- Begin Gray Wrapper -->
-<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
-    <!-- Begin Inner -->
-    <div class="layout__body-wrapper__content-wrapper__inner">
-
-
-        <h2 class="colored">From community</h2>
-
-
-        <div class="layout__body-wrapper__content-wrapper__inner__widget-posts">
-            <div class="grid">
-
-
-                @foreach ($threads as $thread)
-
-                    <div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
-                        <div class="frame alignleft">
-                            <a href="{{ $thread['url'] }}" target="_blank">
-                                <img src="/assets/images/multigaming/logo.png" alt="Ca va ENCORE parler de bits!"
-                                     width="142" height="100"/>
-
-                                <div></div>
-                            </a>
-                        </div>
-                        <div class="post-content">
-                            <h5><a href="{{ $thread['url'] }}" target="_blank">{{ $thread['title'] }}</a></h5>
-
-                            <div class="meta">
-                                <span class="date">{{-- date($thread['created']) --}}</span>
-                            </div>
-                            {!! $thread['intro'] !!}
-                        </div>
-                    </div>
-
-                @endforeach
-
-
-            </div>
-        </div>
-        <div class="clear"></div>
-
-
-    </div>
-    <!-- Begin Inner -->
-</div>
-<!-- End Gray Wrapper -->
-
-<!-- Begin White Wrapper -->
-<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
-    <!-- Begin Inner -->
-    <div class="layout__body-wrapper__content-wrapper__inner">
-
-
-        <h2 class="colored">Servers</h2>
-
-
-        <div class="layout__body-wrapper__content-wrapper__inner__widget-posts">
-            <div class="grid">
-
-                @foreach ($game_servers as $server)
-
-
-                    <div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
-                        <div class="frame alignleft">
-                            <a href="steam://connect/cvepdb.fr:{{$server['info']['GamePort']}}" target="_blank">
-                                <img src="/assets/images/multigaming/csgo/maps/{{ $server['info']['Map'] }}.jpg" alt="Ca va ENCORE parler de bits!"
-                                     width="142" height="100"/>
-
-                                <div></div>
-                            </a>
-                        </div>
-                        <div class="post-content">
-                            <h5><a href="steam://connect/cvepdb.fr:{{$server['info']['GamePort']}}" target="_blank">cvepdb.fr:{{$server['info']['GamePort']}}</a></h5>
-
-                            <div class="meta">
-                                <span class="date">{{$server['info']['ModDesc']}}</span>
-                            </div>
-                            {{ $server['info']['HostName'] }}
-                        </div>
-                    </div>
-
-                @endforeach
-
-            </div>
-        </div>
-        <div class="clear"></div>
-
 
     </div>
     <!-- Begin Inner -->
 </div>
 <!-- End White Wrapper -->
-
-<!-- Begin Grey Wrapper -->
-<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
-    <!-- Begin Inner -->
-    <div class="layout__body-wrapper__content-wrapper__inner">
-
-
-
-        @include('cvepdb.multigaming.partials.share_inline')
-
-
-    </div>
-    <!-- Begin Inner -->
-</div>
-<!-- End Grey Wrapper -->
 
 <!-- Begin Evil Wrapper -->
 <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even-evil">
@@ -330,5 +316,20 @@
     <!-- Begin Inner -->
 </div>
 <!-- End White Wrapper -->
+
+<!-- Begin Grey Wrapper -->
+<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
+    <!-- Begin Inner -->
+    <div class="layout__body-wrapper__content-wrapper__inner">
+
+
+
+        @include('cvepdb.multigaming.partials.share_inline')
+
+
+    </div>
+    <!-- Begin Inner -->
+</div>
+<!-- End Grey Wrapper -->
 
 @stop

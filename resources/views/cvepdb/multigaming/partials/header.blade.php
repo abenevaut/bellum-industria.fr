@@ -23,7 +23,7 @@
                         <a href="{{ url('auth/login') }}"><img src="http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_small.png" alt="Login"></a>
                     @endif
                 </li>
-                @if (Auth::check() && Auth::user()->hasRole('admin'))
+                @if (Auth::check() && (Auth::user()->hasRole('admin') || Auth::user()->hasRole('gamer-admin')))
                     <li>
                         <a href="#">Admin</a>
                         <ul>
