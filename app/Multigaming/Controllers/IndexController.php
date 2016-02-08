@@ -32,6 +32,11 @@ class IndexController extends BaseController
         return $this->outputter->boutique();
     }
 
+    public function challenge()
+    {
+        return $this->outputter->challenge();
+    }
+
     public function sitemap()
     {
         return $this->outputter->sitemap();

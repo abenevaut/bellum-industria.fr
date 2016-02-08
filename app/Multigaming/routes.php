@@ -21,6 +21,7 @@ Route::group(['domain' => env('DOMAIN_MULTIGAMING')], function () {
     Route::resource('index', '\App\Multigaming\Controllers\IndexController');
     Route::get('/', '\App\Multigaming\Controllers\IndexController@index');
     Route::get('boutique', '\App\Multigaming\Controllers\IndexController@boutique');
+    Route::get('challenge', '\App\Multigaming\Controllers\IndexController@challenge');
     Route::get('sitemap', '\App\Multigaming\Controllers\IndexController@sitemap');
     Route::get('sitemap-teams', ['as' => 'teams.sitemap', 'uses' => '\App\Multigaming\Controllers\TeamController@sitemap']);
 

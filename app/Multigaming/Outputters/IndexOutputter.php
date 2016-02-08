@@ -98,6 +98,16 @@ class IndexOutputter extends AbsLaravelOutputter
         return $this->output('cvepdb.multigaming.boutique', []);
     }
 
+    /**
+     * @param $data
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function challenge()
+    {
+        $this->addBreadcrumb('Challenge', '/multigaming/challenge');
+        return $this->output('cvepdb.multigaming.challenge', []);
+    }
+
     public function sitemap()
     {
         return $this->generateSitemapIndex(
