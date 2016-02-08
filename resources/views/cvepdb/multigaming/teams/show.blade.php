@@ -2,9 +2,8 @@
 
 @section('content')
 
-        <!-- Begin Gray Wrapper -->
-<div
-        class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even layout__body-wrapper__content-wrapper--intro">
+<!-- Begin Gray Wrapper -->
+<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even layout__body-wrapper__content-wrapper--intro">
     <!-- Begin Inner -->
     <div class="layout__body-wrapper__content-wrapper__inner layout__body-wrapper__content-wrapper__inner--intro">
 
@@ -34,7 +33,7 @@
 
 
 @if (Auth::check() && Auth::user()->hasRole('admin') && Auth::user()->hasPermission('create-team') && Auth::user()->hasPermission('edit-team'))
-        <!-- Begin Gray Wrapper -->
+<!-- Begin Gray Wrapper -->
 <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even js-teams-init js-teams-admin_box"
      style="display:none;">
     <!-- Begin Inner -->
@@ -47,7 +46,7 @@
         <div class="form-container">
             <div class="response"></div>
             {!! Form::open(array(
-                'route' => array('teams_put', $team->id),
+                'route' => array('teams.update', $team->id),
                 'method' => 'PUT',
                 'id' => "team_add_members",
                 'class' => "forms js-call-form_validation js-call-select2"

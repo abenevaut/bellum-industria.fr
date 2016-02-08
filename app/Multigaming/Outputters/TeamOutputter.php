@@ -65,7 +65,7 @@ class TeamOutputter extends AbsLaravelOutputter
 //        }
 
         $this->addBreadcrumb('Teams', 'teams');
-        $this->addBreadcrumb($team->name, 'teams/show/' . $id);
+        $this->addBreadcrumb($team->name, 'teams/' . $id);
 
         return $this->output(
             'cvepdb.multigaming.teams.show',
@@ -94,12 +94,14 @@ class TeamOutputter extends AbsLaravelOutputter
      * @param $teams
      * @return mixed
      */
-    public function generateTeamsSitemap($teams)
+    public function sitemap()
     {
+        $teams = $this->teams->all();
+
         return $this->generateSitemap(
             new TeamSitemapFormat,
             $teams->toArray(),
-            'multigaming/teams/show/',
+            'teams/',
             'sitemap-multigaming-teams-',
             'sitemap-multigaming-teams'
         );
@@ -109,13 +111,13 @@ class TeamOutputter extends AbsLaravelOutputter
      * @param $teams
      * @return mixed
      */
-    public function generateTeamsFeeds()
+    public function feeds()
     {
         $teams = $this->teams->all();
         return $this->generateFeeds(
             new TeamFeedsFormat,
             $teams->toArray(),
-            'multigaming/teams/show/',
+            'multigaming/teams/',
             'sitemap-multigaming-teams'
         );
     }

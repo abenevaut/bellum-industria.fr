@@ -45,34 +45,35 @@ class TeamController extends BaseController
      */
     public function store(TeamFormRequest $request)
     {
-        die($request->get('name'));
-//        return $this->outputter->store($request);
+        dd($request->get('name'));
+        // return $this->outputter->store($request);
     }
 
-//    /**
-//     * @param $team_id
-//     * @param TeamFormRequest $request
-//     * @return mixed
-//     */
-//    public function update($team_id, TeamFormRequest $request)
-//    {
-//        return $this->outputter->update($team_id, $request);
-//    }
-//
-//    /**
-//     * @param $team_id
-//     * @return mixed
-//     */
-//    public function destroy($team_id)
-//    {
-//        return $this->outputter->delete($team_id);
-//    }
-//
-//    /**
-//     * @return mixed
-//     */
-//    public function sitemap()
-//    {
-//        return $this->outputter->sitemap();
-//    }
+    /**
+     * @param $team_id
+     * @param TeamFormRequest $request
+     * @return mixed
+     */
+    public function update($team_id, TeamFormRequest $request)
+    {
+        dd($request->get('name'));
+        // return $this->outputter->update($team_id, $request);
+    }
+
+    /**
+     * @param $team_id
+     * @return mixed
+     */
+    public function destroy($team_id)
+    {
+        return $this->outputter->delete($team_id);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function sitemap()
+    {
+        return $this->outputter->sitemap();
+    }
 }

@@ -52,7 +52,10 @@
                 var team_id = $(this).attr('data-team_id');
                 var team_name = $(this).attr('data-team_name');
 
-                $form.attr('action', $form.attr('data-route_put') + '/' + team_id);
+                var put_url = decodeURIComponent($form.attr('data-route_put'));
+                put_url = put_url.replace('{teams}', '');
+
+                $form.attr('action', put_url + '/' + team_id);
                 $form.find('input[name="_method"]').val('PUT');
                 $form.attr('method', 'PUT');
                 $form.find('input[name="name"]').val(team_name);

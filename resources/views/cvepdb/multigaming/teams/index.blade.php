@@ -11,7 +11,7 @@
                 <h1 class="title alignleft">Teams</h1>
 
                 <div class="layout__body-wrapper__content-wrapper__inner__navigation alignright">
-                    <a href="#" id="gwi-thumbs" title="All Items"><i class="icon-th"></i></a>
+                    {{--<a href="#" id="gwi-thumbs" title="All Items"><i class="icon-th"></i></a>--}}
 
 
                     @if (Auth::check() && Auth::user()->hasRole('admin') && Auth::user()->hasPermission('create-team') && Auth::user()->hasPermission('edit-team'))
@@ -65,7 +65,7 @@
                                               )) !!}
                                 </li>
                                 <li class="button-row">
-                                    {!! Form::submit('Submit', array('class'=>'btn-submit')) !!}
+                                    {!! Form::submit('Ajouter', array('class'=>'btn-submit')) !!}
                                 </li>
                             </ol>
                         </fieldset>
@@ -88,44 +88,50 @@
             @if (count($teams))
                 @foreach ($teams as $team)
 
-                <div class="row">
+                <div class="row" style="border-bottom: 1px solid #eee; margin-bottom:15px;">
 
                     <div class="one-third">
 
-                        <a href="{{ url('teams/show/'.$team->id) }}" title="{!! $team->name !!}">
+                        <a href="{{ url('teams/'.$team->id) }}" title="{!! $team->name !!}">
                             {!! $team->name !!}
                         </a>
 
                     </div>
 
                     <div class="one-third">
-
-                        @foreach ($team->users as $teammate)
-
-                            {!! $teammate->first_name !!} - {!! $teammate->steam_token !!} <br>
-
-                        @endforeach
-
-                        &nbsp;
-
+                        @if (!empty($team->users))
+                            <ul>
+                            @foreach ($team->users as $teammate)
+                                    <li>
+                                {!! $teammate->first_name !!}<br>
+                                {{--{!! $teammate->steam_token !!}--}}
+                                </li>
+                            @endforeach
+                            </ul>
+                        @else
+                            Aucun membre
+                        @endif
                     </div>
 
                     <div class="one-third last">
 
-                        <a href="javascript:void(0);" class="js-teams-edit"
+                        <a href="javascript:void(0);" class="js-teams-edit button orange"
+                           style="float:left"
                            data-team_id="{{ $team->id }}"
                            data-team_name="{{ $team->name }}">Edit</a>
 
 
                         {!! Form::open(array(
-                            'route' => array('teams_delete', $team->id),
+                            'route' => array('teams.destroy', $team->id),
                             'method' => 'DELETE',
-                            'class' => "forms js-teams_delete")) !!}
-                        {!! Form::submit('Submit', array('class' => 'btn-submit')) !!}
+                            'class' => "forms js-teams_delete",
+                            'style' => "float:left; margin-top: 5px;margin-left: 10px; width:10%;"
+                            )) !!}
+                        {!! Form::submit('Supprimer', array('class' => 'btn-submit red')) !!}
                         {!! Form::close() !!}
 
                     </div>
-
+                    <div class="clear"></div>
                 </div>
                 <div class="clear"></div>
 

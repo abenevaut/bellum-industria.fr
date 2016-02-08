@@ -22,10 +22,9 @@ Route::group(['domain' => env('DOMAIN_MULTIGAMING')], function () {
     Route::get('/', '\App\Multigaming\Controllers\IndexController@index');
     Route::get('boutique', '\App\Multigaming\Controllers\IndexController@boutique');
     Route::get('sitemap', '\App\Multigaming\Controllers\IndexController@sitemap');
+    Route::get('sitemap-teams', ['as' => 'teams.sitemap', 'uses' => '\App\Multigaming\Controllers\TeamController@sitemap']);
 
     Route::group(['middleware' => ['role:admin,gamer-admin']], function () {
-
         Route::resource('teams', '\App\Multigaming\Controllers\TeamController');
-        Route::get('teams/sitemap', ['as' => 'teams.sitemap', 'uses' => '\App\Multigaming\Controllers\TeamController@sitemap']);
     });
 });
