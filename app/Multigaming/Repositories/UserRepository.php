@@ -9,8 +9,6 @@ use App\Multigaming\Repositories\RoleRepository;
 use App\Multigaming\Models\User;
 
 
-
-
 /**
  * Class TeamRepository
  * @package App\CVEPDB\Multigaming\Repositories
@@ -76,18 +74,15 @@ class UserRepository extends UserRepositoryEloquent
     {
         $dropdown = [];
 
-        switch (\Config::get('database.default'))
-        {
-            case 'pgsql' :
-            {
-                $dropdown = User::select('id', DB::raw('(last_Name || " " || first_Name) AS full_name'))
+        switch (\Config::get('database.default')) {
+            case 'pgsql' : {
+                $dropdown = User::select('id', DB::raw("ARRAY_TO_STRING(ARRAY[last_name, first_name], ' ') AS full_name"))
                     ->orderBy('last_name', 'asc')
                     ->lists('full_name', 'id');
                 break;
             }
             case 'mysql':
-            default:
-            {
+            default: {
                 $dropdown = User::select('id', DB::raw('CONCAT(last_Name, " ", first_Name) AS full_name'))
                     ->orderBy('last_name', 'asc')
                     ->lists('full_name', 'id');
