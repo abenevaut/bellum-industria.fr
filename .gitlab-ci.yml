@@ -3,7 +3,7 @@ Deploy:
   - chmod -R 777 storage
   - git submodule init
   - git submodule update
-  - composer install --dev --prefer-source --no-interaction
+  - composer install
   - cd resources/assets/cvepdb/cvepdbjs
   - bower install
   - cd ../../..
