@@ -85,7 +85,7 @@
         <!-- Begin Inner -->
         <div class="layout__body-wrapper__content-wrapper__inner">
 
-            @if (count($teams))
+            @if ($teams->count())
                 @foreach ($teams as $team)
 
                 <div class="row" style="border-bottom: 1px solid #eee; margin-bottom:15px;">
@@ -99,17 +99,20 @@
                     </div>
 
                     <div class="one-third">
-                        @if (!empty($team->users))
+
+                        @if ($team->users->count())
                             <ul>
                             @foreach ($team->users as $teammate)
                                     <li>
-                                {!! $teammate->first_name !!}<br>
+                                {!! $teammate->first_name !!}
                                 {{--{!! $teammate->steam_token !!}--}}
                                 </li>
                             @endforeach
                             </ul>
                         @else
+                            <div class="info-box">
                             Aucun membre
+                            </div>
                         @endif
                     </div>
 
