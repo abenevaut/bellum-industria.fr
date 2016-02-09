@@ -140,7 +140,7 @@
 
                                 {!! $teammate['steam_token']['personaname'] !!}
 
-                                <a href="{!! $teammate['steam_token']['profileurl'] !!}">
+                                <a href="{!! $teammate['steam_token']['profileurl'] !!}" target="_blank">
                                     <img src="{!! $teammate['steam_token']['avatarfull'] !!}"
                                          alt="{!! $teammate['steam_token']['personaname'] !!}">
                                 </a>
@@ -207,7 +207,7 @@
 
                     <div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
                         <div class="frame alignleft">
-                            <a href="steam://connect/cvepdb.fr:{{$server['info']['GamePort']}}" target="_blank">
+                            <a href="steam://connect/cvepdb.fr:{{$server['info']['GamePort']}}">
                                 <img src="/assets/images/multigaming/csgo/maps/{{ $server['info']['Map'] }}.jpg" alt="Ca va ENCORE parler de bits!"
                                      width="142" height="100"/>
 
@@ -215,12 +215,17 @@
                             </a>
                         </div>
                         <div class="post-content">
-                            <h5><a href="steam://connect/cvepdb.fr:{{$server['info']['GamePort']}}" target="_blank">cvepdb.fr:{{$server['info']['GamePort']}}</a></h5>
+                            <h5><a href="steam://connect/cvepdb.fr:{{$server['info']['GamePort']}}">cvepdb.fr:{{$server['info']['GamePort']}}</a></h5>
 
                             <div class="meta">
                                 <span class="date">{{$server['info']['ModDesc']}}</span>
                             </div>
-                            {{ $server['info']['HostName'] }}
+                            <div>
+                                {{ $server['info']['HostName'] }}
+                            </div>
+                            <div>
+                                <strong>{{ $server['info']['Map'] }}</strong> ({{ $server['info']['Players'] }}/{{ $server['info']['MaxPlayers'] }})
+                            </div>
                         </div>
                     </div>
 
@@ -267,7 +272,7 @@
 
                                     {!! $teammate['steam_token']['personaname'] !!}
 
-                                    <a href="{!! $teammate['steam_token']['profileurl'] !!}">
+                                    <a href="{!! $teammate['steam_token']['profileurl'] !!}" target="_blank">
                                         <img src="{!! $teammate['steam_token']['avatarfull'] !!}"
                                              alt="{!! $teammate['steam_token']['personaname'] !!}">
                                     </a>
