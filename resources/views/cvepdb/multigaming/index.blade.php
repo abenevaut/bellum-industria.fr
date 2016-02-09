@@ -90,7 +90,7 @@
                         <div class="frame alignleft">
                             <a href="{{ $thread['url'] }}" target="_blank">
                                 <img src="/assets/images/multigaming/logo.png" alt="Ca va ENCORE parler de bits!"
-                                     width="142" height="100"/>
+                                     width="142" height="142"/>
 
                                 <div></div>
                             </a>
