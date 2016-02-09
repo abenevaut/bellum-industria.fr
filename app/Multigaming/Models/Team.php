@@ -47,6 +47,6 @@ class Team extends Model
      */
     public function users()
     {
-        return $this->belongsToMany('App\Multigaming\Models\User', 'multigaming_team_user');
+        return $this->belongsToMany('App\Multigaming\Models\User', 'multigaming_team_user')->withTimestamps();
     }
 }
