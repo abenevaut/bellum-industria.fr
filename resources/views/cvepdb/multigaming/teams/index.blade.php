@@ -14,7 +14,7 @@
                     {{--<a href="#" id="gwi-thumbs" title="All Items"><i class="icon-th"></i></a>--}}
 
 
-                    @if (Auth::check() && Auth::user()->hasRole('admin') && Auth::user()->hasPermission('create-team') && Auth::user()->hasPermission('edit-team'))
+                    @if (Auth::check() && (Auth::user()->hasRole('admin') || (Auth::user()->hasRole('gamer-admin') && Auth::user()->hasPermission('gad-teams-management'))))
 
                     <a href="javascript:void(0);" id="gwi-prev" class="js-teams-add_new_team" title="Add a team"><i class="icon-plus-1"></i></a>
 
@@ -32,7 +32,7 @@
     <!-- End Gray Wrapper -->
 
 
-    @if (Auth::check() && Auth::user()->hasRole('admin') && Auth::user()->hasPermission('create-team') && Auth::user()->hasPermission('edit-team'))
+    @if (Auth::check() && (Auth::user()->hasRole('admin') || (Auth::user()->hasRole('gamer-admin') && Auth::user()->hasPermission('gad-teams-management'))))
         <!-- Begin Gray Wrapper -->
         <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even js-teams-init js-teams-admin_box"
                 style="display:none;">
