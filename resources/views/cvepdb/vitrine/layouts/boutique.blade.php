@@ -75,5 +75,8 @@
 <script type="text/javascript" src="/assets/cvepdbjs/cvepdb.js"></script>
 <script type="text/javascript" src="/assets/js/longwave.js"></script>
 <script type="text/javascript" src="/assets/js/vitrine/contact.js"></script>
+
+@include('cvepdb.vitrine.partials.ganalytics')
+
 </body>
 </html>

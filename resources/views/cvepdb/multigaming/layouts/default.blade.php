@@ -36,5 +36,7 @@
             });
         </script>
 
+        @include('cvepdb.multigaming.partials.ganalytics')
+
     </body>
 </html>

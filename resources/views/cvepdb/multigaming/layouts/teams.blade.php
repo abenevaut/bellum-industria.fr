@@ -38,5 +38,7 @@
 
         <script type="text/javascript" src="/assets/js/multigaming/teams.js"></script>
 
+        @include('cvepdb.multigaming.partials.ganalytics')
+
     </body>
 </html>
