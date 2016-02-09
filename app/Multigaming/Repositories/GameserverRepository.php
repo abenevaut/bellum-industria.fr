@@ -3,7 +3,6 @@
 namespace App\Multigaming\Repositories;
 
 use Cache;
-
 use xPaw\SourceQuery\SourceQuery as SourceQuery;
 
 /**

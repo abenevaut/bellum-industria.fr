@@ -29,15 +29,6 @@ class SteamRepository //implements RepositoryInterface
     }
 
     /**
-     * @param array $columns
-     * @return $this
-     */
-    public function all(array $columns = array('*'))
-    {
-        return null;
-    }
-
-    /**
      * @param int $perPage
      * @param array $columns
      * @return mixed
@@ -184,65 +175,6 @@ class SteamRepository //implements RepositoryInterface
             $threads = array_slice($threads, 0, $perPage);
         }
         return $threads;
-    }
-
-    /**
-     * @param array $data
-     * @return static
-     */
-    public function create(array $data)
-    {
-        return null;
-    }
-
-    /**
-     * @param TeamModel $team
-     * @param array $data
-     * @return bool|int
-     */
-    public function update(TeamModel $team, array $data)
-    {
-        return null;
-    }
-
-    /**
-     * @param TeamModel $team
-     * @return bool|null
-     * @throws \Exception
-     */
-    public function delete(TeamModel $team)
-    {
-        return null;
-    }
-
-    /**
-     * @param $id
-     * @param array $columns
-     * @return mixed
-     */
-    public function find($id, $columns = array('*'))
-    {
-        return null;
-    }
-
-    /**
-     * @param $field
-     * @param $value
-     * @param array $columns
-     * @return mixed
-     */
-    public function findBy($field, $value, $columns = array('*'))
-    {
-        return null;
-    }
-
-    /**
-     * @param $team_id
-     * @return bool|null
-     */
-    public function deleteById($team_id)
-    {
-        return null;
     }
 
     /**
