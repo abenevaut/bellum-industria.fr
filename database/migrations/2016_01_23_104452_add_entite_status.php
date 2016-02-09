@@ -13,7 +13,7 @@ class AddEntiteStatus extends Migration
     public function up()
     {
         Schema::table('entites', function($table){
-            $table->enum('status', ['active', 'disabled']);
+            $table->enum('status', ['active', 'disabled'])->default('active');
         });
     }
 

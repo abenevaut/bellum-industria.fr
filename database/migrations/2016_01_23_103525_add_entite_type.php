@@ -13,7 +13,7 @@ class AddEntiteType extends Migration
     public function up()
     {
         Schema::table('entites', function($table){
-            $table->enum('type', ['cvepdb', 'client', 'comptable']);
+            $table->enum('type', ['cvepdb', 'client', 'comptable'])->default('client');
         });
     }
 

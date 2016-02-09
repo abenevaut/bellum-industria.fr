@@ -16,7 +16,7 @@ class CreateDocumentsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('reference');
-            $table->enum('type', ['bill', 'specifications']);
+            $table->enum('type', ['bill', 'specifications'])->default('specifications');
             $table->date('date_registration');
             $table->string('path');
             $table->string('filename');

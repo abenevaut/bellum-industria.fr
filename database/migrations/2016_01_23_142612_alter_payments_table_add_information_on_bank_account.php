@@ -19,7 +19,7 @@ class AlterPaymentsTableAddInformationOnBankAccount extends Migration
             $table->string('reference')->unique();
             $table->string('iban')->unique();
             $table->string('bic')->unique();
-            $table->enum('status', ['active', 'disabled']);
+            $table->enum('status', ['active', 'disabled'])->default('active');
         });
 
         Schema::table('payments', function($table){
