@@ -56,15 +56,11 @@ class IndexOutputter extends AbsLaravelOutputter
         $team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
         $team_bellumindustria = $this->teams->findBy('name', 'Bellum Industria')->toArray();
 
-//        dd($team_bot);
-
         foreach ($team_bot as $tkey => $team) {
             foreach ($team['users'] as $ukey => $user) {
                 $team_bot[$tkey]['users'][$ukey]['steam_token'] = $this->steam->playerSummaries($user['steam_token']);
             }
         }
-
-//        dd($team_bot);
 
         foreach ($team_bellumindustria as $tkey => $team) {
             foreach ($team['users'] as $ukey => $user) {
@@ -106,6 +102,26 @@ class IndexOutputter extends AbsLaravelOutputter
     {
         $this->addBreadcrumb('Challenge', '/multigaming/challenge');
         return $this->output('cvepdb.multigaming.challenge', []);
+    }
+
+    public function messageoftheday() {
+
+        $team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
+
+        foreach ($team_bot as $tkey => $team) {
+            foreach ($team['users'] as $ukey => $user) {
+                $team_bot[$tkey]['users'][$ukey]['steam_token'] = $this->steam->playerSummaries($user['steam_token']);
+            }
+        }
+
+        $this->addBreadcrumb('Message of the day', '/multigaming/message-of-the-day');
+        return $this->output(
+            'cvepdb.multigaming.messageoftheday',
+            [
+                'team_bot' => $team_bot,
+                'threads' => $this->steam->paginate('Bellum-Industria', 4)
+            ]
+        );
     }
 
     public function sitemap()

@@ -37,6 +37,10 @@ class IndexController extends BaseController
         return $this->outputter->challenge();
     }
 
+    public function messageoftheday() {
+        return $this->outputter->messageoftheday();
+    }
+
     public function sitemap()
     {
         return $this->outputter->sitemap();
