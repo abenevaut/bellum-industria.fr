@@ -1,4 +1,4 @@
-@extends('emails.layouts.default')
+@extends('cvepdb.emails.layouts.clip')
 
 @section('content')
 

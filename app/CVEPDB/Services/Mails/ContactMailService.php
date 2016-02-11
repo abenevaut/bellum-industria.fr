@@ -3,7 +3,7 @@
 namespace App\CVEPDB\Services\Mails;
 
 use CVEPDB\Services\Mails\MailService;
-use App\Admin\Models\LogContact as LogContact;
+use App\Admin\Repositories\Users\LogContact as LogContact;
 
 class ContactMailService extends MailService
 {

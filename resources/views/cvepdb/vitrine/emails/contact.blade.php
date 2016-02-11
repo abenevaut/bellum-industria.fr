@@ -1,4 +1,4 @@
-@extends('emails.layouts.default')
+@extends('cvepdb.emails.layouts.clip')
 
 @section('content')
     <table bgcolor="#cdcdc8" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -37,7 +37,7 @@
                                         {{ trans('cvepdb/vitrine/emails/emails.contact_form') }}
                                     </td>
                                 </tr>
-                                @include('emails.partials.signature')
+                                @include('cvepdb.emails.partials.clip_signature')
                                 <!--end content-->
                                 </tbody>
                             </table>
