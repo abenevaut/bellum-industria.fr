@@ -3,7 +3,7 @@
 namespace App\Admin\Controllers;
 
 use CVEPDB\Controllers\AbsController as Controller;
-use App\Admin\Models\Payment;
+use App\Admin\Repositories\Bills\Payment;
 
 class DashboardController extends Controller
 {

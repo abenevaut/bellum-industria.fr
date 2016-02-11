@@ -3,7 +3,6 @@
 namespace App\Admin\Requests;
 
 use CVEPDB\Requests\Request;
-use App\CVEPDB\Admin\Repositories\BankAccountRepository;
 
 class BankAccountFormRequest extends Request
 {

@@ -2,10 +2,9 @@
 
 namespace App\Admin\Controllers;
 
-use App\Admin\Controllers\Abs\AbsController as Controller;
-use Illuminate\Http\Request as Request;
-
-use App\CVEPDB\Admin\Outputters\BankAccountOutputter;
+use CVEPDB\Controllers\AbsController as Controller;
+use App\Admin\Outputters\BankAccountOutputter;
+use App\Admin\Requests\BankAccountFormRequest as Request;
 
 class BankAccountController extends Controller
 {

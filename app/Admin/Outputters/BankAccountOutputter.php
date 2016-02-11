@@ -1,11 +1,11 @@
 <?php
 
-namespace App\CVEPDB\Admin\Outputters;
+namespace App\Admin\Outputters;
 
-use App\CVEPDB\Interfaces\Outputters\AbsLaravelOutputter;
-use Illuminate\Http\Request as Request;
+use CVEPDB\Outputters\AbsLaravelOutputter;
+use CVEPDB\Requests\Request;
 
-use App\CVEPDB\Admin\Repositories\BankAccountRepository;
+use App\Admin\Repositories\BankAccounts\BankAccountRepositoryEloquent;
 
 class BankAccountOutputter extends AbsLaravelOutputter
 {
@@ -14,7 +14,7 @@ class BankAccountOutputter extends AbsLaravelOutputter
      */
     private $r_BankAccount = null;
 
-    public function __construct(BankAccountRepository $bankAccountRepository)
+    public function __construct(BankAccountRepositoryEloquent $bankAccountRepository)
     {
         parent::__construct();
 
@@ -51,11 +51,11 @@ class BankAccountOutputter extends AbsLaravelOutputter
      */
     public function store(Request $request)
     {
-        $validator = $this->r_BankAccount->store($request);
-        if ($validator->passes()) {
-            return redirect('admin/bankaccounts');
-        }
-        return \Redirect::back()->withErrors($validator);
+//        $validator = $this->r_BankAccount->store($request);
+//        if ($validator->passes()) {
+//            return redirect('admin/bankaccounts');
+//        }
+//        return \Redirect::back()->withErrors($validator);
     }
 
     /**

@@ -8,6 +8,11 @@ use App\Multigaming\Repositories\SteamRepository;
 use App\Multigaming\Repositories\TeamRepository;
 use App\Multigaming\Repositories\SMWA\StammRepository;
 
+use ToniPeric\Clash\Clan as COCClan;
+use ToniPeric\Clash\Member as COCMember;
+use ToniPeric\Clash\Members as COCMembers;
+use ToniPeric\Clash\Http\Client as COCClient;
+
 class IndexOutputter extends AbsLaravelOutputter
 {
     /**
@@ -55,6 +60,31 @@ class IndexOutputter extends AbsLaravelOutputter
      */
     public function index()
     {
+
+        // #PY2UJ8C0
+        //$results = COCClient::search('SUSHIDO');
+
+        $clan = COCClient::getClanDetails('#PY2UJ8C0');
+
+        $clan->name(); // "Hattrickers"
+        $clan->level(); // 8
+        $clan->warWins(); // 168
+
+
+
+        $leader = $clan->members()->leader(); // returns Member object
+        $leader->name(); // "VanSilent"
+        $leader->donations(); // 3451
+        $leader->level(); // 118
+
+
+
+        $coLeaders = $clan->members()->coLeaders(); // array of Member objects
+//        $elders = $clan->members()->elders(); // array of Member objects
+
+
+        dd($coLeaders);
+
         $team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
         $team_bellumindustria = $this->teams->findBy('name', 'Bellum Industria')->toArray();
 

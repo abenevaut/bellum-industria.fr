@@ -40,7 +40,7 @@ class Payment extends Model implements Transformable
      */
     public function bill()
     {
-        return $this->hasOne('App\Admin\Models\Bill', 'id', 'bill_id');
+        return $this->hasOne('App\Admin\Repositories\Bills\Bill', 'id', 'bill_id');
     }
 
     /**
@@ -48,6 +48,6 @@ class Payment extends Model implements Transformable
      */
     public function bankaccount()
     {
-        return $this->hasOne('App\Admin\Models\BankAccount');
+        return $this->hasOne('App\Admin\Repositories\BankAccounts\BankAccount');
     }
 }

@@ -51,7 +51,7 @@ class Bill extends Model implements Transformable
      */
     public function vendor()
     {
-        return $this->hasOne('App\Admin\Repositories\Entite', 'id', 'entite_vendor_id');
+        return $this->hasOne('App\Admin\Repositories\Entites\Entite', 'id', 'entite_vendor_id');
     }
 
     /**
@@ -59,7 +59,7 @@ class Bill extends Model implements Transformable
      */
     public function client()
     {
-        return $this->hasOne('App\Admin\Repositories\Entite', 'id', 'entite_client_id');
+        return $this->hasOne('App\Admin\Repositories\Entites\Entite', 'id', 'entite_client_id');
     }
 
     /**
@@ -67,6 +67,6 @@ class Bill extends Model implements Transformable
      */
     public function payment()
     {
-        return $this->hasOne('App\Admin\Repositories\Payment');
+        return $this->hasOne('App\Admin\Repositories\Bills\Payment');
     }
 }

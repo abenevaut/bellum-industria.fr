@@ -43,6 +43,6 @@ class LogEntite extends Model implements Transformable
      */
     public function users()
     {
-        return $this->hasOne('App\Multigaming\Models\User');
+        return $this->hasOne('CVEPDB\Repositories\Users\User');
     }
 }
