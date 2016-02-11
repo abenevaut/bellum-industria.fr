@@ -60,30 +60,7 @@ class IndexOutputter extends AbsLaravelOutputter
      */
     public function index()
     {
-
-        // #PY2UJ8C0
-        //$results = COCClient::search('SUSHIDO');
-
-        $clan = COCClient::getClanDetails('#PY2UJ8C0');
-
-        $clan->name(); // "Hattrickers"
-        $clan->level(); // 8
-        $clan->warWins(); // 168
-
-
-
-        $leader = $clan->members()->leader(); // returns Member object
-        $leader->name(); // "VanSilent"
-        $leader->donations(); // 3451
-        $leader->level(); // 118
-
-
-
-        $coLeaders = $clan->members()->coLeaders(); // array of Member objects
-//        $elders = $clan->members()->elders(); // array of Member objects
-
-
-        dd($coLeaders);
+        $coc_clan = COCClient::getClanDetails('#PY2UJ8C0');
 
         $team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
         $team_bellumindustria = $this->teams->findBy('name', 'Bellum Industria')->toArray();
@@ -111,7 +88,8 @@ class IndexOutputter extends AbsLaravelOutputter
                 'team_bot' => $team_bot,
                 'team_bellumindustria' => $team_bellumindustria,
                 'threads' => $this->steam->paginate('Bellum-Industria', 4),
-                'game_servers' => $game_servers
+                'game_servers' => $game_servers,
+                'coc_clan' => $coc_clan
             ]
         );
     }

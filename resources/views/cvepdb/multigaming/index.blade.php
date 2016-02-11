@@ -321,6 +321,53 @@
 </div>
 <!-- End White Wrapper -->
 
+<!-- Begin Evil Wrapper -->
+<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--cocsushido">
+    <!-- Begin Inner -->
+    <div class="layout__body-wrapper__content-wrapper__inner">
+
+
+        <h2 class="colored">{{ $coc_clan->name() }}</h2>
+
+
+        <?php //dd($coc_clan); ?>
+
+        <p>
+            Level : {{ $coc_clan->level() }} - Points : {{ $coc_clan->points() }}
+        </p>
+        <p>
+            {{ $coc_clan->description() }}
+        </p>
+
+        <div class="grid-wrapper">
+            <ul class="retina-icons">
+
+                @foreach ($coc_clan->members()->getMembers() as $member)
+
+                <li style="margin-bottom: 15px;">
+                    <div class="alignleft">
+                        <img src="{{ $member->leagueBadge()['l'] }}" alt="rank">
+                    </div>
+                    <div class="alignleft" style="padding-left: 8px;">
+                        <strong>{{ $member->name() }}</strong> {{--({{ $member->role() }})--}}<br>
+                        Trophies : {{ $member->trophies() }}<br>
+                        {{--Don : {{ $member->donations() }} / {{ $member->donationsReceived() }}--}}
+
+                    </div>
+
+                    <div class="clear"></div>
+                </li>
+
+                @endforeach
+
+            </ul>
+        </div>
+
+    </div>
+    <!-- Begin Inner -->
+</div>
+<!-- End Evil Wrapper -->
+
 <!-- Begin Grey Wrapper -->
 <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
     <!-- Begin Inner -->

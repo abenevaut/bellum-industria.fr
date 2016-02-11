@@ -17,3 +17,77 @@ form.forms input.has-error,
 form.forms textarea.has-error {
   border: 1px solid red !important;
 }
+
+@font-face {
+  font-family: 'coc';
+  src: url($path_fonts + "coc/Supercell-magic-webfont.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.layout__body-wrapper__content-wrapper--cocsushido {
+  color: #fff;
+  background: #716C56;
+  border-top: 1px solid #655E4C;
+  border-bottom: 1px solid #655E4C;
+
+  font-family: 'coc';
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 1);
+  color: #fff;
+  font-size: 10px;
+
+}
+.layout__body-wrapper__content-wrapper--cocsushido .colored,
+.layout__body-wrapper__content-wrapper--cocsushido h1,
+.layout__body-wrapper__content-wrapper--cocsushido h2,
+.layout__body-wrapper__content-wrapper--cocsushido h3,
+.layout__body-wrapper__content-wrapper--cocsushido h4,
+.layout__body-wrapper__content-wrapper--cocsushido h5 {
+  font-family: 'coc';
+  text-shadow: 0 4px 0 rgba(0, 0, 0, 1);
+  color: #fff;
+}
+.layout__body-wrapper__content-wrapper--cocsushido i.special {
+  @extend i.special;
+
+  background-color: #fff;
+  color: #000;
+}
+.layout__body-wrapper__content-wrapper--cocsushido a.button {
+  @extend a.button;
+
+  color: #000;
+  background-color: #fff;
+}
+.layout__body-wrapper__content-wrapper--cocsushido a.button:hover {
+  @extend a.button:hover;
+
+  color: #fff;
+  background-color: #655E4C;
+}
+/*-----------------------------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------------------------*/
+
+/* iPad Landscape */
+$dimension_ipad_max-width: 1200px !default;
+
+/* iPad Landscape */
+@media only screen and (min-width: $dimension_ipad_max-width) {
+  .layout__body-wrapper__content-wrapper--cocsushido {
+    background-image: url('https://api-assets.clashofclans.com/badges/200/ZxxzlDwcBydZvZEOwP-CgyMBRmPi7gLU6n4po_Bf5HM.png');
+    background-repeat: no-repeat;
+    background-attachment: inherit;
+    background-position: 0px 150px;
+  }
+}
+
+/* iPad Landscape */
+//@media only screen and (min-width: $dimension_ipad_max-width) {
+//  .layout__body-wrapper__content-wrapper--cocsushido {
+//    background-image: url($path_images + 'multigaming/coc/clash-of-clans-logo-black-and-white-cool-hd-ofxwherfo.png');
+//    background-repeat: no-repeat;
+//    background-attachment: inherit;
+//    background-position: -125px -50px;
+//  }
+//}
