@@ -5,9 +5,15 @@ namespace App\Multigaming\Outputters;
 use CVEPDB\Services\Outputters\AbsLaravelOutputter;
 use CVEPDB\Requests\IFormRequest;
 use App\Multigaming\Outputters\SitemapFormats\TeamFormat as TeamSitemapFormat;
+use App\Multigaming\Outputters\SitemapFormats\CocFormat as CocSitemapFormat;
 use App\Multigaming\Outputters\FeedsFormats\TeamFormat as TeamFeedsFormat;
 use App\Multigaming\Repositories\TeamRepository;
 use App\Multigaming\Repositories\UserRepository;
+
+use ToniPeric\Clash\Clan as COCClan;
+use ToniPeric\Clash\Member as COCMember;
+use ToniPeric\Clash\Members as COCMembers;
+use ToniPeric\Clash\Http\Client as COCClient;
 
 class TeamOutputter extends AbsLaravelOutputter
 {
@@ -151,6 +157,28 @@ class TeamOutputter extends AbsLaravelOutputter
             'teams/',
             'sitemap-multigaming-teams-',
             'sitemap-multigaming-teams'
+        );
+    }
+
+    /**
+     * @param $teams
+     * @return mixed
+     */
+    public function sitemapcoc()
+    {
+        $coc_clan = COCClient::getClanDetails('#PY2UJ8C0');
+
+        return $this->generateSitemap(
+            new CocSitemapFormat,
+            [
+                [
+                    'tag' => $coc_clan->tag(),
+                    'name' => $coc_clan->name()
+                ]
+            ],
+            'https://set7z18fgf.execute-api.us-east-1.amazonaws.com/prod/?route=getClanDetails&clanTag=',
+            'sitemap-multigaming-coc-',
+            'sitemap-multigaming-coc'
         );
     }
 

@@ -74,4 +74,12 @@ class TeamController extends BaseController
     {
         return $this->outputter->sitemap();
     }
+
+    /**
+     * @return mixed
+     */
+    public function sitemapcoc()
+    {
+        return $this->outputter->sitemapcoc();
+    }
 }

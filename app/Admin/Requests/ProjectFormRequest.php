@@ -24,9 +24,10 @@ class ProjectFormRequest extends Request
     public function rules()
     {
         return [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email|unique_with:users,email'
+            'entite_id' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            'status' => 'required'
         ];
     }
 }
