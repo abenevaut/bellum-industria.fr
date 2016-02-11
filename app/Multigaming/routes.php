@@ -15,6 +15,7 @@ Route::group(['domain' => env('DOMAIN_MULTIGAMING')], function () {
 
     Route::group(['prefix' => 'auth'], function () {
         Route::get('login', '\App\Multigaming\Controllers\AuthController@login');
+        // Route::get('login_battlenet', '\App\Multigaming\Controllers\AuthController@login_battlenet');
         Route::get('logout', '\App\Multigaming\Controllers\AuthController@logout');
     });
 

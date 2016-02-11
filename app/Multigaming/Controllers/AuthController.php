@@ -53,6 +53,41 @@ class AuthController extends Controller
         return $this->steam->redirect('/');
     }
 
+    public function login_battlenet()
+    {
+        $provider = new \Depotwarehouse\OAuth2\Client\Provider\SC2Provider([
+            'clientId' => "5rv68cspvcdj8xke3pkvsfu3j3yjwfae",
+            'clientSecret' => "JrmXPnVep9bBdvyuCTmV6uPCmzFTZ4s9",
+            'redirectUri' => "http://multigaming.cvepdb.fr/auth/login_battlenet",
+            'region' => 'eu'
+        ]);
+
+//        $provider = new \Depotwarehouse\OAuth2\Client\Provider\WowProvider([
+//            'clientId' => "5rv68cspvcdj8xke3pkvsfu3j3yjwfae",
+//            'clientSecret' => "JrmXPnVep9bBdvyuCTmV6uPCmzFTZ4s9",
+//            'redirectUri' => "http://multigaming.cvepdb.fr/auth/login_battlenet",
+//            'region' => 'eu'
+//        ]);
+
+        if (isset($_GET['code']) && $_GET['code']) {
+            $token = $provider->getAccessToken("authorization_code", [
+                'code' => $_GET['code']
+            ]);
+            $user = $provider->getResourceOwner($token);
+
+
+
+
+            echo '<pre>' . var_export($user, true) . '</pre>';
+
+
+
+
+        } else {
+            header('Location: ' . $provider->getAuthorizationUrl());
+        }
+    }
+
     public function logout()
     {
         \Auth::logout();
