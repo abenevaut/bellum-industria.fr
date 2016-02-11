@@ -41,7 +41,7 @@ Route::group(['domain' => env('DOMAIN_MULTIGAMING')], function () {
      */
 
     Route::get('sitemap.xml', '\App\Multigaming\Controllers\IndexController@sitemap');
-    Route::get('sitemap-teams', ['as' => 'teams.sitemap', 'uses' => '\App\Multigaming\Controllers\TeamController@sitemap']);
-    Route::get('sitemap-coc', ['as' => 'coc.sitemap', 'uses' => '\App\Multigaming\Controllers\TeamController@sitemapcoc']);
+    Route::get('sitemap-multigaming-teams.xml', ['as' => 'teams.sitemap', 'uses' => '\App\Multigaming\Controllers\TeamController@sitemap']);
+    Route::get('sitemap-multigaming-coc.xml', ['as' => 'coc.sitemap', 'uses' => '\App\Multigaming\Controllers\TeamController@sitemapcoc']);
 
 });

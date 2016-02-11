@@ -138,8 +138,8 @@ class IndexOutputter extends AbsLaravelOutputter
     {
         return $this->generateSitemapIndex(
             [
-                'sitemap-teams',
-                'sitemap-coc'
+                'sitemap-multigaming-teams.xml',
+                'sitemap-multigaming-coc.xml'
             ],
             'sitemap-multigaming-index',
             3600
