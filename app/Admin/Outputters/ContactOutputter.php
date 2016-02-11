@@ -2,7 +2,7 @@
 
 namespace App\Admin\Outputters;
 
-use Illuminate\Http\Request as Request;
+use CVEPDB\Requests\Request;
 use CVEPDB\Outputters\AbsLaravelOutputter;
 use App\Admin\Repositories\Users\LogContactRepositoryEloquent as ContactRepository;
 
@@ -25,14 +25,14 @@ class ContactOutputter extends AbsLaravelOutputter
      */
     public function index()
     {
-//        $contacts = $this->r_LogContact->all();
-//
-//        return $this->output(
-//            'cvepdb.admin.contacts.index',
-//            [
-//                'contacts' => $contacts
-//            ]
-//        );
+        $contacts = $this->r_LogContact->all();
+
+        return $this->output(
+            'cvepdb.admin.contacts.index',
+            [
+                'contacts' => $contacts
+            ]
+        );
     }
 
     /**
