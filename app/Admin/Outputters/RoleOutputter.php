@@ -2,7 +2,7 @@
 
 namespace App\CVEPDB\Admin\Outputters;
 
-use CVEPDB\Outputters\AbsLaravelOutputter;
+use CVEPDB\Services\Outputters\AbsLaravelOutputter;
 use CVEPDB\Requests\Request;
 use CVEPDB\Repositories\Users\UserRepositoryEloquent;
 

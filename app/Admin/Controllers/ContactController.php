@@ -16,7 +16,8 @@ class ContactController extends Controller
 
     public function __construct(ContactOutputter $outputter)
     {
-        die('test');
+        parent::__construct();
+
         $this->outputter = $outputter;
     }
 

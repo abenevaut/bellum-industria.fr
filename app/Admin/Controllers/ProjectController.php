@@ -6,15 +6,15 @@ use CVEPDB\Controllers\AbsController as Controller;
 use App\Admin\Outputters\ProjectOutputter;
 use App\Admin\Requests\ProjectFormRequest;
 
-class UserController extends Controller
+class ProjectController extends Controller
 {
     /**
-     * @var UserRepository|null
+     * @var ProjectOutputter|null
      */
     protected $outputter = null;
 
     /**
-     * @param UserOutputter $outputter
+     * @param ProjectOutputter $outputter
      */
     public function __construct(ProjectOutputter $outputter)
     {
@@ -34,7 +34,7 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return mixed
      */
     public function create()
     {
@@ -43,9 +43,6 @@ class UserController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     * @return Response
      */
     public function store(ProjectFormRequest $request)
     {

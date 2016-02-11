@@ -20,8 +20,6 @@ class UserController extends Controller
     {
         parent::__construct();
 
-        dd('test');
-
         $this->outputter = $outputter;
     }
 

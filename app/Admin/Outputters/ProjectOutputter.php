@@ -2,9 +2,9 @@
 
 namespace App\Admin\Outputters;
 
-use CVEPDB\Outputters\AbsLaravelOutputter;
-use CVEPDB\Requests\Request;
-//use CVEPDB\Repositories\Users\UserRepositoryEloquent;
+use CVEPDB\Services\Outputters\AbsLaravelOutputter;
+use CVEPDB\Requests\IFormRequest;
+use \App\Admin\Repositories\Projects\ProjectRepositoryEloquent;
 
 class ProjectOutputter extends AbsLaravelOutputter
 {
@@ -13,10 +13,14 @@ class ProjectOutputter extends AbsLaravelOutputter
      */
     private $r_project = null;
 
-    public function __construct()
+    /**
+     * @param ProjectRepositoryEloquent $r_project
+     */
+    public function __construct(ProjectRepositoryEloquent $r_project)
     {
-        parent::__construct();
+       // parent::__construct();
 
+        $this->r_project = $r_project;
     }
 
     /**
@@ -40,7 +44,7 @@ class ProjectOutputter extends AbsLaravelOutputter
     public function create()
     {
         return $this->output(
-            'cvepdb.admin.users.create',
+            'cvepdb.admin.projects.create',
             []
         );
     }
@@ -48,9 +52,7 @@ class ProjectOutputter extends AbsLaravelOutputter
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     *
-     * @return Response
+     * @param IFormRequest $request
      */
     public function store(IFormRequest $request)
     {
