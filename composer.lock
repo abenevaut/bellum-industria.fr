@@ -307,7 +307,7 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb/abstract.git",
-                "reference": "1311310d7b207be90c61ef23dea7b63be8ffb429"
+                "reference": "84242af1475e7eeb776323fdbe84a35af0b98544"
             },
             "require": {
                 "chrisbjr/api-guard": "^2.3",
@@ -351,7 +351,7 @@
                 "Interfaces",
                 "Laravel"
             ],
-            "time": "2016-02-11 10:48:02"
+            "time": "2016-02-11 18:40:18"
         },
         {
             "name": "da-mitchell/steam-api",
@@ -1112,16 +1112,16 @@
         },
         {
             "name": "felixkiss/uniquewith-validator",
-            "version": "2.0.6",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/felixkiss/uniquewith-validator.git",
-                "reference": "9ce2c82c3feac7e9fbfbbb8b527cce3a0b45bef7"
+                "reference": "7b166096749923512615fc0fba992fd65b0c3b9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/felixkiss/uniquewith-validator/zipball/9ce2c82c3feac7e9fbfbbb8b527cce3a0b45bef7",
-                "reference": "9ce2c82c3feac7e9fbfbbb8b527cce3a0b45bef7",
+                "url": "https://api.github.com/repos/felixkiss/uniquewith-validator/zipball/7b166096749923512615fc0fba992fd65b0c3b9e",
+                "reference": "7b166096749923512615fc0fba992fd65b0c3b9e",
                 "shasum": ""
             },
             "require": {
@@ -1130,7 +1130,8 @@
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "mockery/mockery": "dev-master"
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -1153,7 +1154,7 @@
             "keywords": [
                 "laravel"
             ],
-            "time": "2015-11-25 02:41:52"
+            "time": "2016-02-11 14:14:06"
         },
         {
             "name": "guzzle/guzzle",
@@ -5036,16 +5037,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.22",
+            "version": "4.8.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "dfb11aa5236376b4fc63853cf746af39fe780e72"
+                "reference": "6e351261f9cd33daf205a131a1ba61c6d33bd483"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/dfb11aa5236376b4fc63853cf746af39fe780e72",
-                "reference": "dfb11aa5236376b4fc63853cf746af39fe780e72",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6e351261f9cd33daf205a131a1ba61c6d33bd483",
+                "reference": "6e351261f9cd33daf205a131a1ba61c6d33bd483",
                 "shasum": ""
             },
             "require": {
@@ -5104,7 +5105,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-02-02 09:01:21"
+            "time": "2016-02-11 14:56:33"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
