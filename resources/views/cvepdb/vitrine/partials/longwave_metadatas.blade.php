@@ -31,6 +31,9 @@
 <link rel="stylesheet" type="text/css" href="../css/ie8.css" media="all" />
 <![endif]-->
 
+<link rel="alternate" type="application/rss+xml"
+      href="http://cavaencoreparlerdebits.fr/blog/rss" title="Ca va ENCORE parler de bits!">
+
 <script>
     var cvepdb_config = {
         ENV: 'development',
