@@ -1,9 +1,9 @@
 <?php
 
-namespace App\CVEPDB\Admin\Controllers;
+namespace App\Admin\Controllers;
 
-use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
-use App\CVEPDB\Admin\Models\Payment;
+use CVEPDB\Controllers\AbsController as Controller;
+use App\Admin\Models\Payment;
 
 class DashboardController extends Controller
 {

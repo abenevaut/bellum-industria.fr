@@ -1,13 +1,13 @@
 <?php
 
-namespace App\CVEPDB\Admin\Controllers;
+namespace App\Admin\Controllers;
 
 use Carbon\Carbon;
 
-use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
-use App\CVEPDB\Admin\Requests\BillFormRequest as BillFormRequest;
-use App\CVEPDB\Admin\Models\Bill;
-use App\CVEPDB\Admin\Models\BillPart;
+use CVEPDB\Controllers\Abs\AbsController as Controller;
+use App\Admin\Requests\BillFormRequest as BillFormRequest;
+use App\Admin\Models\Bill;
+use App\Admin\Models\BillPart;
 
 class BillController extends Controller
 {

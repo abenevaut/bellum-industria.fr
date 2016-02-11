@@ -1,14 +1,13 @@
 <?php
 
-namespace App\CVEPDB\Admin\Controllers;
+namespace App\Admin\Controllers;
 
-use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
-use App\CVEPDB\Interfaces\Controllers\ICRUDRessourceController as CRUD;
+use App\Admin\Controllers\Abs\AbsController as Controller;
 use Illuminate\Http\Request as Request;
 
 use App\CVEPDB\Admin\Outputters\BankAccountOutputter;
 
-class BankAccountController extends Controller implements CRUD
+class BankAccountController extends Controller
 {
     private $outputter = null;
 

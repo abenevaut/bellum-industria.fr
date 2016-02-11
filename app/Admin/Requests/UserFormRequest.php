@@ -1,9 +1,9 @@
 <?php
 
-namespace App\CVEPDB\Admin\Requests;
+namespace App\Admin\Requests;
 
 use App\Http\Requests\Request;
-use App\CVEPDB\Interfaces\Requests\IFormRequest;
+use CVEPDB\Requests\IFormRequest;
 
 class UserFormRequest extends Request implements IFormRequest
 {

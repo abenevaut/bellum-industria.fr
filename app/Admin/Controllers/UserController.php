@@ -1,10 +1,10 @@
 <?php
 
-namespace App\CVEPDB\Admin\Controllers;
+namespace App\Admin\Controllers;
 
-use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
-use App\CVEPDB\Admin\Outputters\UserOutputter;
-use App\CVEPDB\Admin\Requests\UserFormRequest;
+use CVEPDB\Controllers\AbsController as Controller;
+use App\Admin\Outputters\UserOutputter;
+use App\Admin\Requests\UserFormRequest;
 
 class UserController extends Controller
 {
@@ -19,6 +19,8 @@ class UserController extends Controller
     public function __construct(UserOutputter $outputter)
     {
         parent::__construct();
+
+        dd('test');
 
         $this->outputter = $outputter;
     }
