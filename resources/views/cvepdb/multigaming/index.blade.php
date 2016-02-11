@@ -248,8 +248,17 @@
         <div class="row">
 
 
+            <div class="one-third ">
+                <iframe
+                        src="https://discordapp.com/widget?id=146321755433074688&theme=light"
+                        width="100%"
+                        height="400"
+                        allowtransparency="true" frameborder="0">
 
-            <div class="one-half ">
+                </iframe>
+            </div>
+
+            <div class="one-third ">
                 <h2 class="colored">Teamspeak</h2>
                 <iframe allowtransparency="true"
                         src="http://ts.cvepdb.fr/tsviewpub.php?skey=0&sid=1&showicons=right&bgcolor=ffffff&fontcolor=000000"
@@ -259,8 +268,7 @@
                 </iframe>
             </div>
 
-
-            <div class="one-half last">
+            <div class="one-third last">
                 <div class="layout__body-wrapper__content-wrapper__inner__widget-clients-list">
                     <ul class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list">
                         @foreach ($team_bot as $team)
@@ -309,7 +317,7 @@
                         @endforeach
                     </ul>
                 </div>
-
+                <div class="clear"></div>
             </div>
 
         </div>
