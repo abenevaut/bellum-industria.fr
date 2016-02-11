@@ -1,11 +1,15 @@
 <?php
 
-namespace App\Admin\Models;
+namespace App\Admin\Repositories\Bills;
 
 use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class Payment extends Model
+class Payment extends Model implements Transformable
 {
+    use TransformableTrait;
+
     /**
      * The database table used by the model.
      *

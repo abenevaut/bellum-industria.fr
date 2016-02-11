@@ -1,17 +1,21 @@
 <?php
 
-namespace App\Admin\Models;
+namespace App\Admin\Repositories\Users;
 
 use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class BankAccount extends Model
+class LogContact extends Model implements Transformable
 {
+    use TransformableTrait;
+
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'bank_accounts';
+    protected $table = 'log_contacts';
 
     /**
      * The attributes that are mass assignable.
@@ -19,10 +23,11 @@ class BankAccount extends Model
      * @var array
      */
     protected $fillable = [
-        'reference',
-        'iban',
-        'bic',
-        'status',
+        'first_name',
+        'last_name',
+        'email',
+        'subject',
+        'message'
     ];
 
     /**

@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Admin\Models;
+namespace App\Admin\Repositories\Entites;
 
-use App\CVEPDB\Admin\Traits\Models\LogEntitesTrait;
 use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class Entite extends Model
+class Entite extends Model implements Transformable
 {
-    use LogEntitesTrait;
+    use TransformableTrait;
+    use LogEntiteTrait;
 
     /**
      * The database table used by the model.

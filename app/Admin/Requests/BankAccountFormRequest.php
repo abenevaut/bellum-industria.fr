@@ -1,12 +1,11 @@
 <?php
 
-namespace App\CVEPDB\Admin\Requests;
+namespace App\Admin\Requests;
 
-use App\Http\Requests\Request;
-use App\CVEPDB\Interfaces\Requests\IFormRequest;
+use CVEPDB\Requests\Request;
 use App\CVEPDB\Admin\Repositories\BankAccountRepository;
 
-class BankAccountFormRequest extends Request implements IFormRequest
+class BankAccountFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,6 +24,11 @@ class BankAccountFormRequest extends Request implements IFormRequest
      */
     public function rules()
     {
-        return BankAccountRepository::rules();
+        return [
+            'reference' => 'required|unique_with:bank_accounts,reference',
+            'iban' => 'required',
+            'bic' => 'required',
+            'status' => 'required',
+        ];
     }
 }

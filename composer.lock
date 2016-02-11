@@ -307,7 +307,7 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb/abstract.git",
-                "reference": "fa96781fadfc2c0357afbbee2e9e5317467c41ac"
+                "reference": "1311310d7b207be90c61ef23dea7b63be8ffb429"
             },
             "require": {
                 "chrisbjr/api-guard": "^2.3",
@@ -351,7 +351,7 @@
                 "Interfaces",
                 "Laravel"
             ],
-            "time": "2016-02-11 10:14:43"
+            "time": "2016-02-11 10:48:02"
         },
         {
             "name": "da-mitchell/steam-api",

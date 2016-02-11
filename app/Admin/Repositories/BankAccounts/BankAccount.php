@@ -1,17 +1,21 @@
 <?php
 
-namespace App\Admin\Models;
+namespace App\Admin\Repositories\BankAccounts;
 
 use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class BillPart extends Model
+class BankAccount extends Model implements Transformable
 {
+    use TransformableTrait;
+
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'bills_parts';
+    protected $table = 'bank_accounts';
 
     /**
      * The attributes that are mass assignable.
@@ -19,12 +23,10 @@ class BillPart extends Model
      * @var array
      */
     protected $fillable = [
-        'bill_id',
-        'designation',
-        'quantity',
-        'unit_price_without_vat',
-        'price_without_vat',
-        'amount_vat',
+        'reference',
+        'iban',
+        'bic',
+        'status',
     ];
 
     /**
@@ -33,12 +35,4 @@ class BillPart extends Model
      * @var array
      */
     protected $hidden = [];
-
-    /**
-     * Get the bill
-     */
-    public function bill()
-    {
-        return $this->hasOne('App\Admin\Models\Bill');
-    }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\CVEPDB\Admin\Requests;
+namespace App\Admin\Requests;
 
-use App\Http\Requests\Request;
+use CVEPDB\Requests\Request;
 
 class EntiteFormRequest extends Request
 {

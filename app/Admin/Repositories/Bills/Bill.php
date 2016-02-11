@@ -1,11 +1,15 @@
 <?php
 
-namespace App\Admin\Models;
+namespace App\Admin\Repositories\Bills;
 
 use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class Bill extends Model
+class Bill extends Model implements Transformable
 {
+    use TransformableTrait;
+
     /**
      * The database table used by the model.
      *
@@ -39,7 +43,7 @@ class Bill extends Model
      */
     public function parts()
     {
-        return $this->hasMany('App\Admin\Models\BillPart');
+        return $this->hasMany('App\Admin\Repositories\Bills\BillPart');
     }
 
     /**
@@ -47,7 +51,7 @@ class Bill extends Model
      */
     public function vendor()
     {
-        return $this->hasOne('App\Admin\Models\Entite', 'id', 'entite_vendor_id');
+        return $this->hasOne('App\Admin\Repositories\Entite', 'id', 'entite_vendor_id');
     }
 
     /**
@@ -55,7 +59,7 @@ class Bill extends Model
      */
     public function client()
     {
-        return $this->hasOne('App\Admin\Models\Entite', 'id', 'entite_client_id');
+        return $this->hasOne('App\Admin\Repositories\Entite', 'id', 'entite_client_id');
     }
 
     /**
@@ -63,6 +67,6 @@ class Bill extends Model
      */
     public function payment()
     {
-        return $this->hasOne('App\Admin\Models\Payment');
+        return $this->hasOne('App\Admin\Repositories\Payment');
     }
 }

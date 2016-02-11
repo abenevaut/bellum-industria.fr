@@ -1,6 +1,6 @@
 <?php
 
-namespace App\CVEPDB\Admin\Traits\Models;
+namespace App\Admin\Repositories\Entites;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,7 +8,7 @@ use Auth;
 use ReflectionClass;
 use Exception;
 
-use App\CVEPDB\Admin\Models\LogEntite;
+use App\Admin\Repositories\LogEntite;
 
 /**
  * Class ModelEventLogger
@@ -16,7 +16,7 @@ use App\CVEPDB\Admin\Models\LogEntite;
  *
  *  Automatically Log Add, Update, Delete events of Model.
  */
-trait LogEntitesTrait
+trait LogEntiteTrait
 {
 
     /**
