@@ -120,7 +120,7 @@ class TeamOutputter extends AbsLaravelOutputter
 
         $users = $request->only('members');
 
-        if (count($users) > 0) {
+        if (count($users['members']) > 0) {
 
             $team->users()->detach();
 
