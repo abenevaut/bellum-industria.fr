@@ -8,7 +8,7 @@ class CocFormat extends AbsOutputterSitemapFormat
 {
     public function getLoc()
     {
-        return urlencode('tag');
+        return 'tag';
     }
 
     public function getLastModification()

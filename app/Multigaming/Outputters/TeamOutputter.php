@@ -172,7 +172,7 @@ class TeamOutputter extends AbsLaravelOutputter
             new CocSitemapFormat,
             [
                 [
-                    'tag' => $coc_clan->tag(),
+                    'tag' => urlencode($coc_clan->tag()),
                     'name' => $coc_clan->name()
                 ]
             ],

@@ -13,11 +13,6 @@
 
 Route::group(['domain' => env('DOMAIN_MULTIGAMING')], function () {
 
-    Route::group(['prefix' => 'auth'], function () {
-        Route::get('login', '\App\Multigaming\Controllers\AuthController@login');
-        // Route::get('login_battlenet', '\App\Multigaming\Controllers\AuthController@login_battlenet');
-        Route::get('logout', '\App\Multigaming\Controllers\AuthController@logout');
-    });
 
     Route::resource('index', '\App\Multigaming\Controllers\IndexController');
     Route::get('/', '\App\Multigaming\Controllers\IndexController@index');
@@ -25,11 +20,28 @@ Route::group(['domain' => env('DOMAIN_MULTIGAMING')], function () {
     Route::get('challenge', '\App\Multigaming\Controllers\IndexController@challenge');
     Route::get('message-of-the-day', '\App\Multigaming\Controllers\IndexController@messageoftheday');
     Route::get('ranks', '\App\Multigaming\Controllers\IndexController@ranks');
-    Route::get('sitemap', '\App\Multigaming\Controllers\IndexController@sitemap');
+
+
+    Route::resource('teams', '\App\Multigaming\Controllers\TeamController');
+
+
+    /*
+     * Auth
+     */
+
+    Route::group(['prefix' => 'auth'], function () {
+        Route::get('login', '\App\Multigaming\Controllers\AuthController@login');
+        // Route::get('login_battlenet', '\App\Multigaming\Controllers\AuthController@login_battlenet');
+        Route::get('logout', '\App\Multigaming\Controllers\AuthController@logout');
+    });
+
+
+    /*
+     * Sitemaps
+     */
+
+    Route::get('sitemap.xml', '\App\Multigaming\Controllers\IndexController@sitemap');
     Route::get('sitemap-teams', ['as' => 'teams.sitemap', 'uses' => '\App\Multigaming\Controllers\TeamController@sitemap']);
     Route::get('sitemap-coc', ['as' => 'coc.sitemap', 'uses' => '\App\Multigaming\Controllers\TeamController@sitemapcoc']);
 
-    Route::group(['middleware' => ['role:admin,gamer-admin']], function () {
-        Route::resource('teams', '\App\Multigaming\Controllers\TeamController');
-    });
 });

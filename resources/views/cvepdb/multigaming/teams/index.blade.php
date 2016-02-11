@@ -90,7 +90,11 @@
 
                 <div class="row" style="border-bottom: 1px solid #eee; margin-bottom:15px;">
 
-                    <div class="one-third">
+                    @if (!Auth::check() || !(Auth::user()->hasRole('admin') || !(Auth::user()->hasRole('gamer-admin') && Auth::user()->hasPermission('gad-teams-management'))))
+                        <div class="one-half">
+                    @else
+                        <div class="one-third">
+                    @endif
 
                         <a href="{{ url('teams/'.$team->id) }}" title="{!! $team->name !!}">
                             {!! $team->name !!}
@@ -98,7 +102,11 @@
 
                     </div>
 
-                    <div class="one-third">
+                    @if (!Auth::check() || !(Auth::user()->hasRole('admin') || !(Auth::user()->hasRole('gamer-admin') && Auth::user()->hasPermission('gad-teams-management'))))
+                        <div class="one-half last">
+                    @else
+                        <div class="one-third">
+                    @endif
 
                         @if ($team->users->count())
                             <ul>
@@ -116,6 +124,7 @@
                         @endif
                     </div>
 
+                    @if (Auth::check() && (Auth::user()->hasRole('admin') || (Auth::user()->hasRole('gamer-admin') && Auth::user()->hasPermission('gad-teams-management'))))
                     <div class="one-third last">
 
                         <a href="javascript:void(0);" class="js-teams-edit button orange"
@@ -134,6 +143,8 @@
                         {!! Form::close() !!}
 
                     </div>
+                    @endif
+
                     <div class="clear"></div>
                 </div>
                 <div class="clear"></div>
