@@ -5,8 +5,8 @@ namespace App\Vitrine\Controllers;
 use Illuminate\Http\Request as Request;
 use CVEPDB\Controllers\AbsBaseController as BaseController;
 
-use App\Admin\Models\LogContact;
 use App\Vitrine\Requests\ContactFormRequest;
+use App\Admin\Repositories\Users\LogContact;
 use App\CVEPDB\Services\Mails\ContactMailService;
 
 class ContactController extends BaseController

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\CVEPDB\Admin\Controllers;
+namespace App\Admin\Controllers;
 
-use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
-use App\CVEPDB\Admin\Models\Payment;
-use App\CVEPDB\Admin\Requests\PaymentFormRequest;
+use CVEPDB\Controllers\AbsController as Controller;
+use App\Admin\Repositories\Bills\Payment;
+use App\Admin\Requests\PaymentFormRequest;
 
 class PaymentController extends Controller
 {

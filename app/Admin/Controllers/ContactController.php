@@ -1,14 +1,13 @@
 <?php
 
-namespace App\CVEPDB\Admin\Controllers;
+namespace App\Admin\Controllers;
 
-use App\CVEPDB\Admin\Controllers\Abs\AbsController as Controller;
-use App\CVEPDB\Interfaces\Controllers\ICRUDRessourceController as CRUD;
+use CVEPDB\Controllers\AbsController as Controller;
 use Illuminate\Http\Request as Request;
 
-use App\CVEPDB\Admin\Outputters\ContactOutputter;
+use App\Admin\Outputters\ContactOutputter;
 
-class ContactController extends Controller implements CRUD
+class ContactController extends Controller
 {
     /**
      * @var null Contact outputter
@@ -17,6 +16,7 @@ class ContactController extends Controller implements CRUD
 
     public function __construct(ContactOutputter $outputter)
     {
+        die('test');
         $this->outputter = $outputter;
     }
 

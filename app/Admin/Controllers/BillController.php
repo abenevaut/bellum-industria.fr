@@ -4,10 +4,10 @@ namespace App\Admin\Controllers;
 
 use Carbon\Carbon;
 
-use CVEPDB\Controllers\Abs\AbsController as Controller;
+use CVEPDB\Controllers\AbsController as Controller;
 use App\Admin\Requests\BillFormRequest as BillFormRequest;
-use App\Admin\Models\Bill;
-use App\Admin\Models\BillPart;
+use App\Admin\Repositories\Bills\Bill;
+use App\Admin\Repositories\Bills\BillPart;
 
 class BillController extends Controller
 {
