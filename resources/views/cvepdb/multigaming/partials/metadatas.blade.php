@@ -18,6 +18,9 @@
 <link rel="stylesheet" type="text/css" href="../css/ie8.css" media="all" />
 <![endif]-->
 
+<link rel="alternate" type="application/rss+xml"
+      href="https://steamcommunity.com/groups/Bellum-Industria/rss" title="Bellum Industria #CVEPDB | Steamcommunity">
+
 <script>
     var cvepdb_config = {
         ENV: 'development',
