@@ -4,7 +4,6 @@ namespace App\Admin\Outputters;
 
 use CVEPDB\Outputters\AbsLaravelOutputter;
 use CVEPDB\Requests\Request;
-
 use App\Admin\Repositories\BankAccounts\BankAccountRepositoryEloquent;
 
 class BankAccountOutputter extends AbsLaravelOutputter

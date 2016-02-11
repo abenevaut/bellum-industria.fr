@@ -2,12 +2,11 @@
 
 namespace App\Admin\Outputters;
 
-use CVEPDB\Outputters\ICRUDOutputter;
 use CVEPDB\Outputters\AbsLaravelOutputter;
-use CVEPDB\Requests\IFormRequest;
+use CVEPDB\Requests\Request;
 use CVEPDB\Repositories\Users\UserRepositoryEloquent;
 
-class UserOutputter extends AbsLaravelOutputter implements ICRUDOutputter
+class UserOutputter extends AbsLaravelOutputter
 {
     /**
      * @var null UserRepositoryEloquent

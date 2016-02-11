@@ -2,9 +2,9 @@
 
 namespace App\CVEPDB\Admin\Outputters;
 
-use App\CVEPDB\Interfaces\Outputters\AbsLaravelOutputter;
-use App\CVEPDB\Interfaces\Requests\IFormRequest;
-use App\CVEPDB\Domain\Users\UserRepositoryEloquent;
+use CVEPDB\Outputters\AbsLaravelOutputter;
+use CVEPDB\Requests\Request;
+use CVEPDB\Repositories\Users\UserRepositoryEloquent;
 
 class RoleOutputter extends AbsLaravelOutputter
 {

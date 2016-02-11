@@ -2,8 +2,8 @@
 
 namespace App\Admin\Outputters;
 
-use CVEPDB\Requests\Request;
 use CVEPDB\Outputters\AbsLaravelOutputter;
+use CVEPDB\Requests\Request;
 use App\Admin\Repositories\Users\LogContactRepositoryEloquent as ContactRepository;
 
 class ContactOutputter extends AbsLaravelOutputter
