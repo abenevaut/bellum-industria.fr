@@ -33,6 +33,9 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
         Route::resource('users', '\App\Admin\Controllers\UserController');
 
 
+        Route::resource('projects', '\App\Admin\Controllers\ProjectController');
+
+
         Route::resource('clients', '\App\Admin\Controllers\ClientController');
 
 

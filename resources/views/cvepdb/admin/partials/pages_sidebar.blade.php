@@ -39,8 +39,11 @@
 
 
 
-            <li class="m-t-30">
-                <a href="#" class="detailed">
+            <li class="m-t-30
+            @if (in_array(Request::path(), ['admin/projects']))
+                    open active
+                @endif">
+                <a href="{{ url('admin/projects') }}" class="detailed">
                     <span class="title">Mes projets</span>
                     <span class="details">X projects en cours</span>
                 </a>
