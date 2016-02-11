@@ -307,11 +307,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb/abstract.git",
-                "reference": "be43f54a9575c34f4cafe1723e7310d1b6268616"
+                "reference": "fa96781fadfc2c0357afbbee2e9e5317467c41ac"
             },
             "require": {
                 "chrisbjr/api-guard": "^2.3",
                 "creitive/laravel5-breadcrumbs": "^1.0",
+                "doctrine/dbal": "~2.3",
                 "felixkiss/uniquewith-validator": "2.*",
                 "jenssegers/raven": "^1.4",
                 "laravel/socialite": "^2.0",
@@ -325,8 +326,7 @@
                 "zizaco/entrust": "dev-laravel-5"
             },
             "require-dev": {
-                "codeception/codeception": "*",
-                "doctrine/dbal": "~2.3"
+                "codeception/codeception": "*"
             },
             "type": "project",
             "autoload": {
@@ -351,7 +351,7 @@
                 "Interfaces",
                 "Laravel"
             ],
-            "time": "2016-02-08 16:26:37"
+            "time": "2016-02-11 10:14:43"
         },
         {
             "name": "da-mitchell/steam-api",
@@ -3994,16 +3994,16 @@
     "packages-dev": [
         {
             "name": "codeception/codeception",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "4ee562f421fd404139dd7b73ae46d075396a4baf"
+                "reference": "b199941f5e59d1e7fd32d78296c8ab98db873d89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/4ee562f421fd404139dd7b73ae46d075396a4baf",
-                "reference": "4ee562f421fd404139dd7b73ae46d075396a4baf",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/b199941f5e59d1e7fd32d78296c8ab98db873d89",
+                "reference": "b199941f5e59d1e7fd32d78296c8ab98db873d89",
                 "shasum": ""
             },
             "require": {
@@ -4070,7 +4070,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2015-12-20 12:11:42"
+            "time": "2016-02-09 22:27:48"
         },
         {
             "name": "doctrine/instantiator",

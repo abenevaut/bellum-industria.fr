@@ -43,6 +43,8 @@ class IndexOutputter extends AbsLaravelOutputter
         $this->teams = $r_team;
         $this->stamm = $r_stamm;
 
+        $this->stamm->init();
+
         $this->addBreadcrumb('Home', '/');
         $this->setBreadcrumbDivider('<i class="icon-right-dir"></i>');
     }
@@ -133,18 +135,30 @@ class IndexOutputter extends AbsLaravelOutputter
         );
     }
 
-    public function test(){
-        $sr = new StammRepository();
-        $sr->init();
-//        dd($sr->getPlayer('STEAM_0:0:13482029'));
-//        dd($sr->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_1'));
+    public function ranks(){
+//        dd( $this->stamm->getPlayer('STEAM_0:0:13482029') );
 
-//        var_dump($sr->getPlayerOnServer('STEAM_0:0:98407167', 'sm_multigaming_csgo_2'));
+//        dd( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_1') );
 
 
-//        $sr->addStammPointsToPlayer('STEAM_0:0:98407167', 100);
 
 
-//        var_dump($sr->getPlayerOnServer('STEAM_0:0:98407167', 'sm_multigaming_csgo_2'));
+        # ADD POINTS
+
+//        var_dump( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_2') );
+//        $this->stamm->addStammPointsToPlayer('STEAM_0:0:13482029', 100);
+//        var_dump( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_2') );
+
+
+
+        # SUB POINTS
+
+//        var_dump( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_2') );
+//        $this->stamm->delStammPointsToPlayer('STEAM_0:0:13482029', 100);
+//        var_dump( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_2') );
+
+
+
+
     }
 }

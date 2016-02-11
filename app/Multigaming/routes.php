@@ -23,6 +23,7 @@ Route::group(['domain' => env('DOMAIN_MULTIGAMING')], function () {
     Route::get('boutique', '\App\Multigaming\Controllers\IndexController@boutique');
     Route::get('challenge', '\App\Multigaming\Controllers\IndexController@challenge');
     Route::get('message-of-the-day', '\App\Multigaming\Controllers\IndexController@messageoftheday');
+    Route::get('ranks', '\App\Multigaming\Controllers\IndexController@ranks');
     Route::get('sitemap', '\App\Multigaming\Controllers\IndexController@sitemap');
     Route::get('sitemap-teams', ['as' => 'teams.sitemap', 'uses' => '\App\Multigaming\Controllers\TeamController@sitemap']);
 

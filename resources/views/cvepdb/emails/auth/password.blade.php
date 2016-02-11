@@ -1,4 +1,4 @@
-@extends('emails.layouts.default')
+@extends('cvepdb.emails.layouts.default')
 
 @section('content')
 <!--feature-content-->
@@ -39,7 +39,7 @@
                                                 Click here to reset your password : <a href="{{ url('password/reset/'.$token) }}">Lien</a>
                                             </td>
                                         </tr>
-                                        @include('emails.partials.signature')
+                                        @include('cvepdb.emails.partials.signature')
                                                 <!--end content-->
                                         </tbody>
                                     </table>

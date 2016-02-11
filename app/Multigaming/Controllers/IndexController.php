@@ -37,6 +37,11 @@ class IndexController extends BaseController
         return $this->outputter->challenge();
     }
 
+    public function ranks()
+    {
+        return $this->outputter->ranks();
+    }
+
     public function messageoftheday() {
         return $this->outputter->messageoftheday();
     }

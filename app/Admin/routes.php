@@ -16,25 +16,25 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
     // Authentication routes...
     Route::group(['prefix' => 'auth'], function () {
         // Registration routes...
-//        Route::get('register', '\App\Http\Controllers\Auth\AuthController@getRegister');
-//        Route::post('register', '\App\Http\Controllers\Auth\AuthController@postRegister');
+//        Route::get('register', '\CVEPDB\Controllers\Auth\AuthController@getRegister');
+//        Route::post('register', '\CVEPDB\Controllers\Auth\AuthController@postRegister');
         // Authentication routes...
-        Route::get('login', '\App\Http\Controllers\Auth\AuthController@getLogin');
-        Route::post('login', '\App\Http\Controllers\Auth\AuthController@postLogin');
-        Route::get('logout', '\App\Http\Controllers\Auth\AuthController@getLogout');
-        // Social Login
-        Route::get('login/{provider?}', ['uses' => '\App\Http\Controllers\Auth\AuthController@redirectToProvider']);
-        // Login callbacks
-        Route::get('login/callback/{provider?}', ['uses' => '\App\Http\Controllers\Auth\AuthController@handleProviderCallback']);
+        Route::get('login', '\CVEPDB\Controllers\Auth\AuthController@getLogin');
+        Route::post('login', '\CVEPDB\Controllers\Auth\AuthController@postLogin');
+        Route::get('logout', '\CVEPDB\Controllers\Auth\AuthController@getLogout');
+//        // Social Login
+//        Route::get('login/{provider?}', ['uses' => '\CVEPDB\Controllers\Auth\AuthController@redirectToProvider']);
+//        // Login callbacks
+//        Route::get('login/callback/{provider?}', ['uses' => '\CVEPDB\Controllers\Auth\AuthController@handleProviderCallback']);
     });
 
     Route::group(['prefix' => 'password'], function () {
         // Password reset link request routes...
-        Route::get('email', '\App\Http\Controllers\Auth\PasswordController@getEmail');
-        Route::post('email', '\App\Http\Controllers\Auth\PasswordController@postEmail');
+        Route::get('email', '\CVEPDB\Controllers\Auth\PasswordController@getEmail');
+        Route::post('email', '\CVEPDB\Controllers\Auth\PasswordController@postEmail');
         // Password reset routes...
-        Route::get('reset/{token}', '\App\Http\Controllers\Auth\PasswordController@getReset');
-        Route::post('reset', '\App\Http\Controllers\Auth\PasswordController@postReset');
+        Route::get('reset/{token}', '\CVEPDB\Controllers\Auth\PasswordController@getReset');
+        Route::post('reset', '\CVEPDB\Controllers\Auth\PasswordController@postReset');
     });
 
     Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function () {

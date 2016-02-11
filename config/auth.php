@@ -59,7 +59,7 @@ return [
     */
 
     'password' => [
-        'email' => 'cvepdb.emails.password',
+        'email' => 'cvepdb.emails.auth.password',
         'table' => 'password_resets',
         'expire' => 60,
     ],
