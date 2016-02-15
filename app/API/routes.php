@@ -15,8 +15,7 @@
 Route::group(['domain' => env('DOMAIN_API')], function () {
     Route::group(['prefix' => 'v1'], function () {
 
-        Route::get('users/{id}', '\App\CVEPDB\Api\Controllers\UsersController@show');
-        Route::get('users', '\App\CVEPDB\Api\Controllers\UsersController@all');
+        Route::resource('users', '\App\Api\Controllers\UserController');
 
     });
 });

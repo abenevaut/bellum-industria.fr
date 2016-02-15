@@ -2,8 +2,7 @@
 
 namespace App\CVEPDB\Api\Transformers;
 
-use App\User;
-
+use CVEPDB\Repositories\Users\User;
 use League\Fractal;
 
 class UserTransformer extends Fractal\TransformerAbstract

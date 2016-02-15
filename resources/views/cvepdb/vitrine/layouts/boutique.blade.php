@@ -4,6 +4,9 @@
     @include('cvepdb.vitrine.partials.longwave_metadatas')
 </head>
 <body class="layout layout--full">
+
+@include('cvepdb.vitrine.partials.facebook_sdk')
+
 <!-- Begin Body Wrapper -->
 <div class="layout__body-wrapper layout__body-wrapper--full">
     <!-- Begin Header Wrapper -->
@@ -12,12 +15,15 @@
         <div class="layout__body-wrapper__content-wrapper__inner layout__body-wrapper__content-wrapper__inner--header">
             <div class="layout__body-wrapper__content-wrapper__inner__logo">
                 <a href="{{ url('/') }}">
-                    <img src="/assets/images/cvepdb/logo.png" alt="Ca va ENCORE parler de bits!" width="200" height="80" />
+                    <img src="/assets/images/cvepdb/logo.png" alt="Ca va ENCORE parler de bits!" width="200"
+                         height="80"/>
                 </a>
             </div>
             <!-- Begin Menu -->
-            <div id="js-layout__body-wrapper__content-wrapper__inner__menu" class="layout__body-wrapper__content-wrapper__inner__menu clearfix js-call-selectnav js-call-ddsmoothmenu js-layout__body-wrapper__content-wrapper__inner__menu">
-                <ul id="js-layout__body-wrapper__content-wrapper__inner__menu__list" class="layout__body-wrapper__content-wrapper__inner__menu__list">
+            <div id="js-layout__body-wrapper__content-wrapper__inner__menu"
+                 class="layout__body-wrapper__content-wrapper__inner__menu clearfix js-call-selectnav js-call-ddsmoothmenu js-layout__body-wrapper__content-wrapper__inner__menu">
+                <ul id="js-layout__body-wrapper__content-wrapper__inner__menu__list"
+                    class="layout__body-wrapper__content-wrapper__inner__menu__list">
                     <li>
                         <a href="{{ url('/') }}">{{ trans('cvepdb/global.home') }}</a>
                     </li>
@@ -34,6 +40,7 @@
                                         <a href="{{ url('clients/dashboard') }}">{!! trans('cvepdb/global.client_panel') !!}</a>
                                     </li>
                                 @endif
+
                                 <li><a href="{{ url('auth/logout') }}">{!! trans('cvepdb/global.logout') !!}</a></li>
                             </ul>
                         @else
@@ -54,14 +61,14 @@
     {{--@include('cvepdb.vitrine.partials.longwave_breadcrumbs')--}}
 
     {{--@if (Session::has('message'))--}}
-        {{--<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">--}}
-            {{--<!-- Begin Inner -->--}}
-            {{--<div class="layout__body-wrapper__content-wrapper__inner" style="padding: 15px 0;">--}}
-                {{--<div class="{{ Session::get('alert-class', 'info-box') }}">--}}
-                    {{--{{ Session::get('message') }}--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
+    {{--<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">--}}
+    {{--<!-- Begin Inner -->--}}
+    {{--<div class="layout__body-wrapper__content-wrapper__inner" style="padding: 15px 0;">--}}
+    {{--<div class="{{ Session::get('alert-class', 'info-box') }}">--}}
+    {{--{{ Session::get('message') }}--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    {{--</div>--}}
     {{--@endif--}}
 
     @yield('content')

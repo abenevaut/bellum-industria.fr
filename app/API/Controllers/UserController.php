@@ -1,12 +1,12 @@
 <?php
 
-namespace App\CVEPDB\Api\Controllers;
+namespace App\Api\Controllers;
 
-use App\User;
+use CVEPDB\Repositories\Users\User;
 use App\CVEPDB\Api\Transformers\UserTransformer;
 use Chrisbjr\ApiGuard\Http\Controllers\ApiGuardController;
 
-class UsersController extends ApiGuardController
+class UserController extends ApiGuardController
 {
     protected $apiMethods = [
         'show' => [
@@ -36,19 +36,25 @@ class UsersController extends ApiGuardController
         // Get user associated
         // Login user
         // Use Auth::user();
+
+        // dd(Auth::user());
     }
 
     /**
-     * curl --header "X-Authorization: 6f4ef411098fbb37743f27c4990a69ba4b5cb653" http://api.site.cvepdb.local/v1/users
+     * curl --header "X-Authorization: e278c3a9cef3c4e8f1152bb255d3f5c6803d9a52" http://api.site.cvepdb.local/v1/users
      *
      * @return mixed
      */
-    public function all()
+    public function index()
     {
         $users = User::all();
         return $this->response->withCollection($users, new UserTransformer);
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function show($id)
     {
         try {

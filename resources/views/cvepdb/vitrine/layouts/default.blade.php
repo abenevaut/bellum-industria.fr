@@ -4,6 +4,9 @@
         @include('cvepdb.vitrine.partials.longwave_metadatas')
     </head>
     <body class="layout layout--full">
+
+        @include('cvepdb.vitrine.partials.facebook_sdk')
+
         <!-- Begin Body Wrapper -->
         <div class="layout__body-wrapper layout__body-wrapper--full">
             @include('cvepdb.vitrine.partials.longwave_header')
