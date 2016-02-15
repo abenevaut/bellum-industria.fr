@@ -5,19 +5,26 @@ namespace App\Admin\Outputters;
 use CVEPDB\Services\Outputters\AbsLaravelOutputter;
 use CVEPDB\Requests\IFormRequest;
 use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
+use CVEPDB\Repositories\Permissions\PermissionRepositoryEloquent;
 
 class RoleOutputter extends AbsLaravelOutputter
 {
     /**
-     * @var null UserRepositoryEloquent
+     * @var UserRepositoryEloquent|null
      */
     private $r_role = null;
 
-    public function __construct(RoleRepositoryEloquent $r_role)
+    /**
+     * @var PermissionRepositoryEloquent|null
+     */
+    private $r_permission = null;
+
+    public function __construct(RoleRepositoryEloquent $r_role, PermissionRepositoryEloquent $r_permission)
     {
         parent::__construct();
 
         $this->r_role = $r_role;
+        $this->r_permission = $r_permission;
     }
 
     /**
@@ -40,9 +47,13 @@ class RoleOutputter extends AbsLaravelOutputter
      */
     public function create()
     {
+        $permissions = $this->r_permission->all();
+
         return $this->output(
             'cvepdb.admin.roles.create',
-            []
+            [
+                'permissions' => $permissions/*->lists('name', 'id')*/
+            ]
         );
     }
 
@@ -55,11 +66,18 @@ class RoleOutputter extends AbsLaravelOutputter
      */
     public function store(IFormRequest $request)
     {
-        $this->r_role->create([
+        $role = $this->r_role->create([
             'name' => $request->get('name'),
             'display_name' => $request->get('display_name'),
             'description' => $request->get('description')
         ]);
+
+        $permissions = $request->only('role_permission_id');
+
+        if (count($permissions['role_permission_id']) > 0) {
+            $role->permissions()->attach($permissions['role_permission_id']);
+        }
+
         return redirect('admin/roles');
     }
 

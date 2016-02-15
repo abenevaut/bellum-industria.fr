@@ -20,30 +20,34 @@
                            role="grid">
                         <thead>
                         <tr role="row">
-                            <th class="sorting_asc">Name</th>
-                            <th class="sorting_asc">Display Name</th>
+                            <th>Name</th>
+                            <th>Display Name</th>
                             <th>Number of users assigned</th>
                             <th>Description</th>
-                            <th>Permissions</th>
+                            <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($roles as $role)
                             <tr>
-                                <td class="font-montserrat all-caps fs-12 col-lg-3">
+                                <td class="font-montserrat all-caps fs-12 col-lg-2">
                                     {{ $role->name }}
                                 </td>
-                                <td class="font-montserrat all-caps fs-12 col-lg-3">
+                                <td class="font-montserrat all-caps fs-12 col-lg-2">
                                     {{ $role->display_name }}
                                 </td>
-                                <td class="font-montserrat all-caps fs-12 col-lg-3">
+                                <td class="font-montserrat all-caps fs-12 col-lg-1">
                                     {{ $role->users->count() }}
                                 </td>
-                                <td class="font-montserrat all-caps fs-12 col-lg-3">
+                                <td class="font-montserrat all-caps fs-12 col-lg-4">
                                     {{ $role->description }}
                                 </td>
                                 <td class="font-montserrat all-caps fs-12 col-lg-3">
-                                    <a href="{{ url('admin/roles/' . $role->id . '/edit') }}">Edit</a>
+
+                                    <a class="btn btn-info btn-cons m-b-10" href="{{ url('admin/roles/' . $role->id . '/edit') }}">
+                                        <i class="fa fa-paste"></i> <span class="bold">Edit</span>
+                                    </a>
+
                                 </td>
                             </tr>
                         @endforeach

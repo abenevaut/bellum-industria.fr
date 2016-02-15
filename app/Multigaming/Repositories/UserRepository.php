@@ -72,23 +72,6 @@ class UserRepository extends UserRepositoryEloquent
      */
     public function dropdown()
     {
-        $dropdown = [];
-
-        switch (\Config::get('database.default')) {
-            case 'pgsql' : {
-                $dropdown = User::select('id', DB::raw("ARRAY_TO_STRING(ARRAY[last_name, first_name], ' ') AS full_name"))
-                    ->orderBy('last_name', 'asc')
-                    ->lists('full_name', 'id');
-                break;
-            }
-            case 'mysql':
-            default: {
-                $dropdown = User::select('id', DB::raw('CONCAT(last_Name, " ", first_Name) AS full_name'))
-                    ->orderBy('last_name', 'asc')
-                    ->lists('full_name', 'id');
-                break;
-            }
-        }
-        return $dropdown;
+        return User::all()->lists('full_name', 'id');
     }
 }

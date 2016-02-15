@@ -27,7 +27,6 @@
                                 <th class="sorting_asc">Display Name</th>
                                 <th>Number of roles use it</th>
                                 <th>Description</th>
-                                <th>Permissions</th>
                             </tr>
                             </thead>
                             <tbody>

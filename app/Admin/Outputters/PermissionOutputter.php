@@ -113,6 +113,6 @@ class PermissionOutputter extends AbsLaravelOutputter
 
     public function ajax_permissions()
     {
-        return $this->r_permission->all();
+        return ['results' => $this->r_permission->all()];
     }
 }

@@ -66,9 +66,38 @@
                     </div>
 
                     <div class="form-group form-group-default required">
-                        <label>Description</label>
-                        <input type="hidden" id="js-select-permission" class="full-width" data-placeholder="Select permissions"
-                               name="role_permission_id">
+                        <label>Permissions</label>
+                        <br>
+                        {{--<input type="hidden" id="js-select-permission" class="full-width"--}}
+                        {{--data-placeholder="Select permissions"--}}
+                        {{--name="role_permission_id[]">--}}
+
+                        {{--{!! Form::select(--}}
+                        {{--'role_permission_id[]',--}}
+                        {{--$permissions,--}}
+                        {{--'',--}}
+                        {{--array(--}}
+                        {{--'id' => "js-select-permission",--}}
+                        {{--'class' => 'full-width',--}}
+                        {{--'data-placeholder' => "Select permissions",--}}
+                        {{--'multiple' => 'multiple'--}}
+                        {{--)--}}
+                        {{--) !!}--}}
+
+
+
+
+                        @foreach ($permissions as $permission)
+                            <div class="form-group form-group-default input-group">
+                                <label class="inline">{{ $permission->name }}</label>
+                        <span class="input-group-addon bg-transparent">
+                        <input type="checkbox" name="role_permission_id[]" data-init-plugin="switchery"
+                               value="{{ $permission->id }}"/>
+                        </span>
+                            </div>
+                        @endforeach
+
+
                     </div>
 
 
@@ -84,38 +113,41 @@
     </div>
 @endsection
 
-@section('jsfooter')
+{{--@section('jsfooter')--}}
 
-    <script>
+{{--<script>--}}
 
-        $('#js-select-permission').select2({
-            ajax: {
-                url: "{{ url('admin/permissions/ajax/getpermissions') }}",
-                dataType: 'json',
-                type: "GET",
-                delay: 250,
-                data: function (params) {
-                    return {
-                        token: '{{csrf_token()}}'
-                    };
-                },
-                results: function (data) {
-                    return data;
-                },
-                cache: true
-            },
-            escapeMarkup: function (markup) {
-                return markup;
-            },
-            formatResult: function (item) {
-                return '<div class="row"><div class="col-sm-12"><b>' + item.name + '</b></div></div>';
-            },
-            formatSelection: function (item) {
-                return '<div class="row"><div class="col-sm-12"><b>' + item.name + '</b></div></div>'
-            }
-        }).on("change", function (e) {
-        });
+{{--$('#js-select-permission').select2(--}}
+{{--{--}}
+{{--multiple: true,--}}
+{{--ajax: {--}}
+{{--url: "{{ url('admin/permissions/ajax/getpermissions') }}",--}}
+{{--dataType: 'json',--}}
+{{--type: "GET",--}}
+{{--delay: 250,--}}
+{{--data: function (params) {--}}
+{{--return {--}}
+{{--token: '{{csrf_token()}}'--}}
+{{--};--}}
+{{--},--}}
+{{--results: function (data) {--}}
+{{--return data;--}}
+{{--},--}}
+{{--cache: true--}}
+{{--},--}}
+{{--escapeMarkup: function (markup) {--}}
+{{--return markup;--}}
+{{--},--}}
+{{--formatResult: function (item) {--}}
+{{--return '<div class="row"><div class="col-sm-12"><b>' + item.name + '</b></div></div>';--}}
+{{--},--}}
+{{--formatSelection: function (item) {--}}
+{{--return '<div class="row"><div class="col-sm-12"><b>' + item.name + '</b></div></div>'--}}
+{{--}--}}
+{{--}--}}
+{{--).on("change", function (e) {--}}
+{{--});--}}
 
-    </script>
+{{--</script>--}}
 
-@endsection
+{{--@endsection--}}
