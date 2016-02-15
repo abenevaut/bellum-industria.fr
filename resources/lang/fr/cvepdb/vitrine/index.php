@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'slogan' => 'Abordons ensemble et <em>sans complexe</em> des sujets <strong>d\'actualités informatique</strong>.',
+    'slogan' => 'Consultant indépendant et <strong>développeur Web</strong>.',
     'web_crafter' => 'Web artisanat',
 
     'services_your_idea' => 'Votre idée',

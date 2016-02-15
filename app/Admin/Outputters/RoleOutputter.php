@@ -1,23 +1,23 @@
 <?php
 
-namespace App\CVEPDB\Admin\Outputters;
+namespace App\Admin\Outputters;
 
 use CVEPDB\Services\Outputters\AbsLaravelOutputter;
-use CVEPDB\Requests\Request;
-use CVEPDB\Repositories\Users\UserRepositoryEloquent;
+use CVEPDB\Requests\IFormRequest;
+use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
 
 class RoleOutputter extends AbsLaravelOutputter
 {
     /**
      * @var null UserRepositoryEloquent
      */
-    private $r_user = null;
+    private $r_role = null;
 
-    public function __construct(UserRepositoryEloquent $r_user)
+    public function __construct(RoleRepositoryEloquent $r_role)
     {
         parent::__construct();
 
-        $this->r_user = $r_user;
+        $this->r_role = $r_role;
     }
 
     /**
@@ -25,12 +25,12 @@ class RoleOutputter extends AbsLaravelOutputter
      */
     public function index()
     {
-        $users = $this->r_user->paginate(null, ['*']);
+        $roles = $this->r_role->paginate(null, ['*']);
 
         return $this->output(
-            'cvepdb.admin.users.index',
+            'cvepdb.admin.roles.index',
             [
-                'users' => $users
+                'roles' => $roles
             ]
         );
     }
@@ -41,7 +41,7 @@ class RoleOutputter extends AbsLaravelOutputter
     public function create()
     {
         return $this->output(
-            'cvepdb.admin.users.create',
+            'cvepdb.admin.roles.create',
             []
         );
     }
@@ -55,12 +55,12 @@ class RoleOutputter extends AbsLaravelOutputter
      */
     public function store(IFormRequest $request)
     {
-        $this->r_user->create_user(
-            $request->get('first_name'),
-            $request->get('last_name'),
-            $request->get('email')
-        );
-        return redirect('admin/users');
+        $this->r_role->create([
+            'name' => $request->get('name'),
+            'display_name' => $request->get('display_name'),
+            'description' => $request->get('description')
+        ]);
+        return redirect('admin/roles');
     }
 
     /**

@@ -22,10 +22,11 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
         Route::get('login', '\CVEPDB\Controllers\Auth\AuthController@getLogin');
         Route::post('login', '\CVEPDB\Controllers\Auth\AuthController@postLogin');
         Route::get('logout', '\CVEPDB\Controllers\Auth\AuthController@getLogout');
-//        // Social Login
-//        Route::get('login/{provider?}', ['uses' => '\CVEPDB\Controllers\Auth\AuthController@redirectToProvider']);
-//        // Login callbacks
-//        Route::get('login/callback/{provider?}', ['uses' => '\CVEPDB\Controllers\Auth\AuthController@handleProviderCallback']);
+
+        // Social Login
+        Route::get('login/{provider?}', ['uses' => '\CVEPDB\Controllers\Auth\AuthController@redirectToProvider']);
+        // Login callbacks
+        Route::get('login/callback/{provider?}', ['uses' => '\CVEPDB\Controllers\Auth\AuthController@handleProviderCallback']);
     });
 
     Route::group(['prefix' => 'password'], function () {

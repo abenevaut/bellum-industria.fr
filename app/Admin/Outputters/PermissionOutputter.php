@@ -1,23 +1,23 @@
 <?php
 
-namespace App\CVEPDB\Admin\Outputters;
+namespace App\Admin\Outputters;
 
 use CVEPDB\Services\Outputters\AbsLaravelOutputter;
-use CVEPDB\Requests\Request;
-use CVEPDB\Repositories\Users\UserRepositoryEloquent;
+use CVEPDB\Requests\IFormRequest;
+use CVEPDB\Repositories\Permissions\PermissionRepositoryEloquent;
 
-class PermissionOutputter extends AbsLaravelOutputter implements ICRUDOutputter
+class PermissionOutputter extends AbsLaravelOutputter
 {
     /**
-     * @var null UserRepositoryEloquent
+     * @var null PermissionRepositoryEloquent
      */
-    private $r_user = null;
+    private $r_permission = null;
 
-    public function __construct(UserRepositoryEloquent $r_user)
+    public function __construct(PermissionRepositoryEloquent $r_permission)
     {
         parent::__construct();
 
-        $this->r_user = $r_user;
+        $this->r_permission = $r_permission;
     }
 
     /**
@@ -25,12 +25,12 @@ class PermissionOutputter extends AbsLaravelOutputter implements ICRUDOutputter
      */
     public function index()
     {
-        $users = $this->r_user->paginate(null, ['*']);
+        $permissions = $this->r_permission->paginate(null, ['*']);
 
         return $this->output(
-            'cvepdb.admin.users.index',
+            'cvepdb.admin.permissions.index',
             [
-                'users' => $users
+                'permissions' => $permissions
             ]
         );
     }
@@ -40,9 +40,13 @@ class PermissionOutputter extends AbsLaravelOutputter implements ICRUDOutputter
      */
     public function create()
     {
+        $permissions = $this->r_permission->all();
+
         return $this->output(
-            'cvepdb.admin.users.create',
-            []
+            'cvepdb.admin.permissions.create',
+            [
+                'permissions' => $permissions
+            ]
         );
     }
 
@@ -55,12 +59,12 @@ class PermissionOutputter extends AbsLaravelOutputter implements ICRUDOutputter
      */
     public function store(IFormRequest $request)
     {
-        $this->r_user->create_user(
-            $request->get('first_name'),
-            $request->get('last_name'),
-            $request->get('email')
-        );
-        return $this->redirectTo('admin/users');
+        $this->r_permission->create([
+            'name' => $request->get('name'),
+            'display_name' => $request->get('display_name'),
+            'description' => $request->get('description')
+        ]);
+        return redirect('admin/permissions');
     }
 
     /**
@@ -105,5 +109,10 @@ class PermissionOutputter extends AbsLaravelOutputter implements ICRUDOutputter
     public function destroy($id)
     {
         //
+    }
+
+    public function ajax_permissions()
+    {
+        return $this->r_permission->all();
     }
 }

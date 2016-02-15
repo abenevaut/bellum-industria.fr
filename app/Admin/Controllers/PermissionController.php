@@ -3,20 +3,20 @@
 namespace App\Admin\Controllers;
 
 use CVEPDB\Controllers\AbsController as Controller;
-use App\Admin\Outputters\RoleOutputter;
-use App\Admin\Requests\RoleFormRequest;
+use App\Admin\Outputters\PermissionOutputter;
+use App\Admin\Requests\PermissionFormRequest;
 
-class RoleController extends Controller
+class PermissionController extends Controller
 {
     /**
-     * @var UserRepository|null
+     * @var PermissionOutputter|null
      */
     protected $outputter = null;
 
     /**
      * @param UserOutputter $outputter
      */
-    public function __construct(RoleOutputter $outputter)
+    public function __construct(PermissionOutputter $outputter)
     {
         parent::__construct();
 
@@ -45,7 +45,7 @@ class RoleController extends Controller
      *
      * @return Response
      */
-    public function store(RoleFormRequest $request)
+    public function store(PermissionFormRequest $request)
     {
         return $this->outputter->store($request);
     }
@@ -92,5 +92,10 @@ class RoleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function postAjaxGetPermissions()
+    {
+        return $this->outputter->ajax_permissions();
     }
 }

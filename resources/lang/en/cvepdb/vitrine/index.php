@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'slogan' => 'Let\'s talk together <em>without complex </em>about <strong>topics of IT projects</strong>.',
+    'slogan' => 'Consultant freelance & <strong>Web developer</strong>.',
     'web_crafter' => 'Web crafter',
 
     'services_your_idea' => 'Your idea',

@@ -35,7 +35,8 @@
         "prettus/l5-repository": "^2.1",
         "doctrine/dbal": "~2.3",
         "toniperic/php-clash-of-clans": "dev-master",
-        "depotwarehouse/oauth2-bnet": "^5.0"
+        "depotwarehouse/oauth2-bnet": "^5.0",
+        "gbrock/laravel-pages": "^0.1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

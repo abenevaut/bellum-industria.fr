@@ -142,6 +142,11 @@
                         <span class="icon-thumbnail">RO</span>
                     </li>
 
+                    <li class="">
+                        <a href="{{ url('admin/permissions') }}">Permissions</a>
+                        <span class="icon-thumbnail">PE</span>
+                    </li>
+
                 </ul>
             </li>
 

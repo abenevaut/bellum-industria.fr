@@ -81,25 +81,52 @@
             <!--END Login Form-->
 
 
-            {{--<div class="pull-bottom sm-pull-bottom">--}}
-            {{--<div class="m-b-30 p-r-80 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">--}}
-            {{--<div class="col-sm-4 col-md-3 no-padding">--}}
-            {{--<img alt="" class="m-t-5"--}}
-            {{--data-src="/dist/images/cvepdb/apple-touch-icon-114x114-precomposed.png"--}}
-            {{--data-src-retina="/dist/images/cvepdb/apple-touch-icon-114x114-precomposed.png"--}}
-            {{--height="60" src="/dist/images/cvepdb/apple-touch-icon-114x114-precomposed.png"--}}
-            {{--width="60">--}}
-            {{--</div>--}}
-            {{--<div class="col-sm-8 no-padding m-t-10">--}}
-            {{--<p>--}}
-            {{--<small>--}}
-            {{--Create a pages account. If you have a facebook account, log into it for this--}}
-            {{--process. Sign in with <a href="#" class="text-info">Facebook</a> or <a href="#"--}}
-            {{--class="text-info">Google</a>--}}
-            {{--</small>--}}
-            {{--</p>--}}
-            {{--</div>--}}
-            {{--</div>--}}
-            {{--</div>--}}
+            <div class="pull-bottom sm-pull-bottom">
+                <div class="m-b-30 p-r-80 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
+                    <div class="col-sm-4 col-md-3 no-padding">
+
+                        &nbsp;
+
+                        {{--<img alt="" class="m-t-5"--}}
+                             {{--data-src="/dist/images/cvepdb/apple-touch-icon-114x114-precomposed.png"--}}
+                             {{--data-src-retina="/dist/images/cvepdb/apple-touch-icon-114x114-precomposed.png"--}}
+                             {{--height="60" src="/dist/images/cvepdb/apple-touch-icon-114x114-precomposed.png"--}}
+                             {{--width="60">--}}
+                    </div>
+                    <div class="col-sm-8 no-padding m-t-10">
+
+                        &nbsp;
+
+                        {{--<p>--}}
+                            {{--<small>--}}
+                                {{--Create a pages account. If you have a facebook account, log into it for this--}}
+                                {{--process. Sign in with <a href="#" class="text-info">Facebook</a> or <a href="#"--}}
+                                                                                                       {{--class="text-info">Google</a>--}}
+                            {{--</small>--}}
+                        {{--</p>--}}
+                        {{--<p>--}}
+                            {{--<small>--}}
+                                {{--Create a pages account. If you have a facebook account, log into it for this--}}
+                                {{--process. Sign in with <a href="#" class="text-info">Facebook</a> or <a href="#"--}}
+                                                                                                       {{--class="text-info">Google</a>--}}
+                            {{--</small>--}}
+                        {{--</p>--}}
+                        {{--<p>--}}
+                            {{--<small>--}}
+                                {{--Create a pages account. If you have a facebook account, log into it for this--}}
+                                {{--process. Sign in with <a href="#" class="text-info">Facebook</a> or <a href="#"--}}
+                                                                                                       {{--class="text-info">Google</a>--}}
+                            {{--</small>--}}
+                        {{--</p>--}}
+                        {{--<p>--}}
+                            {{--<small>--}}
+                                {{--Create a pages account. If you have a facebook account, log into it for this--}}
+                                {{--process. Sign in with <a href="#" class="text-info">Facebook</a> or <a href="#"--}}
+                                                                                                       {{--class="text-info">Google</a>--}}
+                            {{--</small>--}}
+                        {{--</p>--}}
+                    </div>
+                </div>
+            </div>
     </div>
 @endsection

@@ -63,13 +63,13 @@ return [
 //        'client_secret' => 'your-google-app-secret',
 //        'redirect' => 'http://your-callback-url',
 //    ],
-//
-//    'linkedin' => [
-//        'client_id' => 'your-linkedin-app-id',
-//        'client_secret' => 'your-linkedin-app-secret',
-//        'redirect' => 'http://your-callback-url',
-//    ],
-//
+
+    'linkedin' => [
+        'client_id' => env('LINKEDIN_APP_ID'),
+        'client_secret' => env('LINKEDIN_APP_SECRET'),
+        'redirect' => env('LINKEDIN_URL_CALLBACK'),
+    ],
+
 //    'bitbucket' => [
 //        'client_id' => 'your-bitbucket-app-id',
 //        'client_secret' => 'your-bitbucket-app-secret',

@@ -30,6 +30,9 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
         Route::resource('roles', '\App\Admin\Controllers\RoleController');
 
 
+        Route::resource('permissions', '\App\Admin\Controllers\PermissionController');
+        Route::get('permissions/ajax/getpermissions', '\App\Admin\Controllers\PermissionController@postAjaxGetPermissions');
+
         Route::resource('users', '\App\Admin\Controllers\UserController');
 
 
