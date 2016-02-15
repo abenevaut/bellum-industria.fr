@@ -69,7 +69,7 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        return $this->outputter->edit($id);
     }
 
     /**
@@ -78,9 +78,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, RoleFormRequest $request)
     {
-        //
+        return $this->outputter->update($id, $request);
     }
 
     /**

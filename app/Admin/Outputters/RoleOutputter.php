@@ -100,7 +100,16 @@ class RoleOutputter extends AbsLaravelOutputter
      */
     public function edit($id)
     {
-        //
+        $role = $this->r_role->find($id);
+        $permissions = $this->r_permission->all();
+
+        return $this->output(
+            'cvepdb.admin.roles.edit',
+            [
+                'role' => $role,
+                'permissions' => $permissions
+            ]
+        );
     }
 
     /**
@@ -111,7 +120,23 @@ class RoleOutputter extends AbsLaravelOutputter
      */
     public function update($id, IFormRequest $request)
     {
-        //
+        $role = $this->r_role->update(
+            [
+                'name' => $request->get('name'),
+                'display_name' => $request->get('display_name'),
+                'description' => $request->get('description')
+            ],
+            $id
+        );
+
+        $permissions = $request->only('role_permission_id');
+
+        if (count($permissions['role_permission_id']) > 0) {
+            $role->permissions()->detach();
+            $role->permissions()->attach($permissions['role_permission_id']);
+        }
+
+        return redirect('admin/roles');
     }
 
     /**

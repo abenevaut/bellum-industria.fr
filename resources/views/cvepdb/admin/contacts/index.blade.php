@@ -16,7 +16,7 @@
         </div>
         <div class="panel-body">
 
-            @if ($contacts->total())
+            @if ($contacts->count())
 
                 <div class="table-responsive">
                     <div id="stripedTable_wrapper" class="dataTables_wrapper form-inline no-footer">
@@ -62,7 +62,6 @@
                         </table>
                     </div>
                 </div>
-                {!! $contacts->render() !!}
             @else
                 <div class="alert alert-info" role="alert">
                     {{--<button class="close" data-dismiss="alert"></button>--}}

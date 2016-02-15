@@ -1,12 +1,21 @@
 <?php
 
-namespace App\CVEPDB\Admin\Controllers;
+namespace App\Admin\Controllers;
 
-use App\CVEPDB\Admin\Controllers\UserController as Controller;
-use App\CVEPDB\Admin\Requests\UserFormRequest;
+use App\Admin\Controllers\UserController as Controller;
+use App\Admin\Requests\UserFormRequest;
+
+use CVEPDB\Repositories\Users\UserRepositoryEloquent;
 
 class ClientController extends Controller
 {
+    private $r_user = null;
+
+    public function __construct(UserRepositoryEloquent $r_user)
+    {
+        $this->r_user = $r_user;
+    }
+
     public function index()
     {
         //
@@ -31,11 +40,7 @@ class ClientController extends Controller
      */
     public function store(UserFormRequest $request)
     {
-        $this->r_user->create_client([
-            'first_name' => $request->get('first_name'),
-            'last_name' => $request->get('last_name'),
-            'email' => $request->get('email'),
-        ]);
+        $this->r_user->create_client($request->get('first_name'), $request->get('last_name'), $request->get('email'));
         return redirect('admin/users');
     }
 
@@ -67,7 +72,7 @@ class ClientController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, UserFormRequest $request)
     {
         //
     }

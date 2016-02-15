@@ -16,6 +16,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     //    protected $namespace = 'App\Http\Controllers';
     protected $namespace_auth = 'App\Auth\Controllers';
+    protected $namespace_client = 'App\Client\Controllers';
     protected $namespace_admin = 'App\Admin\Controllers';
     protected $namespace_vitrine = 'App\Vitrine\Controllers';
     protected $namespace_multigaming = 'App\Multigaming\Controllers';
@@ -54,6 +55,16 @@ class RouteServiceProvider extends ServiceProvider
 
         $router->group(['namespace' => $this->namespace_auth], function ($router) {
             require app_path('Auth/routes.php');
+        });
+
+        /*
+        |--------------------------------------------------------------------------
+        | Client Router
+        |--------------------------------------------------------------------------
+        */
+
+        $router->group(['namespace' => $this->namespace_client], function ($router) {
+            require app_path('Client/routes.php');
         });
 
         /*

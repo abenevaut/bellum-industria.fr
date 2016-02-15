@@ -101,13 +101,13 @@ class ContactOutputter extends AbsLaravelOutputter
 
     public function createClient($id)
     {
-//        $contact = $this->r_LogContact->get($id);
-//
-//        return view(
-//            'cvepdb.admin.contacts.create_client',
-//            [
-//                'contact' => $contact
-//            ]
-//        );
+        $contact = $this->r_LogContact->find($id);
+
+        return view(
+            'cvepdb.admin.contacts.create_client',
+            [
+                'contact' => $contact
+            ]
+        );
     }
 }
