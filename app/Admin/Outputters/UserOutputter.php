@@ -3,8 +3,9 @@
 namespace App\Admin\Outputters;
 
 use CVEPDB\Services\Outputters\AbsLaravelOutputter;
-use CVEPDB\Requests\Request;
+use CVEPDB\Requests\IFormRequest;
 use CVEPDB\Repositories\Users\UserRepositoryEloquent;
+use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
 
 class UserOutputter extends AbsLaravelOutputter
 {
@@ -13,11 +14,17 @@ class UserOutputter extends AbsLaravelOutputter
      */
     private $r_user = null;
 
-    public function __construct(UserRepositoryEloquent $r_user)
+    /**
+     * @var RoleRepositoryEloquent|null
+     */
+    private $r_role = null;
+
+    public function __construct(UserRepositoryEloquent $r_user, RoleRepositoryEloquent $r_role)
     {
         parent::__construct();
 
         $this->r_user = $r_user;
+        $this->r_role = $r_role;
     }
 
     /**
@@ -40,9 +47,14 @@ class UserOutputter extends AbsLaravelOutputter
      */
     public function create()
     {
+        // On exclue le role user qui est ajoute par defaut
+        $roles = $this->r_role->findWhereNotIn('name', ['user']);
+
         return $this->output(
             'cvepdb.admin.users.create',
-            []
+            [
+                'roles' => $roles
+            ]
         );
     }
 
@@ -55,11 +67,18 @@ class UserOutputter extends AbsLaravelOutputter
      */
     public function store(IFormRequest $request)
     {
-        $this->r_user->create_user(
+        $user = $this->r_user->create_user(
             $request->get('first_name'),
             $request->get('last_name'),
             $request->get('email')
         );
+
+        $roles = $request->only('user_role_id');
+
+        if (count($roles['user_role_id']) > 0) {
+            $user->roles()->attach($roles['user_role_id']);
+        }
+
         return redirect('admin/users');
     }
 
@@ -82,7 +101,18 @@ class UserOutputter extends AbsLaravelOutputter
      */
     public function edit($id)
     {
-        //
+        $user = $this->r_user->find($id);
+
+        // On exclue le role user qui est ajoute par defaut
+        $roles = $this->r_role->findWhereNotIn('name', ['user']);
+
+        return $this->output(
+            'cvepdb.admin.users.edit',
+            [
+                'user' => $user,
+                'roles' => $roles
+            ]
+        );
     }
 
     /**

@@ -43,7 +43,7 @@
                             <label>Description</label>
                             <input type="text" class="form-control" name="description" required="required" value="{{ old('description', $permission->description) }}">
                         </div>
-                        <button class="btn btn-success" type="submit">Editer la permission</button>
+                        <button class="btn btn-complete" type="submit">Editer la permission</button>
                     {!! Form::close() !!}
                 </div>
             </div>

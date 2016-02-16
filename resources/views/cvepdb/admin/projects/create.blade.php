@@ -61,7 +61,7 @@
                     </div>
 
 
-                    <button class="btn btn-primary" type="submit">Ajouter l'utilisateur</button>
+                    <button class="btn btn-complete" type="submit">Ajouter l'utilisateur</button>
 
                     {!! Form::close() !!}
                 </div>

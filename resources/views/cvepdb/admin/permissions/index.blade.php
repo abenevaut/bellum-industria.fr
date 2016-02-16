@@ -7,7 +7,7 @@
                 Permissions
             </div>
             <div class="btn-group pull-right m-b-10">
-                <a class="btn btn-primary btn-cons" href="{{ url('admin/permissions/create') }}">
+                <a class="btn btn-info btn-cons" href="{{ url('admin/permissions/create') }}">
                     <i class="fa fa-plus"></i> Add new
                 </a>
             </div>
@@ -41,7 +41,7 @@
                                                 class="btn btn-danger btn-cons js-permission_delete_btn"
                                                 data-permission_id="{{ $permission->id }}"
                                                 data-permission_name="{{ $permission->display_name }}">
-                                            Supprimer
+                                            <i class="pg-trash"></i> Supprimer
                                         </button>
                                     </td>
                                 </tr>

@@ -39,7 +39,7 @@
                             <label>Description</label>
                             <input type="text" class="form-control" name="description" required="required" value="{{ old('description') }}" placeholder="Permission description">
                         </div>
-                        <button class="btn btn-success" type="submit">Ajouter la permission</button>
+                        <button class="btn btn-complete" type="submit">Ajouter la permission</button>
                     {!! Form::close() !!}
                 </div>
             </div>

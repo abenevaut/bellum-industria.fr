@@ -1,157 +1,69 @@
 @extends('cvepdb.admin.layouts.default-white')
 
 @section('content')
-
     <div class="panel panel-transparent">
         <div class="panel-heading">
             <div class="panel-title panel-title-adjustement">
                 Utilisateurs
             </div>
-            <div class="clearfix"></div>
             <div class="btn-group pull-right m-b-10">
-
-                <a class="btn btn-primary btn-cons" href="{{ url('admin/users/create') }}">
+                <a class="btn btn-info btn-cons" href="{{ url('admin/users/create') }}">
                     <i class="fa fa-plus"></i> Add new
                 </a>
-                {{--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">--}}
-                {{--<span class="caret"></span>--}}
-                {{--</button>--}}
-                {{--<ul class="dropdown-menu" role="menu">--}}
-                {{--<li><a href="#">Settings</a>--}}
-                {{--</li>--}}
-                {{--<li><a href="#">Help</a>--}}
-                {{--</li>--}}
-                {{--</ul>--}}
             </div>
             <div class="clearfix"></div>
-
-            <div class="pull-right">
-                <div class="col-xs-12">
-                    <input type="text" id="search-table" class="form-control pull-right" placeholder="Search">
-                </div>
-            </div>
-
-
-            <div class="export-options-container pull-right"></div>
-            <div class="clearfix"></div>
-
         </div>
         <div class="panel-body">
-
-            @if ($users->total())
-
-                <div class="table-responsive">
-                    <div id="basicTable_wrapper" class="dataTables_wrapper form-inline no-footer">
-
-                        <table class="table table-hover dataTable no-footer" id="basicTable" role="grid">
+            <div class="table-responsive">
+                <div id="condensedTable_wrapper" class="dataTables_wrapper form-inline no-footer">
+                    @if ($users->count())
+                        <table class="table table-hover table-condensed dataTable no-footer" id="condensedTable"
+                               role="grid">
                             <thead>
                             <tr role="row">
-
-                                <th style="width:1%">
-
-                                    <button class="btn .js-table_unlock" data-toggle="tooltip" type="button" data-original-title="Je ne fais rien!">
-                                        <i class="fa fa-lock"></i>
-                                    </button>
-                                </th>
-
-                                <th style="width: 24%;">
-                                    Nom et Prénom
-                                </th>
-
-                                <th style="width: 20%;">
-                                    Courriel
-                                </th>
-
-                                <th style="width: 20%;">
-                                    Rôles
-                                </th>
-
-
-                                <th style="width: 35%;">Actions</th>
-
+                                <th width="25%">Name</th>
+                                <th width="50%">Email</th>
+                                <th width="25%">Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-
-
                             @foreach ($users as $user)
-
-                                <tr role="row" class="odd">
-                                    <td class="v-align-middle">
-                                        <div class="checkbox ">
-                                            <input type="checkbox" value="{{ $user->id }}" id="checkbox{{ $user->id }}">
-                                            <label for="checkbox{{ $user->id }}"></label>
-                                        </div>
+                                <tr>
+                                    <td class="font-montserrat all-caps fs-12 col-lg-3">
+                                        <a class="btnToggleSlideUpSize" data-modal_id="{{ $user->id }}" href="javascript:void(0);">
+                                            <p>{{ $user->first_name }} {{ $user->last_name }}</p>
+                                        </a>
                                     </td>
-                                    <td class="v-align-middle sorting_1">
-                                        <p>{{ $user->first_name }} {{ $user->last_name }}</p>
+                                    <td class="font-montserrat all-caps fs-12 col-lg-3">
+                                        <a href="mailto:{{ $user->email }}">
+                                            <p>{{ $user->email }}</p>
+                                        </a>
                                     </td>
-                                    <td class="v-align-middle">
-                                        <p><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></p>
-                                    </td>
-                                    <td class="v-align-middle">
-                                        <p><?php $index = 0; ?>
-                                            @foreach ($user->roles as $role)
-
-                                                <?php echo $index > 0 ? ', ' : ''; ?>{{ $role->name }}
-
-                                                <?php $index++; ?>
-                                            @endforeach</p>
-                                    </td>
-                                    <td class="v-align-middle">
-
-
-                                        <div class="btn-group dropdown-default">
-                                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"
-                                               style="width: 141px;" aria-expanded="false">
-                                                <i class="fa fa-plus"></i> d'actions
-                                                <span class="caret"></span> </a>
-                                            <ul class="dropdown-menu " style="width: 141px;">
-                                                <li>
-                                                    <a href="#">Reset Password</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ url('admin/users/'.$user->id.'/edit') }}">Editer</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-
-                                        {{--<button class="btn btn-warning btn-cons">Edit</button>--}}
-
+                                    <td class="font-montserrat all-caps fs-12 col-lg-3">
+                                        <a class="btn btn-info btn-cons" href="{{ url('admin/users/' . $user->id . '/edit') }}">
+                                            <i class="fa fa-paste"></i> <span class="bold">Edit</span>
+                                        </a>
                                         <button data-target="#modalSlideLeft" data-toggle="modal" type="submit"
                                                 class="btn btn-danger btn-cons js-user_delete_btn"
                                                 data-user_id="{{ $user->id }}"
                                                 data-user_name="{{ $user->first_name }} {{ $user->last_name }}">
-                                            Supprimer
+                                            <i class="pg-trash"></i> Supprimer
                                         </button>
-
-
                                     </td>
                                 </tr>
-
                             @endforeach
-
-
                             </tbody>
                         </table>
-                    </div>
+                        {!! $users->render() !!}
+                    @else
+                        <div class="alert alert-info" role="alert">
+                            Il n'y a aucun utilisateur
+                        </div>
+                    @endif
                 </div>
-
-                {!! $users->render() !!}
-            @else
-                <div class="alert alert-info" role="alert">
-                    {{--<button class="close" data-dismiss="alert"></button>--}}
-                    Il n'y a aucune donnée
-                </div>
-            @endif
-
-
+            </div>
         </div>
     </div>
-
-
-
 @endsection
 
 @section('modals')
@@ -173,28 +85,78 @@
                                     </span>
                                 </h5>
                                 <br>
-
                                 <p>L'utilisateur n'aura plus acces a la plateforme</p>
                                 <br>
                                 {!! Form::open(['route' => ['admin.users.destroy', 0], 'method' => 'delete', 'id' => 'js-user_delete_form']) !!}
-                                <button type="submit" class="btn btn-danger btn-block">
-                                    Supprimer
-                                </button>
+                                    <button type="submit" class="btn btn-danger btn-block">
+                                        Supprimer
+                                    </button>
                                 {!! Form::close() !!}
-
-                                <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel
-                                </button>
+                                <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
+
+    @foreach ($users as $user)
+        <div class="modal fade slide-up disable-scroll" id="modalSlideUp-{{ $user->id  }}" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content-wrapper">
+                    <div class="modal-content">
+                        <div class="modal-header clearfix text-left">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i></button>
+                            <h5>{{ $user->first_name }} {{ $user->last_name }} <small>({{ $user->email }})</small></h5>
+                            <div class="row">
+                                <a class="btn btn-cons" href="mailto:{{ $user->email }}">
+                                    <i class="pg-mail"></i> Mail
+                                </a>
+                            </div>
+                        </div>
+                        <div class="modal-body" style="padding-top:20px;">
+                            <strong>Rôles :</strong>
+                            @if ($user->roles->count())
+                                <table class="table table-hover table-condensed dataTable no-footer" id="condensedTable"
+                                       role="grid">
+                                    <tbody>
+                                    @foreach ($user->roles as $role)
+                                        <tr>
+                                            <td class="font-montserrat all-caps fs-12 col-lg-2" style="width:30%;">
+                                                <i class="fa-check-square-o"></i>&nbsp;{{ $role->display_name }}
+                                            </td>
+                                            <td class="font-montserrat fs-12 col-lg-3" style="width:70%;">
+                                                {{ $role->description }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            @else
+                                <div class="alert alert-info" role="alert">
+                                    L'utilisateur n'appartient a aucun role sur la plateforme
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
 @endsection
 
 @section('jsfooter')
     <script src="/assets/js/admin/users/index.js"></script>
+    <script>
+        $('.btnToggleSlideUpSize').click(function() {
+            var id = $(this).attr('data-modal_id');
+            var modalElem = $('#modalSlideUp-' + id);
+
+            modalElem.modal('show')
+                    .children('.modal-dialog')
+                    .removeClass('modal-lg');
+        });
+    </script>
 @endsection

@@ -9,7 +9,7 @@
                         <a class="btn btn-default" href="{{ url('admin/users') }}">Retour</a>
                     </div>
                     <div class="panel-title panel-title-adjustement">
-                        &nbsp;&nbsp;&nbsp;Ajouter un utilisateur
+                        &nbsp;&nbsp;&nbsp;Editer un utilisateur
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -28,15 +28,15 @@
                     {!! Form::open(array('route' => 'admin.users.store', 'class' => 'forms')) !!}
                         <div class="form-group form-group-default required">
                             <label>Nom</label>
-                            <input type="text" class="form-control" name="last_name" required="required" value="{{ old('last_name') }}" placeholder="Nom de l'utilisateur">
+                            <input type="text" class="form-control" name="last_name" required="required" value="{{ old('last_name', $user->last_name) }}" placeholder="Nom de l'utilisateur">
                         </div>
                         <div class="form-group form-group-default required">
                             <label>Prénom</label>
-                            <input type="text" class="form-control" name="first_name" required="required" value="{{ old('first_name') }}" placeholder="Prénom de l'utilisateur">
+                            <input type="text" class="form-control" name="first_name" required="required" value="{{ old('first_name', $user->first_name) }}" placeholder="Prénom de l'utilisateur">
                         </div>
                         <div class="form-group form-group-default required">
                             <label>Courriel</label>
-                            <input type="email" class="form-control" name="email" required="required" value="{{ old('email') }}" placeholder="Courriel de l'utilisateur">
+                            <input type="email" class="form-control" name="email" required="required" value="{{ old('email', $user->email) }}" placeholder="Courriel de l'utilisateur">
                         </div>
                         <div class="form-group form-group-default required">
                             <label>Roles</label>
@@ -47,12 +47,17 @@
                                     <label class="help">{{ $role->description }}</label>
                                     <span class="input-group-addon bg-transparent">
                                     <input type="checkbox" name="user_role_id[]"
+
+                                           @if ($user->roles->contains($role->id))
+                                           checked="checked"
+                                           @endif
+
                                            data-init-plugin="switchery" value="{{ $role->id }}"/>
                                     </span>
                                 </div>
                             @endforeach
                         </div>
-                        <button class="btn btn-complete" type="submit">Ajouter l'utilisateur</button>
+                        <button class="btn btn-complete" type="submit">Editer l'utilisateur</button>
                     {!! Form::close() !!}
                 </div>
             </div>

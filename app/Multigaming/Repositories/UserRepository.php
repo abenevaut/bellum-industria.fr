@@ -56,6 +56,7 @@ class UserRepository extends UserRepositoryEloquent
 //            'email' => $new_user['email'],
 //            'steam_token' => $new_user['steam_token'],
 //        ]);
+//        $this->attach_user_to_role($user, RoleRepository::GAMER_USER);
 //        $this->attach_user_to_role($user, RoleRepository::GAMER_ADMIN);
 //        return $user;
 //    }

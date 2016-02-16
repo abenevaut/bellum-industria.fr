@@ -7,7 +7,7 @@
                 Roles
             </div>
             <div class="btn-group pull-right m-b-10">
-                <a class="btn btn-primary btn-cons" href="{{ url('admin/roles/create') }}">
+                <a class="btn btn-info btn-cons" href="{{ url('admin/roles/create') }}">
                     <i class="fa fa-plus"></i> Add new
                 </a>
             </div>

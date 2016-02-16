@@ -57,7 +57,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        <button class="btn btn-success" type="submit">Ajouter le rôle</button>
+                        <button class="btn btn-complete" type="submit">Ajouter le rôle</button>
                     {!! Form::close() !!}
                 </div>
             </div>
