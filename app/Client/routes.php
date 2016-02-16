@@ -17,5 +17,8 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
 
         Route::resource('dashboard', '\App\Client\Controllers\DashboardController');
 
+        Route::resource('users', '\App\Client\Controllers\UserController');
+        Route::get('users/join-entite', '\App\Client\Controllers\UserController@joinEntite');
+
     });
 });
