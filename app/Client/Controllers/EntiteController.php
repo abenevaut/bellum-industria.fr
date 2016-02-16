@@ -3,13 +3,13 @@
 namespace App\Client\Controllers;
 
 use CVEPDB\Controllers\AbsController as Controller;
-use App\Client\Outputters\DashboardOutputter;
+use App\Client\Outputters\EntiteOutputter;
 
-class DashboardController extends Controller
+class EntiteController extends Controller
 {
     private $outputter = null;
 
-    public function __construct(DashboardOutputter $outputter)
+    public function __construct(EntiteOutputter $outputter)
     {
         parent::__construct();
 
@@ -19,5 +19,10 @@ class DashboardController extends Controller
     public function index()
     {
         return $this->outputter->index();
+    }
+
+    public function join()
+    {
+        return $this->outputter->join();
     }
 }

@@ -124,7 +124,7 @@
                                     @foreach ($user->roles as $role)
                                         <tr>
                                             <td class="font-montserrat all-caps fs-12 col-lg-2" style="width:30%;">
-                                                <i class="fa-check-square-o"></i>&nbsp;{{ $role->display_name }}
+                                                <i class="fa fa-check-square-o"></i>&nbsp;{{ $role->display_name }}
                                             </td>
                                             <td class="font-montserrat fs-12 col-lg-3" style="width:70%;">
                                                 {{ $role->description }}

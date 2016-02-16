@@ -16,9 +16,10 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
     Route::group(['prefix' => 'clients', 'middleware' => ['role:client']], function () {
 
         Route::resource('dashboard', '\App\Client\Controllers\DashboardController');
+        Route::get('/', '\App\Client\Controllers\DashboardController@index');
 
-        Route::resource('users', '\App\Client\Controllers\UserController');
-        Route::get('users/join-entite', '\App\Client\Controllers\UserController@joinEntite');
+        Route::get('entites/join', '\App\Client\Controllers\EntiteController@join');
+        Route::resource('entites', '\App\Client\Controllers\EntiteController');
 
     });
 });
