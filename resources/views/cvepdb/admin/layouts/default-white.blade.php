@@ -3,7 +3,7 @@
 <head>
     @include('cvepdb.admin.partials.pages_metadatas')
 </head>
-<body class="fixed-header   mac desktop pace-done menu-behind">
+<body class="fixed-header   mac desktop pace-done menu-pin menu-behind">
 
 <!-- BEGIN SIDEBAR -->
 <div class="page-sidebar" data-pages="sidebar">
@@ -12,8 +12,8 @@
 </div>
 <!-- END SIDEBAR -->
 
-<!-- START PAGE-CONTAINER -->
-<div class="page-container">
+        <!-- START PAGE-CONTAINER -->
+<div class="page-container bg-white">
     <!-- START PAGE HEADER WRAPPER -->
     @include('cvepdb.admin.partials.pages_header')
             <!-- END PAGE HEADER WRAPPER -->

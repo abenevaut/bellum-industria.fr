@@ -13,8 +13,8 @@
                         <a class="btn btn-default" href="{{ url('admin/users') }}">Retour</a>
                     </div>
 
-                    <div class="panel-title">
-                        <br/>&nbsp;&nbsp;&nbsp;Ajouter un utilisateur
+                    <div class="panel-title panel-title-adjustement">
+                        &nbsp;&nbsp;&nbsp;Ajouter un utilisateur
                     </div>
 
                     {{--<div class="btn-group pull-right m-b-10">--}}

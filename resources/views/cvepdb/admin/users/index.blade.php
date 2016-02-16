@@ -1,13 +1,11 @@
-@extends('cvepdb.admin.layouts.default')
+@extends('cvepdb.admin.layouts.default-white')
 
 @section('content')
 
     <div class="panel panel-transparent">
         <div class="panel-heading">
-            <div class="panel-title">
+            <div class="panel-title panel-title-adjustement">
                 Utilisateurs
-
-
             </div>
             <div class="clearfix"></div>
             <div class="btn-group pull-right m-b-10">

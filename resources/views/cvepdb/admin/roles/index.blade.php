@@ -1,9 +1,9 @@
-@extends('cvepdb.admin.layouts.default')
+@extends('cvepdb.admin.layouts.default-white')
 
 @section('content')
     <div class="panel panel-transparent">
         <div class="panel-heading">
-            <div class="panel-title">
+            <div class="panel-title panel-title-adjustement">
                 Roles
             </div>
             <div class="btn-group pull-right m-b-10">
@@ -33,11 +33,9 @@
                                     </a>
                                 </td>
                                 <td class="font-montserrat all-caps fs-12 col-lg-3">
-
                                     <a class="btn btn-info btn-cons" href="{{ url('admin/roles/' . $role->id . '/edit') }}">
                                         <i class="fa fa-paste"></i> <span class="bold">Edit</span>
                                     </a>
-
                                 </td>
                             </tr>
                         @endforeach
@@ -61,9 +59,32 @@
                             <h5>{{ $role->display_name }} <small>(reference : {{ $role->name }})</small></h5>
                             <p class="p-b-10">{{ $role->description }}</p>
                         </div>
+                        <div class="modal-body">
+                            <strong>Permissions :</strong>
+                            @if ($role->permissions->count())
+                            <table class="table table-hover table-condensed dataTable no-footer" id="condensedTable"
+                                   role="grid">
+                                <tbody>
+                                @foreach ($role->permissions as $permission)
+                                    <tr>
+                                        <td class="font-montserrat all-caps fs-12 col-lg-2" style="width:20%;">
+                                            <i class="fa-check-square-o"></i>&nbsp;{{ $permission->display_name }}
+                                        </td>
+                                        <td class="font-montserrat fs-12 col-lg-3" style="width:80%;">
+                                            {{ $permission->description }}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            @else
+                                <div class="alert alert-info" role="alert">
+                                    Il n'y a aucune permission
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
-                <!-- /.modal-content -->
             </div>
         </div>
     @endforeach

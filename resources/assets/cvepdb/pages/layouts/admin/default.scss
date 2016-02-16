@@ -56,3 +56,8 @@ $assets-url: "../../../assets";
 @import "../../../../pages/html/pages/scss/responsive";
 
 @import '../pages_fix';
+
+
+.panel .panel-heading .panel-title.panel-title-adjustement {
+  padding-top: 10px;
+}

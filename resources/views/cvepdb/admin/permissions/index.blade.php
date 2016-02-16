@@ -1,9 +1,9 @@
-@extends('cvepdb.admin.layouts.default')
+@extends('cvepdb.admin.layouts.default-white')
 
 @section('content')
     <div class="panel panel-transparent">
         <div class="panel-heading">
-            <div class="panel-title">
+            <div class="panel-title panel-title-adjustement">
                 Permissions
             </div>
             <div class="btn-group pull-right m-b-10">
@@ -16,65 +16,49 @@
         <div class="panel-body">
             <div class="table-responsive">
                 <div id="condensedTable_wrapper" class="dataTables_wrapper form-inline no-footer">
-
                     @if ($permissions->count())
-
                         <table class="table table-hover table-condensed dataTable no-footer" id="condensedTable"
                                role="grid">
                             <thead>
                             <tr role="row">
-                                <th class="sorting_asc" width="15%">Name</th>
-                                <th class="sorting_asc" width="15%">Display Name</th>
-                                <th width="15%">Description</th>
-                                <th width="20%">Actions</th>
+                                <th width="75%">Name</th>
+                                <th width="25%">Actions</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach ($permissions as $permission)
                                 <tr>
                                     <td class="font-montserrat all-caps fs-12 col-lg-3">
-                                        {{ $permission->name }}
+                                        <a class="btnToggleSlideUpSize" data-modal_id="{{ $permission->id }}" href="javascript:void(0);">
+                                            {{ $permission->display_name }}
+                                        </a>
                                     </td>
                                     <td class="font-montserrat all-caps fs-12 col-lg-3">
-                                        {{ $permission->display_name }}
-                                    </td>
-                                    <td class="font-montserrat all-caps fs-12 col-lg-3">
-                                        {{ $permission->description }}
-                                    </td>
-                                    <td class="font-montserrat all-caps fs-12 col-lg-3">
-
                                         <a class="btn btn-info btn-cons" href="{{ url('admin/permissions/' . $permission->id . '/edit') }}">
                                             <i class="fa fa-paste"></i> <span class="bold">Edit</span>
                                         </a>
-
                                         <button data-target="#modalSlideLeft" data-toggle="modal" type="submit"
                                                 class="btn btn-danger btn-cons js-permission_delete_btn"
                                                 data-permission_id="{{ $permission->id }}"
                                                 data-permission_name="{{ $permission->display_name }}">
                                             Supprimer
                                         </button>
-
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
                         {!! $permissions->render() !!}
-
                     @else
-
                         <div class="alert alert-info" role="alert">
-                            {{--<button class="close" data-dismiss="alert"></button>--}}
                             Il n'y a aucune donnée
                         </div>
-
                     @endif
                 </div>
             </div>
         </div>
     </div>
 @endsection
-
 
 @section('modals')
     <div class="modal fade slide-right" id="modalSlideLeft" tabindex="-1" role="dialog" aria-hidden="true"
@@ -95,15 +79,13 @@
                                     </span>
                                 </h5>
                                 <br>
-
                                 <p>Cette permission ne sera plus disponible sur la plateforme</p>
                                 <br>
                                 {!! Form::open(['route' => ['admin.permissions.destroy', 0], 'method' => 'delete', 'id' => 'js-permission_delete_form']) !!}
-                                <button type="submit" class="btn btn-danger btn-block">
-                                    Supprimer
-                                </button>
+                                    <button type="submit" class="btn btn-danger btn-block">
+                                        Supprimer
+                                    </button>
                                 {!! Form::close() !!}
-
                                 <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel
                                 </button>
                             </div>
@@ -111,12 +93,37 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
+
+    @foreach ($permissions as $permission)
+        <div class="modal fade slide-up disable-scroll" id="modalSlideUp-{{ $permission->id  }}" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content-wrapper">
+                    <div class="modal-content">
+                        <div class="modal-header clearfix text-left">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i></button>
+                            <h5>{{ $permission->display_name }} <small>(reference : {{ $permission->name }})</small></h5>
+                            <p class="p-b-10">{{ $permission->description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
 @endsection
 
 @section('jsfooter')
     <script src="/assets/js/admin/permissions/index.js"></script>
+    <script>
+        $('.btnToggleSlideUpSize').click(function() {
+            var id = $(this).attr('data-modal_id');
+            var modalElem = $('#modalSlideUp-' + id);
+
+            modalElem.modal('show')
+                    .children('.modal-dialog')
+                    .removeClass('modal-lg');
+        });
+    </script>
 @endsection
