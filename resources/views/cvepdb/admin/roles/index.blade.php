@@ -20,31 +20,21 @@
                            role="grid">
                         <thead>
                         <tr role="row">
-                            <th>Name</th>
-                            <th>Display Name</th>
-                            <th>Number of users assigned</th>
-                            <th>Description</th>
-                            <th>Actions</th>
+                            <th width="80%">Name</th>
+                            <th width="20%">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($roles as $role)
                             <tr>
                                 <td class="font-montserrat all-caps fs-12 col-lg-2">
-                                    {{ $role->name }}
-                                </td>
-                                <td class="font-montserrat all-caps fs-12 col-lg-2">
-                                    {{ $role->display_name }}
-                                </td>
-                                <td class="font-montserrat all-caps fs-12 col-lg-1">
-                                    {{ $role->users->count() }}
-                                </td>
-                                <td class="font-montserrat all-caps fs-12 col-lg-4">
-                                    {{ $role->description }}
+                                    <a class="btnToggleSlideUpSize" data-modal_id="{{ $role->id }}" href="javascript:void(0);">
+                                        {{ $role->display_name }}
+                                    </a>
                                 </td>
                                 <td class="font-montserrat all-caps fs-12 col-lg-3">
 
-                                    <a class="btn btn-info btn-cons m-b-10" href="{{ url('admin/roles/' . $role->id . '/edit') }}">
+                                    <a class="btn btn-info btn-cons" href="{{ url('admin/roles/' . $role->id . '/edit') }}">
                                         <i class="fa fa-paste"></i> <span class="bold">Edit</span>
                                     </a>
 
@@ -58,4 +48,36 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('modals')
+    @foreach ($roles as $role)
+        <div class="modal fade slide-up disable-scroll" id="modalSlideUp-{{ $role->id  }}" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content-wrapper">
+                    <div class="modal-content">
+                        <div class="modal-header clearfix text-left">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i></button>
+                            <h5>{{ $role->display_name }} <small>(reference : {{ $role->name }})</small></h5>
+                            <p class="p-b-10">{{ $role->description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+        </div>
+    @endforeach
+@endsection
+
+@section('jsfooter')
+    <script>
+        $('.btnToggleSlideUpSize').click(function() {
+            var id = $(this).attr('data-modal_id');
+            var modalElem = $('#modalSlideUp-' + id);
+
+            modalElem.modal('show')
+                    .children('.modal-dialog')
+                    .removeClass('modal-lg');
+        });
+    </script>
 @endsection

@@ -23,11 +23,10 @@
                                role="grid">
                             <thead>
                             <tr role="row">
-                                <th class="sorting_asc">Name</th>
-                                <th class="sorting_asc">Display Name</th>
-                                <th>Number of roles use it</th>
-                                <th>Description</th>
-                                <th>Actions</th>
+                                <th class="sorting_asc" width="15%">Name</th>
+                                <th class="sorting_asc" width="15%">Display Name</th>
+                                <th width="15%">Description</th>
+                                <th width="20%">Actions</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -40,14 +39,11 @@
                                         {{ $permission->display_name }}
                                     </td>
                                     <td class="font-montserrat all-caps fs-12 col-lg-3">
-                                        {{ $permission->roles->count() }}
-                                    </td>
-                                    <td class="font-montserrat all-caps fs-12 col-lg-3">
                                         {{ $permission->description }}
                                     </td>
                                     <td class="font-montserrat all-caps fs-12 col-lg-3">
 
-                                        <a class="btn btn-info btn-cons m-b-10" href="{{ url('admin/permissions/' . $permission->id . '/edit') }}">
+                                        <a class="btn btn-info btn-cons" href="{{ url('admin/permissions/' . $permission->id . '/edit') }}">
                                             <i class="fa fa-paste"></i> <span class="bold">Edit</span>
                                         </a>
 

@@ -120,7 +120,6 @@ class PermissionOutputter extends AbsLaravelOutputter
      */
     public function destroy($id)
     {
-
         $permission = $this->r_permission->find($id);
 
         if ($permission->roles->count() === 0) {
