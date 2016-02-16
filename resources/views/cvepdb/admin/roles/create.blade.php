@@ -89,7 +89,8 @@
 
                         @foreach ($permissions as $permission)
                             <div class="form-group form-group-default input-group">
-                                <label class="inline">{{ $permission->name }}</label>
+                                <label>{{ $permission->display_name }}</label>
+                                <label class="help">{{ $permission->description }}</label>
                         <span class="input-group-addon bg-transparent">
                         <input type="checkbox" name="role_permission_id[]" data-init-plugin="switchery"
                                value="{{ $permission->id }}"/>

@@ -40,12 +40,9 @@ class PermissionOutputter extends AbsLaravelOutputter
      */
     public function create()
     {
-        $permissions = $this->r_permission->all();
-
         return $this->output(
             'cvepdb.admin.permissions.create',
             [
-                'permissions' => $permissions
             ]
         );
     }
@@ -86,7 +83,14 @@ class PermissionOutputter extends AbsLaravelOutputter
      */
     public function edit($id)
     {
-        //
+        $permission = $this->r_permission->find($id);
+
+        return $this->output(
+            'cvepdb.admin.permissions.edit',
+            [
+                'permission' => $permission
+            ]
+        );
     }
 
     /**
@@ -97,7 +101,15 @@ class PermissionOutputter extends AbsLaravelOutputter
      */
     public function update($id, IFormRequest $request)
     {
-        //
+        $this->r_permission->update(
+            [
+                'name' => $request->get('name'),
+                'display_name' => $request->get('display_name'),
+                'description' => $request->get('description')
+            ],
+            $id
+        );
+        return redirect('admin/permissions');
     }
 
     /**
@@ -108,7 +120,16 @@ class PermissionOutputter extends AbsLaravelOutputter
      */
     public function destroy($id)
     {
-        //
+
+        $permission = $this->r_permission->find($id);
+
+        if ($permission->roles->count() === 0) {
+            $this->r_permission->delete($id);
+        }
+        else {
+            // Todo : Message "Pas de suppression car cette permission est utilisés par des rôles. (+ liste des rôles)"
+        }
+        return redirect('admin/permissions');
     }
 
     public function ajax_permissions()

@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="panel-title">
-                        <br/>&nbsp;&nbsp;&nbsp;Ajouter un role
+                        <br/>&nbsp;&nbsp;&nbsp;Editer un role
                     </div>
 
                     {{--<div class="btn-group pull-right m-b-10">--}}
@@ -43,7 +43,7 @@
                     @endif
 
                     <h5>
-                        Nouveau rôle
+                        Rôle
                     </h5>
                     {!! Form::open(array('route' => ['admin.roles.update', $role->id], 'class' => 'forms', 'method' => 'PUT')) !!}
 
@@ -71,7 +71,8 @@
 
                         @foreach ($permissions as $permission)
                             <div class="form-group form-group-default input-group">
-                                <label class="inline">{{ $permission->name }}</label>
+                                <label>{{ $permission->display_name }}</label>
+                                <label class="help">{{ $permission->description }}</label>
                         <span class="input-group-addon bg-transparent">
                         <input type="checkbox" name="role_permission_id[]" data-init-plugin="switchery"
                                value="{{ $permission->id }}"
@@ -88,7 +89,7 @@
                     </div>
 
 
-                    <button class="btn btn-primary" type="submit">Ajouter le rôle</button>
+                    <button class="btn btn-primary" type="submit">Editer le rôle</button>
 
                     {!! Form::close() !!}
                 </div>

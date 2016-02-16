@@ -69,7 +69,7 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
-        //
+        return $this->outputter->edit($id);
     }
 
     /**
@@ -78,9 +78,9 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, PermissionFormRequest $request)
     {
-        //
+        return $this->outputter->update($id, $request);
     }
 
     /**
@@ -91,7 +91,7 @@ class PermissionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $this->outputter->destroy($id);
     }
 
     public function postAjaxGetPermissions()

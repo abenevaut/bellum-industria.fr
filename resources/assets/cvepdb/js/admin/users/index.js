@@ -87,7 +87,7 @@ var initBasicTable = function () {
 initBasicTable();
 
 
-(function($){
+(function($, D){
 
     $(D).bind('CVEPDB_READY', function(){
 
@@ -102,5 +102,5 @@ initBasicTable();
 
     });
 
-})(jQuery);
+})(jQuery, document);
 
