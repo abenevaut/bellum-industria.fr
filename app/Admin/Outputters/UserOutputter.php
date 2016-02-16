@@ -136,16 +136,4 @@ class UserOutputter extends AbsLaravelOutputter
     {
         return 'T\'es pas fou! On supprime pas les utilisateurs!';
     }
-
-    public function createClient($id)
-    {
-        $contact = $this->r_LogContact->get($id);
-
-        return $this->output(
-            'cvepdb.admin.contacts.create_client',
-            [
-                'contact' => $contact
-            ]
-        );
-    }
 }

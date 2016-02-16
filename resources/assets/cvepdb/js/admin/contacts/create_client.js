@@ -4,7 +4,7 @@
 (function ($, W, D) {
     // A la fin du chargement de la library
     $(D).bind('CVEPDB_READY', function () {
-        cvepdb.debug('create_user.js > CVEPDB_READY : success : Start');
+        cvepdb.debug('create_client.js > CVEPDB_READY : success : Start');
         $('form.forms').validate({
             rules: {
                 last_name: {
@@ -31,6 +31,6 @@
                 }
             }
         });
-        cvepdb.debug('create_user.js > CVEPDB_READY : success : End');
+        cvepdb.debug('create_client.js > CVEPDB_READY : success : End');
     });
 })(jQuery, window, document);

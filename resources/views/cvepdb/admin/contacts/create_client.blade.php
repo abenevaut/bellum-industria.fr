@@ -25,7 +25,7 @@
                             @endforeach
                         </div>
                     @endif
-                    {!! Form::open(array('route' => 'admin.clients.store', 'class' => 'forms')) !!}
+                    {!! Form::open(array('route' => 'admin.contacts.store', 'class' => 'forms')) !!}
                         <div class="form-group form-group-default required">
                             <label>Nom</label>
                             <input type="text" class="form-control" name="last_name" required="required" value="{{ $contact->last_name }}">
@@ -47,5 +47,5 @@
 @endsection
 
 @section('jsfooter')
-    <script src="/assets/js/admin/contacts/create_user.js"></script>
+    <script src="/assets/js/admin/contacts/create_client.js"></script>
 @endsection

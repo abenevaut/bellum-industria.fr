@@ -61,5 +61,5 @@
 @endsection
 
 @section('jsfooter')
-    <script src="/assets/js/admin/contacts/create_user.js"></script>
+    <script src="/assets/js/admin/users/validation.js"></script>
 @endsection

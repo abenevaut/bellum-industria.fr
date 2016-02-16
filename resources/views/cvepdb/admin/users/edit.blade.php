@@ -25,7 +25,7 @@
                             @endforeach
                         </div>
                     @endif
-                    {!! Form::open(array('route' => 'admin.users.store', 'class' => 'forms')) !!}
+                    {!! Form::open(array('route' => ['admin.users.update', $user->id], 'class' => 'forms', 'method' => 'PUT')) !!}
                         <div class="form-group form-group-default required">
                             <label>Nom</label>
                             <input type="text" class="form-control" name="last_name" required="required" value="{{ old('last_name', $user->last_name) }}" placeholder="Nom de l'utilisateur">
@@ -66,5 +66,5 @@
 @endsection
 
 @section('jsfooter')
-    <script src="/assets/js/admin/contacts/create_user.js"></script>
+    <script src="/assets/js/admin/users/validation.js"></script>
 @endsection

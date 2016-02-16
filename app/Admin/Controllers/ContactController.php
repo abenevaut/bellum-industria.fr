@@ -3,8 +3,8 @@
 namespace App\Admin\Controllers;
 
 use CVEPDB\Controllers\AbsController as Controller;
-use Illuminate\Http\Request as Request;
-
+use App\Admin\Requests\UserFormRequest;
+use CVEPDB\Repositories\Users\UserRepositoryEloquent;
 use App\Admin\Outputters\ContactOutputter;
 
 class ContactController extends Controller
@@ -14,11 +14,18 @@ class ContactController extends Controller
      */
     private $outputter = null;
 
-    public function __construct(ContactOutputter $outputter)
+    /**
+     * @var UserRepositoryEloquent|null
+     */
+    private $r_user = null;
+
+    public function __construct(ContactOutputter $outputter, UserRepositoryEloquent $r_user)
     {
         parent::__construct();
 
         $this->outputter = $outputter;
+
+        $this->r_user = $r_user;
     }
 
     /**
@@ -43,9 +50,14 @@ class ContactController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(UserFormRequest $request)
     {
-        //
+        $this->r_user->create_client(
+            $request->get('first_name'),
+            $request->get('last_name'),
+            $request->get('email')
+        );
+        return redirect('admin/users');
     }
 
     /**
