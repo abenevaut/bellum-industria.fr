@@ -28,7 +28,7 @@
             <div class="brand inline">
                 <a href="{{ url('admin') }}">
                     <img src="/assets/images/cvepdb/logo.png" alt="logo" data-src="/assets/images/cvepdb/logo.png"
-                         data-src-retina="/assets/images/cvepdb/logo.png" width="100" height="40">
+                    data-src-retina="/assets/images/cvepdb/logo.png" width="100" height="40">
                 </a>
             </div>
 
@@ -37,63 +37,63 @@
 
 
                 {{--<li class="p-r-15 inline">--}}
-                    {{--<div class="dropdown">--}}
-                        {{--<a href="javascript:;" id="notification-center" class="icon-set globe-fill"--}}
-                           {{--data-toggle="dropdown">--}}
-                            {{--<span class="bubble"></span>--}}
-                        {{--</a>--}}
+                {{--<div class="dropdown">--}}
+                {{--<a href="javascript:;" id="notification-center" class="icon-set globe-fill"--}}
+                {{--data-toggle="dropdown">--}}
+                {{--<span class="bubble"></span>--}}
+                {{--</a>--}}
 
-                        {{--<div class="dropdown-menu notification-toggle" role="menu"--}}
-                             {{--aria-labelledby="notification-center">--}}
-                            {{--<div class="notification-panel">--}}
-                                {{--<!-- START Notification Body-->--}}
-                                {{--<div class="notification-body scrollable">--}}
-                                    {{--<!-- START Notification Item-->--}}
-                                    {{--<div class="notification-item  clearfix">--}}
-                                        {{--<div class="heading">--}}
-                                            {{--<a href="#" class="text-danger">--}}
-                                                {{--<i class="fa fa-exclamation-triangle m-r-10"></i>--}}
-                                                {{--<span class="bold">98% Server Load</span>--}}
-                                                {{--<span class="fs-12 m-l-10">Take Action</span>--}}
-                                            {{--</a>--}}
-                                            {{--<span class="pull-right time">2 mins ago</span>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="option">--}}
-                                            {{--<a href="#" class="mark"></a>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-                                    {{--<!-- END Notification Item-->--}}
-                                {{--</div>--}}
-                                {{--<!-- END Notification Body-->--}}
-                                {{--<!-- START Notification Footer-->--}}
-                                {{--<div class="notification-footer text-center">--}}
-                                    {{--<a href="#" class="">Read all notifications</a>--}}
-                                    {{--<a data-toggle="refresh" class="portlet-refresh text-black pull-right" href="#">--}}
-                                        {{--<i class="pg-refresh_new"></i>--}}
-                                    {{--</a>--}}
-                                {{--</div>--}}
-                                {{--<!-- END Notification Footer-->--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
+                {{--<div class="dropdown-menu notification-toggle" role="menu"--}}
+                {{--aria-labelledby="notification-center">--}}
+                {{--<div class="notification-panel">--}}
+                {{--<!-- START Notification Body-->--}}
+                {{--<div class="notification-body scrollable">--}}
+                {{--<!-- START Notification Item-->--}}
+                {{--<div class="notification-item  clearfix">--}}
+                {{--<div class="heading">--}}
+                {{--<a href="#" class="text-danger">--}}
+                {{--<i class="fa fa-exclamation-triangle m-r-10"></i>--}}
+                {{--<span class="bold">98% Server Load</span>--}}
+                {{--<span class="fs-12 m-l-10">Take Action</span>--}}
+                {{--</a>--}}
+                {{--<span class="pull-right time">2 mins ago</span>--}}
+                {{--</div>--}}
+                {{--<div class="option">--}}
+                {{--<a href="#" class="mark"></a>--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--<!-- END Notification Item-->--}}
+                {{--</div>--}}
+                {{--<!-- END Notification Body-->--}}
+                {{--<!-- START Notification Footer-->--}}
+                {{--<div class="notification-footer text-center">--}}
+                {{--<a href="#" class="">Read all notifications</a>--}}
+                {{--<a data-toggle="refresh" class="portlet-refresh text-black pull-right" href="#">--}}
+                {{--<i class="pg-refresh_new"></i>--}}
+                {{--</a>--}}
+                {{--</div>--}}
+                {{--<!-- END Notification Footer-->--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--</div>--}}
                 {{--</li>--}}
 
 
                 {{--<li class="p-r-15 inline">--}}
-                    {{--<a href="#" class="icon-set clip "></a>--}}
+                {{--<a href="#" class="icon-set clip "></a>--}}
                 {{--</li>--}}
 
 
                 {{--<li class="p-r-15 inline">--}}
-                    {{--<a href="#" class="icon-set grid-box"></a>--}}
+                {{--<a href="#" class="icon-set grid-box"></a>--}}
                 {{--</li>--}}
 
 
             </ul>
 
-            <!-- END NOTIFICATION DROPDOWN -->
+            {{--<!-- END NOTIFICATION DROPDOWN -->--}}
             {{--<a href="#" class="search-link" data-toggle="search">--}}
-                {{--<i class="pg-search"></i>Type anywhere to <span class="bold">search</span>--}}
+            {{--<i class="pg-search"></i>Type anywhere to <span class="bold">search</span>--}}
             {{--</a>--}}
 
         </div>
@@ -101,27 +101,30 @@
 
 
     {{--<div class=" pull-right">--}}
-        {{--<div class="header-inner">--}}
-            {{--<a href="#" class="btn-link icon-set menu-hambuger-plus m-l-20 sm-no-margin hidden-sm hidden-xs"--}}
-               {{--data-toggle="quickview" data-toggle-element="#quickview"></a>--}}
-        {{--</div>--}}
+    {{--<div class="header-inner">--}}
+    {{--<a href="#" class="btn-link icon-set menu-hambuger-plus m-l-20 sm-no-margin hidden-sm hidden-xs"--}}
+    {{--data-toggle="quickview" data-toggle-element="#quickview"></a>--}}
+    {{--</div>--}}
     {{--</div>--}}
 
-
     <div class=" pull-right">
+
+
         <!-- START User Info-->
         <div class="visible-lg visible-md m-t-10">
 
 
             {{--<div class="pull-left p-r-10 p-t-10 fs-16 font-heading">--}}
-                {{--<span class="semi-bold">David</span> <span class="text-master">Nest</span>--}}
+            {{--<span class="semi-bold">David</span> <span class="text-master">Nest</span>--}}
             {{--</div>--}}
+
+
 
             <div class="dropdown pull-right">
                 <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                     {{--<span class="thumbnail-wrapper d32 circular inline m-t-5">--}}
-                        {{--<img src="/assets/img/profiles/avatar.jpg" alt="" data-src="/assets/img/profiles/avatar.jpg" data-src-retina="/assets/img/profiles/avatar_small2x.jpg" width="32" height="32">--}}
+                    {{--<img src="/assets/img/profiles/avatar.jpg" alt="" data-src="/assets/img/profiles/avatar.jpg" data-src-retina="/assets/img/profiles/avatar_small2x.jpg" width="32" height="32">--}}
                     {{--</span>--}}
 
                     <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
@@ -132,11 +135,11 @@
                 <ul class="dropdown-menu profile-dropdown" role="menu">
 
                     {{--<li>--}}
-                        {{--<a href="#"><i class="pg-settings_small"></i> Settings</a>--}}
+                    {{--<a href="#"><i class="pg-settings_small"></i> Settings</a>--}}
                     {{--</li>--}}
 
                     {{--<li>--}}
-                        {{--<a href="#"><i class="pg-outdent"></i> Feedback</a>--}}
+                    {{--<a href="#"><i class="pg-outdent"></i> Feedback</a>--}}
                     {{--</li>--}}
 
                     <li>
@@ -156,5 +159,25 @@
         </div>
         <!-- END User Info-->
     </div>
+
+    <div class="pull-right">
+        <div id="language_switcher" class="dropdown m-t-20 m-r-20">
+            <script type="text/javascript">
+            function switchLanguage(sel) {
+                var url = sel[sel.selectedIndex].value;
+                window.location = "{{ Request::url() }}/?lang=" + url;
+            }
+            </script>
+            <img alt="{{ Session::get('lang') }}"
+            src="{{ asset('/assets/images/lang/png/'.Session::get('lang').'.png') }}">
+            <select name="language_switcher" class="" onchange="switchLanguage(this);">
+                <option value="en"
+                @if ('en' === Session::get('lang'))selected="selected"@endif>{!! trans('cvepdb/global.lang_en') !!}</option>
+                <option value="fr"
+                @if ('fr' === Session::get('lang'))selected="selected"@endif>{!! trans('cvepdb/global.lang_fr') !!}</option>
+            </select>
+        </div>
+    </div>
+
 </div>
 <!-- END HEADER -->

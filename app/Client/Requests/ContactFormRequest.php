@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Vitrine\Requests;
+namespace App\Client\Requests;
 
 use CVEPDB\Requests\Request;
 

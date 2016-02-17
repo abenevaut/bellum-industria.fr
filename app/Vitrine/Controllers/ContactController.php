@@ -2,7 +2,6 @@
 
 namespace App\Vitrine\Controllers;
 
-use Illuminate\Http\Request as Request;
 use CVEPDB\Controllers\AbsBaseController as BaseController;
 
 use App\Vitrine\Requests\ContactFormRequest;
@@ -35,7 +34,7 @@ class ContactController extends BaseController
      *
      * @return Response
      */
-    public function store(Request $request)
+    public function store(ContactFormRequest $request)
     {
         $m_contacts = new LogContact();
         $m_contacts->first_name = $request->get('first_name');

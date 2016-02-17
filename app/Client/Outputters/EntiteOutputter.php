@@ -5,6 +5,7 @@ namespace App\Client\Outputters;
 use CVEPDB\Services\Outputters\AbsLaravelOutputter;
 use CVEPDB\Requests\IFormRequest;
 use App\Admin\Repositories\Users\UserRepositoryEloquent;
+use App\Admin\Repositories\Users\LogContactRepositoryEloquent;
 
 class EntiteOutputter extends AbsLaravelOutputter
 {
@@ -18,13 +19,19 @@ class EntiteOutputter extends AbsLaravelOutputter
      */
     private $r_user = null;
 
-    public function __construct(UserRepositoryEloquent $r_user)
+    /**
+     * @var LogContactRepositoryEloquent|null
+     */
+    private $r_logcontact = null;
+
+    public function __construct(UserRepositoryEloquent $r_user, LogContactRepositoryEloquent $r_logcontact)
     {
         parent::__construct();
 
         $this->current_user_id = \Auth::user()->id;
 
         $this->r_user = $r_user;
+        $this->r_logcontact = $r_logcontact;
     }
 
     /**
@@ -100,10 +107,13 @@ class EntiteOutputter extends AbsLaravelOutputter
 
     public function join()
     {
+
+        $join_demande = $this->r_logcontact->findWhere(['email' => \Auth::user()->email, 'subject' => 'Demande d\'activation de compte'])->first();
+
         return $this->output(
             'cvepdb.client.entites.join',
             [
-                'bool_demande' => false
+                'bool_demande' => !is_null($join_demande) && $join_demande->count()
             ]
         );
     }
