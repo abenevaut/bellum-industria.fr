@@ -24,6 +24,8 @@ class RoleOutputter extends AdminOutputter
 
         $this->r_role = $r_role;
         $this->r_permission = $r_permission;
+
+        $this->addBreadcrumb('Rôles', 'admin/roles');
     }
 
     /**
@@ -77,7 +79,7 @@ class RoleOutputter extends AdminOutputter
             $role->permissions()->attach($permissions['role_permission_id']);
         }
 
-        return redirect('admin/roles');
+        return $this->redirectTo('admin/roles');
     }
 
     /**
@@ -135,7 +137,7 @@ class RoleOutputter extends AdminOutputter
             $role->permissions()->attach($permissions['role_permission_id']);
         }
 
-        return redirect('admin/roles');
+        return $this->redirectTo('admin/roles');
     }
 
     /**

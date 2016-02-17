@@ -17,6 +17,8 @@ class ContactOutputter extends AdminOutputter
         parent::__construct();
 
         $this->r_LogContact = $r_LogContact;
+
+        $this->addBreadcrumb('Contacts', 'admin/contacts');
     }
 
     /**
@@ -86,7 +88,7 @@ class ContactOutputter extends AdminOutputter
     {
         $status = $request->get('status');
         $this->r_LogContact->update(['status' => $status], $id);
-        return redirect('admin/contacts');
+        return $this->redirectTo('admin/contacts');
     }
 
     /**
@@ -104,7 +106,7 @@ class ContactOutputter extends AdminOutputter
     {
         $contact = $this->r_LogContact->find($id);
 
-        return view(
+        return $this->output(
             'cvepdb.admin.contacts.create_client',
             [
                 'contact' => $contact

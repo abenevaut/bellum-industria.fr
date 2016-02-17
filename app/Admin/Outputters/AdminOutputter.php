@@ -19,6 +19,10 @@ class AdminOutputter extends AbsLaravelOutputter
         parent::__construct();
 
         $this->r_contact = App::make('App\Admin\Repositories\Users\LogContactRepositoryEloquent');
+
+        $this->addBreadcrumb('Dashboard', 'admin/');
+        $this->setBreadcrumbDivider('');
+        $this->breadcrumbs->setListElement('li');
     }
 
     public function output($view, $data)

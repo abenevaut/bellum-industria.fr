@@ -24,6 +24,8 @@ class UserOutputter extends AdminOutputter
 
         $this->r_user = $r_user;
         $this->r_role = $r_role;
+
+        $this->addBreadcrumb('Utilisateurs', 'admin/users');
     }
 
     /**
@@ -78,7 +80,7 @@ class UserOutputter extends AdminOutputter
             $user->roles()->attach($roles['user_role_id']);
         }
 
-        return redirect('admin/users');
+        return $this->redirectTo('admin/users');
     }
 
     /**

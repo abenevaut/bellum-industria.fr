@@ -17,6 +17,8 @@ class PermissionOutputter extends AdminOutputter
         parent::__construct();
 
         $this->r_permission = $r_permission;
+
+        $this->addBreadcrumb('Permissions', 'admin/permissions');
     }
 
     /**
@@ -60,7 +62,7 @@ class PermissionOutputter extends AdminOutputter
             'display_name' => $request->get('display_name'),
             'description' => $request->get('description')
         ]);
-        return redirect('admin/permissions');
+        return $this->redirectTo('admin/permissions');
     }
 
     /**
@@ -108,7 +110,7 @@ class PermissionOutputter extends AdminOutputter
             ],
             $id
         );
-        return redirect('admin/permissions');
+        return $this->redirectTo('admin/permissions');
     }
 
     /**
@@ -127,7 +129,7 @@ class PermissionOutputter extends AdminOutputter
         else {
             // Todo : Message "Pas de suppression car cette permission est utilisés par des rôles. (+ liste des rôles)"
         }
-        return redirect('admin/permissions');
+        return $this->redirectTo('admin/permissions');
     }
 
     public function ajax_permissions()
