@@ -29,7 +29,7 @@
             <a href="{{ url('admin') }}" class="">
                 <span class="title">Dashboard</span>
             </a>
-            <span class="icon-thumbnail "><i class="fa-dashboard"></i></span>
+            <span class="icon-thumbnail "><i class="fa fa-dashboard"></i></span>
         </li>
 
 
@@ -44,7 +44,7 @@
                 <span class="title">Mes projets</span>
                 <span class="details">X projects en cours</span>
             </a>
-            <span class="icon-thumbnail "><i class="fa-terminal"></i></span>
+            <span class="icon-thumbnail "><i class="fa fa-terminal"></i></span>
         </li>
 
 
@@ -59,7 +59,7 @@
                 <span class="title">Clients</span>
                 <span class=" arrow @if (in_array(Request::path(), ['admin/entites', 'admin/bills', 'admin/payments'])) open active @endif"></span>
             </a>
-            <span class="icon-thumbnail"><i class="sl-user"></i></span>
+            <span class="icon-thumbnail"><i class="fa fa-user"></i></span>
             <ul class="sub-menu">
 
                 <li class="">
@@ -89,15 +89,24 @@
             @if (in_array(Request::path(), ['admin/contacts']))
                 open active
             @endif">
-            <a href="javascript:;">
+            <a href="javascript:;" class="detailed">
                 <span class="title">Prospections</span>
                 <span class=" arrow @if (in_array(Request::path(), ['admin/contacts'])) open active @endif"></span>
+                @if ($sidebar['prospection']['contact_pending'] >= 1)
+                <span class="title"><span class="badge badge-complete">{{ $sidebar['prospection']['contact_pending'] }}</span> en attente{{ $sidebar['prospection']['contact_pending'] > 1 ? 's' : '' }}</span>
+                @endif
             </a>
             <span class="icon-thumbnail"><i class="pg-search"></i></span>
             <ul class="sub-menu">
 
                 <li class="">
-                    <a href="{{ url('admin/contacts') }}">Prises de contacts</a>
+                    <a href="{{ url('admin/contacts') }}" class="detailed">
+
+                        <span class="title">Prises de contacts</span>
+                        @if ($sidebar['prospection']['contact_pending'] >= 1)
+                        <span class="details"><span class="badge badge-complete">{{ $sidebar['prospection']['contact_pending'] }}</span> en attente{{ $sidebar['prospection']['contact_pending'] > 1 ? 's' : '' }}</span>
+                        @endif
+                    </a>
                     <span class="icon-thumbnail"><i class="pg-mail"></i></span>
                 </li>
 
@@ -132,22 +141,22 @@
                         open active
                     @endif "></span>
             </a>
-            <span class="icon-thumbnail"><i class="fa-users"></i></span>
+            <span class="icon-thumbnail"><i class="fa fa-user"></i></span>
             <ul class="sub-menu">
 
                 <li class="">
                     <a href="{{ url('admin/users') }}">Users</a>
-                    <span class="icon-thumbnail"><i class="fa-users"></i></span>
+                    <span class="icon-thumbnail"><i class="fa fa-users"></i></span>
                 </li>
 
                 <li class="">
                     <a href="{{ url('admin/roles') }}">Roles</a>
-                    <span class="icon-thumbnail"><i class="fa-group"></i></span>
+                    <span class="icon-thumbnail"><i class="fa fa-sitemap"></i></span>
                 </li>
 
                 <li class="">
                     <a href="{{ url('admin/permissions') }}">Permissions</a>
-                    <span class="icon-thumbnail"><i class="fa-key"></i></span>
+                    <span class="icon-thumbnail"><i class="fa  fa-sign-in"></i></span>
                 </li>
 
             </ul>

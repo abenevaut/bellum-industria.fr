@@ -3,7 +3,7 @@
 namespace App\Admin\Controllers;
 
 use CVEPDB\Controllers\AbsController as Controller;
-use App\Admin\Requests\UserFormRequest;
+use App\Admin\Requests\ContactFormRequest;
 use CVEPDB\Repositories\Users\UserRepositoryEloquent;
 use App\Admin\Outputters\ContactOutputter;
 
@@ -50,14 +50,9 @@ class ContactController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(UserFormRequest $request)
+    public function store(ContactFormRequest $request)
     {
-        $this->r_user->create_client(
-            $request->get('first_name'),
-            $request->get('last_name'),
-            $request->get('email')
-        );
-        return redirect('admin/users');
+        //
     }
 
     /**
@@ -88,9 +83,9 @@ class ContactController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, ContactFormRequest $request)
     {
-        //
+        return $this->outputter->update($id, $request);
     }
 
     /**

@@ -2,11 +2,10 @@
 
 namespace App\Admin\Outputters;
 
-use CVEPDB\Services\Outputters\AbsLaravelOutputter;
 use CVEPDB\Requests\IFormRequest;
 use \App\Admin\Repositories\Projects\ProjectRepositoryEloquent;
 
-class ProjectOutputter extends AbsLaravelOutputter
+class ProjectOutputter extends AdminOutputter
 {
     /**
      * @var null ProjectRepositoryEloquent
@@ -18,7 +17,7 @@ class ProjectOutputter extends AbsLaravelOutputter
      */
     public function __construct(ProjectRepositoryEloquent $r_project)
     {
-       // parent::__construct();
+        parent::__construct();
 
         $this->r_project = $r_project;
     }

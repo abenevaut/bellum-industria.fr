@@ -29,7 +29,7 @@
             <a href="{{ url('admin') }}" class="">
                 <span class="title">Dashboard</span>
             </a>
-            <span class="icon-thumbnail "><i class="fa-dashboard"></i></span>
+            <span class="icon-thumbnail "><i class="fa fa-dashboard"></i></span>
         </li>
 
 
@@ -44,7 +44,7 @@
                 <span class="title">Mes projets</span>
                 <span class="details">X projects en cours</span>
             </a>
-            <span class="icon-thumbnail "><i class="fa-terminal"></i></span>
+            <span class="icon-thumbnail "><i class="fa fa-terminal"></i></span>
         </li>
 
 
@@ -132,22 +132,22 @@
                         open active
                     @endif "></span>
             </a>
-            <span class="icon-thumbnail"><i class="fa-users"></i></span>
+            <span class="icon-thumbnail"><i class="fa fa-users"></i></span>
             <ul class="sub-menu">
 
                 <li class="">
                     <a href="{{ url('admin/users') }}">Users</a>
-                    <span class="icon-thumbnail"><i class="fa-users"></i></span>
+                    <span class="icon-thumbnail"><i class="fa fa-users"></i></span>
                 </li>
 
                 <li class="">
                     <a href="{{ url('admin/roles') }}">Roles</a>
-                    <span class="icon-thumbnail"><i class="fa-group"></i></span>
+                    <span class="icon-thumbnail"><i class="fa fa-group"></i></span>
                 </li>
 
                 <li class="">
                     <a href="{{ url('admin/permissions') }}">Permissions</a>
-                    <span class="icon-thumbnail"><i class="fa-key"></i></span>
+                    <span class="icon-thumbnail"><i class="fa fa-key"></i></span>
                 </li>
 
             </ul>

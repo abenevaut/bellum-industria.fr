@@ -3,20 +3,20 @@
 namespace App\Admin\Outputters;
 
 use CVEPDB\Requests\IFormRequest;
-use App\Admin\Repositories\Users\LogContactRepositoryEloquent as ContactRepository;
+use App\Admin\Repositories\Bills\PaymentRepositoryEloquent;
 
-class ContactOutputter extends AdminOutputter
+class DashboardOutputter extends AdminOutputter
 {
     /**
-     * @var null LogContact repository
+     * @var PaymentRepositoryEloquent|null
      */
-    private $r_LogContact = null;
+    private $r_payment = null;
 
-    public function __construct(ContactRepository $r_LogContact)
+    public function __construct(PaymentRepositoryEloquent $paymentRepository)
     {
         parent::__construct();
 
-        $this->r_LogContact = $r_LogContact;
+        $this->r_payment = $paymentRepository;
     }
 
     /**
@@ -24,12 +24,29 @@ class ContactOutputter extends AdminOutputter
      */
     public function index()
     {
-        $contacts = $this->r_LogContact->all();
+        $payments = $this->r_payment->all();
+
+        $total_amount_per_year = [];
+        $total_amount_per_year['total'] = 0;
+
+        foreach ($payments as $payment) {
+
+            $year = date('Y', strtotime($payment->date));
+
+            if (!array_key_exists($year, $total_amount_per_year)) {
+                $total_amount_per_year[$year] = 0;
+            }
+
+            $total_amount_per_year[$year] += str_replace([' ', ','], ['', '.'], $payment->amount);
+            $total_amount_per_year['total'] += str_replace([' ', ','], ['', '.'], $payment->amount);
+        }
+
+        krsort($total_amount_per_year);
 
         return $this->output(
-            'cvepdb.admin.contacts.index',
+            'cvepdb.admin.dashboard.index',
             [
-                'contacts' => $contacts
+                'total_amount_per_year' => $total_amount_per_year
             ]
         );
     }
@@ -82,11 +99,9 @@ class ContactOutputter extends AdminOutputter
      * @param  int  $id
      * @return Response
      */
-    public function update($id, IFormRequest $request)
+    public function update($id)
     {
-        $status = $request->get('status');
-        $this->r_LogContact->update(['status' => $status], $id);
-        return redirect('admin/contacts');
+        //
     }
 
     /**
@@ -98,17 +113,5 @@ class ContactOutputter extends AdminOutputter
     public function destroy($id)
     {
         //
-    }
-
-    public function createClient($id)
-    {
-        $contact = $this->r_LogContact->find($id);
-
-        return view(
-            'cvepdb.admin.contacts.create_client',
-            [
-                'contact' => $contact
-            ]
-        );
     }
 }

@@ -2,11 +2,10 @@
 
 namespace App\Admin\Outputters;
 
-use CVEPDB\Services\Outputters\AbsLaravelOutputter;
 use CVEPDB\Requests\IFormRequest;
 use CVEPDB\Repositories\Permissions\PermissionRepositoryEloquent;
 
-class PermissionOutputter extends AbsLaravelOutputter
+class PermissionOutputter extends AdminOutputter
 {
     /**
      * @var null PermissionRepositoryEloquent

@@ -2,11 +2,10 @@
 
 namespace App\Admin\Outputters;
 
-use CVEPDB\Services\Outputters\AbsLaravelOutputter;
 use CVEPDB\Requests\Request;
 use App\Admin\Repositories\BankAccounts\BankAccountRepositoryEloquent;
 
-class BankAccountOutputter extends AbsLaravelOutputter
+class BankAccountOutputter extends AdminOutputter
 {
     /**
      * @var null LogContact repository

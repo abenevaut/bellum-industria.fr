@@ -20,12 +20,12 @@
                 <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm">
 
                     <li class="@if (!$bool_demande) active @endif">
-                        <a data-toggle="tab" href="#tab1"><i class="fa fa-truck tab-icon"></i> <span>Compte inactif</span></a>
+                        <a data-toggle="tab" href="#tab1"><i class="fa @if ($bool_demande) fa-circle @else fa-circle-thin @endif tab-icon"></i> <span>Compte inactif</span></a>
                     </li>
 
                     @if ($bool_demande)
                     <li class="active">
-                        <a data-toggle="tab" href="#tab2"><i class="fa fa-check tab-icon"></i> <span>Summary</span></a>
+                        <a data-toggle="tab" href="#tab2"><i class="fa  fa-check-circle tab-icon"></i> <span>Demande en cours de traitement</span></a>
                     </li>
                     @endif
 

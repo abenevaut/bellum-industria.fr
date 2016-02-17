@@ -27,7 +27,8 @@ class LogContact extends Model implements Transformable
         'last_name',
         'email',
         'subject',
-        'message'
+        'message',
+        'status'
     ];
 
     /**

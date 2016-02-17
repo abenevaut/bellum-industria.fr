@@ -27,7 +27,14 @@
                                 <tr>
                                     <td class="font-montserrat all-caps fs-12 col-lg-2">
                                         <a class="btnToggleSlideUpSize" data-modal_id="{{ $contact->id }}" href="javascript:void(0);">
-                                            {{ $contact->first_name }} {{ $contact->last_name }}
+
+                                            @if ($contact->status == 'pending')
+                                                <span class="badge badge-complete"><i class="fa fa-star"></i></span>
+                                            @elseif ($contact->status == 'treated')
+                                                <span class="badge badge-info"><i class="fa  fa-check"></i></span>
+                                            @endif
+
+                                                &nbsp;&nbsp;{{ $contact->first_name }} {{ $contact->last_name }}
                                         </a>
                                     </td>
                                     <td class="font-montserrat all-caps fs-12 col-lg-3">
@@ -68,13 +75,22 @@
                         <div class="modal-body">
                             <p class="p-b-10">{{ $contact->message }}</p>
                             <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="p-t-20 clearfix p-l-10 p-r-10">
-                                        &nbsp;
+                                <div class="col-sm-6 m-t-10 sm-m-t-10">
+                                    <div class="clearfix p-l-10 p-r-10">
+                                        @if ($contact->status == 'pending')
+                                            {!! Form::open(['route' => ['admin.contacts.update', $contact->id], 'method' => 'put']) !!}
+                                            <input type="hidden" name="status" value="treated">
+                                            <button type="submit" class="btn btn-complete btn-block m-t-5">
+                                                <i class="fa fa-check-square-o"></i> Traiter
+                                            </button>
+                                            {!! Form::close() !!}
+                                        @endif
                                     </div>
                                 </div>
-                                <div class="col-sm-4 m-t-10 sm-m-t-10">
-                                    <a class="btn btn-primary btn-block m-t-5" href="mailto:{{ $contact->email }}">Repondre</a>
+                                <div class="col-sm-6 m-t-10 sm-m-t-10">
+                                    <a class="btn btn-primary btn-block m-t-5" href="mailto:{{ $contact->email }}">
+                                        <i class="pg-mail"></i> Repondre
+                                    </a>
                                 </div>
                             </div>
                         </div>
