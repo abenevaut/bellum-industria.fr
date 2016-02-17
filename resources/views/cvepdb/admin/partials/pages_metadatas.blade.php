@@ -34,6 +34,8 @@
 <link href="/assets/plugins/dropzone/css/dropzone.css" rel="stylesheet" type="text/css" />
 <link href="/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" media="screen">
 
+@yield('metadatas')
+
 <link href="/assets/css/pages-icons.css" rel="stylesheet" type="text/css">
 
 <link class="main-stylesheet" href="/assets/css/admin/default.css" rel="stylesheet" type="text/css" />
