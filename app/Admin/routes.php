@@ -34,6 +34,7 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
         Route::get('permissions/ajax/getpermissions', '\App\Admin\Controllers\PermissionController@postAjaxGetPermissions');
 
         Route::resource('users', '\App\Admin\Controllers\UserController');
+        Route::post('users/store-client', ['as' => 'admin.users.create_client', 'uses' => '\App\Admin\Controllers\UserController@storeClient']);
 
 
         Route::resource('projects', '\App\Admin\Controllers\ProjectController');

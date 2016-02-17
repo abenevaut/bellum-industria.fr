@@ -95,4 +95,14 @@ class UserController extends Controller
     {
         return $this->outputter->destroy($id);
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function storeClient(UserFormRequest $request)
+    {
+        return $this->outputter->storeClient($request);
+    }
 }

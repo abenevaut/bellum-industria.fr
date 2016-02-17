@@ -153,7 +153,7 @@
                     },
                     series: [{
                         name: 'Tous les utilisateurs',
-                        data: [{{ $users['statistiques']['all'] }}, ]
+                        data: [{{ $users['statistiques']['all'] }}]
                     }]
                 });
 
@@ -173,7 +173,7 @@
                         enabled: false
                     },
                     title: {
-                        text: '',
+                        text: ''
                     },
                     tooltip: {
                         pointFormat: '<b>{point.percentage:.1f}%</b>'
@@ -185,6 +185,10 @@
                                 distance: 15,
                                 style: {
                                     fontWeight: 'bold'
+                                },
+                                formatter:function(){
+                                    if (this.y > 0)
+                                        return this.point.name;
                                 }
                             },
                             center: ['50%', '50%']
@@ -195,8 +199,9 @@
                         name: 'Users by rôles',
                         innerSize: '50%',
                         data: [
-                            ['Users',   {{ $users['statistiques']['roles']['users'] }}],
-                            ['Clients',       {{ $users['statistiques']['roles']['clients'] }}],
+                            ['Admins', {{ $users['statistiques']['roles']['admins'] }}],
+                            ['Users', {{ $users['statistiques']['roles']['users'] }}],
+                            ['Clients', {{ $users['statistiques']['roles']['clients'] }}],
                             ['Gamers', {{ $users['statistiques']['roles']['gamers'] }}]
                         ]
                     }]

@@ -137,4 +137,28 @@ class UserOutputter extends AdminOutputter
     {
         return 'T\'es pas fou! On supprime pas les utilisateurs!';
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function storeClient(IFormRequest $request)
+    {
+        $user = $this->r_user->create_client(
+            $request->get('first_name'),
+            $request->get('last_name'),
+            $request->get('email')
+        );
+
+
+        /*
+         * Todo : Envoyer un mail au contact concerné "Votre compte a été crée sur notre plateforme ... A la premiere utilisation vous devez faire un changement de mot de passe..."
+         */
+
+
+        return $this->redirectTo('admin/users');
+    }
 }

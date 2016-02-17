@@ -57,23 +57,22 @@ class DashboardOutputter extends AdminOutputter
 //
 //        krsort($total_amount_per_year);
 
-
         return $this->output(
             'cvepdb.admin.dashboard.index',
             [
 //                'total_amount_per_year' => $total_amount_per_year
 
-
-                    'users' => [
-                        'statistiques' => [
-                            'all' => $this->r_user->all()->count(),
-                            'roles' => [
-                                'users' => $this->r_role->count_users_by_roles(['user']),
-                                'clients' => $this->r_role->count_users_by_roles(['client']),
-                                'gamers' => $this->r_role->count_users_by_roles(['gamer']),
-                            ]
+                'users' => [
+                    'statistiques' => [
+                        'all' => $this->r_user->all()->count(),
+                        'roles' => [
+                            'admins' => $this->r_role->count_users_by_roles(['admin']),
+                            'users' => $this->r_role->count_users_by_roles(['user']),
+                            'clients' => $this->r_role->count_users_by_roles(['client']),
+                            'gamers' => $this->r_role->count_users_by_roles(['gamer']),
                         ]
                     ]
+                ]
 
             ]
         );

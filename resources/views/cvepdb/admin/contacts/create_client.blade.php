@@ -25,7 +25,7 @@
                             @endforeach
                         </div>
                     @endif
-                    {!! Form::open(array('route' => 'admin.contacts.store', 'class' => 'forms')) !!}
+                    {!! Form::open(array('route' => 'admin.users.create_client', 'class' => 'forms')) !!}
                         <div class="form-group form-group-default required">
                             <label>Nom</label>
                             <input type="text" class="form-control" name="last_name" required="required" value="{{ $contact->last_name }}">

@@ -9,23 +9,23 @@
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v2.1.1",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "974fd16e328ca851a081449100d9509af59cf0ff"
+                "reference": "13b7058d2120c8d5af7f1ada21b7c44dd87b666a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/974fd16e328ca851a081449100d9509af59cf0ff",
-                "reference": "974fd16e328ca851a081449100d9509af59cf0ff",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/13b7058d2120c8d5af7f1ada21b7c44dd87b666a",
+                "reference": "13b7058d2120c8d5af7f1ada21b7c44dd87b666a",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "~5.0.17|5.1.*|5.2.*",
+                "illuminate/support": "5.1.*|5.2.*",
                 "maximebf/debugbar": "~1.11.0",
-                "php": ">=5.4.0",
-                "symfony/finder": "~2.6|~3.0"
+                "php": ">=5.5.9",
+                "symfony/finder": "~2.7|~3.0"
             },
             "type": "library",
             "extra": {
@@ -59,7 +59,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2015-12-22 06:22:38"
+            "time": "2016-02-17 08:32:21"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -370,7 +370,7 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb/abstract.git",
-                "reference": "6e84e62582edfc7edcb99d9ba89453dbfda699c7"
+                "reference": "138c1dc38524f339f0049dc58c82bc78a08c731c"
             },
             "require": {
                 "chrisbjr/api-guard": "^2.3",
@@ -414,7 +414,7 @@
                 "Interfaces",
                 "Laravel"
             ],
-            "time": "2016-02-15 15:02:08"
+            "time": "2016-02-17 13:17:10"
         },
         {
             "name": "cviebrock/eloquent-sluggable",
