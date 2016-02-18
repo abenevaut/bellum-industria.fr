@@ -26,7 +26,7 @@ class ContactOutputter extends AdminOutputter
      */
     public function index()
     {
-        $contacts = $this->r_LogContact->all();
+        $contacts = $this->r_LogContact->findWhereIn('type', ['prospecting']);
 
         return $this->output(
             'cvepdb.admin.contacts.index',

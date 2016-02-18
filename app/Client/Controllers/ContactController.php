@@ -44,6 +44,7 @@ class ContactController extends Controller
             'email' => $request->get('email'),
             'subject' => $request->get('subject'),
             'message' => $request->get('message'),
+            'type' => 'account_activation',
         ]);
 
         $this->mailer->contact_form($contact);

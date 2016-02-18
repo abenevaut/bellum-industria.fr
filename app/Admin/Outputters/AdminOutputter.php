@@ -38,7 +38,10 @@ class AdminOutputter extends AbsLaravelOutputter
         return [
             'sidebar' => [
                 'prospection' => [
-                    'contact_pending' => $this->r_contact->findWhereIn('status', ['pending'])->count()
+                    'contact_pending' => $this->r_contact->findWhere(
+                        ['status' => 'pending',
+                            'type' => 'prospecting']
+                    )->count()
                 ]
             ]
         ];
