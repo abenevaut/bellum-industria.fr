@@ -1,4 +1,4 @@
-<title>#CVEPDB</title>
+<title>#CVEPDB.fr</title>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -8,7 +8,7 @@
 
 <base href="{{ url() }}"/>
 
-<meta property="og:site_name" content="#CVEPDB">
+<meta property="og:site_name" content="#CVEPDB.fr">
 <meta property="og:url" content="{{ url() }}">
 <meta property="og:type" content="website">
 <meta property="og:type" content="vitrine:page">

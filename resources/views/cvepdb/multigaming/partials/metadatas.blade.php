@@ -3,7 +3,7 @@
 
 <base href="{{ url() }}"/>
 
-<title>Multigamgin#CVEPDB | Ca va ENCORE parler de bits!</title>
+<title>Multigamgin#CVEPDB.fr</title>
 
 <link href="/assets/images/multigaming/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <link href="/assets/images/multigaming/apple-touch-icon.png" rel="apple-touch-icon" type="image/x-icon" />

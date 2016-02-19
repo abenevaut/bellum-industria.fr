@@ -9,7 +9,7 @@
 
 <base href="{{ url() }}"/>
 
-<title>Panel admin | Ca va ENCORE parler de bits!</title>
+<title>Panel admin | #CVEPDB.fr</title>
 
 <link href="/assets/images/cvepdb/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <link href="/assets/images/cvepdb/apple-touch-icon.png" rel="apple-touch-icon" type="image/x-icon" />
