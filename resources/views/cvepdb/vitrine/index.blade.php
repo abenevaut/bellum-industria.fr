@@ -106,7 +106,7 @@
 
                         <div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
                             <div class="frame alignleft" style="padding:31px 0 31px 0;">
-                                <a href="{!! $item->get_link() !!}" target="_blank">
+                                <a href="{!! $item->get_link() !!}">
                                     <img src="/assets/images/cvepdb/logo.png" alt="{!! $item->get_title() !!}"
                                          width="142" height="80"/>
 
@@ -114,7 +114,7 @@
                                 </a>
                             </div>
                             <div class="post-content">
-                                <h5><a href="{!! $item->get_link() !!}" target="_blank">
+                                <h5><a href="{!! $item->get_link() !!}">
                                         {!! str_limit($item->get_title(), 55, ' ..') !!}
                                     </a></h5>
 
