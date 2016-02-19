@@ -30,4 +30,6 @@ return [
 
     'share' => 'Partager ce site :',
 
+    'blog_title' => 'Le blog : Ça va ENCORE parler de bits !',
+    'blog_no_article' => 'Il n\'y a pas d\'article',
 ];

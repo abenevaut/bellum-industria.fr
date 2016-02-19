@@ -13,6 +13,8 @@ use ToniPeric\Clash\Member as COCMember;
 use ToniPeric\Clash\Members as COCMembers;
 use ToniPeric\Clash\Http\Client as COCClient;
 
+use SimplePie;
+
 class IndexOutputter extends AbsLaravelOutputter
 {
     /**
@@ -60,6 +62,14 @@ class IndexOutputter extends AbsLaravelOutputter
      */
     public function index()
     {
+      $feed = new SimplePie();
+      $feed->set_feed_url("https://steamcommunity.com/groups/Bellum-Industria/rss");
+      $feed->enable_cache(true);
+      $feed->set_cache_location( storage_path() . '/app/cache' );
+      $feed->set_cache_duration( 60 * 60 * 12 );
+      $feed->set_output_encoding('utf-8');
+      $feed->init();
+
         $coc_clan = COCClient::getClanDetails('#PY2UJ8C0');
 
         $team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
@@ -87,6 +97,7 @@ class IndexOutputter extends AbsLaravelOutputter
             [
                 'team_bot' => $team_bot,
                 'team_bellumindustria' => $team_bellumindustria,
+                'announcements' => $feed->get_items(0, 2),
                 'threads' => $this->steam->paginate('Bellum-Industria', 4),
                 'game_servers' => $game_servers,
                 'coc_clan' => $coc_clan

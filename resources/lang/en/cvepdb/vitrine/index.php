@@ -30,4 +30,6 @@ return [
 
     'share' => 'Share this website :',
 
+    'blog_title' => 'From blog : Ça va ENCORE parler de bits !',
+    'blog_no_article' => 'No article',
 ];

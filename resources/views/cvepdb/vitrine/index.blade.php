@@ -90,6 +90,56 @@
         <!-- Begin Inner -->
     </div>
     <!-- End White Wrapper -->
+
+    <!-- Begin White Wrapper -->
+    <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
+        <!-- Begin Inner -->
+        <div class="layout__body-wrapper__content-wrapper__inner">
+
+            <h3 class="colored">{{ trans('cvepdb/vitrine/index.blog_title') }}</h3>
+
+            @if (count($blog_articles) > 0)
+              <div class="layout__body-wrapper__content-wrapper__inner__widget-posts">
+                  <div class="grid">
+
+                    @foreach($blog_articles as $item)
+
+                        <div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
+                            <div class="frame alignleft">
+                                <a href="{!! $item->get_link() !!}" target="_blank">
+                                    <img src="/assets/images/multigaming/logo.png" alt="{!! $item->get_title() !!}"
+                                         width="142" height="142"/>
+
+                                    <div></div>
+                                </a>
+                            </div>
+                            <div class="post-content">
+                                <h5><a href="{!! $item->get_link() !!}" target="_blank">{!! $item->get_title() !!}</a></h5>
+
+                                <div class="meta">
+                                    <span class="date">{!! $item->get_date() !!}</span>
+                                </div>
+                                {!! strip_tags()$item->get_description()) !!}
+                            </div>
+                        </div>
+
+                    @endforeach
+
+                  </div>
+              </div>
+            @else
+              <div class="info-box">
+                  {{ trans('cvepdb/vitrine/index.blog_no_article') }}
+              </div>
+            @endif
+            <div class="clear"></div>
+        </div>
+        <!-- Begin Inner -->
+    </div>
+    <!-- End White Wrapper -->
+
+
+
     <!-- Begin Gray Wrapper -->
     <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
         <!-- Begin Inner -->
@@ -99,5 +149,4 @@
         <!-- Begin Inner -->
     </div>
     <!-- End Gray Wrapper -->
-
 @stop

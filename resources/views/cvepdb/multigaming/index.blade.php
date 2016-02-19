@@ -335,7 +335,7 @@
     <div class="layout__body-wrapper__content-wrapper__inner">
 
 
-        <h2 class="colored">{{ $coc_clan->name() }}</h2>
+        <h2 class="colored"><img src="/assets/images/multigaming/coc/Barbarians.png" width="40" height="40" alt="">{{ $coc_clan->name() }}</h2>
 
 
         <?php //dd($coc_clan); ?>

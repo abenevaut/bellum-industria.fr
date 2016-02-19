@@ -75,8 +75,9 @@ $dimension_ipad_max-width: 1200px !default;
 /* iPad Landscape */
 @media only screen and (min-width: $dimension_ipad_max-width) {
   .layout__body-wrapper__content-wrapper--cocsushido {
-    background-image: url('https://api-assets.clashofclans.com/badges/200/ZxxzlDwcBydZvZEOwP-CgyMBRmPi7gLU6n4po_Bf5HM.png');
-    background-repeat: no-repeat;
+    background: url('https://api-assets.clashofclans.com/badges/200/ZxxzlDwcBydZvZEOwP-CgyMBRmPi7gLU6n4po_Bf5HM.png') no-repeat,
+      url('/assets/images/multigaming/coc/village-grasse-background.jpg') repeat;
+
     background-attachment: inherit;
     background-position: 0px 150px;
   }
