@@ -105,10 +105,10 @@
                     @foreach($blog_articles as $item)
 
                         <div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
-                            <div class="frame alignleft">
+                            <div class="frame alignleft" style="padding:31px 0 31px 0;">
                                 <a href="{!! $item->get_link() !!}" target="_blank">
-                                    <img src="/assets/images/multigaming/logo.png" alt="{!! $item->get_title() !!}"
-                                         width="142" height="142"/>
+                                    <img src="/assets/images/cvepdb/logo.png" alt="{!! $item->get_title() !!}"
+                                         width="142" height="80"/>
 
                                     <div></div>
                                 </a>
@@ -119,7 +119,7 @@
                                 <div class="meta">
                                     <span class="date">{!! $item->get_date() !!}</span>
                                 </div>
-                                {!! strip_tags()$item->get_description()) !!}
+                                {!! strip_tags($item->get_description()) !!}
                             </div>
                         </div>
 
