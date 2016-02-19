@@ -26,7 +26,7 @@
         <div class="header-inner">
 
             <div class="brand inline">
-                <a href="{{ url('admin') }}">
+                <a href="{{ url('clients') }}">
                     <img src="/assets/images/cvepdb/logo.png" alt="logo" data-src="/assets/images/cvepdb/logo.png"
                     data-src-retina="/assets/images/cvepdb/logo.png" width="100" height="40">
                 </a>
@@ -107,6 +107,25 @@
     {{--</div>--}}
     {{--</div>--}}
 
+    <div class="pull-right">
+        <div id="language_switcher" class="dropdown m-r-20" style="margin-top:12px;">
+            <script type="text/javascript">
+                function switchLanguage(sel) {
+                    var url = sel[sel.selectedIndex].value;
+                    window.location = "{{ Request::url() }}/?lang=" + url;
+                }
+            </script>
+            <img alt="{{ Session::get('lang') }}"
+                 src="{{ asset('/assets/images/lang/png/'.Session::get('lang').'.png') }}">
+            <select name="language_switcher" class="" onchange="switchLanguage(this);">
+                <option value="en"
+                        @if ('en' === Session::get('lang'))selected="selected"@endif>{!! trans('cvepdb/global.lang_en') !!}</option>
+                <option value="fr"
+                        @if ('fr' === Session::get('lang'))selected="selected"@endif>{!! trans('cvepdb/global.lang_fr') !!}</option>
+            </select>
+        </div>
+    </div>
+
     <div class=" pull-right">
 
 
@@ -158,25 +177,6 @@
             </div>
         </div>
         <!-- END User Info-->
-    </div>
-
-    <div class="pull-right">
-        <div id="language_switcher" class="dropdown m-t-20 m-r-20">
-            <script type="text/javascript">
-            function switchLanguage(sel) {
-                var url = sel[sel.selectedIndex].value;
-                window.location = "{{ Request::url() }}/?lang=" + url;
-            }
-            </script>
-            <img alt="{{ Session::get('lang') }}"
-            src="{{ asset('/assets/images/lang/png/'.Session::get('lang').'.png') }}">
-            <select name="language_switcher" class="" onchange="switchLanguage(this);">
-                <option value="en"
-                @if ('en' === Session::get('lang'))selected="selected"@endif>{!! trans('cvepdb/global.lang_en') !!}</option>
-                <option value="fr"
-                @if ('fr' === Session::get('lang'))selected="selected"@endif>{!! trans('cvepdb/global.lang_fr') !!}</option>
-            </select>
-        </div>
     </div>
 
 </div>

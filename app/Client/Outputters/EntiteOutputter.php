@@ -6,6 +6,7 @@ use CVEPDB\Services\Outputters\AbsLaravelOutputter;
 use CVEPDB\Requests\IFormRequest;
 use App\Admin\Repositories\Users\UserRepositoryEloquent;
 use App\Admin\Repositories\Users\LogContactRepositoryEloquent;
+use App\Admin\Repositories\Entites\EntiteRepositoryEloquent;
 
 class EntiteOutputter extends AbsLaravelOutputter
 {
@@ -24,14 +25,28 @@ class EntiteOutputter extends AbsLaravelOutputter
      */
     private $r_logcontact = null;
 
-    public function __construct(UserRepositoryEloquent $r_user, LogContactRepositoryEloquent $r_logcontact)
-    {
+    /**
+     * @var EntiteRepositoryEloquent|null
+     */
+    private $r_entite = null;
+
+    public function __construct(
+        UserRepositoryEloquent $r_user,
+        LogContactRepositoryEloquent $r_logcontact,
+        EntiteRepositoryEloquent $r_entite
+    ) {
         parent::__construct();
 
         $this->current_user_id = \Auth::user()->id;
 
         $this->r_user = $r_user;
         $this->r_logcontact = $r_logcontact;
+        $this->r_entite = $r_entite;
+
+        // Est ce que le client a un projet ?
+        if ($this->r_user->find($this->current_user_id)->entites->count() == 0) {
+            return redirect('clients/entites/join');
+        }
     }
 
     /**
@@ -39,7 +54,22 @@ class EntiteOutputter extends AbsLaravelOutputter
      */
     public function index()
     {
-        //
+
+        /*
+         * Todo : en mode multi entite, il faudra faire une recherche par type d'entite "entite mere" de l'utilisateur
+         */
+
+        $entite = $this->r_entite->find(
+            $this->r_user->find($this->current_user_id)->entites->first()->id
+        );
+
+        return $this->output(
+            'cvepdb.client.entites.index',
+            [
+                'user' => $this->r_user->find($this->current_user_id),
+                'entite' => $entite
+            ]
+        );
     }
 
     /**

@@ -1,9 +1,13 @@
-(function ($) {
+(function ($, D) {
 
 	'use strict';
 
-	$('select[name="language_switcher"]').select2({
-		minimumResultsForSearch: -1
+	// A la fin du chargement de la library
+	$(D).bind('CVEPDB_READY', function () {
+
+		$('select[name="language_switcher"]').select2({
+			minimumResultsForSearch: -1
+		});
 	});
 
-})(window.jQuery);
+})(window.jQuery, document);
