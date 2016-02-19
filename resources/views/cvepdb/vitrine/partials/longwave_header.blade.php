@@ -11,6 +11,9 @@
         <div id="js-layout__body-wrapper__content-wrapper__inner__menu" class="layout__body-wrapper__content-wrapper__inner__menu clearfix js-call-selectnav js-call-ddsmoothmenu js-layout__body-wrapper__content-wrapper__inner__menu">
             <ul id="js-layout__body-wrapper__content-wrapper__inner__menu__list" class="layout__body-wrapper__content-wrapper__inner__menu__list">
                 <li>
+                    <a href="http://cavaencoreparlerdebits.fr">blog</a>
+                </li>
+                <li>
                     <a href="{{ url('/services') }}">{{ trans('cvepdb/vitrine/services.title') }}</a>
                 </li>
                 <li>

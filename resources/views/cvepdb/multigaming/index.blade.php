@@ -77,7 +77,42 @@
     <!-- Begin Inner -->
     <div class="layout__body-wrapper__content-wrapper__inner">
 
-        <h2 class="colored">From community</h2>
+        <h2 class="colored">Annonces</h2>
+
+
+        <div class="layout__body-wrapper__content-wrapper__inner__widget-posts">
+            <div class="grid">
+
+
+                @foreach ($announcements as $item)
+
+                    <div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
+                        <div class="frame alignleft">
+                            <a href="{!! $item->get_link() !!}" target="_blank">
+                                <img src="/assets/images/multigaming/logo.png" alt="{!! $item->get_title() !!}"
+                                     width="142" height="142"/>
+
+                                <div></div>
+                            </a>
+                        </div>
+                        <div class="post-content">
+                            <h5><a href="{!! $item->get_link() !!}" target="_blank">{!! $item->get_title() !!}</a></h5>
+
+                            <div class="meta">
+                                <span class="date">{!! $item->get_date() !!}</span>
+                            </div>
+                            {!! str_limit(strip_tags($item->get_description()), 120, ' ..') !!}
+                        </div>
+                    </div>
+
+                @endforeach
+
+
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <h2 class="colored">Steam community</h2>
 
 
         <div class="layout__body-wrapper__content-wrapper__inner__widget-posts">
@@ -101,7 +136,7 @@
                             <div class="meta">
                                 <span class="date">{{-- date($thread['created']) --}}</span>
                             </div>
-                            {!! $thread['intro'] !!}
+                            {!! str_limit($thread['intro'], 120, ' ..') !!}
                         </div>
                     </div>
 
@@ -138,7 +173,7 @@
                             <li class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame"
                                 style="opacity: 0.7;">
 
-                                {!! $teammate['steam_token']['personaname'] !!}
+                                {!! str_limit($teammate['steam_token']['personaname'], 22, ' ..') !!}
 
                                 <a href="{!! $teammate['steam_token']['profileurl'] !!}" target="_blank">
                                     <img src="{!! $teammate['steam_token']['avatarfull'] !!}"

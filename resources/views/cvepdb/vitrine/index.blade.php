@@ -114,12 +114,14 @@
                                 </a>
                             </div>
                             <div class="post-content">
-                                <h5><a href="{!! $item->get_link() !!}" target="_blank">{!! $item->get_title() !!}</a></h5>
+                                <h5><a href="{!! $item->get_link() !!}" target="_blank">
+                                        {!! str_limit($item->get_title(), 55, ' ..') !!}
+                                    </a></h5>
 
                                 <div class="meta">
                                     <span class="date">{!! $item->get_date() !!}</span>
                                 </div>
-                                {!! strip_tags($item->get_description()) !!}
+                                {!! str_limit(strip_tags($item->get_description()), 120, ' ..') !!}
                             </div>
                         </div>
 
