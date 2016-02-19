@@ -150,19 +150,56 @@
 
 
 
-
+            <!-- START ITEM -->
+            {{--<div class="card share share-other col1" data-social="item">--}}
+                {{--<div class="circle" data-toggle="tooltip" title="Label" data-container="body">--}}
+                {{--</div>--}}
+                {{--<div class="card-content">--}}
+                    {{--<ul class="buttons ">--}}
+                        {{--<li>--}}
+                            {{--<a href="#"><i class="fa fa-expand"></i>--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="#"><i class="fa fa-heart-o"></i>--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                    {{--<img alt="Yoda advices" src="/assets/images/admin/yoda.jpg">--}}
+                {{--</div>--}}
+                {{--<div class="card-description">--}}
+                    {{--<p><a href="#">Be the force be with you</a> :D</p>--}}
+                {{--</div>--}}
+                {{--<div class="card-footer clearfix">--}}
+                    {{--<div class="time">few seconds ago</div>--}}
+                    {{--<ul class="reactions">--}}
+                        {{--<li><a href="#">yoda quotes <i class="fa fa-rebel"></i></a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                {{--</div>--}}
+                {{--<div class="card-header clearfix">--}}
+                    {{--<div class="user-pic">--}}
+                        {{--<img alt="Avatar" width="33" height="33"--}}
+                             {{--data-src-retina="/assets/images/cvepdb/apple-touch-icon-precomposed.png"--}}
+                             {{--data-src="/assets/images/cvepdb/apple-touch-icon-precomposed.png" src="/assets/images/cvepdb/apple-touch-icon-precomposed.png">--}}
+                    {{--</div>--}}
+                    {{--<h5>#CVEPDB</h5>--}}
+                    {{--<h6>Shared a quotes on your wall</h6>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            <!-- END ITEM -->
 
 
             <!-- START ITEM -->
-            <div class="card status col2" data-social="item">
-                <div class="circle" data-toggle="tooltip" title="Information" data-container="body">
-                </div>
+            {{--<div class="card status col2" data-social="item">--}}
+                {{--<div class="circle" data-toggle="tooltip" title="Information" data-container="body">--}}
+                {{--</div>--}}
 
 
-                <h5>#CVEPDB notes & information <span class="hint-text">few seconds ago</span></h5>
+                {{--<h5>#CVEPDB notes & information <span class="hint-text">few seconds ago</span></h5>--}}
 
 
-                <h2>Aucune note ou information.</h2>
+                {{--<h2>Aucune note ou information.</h2>--}}
 
 
                 {{--<ul class="reactions">--}}
@@ -171,7 +208,7 @@
                 {{--<li><a href="#">23K <i class="fa fa-heart-o"></i></a>--}}
                 {{--</li>--}}
                 {{--</ul>--}}
-            </div>
+            {{--</div>--}}
             <!-- END ITEM -->
 
 
@@ -180,112 +217,64 @@
 
 
 
-            <!-- START ITEM -->
-            <div class="card share share-other col1" data-social="item">
-                <div class="circle" data-toggle="tooltip" title="Label" data-container="body">
-                </div>
-                <div class="card-content">
-                    <ul class="buttons ">
-                        <li>
-                            <a href="#"><i class="fa fa-expand"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-heart-o"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <img alt="Yoda advices" src="/assets/images/admin/yoda.png">
+
+
+            <div class="card share  col1" data-social="item">
+                <div class=" card-header ">
+                    <h5 class="text-complete pull-left fs-12">
+                        <i class="fa fa-circle text-complete fs-11"></i> Activités
+                    </h5>
+
+                    <div class="pull-right small hint-text">
+
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="card-description">
-                    <p><a href="#">Be the force be with you</a> :D</p>
+                    <div class="js-widget-projects_by_status-charts"></div>
                 </div>
-                <div class="card-footer clearfix">
-                    <div class="time">few seconds ago</div>
-                    <ul class="reactions">
-                        <li><a href="#">yoda quotes <i class="fa fa-rebel"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card-header clearfix">
-                    <div class="user-pic">
-                        <img alt="Avatar" width="33" height="33"
-                             data-src-retina="/assets/images/cvepdb/apple-touch-icon-precomposed.png"
-                             data-src="/assets/images/cvepdb/apple-touch-icon-precomposed.png" src="/assets/images/cvepdb/apple-touch-icon-precomposed.png">
-                    </div>
-                    <h5>#CVEPDB</h5>
-                    <h6>Shared a quotes on your wall</h6>
-                </div>
+                {{--<div class="card-footer clearfix">--}}
+                {{--<div class="pull-left">via <span class="text-complete">CNN</span>--}}
+                {{--</div>--}}
+                {{--<div class="pull-right hint-text">--}}
+                {{--Apr 23--}}
+                {{--</div>--}}
+                {{--<div class="clearfix"></div>--}}
+                {{--</div>--}}
             </div>
-            <!-- END ITEM -->
-
-
 
 
 
 
 
             <!-- START ITEM -->
+            @foreach ($entite->projects as $project)
             <div class="card share  col1" data-social="item">
                 <div class="card-header ">
-                    <h5 class="text-complete pull-left fs-12">
-                        <i class="fa fa-circle text-complete fs-11"></i> News
+                    <h5 class="pull-left fs-12">
+                        <i class="fa fa-circle fs-11"></i> {{ $project->name }}
                     </h5>
 
                     <div class="pull-right small hint-text">
-                        5,345 <i class="fa fa-comment-o"></i>
+                        {{ $project->status }}
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="card-description">
-                    <h3>Ebola outbreak: Clinical drug trials to start next month as death toll mounts</h3>
+                    <p>{{ $project->description }}</p>
                 </div>
-                <div class="card-footer clearfix">
-                    <div class="pull-left">via <span class="text-complete">CNN</span>
-                    </div>
-                    <div class="pull-right hint-text">
-                        Apr 23
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
+                {{--<div class="card-footer clearfix">--}}
+                    {{--<div class="pull-left">via <span class="text-complete">CNN</span>--}}
+                    {{--</div>--}}
+                    {{--<div class="pull-right hint-text">--}}
+                        {{--Apr 23--}}
+                    {{--</div>--}}
+                    {{--<div class="clearfix"></div>--}}
+                {{--</div>--}}
             </div>
+            @endforeach
             <!-- END ITEM -->
 
-
-
-
-
-
-
-            <!-- START ITEM -->
-            <div class="card share  col1" data-social="item">
-                <div class="card-header clearfix">
-                    <h5 class="text-success pull-left fs-12">
-                        <i class="fa fa-circle text-success fs-11"></i> Stock Market
-                    </h5>
-
-                    <div class="pull-right small hint-text">
-                        5,345 <i class="fa fa-comment-o"></i>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="card-description">
-                    <h5 class='hint-text no-margin'>Apple Inc.</h5>
-                    <h5 class="small hint-text no-margin">NASDAQ: AAPL - Nov 13 8:37 AM ET</h5>
-
-                    <h3>111.25 <span class="text-success"><i class="fa fa-sort-up small text-success"></i> 0.15 (0.13%)</span>
-                    </h3>
-                </div>
-                <div class="card-footer clearfix">
-                    <div class="pull-left">by <span class="text-success">John Smith</span>
-                    </div>
-                    <div class="pull-right hint-text">
-                        Apr 23
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <!-- END ITEM -->
 
 
 
@@ -302,4 +291,68 @@
 
 @section('jsfooter')
     <script src="/assets/js/admin/users/validation.js"></script>
+
+    <script src="/assets//cvepdbjs/libs/highcharts/highcharts.js" type="text/javascript"></script>
+
+
+    <script>
+
+        (function ($, D) {
+
+            'use strict';
+
+            $(D).ready(function () {
+
+                $('.js-widget-projects_by_status-charts').highcharts({
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: 0,
+                        plotShadow: false,
+                        width: $('.js-widget-projects_by_status-charts').closest('card-description').width(),
+                        height: 175
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    title: {
+                        text: 'Projets / Status'
+                    },
+                    tooltip: {
+                        pointFormat: '<b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            dataLabels: {
+                                enabled: true,
+                                distance: 15,
+                                style: {
+                                    fontWeight: 'bold'
+                                },
+                                formatter:function(){
+                                    if (this.y > 0)
+                                        return this.point.name;
+                                }
+                            },
+                            center: ['50%', '50%']
+                        }
+                    },
+                    series: [{
+                        type: 'pie',
+                        name: 'Users by rôles',
+                        innerSize: '50%',
+                        data: [
+                                @foreach ($statistiques['projects_status'] as $project_status => $nb_projects)
+                                    ['{{ $project_status }}', {{ $nb_projects }}],
+                                @endforeach
+                    ]
+                    }]
+                });
+
+
+
+            });
+
+        })(window.jQuery, document);
+
+    </script>
 @endsection

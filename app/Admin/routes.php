@@ -41,8 +41,8 @@ Route::group(['domain' => env('DOMAIN_CVEPDB')], function () {
 
 
         Route::resource('entites', '\App\Admin\Controllers\EntiteController');
-        Route::get('entites/ajax/getvendors', '\App\Admin\Controllers\EntiteController@postAjaxGetVendorsEntites');
-        Route::get('entites/ajax/getclients', '\App\Admin\Controllers\EntiteController@postAjaxGetClientsEntites');
+        Route::post('entites/ajax/getvendors', '\App\Admin\Controllers\EntiteController@postAjaxGetVendorsEntites');
+        Route::post('entites/ajax/getclients', '\App\Admin\Controllers\EntiteController@postAjaxGetClientsEntites');
 
 
         Route::resource('bills', '\App\Admin\Controllers\BillController');

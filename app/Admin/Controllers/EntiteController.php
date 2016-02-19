@@ -93,19 +93,11 @@ class EntiteController extends Controller
 
     public function postAjaxGetVendorsEntites()
     {
-        $entite_vendor = Entite::where('type', 'cvepdb')
-            ->where('status', 'active')
-            ->orderBy('name', 'desc')
-            ->get();
-        return ['results' => $entite_vendor];
+        return $this->outputter->postAjaxGetVendorsEntites();
     }
 
     public function postAjaxGetClientsEntites()
     {
-        $entite_client = Entite::where('type', 'client')
-            ->where('status', 'active')
-            ->orderBy('name', 'desc')
-            ->get();
-        return ['results' => $entite_client];
+        return $this->outputter->postAjaxGetClientsEntites();
     }
 }

@@ -52,4 +52,12 @@ class Entite extends Model implements Transformable
     {
         return $this->belongsToMany('App\Admin\Repositories\Users\User');
     }
+
+    /**
+     * Get the projects record associated with the entite.
+     */
+    public function projects()
+    {
+        return $this->hasMany('App\Admin\Repositories\Projects\Project');
+    }
 }

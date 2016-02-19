@@ -13,6 +13,15 @@ use App\Admin\Repositories\Projects\Project;
  */
 class ProjectRepositoryEloquent extends BaseRepository implements ProjectRepository
 {
+    public $project_status = [
+        'draft' => 'Brouillon',
+        'waiting_advance_payment' => 'En attente du versement de l\'acompte',
+        'development' => 'En cours de developement',
+        'test' => 'Tests et assurance qualité',
+        'waiting_payment' => 'Attente du paiement',
+        'delivered' => 'Livraison effectué'
+    ];
+
     /**
      * Specify Model class name
      *

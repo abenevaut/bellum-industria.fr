@@ -2,6 +2,7 @@
 
 namespace App\Admin\Outputters;
 
+use Request;
 use CVEPDB\Requests\IFormRequest;
 use App\Admin\Repositories\Entites\EntiteRepositoryEloquent;
 use App\Admin\Repositories\Users\UserRepositoryEloquent;
@@ -28,7 +29,8 @@ class EntiteOutputter extends AdminOutputter
         EntiteRepositoryEloquent $r_entite,
         UserRepositoryEloquent $r_user,
         RoleRepositoryEloquent $r_role
-    ) {
+    )
+    {
         parent::__construct();
 
         $this->r_entite = $r_entite;
@@ -112,17 +114,26 @@ class EntiteOutputter extends AdminOutputter
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show($id)
     {
         $entite = $this->r_entite->find($id);
+        $statistiques = ['projects_status' => []];
+
+        foreach ($entite->projects as $project) {
+            if (!array_key_exists($project->status, $statistiques['projects_status'])) {
+                $statistiques['projects_status'][$project->status] = 0;
+            }
+            $statistiques['projects_status'][$project->status] += 1;
+        }
 
         return $this->output(
             'cvepdb.admin.entites.show',
             [
-                'entite' => $entite
+                'entite' => $entite,
+                'statistiques' => $statistiques
             ]
         );
     }
@@ -130,7 +141,7 @@ class EntiteOutputter extends AdminOutputter
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit($id)
@@ -159,7 +170,7 @@ class EntiteOutputter extends AdminOutputter
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function update($id, IFormRequest $request)
@@ -195,11 +206,41 @@ class EntiteOutputter extends AdminOutputter
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function destroy($id)
     {
         //
+    }
+
+    public function postAjaxGetVendorsEntites()
+    {
+        $entites_vendor = [];
+
+        if (Request::ajax()) {
+            $entites_vendor = $this->r_entite->findWhere(
+                [
+                    'type' => 'cvepdb',
+                    'status' => 'active'
+                ]
+            );
+        }
+        return ['results' => $entites_vendor];
+    }
+
+    public function postAjaxGetClientsEntites()
+    {
+        $entites_client = [];
+
+        if (Request::ajax()) {
+            $entites_client = $this->r_entite->findWhere(
+                [
+                    'type' => 'client',
+                    'status' => 'active'
+                ]
+            );
+        }
+        return ['results' => $entites_client];
     }
 }

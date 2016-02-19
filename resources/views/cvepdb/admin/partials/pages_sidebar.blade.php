@@ -42,7 +42,9 @@
             @endif">
             <a href="{{ url('admin/projects') }}" class="detailed">
                 <span class="title">Mes projets</span>
-                <span class="details">X projects en cours</span>
+                @if ($sidebar['projects']['projects_running'] >= 1)
+                    <span class="title"><span class="badge badge-complete">{{ $sidebar['projects']['projects_running'] }}</span> project{{ $sidebar['projects']['projects_running'] > 1 ? 's' : '' }} en cours</span>
+                @endif
             </a>
             <span class="icon-thumbnail "><i class="fa fa-terminal"></i></span>
         </li>

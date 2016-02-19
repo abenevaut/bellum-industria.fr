@@ -4,6 +4,7 @@ namespace App\Admin\Outputters;
 
 use CVEPDB\Requests\IFormRequest;
 use \App\Admin\Repositories\Projects\ProjectRepositoryEloquent;
+use \App\Admin\Repositories\Entites\EntiteRepositoryEloquent;
 
 class ProjectOutputter extends AdminOutputter
 {
@@ -13,13 +14,19 @@ class ProjectOutputter extends AdminOutputter
     private $r_project = null;
 
     /**
+     * @var EntiteRepositoryEloquent|null
+     */
+    private $r_entite = null;
+
+    /**
      * @param ProjectRepositoryEloquent $r_project
      */
-    public function __construct(ProjectRepositoryEloquent $r_project)
+    public function __construct(ProjectRepositoryEloquent $r_project, EntiteRepositoryEloquent $r_entite)
     {
         parent::__construct();
 
         $this->r_project = $r_project;
+        $this->r_entite = $r_entite;
     }
 
     /**
@@ -27,7 +34,7 @@ class ProjectOutputter extends AdminOutputter
      */
     public function index()
     {
-        $projects = $this->r_project->paginate(null, ['*']);
+        $projects = $this->r_project->all();
 
         return $this->output(
             'cvepdb.admin.projects.index',
@@ -44,7 +51,9 @@ class ProjectOutputter extends AdminOutputter
     {
         return $this->output(
             'cvepdb.admin.projects.create',
-            []
+            [
+                'projects_status' => $this->r_project->project_status
+            ]
         );
     }
 
@@ -55,6 +64,13 @@ class ProjectOutputter extends AdminOutputter
      */
     public function store(IFormRequest $request)
     {
+        $project = $this->r_project->create([
+            'name' => $request->get('name'),
+            'description' => $request->get('description'),
+            'entite_id' => $request->get('entite_id'),
+            'status' => $request->get('status'),
+        ]);
+        return $this->redirectTo('admin/projects');
     }
 
     /**

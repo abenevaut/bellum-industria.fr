@@ -4,8 +4,8 @@ namespace App\Admin\Outputters;
 
 use App;
 use CVEPDB\Services\Outputters\AbsLaravelOutputter;
-use CVEPDB\Requests\IFormRequest;
 use App\Admin\Repositories\Users\LogContactRepositoryEloquent;
+use App\Admin\Repositories\Projects\ProjectRepositoryEloquent;
 
 class AdminOutputter extends AbsLaravelOutputter
 {
@@ -14,11 +14,17 @@ class AdminOutputter extends AbsLaravelOutputter
      */
     private $r_contact = null;
 
+    /**
+     * @var ProjectRepositoryEloquent|null
+     */
+    private $r_project = null;
+
     public function __construct()
     {
         parent::__construct();
 
         $this->r_contact = App::make('App\Admin\Repositories\Users\LogContactRepositoryEloquent');
+        $this->r_project = App::make('App\Admin\Repositories\Projects\ProjectRepositoryEloquent');
 
         $this->addBreadcrumb('Dashboard', 'admin/');
         $this->setBreadcrumbDivider('');
@@ -39,8 +45,18 @@ class AdminOutputter extends AbsLaravelOutputter
             'sidebar' => [
                 'prospection' => [
                     'contact_pending' => $this->r_contact->findWhere(
-                        ['status' => 'pending',
-                            'type' => 'prospecting']
+                        [
+                            'status' => 'pending',
+                            'type' => 'prospecting'
+                        ]
+                    )->count()
+                ],
+                'projects' => [
+                    'projects_running' => $this->r_project->findWhereNotIn(
+                        'status',
+                        [
+                            'delivered'
+                        ]
                     )->count()
                 ]
             ]
