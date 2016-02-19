@@ -51,34 +51,7 @@
 
 
 
-        <li class="m-t-30
-            @if (in_array(Request::path(), ['admin/entites', 'admin/bills', 'admin/payments']))
-                open active
-            @endif">
-            <a href="javascript:;">
-                <span class="title">Clients</span>
-                <span class=" arrow @if (in_array(Request::path(), ['admin/entites', 'admin/bills', 'admin/payments'])) open active @endif"></span>
-            </a>
-            <span class="icon-thumbnail"><i class="fa fa-user"></i></span>
-            <ul class="sub-menu">
 
-                <li class="">
-                    <a href="{{ url('admin/entites') }}" class="detailed">Mes entites</a>
-                    <span class="icon-thumbnail">U</span>
-                </li>
-
-                <li class="">
-                    <a href="{{ url('admin/bills') }}" class="detailed">Mes factures</a>
-                    <span class="icon-thumbnail">U</span>
-                </li>
-
-                <li class="">
-                    <a href="{{ url('admin/payments') }}" class="detailed">Mes paiements</a>
-                    <span class="icon-thumbnail">U</span>
-                </li>
-
-            </ul>
-        </li>
 
 
 
@@ -93,7 +66,7 @@
                 <span class="title">Prospections</span>
                 <span class=" arrow @if (in_array(Request::path(), ['admin/contacts'])) open active @endif"></span>
                 @if ($sidebar['prospection']['contact_pending'] >= 1)
-                <span class="title"><span class="badge badge-complete">{{ $sidebar['prospection']['contact_pending'] }}</span> en attente{{ $sidebar['prospection']['contact_pending'] > 1 ? 's' : '' }}</span>
+                    <span class="title"><span class="badge badge-complete">{{ $sidebar['prospection']['contact_pending'] }}</span> en attente{{ $sidebar['prospection']['contact_pending'] > 1 ? 's' : '' }}</span>
                 @endif
             </a>
             <span class="icon-thumbnail"><i class="pg-search"></i></span>
@@ -104,7 +77,7 @@
 
                         <span class="title">Prises de contacts</span>
                         @if ($sidebar['prospection']['contact_pending'] >= 1)
-                        <span class="details"><span class="badge badge-complete">{{ $sidebar['prospection']['contact_pending'] }}</span> en attente{{ $sidebar['prospection']['contact_pending'] > 1 ? 's' : '' }}</span>
+                            <span class="details"><span class="badge badge-complete">{{ $sidebar['prospection']['contact_pending'] }}</span> en attente{{ $sidebar['prospection']['contact_pending'] > 1 ? 's' : '' }}</span>
                         @endif
                     </a>
                     <span class="icon-thumbnail"><i class="pg-mail"></i></span>
@@ -112,6 +85,45 @@
 
             </ul>
         </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <li class="m-t-30
+            @if (in_array(Request::path(), ['admin/entites', 'admin/bills', 'admin/payments']))
+                open active
+            @endif">
+            <a href="javascript:;">
+                <span class="title">Clients</span>
+                <span class=" arrow @if (in_array(Request::path(), ['admin/entites', 'admin/bills', 'admin/payments'])) open active @endif"></span>
+            </a>
+            <span class="icon-thumbnail"><i class="pg-suitcase"></i></span>
+            <ul class="sub-menu">
+
+                <li class="">
+                    <a href="{{ url('admin/entites') }}" class="detailed">Mes entites</a>
+                    <span class="icon-thumbnail"><i class="fa fa-building"></i></span>
+                </li>
+
+            </ul>
+        </li>
+
+
+
+
+
+
+
 
 
 
@@ -165,8 +177,7 @@
         <li class="m-t-30
 
             @if (
-                Request::is('admin/bankaccounts')
-                || Request::is('admin/bankaccounts/*')
+                false
             )
                 open active
             @endif ">
@@ -175,8 +186,7 @@
                 <span class=" arrow
 
                     @if (
-                        Request::is('admin/bankaccounts')
-                        || Request::is('admin/bankaccounts/*')
+                        false
                     )
                         open active
                     @endif "></span>
@@ -184,10 +194,7 @@
             <span class="icon-thumbnail"><i class="pg-settings"></i></span>
             <ul class="sub-menu">
 
-                <li class="">
-                    <a href="{{ url('admin/bankaccounts') }}">Comptes bancaires</a>
-                    <span class="icon-thumbnail"><i class="pg-credit_card"></i></span>
-                </li>
+
 
             </ul>
         </li>

@@ -3,16 +3,26 @@
 namespace App\Admin\Controllers;
 
 use CVEPDB\Controllers\AbsController as Controller;
-use App\Admin\Repositories\Entites\Entite;
+use App\Admin\Outputters\EntiteOutputter;
 use App\Admin\Requests\EntiteFormRequest;
 
 class EntiteController extends Controller
 {
+    /**
+     * @var EntiteRepositoryEloquent|null
+     */
+    private $outputter = null;
+
+    public function __construct(EntiteOutputter $outputter)
+    {
+        parent::__construct();
+
+        $this->outputter = $outputter;
+    }
+
     public function index()
     {
-        $entites = Entite::paginate(15);
-
-        return view('cvepdb.admin.entites.index', ['entites' => $entites]);
+        return $this->outputter->index();
     }
 
     /**
@@ -22,7 +32,7 @@ class EntiteController extends Controller
      */
     public function create()
     {
-        return view('cvepdb.admin.entites.create');
+        return $this->outputter->create();
     }
 
     /**
@@ -34,21 +44,7 @@ class EntiteController extends Controller
      */
     public function store(EntiteFormRequest $request)
     {
-        Entite::create([
-            'name' => $request->get('name'),
-            'siret' => $request->get('siret'),
-            'email' => $request->get('email'),
-            'phone' => $request->get('phone'),
-
-            'address' => $request->get('address'),
-            'zipcode' => $request->get('zipcode'),
-            'city' => $request->get('city'),
-            'country' => $request->get('country'),
-
-            'type' => $request->get('type'),
-            'status' => $request->get('status'),
-        ]);
-        return redirect('admin/entites');
+        return $this->outputter->store($request);
     }
 
     /**
@@ -59,7 +55,7 @@ class EntiteController extends Controller
      */
     public function show($id)
     {
-        //
+        return $this->outputter->show($id);
     }
 
     /**
@@ -70,7 +66,7 @@ class EntiteController extends Controller
      */
     public function edit($id)
     {
-        return view('cvepdb.admin.entites.edit');
+        return $this->outputter->edit($id);
     }
 
     /**
@@ -81,14 +77,7 @@ class EntiteController extends Controller
      */
     public function update($id, EntiteFormRequest $request)
     {
-        $entite = new Entite();
-        $entite->findOrFail($id);
-        $entite->name = $request->get('name');
-        $entite->siret = $request->get('siret');
-        $entite->email = $request->get('email');
-        $entite->phone = $request->get('naphoneme');
-        $entite->save();
-        return redirect('admin/entites');
+        return $this->outputter->update($id, $request);
     }
 
     /**

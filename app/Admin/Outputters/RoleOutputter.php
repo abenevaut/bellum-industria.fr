@@ -131,9 +131,9 @@ class RoleOutputter extends AdminOutputter
         );
 
         $permissions = $request->only('role_permission_id');
+        $role->permissions()->detach();
 
         if (count($permissions['role_permission_id']) > 0) {
-            $role->permissions()->detach();
             $role->permissions()->attach($permissions['role_permission_id']);
         }
 

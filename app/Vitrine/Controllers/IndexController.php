@@ -14,6 +14,6 @@ class IndexController extends BaseController
      */
     public function index()
     {
-        return view('cvepdb.vitrine.index');
+        return view('cvepdb.vitrine.index',/* ['blog',  ]*/);
     }
 }

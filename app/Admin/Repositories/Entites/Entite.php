@@ -44,4 +44,12 @@ class Entite extends Model implements Transformable
      * @var array
      */
     protected $hidden = [];
+
+    /**
+     * The entites that belong to the user.
+     */
+    public function users()
+    {
+        return $this->belongsToMany('App\Admin\Repositories\Users\User');
+    }
 }
