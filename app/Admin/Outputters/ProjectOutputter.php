@@ -5,6 +5,7 @@ namespace App\Admin\Outputters;
 use CVEPDB\Requests\IFormRequest;
 use \App\Admin\Repositories\Projects\ProjectRepositoryEloquent;
 use \App\Admin\Repositories\Entites\EntiteRepositoryEloquent;
+use Vinkla\GitLab\Facades\GitLab;
 
 class ProjectOutputter extends AdminOutputter
 {
@@ -27,6 +28,10 @@ class ProjectOutputter extends AdminOutputter
 
         $this->r_project = $r_project;
         $this->r_entite = $r_entite;
+
+//        dd( GitLab::connection('main')->api('projects')->owned(true) );
+//        dd( GitLab::connection('main')->api('groups')->all() );
+//        dd( GitLab::connection('main')->api('users')->all(true) );
     }
 
     /**

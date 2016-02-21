@@ -53,7 +53,7 @@
 
 <script>
     var cvepdb_config = {
-        ENV: 'development',
+        ENV: '{{ config('app.debug') ? 'development' : 'production' }}',
         ENV_REF: 'dev',
         ENV_THEME: '',
         IDUSER: 0,

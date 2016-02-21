@@ -159,6 +159,7 @@ return [
         'Toin0u\Geocoder\GeocoderServiceProvider',
         'Felixkiss\UniqueWithValidator\UniqueWithValidatorServiceProvider',
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        Vinkla\GitLab\GitLabServiceProvider::class,
     ],
 
     /*
@@ -217,6 +218,7 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Feed' => 'Roumen\Feed\Facades\Feed',
         'Geocoder' => 'Toin0u\Geocoder\Facade\Geocoder',
+        'GitLab' => Vinkla\GitLab\Facades\GitLab::class,
     ],
 
 ];

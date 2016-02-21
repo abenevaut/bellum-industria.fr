@@ -35,50 +35,32 @@
 
 
 
-
         <li class="m-t-30
-        @if (in_array(Request::path(), ['clients/projects']))
-                open active
-            @endif">
-            <a href="{{ url('clients/projects') }}" class="detailed">
-                <span class="title">Mes projets</span>
-                <span class="details">X projects en cours</span>
-            </a>
-            <span class="icon-thumbnail "><i class="fa fa-terminal"></i></span>
-        </li>
-
-
-
-
-        <li class="m-t-30
-
-            @if (
-                Request::is('clients/bankaccounts')
-                || Request::is('clients/bankaccounts/*')
-            )
+            @if (Request::is('clients/projects/*/show'))
                 open active
             @endif ">
             <a href="javascript:;">
-                <span class="title">Settings</span>
+                <span class="title">Projets</span>
                 <span class=" arrow
-
-                    @if (
-                        Request::is('clients/bankaccounts')
-                        || Request::is('clients/bankaccounts/*')
-                    )
+                    @if (Request::is('clients/projects/*/show'))
                         open active
                     @endif "></span>
             </a>
-            <span class="icon-thumbnail"><i class="pg-settings"></i></span>
+            <span class="icon-thumbnail"><i class="fa fa-terminal"></i></span>
             <ul class="sub-menu">
 
-                {{--<li class="">--}}
-                    {{--<a href="{{ url('clients/bankaccounts') }}">Comptes bancaires</a>--}}
-                    {{--<span class="icon-thumbnail"><i class="pg-credit_card"></i></span>--}}
-                {{--</li>--}}
+                @foreach ($sidebar['projects'] as $project)
+
+                    <li class="">
+                        <a href="{{ url('clients/projects/' . $project->id . '/show') }}">{{ $project->name }}</a>
+                        <span class="icon-thumbnail ">{{ strtoupper(substr($project->name, 0, 2)) }}</span>
+                    </li>
+
+                @endforeach
 
             </ul>
         </li>
+
 
 
 

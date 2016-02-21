@@ -2,13 +2,13 @@
 
 namespace App\Client\Outputters;
 
-use CVEPDB\Services\Outputters\AbsLaravelOutputter;
 use CVEPDB\Requests\IFormRequest;
+use App\Client\Outputters\ClientOutputter;
 use App\Admin\Repositories\Users\UserRepositoryEloquent;
 use App\Admin\Repositories\Users\LogContactRepositoryEloquent;
 use App\Admin\Repositories\Entites\EntiteRepositoryEloquent;
 
-class EntiteOutputter extends AbsLaravelOutputter
+class EntiteOutputter extends ClientOutputter
 {
     /**
      * @var int Current user ID

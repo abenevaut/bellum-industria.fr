@@ -26,20 +26,11 @@
         <div class="day" data-social="day">
 
 
-
-
-
-
-
-
             <!-- START ITEM -->
             <div class="card no-border bg-transparent full-width" data-social="item">
                 <!-- START CONTAINER FLUID -->
                 <div class="container-fluid p-t-30 p-b-30 ">
                     <div class="row">
-
-
-
 
 
                         <div class="col-md-4">
@@ -60,7 +51,6 @@
                                         <i class="fa fa-bug text-danger fs-16 m-t-10"></i>
 
 
-
                                     </div>
                                     <div class="col-xs-height p-l-20">
                                         <h3 class="no-margin">{{ $entite->name }}</h3>
@@ -78,14 +68,12 @@
                         </div>
 
 
-
-
-
                         <div class="col-md-4">
                             <p class="no-margin fs-16">
                                 {{ $entite->address }}<br/>
                                 {{ $entite->zipcode }} {{ $entite->city }} {{ $entite->country }}<br/>
                             </p>
+
                             <p class="hint-text m-t-5 small">
                                 Courriel : <a href="mailto:{{ $entite->email }}">{{ $entite->email }}</a><br/>
                                 Téléphone : {{ $entite->phone ? $entite->phone : 'N/A' }}
@@ -93,16 +81,16 @@
                         </div>
 
 
-
-
-
                         <div class="col-md-4">
-                            <p class="m-b-5 small">{{ $entite->users()->count() }} colaborateur{{ $entite->users()->count() > 1 ? 's' : '' }}</p>
+                            <p class="m-b-5 small">{{ $entite->users()->count() }}
+                                colaborateur{{ $entite->users()->count() > 1 ? 's' : '' }}</p>
                             <ul class="list-unstyled ">
 
                                 @foreach ($entite->users as $user)
                                     <li class="m-r-10">
-                                        <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white tip" data-placement="bottom" title="" data-toggle="tooltip" data-original-title="{{ $user->full_name }}">
+                                        <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white tip"
+                                             data-placement="bottom" title="" data-toggle="tooltip"
+                                             data-original-title="{{ $user->full_name }}">
                                             <img width="35" height="35"
                                                  data-src-retina="/assets/images/cvepdb/apple-touch-icon-precomposed.png"
                                                  data-src="/assets/images/cvepdb/apple-touch-icon-precomposed.png"
@@ -115,7 +103,8 @@
                                 @if ($entite->users()->count() > 7)
                                     <li>
                                         <div class="thumbnail-wrapper d32 circular b-white">
-                                            <div class="bg-master text-center text-white"><span>+{{ $entite->users()->count() - 7 }}</span>
+                                            <div class="bg-master text-center text-white">
+                                                <span>+{{ $entite->users()->count() - 7 }}</span>
                                             </div>
                                         </div>
                                     </li>
@@ -133,28 +122,73 @@
                     </div>
 
 
-
-
-
-
                 </div>
                 <!-- END CONTAINER FLUID -->
             </div>
             <!-- END ITEM -->
 
 
+            <!-- START ITEM -->
+            <div class="card no-border bg-transparent full-width" data-social="item">
+                @if ($entite->projects->count())
+                    @foreach ($entite->projects as $project)
+
+                    <!-- START CONTAINER FLUID -->
+                    <div class="container-fluid p-t-10 p-b-10 ">
+                        <div class="row">
+                            <div class="col-md-12">
 
 
+                                <!-- START WIDGET widget_graphTile-->
+                                <div class="widget-users panel no-border  no-margin widget-loader-bar">
+                                    <div class="container-sm-height full-height">
+                                        <div class="row-sm-height">
+                                            <div class="col-sm-height col-top">
+                                                <div class="panel-heading ">
+                                                    <div class="panel-title text-black hint-text">
+                                                  <span class="font-montserrat fs-11 all-caps">
+                                                      {{ $project->name }}
+                                                  </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="row-sm-height">
+                                            <div class="m-l-50 m-r-50">
+                                                <ul>
+                                                    <li>status : {{ $project->status }}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="m-l-50 m-r-50">
+                                                {{ $project->description }}
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <!-- END WIDGET -->
 
 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END CONTAINER FLUID -->
+                    @endforeach
+                @else
+                    <div class="">
+                        Aucun projet
+                    </div>
+                @endif
 
 
-
-
+            </div>
+            <!-- END ITEM -->
 
 
             <!-- START ITEM -->
-            <div class="card status col2" data-social="item">
+            <div class="card status col3" data-social="item">
                 <div class="circle" data-toggle="tooltip" title="Information" data-container="body">
                 </div>
 
@@ -173,11 +207,6 @@
                 {{--</ul>--}}
             </div>
             <!-- END ITEM -->
-
-
-
-
-
 
 
             <!-- START ITEM -->
@@ -211,50 +240,14 @@
                     <div class="user-pic">
                         <img alt="Avatar" width="33" height="33"
                              data-src-retina="/assets/images/cvepdb/apple-touch-icon-precomposed.png"
-                             data-src="/assets/images/cvepdb/apple-touch-icon-precomposed.png" src="/assets/images/cvepdb/apple-touch-icon-precomposed.png">
+                             data-src="/assets/images/cvepdb/apple-touch-icon-precomposed.png"
+                             src="/assets/images/cvepdb/apple-touch-icon-precomposed.png">
                     </div>
                     <h5>#CVEPDB</h5>
                     <h6>Shared a quotes on your wall</h6>
                 </div>
             </div>
             <!-- END ITEM -->
-
-
-
-
-
-
-
-            <!-- START ITEM -->
-            <div class="card share  col1" data-social="item">
-                <div class="card-header ">
-                    <h5 class="text-complete pull-left fs-12">
-                        <i class="fa fa-circle text-complete fs-11"></i> News
-                    </h5>
-
-                    <div class="pull-right small hint-text">
-                        5,345 <i class="fa fa-comment-o"></i>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="card-description">
-                    <h3>Ebola outbreak: Clinical drug trials to start next month as death toll mounts</h3>
-                </div>
-                <div class="card-footer clearfix">
-                    <div class="pull-left">via <span class="text-complete">CNN</span>
-                    </div>
-                    <div class="pull-right hint-text">
-                        Apr 23
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <!-- END ITEM -->
-
-
-
-
-
 
 
             <!-- START ITEM -->
@@ -286,10 +279,6 @@
                 </div>
             </div>
             <!-- END ITEM -->
-
-
-
-
 
 
         </div>
