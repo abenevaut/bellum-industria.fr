@@ -49,7 +49,7 @@ class AlterTableRelatedToProjects extends Migration
             $table->timestamps();
         });
 
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::table('projects', function (Blueprint $table) {
             $table->string('description');
         });
 

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
-class Project extends Model implements Transformable
+class Milestone extends Model implements Transformable
 {
     use TransformableTrait;
 
@@ -15,7 +15,7 @@ class Project extends Model implements Transformable
      *
      * @var string
      */
-    protected $table = 'projects';
+    protected $table = 'milestones';
 
     /**
      * The attributes that are mass assignable.
@@ -23,9 +23,8 @@ class Project extends Model implements Transformable
      * @var array
      */
     protected $fillable = [
-        'entite_id',
-        'name',
-        'status',
+        'project_id',
+        'due_date',
     ];
 
     /**
@@ -38,8 +37,8 @@ class Project extends Model implements Transformable
     /**
      * Get the entite record associated with the project.
      */
-    public function entite()
+    public function project()
     {
-        return $this->belongsTo('App\Admin\Repositories\Entites\Entite');
+        return $this->belongsTo('App\Admin\Repositories\Projects\Project');
     }
 }

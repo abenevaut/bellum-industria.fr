@@ -73,6 +73,32 @@
         UA: {
             MOBILE: false,
             BROWSER: true
+        },
+        SENTRY: {
+            /**
+             *
+             */
+            development: {
+                key: null,
+                url: null,
+                project: 0
+            },
+            /**
+             *
+             */
+            staging: {
+                key: null,
+                url: null,
+                project: 0
+            },
+            /**
+             *
+             */
+            production: {
+                key: null,
+                url: null,
+                project: 0
+            }
         }
     };
 </script>

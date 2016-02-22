@@ -5,7 +5,6 @@ namespace App\Admin\Outputters;
 use CVEPDB\Requests\IFormRequest;
 use \App\Admin\Repositories\Projects\ProjectRepositoryEloquent;
 use \App\Admin\Repositories\Entites\EntiteRepositoryEloquent;
-use Vinkla\GitLab\Facades\GitLab;
 
 class ProjectOutputter extends AdminOutputter
 {
@@ -29,25 +28,28 @@ class ProjectOutputter extends AdminOutputter
         $this->r_project = $r_project;
         $this->r_entite = $r_entite;
 
-        $projects = GitLab::connection('main')->api('projects')->accessible(true);
+//        $projects = GitLab::connection('main')->api('projects')->accessible(true);
 
         // On veut tous les milestones par project
 
-        foreach ($projects as $project) {
-
-            var_dump($project['name']);
-
-            var_dump( $milestones = GitLab::connection('main')->api('milestones')->all($project['id']) );
-
-            foreach ($milestones as $milestone) {
-                var_dump(GitLab::connection('main')->api('milestones')->issues($project['id'], $milestone['id']));
-            }
-
-        }
-exit;
+//        foreach ($projects as $project) {
+//
+//            var_dump($project['name']);
+//
+//            var_dump( $milestones = GitLab::connection('main')->api('milestones')->all($project['id']) );
+//
+//            foreach ($milestones as $milestone) {
+//                var_dump(GitLab::connection('main')->api('milestones')->issues($project['id'], $milestone['id']));
+//            }
+//
+//        }
+//exit;
 //        dd( GitLab::connection('main')->api('projects')->owned(true) );
 //        dd( GitLab::connection('main')->api('groups')->all() );
 //        dd( GitLab::connection('main')->api('users')->all(true) );
+
+
+
     }
 
     /**
@@ -85,12 +87,12 @@ exit;
      */
     public function store(IFormRequest $request)
     {
-        $project = $this->r_project->create([
-            'name' => $request->get('name'),
-            'description' => $request->get('description'),
-            'entite_id' => $request->get('entite_id'),
-            'status' => $request->get('status'),
-        ]);
+        $project = $this->r_project->record_project(
+            $request->get('entite_id'),
+            $request->get('name'),
+            $request->get('status'),
+            $request->get('description')
+        );
         return $this->redirectTo('admin/projects');
     }
 
