@@ -29,6 +29,22 @@ class ProjectOutputter extends AdminOutputter
         $this->r_project = $r_project;
         $this->r_entite = $r_entite;
 
+        $projects = GitLab::connection('main')->api('projects')->accessible(true);
+
+        // On veut tous les milestones par project
+
+        foreach ($projects as $project) {
+
+            var_dump($project['name']);
+
+            var_dump( $milestones = GitLab::connection('main')->api('milestones')->all($project['id']) );
+
+            foreach ($milestones as $milestone) {
+                var_dump(GitLab::connection('main')->api('milestones')->issues($project['id'], $milestone['id']));
+            }
+
+        }
+exit;
 //        dd( GitLab::connection('main')->api('projects')->owned(true) );
 //        dd( GitLab::connection('main')->api('groups')->all() );
 //        dd( GitLab::connection('main')->api('users')->all(true) );
@@ -97,7 +113,15 @@ class ProjectOutputter extends AdminOutputter
      */
     public function edit($id)
     {
-        //
+        $project = $this->r_project->find($id);
+
+        return $this->output(
+            'cvepdb.admin.projects.edit',
+            [
+                'projects_status' => $this->r_project->project_status,
+                'project' => $project
+            ]
+        );
     }
 
     /**

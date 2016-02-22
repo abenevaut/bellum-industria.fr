@@ -54,7 +54,7 @@
                         </div>
 
 
-                        <button class="btn btn-complete" type="submit">Ajouter l'utilisateur</button>
+                        <button class="btn btn-complete" type="submit">Ajouter le projet</button>
                     {!! Form::close() !!}
                 </div>
             </div>

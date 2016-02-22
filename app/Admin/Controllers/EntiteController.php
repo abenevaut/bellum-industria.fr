@@ -100,4 +100,8 @@ class EntiteController extends Controller
     {
         return $this->outputter->postAjaxGetClientsEntites();
     }
+    public function postAjaxGetClientEntite()
+    {
+        return $this->outputter->postAjaxGetClientEntite();
+    }
 }

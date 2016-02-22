@@ -243,4 +243,22 @@ class EntiteOutputter extends AdminOutputter
         }
         return ['results' => $entites_client];
     }
+
+    public function postAjaxGetClientEntite()
+    {
+        $entite_client = null;
+
+        $entite_client_id = Request::get('id');
+
+//        if (Request::ajax() && is_numeric($entite_client_id) && $entite_client_id > 0) {
+            $entites_client = $this->r_entite->findWhere(
+                [
+                    'type' => 'client',
+                    'status' => 'active',
+                    'id' => $entite_client_id
+                ]
+            );
+//        }
+        return ['results' => $entites_client];
+    }
 }
