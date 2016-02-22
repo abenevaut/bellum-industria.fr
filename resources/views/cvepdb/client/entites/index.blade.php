@@ -47,8 +47,8 @@
 
 
                                         <i class="fa fa-check-circle text-success fs-16 m-t-10"></i>
-                                        <i class="fa fa-warning text-warning fs-16 m-t-10"></i>
-                                        <i class="fa fa-bug text-danger fs-16 m-t-10"></i>
+                                        {{--<i class="fa fa-warning text-warning fs-16 m-t-10"></i>--}}
+                                        {{--<i class="fa fa-bug text-danger fs-16 m-t-10"></i>--}}
 
 
                                     </div>
@@ -131,51 +131,51 @@
             <!-- START ITEM -->
             <div class="card no-border bg-transparent full-width" data-social="item">
                 @if ($entite->projects->count())
-                    @foreach ($entite->projects as $project)
+                @foreach ($entite->projects as $project)
 
-                    <!-- START CONTAINER FLUID -->
-                    <div class="container-fluid p-t-10 p-b-10 ">
-                        <div class="row">
-                            <div class="col-md-12">
+                        <!-- START CONTAINER FLUID -->
+                <div class="container-fluid p-t-10 p-b-10 ">
+                    <div class="row">
+                        <div class="col-md-12">
 
 
-                                <!-- START WIDGET widget_graphTile-->
-                                <div class="widget-users panel no-border  no-margin widget-loader-bar">
-                                    <div class="container-sm-height full-height">
-                                        <div class="row-sm-height">
-                                            <div class="col-sm-height col-top">
-                                                <div class="panel-heading ">
-                                                    <div class="panel-title text-black hint-text">
+                            <!-- START WIDGET widget_graphTile-->
+                            <div class="widget-users panel no-border  no-margin widget-loader-bar">
+                                <div class="container-sm-height full-height">
+                                    <div class="row-sm-height">
+                                        <div class="col-sm-height col-top">
+                                            <div class="panel-heading ">
+                                                <div class="panel-title text-black hint-text">
                                                   <span class="font-montserrat fs-11 all-caps">
                                                       {{ $project->name }}
                                                   </span>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="clearfix"></div>
-                                        <div class="row-sm-height">
-                                            <div class="m-l-50 m-r-50">
-                                                <ul>
-                                                    <li>status : {{ $project->status }}</li>
-                                                </ul>
-                                            </div>
-                                            <div class="m-l-50 m-r-50">
-                                                {{ $project->description }}
-                                            </div>
-                                            <div class="clear"></div>
-                                        </div>
-                                        <div class="clearfix"></div>
                                     </div>
+                                    <div class="clearfix"></div>
+                                    <div class="row-sm-height">
+                                        <div class="m-l-50 m-r-50">
+                                            <ul>
+                                                <li>status : {{ $project->status }}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="m-l-50 m-r-50 m-b-25">
+                                            {{ $project->description }}
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="clearfix"></div>
                                 </div>
-                                <!-- END WIDGET -->
-
-
                             </div>
+                            <!-- END WIDGET -->
+
+
                         </div>
                     </div>
-                    <!-- END CONTAINER FLUID -->
-                    @endforeach
+                </div>
+                <!-- END CONTAINER FLUID -->
+                @endforeach
                 @else
                     <div class="">
                         Aucun projet
@@ -187,98 +187,98 @@
             <!-- END ITEM -->
 
 
-            <!-- START ITEM -->
-            <div class="card status col3" data-social="item">
-                <div class="circle" data-toggle="tooltip" title="Information" data-container="body">
-                </div>
+            {{--<!-- START ITEM -->--}}
+            {{--<div class="card status col3" data-social="item">--}}
+            {{--<div class="circle" data-toggle="tooltip" title="Information" data-container="body">--}}
+            {{--</div>--}}
 
 
-                <h5>#CVEPDB notes & information <span class="hint-text">few seconds ago</span></h5>
+            {{--<h5>#CVEPDB notes & information <span class="hint-text">few seconds ago</span></h5>--}}
 
 
-                <h2>Aucune note ou information.</h2>
+            {{--<h2>Aucune note ou information.</h2>--}}
 
 
-                {{--<ul class="reactions">--}}
-                {{--<li><a href="#">5,345 <i class="fa fa-comment-o"></i></a>--}}
-                {{--</li>--}}
-                {{--<li><a href="#">23K <i class="fa fa-heart-o"></i></a>--}}
-                {{--</li>--}}
-                {{--</ul>--}}
-            </div>
-            <!-- END ITEM -->
+            {{--<ul class="reactions">--}}
+            {{--<li><a href="#">5,345 <i class="fa fa-comment-o"></i></a>--}}
+            {{--</li>--}}
+            {{--<li><a href="#">23K <i class="fa fa-heart-o"></i></a>--}}
+            {{--</li>--}}
+            {{--</ul>--}}
+            {{--</div>--}}
+            {{--<!-- END ITEM -->--}}
 
 
-            <!-- START ITEM -->
-            <div class="card share share-other col1" data-social="item">
-                <div class="circle" data-toggle="tooltip" title="Label" data-container="body">
-                </div>
-                <div class="card-content">
-                    <ul class="buttons ">
-                        <li>
-                            <a href="#"><i class="fa fa-expand"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-heart-o"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <img alt="Yoda advices" src="/assets/images/admin/yoda.jpg">
-                </div>
-                <div class="card-description">
-                    <p><a href="#">Be the force be with you</a> :D</p>
-                </div>
-                <div class="card-footer clearfix">
-                    <div class="time">few seconds ago</div>
-                    <ul class="reactions">
-                        <li><a href="#">yoda quotes <i class="fa fa-rebel"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card-header clearfix">
-                    <div class="user-pic">
-                        <img alt="Avatar" width="33" height="33"
-                             data-src-retina="/assets/images/cvepdb/apple-touch-icon-precomposed.png"
-                             data-src="/assets/images/cvepdb/apple-touch-icon-precomposed.png"
-                             src="/assets/images/cvepdb/apple-touch-icon-precomposed.png">
-                    </div>
-                    <h5>#CVEPDB</h5>
-                    <h6>Shared a quotes on your wall</h6>
-                </div>
-            </div>
-            <!-- END ITEM -->
+            {{--<!-- START ITEM -->--}}
+            {{--<div class="card share share-other col1" data-social="item">--}}
+            {{--<div class="circle" data-toggle="tooltip" title="Label" data-container="body">--}}
+            {{--</div>--}}
+            {{--<div class="card-content">--}}
+            {{--<ul class="buttons ">--}}
+            {{--<li>--}}
+            {{--<a href="#"><i class="fa fa-expand"></i>--}}
+            {{--</a>--}}
+            {{--</li>--}}
+            {{--<li>--}}
+            {{--<a href="#"><i class="fa fa-heart-o"></i>--}}
+            {{--</a>--}}
+            {{--</li>--}}
+            {{--</ul>--}}
+            {{--<img alt="Yoda advices" src="/assets/images/admin/yoda.jpg">--}}
+            {{--</div>--}}
+            {{--<div class="card-description">--}}
+            {{--<p><a href="#">Be the force be with you</a> :D</p>--}}
+            {{--</div>--}}
+            {{--<div class="card-footer clearfix">--}}
+            {{--<div class="time">few seconds ago</div>--}}
+            {{--<ul class="reactions">--}}
+            {{--<li><a href="#">yoda quotes <i class="fa fa-rebel"></i></a>--}}
+            {{--</li>--}}
+            {{--</ul>--}}
+            {{--</div>--}}
+            {{--<div class="card-header clearfix">--}}
+            {{--<div class="user-pic">--}}
+            {{--<img alt="Avatar" width="33" height="33"--}}
+            {{--data-src-retina="/assets/images/cvepdb/apple-touch-icon-precomposed.png"--}}
+            {{--data-src="/assets/images/cvepdb/apple-touch-icon-precomposed.png"--}}
+            {{--src="/assets/images/cvepdb/apple-touch-icon-precomposed.png">--}}
+            {{--</div>--}}
+            {{--<h5>#CVEPDB</h5>--}}
+            {{--<h6>Shared a quotes on your wall</h6>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--<!-- END ITEM -->--}}
 
 
-            <!-- START ITEM -->
-            <div class="card share  col1" data-social="item">
-                <div class="card-header clearfix">
-                    <h5 class="text-success pull-left fs-12">
-                        <i class="fa fa-circle text-success fs-11"></i> Stock Market
-                    </h5>
+            {{--<!-- START ITEM -->--}}
+            {{--<div class="card share  col1" data-social="item">--}}
+            {{--<div class="card-header clearfix">--}}
+            {{--<h5 class="text-success pull-left fs-12">--}}
+            {{--<i class="fa fa-circle text-success fs-11"></i> Stock Market--}}
+            {{--</h5>--}}
 
-                    <div class="pull-right small hint-text">
-                        5,345 <i class="fa fa-comment-o"></i>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="card-description">
-                    <h5 class='hint-text no-margin'>Apple Inc.</h5>
-                    <h5 class="small hint-text no-margin">NASDAQ: AAPL - Nov 13 8:37 AM ET</h5>
+            {{--<div class="pull-right small hint-text">--}}
+            {{--5,345 <i class="fa fa-comment-o"></i>--}}
+            {{--</div>--}}
+            {{--<div class="clearfix"></div>--}}
+            {{--</div>--}}
+            {{--<div class="card-description">--}}
+            {{--<h5 class='hint-text no-margin'>Apple Inc.</h5>--}}
+            {{--<h5 class="small hint-text no-margin">NASDAQ: AAPL - Nov 13 8:37 AM ET</h5>--}}
 
-                    <h3>111.25 <span class="text-success"><i class="fa fa-sort-up small text-success"></i> 0.15 (0.13%)</span>
-                    </h3>
-                </div>
-                <div class="card-footer clearfix">
-                    <div class="pull-left">by <span class="text-success">John Smith</span>
-                    </div>
-                    <div class="pull-right hint-text">
-                        Apr 23
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <!-- END ITEM -->
+            {{--<h3>111.25 <span class="text-success"><i class="fa fa-sort-up small text-success"></i> 0.15 (0.13%)</span>--}}
+            {{--</h3>--}}
+            {{--</div>--}}
+            {{--<div class="card-footer clearfix">--}}
+            {{--<div class="pull-left">by <span class="text-success">John Smith</span>--}}
+            {{--</div>--}}
+            {{--<div class="pull-right hint-text">--}}
+            {{--Apr 23--}}
+            {{--</div>--}}
+            {{--<div class="clearfix"></div>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--<!-- END ITEM -->--}}
 
 
         </div>

@@ -22,6 +22,7 @@
         <!-- START PAGE CONTENT -->
         <div class="content">
 
+            @include('cvepdb.client.partials.pages_help_modal')
             @yield('modals')
 
             @include('cvepdb.client.partials.pages_breadcrumbs')

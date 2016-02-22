@@ -27,6 +27,7 @@
 
             <div class="social-wrapper">
                 <div class="social " data-pages="social">
+                    @include('cvepdb.client.partials.pages_help_modal')
                     @yield('modals')
                     @yield('content')
                 </div>

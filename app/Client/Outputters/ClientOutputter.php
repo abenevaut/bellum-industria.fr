@@ -3,6 +3,7 @@
 namespace App\Client\Outputters;
 
 use App;
+use Auth;
 use CVEPDB\Services\Outputters\AbsLaravelOutputter;
 use App\Admin\Repositories\Projects\ProjectRepositoryEloquent;
 
@@ -23,6 +24,11 @@ class ClientOutputter extends AbsLaravelOutputter
      */
     private $r_user = null;
 
+    protected $help_modal_text = 'Help';
+
+    /**
+     *
+     */
     public function __construct()
     {
         parent::__construct();
@@ -36,18 +42,28 @@ class ClientOutputter extends AbsLaravelOutputter
         $this->breadcrumbs->setListElement('li');
     }
 
+    /**
+     * @param string $view
+     * @param array $data
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function output($view, $data)
     {
         return parent::output(
             $view,
-            $data + $this->client_data_sidebar()
+            $data
+                + $this->client_data_sidebar()
+                + $this->client_help_modal()
         );
     }
 
+    /**
+     * @return array
+     */
     private function client_data_sidebar()
     {
         $projects = null;
-        foreach ($this->r_user->find(\Auth::user()->id)->entites as $entite) {
+        foreach ($this->r_user->find(Auth::user()->id)->entites as $entite) {
 
             if (is_null($projects)) {
                 $projects = $entite->projects;
@@ -60,6 +76,16 @@ class ClientOutputter extends AbsLaravelOutputter
             'sidebar' => [
                 'projects' => $projects
             ]
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    private function client_help_modal()
+    {
+        return [
+            'help' => $this->help_modal_text
         ];
     }
 }

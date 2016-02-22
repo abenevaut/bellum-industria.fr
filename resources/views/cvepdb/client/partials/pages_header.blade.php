@@ -162,7 +162,7 @@
                     {{--</li>--}}
 
                     <li>
-                        <a href="#"><i class="pg-signals"></i> Help</a>
+                        <a href="javascript:void(0);" id="modalPageHelp" data-target="#modalPageHelp" data-toggle="modal"><i class="pg-signals"></i> Help</a>
                     </li>
 
 

@@ -38,3 +38,31 @@
 <script src="/assets/cvepdbjs/cvepdb.js"></script>
 
 <script src="/assets/js/client/scripts.js"></script>
+
+
+<script>
+    (function ($) {
+
+        'use strict';
+
+        $('#modalPageHelp').click(function() {
+
+            var modalElem = $('#myModal');
+
+            $('#myModal').modal('show');
+//            modalElem.children('.modal-dialog').removeClass('modal-lg');
+        });
+
+
+        // Only for fillin modals so that the backdrop action is still there
+        $('#modalFillIn').on('show.bs.modal', function(e) {
+            $('body').addClass('fill-in-modal');
+        });
+
+        $('#modalFillIn').on('hidden.bs.modal', function(e) {
+            $('body').removeClass('fill-in-modal');
+        });
+
+
+    })(jQuery);
+</script>

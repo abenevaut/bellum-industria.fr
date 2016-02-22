@@ -15,6 +15,7 @@
         <!-- START PAGE CONTENT -->
         <div class="content">
 
+            @include('cvepdb.client.partials.pages_help_modal')
             @yield('modals')
 
             <!-- START CONTAINER FLUID -->
