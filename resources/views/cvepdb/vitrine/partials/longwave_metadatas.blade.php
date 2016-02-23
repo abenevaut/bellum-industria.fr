@@ -39,7 +39,7 @@
         env: '{{ config('app.debug') ? 'development' : 'production' }}',
         env_ref: '{{ config('app.debug') ? 'development' : 'production' }}',
         env_theme: '',
-        iduser: 0,
+        iduser: {{ Auth::user()->id ? Auth::user()->id : 0 }},
         lang: '{{ Session::get('lang') }}',
         uri_base: '',
         url_base: '',
@@ -233,3 +233,5 @@
     }
 
 </style>
+
+@yield('metadatas')
