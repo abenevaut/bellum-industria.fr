@@ -136,6 +136,77 @@
      mobile: true,
      browser: true
      }
+
+
+
+
+     /**
+     * Initialize lazy_loading library
+     *//**
+    head.ready('CVEPDB_TIPSY', function () {
+        _cvepdb.debug('cvepdb.js > CVEPDB_TIPSY : success : Start');
+        $(D).trigger('CVEPDB_TIPSY_READY');
+        _cvepdb.debug('cvepdb.js > CVEPDB_TIPSY : success : End');
+    });
+
+
+
+    /**
+     * Initialize multidatespicker library
+     */
+    /**
+    head.ready('CVEPDB_MULTIDATESPICKER', function () {
+        _cvepdb.debug('cvepdb.js > CVEPDB_MULTIDATESPICKER : success : Start');
+        $(D).trigger('CVEPDB_MULTIDATESPICKER_READY');
+        _cvepdb.debug('cvepdb.js > CVEPDB_MULTIDATESPICKER : success : End');
+    });
+
+    /**
+     * Initialize filters library
+     */
+    /**
+    head.ready('CVEPDB_PYROCMS_FILTER', function () {
+        _cvepdb.debug('cvepdb.js > CVEPDB_PYROCMS_FILTER : success : Start');
+
+        if (
+                (typeof(cvepdb_config.FILTERS) != 'undefined')
+                && (typeof(cvepdb_config.FILTERS.startup_load_filters) != 'undefined')
+        ) {
+            cvepdb.filter.startup_load_filters = cvepdb_config.FILTERS.startup_load_filters;
+            _cvepdb.debug(
+                    'cvepdb.js > CVEPDB_PYROCMS_FILTER : success : cvepdb.filter.startup_load_filters = '
+                    + cvepdb.filter.startup_load_filters
+            )
+        }
+
+        cvepdb.filter.init();
+        $(D).trigger('CVEPDB_PYROCMS_FILTER_READY');
+        _cvepdb.debug('cvepdb.js > CVEPDB_PYROCMS_FILTER : success : End');
+    });
+
+
+    /**
+     * Initialize select2 library
+     */
+    /**
+    head.ready('CVEPDB_SELECT2', function () {
+        _cvepdb.debug('cvepdb.js > CVEPDB_SELECT2 : success : Start');
+        $(D).trigger('CVEPDB_SELECT2_READY');
+        _cvepdb.debug('cvepdb.js > CVEPDB_SELECT2 : success : End');
+    });
+
+    /**
+     * Initialize filters library
+     */
+    /**
+    head.ready('CVEPDB_HIGHCHARTS', function () {
+        _cvepdb.debug('cvepdb.js > CVEPDB_HIGHCHARTS : success : Start');
+        $(D).trigger('CVEPDB_HIGHCHARTS_READY');
+        _cvepdb.debug('cvepdb.js > CVEPDB_HIGHCHARTS : success : End');
+    });
+
+
+
      */
 </script>
 

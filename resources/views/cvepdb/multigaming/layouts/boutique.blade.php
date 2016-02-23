@@ -73,7 +73,6 @@
 <script type="text/javascript" src="/assets/cvepdbjs/libs/jquery-ui/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/assets/cvepdbjs/libs/headjs/dist/1.0.0/head.min.js"></script>
 <script type="text/javascript" src="/assets/cvepdbjs/cvepdb.js"></script>
-<script type="text/javascript" src="/assets/js/longwave.js"></script>
 
 @include('cvepdb.multigaming.partials.ganalytics')
 
