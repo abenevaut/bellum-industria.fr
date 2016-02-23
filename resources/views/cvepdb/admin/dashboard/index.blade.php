@@ -22,7 +22,7 @@
                     <div class="clearfix"></div>
                     <div class="row-sm-height">
                         <div class="m-l-50 m-r-50">
-                            <div class="js-widget-users-charts line-chart ">
+                            <div id="js-widget-users-charts" class="js-call-highcharts line-chart ">
                                 <svg></svg>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                     <div class="clearfix"></div>
                     <div class="row-sm-height">
                         <div class="m-l-50 m-r-50">
-                            <div class="js-widget-users_by_roles-charts line-chart ">
+                            <div id="js-widget-users_by_roles-charts" class="js-call-highcharts line-chart ">
                                 <svg></svg>
                             </div>
                         </div>
@@ -69,8 +69,6 @@
         </div>
 
 
-
-
     </div>
 @endsection
 
@@ -81,7 +79,7 @@
     {{--<link href="/assets/plugins/jquery-metrojs/MetroJs.css" rel="stylesheet" type="text/css" media="screen" />--}}
 
 
-    <link href="/assets/plugins/jquery-metrojs/MetroJs.css" rel="stylesheet" type="text/css" media="screen" />
+    {{--<link href="/assets/plugins/jquery-metrojs/MetroJs.css" rel="stylesheet" type="text/css" media="screen" />--}}
 @endsection
 
 @section('jsfooter')
@@ -110,7 +108,7 @@
 
 
 
-    <script src="/assets//cvepdbjs/libs/highcharts/highcharts.js" type="text/javascript"></script>
+    {{--<script src="/assets//cvepdbjs/libs/highcharts/highcharts.js" type="text/javascript"></script>--}}
 
 
     <script>
@@ -119,155 +117,107 @@
 
             'use strict';
 
-            $(D).ready(function () {
+            $(D).bind('CVEPDB_HIGHCHARTS_READY', function () {
 
-                $('.js-widget-users-charts').highcharts({
-                    chart: {
-                        type: 'bar',
-                        width: $('.js-widget-users-charts').closest('').width(),
-                        height: 175
-                    },
-                    credits: {
-                        enabled: false
-                    },
-                    title: {
-                        text: ''
-                    },
-                    xAxis: {
-                        categories: ['Tous']
-                    },
-                    yAxis: {
-                        min: 0,
-                        title: {
-                            text: 'Nombre d\'utilisateur'
-                        },
-                        tickInterval: 1
-                    },
-                    legend: {
-                        reversed: true
-                    },
-                    plotOptions: {
-                        series: {
-                            stacking: 'normal'
-                        }
-                    },
-                    series: [{
-                        name: 'Tous les utilisateurs',
-                        data: [{{ $users['statistiques']['all'] }}]
-                    }]
-                });
+                var users_charts = cvepdb.graph.stacked(
+                        'js-widget-users-charts',
+                        '',
+                        ['Tous'],
+                        'Nombre d\'utilisateur',
+                        [{
+                            name: 'Tous les utilisateurs',
+                            data: [{{ $users['statistiques']['all'] }}]
+                        }],
+                        175,
+                        true,
+                        "<span>{series.name}</span>: <b>{point.y}</b><br/>",
+                        false
+                );
 
-
-
-
-
-                $('.js-widget-users_by_roles-charts').highcharts({
-                    chart: {
-                        plotBackgroundColor: null,
-                        plotBorderWidth: 0,
-                        plotShadow: false,
-                        width: $('.js-widget-users_by_roles-charts').closest('').width(),
-                        height: 175
-                    },
-                    credits: {
-                        enabled: false
-                    },
-                    title: {
-                        text: ''
-                    },
-                    tooltip: {
-                        pointFormat: '<b>{point.percentage:.1f}%</b>'
-                    },
-                    plotOptions: {
-                        pie: {
-                            dataLabels: {
-                                enabled: true,
-                                distance: 15,
-                                style: {
-                                    fontWeight: 'bold'
-                                },
-                                formatter:function(){
-                                    if (this.y > 0)
-                                        return this.point.name;
-                                }
-                            },
-                            center: ['50%', '50%']
-                        }
-                    },
-                    series: [{
-                        type: 'pie',
-                        name: 'Users by rôles',
-                        innerSize: '50%',
-                        data: [
-                            ['Admins', {{ $users['statistiques']['roles']['admins'] }}],
-                            ['Users', {{ $users['statistiques']['roles']['users'] }}],
-                            ['Clients', {{ $users['statistiques']['roles']['clients'] }}],
-                            ['Gamers', {{ $users['statistiques']['roles']['gamers'] }}]
-                        ]
-                    }]
-                });
-
-
+                var users_by_roles_charts = cvepdb.graph.camembert(
+                        'js-widget-users_by_roles-charts',
+                        '',
+                        [{
+                            name: 'Les rôles',
+                            colorByPoint: true,
+                            data: [{
+                                name: 'Admins',
+                                y: {{ $users['statistiques']['roles']['admins'] }}
+                            }, {
+                                name: 'Users',
+                                y: {{ $users['statistiques']['roles']['users'] }}
+                            }, {
+                                name: 'Clients',
+                                y: {{ $users['statistiques']['roles']['clients'] }},
+                                sliced: true,
+                                selected: true
+                            }, {
+                                name: 'Gamers',
+                                y: {{ $users['statistiques']['roles']['gamers'] }}
+                            }]
+                        }],
+                        175
+                );
 
             });
 
         })(window.jQuery, document);
 
 
-//        (function ($, D) {
-//
-//            'use strict';
-//
-//            $(D).ready(function () {
-//
-//                d3.json('http://revox.io/json/charts.json', function(data) {
-//
-//                        nv.addGraph(function() {
-//                            var chart = nv.models.lineChart()
-//                                    .x(function(d) {
-//                                        return d[0]
-//                                    })
-//                                    .y(function(d) {
-//                                        return d[1] / 100
-//                                    })
-//                                    .color([
-//                                        $.Pages.getColor('success')
-//                                    ])
-//                                    .forceY([0, 2])
-//                                    .useInteractiveGuideline(true)
-//
-//                                    .margin({
-//                                        top: 60,
-//                                        right: -10,
-//                                        bottom: -10,
-//                                        left: -10
-//                                    })
-//                                    .showLegend(false);
-//
-//
-//                            d3.select('.js-widget-users-charts svg')
-//                                    .datum(data.nvd3.productRevenue)
-//                                    .transition().duration(500)
-//                                    .call(chart);
-//
-//
-//                            nv.utils.windowResize(function() {
-//
-//                                chart.update();
-//
-//                            });
-//
-//                            $('.widget-4-chart').data('chart', chart);
-//
-//                            return chart;
-//                        }, function() {
-//
-//                        });
-//                });
-//
-//
-//            });
-//
-//        })(window.jQuery, document);
+        //        (function ($, D) {
+        //
+        //            'use strict';
+        //
+        //            $(D).ready(function () {
+        //
+        //                d3.json('http://revox.io/json/charts.json', function(data) {
+        //
+        //                        nv.addGraph(function() {
+        //                            var chart = nv.models.lineChart()
+        //                                    .x(function(d) {
+        //                                        return d[0]
+        //                                    })
+        //                                    .y(function(d) {
+        //                                        return d[1] / 100
+        //                                    })
+        //                                    .color([
+        //                                        $.Pages.getColor('success')
+        //                                    ])
+        //                                    .forceY([0, 2])
+        //                                    .useInteractiveGuideline(true)
+        //
+        //                                    .margin({
+        //                                        top: 60,
+        //                                        right: -10,
+        //                                        bottom: -10,
+        //                                        left: -10
+        //                                    })
+        //                                    .showLegend(false);
+        //
+        //
+        //                            d3.select('.js-widget-users-charts svg')
+        //                                    .datum(data.nvd3.productRevenue)
+        //                                    .transition().duration(500)
+        //                                    .call(chart);
+        //
+        //
+        //                            nv.utils.windowResize(function() {
+        //
+        //                                chart.update();
+        //
+        //                            });
+        //
+        //                            $('.widget-4-chart').data('chart', chart);
+        //
+        //                            return chart;
+        //                        }, function() {
+        //
+        //                        });
+        //                });
+        //
+        //
+        //            });
+        //
+        //        })(window.jQuery, document);
     </script>
 @endsection
