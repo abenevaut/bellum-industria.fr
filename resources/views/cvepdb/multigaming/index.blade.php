@@ -173,7 +173,7 @@
                             <li class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame"
                                 style="opacity: 0.7;">
 
-                                {!! str_limit($teammate['steam_token']['personaname'], 22, ' ..') !!}
+                                {!! str_limit($teammate['steam_token']['personaname'], 18, ' ..') !!}
 
                                 <a href="{!! $teammate['steam_token']['profileurl'] !!}" target="_blank">
                                     <img src="{!! $teammate['steam_token']['avatarfull'] !!}"
