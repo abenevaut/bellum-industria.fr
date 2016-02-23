@@ -59,6 +59,22 @@
             /**
              *
              */
+            development: {
+                key: "cdfb1217505e4c21a06abccf407711d8",
+                url: "sentry.cvepdb.fr",
+                project: 8
+            },
+            /**
+             *
+             */
+            staging: {
+                key: "d8e3d03a69514f92a7b3007a14fc4620",
+                url: "sentry.cvepdb.fr",
+                project: 7
+            },
+            /**
+             *
+             */
             production: {
                 key: "5a4240a22c75445c93d8aeab837cfd67",
                 url: "sentry.cvepdb.fr",

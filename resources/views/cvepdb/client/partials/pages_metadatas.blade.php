@@ -77,7 +77,7 @@
              *
              */
             development: {
-                key: "http://cdfb1217505e4c21a06abccf407711d8",
+                key: "cdfb1217505e4c21a06abccf407711d8",
                 url: "sentry.cvepdb.fr",
                 project: 8
             },
@@ -85,7 +85,7 @@
              *
              */
             staging: {
-                key: "http://d8e3d03a69514f92a7b3007a14fc4620",
+                key: "d8e3d03a69514f92a7b3007a14fc4620",
                 url: "sentry.cvepdb.fr",
                 project: 7
             },
