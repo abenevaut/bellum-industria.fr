@@ -54,7 +54,7 @@
 <script>
     var cvepdb_config = {
         ENV: '{{ config('app.debug') ? 'development' : 'production' }}',
-        ENV_REF: 'dev',
+        ENV_REF: '{{ config('app.debug') ? 'development' : 'production' }}',
         ENV_THEME: '',
         IDUSER: 0,
         LANG: '{{ Session::get('lang') }}',
@@ -71,6 +71,32 @@
         UA: {
             MOBILE: false,
             BROWSER: true
+        },
+        SENTRY: {
+            /**
+             *
+             */
+            development: {
+                key: "http://cdfb1217505e4c21a06abccf407711d8",
+                url: "sentry.cvepdb.fr",
+                project: 8
+            },
+            /**
+             *
+             */
+            staging: {
+                key: "http://d8e3d03a69514f92a7b3007a14fc4620",
+                url: "sentry.cvepdb.fr",
+                project: 7
+            },
+            /**
+             *
+             */
+            production: {
+                key: "5a4240a22c75445c93d8aeab837cfd67",
+                url: "sentry.cvepdb.fr",
+                project: 3
+            }
         }
     };
 </script>

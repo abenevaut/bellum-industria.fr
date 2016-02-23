@@ -98,17 +98,24 @@
                 var container_due_dates = $('#selected_due_dates');
 
                 $('#datepicker-embeded').datepicker({
-                    daysOfWeekDisabled: "0,1",
+                    startDate: new Date(),
+                    daysOfWeekDisabled: "0,6",
                     multidate: true,
                     language: cvepdb_config.LANG
                 }).on('changeDate', function (e) {
 
+                    var obj_date = null;
                     container_due_dates.html('');
+
+                    e.dates.sort(function(a, b) {
+                        return new Date(a).getTime() - new Date(b).getTime()
+                    });
 
                     $.each(e.dates, function (i, date) {
 
 
-                        container_due_dates.append(cvepdb.date.(new Date()) + '<br/>');
+                        container_due_dates.append(cvepdb.dates.getDateObjectAsFRString(date) + '<br/>');
+//                      container_due_dates.append(cvepdb.dates.getDateObjectAsENString(date) + '<br/>');
 
 
                     });
