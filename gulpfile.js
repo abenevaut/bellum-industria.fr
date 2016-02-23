@@ -19,9 +19,11 @@ var config = {
     build: './public/assets'
 };
 
-gulp.task('sass', ['cvepdb-longwave-layouts-sass', 'cvepdb-pages-layouts-sass'], function () {
+/**
+ * SASS STUFF
+ */
 
-});
+gulp.task('sass', ['cvepdb-longwave-layouts-sass', 'cvepdb-pages-layouts-sass'], function () {});
 
 gulp.task('cvepdb-longwave-layouts-sass', function () {
     gulp.src(config.cvepdb + '/longwave/layouts/multigaming/*.scss')
@@ -53,6 +55,12 @@ gulp.task('cvepdb-pages-layouts-sass', function () {
         .pipe(gulp.dest('app/assets/rev/admin'));
 });
 
+/**
+ * BOWER STUFF
+ */
+
+gulp.task('bower', ['cvepdb-cvepdbjs-bower', 'longwave-bower'], function () {});
+
 gulp.task('cvepdb-cvepdbjs-bower', function() {
     return bower({ directory: './libs', cwd: config.cvepdb + '/cvepdbjs'});
 });
@@ -60,6 +68,10 @@ gulp.task('cvepdb-cvepdbjs-bower', function() {
 gulp.task('longwave-bower', function() {
     return bower({ directory: './libs', cwd: config.longwave + '/js'});
 });
+
+/**
+ * GULP COMMANDS
+ */
 
 gulp.task('watch', function () {
     gulp.watch([
@@ -71,7 +83,9 @@ gulp.task('watch', function () {
     });
 });
 
-gulp.task('build', ['cvepdb-cvepdbjs-bower', 'longwave-bower', 'sass', 'copy'], function () {});
+gulp.task('build', ['bower', 'sass', 'copy'], function () {});
+
+gulp.task('production', ['bower', 'copy'], function () {});
 
 gulp.task('clean', function () {
     return gulp.src(config.build + '', {read: false}).pipe(clean());
@@ -114,9 +128,11 @@ gulp.task('copy', ['clean'], function () {
 gulp.task('default', function () {
     console.log("\nPage - Gulp Command List \n");
     console.log("----------------------------\n");
+    console.log("gulp bower");
     console.log("gulp watch");
     console.log("gulp sass");
     console.log("gulp clean");
-    console.log("gulp build \n");
+    console.log("gulp build");
+    console.log("gulp production \n");
     console.log("----------------------------\n");
 });
