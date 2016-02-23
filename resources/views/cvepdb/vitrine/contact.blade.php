@@ -55,7 +55,7 @@
                                 {!! Form::text('subject', null, ['required', 'class' => 'form-control text-input', 'placeholder' => trans('cvepdb/vitrine/contact.form_subject')]) !!}
                             </li>
                             <li class="form-row text-area-row">
-                                {!! Form::textarea('message', null, ['required', 'class' => 'form-control text-area', 'placeholder' => trans('cvepdb/vitrine/contact.form_message')]) !!}
+                                {!! Form::textarea('message', null, ['required', 'id' => 'message', 'class' => 'form-control text-area', 'placeholder' => trans('cvepdb/vitrine/contact.form_message')]) !!}
                             </li>
                             <li class="button-row">
                                 {!! Form::submit(trans('cvepdb/vitrine/contact.form_button'), ['class'=>'btn-submit']) !!}

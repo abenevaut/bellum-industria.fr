@@ -111,8 +111,8 @@
         cvepdb.debug('teams.js > CVEPDB_READY : success : End');
     });
 
-    $(D).bind('CVEPDB_FORM_VALIDATION_JQREADY', function () {
-        cvepdb.debug('teams.js > CVEPDB_FORM_VALIDATION_JQREADY : success : Start');
+    $(D).bind('CVEPDB_FORM_VALIDATION_READY', function () {
+        cvepdb.debug('teams.js > CVEPDB_FORM_VALIDATION_READY : success : Start');
 
         cvepdb.fv.on_submit(function () {
             return true;
@@ -157,7 +157,7 @@
             }
         });
 
-        cvepdb.debug('teams.js > CVEPDB_FORM_VALIDATION_JQREADY : success : End');
+        cvepdb.debug('teams.js > CVEPDB_FORM_VALIDATION_READY : success : End');
     });
 
     /**

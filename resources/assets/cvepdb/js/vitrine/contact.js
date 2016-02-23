@@ -6,7 +6,7 @@
     _contact = {};
 
     // A la fin du chargement de la library
-    $(D).bind('CVEPDB_FORM_VALIDATION_JQREADY', function () {
+    $(D).bind('CVEPDB_FORM_VALIDATION_READY', function () {
         cvepdb.debug('contact.js > CVEPDB_FORM_VALIDATION_READY : success : Start');
 
         cvepdb.fv.on_submit(function () {
