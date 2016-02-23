@@ -1,5 +1,6 @@
 'use strict';
 
+var fs = require('fs');
 var path = require('path');
 var gulp = require('gulp');
 var less = require('gulp-less');
@@ -23,7 +24,8 @@ var config = {
  * SASS STUFF
  */
 
-gulp.task('sass', ['cvepdb-longwave-layouts-sass', 'cvepdb-pages-layouts-sass'], function () {});
+gulp.task('sass', ['cvepdb-longwave-layouts-sass', 'cvepdb-pages-layouts-sass'], function () {
+});
 
 gulp.task('cvepdb-longwave-layouts-sass', function () {
     gulp.src(config.cvepdb + '/longwave/layouts/multigaming/*.scss')
@@ -59,14 +61,37 @@ gulp.task('cvepdb-pages-layouts-sass', function () {
  * BOWER STUFF
  */
 
-gulp.task('bower', ['cvepdb-cvepdbjs-bower', 'longwave-bower'], function () {});
-
-gulp.task('cvepdb-cvepdbjs-bower', function() {
-    return bower({ directory: './libs', cwd: config.cvepdb + '/cvepdbjs'});
+gulp.task('bower', ['cvepdb-cvepdbjs-bower', 'longwave-bower'], function () {
 });
 
-gulp.task('longwave-bower', function() {
-    return bower({ directory: './libs', cwd: config.longwave + '/js'});
+gulp.task('cvepdb-cvepdbjs-bower', function () {
+    return bower({directory: './libs', cwd: config.cvepdb + '/cvepdbjs'});
+});
+
+gulp.task('longwave-bower', function () {
+    return bower({directory: './libs', cwd: config.longwave + '/js'});
+});
+
+/**
+ * S3 STUFF
+ */
+
+gulp.task("s3-upload", function () {
+
+    var s3 = require('gulp-awspublish');
+    var s3_config = JSON.parse(fs.readFileSync('./awsaccess.json'));
+    var publisher = s3.create(s3_config);
+    var headers = {
+        'Cache-Control': 'max-age=300,s-maxage=900,no-transform,public',
+        'x-amz-acl': 'public-read'
+    };
+
+    gulp.src(config.build + '/**')
+        .pipe(s3.gzip())
+        .pipe(publisher.publish(headers))
+        .pipe(publisher.cache())
+        .pipe(s3.reporter({ states: ['create', 'update', 'delete'] }));
+
 });
 
 /**
@@ -83,9 +108,11 @@ gulp.task('watch', function () {
     });
 });
 
-gulp.task('build', ['bower', 'sass', 'copy'], function () {});
+gulp.task('build', ['bower', 'sass', 'copy'], function () {
+});
 
-gulp.task('production', ['bower', 'copy'], function () {});
+gulp.task('production', ['bower', 'copy'], function () {
+});
 
 gulp.task('clean', function () {
     return gulp.src(config.build + '', {read: false}).pipe(clean());

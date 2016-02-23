@@ -17,3 +17,4 @@ public/*.xml
 public/*.pdf
 
 storage/databases/testing.sqlite
+awsaccess.json
