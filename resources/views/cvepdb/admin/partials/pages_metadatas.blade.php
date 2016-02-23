@@ -36,7 +36,7 @@
 
 <link href="/assets/css/pages-icons.css" rel="stylesheet" type="text/css">
 
-<link class="main-stylesheet" href="/assets/css/admin/default.css" rel="stylesheet" type="text/css" />
+<link class="main-stylesheet" href="/assets/css/admin/{!! css_file_rev('default.css', 'admin') !!}" rel="stylesheet" type="text/css" />
 
 <!--[if lte IE 9]>
 <link href="/assets/css/ie9.css" rel="stylesheet" type="text/css" />

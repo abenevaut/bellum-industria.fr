@@ -24,3 +24,9 @@ function slugify($text)
 
     return $text;
 }
+
+function css_file_rev($file, $env = 'vitrine')
+{
+    $list = json_decode(File::get(base_path().'/app/assets/rev/'.$env.'/css.manifest.json'));
+    return $list->{$file};
+}

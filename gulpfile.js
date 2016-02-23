@@ -7,6 +7,8 @@ var sass = require('gulp-sass');
 var clean = require('gulp-clean');
 var minifycss = require('gulp-minify-css');
 var bower = require('gulp-bower');
+var rev = require('gulp-rev');
+var rename = require("gulp-rename");
 
 //CONFIG PATHS
 var config = {
@@ -25,18 +27,30 @@ gulp.task('cvepdb-longwave-layouts-sass', function () {
     gulp.src(config.cvepdb + '/longwave/layouts/multigaming/*.scss')
         .pipe(sass({paths: [config.cvepdb + '/sass/']}))
         .pipe(minifycss())
-        .pipe(gulp.dest(config.cvepdb + '/css/multigaming'));
+        .pipe(rev())
+        .pipe(gulp.dest(config.cvepdb + '/css/multigaming'))
+        .pipe(rev.manifest())
+        .pipe(rename('css.manifest.json'))
+        .pipe(gulp.dest('app/assets/rev/multigaming'));
     gulp.src(config.cvepdb + '/longwave/layouts/vitrine/*.scss')
         .pipe(sass({paths: [config.cvepdb + '/sass/']}))
         .pipe(minifycss())
-        .pipe(gulp.dest(config.cvepdb + '/css/vitrine'));
+        .pipe(rev())
+        .pipe(gulp.dest(config.cvepdb + '/css/vitrine'))
+        .pipe(rev.manifest())
+        .pipe(rename('css.manifest.json'))
+        .pipe(gulp.dest('app/assets/rev/vitrine'));
 });
 
 gulp.task('cvepdb-pages-layouts-sass', function () {
     gulp.src(config.cvepdb + '/pages/layouts/admin/*.scss')
         .pipe(sass({paths: [config.cvepdb + '/sass/']}))
         .pipe(minifycss())
-        .pipe(gulp.dest(config.cvepdb + '/css/admin/'));
+        .pipe(rev())
+        .pipe(gulp.dest(config.cvepdb + '/css/admin/'))
+        .pipe(rev.manifest())
+        .pipe(rename('css.manifest.json'))
+        .pipe(gulp.dest('app/assets/rev/admin'));
 });
 
 gulp.task('cvepdb-cvepdbjs-bower', function() {
