@@ -43,6 +43,10 @@ gulp.task('cvepdb-cvepdbjs-bower', function() {
     return bower({ directory: './libs', cwd: config.cvepdb + '/cvepdbjs'});
 });
 
+gulp.task('longwave-bower', function() {
+    return bower({ directory: './libs', cwd: config.longwave + '/js'});
+});
+
 gulp.task('watch', function () {
     gulp.watch([
         config.cvepdb + '/longwave/layouts/multigaming/*.scss',
@@ -53,7 +57,7 @@ gulp.task('watch', function () {
     });
 });
 
-gulp.task('build', ['cvepdb-cvepdbjs-bower', 'sass', 'copy'], function () {});
+gulp.task('build', ['cvepdb-cvepdbjs-bower', 'longwave-bower', 'sass', 'copy'], function () {});
 
 gulp.task('clean', function () {
     return gulp.src(config.build + '', {read: false}).pipe(clean());
