@@ -26,7 +26,7 @@
         env: '{{ config('app.debug') ? 'development' : 'production' }}',
         env_ref: '{{ config('app.debug') ? 'development' : 'production' }}',
         env_theme: '',
-        iduser: {{ Auth::user()->id ? Auth::user()->id : 0 }},
+        iduser: {{ Auth::check() ? Auth::user()->id : 0 }},
         lang: '{{ Session::get('lang') }}',
         uri_base: '',
         url_base: '',
@@ -39,7 +39,7 @@
             project: '0'
         },
         ua: {
-            mobile: false,
+            mobile: true,
             browser: true
         },
         sentry: {
@@ -73,106 +73,13 @@
     cvepdb_config.libraries = [
         {
             script: {
-                CVEPDB_HIGHCHARTS_LOADED: (cvepdb_config.url_theme + cvepdb_config.base_path + 'scripts/highcharts.js')
+                LONGWAVE_SCRIPT_LOADED: (cvepdb_config.url_theme + 'assets/js/longwave.js')
             },
-            trigger: '.js-call-highcharts',
-            mobile: false,
+            trigger: 'always',
+            mobile: true,
             browser: true
         }
     ];
-
-    /*
-     {
-     script: {
-     CVEPDB_PYROCMS_FILTER: (cvepdb_config.url_theme + cvepdb_config.base_path + 'scripts/filters.js')
-     },
-     trigger: '.js-call-pyrofilters',
-     mobile: true,
-     browser: true
-     },
-     {
-     script: {
-     CVEPDB_TIPSY: (cvepdb_config.url_theme + cvepdb_config.base_path + 'scripts/tipsy.js')
-     },
-     trigger: 'always',
-     mobile: false,
-     browser: true
-     },
-     {
-
-     {
-     script: {
-     CVEPDB_SELECTNAV: (cvepdb_config.url_theme + cvepdb_config.base_path + 'libs/selectnav/selectnav.min.js')
-     },
-     trigger: '.js-call-selectnav',
-     mobile: true,
-     browser: true
-     },
-     {
-     script: {
-     CVEPDB_DDSMOOTHMENU: (cvepdb_config.url_theme + cvepdb_config.base_path + 'libs/ddsmoothmenu/ddsmoothmenu.js')
-     },
-     trigger: '.js-call-ddsmoothmenu',
-     mobile: true,
-     browser: true
-     },
-     {
-     script: {
-     CVEPDB_HOVERDIR: (cvepdb_config.url_theme + cvepdb_config.base_path + 'libs/DirectionAwareHoverEffect/js/jquery.hoverdir.js')
-     },
-     trigger: '.js-call-hoverdir',
-     mobile: true,
-     browser: true
-     },
-     {
-     script: {
-     CVEPDB_ISOTOPE: (cvepdb_config.url_theme + cvepdb_config.base_path + 'libs/isotope/jquery.isotope.js')
-     },
-     trigger: '.js-call-isotope',
-     mobile: true,
-     browser: true
-     },
-     {
-     script: {
-     CVEPDB_FITVIDS: (cvepdb_config.url_theme + cvepdb_config.base_path + 'libs/jquery.fitvids/jquery.fitvids.js')
-     },
-     trigger: '.js-call-fitvids',
-     mobile: true,
-     browser: true
-     },
-     {
-     script: {
-     CVEPDB_REVOLUTION: (cvepdb_config.url_theme + cvepdb_config.base_path + 'libs/slider-revolution/src/js/jquery.themepunch.revolution.min.js')
-     },
-     trigger: '.js-call-revolution',
-     mobile: true,
-     browser: true
-     },
-     {
-     script: {
-     CVEPDB_REVOLUTION_PLUGINS: (cvepdb_config.url_theme + cvepdb_config.base_path + 'libs/slider-revolution/src/js/jquery.themepunch.plugins.min.js')
-     },
-     trigger: '.js-call-revolution',
-     mobile: true,
-     browser: true
-     },
-     {
-     script: {
-     CVEPDB_EASYTABS: (cvepdb_config.url_theme + cvepdb_config.base_path + 'libs/easytabs/lib/jquery.easytabs.min.js')
-     },
-     trigger: '.js-call-easytabs',
-     mobile: true,
-     browser: true
-     },
-     {
-     script: {
-     CVEPDB_SELECT2: (cvepdb_config.url_theme + cvepdb_config.base_path + 'scripts/select2.js')
-     },
-     trigger: '.js-call-select2',
-     mobile: true,
-     browser: true
-     }
-     */
 </script>
 
 <style>

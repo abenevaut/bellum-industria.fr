@@ -56,7 +56,7 @@
         env: '{{ config('app.debug') ? 'development' : 'production' }}',
         env_ref: '{{ config('app.debug') ? 'development' : 'production' }}',
         env_theme: '',
-        iduser: {{ Auth::user()->id ? Auth::user()->id : 0 }},
+        iduser: {{ Auth::check() ? Auth::user()->id : 0 }},
         lang: '{{ Session::get('lang') }}',
         uri_base: '',
         url_base: '',
@@ -69,7 +69,7 @@
             project: '0'
         },
         ua: {
-            mobile: false,
+            mobile: true,
             browser: true
         },
         sentry: {
