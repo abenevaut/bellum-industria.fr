@@ -3,7 +3,8 @@
 namespace App\Admin\Outputters;
 
 use CVEPDB\Requests\IFormRequest;
-use CVEPDB\Repositories\Users\UserRepositoryEloquent;
+use App\Admin\Repositories\Users\UserRepositoryEloquent;
+use App\Admin\Repositories\Users\ApiKeyRepositoryEloquent;
 use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
 
 class UserOutputter extends AdminOutputter
@@ -18,12 +19,21 @@ class UserOutputter extends AdminOutputter
      */
     private $r_role = null;
 
-    public function __construct(UserRepositoryEloquent $r_user, RoleRepositoryEloquent $r_role)
-    {
+    /**
+     * @var ApiKeyRepositoryEloquent|null
+     */
+    private $r_apikey = null;
+
+    public function __construct(
+        UserRepositoryEloquent $r_user,
+        RoleRepositoryEloquent $r_role,
+        ApiKeyRepositoryEloquent $r_apikey
+    ) {
         parent::__construct();
 
         $this->r_user = $r_user;
         $this->r_role = $r_role;
+        $this->r_apikey = $r_apikey;
 
         $this->addBreadcrumb('Utilisateurs', 'admin/users');
     }
@@ -73,6 +83,8 @@ class UserOutputter extends AdminOutputter
             $request->get('last_name'),
             $request->get('email')
         );
+
+        $this->r_apikey->generate_api_key($user);
 
         $roles = $request->only('user_role_id');
 
@@ -124,7 +136,9 @@ class UserOutputter extends AdminOutputter
      */
     public function update($id, IFormRequest $request)
     {
-        //
+        $this->r_user->update([
+            // '' => $request->get('')
+        ], $id);
     }
 
     /**

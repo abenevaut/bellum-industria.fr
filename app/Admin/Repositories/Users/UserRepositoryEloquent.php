@@ -20,5 +20,4 @@ class UserRepositoryEloquent extends UserRepositoryEloquentParent
     {
         return \App\Admin\Repositories\Users\User::class;
     }
-
 }

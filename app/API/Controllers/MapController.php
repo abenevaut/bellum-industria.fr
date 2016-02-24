@@ -38,8 +38,11 @@ class MapController extends ApiGuardController
     ];
 
     /**
-     * @param $year
-     * @return mixed
+     * curl "http://api.cvepdb.fr/v1/maps/geolocalisation/48.780426/2.266257"
+     *
+     * @param $latitude
+     * @param $longitude
+     * @return array
      */
     public function geolocalisation($latitude, $longitude)
     {
@@ -59,6 +62,12 @@ class MapController extends ApiGuardController
         return ['results' => $geocode];
     }
 
+    /**
+     * curl "http://api.cvepdb.fr/v1/maps/address/plessis%20robinson"
+     *
+     * @param $address
+     * @return array
+     */
     public function address($address)
     {
         $geocode = [];

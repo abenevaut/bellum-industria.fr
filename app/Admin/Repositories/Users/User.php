@@ -13,4 +13,12 @@ class User extends UserModel
     {
         return $this->belongsToMany('App\Admin\Repositories\Entites\Entite');
     }
+
+    /**
+     * The apikeys that belong to the user.
+     */
+    public function apikeys()
+    {
+        return $this->hasMany('App\Admin\Repositories\Users\ApiKey');
+    }
 }

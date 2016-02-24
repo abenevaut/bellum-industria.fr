@@ -138,6 +138,19 @@
                                     L'utilisateur n'appartient a aucun role sur la plateforme
                                 </div>
                             @endif
+                            <br/>
+                            <strong>Cléf d'API :</strong>
+                            @if ($user->apikeys->count())
+                                @foreach ($user->apikeys as $apikey)
+                                    <div class="alert alert-info" role="alert">
+                                        {{ $apikey->key }}
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="alert alert-info" role="alert">
+                                    L'utilisateur n'a pas accés à l'API
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

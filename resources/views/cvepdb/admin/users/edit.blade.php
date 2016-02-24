@@ -41,7 +41,7 @@
                         <div class="form-group form-group-default required">
                             <label>Roles</label>
                             <br>
-                            @if ($permissions->count())
+                            @if ($roles->count())
                                 @foreach ($roles as $role)
                                     <div class="form-group form-group-default input-group">
                                         <label>{{ $role->display_name }}</label>
@@ -59,7 +59,7 @@
                                 @endforeach
                             @else
                                 <div class="alert alert-info" role="alert">
-                                    Il n'y a aucune permission
+                                    Il n'y a aucun rôle
                                 </div>
                             @endif
                         </div>
