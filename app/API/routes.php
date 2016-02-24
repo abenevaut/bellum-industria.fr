@@ -21,6 +21,9 @@ Route::group(['domain' => env('DOMAIN_API')], function () {
         Route::get('dates/french_hollidays', '\App\Api\Controllers\DateController@french_hollidays');
         Route::get('dates/french_hollidays/{year}', '\App\Api\Controllers\DateController@french_hollidays');
 
+        Route::get('maps/geolocalisation/{longitude}/{latitude}', '\App\Api\Controllers\MapController@geolocalisation');
+        Route::get('maps/address/{address}', '\App\Api\Controllers\MapController@address');
+
     });
 
 //    Route::any('{slug}', '\App\Api\Controllers\DocController@index')
