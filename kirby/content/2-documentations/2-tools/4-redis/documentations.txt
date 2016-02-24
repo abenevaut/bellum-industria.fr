@@ -1,0 +1,25 @@
+Title: Tools
+
+----
+
+Text:
+
+# Tools
+
+
+
+get last stable
+http://redis.io/download
+
+tar -xvf ARCHIVE
+
+cd ARCHIVE
+
+make
+
+make test
+
+sudo make install
+
+cd utils/
+sudo ./install_server.sh

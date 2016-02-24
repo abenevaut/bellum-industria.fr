@@ -1,0 +1,17 @@
+Title: CavaENCOREparlerdebits documentation
+
+----
+
+Author: Antoine Benevaut
+
+----
+
+Description: L'espace consacre a la documentation de vos projets.
+
+----
+
+Keywords: HTML, CSS, JS, JavaScript, framework, bootstrap, front-end, frontend, web development, Projects, Documentation
+
+----
+
+Copyright: CavaENCOREparlerdebits.fr

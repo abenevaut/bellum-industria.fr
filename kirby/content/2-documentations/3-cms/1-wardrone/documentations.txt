@@ -1,0 +1,33 @@
+Title: Wardrone
+
+----
+
+Text:
+
+ # Wardrone
+
+ Test d'un des premiers CMS pour Laravel4
+
+ Wardrone http://wardrobecms.com est un CMS minimaliste qui permet de mettre en ligne un blog.
+ Il dispose d'une interface simple pour gerer ses posts et les informations de son compte.
+
+ Installation :
+
+ On recupere les sources sur github https://github.com/ericbarnes/wardrobe
+ On extrait l'archive dans son repertoire web.
+ On configure les droits de la meme facon que pour laravel (chmod 777 sur app/storage).
+ On configure ensuite son CMS :
+ app/config/app.php pour changer la zone geographique pour avoir la bonne heure (timezone) et la langue ET SURTOUT la variable key qui est la clef d'encryption de notre site qui doit etre personnel et configentiel.
+ On ajoute ensuite le premier utilisateur avec les droits d'administration, il faut se rendre a l'adresse '/install'.
+ le processus renseigne le fichier app/config/wardrobe.php pour configurer le CMS : c'est vraiment minimaliste
+ // On choisit son theme, la liste est disponnible dans public/themes
+ 'theme' => 'blocky',
+ // On inscrit le titre de son blog
+ 'title' => 'Test wrdrone',
+ // On definit le nombre de posts qui s'afficherons sur chaque page
+ 'per_page' => '15',
+ // Et on finit par dire que le CMS est "installed" (installe) qui est pour le moment la seule option disponible.
+ 'installed' => 'installed',
+ L'installer met en place la base de donnee et le tour est joue, c'est pret a etre utiliser!
+
+ Quelques images:

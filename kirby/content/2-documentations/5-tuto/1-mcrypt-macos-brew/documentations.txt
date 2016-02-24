@@ -1,0 +1,35 @@
+Title: MCrypt on macOS via brew
+
+----
+
+Text:
+
+# MCrypt on macOS via brew
+
+Check verion with
+$> php --version
+
+install brew to install mcrypt system library
+$> brew install mcrypt
+
+following https://github.com/josegonzalez/homebrew-php readme instruction
+
+$> brew tap homebrew/dupes
+$> brew tap josegonzalez/homebrew-php
+$> brew install php53-mcrypt
+
+At the end of process, get line like "/usr/local/Cellar/php53-mcrypt/5.3.26"
+And copy it.
+
+open file, /private/etc/php.ini
+and add extension
+
+extension="/usr/local/Cellar/php53-mcrypt/5.3.26/mcrypt.so"
+
+if not existing php.ini
+sudo cp /private/etc/php.ini.Default /private/etc/php.ini
+
+to edit php.ini
+sudo chmod +w /private/etc/php.ini
+at the end
+sudo chmod -w /private/etc/php.ini

@@ -1,0 +1,40 @@
+Title: MAMP
+
+----
+
+Text:
+
+# MAMP
+
+
+Se connecter au server mysql en ligne de commande :
+
+	/Applications/MAMP/Library/bin/mysql --host=localhost -uroot -p
+	/Applications/MAMP/Library/bin/mysql --host=localhost -uroot -p TABLE_NAME < /tmp/dump.sql
+
+
+MySQL Dump
+
+	/Applications/MAMP/Library/bin/mysqldump -u root -p --databases DATABASE_NAME > DUMP_FILENAME.sql
+
+MySQL Dump sans donnee
+
+	/Applications/MAMP/Library/bin/mysqldump -u root --no-data -p --databases DATABASE_NAME > DUMP_FILENAME.sql
+
+Socket
+
+  /Applications/MAMP/tmp/mysql/mysql.sock
+
+------
+
+imagick php for mamp
+
+[imagick]
+extension="/usr/local/Cellar/php54-imagick/3.1.2/imagick.so"
+
+
+brew install php54-imagick
+
+
+
+ou decommentte extension=imagick.so dans php.ini de mamp

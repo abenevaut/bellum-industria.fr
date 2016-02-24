@@ -1,0 +1,57 @@
+Title: Vagrant
+
+----
+
+Text:
+
+# Vagrant
+
+	https://github.com/ckan/ckan/wiki/How-to-Create-a-CentOS-Vagrant-Base-Box
+
+# Installation
+
+	- Installer VirtualBox
+
+# Cree une machine virtuelle vagrant
+
+## Installation de la machine virtuelle de base dans virtualbox
+
+	http://hadooppowered.com/2014/05/10/create-a-debian-wheezy-vagrant-box/
+	https://github.com/ckan/ckan/wiki/How-to-Create-a-CentOS-Vagrant-Base-Box
+
+
+	Nom de la machine virtuelle : vagrant-debian78-64
+
+
+## Une fois la machine prete :
+
+On cree un repertoire d'entrepot des packages vagrant de machine virtuelle.
+Ensuite on cree le package pour une machine :
+
+	 vagrant package --base vagrant-debian78-64
+
+On ajoute le package a la liste de nos machines virtuelles vagrant, prete a etre deployer :
+
+	vagrant box add vagrant-debian78-64 package.box
+	vagrant box add vagrant-debian78-64 http://cavaencoreparlerdebits.fr/pub/vagrant/boxes/vagrant-debian78-64/package.box
+
+On peut maintenant utiliser la VM vagrant
+
+
+# Deploiement
+
+	vagrant init vagrant-debian78-64
+	vagrant up // lance la machine et la premiere fois, met a jour la clef public ssh
+	vagrant ssh // permet la connection a la machine virtuelle
+	cagrant suspend // eteind la machine virtuelle
+
+
+# Demarrage rapide d'un projet
+
+Voir la liste des machines debian sur le depot officiel
+
+	https://atlas.hashicorp.com/debian
+
+Initialiser un nouveau projet avec une box vagrant debian
+
+	vagrant init debian/jessie64; vagrant up --provider=virtualbox

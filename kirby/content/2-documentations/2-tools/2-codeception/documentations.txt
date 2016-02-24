@@ -1,0 +1,33 @@
+Title: Codecepion
+
+----
+
+Text:
+
+
+
+wget http://codeception.com/codecept.phar .
+
+php codecept.phar bootstrap
+
+php codecept.phar build
+
+
+-----
+
+codecept bootstrap
+codecept build
+
+
+// Test "browser"
+codecept  generate:cept acceptance client/Login
+
+
+// Test "phpunit"
+codecept generate:phpunit unit Example
+
+
+codecept run
+
+http://codeception.com/docs/reference/Commands
+

@@ -1,0 +1,137 @@
+Title: Laravel
+
+----
+
+Text:
+
+# Laravel 4
+
+Laravel 4 - Super framework
+
+On comprend tout de suite pourquoi l'equipe de PyroCMS veut change de framework pour Laravel. C'est un super geant cree pour etre efficace tout au long de son developpement.
+
+Pour reprendre le tutoriel d'introduction que j'ai suivie pour decouvrir Laravel (http://laravel.sl-creation.org/laravel-4) voicie quelques differences notable entre Codeigniter et Laravel:
+
+L'utilisation des filtres, un helper like qui permet de faire des verifiactions anterieur et posterieur a l'execution d'un controller. Tres utile pour l'authentification des utilisateurs (Guest/Logged user, present par defaut avec le CSRF [anti xss]).
+La creation des routes est enormement simplifier, `Route::resource('api/list', 'TodoPublicController@getList');`.
+Il est possible des crees de faire appel a des vues directement depuis la gestion des routes. C'est pratique pour de petites applications et les pages statiques, on a retrouve nos marque dans le framework (DB, vue, blade ....) `Route::get('login', function() { return View::make('login_form'); });`
+Les bases de donnees sont simple a mettre en place avec le systeme de migration de l'outils `artisan` (evolution avec des numero de revision).
+On peut mettre en place des `seeds`, des donnees pres formater pour remplir ca DB. Incontournable pour les tests unitaires, partique pour les demonstrations.
+La gestion des models est tres simple avec `Eloquent` (le prototype des models). Les realtions entre Tables membres sont tres simple (1-1, 1-*, *-*).
+Think Tiny Controller!
+On retrouve un systeme de layout simplifier (face a PyroCMS) `Blade`, qui permet d'avoir des layouts qui se compose de vue compose par les applications. Pas de probleme de Lex, les balises sont similaires MAIS le code qui les composes est en PHP!
+Les controllers sont base sur le standard Restfull, qui n'empeche pas de travail comme on a l'habitude (Post/Get only), mais qui fournit une vrai reflexion sur le tout applicatif (mon controller me donne du json, c'est tout! Le reste c'est du ajax ou de l'application externe).
+
+
+
+
+
+
+#Premier pas avec Lavarel 4#
+
+
+Obtenir composer :
+$ curl -sS https://getcomposer.org/installer | php
+
+Telecharger le framework :
+https://github.com/laravel/laravel/archive/master.zip
+
+Une fois extrait, ce rendre dans le dossier et execute :
+$ php composer.phar install
+
+
+Configuration de laravel
+----
+On applique les droits au dossier storage :
+$ chmod 777 storage/
+
+Dans : app/config/app.php
+- on change 'timezone' => 'UTC' en 'timezone' => 'CET'
+- on change 'locale' => 'en' en 'locale' => 'fr'
+- on change 'key' => 'YourSecretKey!!!' en generant une clef md5 neuve comme par
+exemple 8ec0fe78ffc5471f9c55fc09f6402bf7 avec la commande shell `date | md5`
+
+
+(facultatif) Dans : boostrap/start.php
+- on indique le nom de sa machine
+
+	$env = $app->detectEnvironment(array(
+
+		'local' => array('debiandev'),
+
+	));
+
+
+La page laravel/public/index.php devrait maintenant fonctionner.
+
+Pour commencer les developpements
+-----
+
+http://laravelbook.com/
+http://laravel.sl-creation.org/laravel-4/
+
+
+
+****Reference****
+
+http://four.laravel.com/docs/introduction
+http://laravel.fr/docs/4/installation
+http://getcomposer.org/
+
+Tutos
+-----
+
+http://net.tutsplus.com/tutorials/php/how-to-setup-laravel-4/
+
+http://laravel.sl-creation.org/laravel-4/
+
+Test :
+controllers : http://net.tutsplus.com/tutorials/php/testing-laravel-controllers/
+models : http://net.tutsplus.com/tutorials/php/testing-like-a-boss-in-laravel-models/
+
+Liens utiles :
+------
+fichiers de langues : https://github.com/caouecs/Laravel4-lang
+
+++ :
+Restful : http://net.tutsplus.com/tutorials/php/laravel-4-a-start-at-a-restful-api/
+backbone (js) : http://net.tutsplus.com/tutorials/javascript-ajax/combining-laravel-4-and-backbone/
+
+
+
+#Todo list de l'an 2000
+
+## L'app
+
+Une todo list avec espace d'administration simple (un minimum de vue list + CRUD / Administration dans la list => bouton).
+
+### Markdown text
+La textarea de description d'une todo list utilise le format markdown grace a la library laravel 4 https://github.com/vtalbot/markdown
+La textarea permet le drag and drop de fichier avec le script https://github.com/Rovak/InlineAttachment
+
+
+### Une zone de connection pour les utilisateurs.
+-> Ajouter de nouveaux utilisateurs -- il faut faire un hack dans les routes qui executera l'ajout d'un nouveau membre
+
++Route::get('create_users', function()
++{
++	DB::table('users')->insert(
++	    array(
++	        array('username' => 'antoine', 'password' => Hash::make('antoine42')),
++	        array('username' => 'nicolas', 'password' => Hash::make('nicolas42'))
++	    )
++	);
++});
+
+
+### Theme
+
+bootstrap avec datepicker addons et inlineAttachment pour le drag and drop de fichier dans les textareas.
+
+
+### Suite envisageable sur ce projet
+
+-> Traduction des nom de champs de base de donnee dans les messages d'erreurs de la validation (eloquent) des formulaires.
+
+-> envoie de mail pour le rappel de tache a faire
+-> action de rappel (daily, weekly, monthly) a mettre en place.

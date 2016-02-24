@@ -13,6 +13,7 @@
 
 // Group API
 Route::group(['domain' => env('DOMAIN_API')], function () {
+
     Route::group(['prefix' => 'v1'], function () {
 
         Route::resource('users', '\App\Api\Controllers\UserController');
@@ -21,4 +22,7 @@ Route::group(['domain' => env('DOMAIN_API')], function () {
         Route::get('dates/french_hollidays/{year}', '\App\Api\Controllers\DateController@french_hollidays');
 
     });
+
+//    Route::any('{slug}', '\App\Api\Controllers\DocController@index')
+//        ->where('slug', '([A-z\d-\/_.]+)?');
 });

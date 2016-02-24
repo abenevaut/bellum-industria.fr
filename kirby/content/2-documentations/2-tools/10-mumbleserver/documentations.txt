@@ -1,0 +1,14 @@
+Title: Mumble
+
+----
+
+Text:
+
+# Mumble
+
+Installation du server mumble et de l'interface web
+sudo apt-get install mumble-server mumbler-server-web
+
+On lance l'installation de base du server de voix : mot de passe admin, lancement au demarrage du server (daemon)
+sudo dpkg-reconfigure mumble-server
+

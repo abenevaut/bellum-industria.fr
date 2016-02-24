@@ -1,0 +1,24 @@
+Title: FuelCMS
+
+----
+
+Text:
+
+# FuelCMS
+
+Installation simple et presenter sur la premiere page.
+Aucune indication toute fois des configurations purement CodeIgniter a faire : changement de timezone, clef d'encryption etc...
+
+
+Faire son premier module grace au tuto :
+http://www.getfuelcms.com/blog/id/5
+
+installer un module
+
+Unzip and move the flash_news folder to /fuel/modules/
+
+Setup the mysql db from the install folder
+
+Add "MODULE" to $config['modules_allowed'] @ /fuel/application/config/My_fuel.php
+
+Add "flash_news to "$config['dashboards'] @ /fuel/application/config/My_fuel.php
