@@ -26,7 +26,6 @@
 <link href="/assets/images/cvepdb/apple-touch-icon-114x114-precomposed.png" rel="apple-touch-icon" type="image/x-icon"/>
 
 <link rel="stylesheet" type="text/css" href="/assets/css/vitrine/{!! css_file_rev('default.css') !!}" media="all"/>
-<link rel="stylesheet" type="text/css" href="/assets/cvepdbjs/libs/jquery-ui/themes/base/all.css" media="all"/>
 <!--[if IE 8]>
 <link rel="stylesheet" type="text/css" href="../css/ie8.css" media="all"/>
 <![endif]-->
@@ -84,6 +83,14 @@
     };
 
     cvepdb_config.libraries = [
+        {
+            script: {
+                CVEPDB_JQUERYUI_THEME_LOADED: (cvepdb_config.url_theme + cvepdb_config.base_path + 'libs/jquery-ui/themes/base/all.css')
+            },
+            trigger: 'always',
+            mobile: true,
+            browser: true
+        },
         {
             script: {
                 CVEPDB_HIGHCHARTS_LOADED: (cvepdb_config.url_theme + cvepdb_config.base_path + 'scripts/highcharts.js')
