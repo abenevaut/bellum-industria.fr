@@ -17,5 +17,8 @@ Route::group(['domain' => env('DOMAIN_API')], function () {
 
         Route::resource('users', '\App\Api\Controllers\UserController');
 
+        Route::get('dates/french_hollidays', '\App\Api\Controllers\DateController@french_hollidays');
+        Route::get('dates/french_hollidays/{year}', '\App\Api\Controllers\DateController@french_hollidays');
+
     });
 });

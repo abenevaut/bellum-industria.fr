@@ -65,10 +65,13 @@
 
                         <div class="row">
 
-                            <div class="col-sm-6">
+                            <div class="col-sm-1">
+                                &nbsp;
+                            </div>
+                            <div class="col-sm-3">
                                 <div id="datepicker-embeded"></div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-8">
 
                                 <div id="selected_due_dates"></div>
 
@@ -95,32 +98,41 @@
 
             $(D).bind('CVEPDB_READY', function () {
 
+                var datepicker_embeded = $('#datepicker-embeded');
                 var container_due_dates = $('#selected_due_dates');
+                var dates_max_selection = 5;
+                var dates_max_selected = 0;
 
-                $('#datepicker-embeded').datepicker({
+                datepicker_embeded.datepicker({
                     startDate: new Date(),
                     daysOfWeekDisabled: "0,6",
                     multidate: true,
-                    language: cvepdb_config.LANG
+                    language: cvepdb_config.LANG,
+                    beforeShowDay: function(date){
+                        if (dates_max_selected < dates_max_selection){
+                            return {
+                                enabled : false
+                            };
+                        }
+                        return;
+                    }
                 }).on('changeDate', function (e) {
 
-                    var obj_date = null;
                     container_due_dates.html('');
+
+                    e.dates.splice(0, 1);
 
                     e.dates.sort(function(a, b) {
                         return new Date(a).getTime() - new Date(b).getTime()
                     });
 
+                    dates_max_selected = e.dates.lenght;
+
                     $.each(e.dates, function (i, date) {
-
-
-                        container_due_dates.append(cvepdb.dates.getDateObjectAsFRString(date) + '<br/>');
-//                      container_due_dates.append(cvepdb.dates.getDateObjectAsENString(date) + '<br/>');
-
-
+                        container_due_dates.append(
+                            '<div class="input-prepend input-group">' + cvepdb.dates.getDateObjectAsFRString(date) + '</div>'
+                        );
                     });
-
-
                 });
 
 
