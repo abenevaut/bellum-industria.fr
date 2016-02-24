@@ -41,21 +41,27 @@
                         <div class="form-group form-group-default required">
                             <label>Roles</label>
                             <br>
-                            @foreach ($roles as $role)
-                                <div class="form-group form-group-default input-group">
-                                    <label>{{ $role->display_name }}</label>
-                                    <label class="help">{{ $role->description }}</label>
-                                    <span class="input-group-addon bg-transparent">
-                                    <input type="checkbox" name="user_role_id[]"
+                            @if ($permissions->count())
+                                @foreach ($roles as $role)
+                                    <div class="form-group form-group-default input-group">
+                                        <label>{{ $role->display_name }}</label>
+                                        <label class="help">{{ $role->description }}</label>
+                                        <span class="input-group-addon bg-transparent">
+                                        <input type="checkbox" name="user_role_id[]"
 
-                                           @if ($user->roles->contains($role->id))
-                                           checked="checked"
-                                           @endif
+                                               @if ($user->roles->contains($role->id))
+                                               checked="checked"
+                                               @endif
 
-                                           data-init-plugin="switchery" value="{{ $role->id }}"/>
-                                    </span>
+                                               data-init-plugin="switchery" value="{{ $role->id }}"/>
+                                        </span>
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="alert alert-info" role="alert">
+                                    Il n'y a aucune permission
                                 </div>
-                            @endforeach
+                            @endif
                         </div>
                         <button class="btn btn-complete" type="submit">Editer l'utilisateur</button>
                     {!! Form::close() !!}
