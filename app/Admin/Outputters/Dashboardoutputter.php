@@ -6,6 +6,7 @@ use CVEPDB\Requests\IFormRequest;
 use App\Admin\Repositories\Bills\PaymentRepositoryEloquent;
 use App\Admin\Repositories\Users\UserRepositoryEloquent;
 use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
+use App\Multigaming\Repositories\RoleRepository;
 
 class DashboardOutputter extends AdminOutputter
 {
@@ -66,10 +67,10 @@ class DashboardOutputter extends AdminOutputter
                     'statistiques' => [
                         'all' => $this->r_user->all()->count(),
                         'roles' => [
-                            'admins' => $this->r_role->count_users_by_roles(['admin']),
-                            'users' => $this->r_role->count_users_by_roles(['user']),
-                            'clients' => $this->r_role->count_users_by_roles(['client']),
-                            'gamers' => $this->r_role->count_users_by_roles(['gamer']),
+                            'admins' => $this->r_role->count_users_by_roles([RoleRepositoryEloquent::ADMIN]),
+                            'users' => $this->r_role->count_users_by_roles([RoleRepositoryEloquent::USER]),
+                            'clients' => $this->r_role->count_users_by_roles([RoleRepositoryEloquent::CLIENT]),
+                            'gamers' => $this->r_role->count_users_by_roles([RoleRepository::GAMER_USER]),
                         ]
                     ]
                 ]
