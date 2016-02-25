@@ -377,7 +377,7 @@
         <?php //dd($coc_clan); ?>
 
         <p>
-            Level : {{ $coc_clan->level() }} - Points : {{ $coc_clan->points() }}
+            Niveau : {{ $coc_clan->clanLevel() }} - Point{{ $coc_clan->clanPoints() > 1 ? 's' : '' }} : {{ $coc_clan->clanPoints() }} - Victoire{{ $coc_clan->warWins() > 1 ? 's' : '' }} : {{ $coc_clan->warWins() }}
         </p>
         <p>
             {{ $coc_clan->description() }}
@@ -385,17 +385,16 @@
 
         <div class="grid-wrapper">
             <ul class="retina-icons">
-
-                @foreach ($coc_clan->members()->getMembers() as $member)
+                @foreach ($coc_clan->memberList()->all() as $member)
 
                 <li style="margin-bottom: 15px;">
                     <div class="alignleft">
-                        <img src="{{ $member->leagueBadge()['l'] }}" alt="rank">
+                        <img src="{{ $member->league()->icon()->small() }}" alt="rank">
                     </div>
                     <div class="alignleft" style="padding-left: 8px;">
-                        <strong>{{ $member->name() }}</strong> {{--({{ $member->role() }})--}}<br>
+                        <strong>{{ $member->name() }}</strong> ({{ $member->role() }})<br>
                         Trophies : {{ $member->trophies() }}<br>
-                        {{--Don : {{ $member->donations() }} / {{ $member->donationsReceived() }}--}}
+                        Don : {{ $member->donations() }} / {{ $member->donationsReceived() }}
 
                     </div>
 
