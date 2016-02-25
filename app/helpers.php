@@ -30,3 +30,13 @@ function css_file_rev($file, $env = 'vitrine')
     $list = json_decode(File::get(base_path().'/app/assets/rev/'.$env.'/css.manifest.json'));
     return $list->{$file};
 }
+
+// AWS S3
+function s3img( $path ){
+    $s3 = \Storage::disk('s3');
+    $client = $s3->getDriver()->getAdapter()->getClient();
+    $bucket = \Config::get('filesystems.disks.s3.bucket');
+    $command = $client->getCommand('GetObject', [ 'Bucket' => $bucket, 'Key' => $path ]);
+    $request = $client->createPresignedRequest($command, '+20 minutes');
+    return (string) $request->getUri();
+}

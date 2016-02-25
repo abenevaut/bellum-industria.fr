@@ -5,7 +5,7 @@
         <!-- START JUMBOTRON -->
 <div class="jumbotron" data-pages="parallax" data-social="cover">
     <div class="cover-photo">
-        <img alt="Cover photo" src="/assets/images/admin/back2.png"/>
+        <img alt="Cover photo" src="{{ s3img('assets/images/admin/back2.png') }}"/>
     </div>
     <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
         <div class="inner">
@@ -48,9 +48,9 @@
                                     <div class="social-user-profile col-xs-height text-center col-top">
                                         <div class="thumbnail-wrapper d48 circular bordered b-white">
                                             <img alt="Avatar" width="55" height="55"
-                                                 data-src-retina="/assets/images/cvepdb/apple-touch-icon-precomposed.png"
-                                                 data-src="/assets/images/cvepdb/apple-touch-icon-precomposed.png"
-                                                 src="/assets/images/cvepdb/apple-touch-icon-precomposed.png">
+                                                 data-src-retina="{{ s3img('assets/images/cvepdb/apple-touch-icon-precomposed.png') }}"
+                                                 data-src="{{ s3img('assets/images/cvepdb/apple-touch-icon-precomposed.png') }}'"
+                                                 src="{{ s3img('assets/images/cvepdb/apple-touch-icon-precomposed.png') }}">
                                         </div>
                                         <br>
 

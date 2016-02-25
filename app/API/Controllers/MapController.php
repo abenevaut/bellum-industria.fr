@@ -46,6 +46,8 @@ class MapController extends ApiGuardController
      */
     public function geolocalisation($latitude, $longitude)
     {
+        $geocode = [];
+
         $latitude = urldecode($latitude);
         $longitude = urldecode($longitude);
 
