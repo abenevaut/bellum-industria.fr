@@ -43,7 +43,7 @@ function s3( $path ){
         $command = $client->getCommand('GetObject', ['Bucket' => $bucket, 'Key' => $path]);
         $request = $client->createPresignedRequest($command, '+20 minutes');
         $value = (string) $request->getUri();
-        \Cache::put('s3path-' . slugify($path), $value, 86400); // 24h
+        \Cache::put('s3path-' . slugify($path), $value, 300); // 5 minutes
     }
     return $value;
 }
