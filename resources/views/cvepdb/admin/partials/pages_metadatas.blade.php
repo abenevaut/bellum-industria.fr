@@ -97,6 +97,12 @@
                 url: "sentry.cvepdb.fr",
                 project: 3
             }
+        },
+        maps: {
+            google: {
+                key_js: '{{ env('GOOGLE_PLACES_API_KEY_JS') }}',
+                key_server: '{{ env('GOOGLE_PLACES_API_KEY') }}'
+            }
         }
     };
 
@@ -106,6 +112,14 @@
                 CVEPDB_HIGHCHARTS_LOADED: (cvepdb_config.url_theme + cvepdb_config.base_path + 'scripts/highcharts.js')
             },
             trigger: '.js-call-highcharts',
+            mobile: false,
+            browser: true
+        },
+        {
+            script: {
+                CVEPDB_MAP_LOADED: (cvepdb_config.url_theme + cvepdb_config.base_path + 'scripts/map.js')
+            },
+            trigger: '.js-call-map',
             mobile: false,
             browser: true
         }

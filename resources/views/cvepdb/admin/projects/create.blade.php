@@ -87,12 +87,19 @@
                     {!! Form::close() !!}
                 </div>
             </div>
+
+
+            {{--<iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=37+Rue+Richard+Lenoir,+Paris,+France&key=AIzaSyAEr9p8WV_bECQZGdExH0qLOo-j2z_xpHU"></iframe>--}}
+
+            <div id='map' class="js-call-map" style="height: 150px;"></div>
+
+
         </div>
     </div>
 @endsection
 
 @section('jsfooter')
-    <script src="/assets/js/admin/projects/validation.js"></script>
+    {{--<script src="/assets/js/admin/projects/validation.js"></script>--}}
     <script>
         (function ($, D) {
 
@@ -119,7 +126,7 @@
                     daysOfWeekDisabled: "0,6",
                     multidate: true,
                     language: cvepdb_config.LANG,
-                    beforeShowDay: function(date){
+                    beforeShowDay: function (date) {
 
                         // disable hollidays
                         if (disabled_dates.indexOf(cvepdb.dates.getDateObjectAsENString(date)) > -1) {
@@ -139,7 +146,7 @@
 
                     e.dates.splice(0, 1);
 
-                    e.dates.sort(function(a, b) {
+                    e.dates.sort(function (a, b) {
                         return new Date(a).getTime() - new Date(b).getTime()
                     });
 
@@ -147,14 +154,10 @@
 
                     $.each(e.dates, function (i, date) {
                         container_due_dates.append(
-                            '<div class="input-prepend input-group">' + cvepdb.dates.getDateObjectAsFRString(date) + '</div>'
+                                '<div class="input-prepend input-group">' + cvepdb.dates.getDateObjectAsFRString(date) + '</div>'
                         );
                     });
                 });
-
-
-
-
 
 
                 $('#js-select-client').select2({
@@ -201,6 +204,34 @@
 
             });
 
+
+            $(D).bind('CVEPDB_MAP_READY', function () {
+
+                cvepdb.map.google.setContainer('map');
+
+                cvepdb.map.google.initialize(
+                        46.8150986,
+                        2.5048828,
+                        3
+                );
+                cvepdb.map.google.addMarkers(
+                        46.8150986,
+                        2.5048828,
+                        'This is a new marker.',
+                        cvepdb.map.pins.pin_export
+                );
+
+//              cvepdb.map.google.focusAddress('92 FRANCE', 10);
+
+                cvepdb.map.google.addMarkersByAddress(
+                        '92 FRANCE',
+                        'This is a new marker : 92 FRANCE.'
+                );
+
+            });
+
+
         }(window.jQuery, document));
+
     </script>
 @endsection
