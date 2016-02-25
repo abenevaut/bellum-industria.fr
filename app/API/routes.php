@@ -12,7 +12,7 @@
 */
 
 // Group API
-Route::group(['domain' => env('DOMAIN_API')], function () {
+Route::group(['domain' => env('DOMAIN_API'), 'middleware' => ['APIResponseHeaderJsCVEPDBMiddleware']], function () {
 
     Route::group(['prefix' => 'v1'], function () {
 

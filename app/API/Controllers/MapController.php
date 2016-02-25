@@ -10,29 +10,27 @@ class MapController extends ApiGuardController
     protected $apiMethods = [
         'geolocalisation' => [
             'keyAuthentication' => false,
-            'level' => 10,
             'limits' => [
                 'key' => [
                     'increment' => '1 hour',
-                    'limit' => 1000
+                    'limit' => 50
                 ],
                 'method' => [
                     'increment' => '1 day',
-                    'limit' => 24000
+                    'limit' => 1250
                 ]
             ]
         ],
         'address' => [
             'keyAuthentication' => false,
-            'level' => 10,
             'limits' => [
                 'key' => [
                     'increment' => '1 hour',
-                    'limit' => 1000
+                    'limit' => 50
                 ],
                 'method' => [
                     'increment' => '1 day',
-                    'limit' => 24000
+                    'limit' => 1250
                 ]
             ]
         ]

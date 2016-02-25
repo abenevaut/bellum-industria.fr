@@ -9,7 +9,6 @@ class DateController extends ApiGuardController
     protected $apiMethods = [
         'french_hollidays' => [
             'keyAuthentication' => false,
-            'level' => 10,
             'limits' => [
                 'key' => [
                     'increment' => '1 hour',
@@ -17,7 +16,7 @@ class DateController extends ApiGuardController
                 ],
                 'method' => [
                     'increment' => '1 day',
-                    'limit' => 1000
+                    'limit' => 2500
                 ]
             ]
         ]

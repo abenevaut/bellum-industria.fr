@@ -98,6 +98,17 @@
 
             $(D).bind('CVEPDB_READY', function () {
 
+                var disabled_dates = [];
+
+                $.ajax({
+                    url: '{{ 'http://' . env('DOMAIN_API') . '/v1/dates/french_hollidays' }}',
+                    type: 'GET',
+                    success: function (result) {
+                        disabled_dates = result.results;
+                    },
+                    async: false
+                });
+
                 var datepicker_embeded = $('#datepicker-embeded');
                 var container_due_dates = $('#selected_due_dates');
                 var dates_max_selection = 5;
@@ -109,12 +120,18 @@
                     multidate: true,
                     language: cvepdb_config.LANG,
                     beforeShowDay: function(date){
-                        if (dates_max_selected < dates_max_selection){
-                            return {
-                                enabled : false
-                            };
+
+                        // disable hollidays
+                        if (disabled_dates.indexOf(cvepdb.dates.getDateObjectAsENString(date)) > -1) {
+                            return false;
                         }
-                        return;
+
+//                        if (dates_max_selected < dates_max_selection){
+//                            return {
+//                                enabled : false
+//                            };
+//                        }
+//                        return;
                     }
                 }).on('changeDate', function (e) {
 
