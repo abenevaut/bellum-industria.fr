@@ -156,10 +156,11 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         'Roumen\Sitemap\SitemapServiceProvider',
         'Roumen\Feed\FeedServiceProvider',
-        'Toin0u\Geocoder\GeocoderServiceProvider',
         'Felixkiss\UniqueWithValidator\UniqueWithValidatorServiceProvider',
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         Vinkla\GitLab\GitLabServiceProvider::class,
+        'Alexpechkarev\GoogleGeocoder\GoogleGeocoderServiceProvider',
+
     ],
 
     /*
@@ -217,7 +218,6 @@ return [
         'Raven' => 'Jenssegers\Raven\Facades\Raven',
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Feed' => 'Roumen\Feed\Facades\Feed',
-        'Geocoder' => 'Toin0u\Geocoder\Facade\Geocoder',
         'GitLab' => Vinkla\GitLab\Facades\GitLab::class,
     ],
 

@@ -4,9 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "00eb9efea06507907c4ef7674d04bb53",
-    "content-hash": "fda732b88e18bfa37061b12645994433",
+    "hash": "1d027bad4af0bb00d846c2e29f3445db",
+    "content-hash": "ffb592fd3479e01189a22b48a5ce9a72",
     "packages": [
+        {
+            "name": "alexpechkarev/google-geocoder",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alexpechkarev/google-geocoder.git",
+                "reference": "3503c310ab5b51895013440042a8e7c52dc752d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alexpechkarev/google-geocoder/zipball/3503c310ab5b51895013440042a8e7c52dc752d3",
+                "reference": "3503c310ab5b51895013440042a8e7c52dc752d3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Alexpechkarev\\GoogleGeocoder": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Pechkarev",
+                    "email": "alexpechkarev@gmail.com"
+                }
+            ],
+            "description": "Simple Google Geocoding API v3 wrapper for Laravel 4",
+            "homepage": "https://github.com/alexpechkarev/google-geocoder",
+            "keywords": [
+                "geocoding",
+                "google geocoding api",
+                "laravel"
+            ],
+            "time": "2015-09-14 18:42:18"
+        },
         {
             "name": "aws/aws-sdk-php",
             "version": "3.15.4",
@@ -1648,16 +1693,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "f5d04bdd2881ac89abde1fb78cc234bce24327bb"
+                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5d04bdd2881ac89abde1fb78cc234bce24327bb",
-                "reference": "f5d04bdd2881ac89abde1fb78cc234bce24327bb",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/2e89629ff057ebb49492ba08e6995d3a6a80021b",
+                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b",
                 "shasum": ""
             },
             "require": {
@@ -1702,7 +1747,7 @@
                 "stream",
                 "uri"
             ],
-            "time": "2016-01-23 01:23:02"
+            "time": "2016-02-18 21:54:00"
         },
         {
             "name": "illuminate/html",
@@ -2134,16 +2179,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.1.30",
+            "version": "v5.1.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f00b80d4d33cf67815d1b4aaae8d4b47af2f2a2a"
+                "reference": "d899fbda59bf3ffcde11a9b443c01043b76f40b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f00b80d4d33cf67815d1b4aaae8d4b47af2f2a2a",
-                "reference": "f00b80d4d33cf67815d1b4aaae8d4b47af2f2a2a",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d899fbda59bf3ffcde11a9b443c01043b76f40b3",
+                "reference": "d899fbda59bf3ffcde11a9b443c01043b76f40b3",
                 "shasum": ""
             },
             "require": {
@@ -2159,7 +2204,7 @@
                 "nesbot/carbon": "~1.19",
                 "paragonie/random_compat": "~1.1",
                 "php": ">=5.5.9",
-                "psy/psysh": "0.6.*",
+                "psy/psysh": "0.7.*",
                 "swiftmailer/swiftmailer": "~5.1",
                 "symfony/console": "2.7.*",
                 "symfony/css-selector": "2.7.*",
@@ -2258,7 +2303,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-02-17 18:00:25"
+            "time": "2016-02-24 15:13:21"
         },
         {
             "name": "laravel/socialite",
@@ -2316,16 +2361,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.16",
+            "version": "1.0.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "183e1a610664baf6dcd6fceda415baf43cbdc031"
+                "reference": "02f5b6c9a8b9278c8381e3361e7bd9d641c740ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/183e1a610664baf6dcd6fceda415baf43cbdc031",
-                "reference": "183e1a610664baf6dcd6fceda415baf43cbdc031",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/02f5b6c9a8b9278c8381e3361e7bd9d641c740ca",
+                "reference": "02f5b6c9a8b9278c8381e3361e7bd9d641c740ca",
                 "shasum": ""
             },
             "require": {
@@ -2338,8 +2383,7 @@
                 "ext-fileinfo": "*",
                 "mockery/mockery": "~0.9",
                 "phpspec/phpspec": "^2.2",
-                "phpspec/prophecy-phpunit": "~1.0",
-                "phpunit/phpunit": "~4.8"
+                "phpunit/phpunit": "~4.8 || ~5.0"
             },
             "suggest": {
                 "ext-fileinfo": "Required for MimeType",
@@ -2396,7 +2440,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-12-19 20:16:43"
+            "time": "2016-02-19 15:35:38"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -2691,16 +2735,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "v1.11.0",
+            "version": "v1.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "07741d84d39d10f00551c94284cdefcc69703e77"
+                "reference": "d9302891c1f0a0ac5a4f66725163a00537c6359f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/07741d84d39d10f00551c94284cdefcc69703e77",
-                "reference": "07741d84d39d10f00551c94284cdefcc69703e77",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/d9302891c1f0a0ac5a4f66725163a00537c6359f",
+                "reference": "d9302891c1f0a0ac5a4f66725163a00537c6359f",
                 "shasum": ""
             },
             "require": {
@@ -2748,7 +2792,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2015-12-10 09:50:24"
+            "time": "2016-01-22 12:22:23"
         },
         {
             "name": "monolog/monolog",
@@ -3305,16 +3349,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.6.1",
+            "version": "v0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "0f04df0b23663799a8941fae13cd8e6299bde3ed"
+                "reference": "1573b36948a32bdaf43db525edf5e95d5a08ed06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/0f04df0b23663799a8941fae13cd8e6299bde3ed",
-                "reference": "0f04df0b23663799a8941fae13cd8e6299bde3ed",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/1573b36948a32bdaf43db525edf5e95d5a08ed06",
+                "reference": "1573b36948a32bdaf43db525edf5e95d5a08ed06",
                 "shasum": ""
             },
             "require": {
@@ -3373,7 +3417,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2015-11-12 16:18:56"
+            "time": "2016-02-20 16:27:05"
         },
         {
             "name": "raven/raven",
@@ -4520,15 +4564,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/toniperic/php-clash-of-clans.git",
-                "reference": "b1d0ff4956041cda0b296c18a2125ce04e53ce73"
+                "reference": "9c2c43fb935a80ec39c0c9fe8552ba75a6c790d6"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/toniperic/php-clash-of-clans/zipball/9c2c43fb935a80ec39c0c9fe8552ba75a6c790d6",
-                "reference": "b1d0ff4956041cda0b296c18a2125ce04e53ce73",
+                "reference": "9c2c43fb935a80ec39c0c9fe8552ba75a6c790d6",
                 "shasum": ""
             },
             "require": {
+                "guzzlehttp/guzzle": "^6.1",
                 "php": ">=5.4"
             },
             "require-dev": {
@@ -4539,7 +4584,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "ToniPeric\\Clash\\": "src"
+                    "ClashOfClans\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4553,7 +4598,7 @@
                 }
             ],
             "description": "PHP wrapper for querying the Supercell Clash of Clans API",
-            "time": "2016-01-19 19:47:11"
+            "time": "2016-02-19 17:01:10"
         },
         {
             "name": "vinkla/gitlab",
@@ -6245,7 +6290,7 @@
     "stability-flags": {
         "zizaco/entrust": 20,
         "cvepdb/abstract": 20,
-        "toin0u/geocoder-laravel": 0,
+        "alexpechkarev/google-geocoder": 20,
         "toniperic/php-clash-of-clans": 20,
         "simplepie/simplepie": 20
     },

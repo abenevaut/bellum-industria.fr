@@ -3,6 +3,7 @@
 namespace App\Api\Controllers;
 
 use Chrisbjr\ApiGuard\Http\Controllers\ApiGuardController;
+use Geocoder;
 
 class MapController extends ApiGuardController
 {
@@ -13,11 +14,11 @@ class MapController extends ApiGuardController
             'limits' => [
                 'key' => [
                     'increment' => '1 hour',
-                    'limit' => 5
+                    'limit' => 1000
                 ],
                 'method' => [
                     'increment' => '1 day',
-                    'limit' => 20
+                    'limit' => 24000
                 ]
             ]
         ],
@@ -27,11 +28,11 @@ class MapController extends ApiGuardController
             'limits' => [
                 'key' => [
                     'increment' => '1 hour',
-                    'limit' => 5
+                    'limit' => 1000
                 ],
                 'method' => [
                     'increment' => '1 day',
-                    'limit' => 20
+                    'limit' => 24000
                 ]
             ]
         ]
@@ -52,7 +53,8 @@ class MapController extends ApiGuardController
         $longitude = urldecode($longitude);
 
         try {
-            $geocode = \Geocoder::reverse($latitude, $longitude);
+            $geocode = Geocoder::geocode('json', ["latlng"=>"$latitude,$longitude"]);
+            $geocode = json_decode($geocode);
         }
         catch (\Exception $e) {
 
@@ -61,7 +63,7 @@ class MapController extends ApiGuardController
             // echo $e->getMessage(); exit;
 
         }
-        return ['results' => $geocode];
+        return [$geocode];
     }
 
     /**
@@ -77,7 +79,8 @@ class MapController extends ApiGuardController
         $address = urldecode($address);
 
         try {
-            $geocode = \Geocoder::geocode($address);
+            $geocode = Geocoder::geocode('json', ["address" => $address]);
+            $geocode = json_decode($geocode);
         }
         catch (\Exception $e) {
 
@@ -86,6 +89,6 @@ class MapController extends ApiGuardController
              //echo $e->getMessage(); exit;
 
         }
-        return ['results' => $geocode];
+        return [$geocode];
     }
 }

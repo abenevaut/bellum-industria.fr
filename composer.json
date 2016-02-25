@@ -29,7 +29,7 @@
         "barryvdh/laravel-dompdf": "0.6.*",
         "roumen/sitemap": "^2.5",
         "roumen/feed": "^2.9",
-        "toin0u/geocoder-laravel": "@stable",
+        "alexpechkarev/google-geocoder": "dev-master",
         "nesbot/carbon": "^1.21",
         "felixkiss/uniquewith-validator": "2.*",
         "prettus/l5-repository": "^2.1",
