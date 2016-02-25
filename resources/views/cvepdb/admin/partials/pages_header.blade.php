@@ -27,8 +27,8 @@
 
             <div class="brand inline">
                 <a href="{{ url('admin') }}">
-                    <img src="{{ s3img('assets/images/cvepdb/logo.png') }}" alt="logo" data-src="{{ s3img('assets/images/cvepdb/logo.png') }}"
-                         data-src-retina="{{ s3img('assets/images/cvepdb/logo.png') }}" width="100" height="40">
+                    <img src="{{ s3('assets/images/cvepdb/logo.png') }}" alt="logo" data-src="{{ s3('assets/images/cvepdb/logo.png') }}"
+                         data-src-retina="{{ s3('assets/images/cvepdb/logo.png') }}" width="100" height="40">
                 </a>
             </div>
 

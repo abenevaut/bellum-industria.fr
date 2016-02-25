@@ -8,9 +8,9 @@
     <!-- START Login Background Pic Wrapper-->
     <div class="bg-pic">
         <!-- START Background Pic-->
-        <img src="{{ s3img('assets/images/admin/back2.png') }}"
-             data-src="{{ s3img('assets/images/admin/back2.png') }}"
-             data-src-retina="{{ s3img('assets/images/admin/back2-full.jpg') }}"
+        <img src="{{ s3('assets/images/admin/back2.png') }}"
+             data-src="{{ s3('assets/images/admin/back2.png') }}"
+             data-src-retina="{{ s3('assets/images/admin/back2-full.jpg') }}"
              alt=""
              class="lazy">
         <!-- END Background Pic-->

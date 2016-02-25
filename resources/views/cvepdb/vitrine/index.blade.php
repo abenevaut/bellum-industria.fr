@@ -107,7 +107,7 @@
                         <div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
                             <div class="frame alignleft" style="padding:31px 0 31px 0;">
                                 <a href="{!! $item->get_link() !!}">
-                                    <img src="{{ s3img('assets/images/cvepdb/logo.png') }}" alt="{!! $item->get_title() !!}"
+                                    <img src="{{ s3('assets/images/cvepdb/logo.png') }}" alt="{!! $item->get_title() !!}"
                                          width="142" height="80" class="js-call-lazyload"/>
 
                                     <div></div>
