@@ -8,10 +8,8 @@ use App\Multigaming\Repositories\SteamRepository;
 use App\Multigaming\Repositories\TeamRepository;
 use App\Multigaming\Repositories\SMWA\StammRepository;
 
-use ToniPeric\Clash\Clan as COCClan;
-use ToniPeric\Clash\Member as COCMember;
-use ToniPeric\Clash\Members as COCMembers;
-use ToniPeric\Clash\Http\Client as COCClient;
+use ClashOfClans\Api\Clan as COCClan;
+use ClashOfClans\Client as COCClient;
 
 use SimplePie;
 
@@ -37,6 +35,11 @@ class IndexOutputter extends AbsLaravelOutputter
      */
     protected $teams = null;
 
+    /**
+     * @var COCClient|null
+     */
+    protected $api_coc = null;
+
     public function __construct(
         GameServerRepository $r_gs,
         SteamRepository $r_steam,
@@ -49,6 +52,7 @@ class IndexOutputter extends AbsLaravelOutputter
         $this->steam = $r_steam;
         $this->teams = $r_team;
         $this->stamm = $r_stamm;
+        $this->api_coc = new COCClient(env('COC_API_KEY'));
 
         $this->stamm->init();
 
@@ -70,7 +74,7 @@ class IndexOutputter extends AbsLaravelOutputter
       $feed->set_output_encoding('utf-8');
       $feed->init();
 
-        $coc_clan = COCClient::getClanDetails('#PY2UJ8C0');
+        $coc_clan = $this->api_coc->getClan('#PY2UJ8C0');
 
         $team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
         $team_bellumindustria = $this->teams->findBy('name', 'Bellum Industria')->toArray();
