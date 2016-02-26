@@ -5,6 +5,7 @@ namespace App\Admin\Repositories\Projects;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Admin\Repositories\Projects\ProjectRepository;
+use App\Admin\Repositories\Projects\Milestone;
 use App\Admin\Repositories\Projects\Project;
 use Vinkla\GitLab\Facades\GitLab;
 
@@ -79,7 +80,7 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
      * @param string $description
      * @return mixed
      */
-    public function record_project($entite_id, $name, $status, $description = '')
+    public function record_project($entite_id, $name, $status, $milestones_dates, $description = '')
     {
         // DB record
         $project = $this->create([
@@ -90,10 +91,18 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
 
         // Gitlab record
         $gitlab_project = $this->gitlab_record_project($name, $description);
-
+        $gitlab_project_milestones = $this->gitlab_record_project_milestones($gitlab_project, $milestones_dates);
 
         $project->gitlab_project_id = $gitlab_project['id'];
         $project->save();
+
+        foreach ($gitlab_project_milestones as $milestone) {
+            Milestone::create([
+                'project_id' => $project->gitlab_project_id,
+                'gitlab_milestone_id' => $milestone['id'],
+                'due_date' => $milestone['due_date'],
+            ]);
+        }
 
         // Todo : event new project
 
@@ -144,5 +153,22 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
             ]
         );
         return $project;
+    }
+
+    private function gitlab_record_project_milestones($project, $milestones_dates)
+    {
+        $milestones = [];
+        foreach ($milestones_dates as $due_date) {
+            $milestone = GitLab::connection('main')->api('milestones')->create(
+                $project['id'],
+                [
+                    'title' => '['.$due_date.'] ' . $project['name'],
+                    'description' => $project['description'],
+                    'due_date' => $due_date
+                ]
+            );
+            array_push($milestones, $milestone);
+        }
+        return $milestones;
     }
 }

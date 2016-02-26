@@ -23,7 +23,7 @@ class ProjectFormRequest extends Request
      */
     public function rules()
     {
-        return [
+        return $rules = [
             'entite_id' => 'required',
             'name' => 'required',
             'description' => 'required',

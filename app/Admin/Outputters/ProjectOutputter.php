@@ -91,6 +91,7 @@ class ProjectOutputter extends AdminOutputter
             $request->get('entite_id'),
             $request->get('name'),
             $request->get('status'),
+            $request->get('milestones_dates'),
             $request->get('description')
         );
         return $this->redirectTo('admin/projects');
@@ -134,7 +135,7 @@ class ProjectOutputter extends AdminOutputter
      */
     public function update($id, IFormRequest $request)
     {
-        //
+        // Todo : on ne peut editer que le name et le status
     }
 
     /**

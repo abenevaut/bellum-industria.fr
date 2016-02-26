@@ -13,7 +13,7 @@
 
 <div style="max-width:100%;overflow:hidden;height:250px;color:red;">
     <div id="canvas-for-google-map" style="height:100%; width:100%;max-width:100%;">
-        <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=37+Rue+Richard+Lenoir,+Paris,+France&key=AIzaSyAEr9p8WV_bECQZGdExH0qLOo-j2z_xpHU"></iframe>
+        <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=37+Rue+Richard+Lenoir,+Paris,+France&key={{ env('GOOGLE_PLACES_API_KEY_JS') }}"></iframe>
     </div>
 </div>
 

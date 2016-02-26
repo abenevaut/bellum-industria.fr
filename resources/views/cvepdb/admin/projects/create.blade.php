@@ -88,12 +88,6 @@
                 </div>
             </div>
 
-
-            {{--<iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=37+Rue+Richard+Lenoir,+Paris,+France&key=AIzaSyAEr9p8WV_bECQZGdExH0qLOo-j2z_xpHU"></iframe>--}}
-
-            <div id='map' class="js-call-map" style="height: 150px;"></div>
-
-
         </div>
     </div>
 @endsection
@@ -152,10 +146,25 @@
 
                     dates_max_selected = e.dates.lenght;
 
+                    var input = null;
                     $.each(e.dates, function (i, date) {
-                        container_due_dates.append(
-                                '<div class="input-prepend input-group">' + cvepdb.dates.getDateObjectAsFRString(date) + '</div>'
-                        );
+
+                        input = '<input type="input" name="milestones_dates[]" value="' + cvepdb.dates.getDateObjectAsENString(date) + '" style="display: none;">';
+
+                        switch (cvepdb.config.lang) {
+                            case 'en': {
+                                container_due_dates.append(
+                                        '<div class="input-prepend input-group">'  + input + cvepdb.dates.getDateObjectAsENString(date) + '</div>'
+                                );
+                                break;
+                            }
+                            case 'fr':
+                            default: {
+                                container_due_dates.append(
+                                        '<div class="input-prepend input-group">'  + input + cvepdb.dates.getDateObjectAsFRString(date) + '</div>'
+                                );
+                            }
+                        }
                     });
                 });
 
@@ -203,33 +212,6 @@
 
 
             });
-
-
-            $(D).bind('CVEPDB_MAP_READY', function () {
-
-                cvepdb.map.google.setContainer('map');
-
-                cvepdb.map.google.initialize(
-                        46.8150986,
-                        2.5048828,
-                        3
-                );
-                cvepdb.map.google.addMarkers(
-                        46.8150986,
-                        2.5048828,
-                        'This is a new marker.',
-                        cvepdb.map.pins.pin_export
-                );
-
-//              cvepdb.map.google.focusAddress('92 FRANCE', 10);
-
-                cvepdb.map.google.addMarkersByAddress(
-                        '92 FRANCE',
-                        'This is a new marker : 92 FRANCE.'
-                );
-
-            });
-
 
         }(window.jQuery, document));
 

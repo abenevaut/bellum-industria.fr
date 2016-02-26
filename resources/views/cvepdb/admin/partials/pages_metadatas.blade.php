@@ -114,14 +114,6 @@
             trigger: '.js-call-highcharts',
             mobile: false,
             browser: true
-        },
-        {
-            script: {
-                CVEPDB_MAP_LOADED: (cvepdb_config.url_theme + cvepdb_config.base_path + 'scripts/map.js')
-            },
-            trigger: '.js-call-map',
-            mobile: false,
-            browser: true
         }
     ];
 
@@ -214,6 +206,14 @@
      },
      trigger: '.js-call-select2',
      mobile: true,
+     browser: true
+     },
+     {
+     script: {
+     CVEPDB_MAP_LOADED: (cvepdb_config.url_theme + cvepdb_config.base_path + 'scripts/map.js')
+     },
+     trigger: '.js-call-map',
+     mobile: false,
      browser: true
      }
      */

@@ -24,6 +24,7 @@ class Milestone extends Model implements Transformable
      */
     protected $fillable = [
         'project_id',
+        'gitlab_milestone_id',
         'due_date',
     ];
 
