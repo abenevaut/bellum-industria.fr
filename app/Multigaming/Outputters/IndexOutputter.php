@@ -74,7 +74,12 @@ class IndexOutputter extends AbsLaravelOutputter
       $feed->set_output_encoding('utf-8');
       $feed->init();
 
-        $coc_clan = $this->api_coc->getClan('#PY2UJ8C0');
+        try {
+            $coc_clan = $this->api_coc->getClan('#PY2UJ8C0');
+        }
+        catch (\Exception $e) {
+            $coc_clan = [];
+        }
 
         $team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
         $team_bellumindustria = $this->teams->findBy('name', 'Bellum Industria')->toArray();

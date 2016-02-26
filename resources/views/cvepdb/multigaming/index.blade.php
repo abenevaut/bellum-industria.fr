@@ -369,42 +369,48 @@
     <!-- Begin Inner -->
     <div class="layout__body-wrapper__content-wrapper__inner">
 
-        <img src="/assets/images/multigaming/coc/Sans_titre-1422709806.png" width="140" height="140" style="float: right" alt="">
+        @if (!empty($coc_clan))
+            <img src="/assets/images/multigaming/coc/Sans_titre-1422709806.png" width="140" height="140" style="float: right" alt="">
 
-        <h2 class="colored">{{ $coc_clan->name() }}</h2>
+            <h2 class="colored">{{ $coc_clan->name() }}</h2>
 
 
-        <?php //dd($coc_clan); ?>
+            <?php //dd($coc_clan); ?>
 
-        <p>
-            Niveau : {{ $coc_clan->clanLevel() }} - Point{{ $coc_clan->clanPoints() > 1 ? 's' : '' }} : {{ $coc_clan->clanPoints() }} - Victoire{{ $coc_clan->warWins() > 1 ? 's' : '' }} : {{ $coc_clan->warWins() }}
-        </p>
-        <p>
-            {{ $coc_clan->description() }}
-        </p>
+            <p>
+                Niveau : {{ $coc_clan->clanLevel() }} - Point{{ $coc_clan->clanPoints() > 1 ? 's' : '' }} : {{ $coc_clan->clanPoints() }} - Victoire{{ $coc_clan->warWins() > 1 ? 's' : '' }} : {{ $coc_clan->warWins() }}
+            </p>
+            <p>
+                {{ $coc_clan->description() }}
+            </p>
 
-        <div class="grid-wrapper">
-            <ul class="retina-icons">
-                @foreach ($coc_clan->memberList()->all() as $member)
+            <div class="grid-wrapper">
+                <ul class="retina-icons">
+                    @foreach ($coc_clan->memberList()->all() as $member)
 
-                <li style="margin-bottom: 15px;">
-                    <div class="alignleft">
-                        <img src="{{ $member->league()->icon()->small() }}" alt="rank">
-                    </div>
-                    <div class="alignleft" style="padding-left: 8px;">
-                        <strong>{{ $member->name() }}</strong> ({{ $member->role() }})<br>
-                        Trophies : {{ $member->trophies() }}<br>
-                        Don : {{ $member->donations() }} / {{ $member->donationsReceived() }}
+                    <li style="margin-bottom: 15px;">
+                        <div class="alignleft">
+                            <img src="{{ $member->league()->icon()->small() }}" alt="rank">
+                        </div>
+                        <div class="alignleft" style="padding-left: 8px;">
+                            <strong>{{ $member->name() }}</strong> ({{ $member->role() }})<br>
+                            Trophies : {{ $member->trophies() }}<br>
+                            Don : {{ $member->donations() }} / {{ $member->donationsReceived() }}
 
-                    </div>
+                        </div>
 
-                    <div class="clear"></div>
-                </li>
+                        <div class="clear"></div>
+                    </li>
 
-                @endforeach
+                    @endforeach
 
-            </ul>
-        </div>
+                </ul>
+            </div>
+        @else
+            <div class="">
+                Impossible de récuperer les informations depuis l'API Clash of clan.
+            </div>
+        @endif
 
     </div>
     <!-- Begin Inner -->
