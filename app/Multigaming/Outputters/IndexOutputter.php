@@ -7,6 +7,7 @@ use App\Multigaming\Repositories\GameServerRepository;
 use App\Multigaming\Repositories\SteamRepository;
 use App\Multigaming\Repositories\TeamRepository;
 use App\Multigaming\Repositories\SMWA\StammRepository;
+use App\Multigaming\Repositories\SMWA\SteamBotRepository;
 
 use ClashOfClans\Api\Clan as COCClan;
 use ClashOfClans\Client as COCClient;
@@ -40,19 +41,28 @@ class IndexOutputter extends AbsLaravelOutputter
      */
     protected $api_coc = null;
 
+    /**
+     * @var SteamBotRepository|null
+     */
+    protected $r_steambot = null;
+
     public function __construct(
         GameServerRepository $r_gs,
         SteamRepository $r_steam,
         StammRepository $r_stamm,
-        TeamRepository $r_team
-    ) {
+        TeamRepository $r_team,
+        SteamBotRepository $r_steambot
+    )
+    {
         parent::__construct();
 
         $this->game_servers = $r_gs;
         $this->steam = $r_steam;
         $this->teams = $r_team;
         $this->stamm = $r_stamm;
-        $this->api_coc = new COCClient(env('COC_API_KEY'));
+        $this->r_steambot = $r_steambot;
+
+//        $this->api_coc = new COCClient(env('COC_API_KEY'));
 
         $this->stamm->init();
 
@@ -66,20 +76,35 @@ class IndexOutputter extends AbsLaravelOutputter
      */
     public function index()
     {
-      $feed = new SimplePie();
-      $feed->set_feed_url("https://steamcommunity.com/groups/Bellum-Industria/rss");
-      $feed->enable_cache(true);
-      $feed->set_cache_location( storage_path() . '/app/cache' );
-      $feed->set_cache_duration( 60 * 60 * 12 );
-      $feed->set_output_encoding('utf-8');
-      $feed->init();
+        $feed = new SimplePie();
+        $feed->set_feed_url("https://steamcommunity.com/groups/Bellum-Industria/rss");
+        $feed->enable_cache(true);
+        $feed->set_cache_location(storage_path() . '/app/cache');
+        $feed->set_cache_duration(60 * 60 * 12);
+        $feed->set_output_encoding('utf-8');
+        $feed->init();
 
-        try {
-            $coc_clan = $this->api_coc->getClan('#PY2UJ8C0');
+        $trades = $this->r_steambot->twoLastTrades();
+        foreach ($trades as $key => $trade) {
+            if (is_null($trade->json)) {
+                unset($trades[$key]);
+            }
+            else {
+                $trade->json = json_decode(stripslashes($trade->json));
+            }
+
+            $trade->trader = $this->steam->playerSummaries(
+                $trade->steam_id_trader
+            );
         }
-        catch (\Exception $e) {
-            $coc_clan = [];
-        }
+        //dd( $trades );
+
+//        try {
+//            $coc_clan = $this->api_coc->getClan('#PY2UJ8C0');
+//        }
+//        catch (\Exception $e) {
+//            $coc_clan = [];
+//        }
 
         $team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
         $team_bellumindustria = $this->teams->findBy('name', 'Bellum Industria')->toArray();
@@ -109,7 +134,8 @@ class IndexOutputter extends AbsLaravelOutputter
                 'announcements' => $feed->get_items(0, 2),
                 'threads' => $this->steam->paginate('Bellum-Industria', 4),
                 'game_servers' => $game_servers,
-                'coc_clan' => $coc_clan
+//                'coc_clan' => $coc_clan,
+                'trades' => $trades,
             ]
         );
     }
@@ -134,7 +160,8 @@ class IndexOutputter extends AbsLaravelOutputter
         return $this->output('cvepdb.multigaming.challenge', []);
     }
 
-    public function messageoftheday() {
+    public function messageoftheday()
+    {
 
         $team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
 
@@ -166,12 +193,11 @@ class IndexOutputter extends AbsLaravelOutputter
         );
     }
 
-    public function ranks(){
+    public function ranks()
+    {
 //        dd( $this->stamm->getPlayer('STEAM_0:0:13482029') );
 
 //        dd( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_1') );
-
-
 
 
         # ADD POINTS
@@ -181,14 +207,11 @@ class IndexOutputter extends AbsLaravelOutputter
 //        var_dump( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_2') );
 
 
-
         # SUB POINTS
 
 //        var_dump( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_2') );
 //        $this->stamm->delStammPointsToPlayer('STEAM_0:0:13482029', 100);
 //        var_dump( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_2') );
-
-
 
 
     }

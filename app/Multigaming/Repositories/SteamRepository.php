@@ -193,6 +193,32 @@ class SteamRepository //implements RepositoryInterface
         return $is_array ? $result : $result['response']['players'][0];
     }
 
+    public function convertCommunityIdToSteamId($communityid) {
+        if (is_numeric($communityid) && strlen($communityid) >= 16) {
+            $z = bcdiv(bcsub($communityid, '76561197960265728'), '2');
+        }
+        elseif (is_numeric($communityid)) {
+            $z = bcdiv($communityid, '2'); // Actually new User ID format
+        }
+        else {
+            return $communityid; // We have no idea what this is, so just return it.
+        }
+        $y = bcmod($communityid, '2');
+        return 'STEAM_0:' . $y . ':' . floor($z);
+    }
+
+    public function steamid_to_community($steamid) {
+
+        $parts = explode(':', str_replace('STEAM_', '' , $steamid));
+        $result = bcadd(bcadd('76561197960265728', $parts['1']), bcmul($parts['2'], '2'));
+        $remove = strpos($result, ".");
+
+        if ($remove != false) {
+            $result = substr($result, 0, strpos($result, "."));
+        }
+        return $result;
+    }
+
     public function test()
     {
         /** @var array $result */

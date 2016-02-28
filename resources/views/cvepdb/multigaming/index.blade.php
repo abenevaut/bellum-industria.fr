@@ -282,17 +282,6 @@
 
         <div class="row">
 
-
-            <div class="one-third ">
-                <iframe
-                        src="https://discordapp.com/widget?id=146321755433074688&theme=light"
-                        width="100%"
-                        height="400"
-                        allowtransparency="true" frameborder="0">
-
-                </iframe>
-            </div>
-
             <div class="one-third ">
                 <h2 class="colored">Teamspeak</h2>
                 <iframe allowtransparency="true"
@@ -303,7 +292,7 @@
                 </iframe>
             </div>
 
-            <div class="one-third last">
+            <div class="one-third">
                 <div class="layout__body-wrapper__content-wrapper__inner__widget-clients-list">
                     <ul class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list">
                         @foreach ($team_bot as $team)
@@ -355,6 +344,40 @@
                 <div class="clear"></div>
             </div>
 
+            <div class="one-third last">
+                <div class="layout__body-wrapper__content-wrapper__inner__sidebar">
+                    <div class="layout__body-wrapper__content-wrapper__inner__sidebar__sidebox">
+                        <h3>Latest trade</h3>
+                        <ul class="post-list">
+
+
+                            @foreach ($trades as $trade)
+                            <li>
+                                <div class="frame">
+                                    <a href="http://steamcommunity.com/profiles/{!! $trade->trader['steamid'] !!}" target="_blank">
+                                        <img src="https://steamcommunity-a.akamaihd.net/economy/image/{{ $trade->json->itemsToGive[0]->icon_url }}" alt="" width="70" height="70">
+                                        <div class="da-animate da-slideFromLeft" style="display: block; overflow: hidden;"></div>
+                                    </a>
+                                </div>
+                                <div class="meta">
+                                    <h6>
+                                        <a href="http://steamcommunity.com/profiles/{!! $trade->trader['steamid'] !!}" target="_blank">
+                                            With {{ $trade->trader['personaname'] }}
+                                        </a>
+                                    </h6>
+                                </div>
+                            </li>
+                            @endforeach
+
+
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="clear"></div>
+            </div>
+
         </div>
         <div class="clear"></div>
 
@@ -365,56 +388,55 @@
 <!-- End White Wrapper -->
 
 <!-- Begin Evil Wrapper -->
-<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--cocsushido">
+{{--<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--cocsushido">--}}
     <!-- Begin Inner -->
-    <div class="layout__body-wrapper__content-wrapper__inner">
+    {{--<div class="layout__body-wrapper__content-wrapper__inner">--}}
 
-        @if (!empty($coc_clan))
-            <img src="/assets/images/multigaming/coc/Sans_titre-1422709806.png" width="140" height="140" style="float: right" alt="">
+        {{--@if (!empty($coc_clan))--}}
+            {{--<img src="/assets/images/multigaming/coc/Sans_titre-1422709806.png" width="140" height="140" style="float: right">--}}
 
-            <h2 class="colored">{{ $coc_clan->name() }}</h2>
+            {{--<h2 class="colored">{{ $coc_clan->name() }}</h2>--}}
 
 
-            <?php //dd($coc_clan); ?>
 
-            <p>
-                Niveau : {{ $coc_clan->clanLevel() }} - Point{{ $coc_clan->clanPoints() > 1 ? 's' : '' }} : {{ $coc_clan->clanPoints() }} - Victoire{{ $coc_clan->warWins() > 1 ? 's' : '' }} : {{ $coc_clan->warWins() }}
-            </p>
-            <p>
-                {{ $coc_clan->description() }}
-            </p>
+            {{--<p>--}}
+                {{--Niveau : {{ $coc_clan->clanLevel() }} - Point{{ $coc_clan->clanPoints() > 1 ? 's' : '' }} : {{ $coc_clan->clanPoints() }} - Victoire{{ $coc_clan->warWins() > 1 ? 's' : '' }} : {{ $coc_clan->warWins() }}--}}
+            {{--</p>--}}
+            {{--<p>--}}
+                {{--{{ $coc_clan->description() }}--}}
+            {{--</p>--}}
 
-            <div class="grid-wrapper">
-                <ul class="retina-icons">
-                    @foreach ($coc_clan->memberList()->all() as $member)
+            {{--<div class="grid-wrapper">--}}
+                {{--<ul class="retina-icons">--}}
+                    {{--@foreach ($coc_clan->memberList()->all() as $member)--}}
 
-                    <li style="margin-bottom: 15px;">
-                        <div class="alignleft">
-                            <img src="{{ $member->league()->icon()->small() }}" alt="rank">
-                        </div>
-                        <div class="alignleft" style="padding-left: 8px;">
-                            <strong>{{ $member->name() }}</strong> ({{ $member->role() }})<br>
-                            Trophies : {{ $member->trophies() }}<br>
-                            Don : {{ $member->donations() }} / {{ $member->donationsReceived() }}
+                    {{--<li style="margin-bottom: 15px;">--}}
+                        {{--<div class="alignleft">--}}
+                            {{--<img src="{{ $member->league()->icon()->small() }}" alt="rank">--}}
+                        {{--</div>--}}
+                        {{--<div class="alignleft" style="padding-left: 8px;">--}}
+                            {{--<strong>{{ $member->name() }}</strong> ({{ $member->role() }})<br>--}}
+                            {{--Trophies : {{ $member->trophies() }}<br>--}}
+                            {{--Don : {{ $member->donations() }} / {{ $member->donationsReceived() }}--}}
 
-                        </div>
+                        {{--</div>--}}
 
-                        <div class="clear"></div>
-                    </li>
+                        {{--<div class="clear"></div>--}}
+                    {{--</li>--}}
 
-                    @endforeach
+                    {{--@endforeach--}}
 
-                </ul>
-            </div>
-        @else
-            <div class="">
-                Impossible de récuperer les informations depuis l'API Clash of clan.
-            </div>
-        @endif
+                {{--</ul>--}}
+            {{--</div>--}}
+        {{--@else--}}
+            {{--<div>--}}
+                {{--Impossible de récuperer les informations depuis l'API Clash of clan.--}}
+            {{--</div>--}}
+        {{--@endif--}}
 
-    </div>
+    {{--</div>--}}
     <!-- Begin Inner -->
-</div>
+{{--</div>--}}
 <!-- End Evil Wrapper -->
 
 <!-- Begin Grey Wrapper -->
