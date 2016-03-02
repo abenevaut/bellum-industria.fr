@@ -25,6 +25,8 @@ Route::group(['domain' => env('DOMAIN_API'), 'middleware' => ['APIResponseHeader
         Route::get('maps/geolocalisation/{longitude}/{latitude}', '\App\Api\Controllers\MapController@geolocalisation');
         Route::get('maps/address/{address}', '\App\Api\Controllers\MapController@address');
 
+        Route::get('csgolounge/stats', '\App\Api\Controllers\CSGOLoungeStatisticsController@get_csgoloung_matches_stats');
+
     });
 
 //    Route::any('{slug}', '\App\Api\Controllers\DocController@index')
