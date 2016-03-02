@@ -56,6 +56,6 @@ class DateController extends ApiGuardController
 
         sort($holidays);
 
-        return ['results' => $holidays];
+        return ['data' => $holidays];
     }
 }

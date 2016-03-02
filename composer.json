@@ -40,7 +40,9 @@
         "simplepie/simplepie": "dev-master",
         "vinkla/gitlab": "^2.3",
         "aws/aws-sdk-php": "^3.15",
-        "league/flysystem-aws-s3-v3": "^1.0"
+        "league/flysystem-aws-s3-v3": "^1.0",
+        "league/glide": "^1.0",
+        "league/glide-laravel": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

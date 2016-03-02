@@ -105,7 +105,7 @@
                     url: '{{ 'http://' . env('DOMAIN_API') . '/v1/dates/french_hollidays' }}',
                     type: 'GET',
                     success: function (result) {
-                        disabled_dates = result.results;
+                        disabled_dates = result.data;
                     },
                     async: false
                 });

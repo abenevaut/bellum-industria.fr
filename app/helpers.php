@@ -31,19 +31,32 @@ function css_file_rev($file, $env = 'vitrine')
     return $list->{$file};
 }
 
+use League\Glide\ServerFactory;
+use League\Glide\Responses\LaravelResponseFactory;
+
 // AWS S3
 function s3( $path ){
 
-    $value = \Cache::get('s3path-' . slugify($path));
+    $file_value = \Cache::get('s3path-' . slugify($path));
 
-    if (!$value) {
-        $s3 = \Storage::disk('s3');
-        $client = $s3->getDriver()->getAdapter()->getClient();
-        $bucket = \Config::get('filesystems.disks.s3.bucket');
-        $command = $client->getCommand('GetObject', ['Bucket' => $bucket, 'Key' => $path]);
-        $request = $client->createPresignedRequest($command, '+20 minutes');
-        $value = (string) $request->getUri();
-        \Cache::put('s3path-' . slugify($path), $value, 100); // 2 minutes
+    if (!$file_value) {
+//        $s3 = \Storage::disk('s3');
+//        $client = $s3->getDriver()->getAdapter()->getClient();
+//        $bucket = \Config::get('filesystems.disks.s3.bucket');
+//        $command = $client->getCommand('GetObject', ['Bucket' => $bucket, 'Key' => $path]);
+//        $request = $client->createPresignedRequest($command, '+20 minutes');
+//        $value = (string) $request->getUri();
+
+        $file_value = \Storage::disk('s3')->get('assets/ico/76.png');
+
+
+
+//        $server = ServerFactory::create([
+//            'response' => new LaravelResponseFactory()
+//        ]);
+
+
+        \Cache::put('s3path-' . slugify($path), $file_value, 100); // 2 minutes
     }
-    return $value;
+    return $file_value;
 }
