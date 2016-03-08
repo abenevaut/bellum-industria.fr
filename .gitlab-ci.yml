@@ -3,10 +3,7 @@ Deploy:
   - chmod -R 777 storage
   - git submodule init
   - git submodule update
-  - composer install
-  - cd resources/assets/cvepdb/cvepdbjs
-  - bower install
-  - cd ../../..
+  - composer install --no-dev
   - npm install
-  - gulp build
-  - vendor/codeception/codeception/codecept run
+  - gulp production
+  - bin/codecept run
