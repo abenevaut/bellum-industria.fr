@@ -6,4 +6,4 @@ Deploy:
   - composer install --no-dev
   - npm install
   - gulp production
-  - bin/codecept run
+  - vendor/codeception/codeception/codecept run
