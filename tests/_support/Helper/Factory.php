@@ -41,7 +41,7 @@ class Factory extends \Codeception\Module
     {
         // actually this is not needed
         // if you use cleanup: true option
-        // in Laravel4 module
-        //$this->factory->deleteSaved();
+        // in Laravel module
+        $this->factory->deleteSaved();
     }
 }

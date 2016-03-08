@@ -1,9 +1,3 @@
-[submodule "nodejs/steambot"]
-	path = nodejs/steambot
-	url = git@gitlab.com:multigaming-cvepdb/steambot.git
-[submodule "nodejs/teamspeakbot"]
-	path = nodejs/teamspeakbot
-	url = git@gitlab.com:multigaming-cvepdb/teamspeakbot.git
 [submodule "resources/assets/cvepdb/cvepdbjs"]
 	path = resources/assets/cvepdb/cvepdbjs
 url=git@gitlab.com:cvepdb/cvepdbjs.git

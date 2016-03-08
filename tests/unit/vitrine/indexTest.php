@@ -21,8 +21,12 @@ class indexTest extends \Codeception\TestCase\Test
     // tests
     public function testMe()
     {
+        //$this->tester->haveUsers(40);
         $user = $this->tester->produce(Factory::m_user);
-        $this->assertEquals(0, $user->num_posts);
+
+        //var_dump($user); exit;
+
+        $this->assertEquals(0, $user->count());
     }
 
 }
