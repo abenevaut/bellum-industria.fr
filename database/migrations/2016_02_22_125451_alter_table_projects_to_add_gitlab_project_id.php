@@ -13,7 +13,7 @@ class AlterTableProjectsToAddGitlabProjectId extends Migration
     public function up()
     {
         Schema::table('projects', function(Blueprint $table){
-            $table->integer('gitlab_project_id');
+            $table->integer('gitlab_project_id')->nullable();
         });
     }
 

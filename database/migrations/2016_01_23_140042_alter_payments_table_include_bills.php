@@ -13,8 +13,8 @@ class AlterPaymentsTableIncludeBills extends Migration
     public function up()
     {
         Schema::table('payments', function($table){
-            $table->dropColumn('facture_reference');
-            $table->dropColumn('amount');
+            $table->dropColumn('facture_reference')
+                ->dropColumn('amount');
 
             $table->string('bill_id')->nullable();
         });
@@ -30,7 +30,7 @@ class AlterPaymentsTableIncludeBills extends Migration
         Schema::table('payments', function($table){
             $table->dropColumn('bill_id');
 
-            $table->string('facture_reference')->unique();
+            $table->string('facture_reference');
             $table->string('amount');
         });
     }

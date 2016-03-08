@@ -26,7 +26,7 @@ class CreateBillsTable extends Migration
         Schema::create('bills_parts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('bill_id')->unsigned();
-            $table->string('designation');
+            $table->string('designation')->nullable();
             $table->string('quantity');
             $table->string('unit_price_without_vat');
             $table->string('price_without_vat');

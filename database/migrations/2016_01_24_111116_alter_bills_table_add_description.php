@@ -19,7 +19,7 @@ class AlterBillsTableAddDescription extends Migration
             $table->dropColumn('designation');
         });
         Schema::table('bills_parts', function($table){
-            $table->text('designation');
+            $table->text('designation')->nullable();
         });
     }
 
@@ -37,7 +37,7 @@ class AlterBillsTableAddDescription extends Migration
             $table->dropColumn('designation');
         });
         Schema::table('bills_parts', function($table){
-            $table->string('designation');
+            $table->string('designation')->nullable();
         });
     }
 }
