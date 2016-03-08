@@ -26,3 +26,6 @@ deployer/release
 deployer/releases
 deploy.yml
 deployer/current
+
+# Tests
+tests/_support/_generated
