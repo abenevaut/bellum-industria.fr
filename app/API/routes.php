@@ -28,7 +28,4 @@ Route::group(['domain' => env('DOMAIN_API'), 'middleware' => ['APIResponseHeader
         Route::get('csgolounge/stats', '\App\Api\Controllers\CSGOLoungeStatisticsController@get_csgoloung_matches_stats');
 
     });
-
-//    Route::any('{slug}', '\App\Api\Controllers\DocController@index')
-//        ->where('slug', '([A-z\d-\/_.]+)?');
 });
