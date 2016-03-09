@@ -76,21 +76,25 @@ gulp.task('longwave-bower', function () {
  * S3 STUFF
  */
 
+var s3 = require("gulp-s3-util");
+var gzip = require("gulp-gzip");
+
 gulp.task("s3-upload", function () {
 
-    var s3 = require('gulp-awspublish');
     var s3_config = JSON.parse(fs.readFileSync('./awsaccess.json'));
-    var publisher = s3.create(s3_config);
-    var headers = {
-        'Cache-Control': 'max-age=300,s-maxage=900,no-transform,public',
-        'x-amz-acl': 'public-read'
+
+    var options = {
+        gzippedOnly: true,
+        uploadPath: 'assets/',
+        asyncLimit: 4,
+        headers: {
+            'Cache-Control': 'max-age=315360000, no-transform, public'
+        }
     };
 
     gulp.src(config.build + '/**')
-        .pipe(s3.gzip())
-        .pipe(publisher.publish(headers))
-        .pipe(publisher.cache())
-        .pipe(s3.reporter({ states: ['create', 'update', 'delete'] }));
+        .pipe(gzip())
+        .pipe(s3(s3_config, options));
 
 });
 

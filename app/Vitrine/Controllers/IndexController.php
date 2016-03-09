@@ -2,12 +2,17 @@
 
 namespace App\Vitrine\Controllers;
 
-use Illuminate\Http\Request as Request;
 use CVEPDB\Controllers\AbsBaseController as BaseController;
-use SimplePie;
+use App\Admin\Repositories\Posts\RssRepository;
 
 class IndexController extends BaseController
 {
+    private $r_rss = null;
+
+    public function __construct(RssRepository $r_rss) {
+        $this->r_rss = $r_rss;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,19 +20,10 @@ class IndexController extends BaseController
      */
     public function index()
     {
-
-        $feed = new SimplePie();
-        $feed->set_feed_url("http://cavaencoreparlerdebits.fr/blog/rss/all.rss");
-        $feed->enable_cache(true);
-        $feed->set_cache_location( storage_path() . '/app/cache' );
-        $feed->set_cache_duration( 60 * 60 * 12 );
-        $feed->set_output_encoding('utf-8');
-        $feed->init();
-
         return view(
           'cvepdb.vitrine.index',
           [
-            'blog_articles' => $feed->get_items(0, 4)
+            'blog_articles' => $this->r_rss->get_cvepdb_blog_items()
           ]
         );
     }
