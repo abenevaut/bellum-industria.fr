@@ -1,6 +1,6 @@
 <?php
 
-namespace App\CVEPDB\Domain\Services\SMS;
+namespace App\CVEPDB\Services\SMS;
 
 use CVEPDB\Services\SMS\SMSService;
 
