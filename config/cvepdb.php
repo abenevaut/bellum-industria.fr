@@ -20,4 +20,7 @@ return [
         ]
     ],
 
+    'sms_user' => env('SMS_USER'),
+    'sms_password' => env('SMS_PASSWORD'),
+
 ];
