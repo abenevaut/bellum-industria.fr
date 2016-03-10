@@ -1,3 +1,7 @@
+https://github.com/leemunroe/responsive-html-email-template.git
+
+
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
