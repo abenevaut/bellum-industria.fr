@@ -2,7 +2,7 @@
 
 namespace App\Http\Admin\Auth;
 
-use App\Http\Contracts\Controllers\Controller;
+use CVEPDB\Controllers\AbsController as Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller

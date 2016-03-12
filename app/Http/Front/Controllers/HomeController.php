@@ -2,9 +2,7 @@
 
 namespace App\Http\Front\Controllers;
 
-use App\Http\Requests;
-use Illuminate\Http\Request;
-use App\Http\Contracts\Controllers\Controller;
+use CVEPDB\Controllers\AbsController as Controller;
 
 class HomeController extends Controller
 {
@@ -26,7 +24,11 @@ class HomeController extends Controller
     public function index()
     {
 
-        dd( \Module::collections() );
+        foreach ( \Module::collections() as $module) {
+
+            echo \Module::getModulePath( $module->name ) . '<br>';
+
+        }
 
         //return view('front.home');
     }

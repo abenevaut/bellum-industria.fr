@@ -4,19 +4,15 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "zizaco/entrust": "5.2.x-dev",
-        "doctrine/dbal": "~2.3",
-        "pingpong/modules": "~2.1"
+        "cvepdb/abstract": "1.0.52.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*",
-        "codeception/codeception": "*",
-        "deployer/deployer": "^3.0",
-        "deployphp/recipes": "~3.0"
+        "mockery/mockery": "0.9.*"
     },
     "autoload": {
         "classmap": [
