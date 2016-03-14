@@ -169,6 +169,9 @@ return [
         // ApiGuard
         Chrisbjr\ApiGuard\Providers\ApiGuardServiceProvider::class,
 
+        // Collective
+        Collective\Html\HtmlServiceProvider::class,
+
     ],
 
     /*
@@ -224,6 +227,10 @@ return [
 
         // ApiGuard
         'ApiGuardAuth' => \Chrisbjr\ApiGuard\Facades\ApiGuardAuth::class,
+
+        // Collective
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
     ],
 
 ];

@@ -17,6 +17,7 @@ var config = {
 
     // theme paths
     theme_admin: './resources/assets/theme_admin',
+    theme_installer: './resources/assets/installer',
 
     // publit assets path
     build: './public/assets',
@@ -73,6 +74,8 @@ gulp.task('copy', ['clean'], function () {
 
         config.theme_admin + '/**',
         '!' + config.theme_admin + '/sass/**',
+
+        config.theme_installer + '/**',
 
 
         '!**/node_modules/**',

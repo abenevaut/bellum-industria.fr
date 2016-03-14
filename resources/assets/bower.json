@@ -20,7 +20,8 @@
     "tests"
   ],
   "dependencies": {
-    "admin-lte.scss": "^3.1.2"
+    "admin-lte.scss": "^3.1.2",
+    "jquery-validation": "^1.15.0"
   },
   "devDependencies": {}
 }
