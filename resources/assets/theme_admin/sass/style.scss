@@ -7,4 +7,4 @@ $icon-font-path: '../fonts/';
 // endbower
 
 @import "../../bower/admin-lte.scss/scss/admin-lte";
-//@import "../../bower/admin-lte.scss/scss/skins/all-skins";
+@import "skins/all-skins";

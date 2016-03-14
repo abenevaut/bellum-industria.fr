@@ -162,6 +162,9 @@ return [
         // Pingpong
         'Pingpong\Modules\ModulesServiceProvider',
 
+        // ApiGuard
+        Chrisbjr\ApiGuard\Providers\ApiGuardServiceProvider::class,
+
     ],
 
     /*
@@ -214,6 +217,8 @@ return [
         // Pingpong
         'Module' => 'Pingpong\Modules\Facades\Module',
 
+        // ApiGuard
+        'ApiGuardAuth' => \Chrisbjr\ApiGuard\Facades\ApiGuardAuth::class,
     ],
 
 ];
