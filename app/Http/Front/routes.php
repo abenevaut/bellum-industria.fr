@@ -11,11 +11,16 @@
 |
 */
 
-Route::group(['middleware' => 'web'], function () {
+Route::group(['middleware' => ['web', 'CMSInstalled']], function () {
 
     Route::get('/', function () {
         return view('front.welcome');
     });
 
     Route::get('/home', '\App\Http\Front\Controllers\HomeController@index');
+});
+
+Route::group(['prefix' => 'installer', 'middleware' => ['web', 'CMSAllowInstallation']], function(){
+    Route::get('/', ['as' => 'installer.index', 'uses' => '\App\Http\Front\Controllers\InstallerController@index']);
+    Route::post('store', ['as' => 'installer.store', 'uses' => '\App\Http\Front\Controllers\InstallerController@store']);
 });

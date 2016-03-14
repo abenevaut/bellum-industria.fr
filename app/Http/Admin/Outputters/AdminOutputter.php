@@ -10,6 +10,21 @@ use CVEPDB\Services\Outputters\AbsLaravelOutputter;
 
 class AdminOutputter extends AbsLaravelOutputter
 {
+    /**
+     * @var string Outputter header title
+     */
+    protected $title = 'default';
+
+    /**
+     * @var string Outputter header description
+     */
+    protected $description = 'default';
+
+    /**
+     * @var string View namespace ('users::'|null)
+     */
+    protected $view_prefix = '';
+
     public function __construct()
     {
         parent::__construct();
@@ -22,11 +37,22 @@ class AdminOutputter extends AbsLaravelOutputter
     public function output($view, $data)
     {
         return parent::output(
-            $view,
+            $this->view_prefix . $view,
             $data
+            + $this->admin_data_header()
             + $this->admin_data_sidebar()
             + $this->admin_data_footer()
         );
+    }
+
+    private function admin_data_header()
+    {
+        return [
+            'header' => [
+                'title' => $this->title,
+                'description' => $this->description,
+            ]
+        ];
     }
 
     private function admin_data_sidebar()
@@ -64,5 +90,12 @@ class AdminOutputter extends AbsLaravelOutputter
                 'url' => Config::get('app.url'),
             ]
         ];
+    }
+
+    protected function set_view_prefix($module)
+    {
+        $this->view_prefix = Config::get($module . '.view.use_namespace')
+            ? strtolower(Config::get($module . '.name')) . '::'
+            : 'modules.';
     }
 }

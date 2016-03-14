@@ -43,6 +43,34 @@ $app->singleton(
 
 /*
 |--------------------------------------------------------------------------
+| Detect The Application Environment
+|--------------------------------------------------------------------------
+|
+| Laravel takes a dead simple approach to your application environments
+| so you can just specify a machine name for the host that matches a
+| given environment, then we will automatically detect it for you.
+|
+*/
+
+$env = $app->detectEnvironment(function(){
+
+    $environmentPath = __DIR__.'/../.env';
+
+    if (file_exists($environmentPath)) {
+        $setEnv = trim(file_get_contents($environmentPath));
+    }
+    else {
+        $setEnv = 'installer';
+    }
+
+    putenv('APP_ENV=' . $setEnv);
+
+    $dotenv = new \Dotenv\Dotenv(__DIR__ . '/../', '.env' . '.' . getenv('APP_ENV')); // Laravel 5.2
+    $dotenv->overload(); //this is important
+});
+
+/*
+|--------------------------------------------------------------------------
 | Return The Application
 |--------------------------------------------------------------------------
 |

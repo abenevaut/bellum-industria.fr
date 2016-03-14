@@ -11,7 +11,7 @@ class SidebarPresenter extends Presenter
      */
     public function getOpenTagWrapper()
     {
-        return PHP_EOL.'<ul class="sidebar-menu">'.PHP_EOL;
+        return PHP_EOL . '<ul class="sidebar-menu">' . PHP_EOL;
     }
 
     /**
@@ -19,7 +19,7 @@ class SidebarPresenter extends Presenter
      */
     public function getCloseTagWrapper()
     {
-        return PHP_EOL.'</ul>'.PHP_EOL;
+        return PHP_EOL . '</ul>' . PHP_EOL;
     }
 
     /**
@@ -27,17 +27,8 @@ class SidebarPresenter extends Presenter
      */
     public function getMenuWithoutDropdownWrapper($item)
     {
-        return '<li class="'.$this->getActiveState($item).'"><a href="'.$item->getUrl().'" '.$item->getAttributes().'>'.$item->getIcon().' <span>'.$item->title.'</span></a></li>'.PHP_EOL;
+        return '<li class="' . $this->getActiveState($item) . '"><a href="' . $item->getUrl() . '" ' . $item->getAttributes() . '>' . $item->getIcon() . ' <span>' . $item->title . '</span></a></li>' . PHP_EOL;
     }
-
-
-//<li class="header">MAIN NAVIGATION</li>
-//
-//<li>
-//<a href="{{ url('') }}">
-// <span>Dashboard</span>
-//</a>
-//</li>
 
     /**
      * {@inheritdoc }.
@@ -73,7 +64,7 @@ class SidebarPresenter extends Presenter
      */
     public function getHeaderWrapper($item)
     {
-        return '<li class="header">'.$item->title.'</li>';
+        return '<li class="header">' . $item->title . '</li>';
     }
 
     /**
@@ -81,16 +72,16 @@ class SidebarPresenter extends Presenter
      */
     public function getMenuWithDropDownWrapper($item)
     {
-        return '<li class="dropdown'.$this->getActiveStateOnChild($item, ' active').'">
+        return '<li class="dropdown' . $this->getActiveStateOnChild($item, ' active') . '">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					'.$item->getIcon().' '.$item->title.'
+					' . $item->getIcon() . ' ' . $item->title . '
 			      	<b class="caret"></b>
 			      </a>
 			      <ul class="dropdown-menu">
-			      	'.$this->getChildMenuItems($item).'
+			      	' . $this->getChildMenuItems($item) . '
 			      </ul>
 		      	</li>'
-        .PHP_EOL;
+        . PHP_EOL;
     }
 
     /**
@@ -102,15 +93,15 @@ class SidebarPresenter extends Presenter
      */
     public function getMultiLevelDropdownWrapper($item)
     {
-        return '<li class="dropdown'.$this->getActiveStateOnChild($item, ' active').'">
+        return '<li class="dropdown' . $this->getActiveStateOnChild($item, ' active') . '">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					'.$item->getIcon().' '.$item->title.'
+					' . $item->getIcon() . ' ' . $item->title . '
 			      	<b class="caret pull-right caret-right"></b>
 			      </a>
 			      <ul class="dropdown-menu">
-			      	'.$this->getChildMenuItems($item).'
+			      	' . $this->getChildMenuItems($item) . '
 			      </ul>
 		      	</li>'
-        .PHP_EOL;
+        . PHP_EOL;
     }
 }

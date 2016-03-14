@@ -19,6 +19,16 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
+        <section class="content-header">
+            <h1>
+                {{ $header['title'] }}
+                <small>{{ $header['description'] }}</small>
+            </h1>
+            <ol class="breadcrumb">
+                {!! $breadcrumbs or '&nbsp;' !!}
+            </ol>
+        </section>
+
         @yield('content')
 
     </div>

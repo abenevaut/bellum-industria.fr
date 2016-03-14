@@ -10,9 +10,14 @@ use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
 class UserOutputter extends AdminOutputter
 {
     /**
-     * @var string View namespace ('users::'|null)
+     * @var string Outputter header title
      */
-    private $view_prefix = '';
+    protected $title = 'Users';
+
+    /**
+     * @var string Outputter header description
+     */
+    protected $description = 'user panel';
 
     /**
      * @var null UserRepositoryEloquent
@@ -33,17 +38,17 @@ class UserOutputter extends AdminOutputter
         UserRepositoryEloquent $r_user,
         RoleRepositoryEloquent $r_role,
         ApiKeyRepositoryEloquent $r_apikey
-    ) {
+    )
+    {
         parent::__construct();
 
-        $this->view_prefix = Config::get('users.view.prefix');
-        $this->view_prefix = !empty($this->view_prefix) ? $this->view_prefix.'::' : $this->view_prefix;
+        $this->set_view_prefix('users');
 
         $this->r_user = $r_user;
         $this->r_role = $r_role;
         $this->r_apikey = $r_apikey;
 
-        $this->addBreadcrumb('Utilisateurs', 'admin/users');
+        $this->addBreadcrumb('Users', 'admin/users');
     }
 
     /**
@@ -54,7 +59,7 @@ class UserOutputter extends AdminOutputter
         $users = $this->r_user->paginate(null, ['*']);
 
         return $this->output(
-            $this->view_prefix . 'index',
+            'users.admin.index',
             [
                 'users' => $users
             ]
@@ -70,7 +75,7 @@ class UserOutputter extends AdminOutputter
         $roles = $this->r_role->findWhereNotIn('name', ['user']);
 
         return $this->output(
-            'cvepdb.admin.users.create',
+            'users.admin.create',
             [
                 'roles' => $roles
             ]
@@ -106,7 +111,7 @@ class UserOutputter extends AdminOutputter
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show($id)
@@ -117,7 +122,7 @@ class UserOutputter extends AdminOutputter
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit($id)
@@ -128,7 +133,7 @@ class UserOutputter extends AdminOutputter
         $roles = $this->r_role->findWhereNotIn('name', ['user']);
 
         return $this->output(
-            'cvepdb.admin.users.edit',
+            'users.admin.edit',
             [
                 'user' => $user,
                 'roles' => $roles
@@ -139,7 +144,7 @@ class UserOutputter extends AdminOutputter
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function update($id, IFormRequest $request)
@@ -152,35 +157,11 @@ class UserOutputter extends AdminOutputter
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function destroy($id)
     {
         return 'T\'es pas fou! On supprime pas les utilisateurs!';
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     *
-     * @return Response
-     */
-    public function storeClient(IFormRequest $request)
-    {
-        $user = $this->r_user->create_client(
-            $request->get('first_name'),
-            $request->get('last_name'),
-            $request->get('email')
-        );
-
-
-        /*
-         * Todo : Envoyer un mail au contact concerné "Votre compte a été crée sur notre plateforme ... A la premiere utilisation vous devez faire un changement de mot de passe..."
-         */
-
-
-        return $this->redirectTo('admin/users');
     }
 }
