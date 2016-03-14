@@ -8,7 +8,7 @@ return [
     ],
     'admin' => [
         // Admin entry point
-        'route' => 'admin.users',
+        'route' => 'admin.users.index',
         // Admin menu icon
         'icon' => 'fa fa-users'
     ]

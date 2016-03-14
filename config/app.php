@@ -2,6 +2,10 @@
 
 return [
 
+    'version' => '0.1.0',
+    'title' => 'Laravel CMS',
+    'url' => 'http://cvepdb.fr',
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -161,6 +165,7 @@ return [
 
         // Pingpong
         'Pingpong\Modules\ModulesServiceProvider',
+        'Pingpong\Menus\MenusServiceProvider',
 
         // ApiGuard
         Chrisbjr\ApiGuard\Providers\ApiGuardServiceProvider::class,
@@ -216,6 +221,7 @@ return [
 
         // Pingpong
         'Module' => 'Pingpong\Modules\Facades\Module',
+        'Menu' => 'Pingpong\Menus\MenuFacade',
 
         // ApiGuard
         'ApiGuardAuth' => \Chrisbjr\ApiGuard\Facades\ApiGuardAuth::class,
