@@ -10,7 +10,7 @@
 
 ## Official Documentation
 
-Documentation for the CMS can be found on the [docs.cvepdb.fr](http://docs.cvepdb.fr).
+Documentation for the CMS can be found on the [Wiki](https://gitlab.com/cvepdb/cms/wikis/home).
 
 ## Security Vulnerabilities
 
