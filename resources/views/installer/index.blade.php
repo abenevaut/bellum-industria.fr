@@ -15,9 +15,7 @@
 
     @if (count($errors) > 0)
         <div class="callout callout-danger">
-            <h4>Erreur<?php if (count($errors) > 1) {
-                    echo 's';
-                } ?></h4>
+            <h4>Erreur{{ count($errors) > 1 ? 's' : '' }}</h4>
             @foreach ($errors->all() as $error)
                 <p>{{ $error }}</p>
             @endforeach
