@@ -80,7 +80,7 @@ class InstallerController extends Controller
                 ]);
             } else {
                 return Redirect::to('installer')
-                    ->withErrors('Impossible to connect to DB')
+                    ->withErrors('installer.error:db_connection')
                     ->withInput();
             }
         } catch (FileNotFoundException $exception) {

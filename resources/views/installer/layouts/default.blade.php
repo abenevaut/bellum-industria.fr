@@ -49,10 +49,10 @@
 <!-- ./wrapper -->
 
 <div class="hidden" style="display:none;">
-    <span class="field_required">{{ trans('installer.field_required') }}</span>
-    <span class="field_maxlen">{{ trans('installer.field_maxlen') }}</span>
-    <span class="field_email">{{ trans('installer.field_email') }}</span>
-    <span class="field_url">{{ trans('installer.field_url') }}</span>
+    <span class="field_required">{{ trans('installer.error:field_required') }}</span>
+    <span class="field_maxlen">{{ trans('installer.error:field_maxlen') }}</span>
+    <span class="field_email">{{ trans('installer.error:field_email') }}</span>
+    <span class="field_url">{{ trans('installer.error:field_url') }}</span>
 </div>
 
 @include('installer.partials.js-footer')

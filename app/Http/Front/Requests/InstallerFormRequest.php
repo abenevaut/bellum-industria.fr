@@ -25,25 +25,14 @@ class InstallerFormRequest extends Request
     {
         return [
             'APP_URL' => 'required',
-
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
-
             'DB_HOST' => 'required',
             'DB_DATABASE' => 'required',
             'DB_USERNAME' => 'required',
             'DB_PASSWORD' => 'required',
-
-//            'MAIL_FROM_EMAIL' => 'required|email',
-//            'MAIL_FROM_NAME' => 'required',
-//            'MAIL_DRIVER' => '',
-//            'MAIL_HOST' => '',
-//            'MAIL_PORT' => '',
-//            'MAIL_USERNAME' => '',
-//            'MAIL_PASSWORD' => '',
-//            'MAIL_ENCRYPTION' => ''
         ];
     }
 
@@ -55,28 +44,16 @@ class InstallerFormRequest extends Request
     public function messages()
     {
         return [
-
-            'APP_URL.required' => 'You have to specify the web application url',
-
-            'first_name.required' => 'You have to specify the web application url',
-            'last_name.required' => 'You have to specify the web application url',
-            'email.required' => 'You have to specify the web application url',
-            'password.required' => 'You have to specify the web application url',
-
-            'DB_HOST.required' => 'You have to specify the web application url',
-            'DB_DATABASE.required' => 'You have to specify the web application url',
-            'DB_USERNAME.required' => 'You have to specify the web application url',
-            'DB_PASSWORD.required' => 'You have to specify the web application url',
-
-            'MAIL_FROM_EMAIL.required' => 'You have to specify the web application url',
-            'MAIL_FROM_NAME.required' => 'You have to specify the web application url',
-            'MAIL_DRIVER.required' => 'You have to specify the web application url',
-            'MAIL_HOST.required' => 'You have to specify the web application url',
-            'MAIL_PORT.required' => 'You have to specify the web application url',
-            'MAIL_USERNAME.required' => 'You have to specify the web application url',
-            'MAIL_PASSWORD.required' => 'You have to specify the web application url',
-            'MAIL_ENCRYPTION.required' => 'You have to specify the web application url',
-
+            'APP_URL.required' => 'installer.error:field_required',
+            'first_name.required' => 'installer.error:field_required',
+            'last_name.required' => 'installer.error:field_required',
+            'email.required' => 'installer.error:field_required',
+            'email.email' => 'installer.error:field_email',
+            'password.required' => 'installer.error:field_required',
+            'DB_HOST.required' => 'installer.error:field_required',
+            'DB_DATABASE.required' => 'installer.error:field_required',
+            'DB_USERNAME.required' => 'installer.error:field_required',
+            'DB_PASSWORD.required' => 'installer.error:field_required',
         ];
     }
 }
