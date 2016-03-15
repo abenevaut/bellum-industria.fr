@@ -53,19 +53,20 @@ return [
 
     'field_section_database' => 'Database information',
 
-//    'field_app_url_title' => '',
-//    'field_app_url_instruction' => '',
-//    'field_app_url_placeholder' => '',
-//
-//    'field_app_url_title' => '',
-//    'field_app_url_instruction' => '',
-//    'field_app_url_placeholder' => '',
-//
-//    'field_app_url_title' => '',
-//    'field_app_url_instruction' => '',
-//    'field_app_url_placeholder' => '',
-//
-//    'field_app_url_title' => '',
-//    'field_app_url_instruction' => '',
-//    'field_app_url_placeholder' => '',
+    'field_db_host_title' => 'Your database hostname',
+    'field_db_host_instruction' => 'The database hostname',
+    'field_db_host_placeholder' => 'localhost',
+
+    'field_db_database_title' => 'Your database name',
+    'field_db_database_instruction' => 'The database name',
+    'field_db_database_placeholder' => 'my_database',
+
+    'field_db_username_title' => 'Your database username',
+    'field_db_username_instruction' => 'The database username',
+    'field_db_username_placeholder' => 'root',
+
+    'field_db_password_title' => 'Your database password',
+    'field_db_password_instruction' => 'The database password',
+    'field_db_password_placeholder' => 'password',
+
 ];
