@@ -6,6 +6,7 @@ use Config;
 use Redirect;
 use File;
 use Hash;
+use Illuminate\Http\Request;
 use CVEPDB\Controllers\AbsBaseController as Controller;
 use App\Http\Front\Requests\InstallerFormRequest;
 use Mockery\CountValidator\Exception;
@@ -63,20 +64,20 @@ class InstallerController extends Controller
      * @param InstallerFormRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(InstallerFormRequest $request)
+    public function store(Request $request, InstallerFormRequest $formRequest)
     {
         try {
 
-            if ($this->testDBConnection($request)) {
+            if ($this->testDBConnection($formRequest)) {
                 // Write DB config in .env.installer
-                $this->generateConfig($request);
+                $this->generateConfig($formRequest);
                 // Store admin user in session
-                session(['installer_user_admin' => [
-                    'first_name' => $request->get('first_name'),
-                    'last_name' => $request->get('last_name'),
-                    'email' => $request->get('email'),
-                    'password' => $request->get('password'),
-                ]]);
+                $request->session()->put('installer_user_admin', [
+                    'first_name' => $formRequest->get('first_name'),
+                    'last_name' => $formRequest->get('last_name'),
+                    'email' => $formRequest->get('email'),
+                    'password' => $formRequest->get('password'),
+                ]);
             } else {
                 return Redirect::to('installer')
                     ->withErrors('Impossible to connect to DB')
@@ -99,40 +100,8 @@ class InstallerController extends Controller
      */
     public function runMigration()
     {
-        try {
-
-            Artisan::call('migrate');
-            Artisan::call('module:migrate');
-
-            $bytes_written = File::put(base_path('.env'), 'production' . PHP_EOL);
-            if ($bytes_written === false) {
-                throw new FileException;
-            }
-
-            // Do not continue to use installer env
-            Artisan::call('cache:clear');
-
-        } catch (FileNotFoundException $exception) {
-
-            File::delete(base_path('.env'));
-            File::delete(base_path('.env.production'));
-            // Do not continue to use production env
-            Artisan::call('cache:clear');
-
-            die ("The file doesn't exist");
-        } catch (FileException $exception) {
-
-            File::delete(base_path('.env'));
-            File::delete(base_path('.env.production'));
-            // Do not continue to use production env
-            Artisan::call('cache:clear');
-
-            die ("Impossible to write in file");
-        }
-
-        // plz wait
-        sleep(1);
-
+        Artisan::call('migrate', ['--force' => true]);
+        //Artisan::call('module:migrate');
         return redirect('installer/initialisation');
     }
 
@@ -145,9 +114,21 @@ class InstallerController extends Controller
      *
      * @return Redirect
      */
-    public function initialiseProduction()
+    public function initialiseProduction(Request $request)
     {
-        $this->addUserAdmin();
+        try {
+            $this->addUserAdmin($request);
+
+            $bytes_written = File::put(base_path('.env'), 'production' . PHP_EOL);
+            if ($bytes_written === false) {
+                throw new FileException;
+            }
+
+        } catch (FileException $exception) {
+            File::delete(base_path('.env'));
+            File::delete(base_path('.env.production'));
+            die ("Impossible to write in file");
+        }
         return redirect('/');
     }
 
@@ -157,16 +138,16 @@ class InstallerController extends Controller
      * @param InstallerFormRequest $request
      * @return bool
      */
-    private function testDBConnection(InstallerFormRequest $request)
+    private function testDBConnection(InstallerFormRequest $formRequest)
     {
         $isConnected = false;
 
         try {
             Config::set('database.default', 'mysql');
-            Config::set('database.connections.mysql.host', $request->get('DB_HOST'));
-            Config::set('database.connections.mysql.database', $request->get('DB_DATABASE'));
-            Config::set('database.connections.mysql.username', $request->get('DB_USERNAME'));
-            Config::set('database.connections.mysql.password', $request->get('DB_PASSWORD'));
+            Config::set('database.connections.mysql.host', $formRequest->get('DB_HOST'));
+            Config::set('database.connections.mysql.database', $formRequest->get('DB_DATABASE'));
+            Config::set('database.connections.mysql.username', $formRequest->get('DB_USERNAME'));
+            Config::set('database.connections.mysql.password', $formRequest->get('DB_PASSWORD'));
 
             DB::connection()->select(DB::raw("SELECT 1"));
 
@@ -185,7 +166,7 @@ class InstallerController extends Controller
      * @return bool
      * @throws FileException
      */
-    private function generateConfig(InstallerFormRequest $request)
+    private function generateConfig(InstallerFormRequest $formRequest)
     {
         /*
          * Add DB info in installer config for migration
@@ -193,10 +174,10 @@ class InstallerController extends Controller
 
         $contents = File::get(base_path('.env.installer'));
         $contents .= PHP_EOL;
-        $contents .= 'DB_HOST=' . $request->get('DB_HOST') . PHP_EOL;
-        $contents .= 'DB_DATABASE=' . $request->get('DB_DATABASE') . PHP_EOL;
-        $contents .= 'DB_USERNAME=' . $request->get('DB_USERNAME') . PHP_EOL;
-        $contents .= 'DB_PASSWORD=' . $request->get('DB_PASSWORD') . PHP_EOL;
+        $contents .= 'DB_HOST=' . $formRequest->get('DB_HOST') . PHP_EOL;
+        $contents .= 'DB_DATABASE=' . $formRequest->get('DB_DATABASE') . PHP_EOL;
+        $contents .= 'DB_USERNAME=' . $formRequest->get('DB_USERNAME') . PHP_EOL;
+        $contents .= 'DB_PASSWORD=' . $formRequest->get('DB_PASSWORD') . PHP_EOL;
 
         $bytes_written = File::put(base_path('.env.installer'), $contents);
         if ($bytes_written === false) {
@@ -211,14 +192,14 @@ class InstallerController extends Controller
         $contents .= 'APP_DEBUG=true'. PHP_EOL;
         $contents .= 'APP_KEY=' . hash('md5', time().date('Y-m-d', time())) . PHP_EOL;
         $contents .= 'APP_INSTALLED=true'. PHP_EOL;
-        $contents .= 'APP_URL=' . $request->get('APP_URL') . PHP_EOL;
+        $contents .= 'APP_URL=' . $formRequest->get('APP_URL') . PHP_EOL;
         $contents .= PHP_EOL;
         $contents .= 'CACHE_DRIVER=array' . PHP_EOL;
         $contents .= PHP_EOL;
-        $contents .= 'DB_HOST=' . $request->get('DB_HOST') . PHP_EOL;
-        $contents .= 'DB_DATABASE=' . $request->get('DB_DATABASE') . PHP_EOL;
-        $contents .= 'DB_USERNAME=' . $request->get('DB_USERNAME') . PHP_EOL;
-        $contents .= 'DB_PASSWORD=' . $request->get('DB_PASSWORD') . PHP_EOL;
+        $contents .= 'DB_HOST=' . $formRequest->get('DB_HOST') . PHP_EOL;
+        $contents .= 'DB_DATABASE=' . $formRequest->get('DB_DATABASE') . PHP_EOL;
+        $contents .= 'DB_USERNAME=' . $formRequest->get('DB_USERNAME') . PHP_EOL;
+        $contents .= 'DB_PASSWORD=' . $formRequest->get('DB_PASSWORD') . PHP_EOL;
 
         $bytes_written = File::put(base_path('.env.production'), $contents);
         if ($bytes_written === false) {
@@ -234,7 +215,7 @@ class InstallerController extends Controller
      * @return bool
      * @throws \Exception
      */
-    private function addUserAdmin()
+    private function addUserAdmin(Request $request)
     {
         $this->r_role->create([
             'name' => RoleRepositoryEloquent::USER,
@@ -249,7 +230,9 @@ class InstallerController extends Controller
         ]);
 
         // Retrieve data from the session
-        $session_installer = session('installer_user_admin');
+        $session_installer = $value = $request->session()->get('installer_user_admin');
+        // Reset session
+        $request->session()->put('installer_user_admin', []);
 
         $user = User::create([
             'first_name' => $session_installer['first_name'],
