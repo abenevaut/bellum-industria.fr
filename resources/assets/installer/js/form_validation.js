@@ -3,7 +3,10 @@
  */
 (function ($, W, D) {
 
-    _cvepdb_fv = {};
+    var msgfield_required = $('.field_required').html();
+    var msgfield_maxlen = $('.field_maxlen').html();
+    var msgfield_email = $('.field_email').html();
+    var msgfield_url = $('.field_url').html();
 
     /**
      *
@@ -29,7 +32,8 @@
 
             APP_URL: {
                 required: true,
-                maxlength: 254
+                maxlength: 254,
+                url: true
             },
 
             last_name: {
@@ -71,43 +75,44 @@
         messages: {
 
             APP_URL: {
-                required: 'Required',
-                maxlength: 'Max lenght'
+                required: msgfield_required,
+                maxlength: msgfield_maxlen,
+                url: msgfield_url
             },
 
             last_name: {
-                required: 'Required',
-                maxlength: 'Max lenght'
+                required: msgfield_required,
+                maxlength: msgfield_maxlen
             },
             first_name: {
-                required: 'Required',
-                maxlength: 'Max lenght'
+                required: msgfield_required,
+                maxlength: msgfield_maxlen
             },
             email: {
-                required: 'Required',
-                maxlength: 'Max lenght',
-                email: 'email'
+                required: msgfield_required,
+                maxlength: msgfield_maxlen,
+                email: msgfield_email
             },
             password: {
-                required: 'Required',
-                maxlength: 'Max lenght'
+                required: msgfield_required,
+                maxlength: msgfield_maxlen
             },
 
             DB_HOST: {
-                required: 'Required',
-                maxlength: 'Max lenght'
+                required: msgfield_required,
+                maxlength: msgfield_maxlen
             },
             DB_DATABASE: {
-                required: 'Required',
-                maxlength: 'Max lenght'
+                required: msgfield_required,
+                maxlength: msgfield_maxlen
             },
             DB_USERNAME: {
-                required: 'Required',
-                maxlength: 'Max lenght'
+                required: msgfield_required,
+                maxlength: msgfield_maxlen
             },
             DB_PASSWORD: {
-                required: 'Required',
-                maxlength: 'Max lenght'
+                required: msgfield_required,
+                maxlength: msgfield_maxlen
             }
 
         },

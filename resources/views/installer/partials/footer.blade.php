@@ -1,7 +1,6 @@
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-        <b>Version</b> {{ $footer['version'] }}
+        <b>{{ trans('installer.footer_version') }}</b> {{ $footer['version'] }}
     </div>
-    <strong>Copyright &copy; 2016 <a href="{{ $footer['url'] }}">{{ $footer['title'] }}</a>.</strong> All rights
-    reserved.
+    <strong>Copyleft {{ date('Y') }} <a href="{{ $footer['url'] }}">{{ $footer['title'] }}</a>.</strong>
 </footer>

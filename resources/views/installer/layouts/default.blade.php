@@ -8,14 +8,12 @@
             font-size: 12px;
             font-weight: normal;
         }
-        .require {
-            color: red;
-        }
         .p-b-60 {
             padding-bottom: 60px;
         }
         div[id$="-error"] {
             margin-bottom: 25px;
+            color: #dd4b39;
         }
     </style>
 
@@ -30,11 +28,11 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Installer
+                    {{ trans('installer.title') }}
                     <small>({{ $footer['version'] }})</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="javascript:void(0);"><i class="fa fa-dashboard"></i> Installer</a></li>
+                    {{--<li>{{ trans('installer.title') }}</li>--}}
                 </ol>
             </section>
             <!-- Main content -->
@@ -49,6 +47,14 @@
     @include('installer.partials.footer')
 </div>
 <!-- ./wrapper -->
+
+<div class="hidden" style="display:none;">
+    <span class="field_required">{{ trans('installer.field_required') }}</span>
+    <span class="field_maxlen">{{ trans('installer.field_maxlen') }}</span>
+    <span class="field_email">{{ trans('installer.field_email') }}</span>
+    <span class="field_url">{{ trans('installer.field_url') }}</span>
+</div>
+
 @include('installer.partials.js-footer')
 </body>
 </html>
