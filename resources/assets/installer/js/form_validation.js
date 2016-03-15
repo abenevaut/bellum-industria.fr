@@ -10,18 +10,19 @@
      */
     $.validator.setDefaults({
         submitHandler: function () {
+            return true;
         }
     });
 
-    $.validator.addMethod(
-        'checkDBconnection',
-        function(value, element, params){
-
-
-
-        },
-        message
-    );
+    //$.validator.addMethod(
+    //    'checkDBconnection',
+    //    function(value, element, params){
+    //
+    //
+    //
+    //    },
+    //    message
+    //);
 
     $('.forms').validate({
         rules: {
@@ -59,8 +60,7 @@
             },
             DB_USERNAME: {
                 required: true,
-                maxlength: 254,
-                email: true
+                maxlength: 254
             },
             DB_PASSWORD: {
                 required: true,
