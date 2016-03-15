@@ -11,6 +11,8 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
+    private $requested_uri = null;
+
     /**
      * A list of the exception types that should not be reported.
      *
@@ -45,6 +47,25 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        $this->requested_uri = $request->getRequestUri();
         return parent::render($request, $e);
+    }
+
+    /**
+     * Render the given HttpException.
+     *
+     * @param  \Symfony\Component\HttpKernel\Exception\HttpException  $e
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    protected function renderHttpException(HttpException $e)
+    {
+        $status = $e->getStatusCode();
+        $view_prefix = strncmp($this->requested_uri, '/admin', strlen('/admin')) ? 'front' : 'admin';
+
+        if (view()->exists("{$view_prefix}.errors.{$status}")) {
+            return response()->view("{$view_prefix}.errors.{$status}", ['exception' => $e], $status, $e->getHeaders());
+        } else {
+            return $this->convertExceptionToResponse($e);
+        }
     }
 }

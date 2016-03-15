@@ -14,8 +14,8 @@
 Route::group(['middleware' => ['web', 'CMSInstalled']], function () {
 
     // Registration routes...
-//    Route::get('register', '\App\Http\Admin\Auth\AuthController@getRegister');
-//    Route::post('register', '\App\Http\Admin\Auth\AuthController@postRegister');
+    Route::get('register', '\App\Http\Admin\Auth\AuthController@getRegister');
+    Route::post('register', '\App\Http\Admin\Auth\AuthController@postRegister');
 
     // Authentication routes...
     Route::get('login', '\App\Http\Admin\Auth\AuthController@getLogin');

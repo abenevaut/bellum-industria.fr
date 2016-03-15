@@ -7,18 +7,10 @@
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
-
     @include('admin.partials.header')
-
-    <!-- =============================================== -->
-
     @include('admin.partials.sidebar')
-
-    <!-- =============================================== -->
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-
         <section class="content-header">
             <h1>
                 {{ $header['title'] }}
@@ -28,14 +20,12 @@
                 {!! $breadcrumbs or '&nbsp;' !!}
             </ol>
         </section>
-
-        @yield('content')
-
+        <section class="content">
+            @yield('content')
+        </section>
     </div>
     <!-- /.content-wrapper -->
-
     @include('admin.partials.footer')
-
     @include('admin.partials.config_sidebar')
 </div>
 <!-- ./wrapper -->

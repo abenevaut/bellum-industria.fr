@@ -1,12 +1,12 @@
 {
-  "name": "Users",
-  "alias": "users",
+  "name": "Dashboard",
+  "alias": "dashboard",
   "description": "",
   "keywords": [],
   "active": 1,
-  "order": 2,
+  "order": 1,
   "providers": [
-    "Modules\\Users\\Providers\\UsersServiceProvider"
+    "Modules\\Dashboard\\Providers\\DashboardServiceProvider"
   ],
   "aliases": {},
   "files": [

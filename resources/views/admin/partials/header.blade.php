@@ -30,7 +30,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         {{--<img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}}
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs">{{ Auth::user()->full_name }}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
@@ -62,9 +62,9 @@
                             {{--<div class="pull-left">--}}
                                 {{--<a href="#" class="btn btn-default btn-flat">Profile</a>--}}
                             {{--</div>--}}
-                            <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                            </div>
+                            {{--<div class="pull-right">--}}
+                                <a class="btn btn-default btn-flat" href="{{ url('logout') }}"><i class="fa fa-btn fa-sign-out"></i>Sign out</a>
+                            {{--</div>--}}
                         </li>
                     </ul>
                 </li>
