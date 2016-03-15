@@ -46,7 +46,7 @@ gulp.task('sass-theme_admin', function () {
         .pipe(gulp.dest(config.theme_admin + '/css'))
         .pipe(rev.manifest())
         .pipe(rename('css.manifest.json'))
-        .pipe(gulp.dest(config.revision + config.revision_admin));
+        .pipe(gulp.dest(config.theme_admin + '/rev/' + config.revision_admin));
 });
 
 /**
