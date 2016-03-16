@@ -176,6 +176,12 @@ return [
         // Collective
         Collective\Html\HtmlServiceProvider::class,
 
+        // Debugbar
+        Barryvdh\Debugbar\ServiceProvider::class,
+
+        // Repository
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
+
     ],
 
     /*
@@ -236,6 +242,11 @@ return [
         // Collective
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+
+        // Debugbar
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
+
     ],
 
 ];

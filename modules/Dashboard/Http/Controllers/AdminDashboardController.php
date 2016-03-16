@@ -1,10 +1,7 @@
 <?php namespace Modules\Dashboard\Http\Controllers;
 
-use Widget;
 use Pingpong\Modules\Routing\Controller;
-use App\Http\Admin\Outputters\AdminOutputter;
-
-
+use Modules\Dashboard\Outputters\DashboardOutputter;
 
 class AdminDashboardController extends Controller {
 
@@ -16,7 +13,7 @@ class AdminDashboardController extends Controller {
 	/**
 	 * @param UserOutputter $outputter
 	 */
-	public function __construct(AdminOutputter $outputter)
+	public function __construct(DashboardOutputter $outputter)
 	{
 		$this->outputter = $outputter;
 	}
@@ -26,12 +23,7 @@ class AdminDashboardController extends Controller {
 	 */
 	public function index()
 	{
-
-
-
-		dd(  Widget::life()  );
-
-		return $this->outputter->output('dashboard::dashboard.admin.index', []);
+		return $this->outputter->index();
 	}
 
 	/**
@@ -39,6 +31,6 @@ class AdminDashboardController extends Controller {
 	 */
 	public function config()
 	{
-		return $this->outputter->output('dashboard::dashboard.admin.config', []);
+		return $this->outputter->edit();
 	}
 }
