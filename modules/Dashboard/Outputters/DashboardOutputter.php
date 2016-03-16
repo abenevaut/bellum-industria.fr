@@ -31,8 +31,6 @@ class DashboardOutputter extends AdminOutputter
         $this->set_view_prefix('dashboard');
 
         $this->r_dashboard = $r_dashboard;
-
-        $this->addBreadcrumb('Dashboard', 'admin/dashboard');
     }
 
     /**
@@ -40,15 +38,6 @@ class DashboardOutputter extends AdminOutputter
      */
     public function index()
     {
-
-        // repository
-        // On recupere la liste des widgets actifs et on les generes
-
-
-
-        //dd( Widget::get('count_users') );
-
-
         $widgets = $this->r_dashboard->activeWidgets();
 
         return $this->output(
