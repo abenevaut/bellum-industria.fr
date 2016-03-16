@@ -77,7 +77,7 @@ class DashboardOutputter extends AdminOutputter
             'dashboard.admin.config',
             [
                 'widgets' => [
-                'inactive' => $inactive_widgets,
+                    'inactive' => $inactive_widgets,
                     'active' => $active_widgets,
                 ]
             ]

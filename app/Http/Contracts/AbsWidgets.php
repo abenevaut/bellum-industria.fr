@@ -26,4 +26,12 @@ abstract class AbsWidgets
             $data
         );
     }
+
+    public function widgetInformation()
+    {
+        return [
+            'title' => $this->title,
+            'description' => $this->description,
+        ];
+    }
 }

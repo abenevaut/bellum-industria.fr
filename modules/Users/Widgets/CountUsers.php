@@ -20,8 +20,14 @@ class CountUsers extends AbsWidgets
      */
     protected $view_prefix = 'dashboard::';
 
-    public function register()
+    public function register($action = null)
     {
-        return $this->output('dashboard.widgets.countusers', []);
+        switch ($action) {
+            case 'info': {
+                return $this->widgetInformation();
+            }
+            default:
+                return $this->output('dashboard.widgets.countusers', []);
+        }
     }
 }

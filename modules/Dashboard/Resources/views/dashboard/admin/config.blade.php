@@ -91,7 +91,7 @@
                             </div>
 
                             <div class="box-header with-border">
-                                <h3 class="box-title">{{ $widget->name }}</h3>
+                                <h3 class="box-title">{{ Widget::get($widget->name, ['info'])['title'] }}</h3>
 
                                 <div class="box-tools pull-right">
                                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
@@ -102,7 +102,8 @@
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
-                                Module : {{ $widget->module }}
+                                Module : {{ $widget->module }}<br/>
+                                Description : {{ Widget::get($widget->name, ['info'])['description'] }}
                             </div>
                             <!-- /.box-body -->
                         </div>
