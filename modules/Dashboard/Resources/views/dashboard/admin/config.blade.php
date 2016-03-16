@@ -5,275 +5,205 @@
 
 
     <div class="row">
-        <!-- Left col -->
-        <section class="col-lg-7 connectedSortable ui-sortable">
+
+        <div class="col-lg-5" >
 
 
-            <div class="box box-default collapsed-box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Expandable</h3>
+            <h4>Inactive widgets</h4>
 
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                        </button>
-                    </div>
-                    <!-- /.box-tools -->
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    The body of the box
-                </div>
-                <!-- /.box-body -->
+            <div style="padding:25px;min-height: 140px;background-color: #E6E6E6">
+
+
+
+                <!-- Left col -->
+                <section class="connectedSortable ui-sortable js-inactive-list">
+                            @foreach ($widgets['inactive'] as $widget)
+
+                            <div class="box box-default collapsed-box ui-sortable-handle js-widget" data-id="{{ $widget->id }}">
+
+                                <div class="overlay hidden">
+                                    <i class="fa fa-refresh fa-spin"></i>
+                                </div>
+
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">{{ $widget->name }}</h3>
+
+                                    <div class="box-tools pull-right">
+                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <!-- /.box-tools -->
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    Module : {{ $widget->module }}
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+
+                        @endforeach
+                </section>
+
             </div>
 
 
-        </section>
+        </div>
         <!-- /.Left col -->
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-5 connectedSortable ui-sortable">
 
+        <section class="col-lg-2" style="min-height: 80px;text-align: center;">
 
-
-            <div class="box box-default collapsed-box box-solid">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Expandable</h3>
-
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                        </button>
-                    </div>
-                    <!-- /.box-tools -->
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    The body of the box
-                </div>
-                <!-- /.box-body -->
-            </div>
-
-
-
-
-
+            <i class="fa fa-arrows-h" style="font-size: 130px;"></i>
 
         </section>
-        <!-- right col -->
 
+        <div class="col-lg-5">
+
+            <h4>Active widgets</h4>
+
+            <div style="padding:25px;min-height: 140px;background-color: #E6E6E6">
+
+                <!-- right col (We are only adding the ID to make the widgets sortable)-->
+                <section class=" connectedSortable ui-sortable js-active-list">
+                    @foreach ($widgets['active'] as $widget)
+
+                        <div class="box box-success collapsed-box js-widget" data-id="{{ $widget->id }}">
+
+                            <div class="overlay hidden">
+                                <i class="fa fa-refresh fa-spin"></i>
+                            </div>
+
+                            <div class="box-header with-border">
+                                <h3 class="box-title">{{ $widget->name }}</h3>
+
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                                <!-- /.box-tools -->
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                Module : {{ $widget->module }}
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+
+                    @endforeach
+                </section>
+                <!-- right col -->
+
+            </div>
+        </div>
     </div>
 
 @endsection
 
 @section('js')
     <script>
-        /*
-         * Author: Abdullah A Almsaeed
-         * Date: 4 Jan 2014
-         * Description:
-         *      This is a demo file used only for the main dashboard (index.html)
-         **/
-
         $(function () {
-
             "use strict";
 
-            //Make the dashboard widgets sortable Using jquery UI
             $(".connectedSortable").sortable({
                 placeholder: "sort-highlight",
                 connectWith: ".connectedSortable",
-                handle: ".box-header, .nav-tabs",
+                handle: ".box-header",
                 forcePlaceholderSize: true,
-                zIndex: 999999
-            });
-            $(".connectedSortable .box-header, .connectedSortable .nav-tabs-custom").css("cursor", "move");
+                zIndex: 999999,
+                receive: function( event, ui ) {
 
-            //jQuery UI sortable for the todo list
-            $(".todo-list").sortable({
-                placeholder: "sort-highlight",
-                handle: ".handle",
-                forcePlaceholderSize: true,
-                zIndex: 999999
-            });
+                    var $thisSortable = $(this);
+                    var $targetList = $(event.target);
+                    var $tagetElement = $(event.toElement.offsetParent);
+                    var widgetID = $tagetElement.attr('data-id');
 
-            //bootstrap WYSIHTML5 - text editor
-            $(".textarea").wysihtml5();
+                    if ($targetList.hasClass('js-active-list')) {
 
-            $('.daterange').daterangepicker({
-                ranges: {
-                    'Today': [moment(), moment()],
-                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                    'This Month': [moment().startOf('month'), moment().endOf('month')],
-                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                },
-                startDate: moment().subtract(29, 'days'),
-                endDate: moment()
-            }, function (start, end) {
-                window.alert("You chose: " + start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-            });
+                        $tagetElement
+                            .find('.overlay')
+                            .removeClass('hidden');
 
-            /* jQueryKnob */
-            $(".knob").knob();
+                        setTimeout(function(){
 
-            //jvectormap data
-            var visitorsData = {
-                "US": 398, //USA
-                "SA": 400, //Saudi Arabia
-                "CA": 1000, //Canada
-                "DE": 500, //Germany
-                "FR": 760, //France
-                "CN": 300, //China
-                "AU": 700, //Australia
-                "BR": 600, //Brazil
-                "IN": 800, //India
-                "GB": 320, //Great Britain
-                "RU": 3000 //Russia
-            };
-            //World map by jvectormap
-            $('#world-map').vectorMap({
-                map: 'world_mill_en',
-                backgroundColor: "transparent",
-                regionStyle: {
-                    initial: {
-                        fill: '#e4e4e4',
-                        "fill-opacity": 1,
-                        stroke: 'none',
-                        "stroke-width": 0,
-                        "stroke-opacity": 1
+                            $.ajax({
+                                type: "PUT",
+                                url: '{{ url('admin/dashboard/update') }}',
+                                data: {
+                                    _token: '{{ csrf_token() }}',
+                                    id: widgetID,
+                                    type: 'active'
+                                },
+                                success: function(code_html, statut){
+                                    $tagetElement
+                                            .addClass('box-success')
+                                            .removeClass('box-default')
+                                            .find('.overlay')
+                                            .addClass('hidden');
+
+                                    console.log( code_html );
+                                    console.log( statut );
+                                },
+                                error: function(resultat, statut, erreur){
+
+                                    console.log( resultat );
+                                    console.log( statut );
+                                    console.log( erreur );
+
+                                },
+                                statusCode: {
+                                    422: function() {
+                                        //$thisSortable.sortable('cancel');
+                                    }
+                                }
+                            });
+                        }, 300);
                     }
-                },
-                series: {
-                    regions: [{
-                        values: visitorsData,
-                        scale: ["#92c1dc", "#ebf4f9"],
-                        normalizeFunction: 'polynomial'
-                    }]
-                },
-                onRegionLabelShow: function (e, el, code) {
-                    if (typeof visitorsData[code] != "undefined")
-                        el.html(el.html() + ': ' + visitorsData[code] + ' new visitors');
+                    else if ($targetList.hasClass('js-inactive-list')) {
+
+                        $tagetElement
+                            .find('.overlay')
+                            .removeClass('hidden');
+
+                        setTimeout(function(){
+
+                            $.ajax({
+                                type: "PUT",
+                                url: '{{ url('admin/dashboard/update') }}',
+                                data: {
+                                    _token: '{{ csrf_token() }}',
+                                    id: widgetID,
+                                    type: 'inactive'
+                                },
+                                success: function(code_html, statut){
+                                    $tagetElement
+                                            .addClass('box-default')
+                                            .removeClass('box-success')
+                                            .find('.overlay')
+                                            .addClass('hidden');
+
+                                    console.log( code_html );
+                                    console.log( statut );
+                                },
+                                error: function(resultat, statut, erreur){
+
+                                    console.log( resultat );
+                                    console.log( statut );
+                                    console.log( erreur );
+
+                                },
+                                statusCode: {
+                                    422: function() {
+                                        //$thisSortable.sortable('cancel');
+
+                                        console.log('hik');
+                                    }
+                                }
+                            });
+
+                        }, 300);
+                    }
                 }
             });
-
-            //Sparkline charts
-            var myvalues = [1000, 1200, 920, 927, 931, 1027, 819, 930, 1021];
-            $('#sparkline-1').sparkline(myvalues, {
-                type: 'line',
-                lineColor: '#92c1dc',
-                fillColor: "#ebf4f9",
-                height: '50',
-                width: '80'
-            });
-            myvalues = [515, 519, 520, 522, 652, 810, 370, 627, 319, 630, 921];
-            $('#sparkline-2').sparkline(myvalues, {
-                type: 'line',
-                lineColor: '#92c1dc',
-                fillColor: "#ebf4f9",
-                height: '50',
-                width: '80'
-            });
-            myvalues = [15, 19, 20, 22, 33, 27, 31, 27, 19, 30, 21];
-            $('#sparkline-3').sparkline(myvalues, {
-                type: 'line',
-                lineColor: '#92c1dc',
-                fillColor: "#ebf4f9",
-                height: '50',
-                width: '80'
-            });
-
-            //The Calender
-            $("#calendar").datepicker();
-
-            //SLIMSCROLL FOR CHAT WIDGET
-            $('#chat-box').slimScroll({
-                height: '250px'
-            });
-
-            /* Morris.js Charts */
-            // Sales chart
-            var area = new Morris.Area({
-                element: 'revenue-chart',
-                resize: true,
-                data: [
-                    {y: '2011 Q1', item1: 2666, item2: 2666},
-                    {y: '2011 Q2', item1: 2778, item2: 2294},
-                    {y: '2011 Q3', item1: 4912, item2: 1969},
-                    {y: '2011 Q4', item1: 3767, item2: 3597},
-                    {y: '2012 Q1', item1: 6810, item2: 1914},
-                    {y: '2012 Q2', item1: 5670, item2: 4293},
-                    {y: '2012 Q3', item1: 4820, item2: 3795},
-                    {y: '2012 Q4', item1: 15073, item2: 5967},
-                    {y: '2013 Q1', item1: 10687, item2: 4460},
-                    {y: '2013 Q2', item1: 8432, item2: 5713}
-                ],
-                xkey: 'y',
-                ykeys: ['item1', 'item2'],
-                labels: ['Item 1', 'Item 2'],
-                lineColors: ['#a0d0e0', '#3c8dbc'],
-                hideHover: 'auto'
-            });
-            var line = new Morris.Line({
-                element: 'line-chart',
-                resize: true,
-                data: [
-                    {y: '2011 Q1', item1: 2666},
-                    {y: '2011 Q2', item1: 2778},
-                    {y: '2011 Q3', item1: 4912},
-                    {y: '2011 Q4', item1: 3767},
-                    {y: '2012 Q1', item1: 6810},
-                    {y: '2012 Q2', item1: 5670},
-                    {y: '2012 Q3', item1: 4820},
-                    {y: '2012 Q4', item1: 15073},
-                    {y: '2013 Q1', item1: 10687},
-                    {y: '2013 Q2', item1: 8432}
-                ],
-                xkey: 'y',
-                ykeys: ['item1'],
-                labels: ['Item 1'],
-                lineColors: ['#efefef'],
-                lineWidth: 2,
-                hideHover: 'auto',
-                gridTextColor: "#fff",
-                gridStrokeWidth: 0.4,
-                pointSize: 4,
-                pointStrokeColors: ["#efefef"],
-                gridLineColor: "#efefef",
-                gridTextFamily: "Open Sans",
-                gridTextSize: 10
-            });
-
-            //Donut Chart
-            var donut = new Morris.Donut({
-                element: 'sales-chart',
-                resize: true,
-                colors: ["#3c8dbc", "#f56954", "#00a65a"],
-                data: [
-                    {label: "Download Sales", value: 12},
-                    {label: "In-Store Sales", value: 30},
-                    {label: "Mail-Order Sales", value: 20}
-                ],
-                hideHover: 'auto'
-            });
-
-            //Fix for charts under tabs
-            $('.box ul.nav a').on('shown.bs.tab', function () {
-                area.redraw();
-                donut.redraw();
-                line.redraw();
-            });
-
-            /* The todo list plugin */
-            $(".todo-list").todolist({
-                onCheck: function (ele) {
-                    window.console.log("The element has been checked");
-                    return ele;
-                },
-                onUncheck: function (ele) {
-                    window.console.log("The element has been unchecked");
-                    return ele;
-                }
-            });
-
+            $(".connectedSortable .box-header").css("cursor", "move");
         });
     </script>
 @endsection

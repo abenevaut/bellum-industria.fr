@@ -2,6 +2,7 @@
 
 use Pingpong\Modules\Routing\Controller;
 use Modules\Dashboard\Outputters\DashboardOutputter;
+use Modules\Dashboard\Requests\UpdateDashboardFormRequest;
 
 class AdminDashboardController extends Controller {
 
@@ -24,6 +25,11 @@ class AdminDashboardController extends Controller {
 	public function index()
 	{
 		return $this->outputter->index();
+	}
+
+	public function update(UpdateDashboardFormRequest $request)
+	{
+		return $this->outputter->update($request);
 	}
 
 	/**

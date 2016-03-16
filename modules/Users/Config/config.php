@@ -14,6 +14,7 @@ return [
 		// All dashboard widgets
 		'widgets' => [
 			'count_users',
+			'test_users',
 		]
 	]
 ];

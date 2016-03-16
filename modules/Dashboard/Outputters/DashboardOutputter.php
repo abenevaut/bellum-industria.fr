@@ -59,18 +59,36 @@ class DashboardOutputter extends AdminOutputter
         );
     }
 
+    public function update(IFormRequest $request)
+    {
+        $type = $request->get('type');
+        $id = $request->get('id');
+
+        switch ($type) {
+            case 'active': {
+                $this->r_dashboard->update(['status' => DashboardRepositoryEloquent::DASHBOARD_WIDGET_STATUS_ACTIVE], $id);
+                break;
+            }
+            case 'inactive':
+            default: {
+                $this->r_dashboard->update(['status' => DashboardRepositoryEloquent::DASHBOARD_WIDGET_STATUS_INACTIVE], $id);
+            }
+        }
+        return ['results' => 'success'];
+    }
+
     public function edit()
     {
         $this->r_dashboard->checkWidgetsList();
 
         $active_widgets = $this->r_dashboard->activeWidgets();
-        $disabled_widgets = $this->r_dashboard->inactiveWidgets();
+        $inactive_widgets = $this->r_dashboard->inactiveWidgets();
 
         return $this->output(
             'dashboard.admin.config',
             [
                 'widgets' => [
-                    'disabled' => $disabled_widgets,
+                'inactive' => $inactive_widgets,
                     'active' => $active_widgets,
                 ]
             ]
