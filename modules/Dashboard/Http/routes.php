@@ -8,5 +8,6 @@
 Route::group(['middleware' => ['web', 'CMSInstalled', 'auth', 'role:admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Dashboard\Http\Controllers'], function()
 {
 	Route::get('/', 'AdminDashboardController@index');
+	Route::get('dashboard/config', 'AdminDashboardController@config');
 	Route::resource('dashboard', 'AdminDashboardController');
 });

@@ -159,12 +159,16 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // #CVEPDB CMS
+        App\Providers\ModulesServiceProvider::class,
+
         // Entrust
         Zizaco\Entrust\EntrustServiceProvider::class,
 
         // Pingpong
         'Pingpong\Modules\ModulesServiceProvider',
         'Pingpong\Menus\MenusServiceProvider',
+        'Pingpong\Widget\WidgetServiceProvider',
 
         // ApiGuard
         Chrisbjr\ApiGuard\Providers\ApiGuardServiceProvider::class,
@@ -224,6 +228,7 @@ return [
         // Pingpong
         'Module' => 'Pingpong\Modules\Facades\Module',
         'Menu' => 'Pingpong\Menus\MenuFacade',
+        'Widget' => 'Pingpong\Widget\WidgetFacade',
 
         // ApiGuard
         'ApiGuardAuth' => \Chrisbjr\ApiGuard\Facades\ApiGuardAuth::class,

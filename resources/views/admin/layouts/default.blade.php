@@ -30,5 +30,6 @@
 </div>
 <!-- ./wrapper -->
 @include('admin.partials.js-footer')
+@yield('js')
 </body>
 </html>

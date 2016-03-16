@@ -10,6 +10,10 @@ return [
 		// Admin entry point
 		'route' => 'admin.users.index',
 		// Admin menu icon
-		'icon' => 'fa fa-users'
+		'icon' => 'fa fa-users',
+		// All dashboard widgets
+		'widgets' => [
+			'count_users',
+		]
 	]
 ];

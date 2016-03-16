@@ -1420,12 +1420,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "87c090845f135ca94eba903f1c8462e60e3a6e36"
+                "reference": "832948e22d859d399e1d9760dc477f3bb4a25599"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/87c090845f135ca94eba903f1c8462e60e3a6e36",
-                "reference": "87c090845f135ca94eba903f1c8462e60e3a6e36",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/832948e22d859d399e1d9760dc477f3bb4a25599",
+                "reference": "832948e22d859d399e1d9760dc477f3bb4a25599",
                 "shasum": ""
             },
             "require": {
@@ -1540,7 +1540,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-03-14 14:22:33"
+            "time": "2016-03-15 14:08:19"
         },
         {
             "name": "laravel/socialite",
@@ -1656,12 +1656,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "635ee279a522233a567984756bf9da1db243d9bf"
+                "reference": "e87a786e3ae12a25cf78a71bb07b4b384bfaa83a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/635ee279a522233a567984756bf9da1db243d9bf",
-                "reference": "635ee279a522233a567984756bf9da1db243d9bf",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/e87a786e3ae12a25cf78a71bb07b4b384bfaa83a",
+                "reference": "e87a786e3ae12a25cf78a71bb07b4b384bfaa83a",
                 "shasum": ""
             },
             "require": {
@@ -1731,7 +1731,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-03-12 19:04:33"
+            "time": "2016-03-14 21:54:11"
         },
         {
             "name": "league/fractal",
@@ -2034,12 +2034,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "fc36239be5a3abf0619fd24edd8e8bdc53ab5e24"
+                "reference": "e7ca4b7b04e1e10e37e2e411fc8c47a5bb6c9bae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/fc36239be5a3abf0619fd24edd8e8bdc53ab5e24",
-                "reference": "fc36239be5a3abf0619fd24edd8e8bdc53ab5e24",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/e7ca4b7b04e1e10e37e2e411fc8c47a5bb6c9bae",
+                "reference": "e7ca4b7b04e1e10e37e2e411fc8c47a5bb6c9bae",
                 "shasum": ""
             },
             "require": {
@@ -2077,7 +2077,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2016-03-10 12:01:42"
+            "time": "2016-03-15 16:39:37"
         },
         {
             "name": "paragonie/random_compat",
@@ -2659,12 +2659,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/raven-php.git",
-                "reference": "cca6d65f9f9f3428cfec8a2d3ac50af81c8ad49b"
+                "reference": "6be06907f3582d6b8271d2bb9d1460a11232de1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/raven-php/zipball/cca6d65f9f9f3428cfec8a2d3ac50af81c8ad49b",
-                "reference": "cca6d65f9f9f3428cfec8a2d3ac50af81c8ad49b",
+                "url": "https://api.github.com/repos/getsentry/raven-php/zipball/6be06907f3582d6b8271d2bb9d1460a11232de1d",
+                "reference": "6be06907f3582d6b8271d2bb9d1460a11232de1d",
                 "shasum": ""
             },
             "require": {
@@ -2705,7 +2705,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2016-02-22 18:52:26"
+            "time": "2016-03-14 18:32:39"
         },
         {
             "name": "roumen/feed",

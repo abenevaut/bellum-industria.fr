@@ -1,7 +1,10 @@
 <?php namespace Modules\Dashboard\Http\Controllers;
 
+use Widget;
 use Pingpong\Modules\Routing\Controller;
 use App\Http\Admin\Outputters\AdminOutputter;
+
+
 
 class AdminDashboardController extends Controller {
 
@@ -23,7 +26,19 @@ class AdminDashboardController extends Controller {
 	 */
 	public function index()
 	{
+
+
+
+		dd(  Widget::life()  );
+
 		return $this->outputter->output('dashboard::dashboard.admin.index', []);
 	}
 
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function config()
+	{
+		return $this->outputter->output('dashboard::dashboard.admin.config', []);
+	}
 }

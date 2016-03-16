@@ -60,7 +60,7 @@ class AdminOutputter extends AbsLaravelOutputter
         Menu::create('navbar', function ($menu) {
             $menu->header('Main navigation');
 
-            foreach (Module::enabled() as $module) {
+            foreach (Module::getOrdered() as $module) {
                 $menu->route(
                     Config::get(strtolower($module->name) . '.admin.route'),
                     Config::get(strtolower($module->name) . '.name'),
