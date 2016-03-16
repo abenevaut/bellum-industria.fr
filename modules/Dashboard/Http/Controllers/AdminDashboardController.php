@@ -7,7 +7,7 @@ use Modules\Dashboard\Requests\UpdateDashboardFormRequest;
 class AdminDashboardController extends Controller {
 
 	/**
-	 * @var UserRepository|null
+	 * @var DashboardOutputter|null
 	 */
 	protected $outputter = null;
 
