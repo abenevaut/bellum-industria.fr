@@ -21,7 +21,11 @@
   ],
   "dependencies": {
     "admin-lte.scss": "^3.1.2",
-    "jquery-validation": "^1.15.0"
+    "cvepdbjs": "0.1.1",
+    "components-font-awesome": "^4.5.0",
+    "html5shiv": "^3.7.3",
+    "respond": "^1.4.2",
+    "Ionicons": "ionicons#^2.0.1"
   },
   "devDependencies": {}
 }

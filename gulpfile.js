@@ -36,7 +36,8 @@ var config = {
  * SASS STUFF
  */
 
-gulp.task('sass', ['sass-theme_admin'], function () {});
+gulp.task('sass', ['sass-theme_admin'], function () {
+});
 
 gulp.task('sass-theme_admin', function () {
     gulp.src(config.theme_admin + '/sass/*.scss')
@@ -60,23 +61,28 @@ gulp.task('bower', function () {
     });
 });
 
-gulp.task('deploy', ['bower', 'copy'], function () {});
+gulp.task('deploy', ['bower', 'copy'], function () {
+});
 
-gulp.task('build', ['bower', 'sass', 'copy'], function () {});
+gulp.task('build', ['bower', 'sass', 'copy'], function () {
+});
 
 gulp.task('clean', function () {
     return gulp.src(config.build + '', {read: false}).pipe(clean());
 });
 
 gulp.task('copy', ['clean'], function () {
-    return gulp.src([
 
+    gulp.src([ // bower dir
+        config.bower + '/' + config.bower_public + '/**'
+    ]).pipe(gulp.dest(config.build + '/' + config.bower_public));
+
+    return gulp.src([
 
         config.theme_admin + '/**',
         '!' + config.theme_admin + '/sass/**',
 
         config.theme_installer + '/**',
-
 
         '!**/node_modules/**',
         '!.gitgnore',

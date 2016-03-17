@@ -31,6 +31,8 @@ class FilesOutputter extends AdminOutputter
         $this->set_view_prefix('files');
 
         $this->r_files = $r_files;
+
+        $this->addBreadcrumb('Files', 'admin/files');
     }
 
     /**

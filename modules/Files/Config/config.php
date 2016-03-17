@@ -10,6 +10,6 @@ return [
 		// Admin entry point
 		'route' => 'admin.files.index',
 		// Admin menu icon
-		'icon' => 'fa fa-folder-open'
+		'icon' => 'fa fa-folder'
 	]
 ];
