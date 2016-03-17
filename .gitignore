@@ -6,4 +6,5 @@ Homestead.json
 .env
 resources/assets/bower
 public/assets/*
+public/modules/*
 .env.production
