@@ -24,6 +24,5 @@
                 {{--<!-- /.input-group -->--}}
             {{--</form>--}}
         </div>
-        <!-- /.error-content -->
     </div>
 @endsection
