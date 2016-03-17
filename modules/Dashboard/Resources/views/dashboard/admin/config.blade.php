@@ -1,5 +1,9 @@
 @extends('admin.layouts.default')
 
+@section('js')
+    <script src="{{ asset('modules/dashboard/js/admin.config.js') }}"></script>
+@endsection
+
 @section('content')
 
 
@@ -117,10 +121,4 @@
     </div>
 
 
-@endsection
-
-@section('js')
-    <script>
-
-    </script>
 @endsection

@@ -59,14 +59,14 @@
     };
 
     cvepdb_config.libraries = [
-        {
-            script: {
-                CVEPDB_HIGHCHARTS_LOADED: (cvepdb_config.url_theme + cvepdb_config.base_path + 'scripts/highcharts.js')
-            },
-            trigger: '.js-call-highcharts',
-            mobile: false,
-            browser: true
-        },
+//        {
+//            script: {
+//                CVEPDB_HIGHCHARTS_LOADED: (cvepdb_config.url_theme + cvepdb_config.script_path + 'scripts/highcharts.js')
+//            },
+//            trigger: '.js-call-highcharts',
+//            mobile: true,
+//            browser: true
+//        },
         {
             script: {
                 CVEPDB_THEME_ADMIN_JS_LOADED: ('{{ asset('assets/bower/bootstrap-sass-official/assets/javascripts/bootstrap.min.js') }}')

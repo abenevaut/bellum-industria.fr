@@ -37,12 +37,6 @@
     </div>
     @include('installer::partials.footer')
 </div>
-<div class="hidden" style="display:none;">
-    <span class="field_required">{{ Lang::get('installer::installer.error:field_required') }}</span>
-    <span class="field_maxlen">{{ Lang::get('installer::installer.error:field_maxlen') }}</span>
-    <span class="field_email">{{ Lang::get('installer::installer.error:field_email') }}</span>
-    <span class="field_url">{{ Lang::get('installer::installer.error:field_url') }}</span>
-</div>
 @include('installer::partials.js-footer')
 </body>
 </html>

@@ -1,11 +1,11 @@
 @extends('installer::layouts.default')
 
 @section('js')
-    <script src="{{ asset('assets/modules/installer/js/form_validation.js') }}"></script>
+    <script src="{{ asset('modules/installer/js/form_validation.js') }}"></script>
 @endsection
 
 @section('content')
-    {!! Form::open(array('route' => 'installer.store', 'class' => 'forms')) !!}
+    {!! Form::open(array('route' => 'installer.store', 'class' => 'forms js-call-form_validation')) !!}
     <div class="callout callout-info">
         <h4>{{ Lang::get('installer::installer.intro_title') }}</h4>
 

@@ -27,8 +27,6 @@ return [
     'error:field_required' => 'This field is required',
     'error:field_email' => 'This field must be a valid email',
     'error:db_connection' => 'The installer was unable to connect to the database, please check your information.',
-    'error:field_maxlen' => 'This field can not be more than 254 characters',
-    'error:field_url' => 'This field must be a valid URL (starts with http:// or https://)',
 
     'field_section_information' => 'Website information',
 
