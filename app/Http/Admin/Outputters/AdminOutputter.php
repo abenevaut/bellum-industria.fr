@@ -61,14 +61,19 @@ class AdminOutputter extends AbsLaravelOutputter
             $menu->header('Main navigation');
 
             foreach (Module::getOrdered() as $module) {
-                $menu->route(
-                    Config::get(strtolower($module->name) . '.admin.route'),
-                    Config::get(strtolower($module->name) . '.name'),
-                    [],
-                    [
-                        'icon' => Config::get(strtolower($module->name) . '.admin.icon')
-                    ]
-                );
+
+                $route = Config::get(strtolower($module->name) . '.admin.route');
+
+                if (!is_null($route)) {
+                    $menu->route(
+                        $route,
+                        Config::get(strtolower($module->name) . '.name'),
+                        [],
+                        [
+                            'icon' => Config::get(strtolower($module->name) . '.admin.icon')
+                        ]
+                    );
+                }
             }
 
 
