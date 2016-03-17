@@ -8,6 +8,8 @@
             return true;
         });
 
+        var field_maxlength = cvepdb.globalize.translate('FIELD_MAXLENGTH').replace('%text%', '{0}');
+
         cvepdb.fv.set_rules(
             '.forms',
             {
@@ -59,43 +61,43 @@
 
                     APP_URL: {
                         required: cvepdb.globalize.translate('FIELD_REQUIRED'),
-                        maxlength: cvepdb.globalize.translate('FIELD_MAXLENGTH'),
+                        maxlength: field_maxlength,
                         url: cvepdb.globalize.translate('FIELD_VALID_URL')
                     },
 
                     last_name: {
                         required: cvepdb.globalize.translate('FIELD_REQUIRED'),
-                        maxlength: cvepdb.globalize.translate('FIELD_MAXLENGTH')
+                        maxlength: field_maxlength
                     },
                     first_name: {
                         required: cvepdb.globalize.translate('FIELD_REQUIRED'),
-                        maxlength: cvepdb.globalize.translate('FIELD_MAXLENGTH')
+                        maxlength: field_maxlength
                     },
                     email: {
                         required: cvepdb.globalize.translate('FIELD_REQUIRED'),
-                        maxlength: cvepdb.globalize.translate('FIELD_MAXLENGTH'),
+                        maxlength: field_maxlength,
                         email: cvepdb.globalize.translate('FIELD_VALID_EMAIL')
                     },
                     password: {
                         required: cvepdb.globalize.translate('FIELD_REQUIRED'),
-                        maxlength: cvepdb.globalize.translate('FIELD_MAXLENGTH')
+                        maxlength: field_maxlength
                     },
 
                     DB_HOST: {
                         required: cvepdb.globalize.translate('FIELD_REQUIRED'),
-                        maxlength: cvepdb.globalize.translate('FIELD_MAXLENGTH')
+                        maxlength: field_maxlength
                     },
                     DB_DATABASE: {
                         required: cvepdb.globalize.translate('FIELD_REQUIRED'),
-                        maxlength: cvepdb.globalize.translate('FIELD_MAXLENGTH')
+                        maxlength: field_maxlength
                     },
                     DB_USERNAME: {
                         required: cvepdb.globalize.translate('FIELD_REQUIRED'),
-                        maxlength: cvepdb.globalize.translate('FIELD_MAXLENGTH')
+                        maxlength: field_maxlength
                     },
                     DB_PASSWORD: {
                         required: cvepdb.globalize.translate('FIELD_REQUIRED'),
-                        maxlength: cvepdb.globalize.translate('FIELD_MAXLENGTH')
+                        maxlength: field_maxlength
                     }
 
                 },
