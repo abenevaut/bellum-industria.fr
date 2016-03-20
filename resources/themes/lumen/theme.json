@@ -1,0 +1,13 @@
+{
+	"name": "lumen",
+	"description": "",
+	"author": [
+		{
+			"name": "",
+			"email": ""
+		}
+	],
+	"files": [
+		"theme.php"
+	]
+}

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "209c9a06fdc1b3f8d7089d4d79a5dfc4",
-    "content-hash": "1e476e89be9c591bf7bd4bd24b28270b",
+    "hash": "0bac6a7d239426b27ecfcbf69a10b108",
+    "content-hash": "7a2051619f8dfb151c9e90d0346ee13d",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -161,6 +161,105 @@
             "time": "2016-01-24 12:28:38"
         },
         {
+            "name": "composer/installers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "0d061bff8273df2f4a45287209acfb769a01a02d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/0d061bff8273df2f4a45287209acfb769a01a02d",
+                "reference": "0d061bff8273df2f4a45287209acfb769a01a02d",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Composer\\Installers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "http://composer.github.com/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Hurad",
+                "MODX Evo",
+                "Mautic",
+                "OXID",
+                "SMF",
+                "Thelia",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "elgg",
+                "fuelphp",
+                "grav",
+                "installer",
+                "joomla",
+                "kohana",
+                "laravel",
+                "lithium",
+                "magento",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "moodle",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "puppet",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "zend",
+                "zikula"
+            ],
+            "time": "2016-03-11 13:58:36"
+        },
+        {
             "name": "creitive/breadcrumbs",
             "version": "v2.0.0",
             "source": {
@@ -254,20 +353,63 @@
             "time": "2015-03-07 18:48:36"
         },
         {
-            "name": "cvepdb/abstract",
-            "version": "1.0.52.2",
+            "name": "cvepdb-cms/theme-adminlte",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@gitlab.com:cvepdb/abstract.git",
-                "reference": "8b2abd1aabc2f5b236ffc89720763ea891110540"
+                "url": "git@gitlab.com:cvepdb-cms/theme-adminlte.git",
+                "reference": "91bae5485b76724c65b68dfdd2ba9f94aadb68bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb%2Fabstract/repository/archive.zip?sha=8b2abd1aabc2f5b236ffc89720763ea891110540",
-                "reference": "8b2abd1aabc2f5b236ffc89720763ea891110540",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=91bae5485b76724c65b68dfdd2ba9f94aadb68bf",
+                "reference": "91bae5485b76724c65b68dfdd2ba9f94aadb68bf",
                 "shasum": ""
             },
             "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "adminlte"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "open"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Theme adminlte for #CVEPDB CMS",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "AdminLTE",
+                "CVEPDB",
+                "cms",
+                "theme"
+            ],
+            "time": "2016-03-18 10:54:57"
+        },
+        {
+            "name": "cvepdb/abstract",
+            "version": "1.0.52.3",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb/abstract.git",
+                "reference": "9043b7d93dd34b91bce1abbd437d466b1def1410"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb%2Fabstract/repository/archive.zip?sha=9043b7d93dd34b91bce1abbd437d466b1def1410",
+                "reference": "9043b7d93dd34b91bce1abbd437d466b1def1410",
+                "shasum": ""
+            },
+            "require": {
+                "barryvdh/laravel-debugbar": "^2.2",
                 "chrisbjr/api-guard": "^2.3",
                 "creitive/laravel5-breadcrumbs": "^1.0",
                 "doctrine/dbal": "~2.3",
@@ -279,6 +421,7 @@
                 "php": ">=5.5.9",
                 "pingpong/menus": "^2.2",
                 "pingpong/modules": "~2.2",
+                "pingpong/themes": "~2.2",
                 "pingpong/widget": "~2.2",
                 "predis/predis": "^1.0",
                 "prettus/l5-repository": "^2.1",
@@ -316,7 +459,7 @@
                 "interfaces",
                 "laravel"
             ],
-            "time": "2016-03-14 17:12:31"
+            "time": "2016-03-18 10:31:36"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1474,12 +1617,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "832948e22d859d399e1d9760dc477f3bb4a25599"
+                "reference": "2a38acf7ee2882d831a3b9a1361a710e70ffa31e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/832948e22d859d399e1d9760dc477f3bb4a25599",
-                "reference": "832948e22d859d399e1d9760dc477f3bb4a25599",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2a38acf7ee2882d831a3b9a1361a710e70ffa31e",
+                "reference": "2a38acf7ee2882d831a3b9a1361a710e70ffa31e",
                 "shasum": ""
             },
             "require": {
@@ -1594,7 +1737,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-03-15 14:08:19"
+            "time": "2016-03-17 12:33:04"
         },
         {
             "name": "laravel/socialite",
@@ -2196,7 +2339,7 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v1.2.2",
+            "version": "v1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
@@ -2435,6 +2578,58 @@
             ],
             "description": "Support Component of Pingpong Sky Package",
             "time": "2016-01-07 08:23:04"
+        },
+        {
+            "name": "pingpong/themes",
+            "version": "2.2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pingpong-labs/themes.git",
+                "reference": "9db61b9242207ac7eb199e276b51afa6f675dab8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pingpong-labs/themes/zipball/9db61b9242207ac7eb199e276b51afa6f675dab8",
+                "reference": "9db61b9242207ac7eb199e276b51afa6f675dab8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "5.2.*",
+                "illuminate/filesystem": "5.2.*",
+                "illuminate/support": "5.2.*",
+                "illuminate/translation": "5.2.*",
+                "illuminate/view": "5.2.*",
+                "php": ">=5.4.0",
+                "pingpong/support": "2.2.*"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pingpong\\Themes\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Pingpong Labs",
+                    "email": "pingpong.labs@gmail.com"
+                }
+            ],
+            "description": "Laravel Themes",
+            "keywords": [
+                "laravel",
+                "pingpong",
+                "theme",
+                "themes"
+            ],
+            "time": "2016-01-22 03:45:25"
         },
         {
             "name": "pingpong/widget",
@@ -2981,12 +3176,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "a82c065e1904781ccb98427e7f523c7b08313c0c"
+                "reference": "6b1175135bc2a74c08a28d89761272de8beed8cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/a82c065e1904781ccb98427e7f523c7b08313c0c",
-                "reference": "a82c065e1904781ccb98427e7f523c7b08313c0c",
+                "url": "https://api.github.com/repos/symfony/console/zipball/6b1175135bc2a74c08a28d89761272de8beed8cd",
+                "reference": "6b1175135bc2a74c08a28d89761272de8beed8cd",
                 "shasum": ""
             },
             "require": {
@@ -3033,7 +3228,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-10 10:34:12"
+            "time": "2016-03-16 17:00:50"
         },
         {
             "name": "symfony/debug",
@@ -3041,12 +3236,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "57985dcc88b6c098f6e18a4b1f03b66502b97240"
+                "reference": "3efe7b65ade785ef81d01074ce21e12f72847495"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/57985dcc88b6c098f6e18a4b1f03b66502b97240",
-                "reference": "57985dcc88b6c098f6e18a4b1f03b66502b97240",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/3efe7b65ade785ef81d01074ce21e12f72847495",
+                "reference": "3efe7b65ade785ef81d01074ce21e12f72847495",
                 "shasum": ""
             },
             "require": {
@@ -3090,7 +3285,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-10 10:34:12"
+            "time": "2016-03-16 15:33:32"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -3207,12 +3402,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "c753a48ab9b7c0959b95cd57a1be1d9429a61e1e"
+                "reference": "3bbea2cc807b15c36e46b51ff1e359ef0c619842"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/c753a48ab9b7c0959b95cd57a1be1d9429a61e1e",
-                "reference": "c753a48ab9b7c0959b95cd57a1be1d9429a61e1e",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/3bbea2cc807b15c36e46b51ff1e359ef0c619842",
+                "reference": "3bbea2cc807b15c36e46b51ff1e359ef0c619842",
                 "shasum": ""
             },
             "require": {
@@ -3252,7 +3447,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-10 19:36:40"
+            "time": "2016-03-16 15:33:32"
         },
         {
             "name": "symfony/http-kernel",
@@ -3260,12 +3455,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "c78ea6b3392840f6b8fb1cec2ca4d91e4b8ed1d1"
+                "reference": "391723add4ea634f2c864208119b0cc2b30bb9db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/c78ea6b3392840f6b8fb1cec2ca4d91e4b8ed1d1",
-                "reference": "c78ea6b3392840f6b8fb1cec2ca4d91e4b8ed1d1",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/391723add4ea634f2c864208119b0cc2b30bb9db",
+                "reference": "391723add4ea634f2c864208119b0cc2b30bb9db",
                 "shasum": ""
             },
             "require": {
@@ -3334,7 +3529,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-10 11:13:05"
+            "time": "2016-03-16 16:19:48"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -3509,12 +3704,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "15f4db2e113d57fa77c2ab0fbe9c461bf1c68ecc"
+                "reference": "3c023430a4963b5fedf9ab02b997ec2cee7cb26a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/15f4db2e113d57fa77c2ab0fbe9c461bf1c68ecc",
-                "reference": "15f4db2e113d57fa77c2ab0fbe9c461bf1c68ecc",
+                "url": "https://api.github.com/repos/symfony/process/zipball/3c023430a4963b5fedf9ab02b997ec2cee7cb26a",
+                "reference": "3c023430a4963b5fedf9ab02b997ec2cee7cb26a",
                 "shasum": ""
             },
             "require": {
@@ -3550,7 +3745,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-10 10:34:12"
+            "time": "2016-03-16 16:19:48"
         },
         {
             "name": "symfony/routing",
@@ -3633,12 +3828,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "f6565c42f46b53b2d762826ec3834954344fd08c"
+                "reference": "0153c17d511f34aa27085d1897939f04e1059c2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/f6565c42f46b53b2d762826ec3834954344fd08c",
-                "reference": "f6565c42f46b53b2d762826ec3834954344fd08c",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/0153c17d511f34aa27085d1897939f04e1059c2a",
+                "reference": "0153c17d511f34aa27085d1897939f04e1059c2a",
                 "shasum": ""
             },
             "require": {
@@ -3689,7 +3884,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-04 07:55:57"
+            "time": "2016-03-16 16:19:48"
         },
         {
             "name": "symfony/var-dumper",
@@ -4164,7 +4359,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "cvepdb-cms/theme-adminlte": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

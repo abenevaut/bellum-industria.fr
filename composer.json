@@ -7,9 +7,10 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.5.9",
+        "composer/installers": "~1.0",
         "laravel/framework": "5.2.*",
         "cvepdb/abstract": "1.0.52.*",
-        "barryvdh/laravel-debugbar": "^2.2"
+        "cvepdb-cms/theme-adminlte": "master-dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -45,13 +46,20 @@
             "php artisan optimize"
         ],
         "pre-update-cmd": [
-            "php artisan clear-compiled"
         ],
         "post-update-cmd": [
+            "php artisan clear-compiled",
             "php artisan optimize"
         ]
     },
     "config": {
         "preferred-install": "dist"
+    },
+    "extra": {
+        "installer-paths": {
+            "resources/themes/{$name}": [
+                "cvepdb-cms/theme-adminlte"
+            ]
+        }
     }
 }

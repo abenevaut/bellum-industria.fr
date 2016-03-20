@@ -6,38 +6,21 @@ use App;
 use Config;
 use Menu;
 use Module;
-use CVEPDB\Services\Outputters\AbsLaravelOutputter;
+use App\Outputters\CoreOutputter;
 
-class AdminOutputter extends AbsLaravelOutputter
+class AdminOutputter extends CoreOutputter
 {
-    /**
-     * @var string Outputter header title
-     */
-    protected $title = 'default';
-
-    /**
-     * @var string Outputter header description
-     */
-    protected $description = 'default';
-
-    /**
-     * @var string View namespace ('users::'|null)
-     */
-    protected $view_prefix = '';
-
     public function __construct()
     {
         parent::__construct();
 
         $this->addBreadcrumb('Dashboard', 'admin/');
-        $this->setBreadcrumbDivider('');
-        $this->breadcrumbs->setListElement('li');
     }
 
     public function output($view, $data)
     {
         return parent::output(
-            $this->view_prefix . $view,
+            $view,
             $data
             + $this->admin_data_header()
             + $this->admin_data_sidebar()

@@ -28,8 +28,6 @@ class DashboardOutputter extends AdminOutputter
     {
         parent::__construct();
 
-        $this->set_view_prefix('dashboard');
-
         $this->r_dashboard = $r_dashboard;
     }
 

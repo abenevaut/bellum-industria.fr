@@ -1,0 +1,31 @@
+{
+  "name": "cvepdb/laravel-cms",
+  "version": "1.0.0",
+  "authors": [
+    "Antoine Benevaut <antoine@cvepdb.fr>"
+  ],
+  "description": "cvepdb/laravel-cms tools",
+  "keywords": [
+    "cvepdb",
+    "laravel-cms",
+    "cvepdb/laravel-cms"
+  ],
+  "license": "Ca va ENCORE parler de bits!",
+  "homepage": "http://cvepdb.fr",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "admin-lte.scss": "^3.1.2",
+    "cvepdbjs": "0.1.4",
+    "components-font-awesome": "^4.5.0",
+    "html5shiv": "^3.7.3",
+    "respond": "^1.4.2",
+    "Ionicons": "ionicons#^2.0.1"
+  },
+  "devDependencies": {}
+}

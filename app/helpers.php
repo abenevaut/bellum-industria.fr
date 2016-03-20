@@ -30,3 +30,15 @@ function css_file_rev($file, $env = 'admin')
     $list = json_decode(File::get(base_path().'/public/assets/rev/'.$env.'/css.manifest.json'));
     return $list->{$file};
 }
+
+function find_view($view, $view_prefix, $current_module)
+{
+    $current_prefix = $view_prefix;
+
+    try {
+        \Theme::view($view);
+    } catch (\InvalidArgumentException $e) {
+        $current_prefix = $current_module;
+    }
+    return view($current_prefix . $view);
+}

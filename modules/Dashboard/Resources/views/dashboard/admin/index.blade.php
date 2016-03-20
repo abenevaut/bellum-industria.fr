@@ -1,4 +1,4 @@
-@extends('admin.layouts.default')
+@extends('layouts.app')
 
 @section('content')
 
@@ -10,7 +10,7 @@
                 <div class="" style="padding: 5px; ">
 
                     <a href="{{ url('admin/dashboard/config') }}" class="btn btn-default btn-flat">
-                        <i class="fa fa-cog"></i> Settings
+                        <i class="fa fa-cog"></i> Settings 1
                     </a>
                 </div>
 

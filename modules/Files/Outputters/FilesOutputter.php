@@ -28,11 +28,11 @@ class FilesOutputter extends AdminOutputter
     {
         parent::__construct();
 
-        $this->set_view_prefix('files');
-
         $this->r_files = $r_files;
 
         $this->addBreadcrumb('Files', 'admin/files');
+
+        //$this->set_view_prefix('files::');
     }
 
     /**

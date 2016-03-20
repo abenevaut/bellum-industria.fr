@@ -14,7 +14,7 @@
 Route::group(['middleware' => ['web', 'CMSInstalled']], function () {
 
     Route::get('/', function () {
-        return view('front.welcome');
+        return view('welcome');
     });
 
     Route::get('/home', '\App\Http\Front\Controllers\HomeController@index');
