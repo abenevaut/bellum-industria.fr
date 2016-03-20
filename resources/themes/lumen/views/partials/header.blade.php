@@ -18,33 +18,26 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">
-                        Users <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="download">
-
-                        @if (Auth::check())
-
+                @if (Auth::check())
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">
+                            {{ Auth::user()->full_name }} <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="download">
                             @if (Auth::user()->hasRole('admin'))
-
-                                <li><a href="{{ url('admin') }}">Admin dashboard</a></li>
+                                <li><a href="{{ url('admin') }}" target="_blank">Admin dashboard</a></li>
                                 <li class="divider"></li>
-
                             @endif
-
-
                             <li><a href="{{ url('logout') }}">Logout</a></li>
-                        @else
-                            <li><a href="{{ url('login') }}">login</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ url('register') }}">register</a></li>
-                        @endif
+                        </ul>
+                    </li>
+                @else
+                    <li><a href="{{ url('register') }}">Register</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{{ url('login') }}">Login</a></li>
+                @endif
 
-                    </ul>
-                </li>
             </ul>
-
         </div>
     </div>
 </div>
