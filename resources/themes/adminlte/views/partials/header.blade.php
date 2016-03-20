@@ -23,8 +23,15 @@
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        {{--<img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}}
-                        <span class="hidden-xs">{{ Auth::check() && Auth::user()->full_name }}</span>
+                        @if (Auth::check())
+                            @gravatar(Auth::user()->email, ["class" => "user-image"])
+                        @endif
+
+                        <span class="hidden-xs">
+                            @if (Auth::check())
+                                {{ Auth::user()->full_name }}
+                            @endif
+                        </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->

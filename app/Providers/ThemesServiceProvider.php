@@ -59,6 +59,10 @@ class ThemesServiceProvider extends ServiceProvider
     {
         $theme = '';
 
+        /*
+         * Todo : get front/back end theme from DB/JSON/CACHE something fast
+         */
+
         if ($this->inAdministration()) {
             $theme = config('app.themes.backend');
         }
