@@ -7,7 +7,7 @@ use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
 use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
 
-class UserOutputter extends AdminOutputter
+class UserAdminOutputter extends AdminOutputter
 {
     /**
      * @var string Outputter header title
@@ -42,7 +42,7 @@ class UserOutputter extends AdminOutputter
     {
         parent::__construct();
 
-        $this->set_view_prefix('users');
+        $this->set_current_module('users');
 
         $this->r_user = $r_user;
         $this->r_role = $r_role;

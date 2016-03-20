@@ -20,6 +20,11 @@ class Authenticate
         if (Auth::guard($guard)->guest()) {
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
+            } else if (
+                $request->is(config('app.backend'))
+                || $request->is(config('app.backend') . '/*')
+            ) {
+                return redirect()->guest(config('app.backend').'/login');
             } else {
                 return redirect()->guest('login');
             }

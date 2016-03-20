@@ -20,15 +20,26 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">
-                        Lumen <span class="caret"></span>
+                        Users <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="download">
 
+                        @if (Auth::check())
 
-                        <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
-                        <li class="divider"></li>
-                        <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
+                            @if (Auth::user()->hasRole('admin'))
 
+                                <li><a href="{{ url('admin') }}">Admin dashboard</a></li>
+                                <li class="divider"></li>
+
+                            @endif
+
+
+                            <li><a href="{{ url('logout') }}">Logout</a></li>
+                        @else
+                            <li><a href="{{ url('login') }}">login</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{ url('register') }}">register</a></li>
+                        @endif
 
                     </ul>
                 </li>

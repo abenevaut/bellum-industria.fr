@@ -30,6 +30,14 @@ Route::group(['middleware' => ['web', 'CMSInstalled']], function () {
 
 });
 
+Route::group(['middleware' => ['web', 'CMSInstalled'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers'], function()
+{
+	// Authentication routes...
+	Route::get('login', '\Modules\Users\Http\Controllers\Auth\AuthAdminController@getLogin');
+	Route::post('login', '\Modules\Users\Http\Controllers\Auth\AuthAdminController@postLogin');
+	Route::get('logout', '\Modules\Users\Http\Controllers\Auth\AuthAdminController@getLogout');
+});
+
 Route::group(['middleware' => ['web', 'CMSInstalled', 'auth', 'role:admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers'], function()
 {
 	Route::resource('users', 'AdminUsersController');

@@ -5,7 +5,7 @@ use App\Http\Admin\Outputters\AdminOutputter;
 use CVEPDB\Requests\IFormRequest;
 use Modules\Dashboard\Repositories\DashboardRepositoryEloquent;
 
-class DashboardOutputter extends AdminOutputter
+class AdminDashboardOutputter extends AdminOutputter
 {
     /**
      * @var string Outputter header title
@@ -29,6 +29,8 @@ class DashboardOutputter extends AdminOutputter
         parent::__construct();
 
         $this->r_dashboard = $r_dashboard;
+
+        $this->set_current_module('dashboard');
     }
 
     /**

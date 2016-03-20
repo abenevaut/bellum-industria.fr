@@ -1,7 +1,8 @@
 <?php namespace Modules\Users\Http\Controllers;
 
 use Pingpong\Modules\Routing\Controller;
-use Modules\Users\Outputters\UserOutputter;
+use Modules\Users\Outputters\UserAdminOutputter;
+use Modules\Users\Requests\UserAdminFormRequest;
 
 class AdminUsersController extends Controller {
 
@@ -13,7 +14,7 @@ class AdminUsersController extends Controller {
 	/**
 	 * @param UserOutputter $outputter
 	 */
-	public function __construct(UserOutputter $outputter)
+	public function __construct(UserAdminOutputter $outputter)
 	{
 		$this->outputter = $outputter;
 	}
@@ -42,7 +43,7 @@ class AdminUsersController extends Controller {
 	 * @param Request $request
 	 * @return Response
 	 */
-	public function store(UserFormRequest $request)
+	public function store(UserAdminFormRequest $request)
 	{
 		return $this->outputter->store($request);
 	}
@@ -75,7 +76,7 @@ class AdminUsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id, UserFormRequest $request)
+	public function update($id, UserAdminFormRequest $request)
 	{
 		return $this->outputter->update($id, $request);
 	}
@@ -90,15 +91,4 @@ class AdminUsersController extends Controller {
 	{
 		return $this->outputter->destroy($id);
 	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function storeClient(UserFormRequest $request)
-	{
-		return $this->outputter->storeClient($request);
-	}
-	
 }

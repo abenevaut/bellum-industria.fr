@@ -1,20 +1,20 @@
 <?php namespace Modules\Dashboard\Http\Controllers;
 
 use Pingpong\Modules\Routing\Controller;
-use Modules\Dashboard\Outputters\DashboardOutputter;
+use Modules\Dashboard\Outputters\AdminDashboardOutputter;
 use Modules\Dashboard\Requests\UpdateDashboardFormRequest;
 
 class AdminDashboardController extends Controller {
 
 	/**
-	 * @var DashboardOutputter|null
+	 * @var AdminDashboardOutputter|null
 	 */
 	protected $outputter = null;
 
 	/**
-	 * @param UserOutputter $outputter
+	 * @param AdminDashboardOutputter $outputter
 	 */
-	public function __construct(DashboardOutputter $outputter)
+	public function __construct(AdminDashboardOutputter $outputter)
 	{
 		$this->outputter = $outputter;
 	}

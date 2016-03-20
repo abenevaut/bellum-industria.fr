@@ -8,9 +8,9 @@ use CVEPDB\Controllers\AbsController as Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Theme;
-use Modules\Users\Outputters\AuthOutputter;
+use Modules\Users\Outputters\AuthAdminOutputter;
 
-class AuthController extends Controller
+class AuthAdminController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -30,10 +30,10 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = 'admin';
 
     /**
-     * @var AuthOutputter|null
+     * @var AuthAdminOutputter|null
      */
     private $outputter = null;
 
@@ -42,12 +42,12 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct(AuthOutputter $outputter)
+    public function __construct(AuthAdminOutputter $outputter)
     {
         parent::__construct();
         $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
         $this->outputter = $outputter;
-        $this->view_prefix = \Theme::getCurrent() . '::';
+        $this->view_prefix = Theme::getCurrent() . '::';
     }
 
     /**
@@ -65,47 +65,8 @@ class AuthController extends Controller
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-
-        // Todo assign user role(s)
-
-        return $user;
-    }
-
     public function getLogin()
     {
-        return $this->outputter->output('users.login');
+        return $this->outputter->output('users.admin.login');
     }
-
-    /**
-     * Show the application registration form.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function getRegister()
-    {
-        return $this->outputter->output('users.register');
-    }
-
-    /**
-     * Get the post register / login redirect path.
-     *
-     * @return string
-     */
-//    public function redirectPath()
-//    {
-//        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
-//    }
 }

@@ -6,18 +6,17 @@ use App;
 use Config;
 use Menu;
 use Module;
-use App\Outputters\CoreOutputter;
+use App\Http\Outputters\CoreOutputter;
 
 class AdminOutputter extends CoreOutputter
 {
     public function __construct()
     {
         parent::__construct();
-
         $this->addBreadcrumb('Dashboard', 'admin/');
     }
 
-    public function output($view, $data)
+    public function output($view, $data = [])
     {
         return parent::output(
             $view,
@@ -78,12 +77,5 @@ class AdminOutputter extends CoreOutputter
                 'url' => Config::get('app.url'),
             ]
         ];
-    }
-
-    protected function set_view_prefix($module)
-    {
-        $this->view_prefix = Config::get($module . '.view.use_namespace')
-            ? strtolower(Config::get($module . '.name')) . '::'
-            : 'modules.';
     }
 }

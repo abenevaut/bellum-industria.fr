@@ -7,6 +7,13 @@ use Illuminate\View\FileViewFinder;
 use Theme;
 use Config;
 
+/**
+ * Class ThemesServiceProvider
+ *
+ * Allow to use the right front/back end theme by first URI (looking for 'app.backend' first segment)
+ *
+ * @package App\Providers
+ */
 class ThemesServiceProvider extends ServiceProvider
 {
     public function register()
