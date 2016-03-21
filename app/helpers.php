@@ -32,8 +32,12 @@ function css_file_rev($file)
     return $list->{$file};
 }
 
-function find_view($view, $view_prefix, $current_module, $data = [])
+function cmsview($view, $data = [], $view_prefix = null, $current_module = null)
 {
+    if (is_null($view_prefix)) {
+        $view_prefix = \Theme::getCurrent().'::';
+    }
+
     $current_prefix = $view_prefix;
 
     try {
@@ -42,4 +46,20 @@ function find_view($view, $view_prefix, $current_module, $data = [])
         $current_prefix = $current_module;
     }
     return view($current_prefix . $view, $data);
+}
+
+function cmsview_prefix($view, $view_prefix = null, $current_module = null)
+{
+    if (is_null($view_prefix)) {
+        $view_prefix = \Theme::getCurrent().'::';
+    }
+
+    $current_prefix = $view_prefix;
+
+    try {
+        \Theme::view($view);
+    } catch (\InvalidArgumentException $e) {
+        $current_prefix = $current_module;
+    }
+    return $current_prefix;
 }

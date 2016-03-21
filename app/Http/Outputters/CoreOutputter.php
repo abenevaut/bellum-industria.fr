@@ -40,9 +40,9 @@ class CoreOutputter extends AbsLaravelOutputter
         $this->set_view_prefix();
     }
 
-    public function output($view, $data)
+    public function output($view, $data = [])
     {
-        return find_view($view, $this->view_prefix, $this->current_module, $data);
+        return cmsview($view, $data, $this->view_prefix, $this->current_module);
     }
 
     private function set_view_prefix()

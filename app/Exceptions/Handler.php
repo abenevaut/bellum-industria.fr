@@ -60,10 +60,10 @@ class Handler extends ExceptionHandler
     protected function renderHttpException(HttpException $e)
     {
         $status = $e->getStatusCode();
-        $view_prefix = strncmp($this->requested_uri, '/admin', strlen('/admin')) ? 'front' : 'admin';
+        $view = "errors.{$status}";
 
-        if (view()->exists("{$view_prefix}.errors.{$status}")) {
-            return response()->view("{$view_prefix}.errors.{$status}", ['exception' => $e], $status, $e->getHeaders());
+        if (cmsview($view)) {
+            return response()->view(cmsview_prefix($view).$view, ['exception' => $e], $status, $e->getHeaders());
         } else {
             return $this->convertExceptionToResponse($e);
         }
