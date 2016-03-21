@@ -10,7 +10,7 @@
                 <div class="" style="padding: 5px; ">
 
                     <a href="{{ url('admin/dashboard/config') }}" class="btn btn-default btn-flat">
-                        <i class="fa fa-cog"></i> Settings xD
+                        <i class="fa fa-cog"></i> Settings
                     </a>
                 </div>
 

@@ -1,4 +1,4 @@
-@extends('admin.layouts.default')
+@extends('adminlte::layouts.default')
 
 @section('js')
     <script src="{{ asset('modules/dashboard/js/admin.config.js') }}"></script>
