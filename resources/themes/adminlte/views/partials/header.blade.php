@@ -64,7 +64,7 @@
                                 {{--<a href="#" class="btn btn-default btn-flat">Profile</a>--}}
                             {{--</div>--}}
                             {{--<div class="pull-right">--}}
-                                <a class="btn btn-default btn-flat" href="{{ url('logout') }}"><i class="fa fa-btn fa-sign-out"></i>Sign out</a>
+                                <a class="btn btn-default btn-flat" href="{{ url('admin/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Sign out</a>
                             {{--</div>--}}
                         </li>
                     </ul>
