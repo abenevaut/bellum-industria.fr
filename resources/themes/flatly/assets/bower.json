@@ -1,10 +1,10 @@
 {
-  "name": "cvepdb-cms/theme-lumen",
+  "name": "cvepdb-cms/theme-flatly",
   "version": "1.0.0",
   "authors": [
     "Antoine Benevaut <antoine@cvepdb.fr>"
   ],
-  "description": "cvepdb/cms bootswatch theme : lumen",
+  "description": "cvepdb/cms bootswatch theme : flatly",
   "keywords": [
     "cvepdb",
     "cms",

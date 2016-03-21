@@ -1,8 +1,8 @@
 {
-    "name": "cvepdb-cms/theme-lumen",
-    "description": "Theme lumen for #CVEPDB CMS",
+    "name": "cvepdb-cms/theme-flatly",
+    "description": "Theme flatly for #CVEPDB CMS",
     "keywords": [
-        "Theme","lumen","CVEPDB","CMS"
+        "Theme","flatly","CVEPDB","CMS"
     ],
     "license": "open",
     "type": "laravel-library",
@@ -18,6 +18,6 @@
         "composer/installers": "~1.0"
     },
     "extra": {
-        "installer-name": "lumen"
+        "installer-name": "flatly"
     }
 }

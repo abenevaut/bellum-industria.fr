@@ -1,10 +1,10 @@
 {
 	"name": "flatly",
-	"description": "",
+	"description": "Bootswatch flatly theme",
 	"author": [
 		{
-			"name": "",
-			"email": ""
+			"name": "Antoine Benevaut",
+			"email": "antoine@cvepdb.fr"
 		}
 	],
 	"files": [
