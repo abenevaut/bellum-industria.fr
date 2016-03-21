@@ -27,6 +27,9 @@ class ThemesServiceProvider extends ServiceProvider
         $this->setActiveTheme();
     }
 
+    /**
+     * Try to read themes.config.file to get active front/back end themes
+     */
     protected function overrideConfig()
     {
         if (file_exists(config('themes.config.file'))) {
