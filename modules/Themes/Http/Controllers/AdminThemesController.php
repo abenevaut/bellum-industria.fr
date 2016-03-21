@@ -17,4 +17,9 @@ class AdminThemesController extends Controller
         return $this->outputter->index();
     }
 
+    public function edit($theme)
+    {
+        return $this->outputter->edit($theme);
+    }
+
 }

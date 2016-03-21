@@ -17,8 +17,7 @@ class ThemeAdminOutputter extends AdminOutputter
     protected $description = 'theme selection';
 
 
-    public function __construct(
-    )
+    public function __construct()
     {
         parent::__construct();
 
@@ -32,9 +31,33 @@ class ThemeAdminOutputter extends AdminOutputter
      */
     public function index()
     {
+        $themes = [
+            'backend' => [],
+            'frontend' => []
+        ];
+
+        foreach (\Theme::all() as $theme) {
+
+            $theme_config = $theme->getPath() . '/theme.json';
+
+            if (file_exists($theme_config)) {
+                $theme_config = json_decode(
+                    file_get_contents($theme_config)
+                );
+                $themes[$theme_config->type][$theme->name] = [
+                    'name' => $theme->name,
+                    'preview' => !empty($theme_config->preview) ? $theme_config->preview : '',
+                    'preview_path' => 'themes/' . $theme->name . '/img/',
+                    'path' => $theme->getPath(),
+                    'active' => config('app.themes.' . $theme_config->type) === $theme->name
+                ];
+            }
+        }
+
         return $this->output(
             'themes.admin.index',
             [
+                'themes' => $themes
             ]
         );
     }
@@ -71,11 +94,65 @@ class ThemeAdminOutputter extends AdminOutputter
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  string $id Theme ID to set active
      * @return Response
      */
     public function edit($id)
     {
+        $themes = [
+            'backend' => [],
+            'frontend' => []
+        ];
+
+        foreach (\Theme::all() as $theme) {
+
+            $theme_config = $theme->getPath() . '/theme.json';
+
+            if (file_exists($theme_config)) {
+                $theme_config = json_decode(
+                    file_get_contents($theme_config)
+                );
+                array_push($themes[$theme_config->type], $theme->name);
+            }
+        }
+
+        $theme_config = [
+            'backend' => '',
+            'frontend' => ''
+        ];
+
+        if (file_exists(config('themes.config.file'))) {
+            $theme_config = file_get_contents(config('themes.config.file'));
+            $theme_config = json_decode($theme_config);
+        }
+
+        if (
+            array_key_exists('frontend', $themes)
+            && in_array($id, $themes['frontend'])
+        ) {
+            $theme_config->frontend = $id;
+        }
+        else if (!file_exists(config('themes.config.file'))) {
+            $theme_config->frontend = config('app.themes.frontend');
+        }
+
+
+        if (
+            array_key_exists('backend', $themes)
+            && in_array($id, $themes['backend'])
+        ) {
+            $theme_config->backend = $id;
+        }
+        else if (!file_exists(config('themes.config.file'))) {
+            $theme_config->backend = config('app.themes.backend');
+        }
+
+        file_put_contents(
+            config('themes.config.file'),
+            json_encode($theme_config)
+        );
+
+        return redirect('admin/themes');
     }
 
     /**
