@@ -72,6 +72,6 @@ class PasswordController extends Controller
         {
             throw new NotFoundHttpException;
         }
-        $this->outputter->output('users.passwords.reset', ['token' => $token]);
+        return $this->outputter->output('users.passwords.reset', ['token' => $token]);
     }
 }
