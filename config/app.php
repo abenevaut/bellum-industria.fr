@@ -163,6 +163,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+//        Modules\Users\Providers\PasswordResetServiceProvider::class,
 
         // Entrust
         Zizaco\Entrust\EntrustServiceProvider::class,

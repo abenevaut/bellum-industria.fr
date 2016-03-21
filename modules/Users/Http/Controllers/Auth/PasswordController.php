@@ -5,6 +5,10 @@ namespace Modules\Users\Http\Controllers\Auth;
 use CVEPDB\Controllers\AbsController as Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Theme;
+use Modules\Users\Outputters\PasswordOutputter;
+use Illuminate\Http\Request;
+use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Password;
 
 class PasswordController extends Controller
 {
@@ -31,14 +35,18 @@ class PasswordController extends Controller
      */
     protected $current_module = 'users::';
 
+    private $outputter = null;
+
     /**
      * Create a new password controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(PasswordOutputter $outputter)
     {
         $this->middleware('guest');
+        $this->outputter = $outputter;
+        $this->subject = trans('passwords.mail_reset_password_title');
         $this->view_prefix = \Theme::getCurrent() . '::';
     }
 
@@ -49,7 +57,7 @@ class PasswordController extends Controller
      */
     public function getEmail()
     {
-        return view('auth.password');
+        return $this->outputter->output('users.passwords.email');
     }
 
     /**
@@ -64,20 +72,6 @@ class PasswordController extends Controller
         {
             throw new NotFoundHttpException;
         }
-
-        $view = 'users.reset';
-        return find_view($view, $this->view_prefix, $this->current_module, ['token' => $token]);
-    }
-
-    /**
-     * Display the password reset view for the given token.
-     *
-     * @param  string  $token
-     * @return Response
-     */
-    public function linkRequestView()
-    {
-        $view = 'users.password';
-        return find_view($view, $this->view_prefix, $this->current_module);
+        $this->outputter->output('users.passwords.reset', ['token' => $token]);
     }
 }

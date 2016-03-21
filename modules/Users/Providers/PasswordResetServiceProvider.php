@@ -1,8 +1,7 @@
-<?php
-
-namespace App\Providers;
+<?php namespace Modules\Users\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Auth\Passwords\PasswordBrokerManager;
 
 class PasswordResetServiceProvider extends ServiceProvider
 {
@@ -35,23 +34,16 @@ class PasswordResetServiceProvider extends ServiceProvider
         });
 
         $this->app->bind('auth.password.broker', function ($app) {
-            return $app->make('auth.password')->broker('cms');
-        });
+            //return $app->make('auth.password')->broker();
 
-//        $this->app->bind('auth.password.broker', function ($app) {
-//            //return $app->make('auth.password')->broker();
-//
-//
-////            dd( $app );
-//
-//            $tokens = $app['auth.password.tokens'];
-//            $users = $app['auth']->driver()->getProvider();
-//            $view = $app['config']['auth.password.email'];
-//
-//            return new PasswordBroker(
-//                $tokens, $users, $app['mailer'], $view
-//            );
-//        });
+            $tokens = $app->make('auth.password')->createTokenRepository();
+            $users = $app['auth']->driver()->getProvider();
+            $view = $app['config']['auth.password.email'];
+
+            return new PasswordBroker(
+                $tokens, $users, $app['mailer'], $view
+            );
+        });
     }
 
     /**
