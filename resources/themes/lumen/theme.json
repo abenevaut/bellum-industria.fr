@@ -1,10 +1,10 @@
 {
 	"name": "lumen",
-	"description": "",
+	"description": "Bootswatch lumen theme",
 	"author": [
 		{
-			"name": "",
-			"email": ""
+			"name": "Antoine Benevaut",
+			"email": "antoine@cvepdb.fr"
 		}
 	],
 	"files": [
