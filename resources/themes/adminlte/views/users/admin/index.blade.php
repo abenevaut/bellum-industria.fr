@@ -1,4 +1,4 @@
-@extends('admin.layouts.default')
+@extends('adminlte::layouts.default')
 
 @section('content')
 

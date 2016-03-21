@@ -1,14 +1,14 @@
 {
-  "name": "cvepdb/laravel-cms",
+  "name": "cvepdb-cms/theme-lumen",
   "version": "1.0.0",
   "authors": [
     "Antoine Benevaut <antoine@cvepdb.fr>"
   ],
-  "description": "cvepdb/laravel-cms tools",
+  "description": "cvepdb/cms bootswatch theme : lumen",
   "keywords": [
     "cvepdb",
-    "laravel-cms",
-    "cvepdb/laravel-cms"
+    "cms",
+    "cvepdb/cms"
   ],
   "license": "Ca va ENCORE parler de bits!",
   "homepage": "http://cvepdb.fr",
@@ -20,12 +20,8 @@
     "tests"
   ],
   "dependencies": {
-    "admin-lte.scss": "^3.1.2",
-    "cvepdbjs": "0.1.4",
-    "components-font-awesome": "^4.5.0",
     "html5shiv": "^3.7.3",
-    "respond": "^1.4.2",
-    "Ionicons": "ionicons#^2.0.1"
+    "respond": "^1.4.2"
   },
   "devDependencies": {}
 }

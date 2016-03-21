@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0bac6a7d239426b27ecfcbf69a10b108",
-    "content-hash": "7a2051619f8dfb151c9e90d0346ee13d",
+    "hash": "d0e9fdfdddeed3ab32c2115b2e6c6f76",
+    "content-hash": "e314b79cfb7be0fdea9bff4e58bbc35c",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -60,6 +60,115 @@
                 "webprofiler"
             ],
             "time": "2016-02-18 13:49:47"
+        },
+        {
+            "name": "beelab/bowerphp",
+            "version": "v0.3.6-beta",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Bee-Lab/bowerphp.git",
+                "reference": "283b455e6cb259f9a67ce7488de2ed166f8b485b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Bee-Lab/bowerphp/zipball/283b455e6cb259f9a67ce7488de2ed166f8b485b",
+                "reference": "283b455e6cb259f9a67ce7488de2ed166f8b485b",
+                "shasum": ""
+            },
+            "require": {
+                "camspiers/json-pretty": "1.0.*",
+                "ext-fileinfo": "*",
+                "ext-zip": "*",
+                "knplabs/github-api": "1.4.*",
+                "php": ">=5.3.6",
+                "symfony/console": "~2.3|~3.0",
+                "symfony/filesystem": "~2.4|~3.0",
+                "symfony/finder": "~2.3|~3.0",
+                "symfony/process": "~2.3|~3.0",
+                "vierbergenlars/php-semver": "~3.0"
+            },
+            "require-dev": {
+                "ext-phar": "*",
+                "fabpot/php-cs-fixer": "~1.5",
+                "mockery/mockery": "~0.9.3",
+                "phpunit/phpunit": "4.*"
+            },
+            "bin": [
+                "bin/bowerphp"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bowerphp\\": "src/Bowerphp"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Massimiliano Arione",
+                    "email": "massimiliano.arione@bee-lab.net"
+                },
+                {
+                    "name": "Mauro D'Alatri",
+                    "email": "mauro.dalatri@bee-lab.net"
+                },
+                {
+                    "name": "The Community",
+                    "homepage": "https://github.com/Bee-Lab/bowerphp/graphs/contributors"
+                }
+            ],
+            "description": "An implementation of bower in PHP",
+            "homepage": "http://bowerphp.org/",
+            "keywords": [
+                "dependency",
+                "frontend",
+                "package"
+            ],
+            "time": "2016-03-16 12:01:12"
+        },
+        {
+            "name": "camspiers/json-pretty",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/camspiers/json-pretty.git",
+                "reference": "17be37cb83af8014658da48fa0012604179039a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/camspiers/json-pretty/zipball/17be37cb83af8014658da48fa0012604179039a7",
+                "reference": "17be37cb83af8014658da48fa0012604179039a7",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Camspiers": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cam Spiers",
+                    "email": "cameron@heyday.co.nz"
+                }
+            ],
+            "description": "Provides support for json pretty printing",
+            "time": "2016-02-06 01:25:58"
         },
         {
             "name": "chrisbjr/api-guard",
@@ -358,12 +467,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-adminlte.git",
-                "reference": "91bae5485b76724c65b68dfdd2ba9f94aadb68bf"
+                "reference": "b544c2f52176fc2ba6046a1bbe9805c8a12d9e1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=91bae5485b76724c65b68dfdd2ba9f94aadb68bf",
-                "reference": "91bae5485b76724c65b68dfdd2ba9f94aadb68bf",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=b544c2f52176fc2ba6046a1bbe9805c8a12d9e1b",
+                "reference": "b544c2f52176fc2ba6046a1bbe9805c8a12d9e1b",
                 "shasum": ""
             },
             "require": {
@@ -392,7 +501,49 @@
                 "cms",
                 "theme"
             ],
-            "time": "2016-03-18 10:54:57"
+            "time": "2016-03-21 10:44:54"
+        },
+        {
+            "name": "cvepdb-cms/theme-lumen",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/theme-lumen.git",
+                "reference": "6d3970256b49c95151699ee184b5f7f31d76537a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=6d3970256b49c95151699ee184b5f7f31d76537a",
+                "reference": "6d3970256b49c95151699ee184b5f7f31d76537a",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "lumen"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "open"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Theme lumen for #CVEPDB CMS",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "CVEPDB",
+                "cms",
+                "lumen",
+                "theme"
+            ],
+            "time": "2016-03-21 10:49:20"
         },
         {
             "name": "cvepdb/abstract",
@@ -1503,27 +1654,27 @@
         },
         {
             "name": "jenssegers/raven",
-            "version": "v1.4.5",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jenssegers/laravel-raven.git",
-                "reference": "6cde4eefe6f1636acb36ee840a0cadbcdfe5ebd6"
+                "reference": "a75052c90afeca12239166b65d64852b2a5f6bbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jenssegers/laravel-raven/zipball/6cde4eefe6f1636acb36ee840a0cadbcdfe5ebd6",
-                "reference": "6cde4eefe6f1636acb36ee840a0cadbcdfe5ebd6",
+                "url": "https://api.github.com/repos/jenssegers/laravel-raven/zipball/a75052c90afeca12239166b65d64852b2a5f6bbc",
+                "reference": "a75052c90afeca12239166b65d64852b2a5f6bbc",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "4.*|5.*",
-                "php": ">=5.3",
-                "raven/raven": "~0.11"
+                "illuminate/support": "^4.0|^5.0",
+                "php": ">=5.4",
+                "raven/raven": "^0.11"
             },
             "require-dev": {
-                "mockery/mockery": "*",
-                "orchestra/testbench": "3.0.*",
-                "satooshi/php-coveralls": "*"
+                "mockery/mockery": "^0.9",
+                "orchestra/testbench": "^3.0",
+                "satooshi/php-coveralls": "^1.0"
             },
             "type": "library",
             "autoload": {
@@ -1538,10 +1689,11 @@
             "authors": [
                 {
                     "name": "Jens Segers",
-                    "homepage": "http://jenssegers.be"
+                    "homepage": "https://jenssegers.com"
                 }
             ],
             "description": "Sentry (Raven) error monitoring integration for Laravel projects",
+            "homepage": "https://github.com/jenssegers/laravel-raven",
             "keywords": [
                 "error",
                 "getsentry",
@@ -1551,7 +1703,7 @@
                 "raven",
                 "sentry"
             ],
-            "time": "2015-05-30 21:28:15"
+            "time": "2016-03-20 09:40:32"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -1612,17 +1764,78 @@
             "time": "2016-02-29 04:36:50"
         },
         {
+            "name": "knplabs/github-api",
+            "version": "1.4.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/php-github-api.git",
+                "reference": "313d7ed61494f525ab93cfd8595ec2d398533220"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/313d7ed61494f525ab93cfd8595ec2d398533220",
+                "reference": "313d7ed61494f525ab93cfd8595ec2d398533220",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "guzzle/guzzle": "~3.7",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "knplabs/gaufrette": "Needed for optional Gaufrette cache"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Github\\": "lib/Github/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thibault Duplessis",
+                    "email": "thibault.duplessis@gmail.com",
+                    "homepage": "http://ornicar.github.com"
+                },
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                }
+            ],
+            "description": "GitHub API v3 client",
+            "homepage": "https://github.com/KnpLabs/php-github-api",
+            "keywords": [
+                "api",
+                "gh",
+                "gist",
+                "github"
+            ],
+            "time": "2015-08-20 09:44:33"
+        },
+        {
             "name": "laravel/framework",
             "version": "5.2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "2a38acf7ee2882d831a3b9a1361a710e70ffa31e"
+                "reference": "f4fd485846df1e75435c8097499c2266ba356cd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/2a38acf7ee2882d831a3b9a1361a710e70ffa31e",
-                "reference": "2a38acf7ee2882d831a3b9a1361a710e70ffa31e",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f4fd485846df1e75435c8097499c2266ba356cd0",
+                "reference": "f4fd485846df1e75435c8097499c2266ba356cd0",
                 "shasum": ""
             },
             "require": {
@@ -1635,7 +1848,7 @@
                 "monolog/monolog": "~1.11",
                 "mtdowling/cron-expression": "~1.0",
                 "nesbot/carbon": "~1.20",
-                "paragonie/random_compat": "~1.1",
+                "paragonie/random_compat": "~1.4",
                 "php": ">=5.5.9",
                 "psy/psysh": "0.7.*",
                 "swiftmailer/swiftmailer": "~5.1",
@@ -1737,7 +1950,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-03-17 12:33:04"
+            "time": "2016-03-19 20:04:02"
         },
         {
             "name": "laravel/socialite",
@@ -1853,12 +2066,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "e87a786e3ae12a25cf78a71bb07b4b384bfaa83a"
+                "reference": "5ab81c6e5d14b5922f9650edb136e679a9932d45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/e87a786e3ae12a25cf78a71bb07b4b384bfaa83a",
-                "reference": "e87a786e3ae12a25cf78a71bb07b4b384bfaa83a",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/5ab81c6e5d14b5922f9650edb136e679a9932d45",
+                "reference": "5ab81c6e5d14b5922f9650edb136e679a9932d45",
                 "shasum": ""
             },
             "require": {
@@ -1928,7 +2141,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-03-14 21:54:11"
+            "time": "2016-03-18 11:48:58"
         },
         {
             "name": "league/fractal",
@@ -2343,12 +2556,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "b3313b618f4edd76523572531d5d7e22fe747430"
+                "reference": "c7e26a21ba357863de030f0b9e701c7d04593774"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/b3313b618f4edd76523572531d5d7e22fe747430",
-                "reference": "b3313b618f4edd76523572531d5d7e22fe747430",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/c7e26a21ba357863de030f0b9e701c7d04593774",
+                "reference": "c7e26a21ba357863de030f0b9e701c7d04593774",
                 "shasum": ""
             },
             "require": {
@@ -2383,7 +2596,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-03-11 19:54:08"
+            "time": "2016-03-18 20:34:03"
         },
         {
             "name": "pingpong/generators",
@@ -2965,25 +3178,23 @@
         },
         {
             "name": "raven/raven",
-            "version": "dev-master",
+            "version": "0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/raven-php.git",
-                "reference": "6be06907f3582d6b8271d2bb9d1460a11232de1d"
+                "reference": "2b651d779cdbac8b6456b3b0f06c8c77e43f79dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/raven-php/zipball/6be06907f3582d6b8271d2bb9d1460a11232de1d",
-                "reference": "6be06907f3582d6b8271d2bb9d1460a11232de1d",
+                "url": "https://api.github.com/repos/getsentry/raven-php/zipball/2b651d779cdbac8b6456b3b0f06c8c77e43f79dd",
+                "reference": "2b651d779cdbac8b6456b3b0f06c8c77e43f79dd",
                 "shasum": ""
             },
             "require": {
-                "ext-curl": "*",
                 "php": ">=5.2.4"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "^1.8.0",
-                "phpunit/phpunit": "^4.6.6"
+                "phpunit/phpunit": "3.7.*"
             },
             "bin": [
                 "bin/raven"
@@ -2991,7 +3202,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.14.x-dev"
+                    "dev-master": "0.8.x-dev"
                 }
             },
             "autoload": {
@@ -3001,7 +3212,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "BSD"
             ],
             "authors": [
                 {
@@ -3015,7 +3226,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2016-03-14 18:32:39"
+            "time": "2015-03-24 23:17:13"
         },
         {
             "name": "roumen/feed",
@@ -3346,6 +3557,55 @@
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
             "time": "2016-03-10 11:16:56"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/filesystem.git",
+                "reference": "d46a5ec18b78bdd0ab04798d6710ca91c3588837"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/d46a5ec18b78bdd0ab04798d6710ca91c3588837",
+                "reference": "d46a5ec18b78bdd0ab04798d6710ca91c3588837",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Filesystem Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-03-16 16:22:05"
         },
         {
             "name": "symfony/finder",
@@ -4006,6 +4266,58 @@
             "time": "2016-01-28 19:51:36"
         },
         {
+            "name": "vierbergenlars/php-semver",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vierbergenlars/php-semver.git",
+                "reference": "516bb3061577e60e9420cbecc479362d3ad8c7f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vierbergenlars/php-semver/zipball/516bb3061577e60e9420cbecc479362d3ad8c7f1",
+                "reference": "516bb3061577e60e9420cbecc479362d3ad8c7f1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "simpletest/simpletest": "1.1.*"
+            },
+            "bin": [
+                "bin/semver",
+                "bin/update-versions"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "vierbergenlars\\SemVer\\": "src/",
+                    "vierbergenlars\\LibJs\\": "src/"
+                },
+                "classmap": [
+                    "src/vierbergenlars/SemVer/internal.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lars Vierbergen",
+                    "email": "vierbergenlars@gmail.com"
+                }
+            ],
+            "description": "The Semantic Versioner for PHP",
+            "keywords": [
+                "semantic",
+                "semver",
+                "versioning"
+            ],
+            "time": "2015-05-02 19:28:54"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "dev-master",
             "source": {
@@ -4360,7 +4672,9 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "cvepdb-cms/theme-adminlte": 20
+        "cvepdb-cms/theme-adminlte": 20,
+        "cvepdb-cms/theme-lumen": 20,
+        "beelab/bowerphp": 10
     },
     "prefer-stable": false,
     "prefer-lowest": false,

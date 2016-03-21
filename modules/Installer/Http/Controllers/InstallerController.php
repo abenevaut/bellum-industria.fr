@@ -100,6 +100,7 @@ class InstallerController extends Controller
      */
     public function runMigration()
     {
+        //Artisan::call('module:publish-migration', ['--force' => true]);
         Artisan::call('migrate', ['--force' => true]);
         //Artisan::call('module:migrate');
         return redirect('installer/initialisation');

@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ asset('themes/lumen/css/bootstrap.min.css') }}" media="screen">
 <link rel="stylesheet" href="{{ asset('themes/lumen/css/custom.min.css') }}">
 <!--[if lt IE 9]>
-<script src="{{ asset('assets/bower/html5shiv/dist/html5shiv.min.js') }}"></script>
-<script src="{{ asset('assets/bower/respond/dest/respond.min.js') }}"></script>
+<script src="{{ asset('themes/lumen/bower/html5shiv/dist/html5shiv.min.js') }}"></script>
+<script src="{{ asset('themes/lumen/bower/respond/dest/respond.min.js') }}"></script>
 <![endif]-->
 @yield('head')

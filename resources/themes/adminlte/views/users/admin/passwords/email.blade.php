@@ -1,4 +1,4 @@
-@extends('front.layouts.app')
+@extends('adminlte::layouts.default')
 
 <!-- Main Content -->
 @section('content')

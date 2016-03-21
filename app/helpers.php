@@ -25,9 +25,10 @@ function slugify($text)
     return $text;
 }
 
-function css_file_rev($file, $env = 'admin')
+function css_file_rev($file)
 {
-    $list = json_decode(File::get(base_path().'/public/assets/rev/'.$env.'/css.manifest.json'));
+    $current_theme = \Theme::getCurrent();
+    $list = json_decode(\File::get(base_path().'/public/themes/'.$current_theme.'/rev/css.manifest.json'));
     return $list->{$file};
 }
 
