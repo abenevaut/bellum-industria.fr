@@ -35,6 +35,9 @@ class PasswordController extends Controller
      */
     protected $current_module = 'users::';
 
+    /**
+     * @var PasswordOutputter|null
+     */
     private $outputter = null;
 
     /**
@@ -48,6 +51,7 @@ class PasswordController extends Controller
         $this->outputter = $outputter;
         $this->subject = trans('passwords.mail_reset_password_title');
         $this->view_prefix = \Theme::getCurrent() . '::';
+        $this->redirectTo = '/';
     }
 
     /**

@@ -1,4 +1,4 @@
-@extends('lumen::layouts.default')
+@extends('flatly::layouts.default')
 
 @section('content')
 
