@@ -13,6 +13,6 @@
 
 Route::group(['middleware' => ['web', 'CMSInstalled']], function () {
 
-    Route::get('/', function () { return view('welcome'); });
+    Route::get('/', function () { return find_view('welcome', \Theme::getCurrent().'::', '', []); });
 
 });

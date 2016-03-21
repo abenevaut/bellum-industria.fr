@@ -22,8 +22,19 @@ class ThemesServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        $this->overrideConfig();
         $this->overrideViewPath();
         $this->setActiveTheme();
+    }
+
+    protected function overrideConfig()
+    {
+        if (file_exists(config('themes.config.file'))) {
+            $theme_config = file_get_contents(config('themes.config.file'));
+            $theme_config = json_decode($theme_config);
+            Config::set('app.themes.backend', $theme_config->backend);
+            Config::set('app.themes.frontend', $theme_config->frontend);
+        }
     }
 
     /**
@@ -65,8 +76,7 @@ class ThemesServiceProvider extends ServiceProvider
 
         if ($this->inAdministration()) {
             $theme = config('app.themes.backend');
-        }
-        else {
+        } else {
             $theme = config('app.themes.frontend');
         }
 
@@ -80,7 +90,7 @@ class ThemesServiceProvider extends ServiceProvider
     private function inAdministration()
     {
         return $this->app->make('request')->is(config('app.backend'))
-            || $this->app->make('request')->is(config('app.backend') . '/*');
+        || $this->app->make('request')->is(config('app.backend') . '/*');
     }
 
 }
