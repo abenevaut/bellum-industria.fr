@@ -10,8 +10,8 @@
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
-                {{ $header['title'] }}
-                <small>{{ $header['description'] }}</small>
+                {{ trans($header['title']) }}
+                <small>{{ trans($header['description']) }}</small>
             </h1>
             <ol class="breadcrumb">
                 {!! $breadcrumbs or '&nbsp;' !!}

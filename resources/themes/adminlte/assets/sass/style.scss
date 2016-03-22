@@ -8,3 +8,10 @@ $icon-font-path: '../fonts/';
 
 @import "../bower/admin-lte.scss/scss/admin-lte";
 @import "skins/all-skins";
+
+@media (max-width: 1024px) {
+  .btn-mobile {
+    width:100%;
+    margin-bottom:5px;
+  }
+}

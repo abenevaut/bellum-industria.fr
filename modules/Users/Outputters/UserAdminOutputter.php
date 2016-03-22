@@ -12,12 +12,12 @@ class UserAdminOutputter extends AdminOutputter
     /**
      * @var string Outputter header title
      */
-    protected $title = 'Users';
+    protected $title = 'users::admin.meta_title';
 
     /**
      * @var string Outputter header description
      */
-    protected $description = 'user panel';
+    protected $description = 'users::admin.meta_description';
 
     /**
      * @var null UserRepositoryEloquent
