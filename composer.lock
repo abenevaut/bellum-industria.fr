@@ -1400,12 +1400,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "6a173ddae1a8e58be871f6d010e88c029eaf5cae"
+                "reference": "d094e337976dff9d8e2424e8485872194e768662"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/6a173ddae1a8e58be871f6d010e88c029eaf5cae",
-                "reference": "6a173ddae1a8e58be871f6d010e88c029eaf5cae",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d094e337976dff9d8e2424e8485872194e768662",
+                "reference": "d094e337976dff9d8e2424e8485872194e768662",
                 "shasum": ""
             },
             "require": {
@@ -1454,7 +1454,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-03-11 16:36:56"
+            "time": "2016-03-21 20:02:09"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1830,12 +1830,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f4fd485846df1e75435c8097499c2266ba356cd0"
+                "reference": "b2f29b7a02d2a59778ed64880926b12bcbb3a108"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f4fd485846df1e75435c8097499c2266ba356cd0",
-                "reference": "f4fd485846df1e75435c8097499c2266ba356cd0",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b2f29b7a02d2a59778ed64880926b12bcbb3a108",
+                "reference": "b2f29b7a02d2a59778ed64880926b12bcbb3a108",
                 "shasum": ""
             },
             "require": {
@@ -1950,7 +1950,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-03-19 20:04:02"
+            "time": "2016-03-21 15:40:36"
         },
         {
             "name": "laravel/socialite",
@@ -1958,12 +1958,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "78e9a56cb7ee75eccad73ca4fec4a5b61ce8f615"
+                "reference": "edd00ab96933e3ef053533cce81e958fb26921af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/78e9a56cb7ee75eccad73ca4fec4a5b61ce8f615",
-                "reference": "78e9a56cb7ee75eccad73ca4fec4a5b61ce8f615",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/edd00ab96933e3ef053533cce81e958fb26921af",
+                "reference": "edd00ab96933e3ef053533cce81e958fb26921af",
                 "shasum": ""
             },
             "require": {
@@ -2004,7 +2004,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2016-01-24 19:07:24"
+            "time": "2016-03-21 14:30:30"
         },
         {
             "name": "laravelcollective/html",

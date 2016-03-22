@@ -13,7 +13,7 @@ class AdminOutputter extends CoreOutputter
     public function __construct()
     {
         parent::__construct();
-        $this->addBreadcrumb('Dashboard', 'admin/');
+        $this->addBreadcrumb('Dashboard', config('app.backend'));
     }
 
     public function output($view, $data = [])
@@ -21,20 +21,9 @@ class AdminOutputter extends CoreOutputter
         return parent::output(
             $view,
             $data
-            + $this->admin_data_header()
-            + $this->admin_data_sidebar()
-            + $this->admin_data_footer()
+                + $this->admin_data_sidebar()
+                + $this->admin_data_footer()
         );
-    }
-
-    private function admin_data_header()
-    {
-        return [
-            'header' => [
-                'title' => $this->title,
-                'description' => $this->description,
-            ]
-        ];
     }
 
     private function admin_data_sidebar()
