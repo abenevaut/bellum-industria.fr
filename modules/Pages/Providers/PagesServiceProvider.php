@@ -1,6 +1,8 @@
 <?php namespace Modules\Pages\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Module;
+use Config;
 
 class PagesServiceProvider extends ServiceProvider {
 
@@ -21,6 +23,7 @@ class PagesServiceProvider extends ServiceProvider {
 		$this->registerTranslations();
 		$this->registerConfig();
 		$this->registerViews();
+		$this->preparePagesURIPattern();
 	}
 
 	/**
@@ -92,6 +95,18 @@ class PagesServiceProvider extends ServiceProvider {
 	public function provides()
 	{
 		return array();
+	}
+
+	/**
+	 * Add pattern to exclude for pages URI search (pages.route_pattern)
+	 */
+	private function preparePagesURIPattern()
+	{
+		$patterns = config('pages.route_pattern');
+		foreach (Module::all() as $module) {
+			$patterns .= '|' . $module->name;
+		}
+		Config::set('pages.route_pattern', $patterns);
 	}
 
 }

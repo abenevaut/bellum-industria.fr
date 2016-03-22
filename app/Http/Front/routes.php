@@ -13,6 +13,4 @@
 
 Route::group(['middleware' => ['web', 'CMSInstalled']], function () {
 
-    Route::get('/', function () { return cmsview('welcome', ['header' => ['title' => '', 'description' => '']]); });
-
 });

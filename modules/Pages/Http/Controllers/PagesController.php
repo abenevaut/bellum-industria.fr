@@ -6,7 +6,7 @@ class PagesController extends Controller {
 	
 	public function index()
 	{
-		return view('pages::index');
+		return cmsview('pages::index', ['header' => ['title' => '', 'description' => '']]);
 	}
-	
+
 }
