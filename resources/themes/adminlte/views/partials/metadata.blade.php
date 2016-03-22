@@ -1,10 +1,10 @@
 <title>
     @section('title')
-        {{ $header['title'] ? $header['title'] : trans('adminlte::adminlte.default_title') }}
+        {{ trans($header['title'] ? $header['title'] : 'adminlte::adminlte.default_title') }}
     @show
 </title>
 <meta name="description" itemprop="description"
-      content="@section("meta-description"){{ $header['description'] ? $header['description'] : trans('adminlte::adminlte.default_description') }}@show" />
+      content="@section("meta-description"){{ trans($header['description'] ? $header['description'] : 'adminlte::adminlte.default_description') }}@show" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
