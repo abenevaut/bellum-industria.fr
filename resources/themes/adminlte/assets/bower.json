@@ -27,7 +27,8 @@
     "respond": "^1.4.2",
     "Ionicons": "ionicons#^2.0.1",
     "dropzone": "^4.3.0",
-    "angular2-build": "^2.0.0-alpha.34"
+    "angular2-build": "^2.0.0-alpha.34",
+    "iCheck": "icheck#^1.0.2"
   },
   "devDependencies": {}
 }
