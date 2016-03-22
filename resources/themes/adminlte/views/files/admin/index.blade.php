@@ -1,5 +1,13 @@
 @extends('adminlte::layouts.default')
 
+@section('head')
+    <link rel="stylesheet" href="{{ asset('themes/adminlte/bower/dropzone/dist/min/dropzone.min.css') }}">
+@endsection
+
+@section('js')
+    <script src="{{ asset('themes/adminlte/bower/dropzone/dist/min/dropzone.min.js') }}"></script>
+@endsection
+
 @section('content')
 
     <div class="row">
@@ -74,6 +82,16 @@
                 </div>
                 <div class="box-body">
                     The great content goes here
+
+
+
+                    <form action="file-upload"
+                          class="dropzone"
+                          id="my-awesome-dropzone"></form>
+
+
+
+
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer with-border">

@@ -11,5 +11,8 @@
 		"psr-4": {
 			"Modules\\Files\\": ""
 		}
+	},
+	"require": {
+		"spatie/laravel-medialibrary": "^3.16"
 	}
 }

@@ -25,7 +25,8 @@
     "components-font-awesome": "^4.5.0",
     "html5shiv": "^3.7.3",
     "respond": "^1.4.2",
-    "Ionicons": "ionicons#^2.0.1"
+    "Ionicons": "ionicons#^2.0.1",
+    "dropzone": "^4.3.0"
   },
   "devDependencies": {}
 }

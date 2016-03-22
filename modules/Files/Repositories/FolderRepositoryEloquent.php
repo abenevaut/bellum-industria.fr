@@ -1,15 +1,17 @@
-<?php namespace Modules\Files\Repositories;
+<?php
+
+namespace Modules\Files\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use Modules\Files\Repositories\FilesRepository;
-use Modules\Files\Entities\Files;
+use Modules\Files\Repositories\FolderRepository;
+use Modules\Files\Entities\Folder;
 
 /**
- * Class FilesRepositoryEloquent
+ * Class FolderRepositoryEloquent
  * @package namespace App\Repositories;
  */
-class FilesRepositoryEloquent extends BaseRepository implements FilesRepository
+class FolderRepositoryEloquent extends BaseRepository implements FolderRepository
 {
     /**
      * Specify Model class name
@@ -18,7 +20,7 @@ class FilesRepositoryEloquent extends BaseRepository implements FilesRepository
      */
     public function model()
     {
-        return Files::class;
+        return Folder::class;
     }
 
     /**

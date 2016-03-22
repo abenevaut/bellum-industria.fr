@@ -186,6 +186,12 @@ return [
         // Repository
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
 
+        // EloquentMeta
+        'Phoenix\EloquentMeta\ServiceProvider',
+
+        // Spatie
+        Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+
         // #CVEPDB CMS
         App\Providers\ModulesServiceProvider::class,
         App\Providers\ThemesServiceProvider::class,
