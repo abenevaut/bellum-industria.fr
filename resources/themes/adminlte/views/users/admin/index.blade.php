@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <div class="box">
+            <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">{{ trans('users::admin.index.title') }}</h3>
                     <div class="box-tools pull-right">
@@ -13,19 +13,27 @@
                     </div>
                 </div>
                 @if ($users->count())
-                    <div class="box-body">
+                    <div class="box-body no-padding">
                         <table class="table table-bordered">
                             <tbody>
                             <tr>
-                                <th>{{ trans('users::admin.index.tab.full_name') }}</th>
-                                <th>{{ trans('global.email') }}</th>
-                                <th class="hidden-xs" width="20%">{{ trans('global.actions') }}</th>
+                                <th class="hidden-xs text-center" width="5%">
+                                    <button type="button" class="btn btn-danger btn-flat btn-mobile disabled" disabled="disabled">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </th>
+                                <th class="text-center">{{ trans('users::admin.index.tab.full_name') }}</th>
+                                <th class="text-center">{{ trans('global.email') }}</th>
+                                <th class="hidden-xs text-center" width="20%">{{ trans('global.actions') }}</th>
                             </tr>
                             @foreach ($users as $user)
                                 <tr>
-                                    <td>{{ $user->full_name }}</td>
-                                    <td><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
-                                    <td class="hidden-xs">
+                                    <td class="hidden-xs text-center" width="5%">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="text-center">{{ $user->full_name }}</td>
+                                    <td class="text-center"><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
+                                    <td class="hidden-xs text-center">
                                         <a href="{{ url('admin/users/' . $user->id . '/edit') }}"
                                            class="btn btn-warning btn-flat btn-mobile">
                                             <i class="fa fa-pencil"></i> {{ trans('global.edit') }}
