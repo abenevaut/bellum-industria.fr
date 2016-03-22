@@ -12,4 +12,9 @@ return [
     'index.btn.cancel_delete' => 'No, cancel',
     'index.btn.valid_delete' => 'Yes, remove',
     'index.tab.full_name' => 'User name',
+
+    'create.title' => 'Create a new user',
+    'create.btn.add_user' => 'Add user',
+
+    'edit.title' => 'Edit user',
 ];
