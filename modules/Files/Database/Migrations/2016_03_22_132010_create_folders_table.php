@@ -17,7 +17,7 @@ class CreateFoldersTable extends Migration {
             $table->increments('id');
             $table->integer('folder_id')->nullable();
             $table->string('name');
-            $table->string('disk');
+            $table->enum('disk', ['local', 'public', 'cloud'])->default('public');
             $table->timestamps();
         });
     }

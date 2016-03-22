@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'cloud' => 's3',
+    'cloud' => 'cloud',
 
     /*
     |--------------------------------------------------------------------------
@@ -50,8 +50,16 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
+            'root' => public_path('uploads'),
             'visibility' => 'public',
+        ],
+
+        'cloud' => [
+            'driver' => 's3',
+            'key' => 'your-key',
+            'secret' => 'your-secret',
+            'region' => 'your-region',
+            'bucket' => 'your-bucket',
         ],
 
         's3' => [

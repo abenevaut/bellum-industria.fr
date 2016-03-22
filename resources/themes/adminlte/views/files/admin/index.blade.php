@@ -6,6 +6,26 @@
 
 @section('js')
     <script src="{{ asset('themes/adminlte/bower/dropzone/dist/min/dropzone.min.js') }}"></script>
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills (from CDN), in this exact order -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.16/system-polyfills.js"></script>
+    <script src="https://npmcdn.com/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+    <script src="https://code.angularjs.org/tools/system.js"></script>
+    <script src="https://code.angularjs.org/tools/typescript.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.11/angular2-polyfills.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.11/Rx.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.11/angular2.dev.js"></script>
+    <!-- 2. Configure SystemJS -->
+    <script>
+        System.config({
+            transpiler: 'typescript',
+            typescriptOptions: { emitDecoratorMetadata: true },
+            packages: {'/themes/adminlte/js/files': {defaultExtension: 'ts'}}
+        });
+        System.import('/themes/adminlte/js/files/main')
+                .then(null, console.error.bind(console));
+    </script>
 @endsection
 
 @section('content')
@@ -23,13 +43,25 @@
                 <div class="box-header with-border">
                     <h4 class="box-title">Directories</h4>
                 </div>
-                <div class="box-body">
+                <div class="box-body" style="overflow: hidden; overflow-x: scroll;">
+
+
+                    <ul>
+                        @foreach ($folders as $folder)
+
+                            <li>
+                                <a href="javascript:void(0);" class="js-" data-folder_id="{{ $folder->id }}">{{ $folder->name }}</a>
+                            </li>
+
+                        @endforeach
+                    </ul>
+
 
 
                 </div>
                 <div class="box-footer with-border">
 
-                    root / Dir
+                    <span class="js-files-current_path">/</span>
 
                 </div>
             </div>
@@ -82,6 +114,24 @@
                 </div>
                 <div class="box-body">
                     The great content goes here
+
+
+
+
+
+
+
+
+                    <hello-world>Loading...</hello-world>
+
+
+
+
+
+
+
+
+
 
 
 
