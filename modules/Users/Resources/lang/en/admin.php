@@ -9,6 +9,7 @@ return [
     'index.no_data.description' => 'Currently no user was register in website',
     'index.delete.question' => 'Would you really remove the user :',
     'index.btn.add_user' => 'Add user',
+    'index.btn.export' => 'Export users list',
     'index.btn.cancel_delete' => 'No, cancel',
     'index.btn.valid_delete' => 'Yes, remove',
     'index.tab.full_name' => 'User name',
