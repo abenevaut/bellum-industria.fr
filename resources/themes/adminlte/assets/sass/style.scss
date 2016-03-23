@@ -9,6 +9,12 @@ $icon-font-path: '../fonts/';
 @import "../bower/admin-lte.scss/scss/admin-lte";
 @import "skins/all-skins";
 
+.table .cell-center,
+.table-bordered .cell-center {
+  text-align: center;
+  vertical-align: middle;
+}
+
 @media (max-width: 1024px) {
   .btn-mobile {
     width:100%;

@@ -32,8 +32,10 @@ class ApiKeyRepositoryEloquent extends BaseRepository implements ApiKeyRepositor
 
     public function generate_api_key(User $user, $level = 10, $ignore_limit = 0)
     {
-        foreach ($user->apikeys as $key) {
-            $this->cancel_api_key($key->key);
+        if (!is_null($user->apikeys)) {
+            foreach ($user->apikeys as $key) {
+                $this->cancel_api_key($key->key);
+            }
         }
 
         $this->create([
