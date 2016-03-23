@@ -8,13 +8,19 @@ class ApiLog extends ApiLogApiGuard implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = [];
+    protected $fillable = [
+        'api_key_id',
+        'route',
+        'method',
+        'params',
+        'ip_address'
+    ];
 
     /**
      * The apikeys that belong to the user.
      */
     public function apikey()
     {
-        return $this->hasOne('Modules\Entities\Users\ApiKey', 'api_key_id');
+        return $this->hasOne('Modules\Users\Entities\ApiKey', 'api_key_id');
     }
 }

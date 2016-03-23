@@ -179,7 +179,29 @@ class UserAdminOutputter extends AdminOutputter
      */
     public function destroy($id)
     {
-        $this->r_user->delete($id);
+        $user = $this->r_user->find($id);
+
+        /*
+         * delete all roles except user; in case the user was re-activated
+         */
+
+        $user->roles()->detach();
+        // Always attach client role
+        $role = $this->r_role->role_exists(RoleRepositoryEloquent::USER);
+        $user->attachRole($role);
+
+        /*
+         * delete api key
+         */
+
+        $user->apikey()->delete();
+
+        /*
+         * delete user
+         */
+
+        $user->delete();
+
         return $this->redirectTo('admin/users')
             ->with('message-success', 'users::admin.delete.message.success');
     }
