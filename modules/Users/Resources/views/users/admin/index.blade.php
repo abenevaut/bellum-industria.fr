@@ -1,106 +1,95 @@
-@extends('admin.layouts.default')
+@extends('adminlte::layouts.default')
 
 @section('content')
-
     <div class="row">
         <div class="col-md-12">
-            <div class="box">
-
+            <div class="box box-primary">
                 <div class="box-header with-border">
-
-                    <h3 class="box-title">Users list</h3>
-
-                    <div class="box-tools pull-right">
-
-                        <a href="{{ url('admin/users/create') }}" class="btn btn-box-tool"><i class="fa fa-plus"></i>
-                            Add user</a>
-
+                    <h3 class="box-title">{{ trans('users::admin.index.title') }}</h3>
+                    <div class="box-tools hidden-xs pull-right">
+                        <a href="{{ url('admin/users/create') }}" class="btn btn-box-tool btn-box-tool-primary">
+                            <i class="fa fa-plus"></i> {{ trans('users::admin.index.btn.add_user') }}
+                        </a>
+                        {{--<a href="{{ url('admin/users/export') }}" class="btn btn-box-tool">--}}
+                            {{--<i class="fa fa-file-excel-o"></i> {{ trans('users::admin.index.btn.export') }}--}}
+                        {{--</a>--}}
                     </div>
-
                 </div>
-
                 @if ($users->count())
-                        <!-- /.box-header -->
-                <div class="box-body">
-                    <table class="table table-bordered">
-                        <tbody>
-
-                        <tr>
-                            <th>Full name</th>
-                            <th>Email</th>
-                            <th width="20%">Actions</th>
-                        </tr>
-
-                        @foreach ($users as $user)
+                    <div class="box-body no-padding">
+                        <table class="table table-bordered">
+                            <tbody>
                             <tr>
-                                <td>{{ $user->full_name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>
-
-                                    <a href="{{ url('admin/users/' . $user->id . '/edit') }}"
-                                       class="btn btn-warning btn-flat"><i class="fa fa-pencil"></i> Edit</a>
-                                    <button type="button" class="btn btn-danger btn-flat" data-toggle="modal"
-                                            data-target="#delete_user_{{ $user->id }}"><i class="fa fa-trash"></i>
-                                        Remove
-                                    </button>
-
-                                </td>
+                                {{--<th class="hidden-xs cell-center" width="5%">--}}
+                                    {{--<button type="button" class="btn btn-danger btn-flat btn-mobile disabled" disabled="disabled">--}}
+                                        {{--<i class="fa fa-trash"></i>--}}
+                                    {{--</button>--}}
+                                {{--</th>--}}
+                                <th class="cell-center">{{ trans('users::admin.index.tab.full_name') }}</th>
+                                <th class="cell-center">{{ trans('global.email') }}</th>
+                                <th class="hidden-xs cell-center" width="20%">{{ trans('global.actions') }}</th>
                             </tr>
-                        @endforeach
-
-                        </tbody>
-                    </table>
-                </div>
-                <!-- /.box-body -->
-                <div class="box-footer clearfix">
-
-                    <div class="no-margin pull-right">
-                        {!! $users->render() !!}
+                            @foreach ($users as $user)
+                                <tr>
+                                    {{--<td class="hidden-xs cell-center" width="5%">--}}
+                                        {{--<input type="checkbox">--}}
+                                    {{--</td>--}}
+                                    <td class="cell-center">{{ $user->full_name }}</td>
+                                    <td class="cell-center"><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
+                                    <td class="hidden-xs cell-center">
+                                        <a href="{{ url('admin/users/' . $user->id . '/edit') }}"
+                                           class="btn btn-warning btn-flat btn-mobile">
+                                            <i class="fa fa-pencil"></i> {{ trans('global.edit') }}
+                                        </a>
+                                        <button type="button" class="btn btn-danger btn-flat btn-mobile" data-toggle="modal"
+                                                data-target="#delete_user_{{ $user->id }}"><i class="fa fa-trash"></i>
+                                            {{ trans('global.remove') }}
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
-
-                </div>
-
+                    <div class="box-footer clearfix">
+                        @include('adminlte::partials.pagination', ['paginator' => $users])
+                    </div>
                 @else
-
                     <div class="box-body">
                         <div class="callout callout-info" role="alert">
-                            <h4><i class="icon fa fa-info"></i> There is no user</h4>
-
-                            <p>Currently no user was register in website</p>
+                            <h4><i class="icon fa fa-info"></i> {{ trans('users::admin.index.no_data.title') }}</h4>
+                            <p>{{ trans('users::admin.index.no_data.description') }}</p>
                         </div>
                     </div>
-
                 @endif
-
             </div>
         </div>
     </div>
-
-
     @foreach ($users as $user)
         <div class="modal modal-danger" id="delete_user_{{ $user->id }}">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title">Attention</h4>
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title">{{ trans('global.attention') }}</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Would you really remove the user : {{ $user->full_name }} ?</p>
+                        <p>{{ trans('users::admin.index.delete.question') }} {{ $user->full_name }} ?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">No, cancel</button>
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">
+                            {{ trans('users::admin.index.btn.cancel_delete') }}
+                        </button>
                         {!! Form::open(['route' => ['admin.users.destroy', $user->id], 'method' => 'delete']) !!}
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-trash"></i> Yes, remove</button>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fa fa-trash"></i> {{ trans('users::admin.index.btn.valid_delete') }}
+                        </button>
                         {!! Form::close() !!}
                     </div>
                 </div>
-                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-dialog -->
         </div>
     @endforeach
-
-
 @stop
