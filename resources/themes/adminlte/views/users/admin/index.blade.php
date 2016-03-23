@@ -52,9 +52,7 @@
                         </table>
                     </div>
                     <div class="box-footer clearfix">
-                        <div class="no-margin pull-right">
-                            {!! $users->render() !!}
-                        </div>
+                        @include('adminlte::partials.pagination', ['paginator' => $users])
                     </div>
                 @else
                     <div class="box-body">

@@ -10,6 +10,8 @@ return [
     'edit' => 'Edit',
     'remove' => 'Remove',
     'back' => 'Back',
+    'previous' => 'Previous',
+    'next' => 'Next',
     'last_name' => 'Last name',
     'first_name' => 'First name',
     'role' => 'Role',
