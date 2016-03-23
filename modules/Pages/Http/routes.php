@@ -4,9 +4,14 @@ Route::group(['middleware' => 'web', 'namespace' => 'Modules\Pages\Http\Controll
 {
 	Route::get('/', 'PagesController@index');
 
+	$patterns = 'admin|themes|assets|modules|uploads';
+	foreach (Module::all() as $module) {
+		$patterns .= '|' . $module->name;
+	}
+
 	Route::get('{page}/{subs}', 'PagesController@index')
 		->where([
-			'page' => '^((?![admin|themes|assets|modules|uploads]).)*$', // config('pages.route_pattern') // todo check PagesServiceProvider
+			'page' => '^((?!['.$patterns.']).)*$', // config('pages.route_pattern') // todo check PagesServiceProvider
 			'subs' => '.*'
 		]);
 });

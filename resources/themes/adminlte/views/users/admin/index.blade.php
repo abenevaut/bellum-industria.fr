@@ -20,20 +20,20 @@
                         <table class="table table-bordered">
                             <tbody>
                             <tr>
-                                <th class="hidden-xs cell-center" width="5%">
-                                    <button type="button" class="btn btn-danger btn-flat btn-mobile disabled" disabled="disabled">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </th>
+                                {{--<th class="hidden-xs cell-center" width="5%">--}}
+                                    {{--<button type="button" class="btn btn-danger btn-flat btn-mobile disabled" disabled="disabled">--}}
+                                        {{--<i class="fa fa-trash"></i>--}}
+                                    {{--</button>--}}
+                                {{--</th>--}}
                                 <th class="cell-center">{{ trans('users::admin.index.tab.full_name') }}</th>
                                 <th class="cell-center">{{ trans('global.email') }}</th>
                                 <th class="hidden-xs cell-center" width="20%">{{ trans('global.actions') }}</th>
                             </tr>
                             @foreach ($users as $user)
                                 <tr>
-                                    <td class="hidden-xs cell-center" width="5%">
-                                        <input type="checkbox">
-                                    </td>
+                                    {{--<td class="hidden-xs cell-center" width="5%">--}}
+                                        {{--<input type="checkbox">--}}
+                                    {{--</td>--}}
                                     <td class="cell-center">{{ $user->full_name }}</td>
                                     <td class="cell-center"><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
                                     <td class="hidden-xs cell-center">

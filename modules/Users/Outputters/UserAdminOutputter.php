@@ -56,7 +56,7 @@ class UserAdminOutputter extends AdminOutputter
      */
     public function index()
     {
-        $users = $this->r_user->paginate(config('app.pagination'), ['last_name', 'first_name', 'email']);
+        $users = $this->r_user->paginate(config('app.pagination'), ['id', 'last_name', 'first_name', 'email']);
 
         return $this->output(
             'users.admin.index',

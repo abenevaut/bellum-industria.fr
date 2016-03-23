@@ -14,6 +14,10 @@ $icon-font-path: '../fonts/';
   text-align: center;
   vertical-align: middle;
 }
+.table tr:hover td,
+.table-bordered tr:hover td {
+  background-color: #CEE3F6;
+}
 .btn-box-tool-primary {
   color: #3c8dbc;
 }

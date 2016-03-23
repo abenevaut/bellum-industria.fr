@@ -23,7 +23,7 @@ class PagesServiceProvider extends ServiceProvider {
 		$this->registerTranslations();
 		$this->registerConfig();
 		$this->registerViews();
-		$this->preparePagesURIPattern();
+//		$this->preparePagesURIPattern();
 	}
 
 	/**
