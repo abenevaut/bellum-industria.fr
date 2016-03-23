@@ -57,5 +57,6 @@ class Kernel extends HttpKernel
         // CMS specific
         'CMSAllowInstallation' => \App\Http\Middleware\CMSAllowInstallation::class,
         'CMSInstalled' => \App\Http\Middleware\CMSInstalled::class,
+//        'CMSUserImpersonate' => \Modules\Users\Http\Middleware\UserImpersonate::class,
     ];
 }

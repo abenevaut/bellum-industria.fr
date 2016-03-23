@@ -38,7 +38,7 @@ Route::group(['middleware' => ['web', 'CMSInstalled'], 'prefix' => 'admin', 'nam
 	Route::get('logout', '\Modules\Users\Http\Controllers\Auth\AuthAdminController@getLogout');
 });
 
-Route::group(['middleware' => ['web', 'CMSInstalled', 'auth', 'role:admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers'], function()
+Route::group(['middleware' => ['web', 'CMSInstalled', /*'CMSUserImpersonate',*/ 'auth', 'role:admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers'], function()
 {
 	Route::resource('users', 'AdminUsersController');
 	Route::resource('roles', 'AdminRolesController');

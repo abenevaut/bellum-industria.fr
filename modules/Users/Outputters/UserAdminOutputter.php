@@ -105,6 +105,9 @@ class UserAdminOutputter extends AdminOutputter
             $user->roles()->attach($roles['user_role_id']);
         }
 
+        // Todo : emit event
+        // Todo : send mail to new user
+
         return $this->redirectTo('admin/users')
             ->with('message-success', 'users::admin.create.message.success');
     }
@@ -117,7 +120,7 @@ class UserAdminOutputter extends AdminOutputter
      */
     public function show($id)
     {
-        //
+        // Todo : fancybox
     }
 
     /**
@@ -167,6 +170,8 @@ class UserAdminOutputter extends AdminOutputter
             $user->roles()->attach($roles['user_role_id']);
         }
 
+        // Todo : emit event
+
         return $this->redirectTo('admin/users')
             ->with('message-success', 'users::admin.edit.message.success');
     }
@@ -201,6 +206,9 @@ class UserAdminOutputter extends AdminOutputter
          */
 
         $user->delete();
+
+        // Todo : emit event
+        // Todo : send mail to deleted user
 
         return $this->redirectTo('admin/users')
             ->with('message-success', 'users::admin.delete.message.success');
