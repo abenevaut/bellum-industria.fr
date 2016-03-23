@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="error-page">
-        <h2 class="headline text-yellow"> 405</h2>
+        <h2 class="headline text-yellow"> 403</h2>
 
         <div class="error-content">
-            <h3><i class="fa fa-warning text-yellow"></i> Oops! Method not allowed.</h3>
+            <h3><i class="fa fa-warning text-yellow"></i> Oops! Access forbidden.</h3>
 
             <p>
-                A request was made of a resource using a request method not supported by that resource; for example, using GET on a form which requires data to be presented via POST, or using PUT on a read-only resource.<br/>
+                A request was made of a resource that you do not have permission to view the requested file or resource.<br/>
                 Meanwhile, you may <a href="{{ url('admin/dashboard') }}">return to dashboard</a>.
             </p>
 
@@ -26,7 +26,7 @@
         </div>
 
         {{--<p>--}}
-            {{--<img src="http://i1.wp.com/httpstatusdogs.com/wp-content/uploads/2011/12/405.jpg?fit=650%2C500" alt="Method not allowed">--}}
+            {{--<img src="http://theocddiaries.com/wp-content/uploads/2014/04/4718384082_ec70cab88f_z.jpg" alt="Access forbidden">--}}
         {{--</p>--}}
 
     </div>

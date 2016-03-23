@@ -56,6 +56,9 @@ class UserAdminOutputter extends AdminOutputter
      */
     public function index()
     {
+
+        abort(403);
+
         $users = $this->r_user->paginate(config('app.pagination'), ['id', 'last_name', 'first_name', 'email']);
 
         return $this->output(
@@ -168,7 +171,7 @@ class UserAdminOutputter extends AdminOutputter
         }
 
         return $this->redirectTo('admin/users')
-            ->with('message-success', 'users::admin.edit.message.success');
+            ->with('message-warning', 'users::admin.edit.message.success');
     }
 
     /**
