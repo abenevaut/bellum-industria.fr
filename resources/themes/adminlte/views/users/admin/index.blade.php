@@ -7,8 +7,11 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">{{ trans('users::admin.index.title') }}</h3>
                     <div class="box-tools hidden-xs pull-right">
-                        <a href="{{ url('admin/users/create') }}" class="btn btn-box-tool">
+                        <a href="{{ url('admin/users/create') }}" class="btn btn-box-tool btn-box-tool-primary">
                             <i class="fa fa-plus"></i> {{ trans('users::admin.index.btn.add_user') }}
+                        </a>
+                        <a href="{{ url('admin/users/export') }}" class="btn btn-box-tool">
+                            <i class="fa fa-file-excel-o"></i> {{ trans('users::admin.index.btn.export') }}
                         </a>
                     </div>
                 </div>

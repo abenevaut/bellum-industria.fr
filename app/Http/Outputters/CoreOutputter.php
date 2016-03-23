@@ -51,7 +51,8 @@ class CoreOutputter extends AbsLaravelOutputter
             $view,
             $data
                 + $this->data_header(),
-            $this->view_prefix, $this->current_module
+            $this->view_prefix,
+            $this->current_module
         );
     }
 
@@ -96,7 +97,8 @@ class CoreOutputter extends AbsLaravelOutputter
             'header' => [
                 'title' => $this->title,
                 'description' => $this->description,
-            ]
+            ],
+            'breadcrumbs' => $this->breadcrumbs
         ];
     }
 }

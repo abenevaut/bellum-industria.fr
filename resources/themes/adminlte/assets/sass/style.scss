@@ -14,6 +14,12 @@ $icon-font-path: '../fonts/';
   text-align: center;
   vertical-align: middle;
 }
+.btn-box-tool-primary {
+  color: #3c8dbc;
+}
+.btn-box-tool-primary:hover {
+  color: #72afd2;
+}
 
 @media (max-width: 1024px) {
   .btn-mobile {
