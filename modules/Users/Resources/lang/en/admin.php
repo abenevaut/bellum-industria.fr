@@ -22,4 +22,6 @@ return [
     'edit.title' => 'Edit user',
     'edit.btn.edit_user' => 'Edit user',
     'edit.message.success' => 'The user was succefully edited.',
+
+    'delete.message.success' => 'The user was succefully deleted.',
 ];
