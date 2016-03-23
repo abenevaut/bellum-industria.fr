@@ -17,12 +17,12 @@
             <span class="icon-bar"></span>
         </a>
 
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav hidden-xs hidden-md">
 
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fast-forward"></i> Shortcuts <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="{{ url('admin/users/create') }}"><i class="fa fa-users"></i> Add new user</a></li>
+                    <li><a href="{{ url('admin/users/create') }}"><i class="fa fa-user-plus"></i> Add new user</a></li>
                     <li class="divider"></li>
                     <li><a href="{{ url('admin/posts/create') }}"><i class="fa fa-newspaper-o"></i> Add new post</a></li>
                 </ul>

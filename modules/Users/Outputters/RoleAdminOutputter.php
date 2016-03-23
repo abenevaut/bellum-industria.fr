@@ -3,11 +3,9 @@
 use Config;
 use App\Http\Admin\Outputters\AdminOutputter;
 use CVEPDB\Requests\IFormRequest;
-use Modules\Users\Repositories\UserRepositoryEloquent;
-use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
 use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
 
-class UserAdminOutputter extends AdminOutputter
+class RoleAdminOutputter extends AdminOutputter
 {
     /**
      * @var string Outputter header title
@@ -20,35 +18,22 @@ class UserAdminOutputter extends AdminOutputter
     protected $description = 'users::admin.meta_description';
 
     /**
-     * @var null UserRepositoryEloquent
-     */
-    private $r_user = null;
-
-    /**
      * @var RoleRepositoryEloquent|null
      */
     private $r_role = null;
 
-    /**
-     * @var ApiKeyRepositoryEloquent|null
-     */
-    private $r_apikey = null;
-
     public function __construct(
-        UserRepositoryEloquent $r_user,
-        RoleRepositoryEloquent $r_role,
-        ApiKeyRepositoryEloquent $r_apikey
+        RoleRepositoryEloquent $r_role
     )
     {
         parent::__construct();
 
         $this->set_current_module('users');
 
-        $this->r_user = $r_user;
         $this->r_role = $r_role;
-        $this->r_apikey = $r_apikey;
 
         $this->addBreadcrumb('Users', 'admin/users');
+        $this->addBreadcrumb('Roles', 'admin/roles');
     }
 
     /**
@@ -105,8 +90,7 @@ class UserAdminOutputter extends AdminOutputter
             $user->roles()->attach($roles['user_role_id']);
         }
 
-        return $this->redirectTo('admin/users')
-            ->with('message-success', 'users::admin.create.message.success');
+        return $this->redirectTo('admin/users');
     }
 
     /**
@@ -150,25 +134,9 @@ class UserAdminOutputter extends AdminOutputter
      */
     public function update($id, IFormRequest $request)
     {
-        $user = $this->r_user->update([
-            'first_name' => $request->get('first_name'),
-            'last_name' => $request->get('last_name'),
-            'email' => $request->get('email')
+        $this->r_user->update([
+            // '' => $request->get('')
         ], $id);
-
-        $roles = $request->only('user_role_id');
-
-        $user->roles()->detach();
-        // Always attach client role
-        $role = $this->r_role->role_exists(RoleRepositoryEloquent::USER);
-        $user->attachRole($role);
-
-        if (count($roles['user_role_id']) > 0) {
-            $user->roles()->attach($roles['user_role_id']);
-        }
-
-        return $this->redirectTo('admin/users')
-            ->with('message-success', 'users::admin.edit.message.success');
     }
 
     /**

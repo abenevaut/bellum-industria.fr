@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    @include('adminlte::partials.metadata')
+    @include('adminlte::partials.metadata', ['header' => ['title' => 'Error', 'description' => 'error']])
 </head>
 <body class="hold-transition skin-blue layout-top-nav">
 <div class="wrapper">

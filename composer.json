@@ -13,7 +13,7 @@
     "beelab/bowerphp": "0.3.*@beta",
     "composer/composer": "^1.0@beta",
     "composer/installers": "~1.0",
-    "laravel/framework": "5.2.*",
+    "laravel/framework": "5.2.24",
     "spatie/laravel-medialibrary": "^3.16",
     "cvepdb/abstract": "1.0.52.*",
     "cvepdb-cms/theme-adminlte": "master-dev",

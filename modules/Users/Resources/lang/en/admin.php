@@ -9,6 +9,7 @@ return [
     'index.no_data.description' => 'Currently no user was register in website',
     'index.delete.question' => 'Would you really remove the user :',
     'index.btn.add_user' => 'Add user',
+    'index.btn.roles' => 'Manage roles',
     'index.btn.export' => 'Export users list',
     'index.btn.cancel_delete' => 'No, cancel',
     'index.btn.valid_delete' => 'Yes, remove',
@@ -16,6 +17,9 @@ return [
 
     'create.title' => 'Create a new user',
     'create.btn.add_user' => 'Add user',
+    'create.message.success' => 'The user was succefully added.',
 
     'edit.title' => 'Edit user',
+    'edit.btn.edit_user' => 'Edit user',
+    'edit.message.success' => 'The user was succefully edited.',
 ];

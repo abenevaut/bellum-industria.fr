@@ -71,7 +71,7 @@
                     </div>
                     <div class="pull-right">
                         <button class="btn btn-primary btn-flat" type="submit">
-                            <i class="fa fa-plus"></i> {{ trans('users::admin.create.btn.add_user') }}
+                            <i class="fa fa-user-plus"></i> {{ trans('users::admin.create.btn.add_user') }}
                         </button>
                     </div>
                 </div>

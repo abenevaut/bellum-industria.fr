@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8809d306afc546496ef8bcd7a6a93cf3",
-    "content-hash": "457723881260230d5d4c016f07c9f0fd",
+    "hash": "d4499f9debbcb62fbde07bca12fa75db",
+    "content-hash": "20fc42c1a5bfa906fc53c385ae65b955",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -797,6 +797,48 @@
                 "theme"
             ],
             "time": "2016-03-21 10:44:54"
+        },
+        {
+            "name": "cvepdb-cms/theme-flatly",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/theme-flatly.git",
+                "reference": "60004a7d70897c7c477374b16b1a83d1b84a1f21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-flatly/repository/archive.zip?sha=60004a7d70897c7c477374b16b1a83d1b84a1f21",
+                "reference": "60004a7d70897c7c477374b16b1a83d1b84a1f21",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "flatly"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "open"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Theme flatly for #CVEPDB CMS",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "CVEPDB",
+                "cms",
+                "flatly",
+                "theme"
+            ],
+            "time": "2016-03-23 14:13:16"
         },
         {
             "name": "cvepdb-cms/theme-lumen",
@@ -2250,16 +2292,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "5.2.x-dev",
+            "version": "v5.2.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "80d8b967131d2330ca8b69521de8e908113a8bef"
+                "reference": "396297a5fd3c70c2fc1af68f09ee574a2380175c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/80d8b967131d2330ca8b69521de8e908113a8bef",
-                "reference": "80d8b967131d2330ca8b69521de8e908113a8bef",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/396297a5fd3c70c2fc1af68f09ee574a2380175c",
+                "reference": "396297a5fd3c70c2fc1af68f09ee574a2380175c",
                 "shasum": ""
             },
             "require": {
@@ -2374,7 +2416,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-03-23 00:59:23"
+            "time": "2016-03-22 13:45:19"
         },
         {
             "name": "laravel/socialite",
@@ -4912,12 +4954,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "3c023430a4963b5fedf9ab02b997ec2cee7cb26a"
+                "reference": "a0a937985b89ccce8eac839c16b3a5242e5a1c0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/3c023430a4963b5fedf9ab02b997ec2cee7cb26a",
-                "reference": "3c023430a4963b5fedf9ab02b997ec2cee7cb26a",
+                "url": "https://api.github.com/repos/symfony/process/zipball/a0a937985b89ccce8eac839c16b3a5242e5a1c0b",
+                "reference": "a0a937985b89ccce8eac839c16b3a5242e5a1c0b",
                 "shasum": ""
             },
             "require": {
@@ -4953,7 +4995,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-16 16:19:48"
+            "time": "2016-03-23 13:23:25"
         },
         {
             "name": "symfony/routing",
@@ -4961,12 +5003,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "18d46fd0dc93001e9180415e31ad779ca693e22b"
+                "reference": "d061b609f2d0769494c381ec92f5c5cc5e4a20aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/18d46fd0dc93001e9180415e31ad779ca693e22b",
-                "reference": "18d46fd0dc93001e9180415e31ad779ca693e22b",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/d061b609f2d0769494c381ec92f5c5cc5e4a20aa",
+                "reference": "d061b609f2d0769494c381ec92f5c5cc5e4a20aa",
                 "shasum": ""
             },
             "require": {
@@ -5028,7 +5070,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2016-03-04 07:55:57"
+            "time": "2016-03-23 13:23:25"
         },
         {
             "name": "symfony/translation",
@@ -5623,7 +5665,8 @@
         "beelab/bowerphp": 10,
         "composer/composer": 10,
         "cvepdb-cms/theme-adminlte": 20,
-        "cvepdb-cms/theme-lumen": 20
+        "cvepdb-cms/theme-lumen": 20,
+        "cvepdb-cms/theme-flatly": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

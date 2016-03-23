@@ -1,20 +1,20 @@
 <?php namespace Modules\Users\Http\Controllers;
 
 use Pingpong\Modules\Routing\Controller;
-use Modules\Users\Outputters\UserAdminOutputter;
-use Modules\Users\Requests\UserAdminFormRequest;
+use Modules\Users\Outputters\RoleAdminOutputter;
+use Modules\Users\Requests\RoleAdminFormRequest;
 
-class AdminUsersController extends Controller {
+class AdminRolesController extends Controller {
 
 	/**
-	 * @var UserAdminOutputter|null
+	 * @var RoleAdminOutputter|null
 	 */
 	protected $outputter = null;
 
 	/**
-	 * @param UserAdminOutputter $outputter
+	 * @param RoleAdminOutputter $outputter
 	 */
-	public function __construct(UserAdminOutputter $outputter)
+	public function __construct(RoleAdminOutputter $outputter)
 	{
 		$this->outputter = $outputter;
 	}
@@ -43,7 +43,7 @@ class AdminUsersController extends Controller {
 	 * @param Request $request
 	 * @return Response
 	 */
-	public function store(UserAdminFormRequest $request)
+	public function store(RoleAdminFormRequest $request)
 	{
 		return $this->outputter->store($request);
 	}
@@ -76,7 +76,7 @@ class AdminUsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id, UserAdminFormRequest $request)
+	public function update($id, RoleAdminFormRequest $request)
 	{
 		return $this->outputter->update($id, $request);
 	}

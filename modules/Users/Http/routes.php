@@ -41,4 +41,5 @@ Route::group(['middleware' => ['web', 'CMSInstalled'], 'prefix' => 'admin', 'nam
 Route::group(['middleware' => ['web', 'CMSInstalled', 'auth', 'role:admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers'], function()
 {
 	Route::resource('users', 'AdminUsersController');
+	Route::resource('roles', 'AdminRolesController');
 });
