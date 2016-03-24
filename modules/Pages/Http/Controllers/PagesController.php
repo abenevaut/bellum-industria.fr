@@ -3,10 +3,21 @@
 use Pingpong\Modules\Routing\Controller;
 
 class PagesController extends Controller {
-	
-	public function index()
+
+	public function homepage()
 	{
-		return cmsview('pages::index', ['header' => ['title' => '', 'description' => '']]);
+
+
+		return cmsview('index', ['header' => ['title' => '', 'description' => '']]);
+	}
+
+	public function map($page)
+	{
+
+		dd($page);
+
+
+		return cmsview('index', ['header' => ['title' => '', 'description' => '']]);
 	}
 
 }

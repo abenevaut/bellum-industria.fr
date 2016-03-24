@@ -1,19 +1,30 @@
 <?php
 
-Route::group(['middleware' => 'web', 'namespace' => 'Modules\Pages\Http\Controllers'], function()
+Route::group(['middleware' => 'web', 'CMSInstalled', 'guest', 'namespace' => 'Modules\Pages\Http\Controllers'], function()
 {
-	Route::get('/', 'PagesController@index');
 
-	$patterns = 'admin|themes|assets|modules|uploads';
+	Route::get('/', 'PagesController@homepage');
+
+	$not_using_private_route = true;
+
 	foreach (Module::all() as $module) {
-		$patterns .= '|' . $module->name;
+		$not_using_private_route = $not_using_private_route
+			&& !Request::is($module->name)
+			&& !Request::is($module->name . '/*');
 	}
 
-	Route::get('{page}/{subs}', 'PagesController@index')
-		->where([
-			'page' => '^((?!['.$patterns.']).)*$', // config('pages.route_pattern') // todo check PagesServiceProvider
-			'subs' => '.*'
-		]);
+	foreach (explode('|', 'admin|themes|assets|modules|uploads|_debugbar') as $private_base_uri) {
+		$not_using_private_route = $not_using_private_route
+			&& !Request::is($private_base_uri)
+			&& !Request::is($private_base_uri . '/*');
+	}
+
+	if ($not_using_private_route)
+	{
+		Route::get('{uri}', 'PagesController@map')
+			->where('uri', '^([A-z\d-\/_.]+)?'); // config('pages.route_pattern') // todo check PagesServiceProvider
+	}
+
 });
 
 //App::after(function($request, $response) {

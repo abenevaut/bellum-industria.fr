@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d4499f9debbcb62fbde07bca12fa75db",
-    "content-hash": "20fc42c1a5bfa906fc53c385ae65b955",
+    "hash": "530b647121e2f0fa1d26d186efd6fa19",
+    "content-hash": "8982338f040b6e36764053517b505261",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -400,12 +400,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "0d061bff8273df2f4a45287209acfb769a01a02d"
+                "reference": "6aac6a0a931ad06780fa7c574f27178d48109ec7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/0d061bff8273df2f4a45287209acfb769a01a02d",
-                "reference": "0d061bff8273df2f4a45287209acfb769a01a02d",
+                "url": "https://api.github.com/repos/composer/installers/zipball/6aac6a0a931ad06780fa7c574f27178d48109ec7",
+                "reference": "6aac6a0a931ad06780fa7c574f27178d48109ec7",
                 "shasum": ""
             },
             "require": {
@@ -443,7 +443,7 @@
                 }
             ],
             "description": "A multi-framework Composer library installer",
-            "homepage": "http://composer.github.com/installers/",
+            "homepage": "https://composer.github.io/installers/",
             "keywords": [
                 "Craft",
                 "Dolibarr",
@@ -491,7 +491,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-03-11 13:58:36"
+            "time": "2016-03-23 16:25:33"
         },
         {
             "name": "composer/semver",
@@ -711,16 +711,16 @@
         },
         {
             "name": "cvepdb-cms/module-themes",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-themes.git",
-                "reference": "5f3289deeab1012a64679754676f0a690c334963"
+                "reference": "d84326bda6a487ee080e91bda25fb6673cb7ba5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=5f3289deeab1012a64679754676f0a690c334963",
-                "reference": "5f3289deeab1012a64679754676f0a690c334963",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=d84326bda6a487ee080e91bda25fb6673cb7ba5a",
+                "reference": "d84326bda6a487ee080e91bda25fb6673cb7ba5a",
                 "shasum": ""
             },
             "require": {
@@ -754,7 +754,7 @@
                 "module",
                 "themes"
             ],
-            "time": "2016-03-23 12:59:57"
+            "time": "2016-03-24 10:37:42"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -989,12 +989,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "07a9af2d4de5f9ef0bf2d9ae94421e5fc50d7859"
+                "reference": "2e1b1f7597e2f647e99e96e747fcae9718ac817b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/07a9af2d4de5f9ef0bf2d9ae94421e5fc50d7859",
-                "reference": "07a9af2d4de5f9ef0bf2d9ae94421e5fc50d7859",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/2e1b1f7597e2f647e99e96e747fcae9718ac817b",
+                "reference": "2e1b1f7597e2f647e99e96e747fcae9718ac817b",
                 "shasum": ""
             },
             "require": {
@@ -1049,7 +1049,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2016-02-26 09:54:41"
+            "time": "2016-03-24 07:09:52"
         },
         {
             "name": "doctrine/cache",
@@ -1126,12 +1126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "866e100a425b8b73d15393fd081c6bf067f05bf9"
+                "reference": "e0721034158c1a0b73f984888af833fe1682311e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/866e100a425b8b73d15393fd081c6bf067f05bf9",
-                "reference": "866e100a425b8b73d15393fd081c6bf067f05bf9",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/e0721034158c1a0b73f984888af833fe1682311e",
+                "reference": "e0721034158c1a0b73f984888af833fe1682311e",
                 "shasum": ""
             },
             "require": {
@@ -1184,7 +1184,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2015-09-11 15:24:21"
+            "time": "2016-03-24 07:07:41"
         },
         {
             "name": "doctrine/common",
@@ -5428,12 +5428,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Zizaco/entrust.git",
-                "reference": "e2ed11f29f418364cb7c9b5c7ee29ec2b4b15469"
+                "reference": "4a91772ae6b4b6a5a3819a714e0ce914c3313fd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/e2ed11f29f418364cb7c9b5c7ee29ec2b4b15469",
-                "reference": "e2ed11f29f418364cb7c9b5c7ee29ec2b4b15469",
+                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/4a91772ae6b4b6a5a3819a714e0ce914c3313fd6",
+                "reference": "4a91772ae6b4b6a5a3819a714e0ce914c3313fd6",
                 "shasum": ""
             },
             "require": {
@@ -5488,7 +5488,7 @@
                 "permission",
                 "roles"
             ],
-            "time": "2016-03-04 18:05:30"
+            "time": "2016-03-23 16:22:07"
         }
     ],
     "packages-dev": [
