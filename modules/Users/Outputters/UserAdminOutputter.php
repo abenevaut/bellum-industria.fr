@@ -56,7 +56,7 @@ class UserAdminOutputter extends AdminOutputter
      */
     public function index()
     {
-        $users = $this->r_user->paginate(config('app.pagination'), ['id', 'last_name', 'first_name', 'email']);
+        $users = $this->r_user->paginate(config('app.pagination'));
 
         return $this->output(
             'users.admin.index',
@@ -120,7 +120,14 @@ class UserAdminOutputter extends AdminOutputter
      */
     public function show($id)
     {
-        // Todo : fancybox
+        $user = $this->r_user->find($id);
+
+        return $this->output(
+            'users.admin.show',
+            [
+                'user' => $user
+            ]
+        );
     }
 
     /**

@@ -37,7 +37,11 @@
                                     {{--<td class="hidden-xs cell-center" width="5%">--}}
                                         {{--<input type="checkbox">--}}
                                     {{--</td>--}}
-                                    <td class="cell-center">{{ $user->full_name }}</td>
+                                    <td class="cell-center">
+                                        <a data-toggle="modal" href="{{ url('admin/users/'.$user->id) }}" data-target="#user_show_{{ $user->id }}">
+                                            {{ $user->full_name }}
+                                        </a>
+                                    </td>
                                     <td class="cell-center"><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
                                     <td class="hidden-xs cell-center">
                                         <a href="{{ url('admin/users/' . $user->id . '/edit') }}"
@@ -91,6 +95,12 @@
                         </button>
                         {!! Form::close() !!}
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-default" id="user_show_{{ $user->id }}">
+            <div class="modal-dialog">
+                <div class="modal-content">
                 </div>
             </div>
         </div>

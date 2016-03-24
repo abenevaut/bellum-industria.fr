@@ -23,5 +23,7 @@ return [
     'edit.btn.edit_user' => 'Edit user',
     'edit.message.success' => 'The user was succefully edited.',
 
+    'show.message.no_apikey' => 'No API key set for this user.',
+
     'delete.message.success' => 'The user was succefully deleted.',
 ];
