@@ -1,6 +1,6 @@
 <title>
     @section('title')
-        {{ $header['title'] ? $header['title'] : Widget::site_name() }}
+        {{ trans($header['title'] ? $header['title'] : Widget::site_name()) }}
     @show
 </title>
 <meta name="description" itemprop="description"

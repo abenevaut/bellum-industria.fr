@@ -1,10 +1,10 @@
 <title>
     @section('title')
-        {{ $header['title'] ? $header['title'] : Widget::site_name() }}
+        {{ trans($header['title'] ? $header['title'] : Widget::site_name()) }}
     @show
 </title>
 <meta name="description" itemprop="description"
-      content="@section("meta-description"){{ $header['description'] ? $header['description'] : Widget::site_description() }}@show" />
+      content="@section("meta-description"){{ trans($header['description'] ? $header['description'] : Widget::site_description()) }}@show" />
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>

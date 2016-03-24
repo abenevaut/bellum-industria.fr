@@ -19,7 +19,6 @@ class UserImpersonate
         // \Session::forget('impersonate_member');
 
         if (
-
             Auth::check()
             && (
                 Auth::user()->hasRole('admin')
@@ -27,7 +26,6 @@ class UserImpersonate
             )
             && $request->session()->has('impersonate_member')
             && $id = $request->session()->get('impersonate_member')
-
         )
         {
             Auth::onceUsingId($id);

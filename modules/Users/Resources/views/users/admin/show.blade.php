@@ -77,6 +77,9 @@
 @endsection
 
 @section('footer')
+    <a href="{{ url('admin/users/impersonate/' . $user->id) }}" class="btn btn-default pull-left">
+        {{ trans('btn.impersonate') }}
+    </a>
     <button type="button" class="btn btn-default pull-right" data-dismiss="modal">
         {{ trans('global.close') }}
     </button>

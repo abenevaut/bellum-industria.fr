@@ -5,7 +5,7 @@
 //	Route::get('/', 'DashboardController@index');
 //});
 
-Route::group(['middleware' => ['web', 'CMSInstalled', 'auth', 'role:admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Dashboard\Http\Controllers'], function()
+Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Dashboard\Http\Controllers'], function()
 {
 	Route::get('/', 'AdminDashboardController@index');
 	Route::get('dashboard/config', 'AdminDashboardController@config');

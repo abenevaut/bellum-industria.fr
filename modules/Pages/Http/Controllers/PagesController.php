@@ -6,8 +6,6 @@ class PagesController extends Controller {
 
 	public function homepage()
 	{
-
-
 		return cmsview('index', ['header' => ['title' => '', 'description' => '']]);
 	}
 

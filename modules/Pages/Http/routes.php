@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => 'web', 'CMSInstalled', 'guest', 'namespace' => 'Modules\Pages\Http\Controllers'], function()
+Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Pages\Http\Controllers'], function()
 {
 
 	Route::get('/', 'PagesController@homepage');
@@ -13,7 +13,7 @@ Route::group(['middleware' => 'web', 'CMSInstalled', 'guest', 'namespace' => 'Mo
 			&& !Request::is($module->name . '/*');
 	}
 
-	foreach (explode('|', 'admin|themes|assets|modules|uploads|_debugbar') as $private_base_uri) {
+	foreach (explode('|', 'admin|themes|assets|modules|uploads|_debugbar|login|register|password|logout') as $private_base_uri) {
 		$not_using_private_route = $not_using_private_route
 			&& !Request::is($private_base_uri)
 			&& !Request::is($private_base_uri . '/*');
@@ -36,7 +36,7 @@ Route::group(['middleware' => 'web', 'CMSInstalled', 'guest', 'namespace' => 'Mo
 //	});
 //});
 
-Route::group(['middleware' => ['web', 'CMSInstalled', 'auth', 'role:admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Pages\Http\Controllers'], function()
+Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Pages\Http\Controllers'], function()
 {
 	Route::resource('pages', 'PagesAdminController');
 });

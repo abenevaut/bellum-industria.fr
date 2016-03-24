@@ -91,4 +91,19 @@ class AdminUsersController extends Controller {
 	{
 		return $this->outputter->destroy($id);
 	}
+
+	/**
+	 * @param $id
+	 * @return mixed
+	 */
+	public function impersonate($id) {
+		return $this->outputter->impersonate($id);
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function endimpersonate() {
+		return $this->outputter->endimpersonate();
+	}
 }

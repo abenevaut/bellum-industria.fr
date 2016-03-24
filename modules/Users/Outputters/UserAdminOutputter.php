@@ -1,6 +1,7 @@
 <?php namespace Modules\Users\Outputters;
 
 use Config;
+use Session;
 use App\Http\Admin\Outputters\AdminOutputter;
 use CVEPDB\Requests\IFormRequest;
 use Modules\Users\Repositories\UserRepositoryEloquent;
@@ -219,5 +220,22 @@ class UserAdminOutputter extends AdminOutputter
 
         return $this->redirectTo('admin/users')
             ->with('message-success', 'users::admin.delete.message.success');
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function impersonate($id) {
+        Session::set('impersonate_member', $id);
+        return redirect('/');
+    }
+
+    /**
+     * @return mixed
+     */
+    public function endimpersonate() {
+        Session::forget('impersonate_member');
+        return redirect('admin');
     }
 }
