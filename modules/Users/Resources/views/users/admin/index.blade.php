@@ -99,16 +99,13 @@
                         </table>
                     </div>
                     <div class="box-footer clearfix">
-
                         <div class="pull-left">
-                            Total users {{ $nb_users }}
+                            {{ trans('index.total_users') }} {{ $nb_users }}
                         </div>
-
                         {!! with(new \Modules\Users\Resources\IndexAdminPagination($users->appends(['name' => $filters['name'], 'email' => $filters['email']])))->render() !!}
                     </div>
                 @else
                     <div class="box-body">
-
                         @include('users::users.admin.chunks.index_filters', ['filters' => $filters])
                         <div class="callout callout-info" role="alert">
                             <h4><i class="icon fa fa-info"></i> {{ trans('users::admin.index.no_data.title') }}</h4>

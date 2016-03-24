@@ -3,7 +3,7 @@
     <div class="small-box bg-yellow">
         <div class="inner">
             <h3>{{ $nb_users }}</h3>
-            <p>User Registrations</p>
+            <p>{{ trans('index.total_users') }}</p>
         </div>
         <div class="icon">
             <i class="ion ion-person-add"></i>
