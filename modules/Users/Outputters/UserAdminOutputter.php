@@ -62,7 +62,8 @@ class UserAdminOutputter extends AdminOutputter
         return $this->output(
             'users.admin.index',
             [
-                'users' => $users
+                'users' => $users,
+                'nb_users' => $this->r_user->allCount(),
             ]
         );
     }

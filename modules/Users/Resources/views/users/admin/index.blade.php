@@ -98,6 +98,11 @@
                         </table>
                     </div>
                     <div class="box-footer clearfix">
+
+                        <div class="pull-left">
+                            Total users {{ $nb_users }}
+                        </div>
+
                         @include('adminlte::partials.pagination', ['paginator' => $users])
                     </div>
                 @else

@@ -16,6 +16,21 @@ class UserRepositoryEloquent extends UserRepositoryEloquentParent
      */
     public function model()
     {
-        return \Modules\Users\Entities\User::class;
+        return User::class;
+    }
+
+    public function allWithTrashed()
+    {
+        return User::withTrashed()->get();
+    }
+
+    public function onlyTrashed()
+    {
+        return User::onlyTrashed()->get();
+    }
+
+    public function allCount()
+    {
+        return User::all()->count();
     }
 }
