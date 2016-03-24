@@ -100,7 +100,7 @@
                     </div>
                     <div class="box-footer clearfix">
                         <div class="pull-left">
-                            {{ trans('index.total_users') }} {{ $nb_users }}
+                            {{ trans('users::admin.index.total_users') }} {{ $nb_users }}
                         </div>
                         {!! with(new \Modules\Users\Resources\IndexAdminPagination($users->appends(['name' => $filters['name'], 'email' => $filters['email']])))->render() !!}
                     </div>
