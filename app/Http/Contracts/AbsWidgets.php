@@ -19,12 +19,14 @@ abstract class AbsWidgets
      */
     protected $view_prefix = '';
 
+    /**
+     * @var string
+     */
+    protected $module = 'users';
+
     public function output($view, $data)
     {
-        return view(
-            $this->view_prefix . $view,
-            $data
-        );
+        return cmsview($view, $data, $this->view_prefix, $this->module);
     }
 
     public function widgetInformation()

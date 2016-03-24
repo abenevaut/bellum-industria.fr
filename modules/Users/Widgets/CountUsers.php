@@ -2,6 +2,7 @@
 
 use Widget;
 use App\Http\Contracts\AbsWidgets;
+use Modules\Users\Repositories\UserRepositoryEloquent;
 
 class CountUsers extends AbsWidgets
 {
@@ -18,7 +19,22 @@ class CountUsers extends AbsWidgets
     /**
      * @var string View namespace ('dashboard::'|null)
      */
-    protected $view_prefix = 'dashboard::';
+    protected $view_prefix = 'users::';
+
+    /**
+     * @var string
+     */
+    protected $module = 'users::';
+
+    /**
+     * @var UserRepositoryEloquent|null
+     */
+    private $r_user = null;
+
+    public function __construct(UserRepositoryEloquent $r_user)
+    {
+        $this->r_user = $r_user;
+    }
 
     public function register($action = null)
     {
@@ -27,7 +43,7 @@ class CountUsers extends AbsWidgets
                 return $this->widgetInformation();
             }
             default:
-                return $this->output('dashboard.widgets.countusers', []);
+                return $this->output('users.widgets.countusers', ['nb_users' => $this->r_user->allCount()]);
         }
     }
 }

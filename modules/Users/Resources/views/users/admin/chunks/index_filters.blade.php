@@ -1,4 +1,4 @@
-{!! Form::open(['route' => ['admin.users.index'], 'method' => 'GET', "class" => "js-users_multi_delete-container"]) !!}
+{!! Form::open(['route' => ['admin.users.index'], 'method' => 'GET', "class" => "hidden-xs js-users_multi_delete-container"]) !!}
 <div class="box box-widget collapsed-box no-margin" style="border:none;">
     <div class="box-header with-border">
         <div class="">
