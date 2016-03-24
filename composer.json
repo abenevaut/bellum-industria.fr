@@ -15,6 +15,7 @@
     "composer/installers": "~1.0",
     "laravel/framework": "5.2.24",
     "spatie/laravel-medialibrary": "^3.16",
+    "maatwebsite/excel": "~2.1.0",
     "cvepdb/abstract": "1.0.52.*",
     "cvepdb-cms/theme-adminlte": "master-dev",
     "cvepdb-cms/theme-lumen": "master-dev",

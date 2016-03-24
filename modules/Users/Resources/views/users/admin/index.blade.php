@@ -52,9 +52,9 @@
                         {{--<a href="{{ url('admin/roles/index') }}" class="btn btn-box-tool btn-box-tool-primary">--}}
                             {{--<i class="fa fa-user-md"></i> {{ trans('users::admin.index.btn.roles') }}--}}
                         {{--</a>--}}
-                        {{--<a href="{{ url('admin/users/export') }}" class="btn btn-box-tool">--}}
-                            {{--<i class="fa fa-file-excel-o"></i> {{ trans('users::admin.index.btn.export') }}--}}
-                        {{--</a>--}}
+                        <a href="{{ url('admin/users/export') }}" class="btn btn-box-tool">
+                            <i class="fa fa-file-excel-o"></i> {{ trans('users::admin.index.btn.export') }}
+                        </a>
                     </div>
                 </div>
                 @if ($users->count())

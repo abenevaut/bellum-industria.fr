@@ -5,6 +5,7 @@ use Modules\Users\Outputters\UserAdminOutputter;
 use Modules\Users\Http\Requests\UserAdminFormRequest;
 use Modules\Users\Http\Requests\UsersIndexFiltersAdminFormRequest;
 use Modules\Users\Http\Requests\UsersMultiDestroyAdminFormRequest;
+use Modules\Users\Exports\UsersListAdminExport;
 
 class AdminUsersController extends Controller {
 
@@ -118,5 +119,12 @@ class AdminUsersController extends Controller {
 	 */
 	public function endimpersonate() {
 		return $this->outputter->endimpersonate();
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function export(UsersListAdminExport $excel) {
+		return $this->outputter->export($excel);
 	}
 }

@@ -197,6 +197,8 @@ return [
         App\Providers\ModulesServiceProvider::class,
         App\Providers\ThemesServiceProvider::class,
 
+        'Maatwebsite\Excel\ExcelServiceProvider',
+
     ],
 
     /*
@@ -262,6 +264,7 @@ return [
         // Debugbar
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
+        'Excel' => 'Maatwebsite\Excel\Facades\Excel',
 
     ],
 

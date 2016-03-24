@@ -10,6 +10,7 @@ use Modules\Users\Entities\UserNameLikeCriteria;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
 use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
+use \Maatwebsite\Excel\Files\NewExcelFile;
 
 class UserAdminOutputter extends AdminOutputter
 {
@@ -235,7 +236,8 @@ class UserAdminOutputter extends AdminOutputter
      * @param $id
      * @return mixed
      */
-    public function impersonate($id) {
+    public function impersonate($id)
+    {
         Session::set('impersonate_member', $id);
         return redirect('/');
     }
@@ -243,9 +245,77 @@ class UserAdminOutputter extends AdminOutputter
     /**
      * @return mixed
      */
-    public function endimpersonate() {
+    public function endimpersonate()
+    {
         Session::forget('impersonate_member');
         return redirect('admin');
+    }
+
+    public function export(NewExcelFile $excel)
+    {
+        $users = $this->r_user->all($excel->getModelColumns());
+        $nb_users = $this->r_user->allCount();
+
+        $excel->setTitle('Users export');
+        $excel->setCreator('#CVEPDB CMS')->setCompany('#CVEPDB');
+        $excel->setDescription('Users list');
+
+        return $excel->sheet('Users list ' . date('Y-m-d H\hi'), function ($sheet) use ($users, $nb_users) {
+
+            $sheet->prependRow(array(
+                '#', 'Last name', 'First name', 'email'
+            ));
+
+            // Append row after row 2
+            $sheet->rows($users->toArray());
+
+            // Append row after row 2
+            $sheet->appendRow($nb_users + 2, array('Total users : ' . $nb_users));
+
+
+            /*
+             * Style
+             */
+
+
+            // Set black background
+            $sheet->row(1, function ($row) {
+                // Set font
+                $row->setFont(array(
+                    'size' => '14',
+                    'bold' => true
+                ));
+                $row->setAlignment('center');
+                $row->setValignment('middle');
+            });
+
+            // Freeze first row
+            $sheet->freezeFirstRow();
+
+            $sheet->cells('A2:D' . ($nb_users + 2), function ($cells) {
+
+                // Set font
+                $cells->setFont(array(
+                    'size' => '12',
+                    'bold' => false
+                ));
+                $cells->setAlignment('center');
+                $cells->setValignment('middle');
+
+            });
+
+            // Set black background
+            $sheet->row($nb_users + 2, function ($row) {
+                // Set font
+                $row->setFont(array(
+                    'size' => '12',
+                    'bold' => true
+                ));
+                $row->setAlignment('center');
+                $row->setValignment('middle');
+            });
+
+        })->export('xls');
     }
 
     // Todo merge to repository
