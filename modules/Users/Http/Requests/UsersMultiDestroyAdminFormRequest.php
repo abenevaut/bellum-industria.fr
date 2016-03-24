@@ -2,7 +2,7 @@
 
 use CVEPDB\Requests\Request;
 
-class UserAdminFormRequest extends Request
+class UsersMultiDestroyAdminFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,7 @@ class UserAdminFormRequest extends Request
     public function rules()
     {
         return [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email'
+            'users_multi_destroy' => 'required'
         ];
     }
 }

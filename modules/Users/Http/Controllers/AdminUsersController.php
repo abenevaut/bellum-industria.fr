@@ -2,7 +2,8 @@
 
 use Pingpong\Modules\Routing\Controller;
 use Modules\Users\Outputters\UserAdminOutputter;
-use Modules\Users\Requests\UserAdminFormRequest;
+use Modules\Users\Http\Requests\UserAdminFormRequest;
+use Modules\Users\Http\Requests\UsersMultiDestroyAdminFormRequest;
 
 class AdminUsersController extends Controller {
 
@@ -90,6 +91,17 @@ class AdminUsersController extends Controller {
 	public function destroy($id)
 	{
 		return $this->outputter->destroy($id);
+	}
+
+	/**
+	 * Remove multiple users
+	 *
+	 * @param UsersMultiDestroyAdminFormRequest $request
+	 * @return mixed
+	 */
+	public function destroy_multiple(UsersMultiDestroyAdminFormRequest $request)
+	{
+		return $this->outputter->destroy_multiple($request);
 	}
 
 	/**

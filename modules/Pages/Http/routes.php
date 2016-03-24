@@ -24,7 +24,6 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Pages\Http\Contro
 		Route::get('{uri}', 'PagesController@map')
 			->where('uri', '^([A-z\d-\/_.]+)?'); // config('pages.route_pattern') // todo check PagesServiceProvider
 	}
-
 });
 
 //App::after(function($request, $response) {

@@ -27,4 +27,5 @@ return [
     'show.message.no_apikey' => 'No API key set for this user.',
 
     'delete.message.success' => 'The user was succefully deleted.',
+    'delete_multiple.message.success' => 'The users list was succefully deleted.',
 ];

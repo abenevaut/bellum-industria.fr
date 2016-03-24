@@ -1,5 +1,44 @@
 @extends('adminlte::layouts.default')
 
+@section('js')
+    <script>
+        (function($, D, W){
+            _users = {
+                checkboxes_counter: 0,
+                setup: function() {
+                    $multi_delete_check = $('.js-users_multi_delete');
+                    $multi_delete_form = $('.js-users_multi_delete-container');
+                    $multi_delete_btn = $('.js-btn-users_multi_delete');
+                    $multi_delete_check.on('change', function(){
+                        var current_value = $(this).val();
+                        if ($(this).is(':checked')) {
+                            _users.checkboxes_counter++;
+                            $multi_delete_form.append(
+                                    '<input type="hidden" class="js-users_multi_delete-'
+                                    + current_value
+                                    + '" value="'+ current_value +'" name="users_multi_destroy[]" />'
+                            );
+                        }
+                        else {
+                            _users.checkboxes_counter--;
+                            $multi_delete_form.find('.js-users_multi_delete-' + current_value).remove();
+                        }
+                        if (_users.checkboxes_counter > 0) {
+                            $multi_delete_btn.attr('disabled', false).removeClass('disabled');
+                        }
+                        else {
+                            $multi_delete_btn.attr('disabled', true).addClass('disabled');
+                        }
+                    });
+                }
+            };
+            $(D).bind('CVEPDB_READY', function(){
+                _users.setup();
+            });
+        })(jQuery, document, window);
+    </script>
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -23,20 +62,20 @@
                         <table class="table table-bordered">
                             <tbody>
                             <tr>
-                                {{--<th class="hidden-xs cell-center" width="5%">--}}
-                                    {{--<button type="button" class="btn btn-danger btn-flat btn-mobile disabled" disabled="disabled">--}}
-                                        {{--<i class="fa fa-trash"></i>--}}
-                                    {{--</button>--}}
-                                {{--</th>--}}
+                                <th class="hidden-xs cell-center" width="5%">
+                                    <button type="button" class="btn btn-danger btn-flat btn-mobile disabled js-btn-users_multi_delete" data-toggle="modal" data-target="#delete_multiple_user" disabled="disabled">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </th>
                                 <th class="cell-center">{{ trans('users::admin.index.tab.full_name') }}</th>
                                 <th class="cell-center">{{ trans('global.email') }}</th>
                                 <th class="hidden-xs cell-center" width="20%">{{ trans('global.actions') }}</th>
                             </tr>
                             @foreach ($users as $user)
                                 <tr>
-                                    {{--<td class="hidden-xs cell-center" width="5%">--}}
-                                        {{--<input type="checkbox">--}}
-                                    {{--</td>--}}
+                                    <td class="hidden-xs cell-center" width="5%">
+                                        <input type="checkbox" class="js-users_multi_delete" value="{{ $user->id }}">
+                                    </td>
                                     <td class="cell-center">
                                         <a data-toggle="modal" href="{{ url('admin/users/'.$user->id) }}" data-target="#user_show_{{ $user->id }}">
                                             {{ $user->full_name }}
@@ -105,4 +144,29 @@
             </div>
         </div>
     @endforeach
-@stop
+    <div class="modal modal-danger" id="delete_multiple_user">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">{{ trans('global.attention') }}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{ trans('users::admin.index.delete_multiple.question') }} ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">
+                        {{ trans('users::admin.index.btn.cancel_delete') }}
+                    </button>
+                    {!! Form::open(['route' => ['admin.users.destroy_multiple'], 'method' => 'delete', "class" => "js-users_multi_delete-container"]) !!}
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fa fa-trash"></i> {{ trans('users::admin.index.btn.valid_delete') }}
+                    </button>
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

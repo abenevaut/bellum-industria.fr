@@ -192,6 +192,46 @@ class UserAdminOutputter extends AdminOutputter
      */
     public function destroy($id)
     {
+        $this->_delete_user($id);
+
+        // Todo : emit event
+
+        return $this->redirectTo('admin/users')
+            ->with('message-success', 'users::admin.delete.message.success');
+    }
+
+    public function destroy_multiple(IFormRequest $request)
+    {
+        $users = $request->only('users_multi_destroy');
+
+        foreach ($users['users_multi_destroy'] as $user_id) {
+            $this->_delete_user($user_id);
+        }
+
+        return $this->redirectTo('admin/users')
+            ->with('message-success', 'users::admin.delete_multiple.message.success');
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function impersonate($id) {
+        Session::set('impersonate_member', $id);
+        return redirect('/');
+    }
+
+    /**
+     * @return mixed
+     */
+    public function endimpersonate() {
+        Session::forget('impersonate_member');
+        return redirect('admin');
+    }
+
+    // Todo merge to repository
+    private function _delete_user($id)
+    {
         $user = $this->r_user->find($id);
 
         /*
@@ -215,27 +255,6 @@ class UserAdminOutputter extends AdminOutputter
 
         $user->delete();
 
-        // Todo : emit event
         // Todo : send mail to deleted user
-
-        return $this->redirectTo('admin/users')
-            ->with('message-success', 'users::admin.delete.message.success');
-    }
-
-    /**
-     * @param $id
-     * @return mixed
-     */
-    public function impersonate($id) {
-        Session::set('impersonate_member', $id);
-        return redirect('/');
-    }
-
-    /**
-     * @return mixed
-     */
-    public function endimpersonate() {
-        Session::forget('impersonate_member');
-        return redirect('admin');
     }
 }

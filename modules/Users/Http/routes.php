@@ -33,6 +33,7 @@ Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Modu
 Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers'], function() {
 	Route::get('users/impersonate/{id}', ['as' => 'admin.users.impersonate', 'uses' => 'AdminUsersController@impersonate']);
 	Route::get('users/endimpersonate', ['as' => 'admin.users.endimpersonate', 'uses' => 'AdminUsersController@endimpersonate']);
+	Route::delete('users/destroy_multiple', ['as' => 'admin.users.destroy_multiple', 'uses' => 'AdminUsersController@destroy_multiple']);
 	Route::resource('users', 'AdminUsersController');
 	Route::resource('roles', 'AdminRolesController');
 });
