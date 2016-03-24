@@ -55,30 +55,31 @@
             </tbody>
         </table>
 
-        <br>
-
-        <table class="table table-bordered">
-            <tbody>
-            <tr class="cell-center">
-                <th>
-                    <b>Roles</b>
-                </th>
-            </tr>
-            @foreach ($user->roles as $role)
+        @if ($user->roles->count())
+            <br>
+            <table class="table table-bordered">
+                <tbody>
                 <tr class="cell-center">
-                    <td>
-                        {!! trans($role->display_name) !!}
-                    </td>
+                    <th>
+                        <b>Roles</b>
+                    </th>
                 </tr>
-            @endforeach
-            </tbody>
-        </table>
+                @foreach ($user->roles as $role)
+                    <tr class="cell-center">
+                        <td>
+                            {!! trans($role->display_name) !!}
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        @endif
     </div>
 @endsection
 
 @section('footer')
     <a href="{{ url('admin/users/impersonate/' . $user->id) }}" class="btn btn-default pull-left">
-        {{ trans('btn.impersonate') }}
+        <i class="fa fa-user-secret"></i> {{ trans('users::admin.show.btn.impersonate') }}
     </a>
     <button type="button" class="btn btn-default pull-right" data-dismiss="modal">
         {{ trans('global.close') }}
