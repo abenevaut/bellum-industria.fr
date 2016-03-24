@@ -2,8 +2,11 @@
 
 use Config;
 use Session;
+use Request;
 use App\Http\Admin\Outputters\AdminOutputter;
 use CVEPDB\Requests\IFormRequest;
+use Modules\Users\Entities\EmailLikeCriteria;
+use Modules\Users\Entities\UserNameLikeCriteria;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
 use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
@@ -55,8 +58,19 @@ class UserAdminOutputter extends AdminOutputter
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(IFormRequest $request)
     {
+        $name = null;
+        $email = null;
+
+        if ($request->has('name') && ($name = $request->get('name'))) {
+            $this->r_user->pushCriteria(new UserNameLikeCriteria($name));
+        }
+
+        if ($request->has('email') && ($email = $request->get('email'))) {
+            $this->r_user->pushCriteria(new EmailLikeCriteria($email));
+        }
+
         $users = $this->r_user->paginate(config('app.pagination'));
 
         return $this->output(
@@ -64,6 +78,10 @@ class UserAdminOutputter extends AdminOutputter
             [
                 'users' => $users,
                 'nb_users' => $this->r_user->allCount(),
+                'filters' => [
+                    'name' => $name,
+                    'email' => $email,
+                ]
             ]
         );
     }

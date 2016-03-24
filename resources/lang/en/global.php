@@ -19,5 +19,6 @@ return [
     'navigation' => 'Navigation',
     'close' => 'Close',
     'preview' => 'Preview',
+    'filters' => 'Filters',
 
 ];

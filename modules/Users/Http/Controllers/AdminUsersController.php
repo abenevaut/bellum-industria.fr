@@ -3,6 +3,7 @@
 use Pingpong\Modules\Routing\Controller;
 use Modules\Users\Outputters\UserAdminOutputter;
 use Modules\Users\Http\Requests\UserAdminFormRequest;
+use Modules\Users\Http\Requests\UsersIndexFiltersAdminFormRequest;
 use Modules\Users\Http\Requests\UsersMultiDestroyAdminFormRequest;
 
 class AdminUsersController extends Controller {
@@ -23,9 +24,9 @@ class AdminUsersController extends Controller {
 	/**
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function index()
+	public function index(UsersIndexFiltersAdminFormRequest $request)
 	{
-		return $this->outputter->index();
+		return $this->outputter->index($request);
 	}
 
 	/**

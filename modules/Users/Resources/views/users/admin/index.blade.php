@@ -59,6 +59,7 @@
                 </div>
                 @if ($users->count())
                     <div class="box-body no-padding">
+                        @include('users::users.admin.chunks.index_filters', ['filters' => $filters])
                         <table class="table table-bordered">
                             <tbody>
                             <tr>
@@ -103,10 +104,12 @@
                             Total users {{ $nb_users }}
                         </div>
 
-                        @include('adminlte::partials.pagination', ['paginator' => $users])
+                        {!! with(new \Modules\Users\Resources\IndexAdminPagination($users->appends(['name' => $filters['name'], 'email' => $filters['email']])))->render() !!}
                     </div>
                 @else
                     <div class="box-body">
+
+                        @include('users::users.admin.chunks.index_filters', ['filters' => $filters])
                         <div class="callout callout-info" role="alert">
                             <h4><i class="icon fa fa-info"></i> {{ trans('users::admin.index.no_data.title') }}</h4>
                             <p>{{ trans('users::admin.index.no_data.description') }}</p>

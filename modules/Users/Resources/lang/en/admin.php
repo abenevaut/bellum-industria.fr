@@ -14,6 +14,8 @@ return [
     'index.btn.cancel_delete' => 'No, cancel',
     'index.btn.valid_delete' => 'Yes, remove',
     'index.tab.full_name' => 'User name',
+    'index.btn.apply_filters' => 'Apply filters',
+    'index.btn.reset_filters' => 'Reset filters',
 
     'create.title' => 'Create a new user',
     'create.btn.add_user' => 'Add user',
