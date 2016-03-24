@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="row">
+    <div class="row hidden-xs hidden-sm">
 
         <div class="col-lg-12">
             <div class="small-box" style="background-color: white;">

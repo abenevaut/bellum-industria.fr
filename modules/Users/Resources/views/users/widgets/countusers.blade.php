@@ -1,4 +1,4 @@
-<div class="col-lg-3 col-xs-6">
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
     <!-- small box -->
     <div class="small-box bg-yellow">
         <div class="inner">
