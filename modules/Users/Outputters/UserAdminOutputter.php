@@ -1,5 +1,6 @@
 <?php namespace Modules\Users\Outputters;
 
+use Auth;
 use Config;
 use Session;
 use Request;
@@ -256,66 +257,71 @@ class UserAdminOutputter extends AdminOutputter
         $users = $this->r_user->all($excel->getModelColumns());
         $nb_users = $this->r_user->allCount();
 
-        $excel->setTitle('Users export');
-        $excel->setCreator('#CVEPDB CMS')->setCompany('#CVEPDB');
-        $excel->setDescription('Users list');
+        return $excel->setTitle(trans(''))
+            ->setCreator(Auth::user()->full_name)
+            ->setCompany(env('APP_SITE_NAME'))
+            ->setDescription(trans('users::admin.export.users_list.title'))
+            ->sheet(
+                trans('users::admin.export.users_list.sheet_title') . date('Y-m-d H\hi'),
+                function ($sheet) use ($users, $nb_users) {
 
-        return $excel->sheet('Users list ' . date('Y-m-d H\hi'), function ($sheet) use ($users, $nb_users) {
+                    $sheet->prependRow(array(
+                        '#',
+                        trans('global.last_name'),
+                        trans('global.first_name'),
+                        trans('global.email')
+                    ));
 
-            $sheet->prependRow(array(
-                '#', 'Last name', 'First name', 'email'
-            ));
+                    // Append row after row 2
+                    $sheet->rows($users->toArray());
 
-            // Append row after row 2
-            $sheet->rows($users->toArray());
-
-            // Append row after row 2
-            $sheet->appendRow($nb_users + 2, array('Total users : ' . $nb_users));
-
-
-            /*
-             * Style
-             */
+                    // Append row after row 2
+                    $sheet->appendRow($nb_users + 2, array('Total users : ' . $nb_users));
 
 
-            // Set black background
-            $sheet->row(1, function ($row) {
-                // Set font
-                $row->setFont(array(
-                    'size' => '14',
-                    'bold' => true
-                ));
-                $row->setAlignment('center');
-                $row->setValignment('middle');
-            });
+                    /*
+                     * Style
+                     */
 
-            // Freeze first row
-            $sheet->freezeFirstRow();
 
-            $sheet->cells('A2:D' . ($nb_users + 2), function ($cells) {
+                    // Set black background
+                    $sheet->row(1, function ($row) {
+                        // Set font
+                        $row->setFont(array(
+                            'size' => '14',
+                            'bold' => true
+                        ));
+                        $row->setAlignment('center');
+                        $row->setValignment('middle');
+                    });
 
-                // Set font
-                $cells->setFont(array(
-                    'size' => '12',
-                    'bold' => false
-                ));
-                $cells->setAlignment('center');
-                $cells->setValignment('middle');
+                    // Freeze first row
+                    $sheet->freezeFirstRow();
 
-            });
+                    $sheet->cells('A2:D' . ($nb_users + 2), function ($cells) {
 
-            // Set black background
-            $sheet->row($nb_users + 2, function ($row) {
-                // Set font
-                $row->setFont(array(
-                    'size' => '12',
-                    'bold' => true
-                ));
-                $row->setAlignment('center');
-                $row->setValignment('middle');
-            });
+                        // Set font
+                        $cells->setFont(array(
+                            'size' => '12',
+                            'bold' => false
+                        ));
+                        $cells->setAlignment('center');
+                        $cells->setValignment('middle');
 
-        })->export('xls');
+                    });
+
+                    // Set black background
+                    $sheet->row($nb_users + 2, function ($row) {
+                        // Set font
+                        $row->setFont(array(
+                            'size' => '12',
+                            'bold' => true
+                        ));
+                        $row->setAlignment('center');
+                        $row->setValignment('middle');
+                    });
+
+            })->export('xls');
     }
 
     // Todo merge to repository

@@ -30,4 +30,7 @@ return [
 
     'delete.message.success' => 'The user was succefully deleted.',
     'delete_multiple.message.success' => 'The users list was succefully deleted.',
+
+    'export.users_list.title' => 'Users export',
+    'export.users_list.sheet_title' => 'Users list ', // follow by current date
 ];
