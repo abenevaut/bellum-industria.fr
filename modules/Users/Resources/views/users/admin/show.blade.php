@@ -8,34 +8,34 @@
     <div class="box-body no-padding">
         <table class="table table-bordered">
             <tbody>
-            <tr>
-                <td>
+            <tr class="cell-center">
+                <th>
                     <b>ID</b>
-                </td>
+                </th>
                 <td>
                     {{ $user->id }}
                 </td>
             </tr>
-            <tr>
-                <td>
+            <tr class="cell-center">
+                <th>
                     <b>Last name</b>
-                </td>
+                </th>
                 <td>
                     {{ $user->last_name }}
                 </td>
             </tr>
-            <tr>
-                <td>
+            <tr class="cell-center">
+                <th>
                     <b>First name</b>
-                </td>
+                </th>
                 <td>
                     {{ $user->first_name }}
                 </td>
             </tr>
-            <tr>
-                <td>
+            <tr class="cell-center">
+                <th>
                     <b>Email</b>
-                </td>
+                </th>
                 <td>
                     {{ $user->email }}
                 </td>
@@ -52,6 +52,25 @@
                     {{--</div>--}}
                 {{--</td>--}}
             {{--</tr>--}}
+            </tbody>
+        </table>
+
+        <br>
+
+        <table class="table table-bordered">
+            <tbody>
+            <tr class="cell-center">
+                <th>
+                    <b>Roles</b>
+                </th>
+            </tr>
+            @foreach ($user->roles as $role)
+                <tr class="cell-center">
+                    <td>
+                        {!! trans($role->display_name) !!}
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
