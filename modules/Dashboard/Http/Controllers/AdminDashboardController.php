@@ -27,6 +27,10 @@ class AdminDashboardController extends Controller {
 		return $this->outputter->index();
 	}
 
+	/**
+	 * @param UpdateDashboardFormRequest $request
+	 * @return array
+	 */
 	public function update(UpdateDashboardFormRequest $request)
 	{
 		return $this->outputter->update($request);
@@ -35,7 +39,7 @@ class AdminDashboardController extends Controller {
 	/**
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function config()
+	public function settings()
 	{
 		return $this->outputter->edit();
 	}

@@ -28,7 +28,7 @@ $(function () {
 
             //var $thisSortable = $(this);
             var $targetList = $(event.target);
-            var $tagetElement = $(event.toElement.offsetParent);
+            var $tagetElement = $(ui.item.context);
 
             // Fix the drag&drop cursor position
             if (!$tagetElement.hasClass('box')) {
@@ -44,13 +44,12 @@ $(function () {
                     .removeClass('hidden');
 
                 setTimeout(function () {
-
                     $.ajax({
                         type: "PUT",
                         url: cvepdb_config.url_site + '/admin/dashboard/update',
                         data: {
-                            id: widgetID,
-                            status: 'active'
+                            "id": widgetID,
+                            "status": "active"
                         },
                         success: function (code_html, statut) {
                             $tagetElement
@@ -58,20 +57,19 @@ $(function () {
                                 .removeClass('box-default')
                                 .find('.overlay')
                                 .addClass('hidden');
-
                         },
                         error: function (resultat, statut, erreur) {
-
-
+                            var errors = $.parseJSON(resultat.responseText);
+                            cvepdb.error(errors);
                         },
                         complete: function (jqXHR, status) {
                             connectedSortableNoDataMessage();
-                        },
-                        statusCode: {
-                            422: function () {
-                                //$thisSortable.sortable('cancel');
-                            }
-                        }
+                        }//,
+                        //statusCode: {
+                        //    422: function () {
+                        //        //$thisSortable.sortable('cancel');
+                        //    }
+                        //}
                     });
                 }, 300);
             }
@@ -82,13 +80,12 @@ $(function () {
                     .removeClass('hidden');
 
                 setTimeout(function () {
-
                     $.ajax({
                         type: "PUT",
                         url: cvepdb_config.url_site + '/admin/dashboard/update',
                         data: {
-                            id: widgetID,
-                            status: 'inactive'
+                            "id": widgetID,
+                            "status": "inactive"
                         },
                         success: function (code_html, statut) {
                             $tagetElement
@@ -96,30 +93,24 @@ $(function () {
                                 .removeClass('box-success')
                                 .find('.overlay')
                                 .addClass('hidden');
-
                         },
                         error: function (resultat, statut, erreur) {
-
-
-
+                            var errors = $.parseJSON(resultat.responseText);
+                            cvepdb.error(errors);
                         },
                         complete: function (jqXHR, status) {
                             connectedSortableNoDataMessage();
-                        },
-                        statusCode: {
-                            422: function () {
-                                //$thisSortable.sortable('cancel');
-
-                            }
-                        }
+                        }//,
+                        //statusCode: {
+                        //    422: function () {
+                        //        //$thisSortable.sortable('cancel');
+                        //    }
+                        //}
                     });
-
                 }, 300);
             }
         }
     });
-
     $(".connectedSortable .box-header").css("cursor", "move");
-
     connectedSortableNoDataMessage();
 });
