@@ -52,8 +52,8 @@
       "php artisan key:generate"
     ],
     "post-install-cmd": [
-      "php artisan clear-compiled",
-      "php artisan optimize"
+      "php artisan clear-compiled --env=installer",
+      "php artisan optimize --env=installer"
     ],
     "pre-update-cmd": [
     ],
