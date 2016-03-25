@@ -1,9 +1,9 @@
 {
-  "name": "laravel/laravel",
-  "description": "The Laravel Framework.",
+  "name": "cvepdb/cms",
+  "description": "The #CVEPDB CMS.",
   "keywords": [
-    "framework",
-    "laravel"
+    "cms",
+    "cvepdb"
   ],
   "license": "MIT",
   "type": "project",
