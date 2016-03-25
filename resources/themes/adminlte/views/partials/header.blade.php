@@ -39,7 +39,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         @if (Auth::check())
-                            @gravatar(Auth::user()->email, ["class" => "user-image"])
+                            {{ Widget::get('gravatar', [Auth::user()->email, ["class" => "user-image"]]) }}
                         @endif
 
                         <span class="hidden-xs">
