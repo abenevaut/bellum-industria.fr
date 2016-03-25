@@ -46,7 +46,7 @@
   },
   "scripts": {
     "post-root-package-install": [
-      "php -r \"copy('.env.installer', '.env');\""
+      "php -r \"echo 'installer' > .env;\""
     ],
     "post-create-project-cmd": [
       "php artisan key:generate"
