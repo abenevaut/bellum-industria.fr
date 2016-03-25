@@ -151,13 +151,21 @@ class InstallerController extends Controller
         $isConnected = false;
 
         try {
-            Config::set('database.default', 'mysql');
-            Config::set('database.connections.mysql.host', $formRequest->get('DB_HOST'));
-            Config::set('database.connections.mysql.database', $formRequest->get('DB_DATABASE'));
-            Config::set('database.connections.mysql.username', $formRequest->get('DB_USERNAME'));
-            Config::set('database.connections.mysql.password', $formRequest->get('DB_PASSWORD'));
+            Config::set('database.connections.installer', [
+                'driver'    => 'mysql',
+                'host'      => $formRequest->get('DB_HOST'),
+                'database'  => $formRequest->get('DB_DATABASE'),
+                'username'  => $formRequest->get('DB_USERNAME'),
+                'password'  => $formRequest->get('DB_PASSWORD'),
+                'charset'   => 'utf8',
+                'collation' => 'utf8_unicode_ci',
+                'prefix'    => '',
+                'strict'    => false,
+                'engine'    => null,
+                'unix_socket' => null,
+            ]);
 
-            DB::connection()->select(DB::raw("SELECT 1"));
+            DB::connection('installer')->select(DB::raw("SELECT 1"));
 
             $isConnected = true;
 
