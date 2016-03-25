@@ -15,6 +15,16 @@
             {
                 rules: {
 
+                    APP_SITE_NAME: {
+                        required: true,
+                        maxlength: 254
+                    },
+
+                    APP_SITE_DESCRIPTION: {
+                        required: true,
+                        maxlength: 254
+                    },
+
                     APP_URL: {
                         required: true,
                         maxlength: 254,
@@ -58,6 +68,16 @@
 
                 },
                 messages: {
+
+                    APP_SITE_NAME: {
+                        required: cvepdb.globalize.translate('FIELD_REQUIRED'),
+                        maxlength: field_maxlength
+                    },
+
+                    APP_SITE_DESCRIPTION: {
+                        required: cvepdb.globalize.translate('FIELD_REQUIRED'),
+                        maxlength: field_maxlength
+                    },
 
                     APP_URL: {
                         required: cvepdb.globalize.translate('FIELD_REQUIRED'),

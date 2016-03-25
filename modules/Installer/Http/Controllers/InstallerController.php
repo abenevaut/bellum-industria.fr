@@ -44,15 +44,22 @@ class InstallerController extends Controller
      */
     public function index()
     {
-        return view(
-            'installer::index',
+        return cmsview(
+            'index',
             [
+                'header' => [
+                    'title' => 'Installer #CVEPDB CMS',
+                    'description' => '#CVEPDB CMS installation process',
+                ],
+                'breadcrumbs' => null,
                 'footer' => [
                     'version' => Config::get('app.version'),
                     'title' => Config::get('app.title'),
                     'url' => Config::get('app.url'),
                 ]
-            ]
+            ],
+            'installer::',
+            'installer::'
         );
     }
 
@@ -193,6 +200,8 @@ class InstallerController extends Controller
         $contents .= 'APP_DEBUG=true'. PHP_EOL;
         $contents .= 'APP_KEY=' . hash('md5', time().date('Y-m-d', time())) . PHP_EOL;
         $contents .= 'APP_INSTALLED=true'. PHP_EOL;
+        $contents .= 'APP_SITE_NAME="' . $formRequest->get('APP_SITE_NAME') . '"' . PHP_EOL;
+        $contents .= 'APP_SITE_DESCRIPTION="' . $formRequest->get('APP_SITE_DESCRIPTION') . '"' . PHP_EOL;
         $contents .= 'APP_URL=' . $formRequest->get('APP_URL') . PHP_EOL;
         $contents .= PHP_EOL;
         $contents .= 'CACHE_DRIVER=array' . PHP_EOL;
@@ -220,14 +229,14 @@ class InstallerController extends Controller
     {
         $this->r_role->create([
             'name' => RoleRepositoryEloquent::USER,
-            'display_name' => 'role:' . RoleRepositoryEloquent::USER . ':display_name',
-            'description' => 'role:' . RoleRepositoryEloquent::USER . ':description'
+            'display_name' => 'roles.' . RoleRepositoryEloquent::USER . ':display_name',
+            'description' => 'roles.' . RoleRepositoryEloquent::USER . ':description'
         ]);
 
         $this->r_role->create([
             'name' => RoleRepositoryEloquent::ADMIN,
-            'display_name' => 'role:' . RoleRepositoryEloquent::ADMIN . ':display_name',
-            'description' => 'role:' . RoleRepositoryEloquent::ADMIN . ':description'
+            'display_name' => 'roles.' . RoleRepositoryEloquent::ADMIN . ':display_name',
+            'description' => 'roles.' . RoleRepositoryEloquent::ADMIN . ':description'
         ]);
 
         // Retrieve data from the session

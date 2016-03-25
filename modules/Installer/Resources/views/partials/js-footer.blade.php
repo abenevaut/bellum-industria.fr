@@ -1,1 +1,1 @@
-@include('admin.partials.js-footer')
+@include('adminlte::partials.js-footer')

@@ -5,6 +5,7 @@ return [
     'version' => '0.1.0',
     'title' => '#CVEPDB CMS',
     'backend' => 'admin',
+    'installer' => 'installer',
     'themes' => [
         'frontend' => 'lumen',
         'backend' => 'adminlte'

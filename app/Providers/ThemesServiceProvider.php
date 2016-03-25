@@ -77,7 +77,7 @@ class ThemesServiceProvider extends ServiceProvider
          * Todo : get front/back end theme from DB/JSON/CACHE something fast
          */
 
-        if ($this->inAdministration()) {
+        if ($this->inAdministration() || $this->inInstaller()) {
             $theme = config('app.themes.backend');
         } else {
             $theme = config('app.themes.frontend');
@@ -93,7 +93,17 @@ class ThemesServiceProvider extends ServiceProvider
     private function inAdministration()
     {
         return $this->app->make('request')->is(config('app.backend'))
-        || $this->app->make('request')->is(config('app.backend') . '/*');
+            || $this->app->make('request')->is(config('app.backend') . '/*');
+    }
+
+    /**
+     * Check if we are in the installer section
+     * @return bool
+     */
+    private function inInstaller()
+    {
+        return $this->app->make('request')->is(config('app.installer'))
+            || $this->app->make('request')->is(config('app.installer') . '/*');
     }
 
 }

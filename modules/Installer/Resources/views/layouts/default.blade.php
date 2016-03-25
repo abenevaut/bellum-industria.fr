@@ -28,7 +28,6 @@
                     {{ Lang::get('installer::installer.title') }}
                     <small>({{ $footer['version'] }})</small>
                 </h1>
-                <ol class="breadcrumb"></ol>
             </section>
             <section class="content">
                 @yield('content')

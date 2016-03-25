@@ -31,6 +31,28 @@
         <div class="box-body">
             <div class="form-group form-group-lg p-b-60">
                 <label for="app_url" class="col-sm-3 control-label">
+                    {{ Lang::get('installer::installer.field_app_site_name_title') }}<br/>
+                    <span class="instruction">{{ Lang::get('installer::installer.field_app_site_name_instruction') }}</span>
+                </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control input-lg" id="app_site_name"
+                           placeholder="{{ Lang::get('installer::installer.field_app_site_name_placeholder') }}"
+                           name="APP_SITE_NAME" value="{{ old('APP_SITE_NAME') }}">
+                </div>
+            </div>
+            <div class="form-group form-group-lg p-b-60">
+                <label for="app_url" class="col-sm-3 control-label">
+                    {{ Lang::get('installer::installer.field_app_site_description_title') }}<br/>
+                    <span class="instruction">{{ Lang::get('installer::installer.field_app_site_description_instruction') }}</span>
+                </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control input-lg" id="app_site_description"
+                           placeholder="{{ Lang::get('installer::installer.field_app_site_description_placeholder') }}"
+                           name="APP_SITE_DESCRIPTION" value="{{ old('APP_SITE_DESCRIPTION') }}">
+                </div>
+            </div>
+            <div class="form-group form-group-lg p-b-60">
+                <label for="app_url" class="col-sm-3 control-label">
                     {{ Lang::get('installer::installer.field_app_url_title') }}<br/>
                     <span class="instruction">{{ Lang::get('installer::installer.field_app_url_instruction') }}</span>
                 </label>

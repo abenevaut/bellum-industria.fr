@@ -24,6 +24,8 @@ class InstallerFormRequest extends Request
     public function rules()
     {
         return [
+            'APP_SITE_NAME' => 'required',
+            'APP_SITE_DESCRIPTION' => 'required',
             'APP_URL' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
@@ -44,6 +46,8 @@ class InstallerFormRequest extends Request
     public function messages()
     {
         return [
+            'APP_SITE_NAME.required' => 'installer::installer.error:field_required',
+            'APP_SITE_DESCRIPTION.required' => 'installer::installer.error:field_required',
             'APP_URL.required' => 'installer::installer.error:field_required',
             'first_name.required' => 'installer::installer.error:field_required',
             'last_name.required' => 'installer::installer.error:field_required',

@@ -30,6 +30,14 @@ return [
 
     'field_section_information' => 'Website information',
 
+    'field_app_site_name_title' => 'Your website name',
+    'field_app_site_name_instruction' => 'This is your web application name',
+    'field_app_site_name_placeholder' => 'Company name',
+
+    'field_app_site_description_title' => 'Your website description',
+    'field_app_site_description_instruction' => 'This is your web application description',
+    'field_app_site_description_placeholder' => 'Our showcase platerform',
+
     'field_app_url_title' => 'Your website URL',
     'field_app_url_instruction' => 'This is your web application link',
     'field_app_url_placeholder' => 'http://my-website.com',
