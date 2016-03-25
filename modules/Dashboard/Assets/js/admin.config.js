@@ -50,7 +50,7 @@ $(function () {
                         url: cvepdb_config.url_site + '/admin/dashboard/update',
                         data: {
                             id: widgetID,
-                            type: 'active'
+                            status: 'active'
                         },
                         success: function (code_html, statut) {
                             $tagetElement
@@ -88,7 +88,7 @@ $(function () {
                         url: cvepdb_config.url_site + '/admin/dashboard/update',
                         data: {
                             id: widgetID,
-                            type: 'inactive'
+                            status: 'inactive'
                         },
                         success: function (code_html, statut) {
                             $tagetElement

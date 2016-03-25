@@ -23,7 +23,7 @@ class UpdateDashboardFormRequest extends Request
     {
         return [
             'id' => 'required',
-            'type' => 'required'
+            'status' => 'required'
         ];
     }
 }

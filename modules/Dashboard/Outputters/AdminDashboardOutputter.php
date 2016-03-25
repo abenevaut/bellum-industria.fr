@@ -50,15 +50,15 @@ class AdminDashboardOutputter extends AdminOutputter
 
     public function update(IFormRequest $request)
     {
-        $type = $request->get('type');
+        $status = $request->get('status');
         $id = $request->get('id');
 
-        switch ($type) {
-            case 'active': {
+        switch ($status) {
+            case DashboardRepositoryEloquent::DASHBOARD_WIDGET_STATUS_ACTIVE: {
                 $this->r_dashboard->update(['status' => DashboardRepositoryEloquent::DASHBOARD_WIDGET_STATUS_ACTIVE], $id);
                 break;
             }
-            case 'inactive':
+            case DashboardRepositoryEloquent::DASHBOARD_WIDGET_STATUS_INACTIVE:
             default: {
                 $this->r_dashboard->update(['status' => DashboardRepositoryEloquent::DASHBOARD_WIDGET_STATUS_INACTIVE], $id);
             }
