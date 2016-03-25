@@ -561,12 +561,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/spdx-licenses.git",
-                "reference": "022fc25ca664f612b1e7007e0d87642ef489f000"
+                "reference": "3d981dc81786b761976fdd16f14e99837667d31a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/022fc25ca664f612b1e7007e0d87642ef489f000",
-                "reference": "022fc25ca664f612b1e7007e0d87642ef489f000",
+                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/3d981dc81786b761976fdd16f14e99837667d31a",
+                "reference": "3d981dc81786b761976fdd16f14e99837667d31a",
                 "shasum": ""
             },
             "require": {
@@ -614,7 +614,7 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2015-11-04 10:29:55"
+            "time": "2016-03-25 11:03:12"
         },
         {
             "name": "creitive/breadcrumbs",
@@ -1126,12 +1126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "e0721034158c1a0b73f984888af833fe1682311e"
+                "reference": "382cc2c8e1bae7453e8598b5c52c951a9c97d53d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/e0721034158c1a0b73f984888af833fe1682311e",
-                "reference": "e0721034158c1a0b73f984888af833fe1682311e",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/382cc2c8e1bae7453e8598b5c52c951a9c97d53d",
+                "reference": "382cc2c8e1bae7453e8598b5c52c951a9c97d53d",
                 "shasum": ""
             },
             "require": {
@@ -1184,7 +1184,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2016-03-24 07:07:41"
+            "time": "2016-03-25 08:33:42"
         },
         {
             "name": "doctrine/common",
@@ -4286,23 +4286,23 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "3.17.0",
+            "version": "3.17.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "05d2b7c916ea2cf9283814c123516bef6f909441"
+                "reference": "feddc9c2ade269500b7b6913aed41268ea19890d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/05d2b7c916ea2cf9283814c123516bef6f909441",
-                "reference": "05d2b7c916ea2cf9283814c123516bef6f909441",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/feddc9c2ade269500b7b6913aed41268ea19890d",
+                "reference": "feddc9c2ade269500b7b6913aed41268ea19890d",
                 "shasum": ""
             },
             "require": {
-                "illuminate/bus": "^5.1|^5.2",
-                "illuminate/console": "^5.1|^5.2",
-                "illuminate/database": "^5.1|^5.2",
-                "illuminate/support": "^5.1|^5.2",
+                "illuminate/bus": "~5.1|~5.2",
+                "illuminate/console": "~5.1|~5.2",
+                "illuminate/database": "~5.1|~5.2",
+                "illuminate/support": "~5.1|~5.2",
                 "php": "^5.5|^7.0",
                 "spatie/laravel-glide": "^2.2.4",
                 "spatie/pdf-to-image": "^1.0.1",
@@ -4342,7 +4342,7 @@
                 "media",
                 "spatie"
             ],
-            "time": "2016-03-22 23:50:01"
+            "time": "2016-03-25 08:43:55"
         },
         {
             "name": "spatie/pdf-to-image",
@@ -4887,12 +4887,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "391723add4ea634f2c864208119b0cc2b30bb9db"
+                "reference": "579f828489659d7b3430f4bd9b67b4618b387dea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/391723add4ea634f2c864208119b0cc2b30bb9db",
-                "reference": "391723add4ea634f2c864208119b0cc2b30bb9db",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/579f828489659d7b3430f4bd9b67b4618b387dea",
+                "reference": "579f828489659d7b3430f4bd9b67b4618b387dea",
                 "shasum": ""
             },
             "require": {
@@ -4961,7 +4961,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-16 16:19:48"
+            "time": "2016-03-25 01:41:20"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -5260,12 +5260,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "0153c17d511f34aa27085d1897939f04e1059c2a"
+                "reference": "f7a07af51ea067745a521dab1e3152044a2fb1f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/0153c17d511f34aa27085d1897939f04e1059c2a",
-                "reference": "0153c17d511f34aa27085d1897939f04e1059c2a",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/f7a07af51ea067745a521dab1e3152044a2fb1f2",
+                "reference": "f7a07af51ea067745a521dab1e3152044a2fb1f2",
                 "shasum": ""
             },
             "require": {
@@ -5316,7 +5316,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-16 16:19:48"
+            "time": "2016-03-25 01:41:20"
         },
         {
             "name": "symfony/var-dumper",
@@ -5727,12 +5727,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "bb09cf8982f89b50bb8bc6c0f9e451353ad17065"
+                "reference": "68c0d749b7a9bb527a7b0d3226fa397f26005955"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/bb09cf8982f89b50bb8bc6c0f9e451353ad17065",
-                "reference": "bb09cf8982f89b50bb8bc6c0f9e451353ad17065",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/68c0d749b7a9bb527a7b0d3226fa397f26005955",
+                "reference": "68c0d749b7a9bb527a7b0d3226fa397f26005955",
                 "shasum": ""
             },
             "require": {
@@ -5769,7 +5769,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-03-22 20:16:49"
+            "time": "2016-03-24 17:39:55"
         },
         {
             "name": "hamcrest/hamcrest-php",
