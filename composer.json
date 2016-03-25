@@ -46,12 +46,9 @@
   },
   "scripts": {
     "post-root-package-install": [
-      "php -r \"copy('.env.example', '.env');\""
+      "php -r \"copy('.env.installer', '.env');\""
     ],
     "post-create-project-cmd": [
-      "cp .env.installer .env",
-      "php artisan clear-compiled",
-      "php artisan optimize",
       "php artisan key:generate"
     ],
     "post-install-cmd": [
