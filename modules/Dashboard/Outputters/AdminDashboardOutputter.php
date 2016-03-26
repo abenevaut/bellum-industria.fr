@@ -74,7 +74,7 @@ class AdminDashboardOutputter extends AdminOutputter
         $inactive_widgets = $this->r_dashboard->inactiveWidgets();
 
         return $this->output(
-            'dashboard.admin.config',
+            'dashboard.admin.settings',
             [
                 'widgets' => [
                     'inactive' => $inactive_widgets,
