@@ -6,7 +6,7 @@
 
 @section('js')
     <script src="{{ asset('themes/adminlte/bower/iCheck/icheck.min.js') }}"></script>
-    <script>$(function(){$('input[type="checkbox"]').iCheck({checkboxClass:'icheckbox_square-blue',radioClass:'iradio_square-blue',increaseArea:'20%'});});</script>
+    <script src="{{ asset('modules/users/js/admin.form.js') }}"></script>
 @endsection
 
 @section('content')
@@ -33,22 +33,22 @@
                             @endforeach
                         </div>
                     @endif
-                    <div class="form-group form-group-default required">
+                    <div class="form-group form-group-default">
                         <label>{{ trans('global.last_name') }}</label>
                         <input type="text" class="form-control" name="last_name" required="required"
                                value="{{ old('last_name', $user->last_name) }}" placeholder="{{ trans('global.last_name') }}">
                     </div>
-                    <div class="form-group form-group-default required">
+                    <div class="form-group form-group-default">
                         <label>{{ trans('global.first_name') }}</label>
                         <input type="text" class="form-control" name="first_name" required="required"
                                value="{{ old('first_name', $user->first_name) }}" placeholder="{{ trans('global.first_name') }}">
                     </div>
-                    <div class="form-group form-group-default required">
+                    <div class="form-group form-group-default">
                         <label>{{ trans('global.email') }}</label>
-                        <input type="email" class="form-control" name="email" required="required"
+                        <input type="text" class="form-control" name="email" required="required"
                                value="{{ old('email', $user->email) }}" placeholder="{{ trans('global.email') }}">
                     </div>
-                    <div class="form-group form-group-default required">
+                    <div class="form-group form-group-default">
                         <label>{{ trans('global.roles') }}</label>
                         <br>
                         @foreach ($roles as $role)
