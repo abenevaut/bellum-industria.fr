@@ -19,7 +19,7 @@
                     </a>
                     <h3 class="box-title">{{ trans('users::admin.edit.title') }}</h3>
                 </div>
-                {!! Form::open(array('route' => ['admin.users.update', $user->id], 'class' => 'forms', 'method' => 'PUT')) !!}
+                {!! Form::open(array('route' => ['admin.users.update', $user->id], 'class' => 'forms js-call-form_validation', 'method' => 'PUT')) !!}
                 <div class="box-body">
                     @if (count($errors) > 0)
                         <div class="alert alert-danger" role="alert">

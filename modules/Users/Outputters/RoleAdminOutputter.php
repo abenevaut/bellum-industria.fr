@@ -10,12 +10,12 @@ class RoleAdminOutputter extends AdminOutputter
     /**
      * @var string Outputter header title
      */
-    protected $title = 'users::admin.meta_title';
+    protected $title = 'users::roles.meta_title';
 
     /**
      * @var string Outputter header description
      */
-    protected $description = 'users::admin.meta_description';
+    protected $description = 'users::roles.meta_description';
 
     /**
      * @var RoleRepositoryEloquent|null
@@ -32,8 +32,8 @@ class RoleAdminOutputter extends AdminOutputter
 
         $this->r_role = $r_role;
 
-        $this->addBreadcrumb('Users', 'admin/users');
-        $this->addBreadcrumb('Roles', 'admin/roles');
+        $this->addBreadcrumb('Users', 'users');
+        $this->addBreadcrumb('Roles', 'roles');
     }
 
     /**
@@ -41,12 +41,12 @@ class RoleAdminOutputter extends AdminOutputter
      */
     public function index()
     {
-        $users = $this->r_user->paginate(config('app.pagination'), ['id', 'last_name', 'first_name', 'email']);
+        $roles = $this->r_role->paginate(config('app.pagination'));
 
         return $this->output(
-            'users.admin.index',
+            'users.admin.roles.index',
             [
-                'users' => $users
+                'roles' => $roles
             ]
         );
     }

@@ -76,7 +76,7 @@ class UserAdminOutputter extends AdminOutputter
         $users = $this->r_user->paginate(config('app.pagination'));
 
         return $this->output(
-            'users.admin.index',
+            'users.admin.users.index',
             [
                 'users' => $users,
                 'nb_users' => $this->r_user->allCount(),
@@ -107,7 +107,7 @@ class UserAdminOutputter extends AdminOutputter
         $users = $this->r_user->paginate(config('app.pagination'));
 
         return $this->output(
-            'users.admin.chunks.index_tables',
+            'users.admin.users.chunks.index_tables',
             [
                 'users' => $users,
                 'nb_users' => $this->r_user->allCount(),
@@ -128,7 +128,7 @@ class UserAdminOutputter extends AdminOutputter
         $roles = $this->r_role->findWhereNotIn('name', ['user']);
 
         return $this->output(
-            'users.admin.create',
+            'users.admin.users.create',
             [
                 'roles' => $roles
             ]
@@ -176,7 +176,7 @@ class UserAdminOutputter extends AdminOutputter
         $user = $this->r_user->find($id);
 
         return $this->output(
-            'users.admin.show',
+            'users.admin.users.show',
             [
                 'user' => $user
             ]
@@ -197,7 +197,7 @@ class UserAdminOutputter extends AdminOutputter
         $roles = $this->r_role->findWhereNotIn('name', ['user']);
 
         return $this->output(
-            'users.admin.edit',
+            'users.admin.users.edit',
             [
                 'user' => $user,
                 'roles' => $roles

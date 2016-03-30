@@ -30,20 +30,20 @@
                         <a href="{{ url('admin/users/create') }}" class="btn btn-box-tool btn-box-tool-primary">
                             <i class="fa fa-user-plus"></i> {{ trans('users::admin.index.btn.add_user') }}
                         </a>
-                        {{--<a href="{{ url('admin/roles/index') }}" class="btn btn-box-tool btn-box-tool-primary">--}}
-                        {{--<i class="fa fa-user-md"></i> {{ trans('users::admin.index.btn.roles') }}--}}
-                        {{--</a>--}}
+                        <a href="{{ url('admin/roles') }}" class="btn btn-box-tool btn-box-tool-primary">
+                            <i class="fa fa-user-md"></i> {{ trans('users::admin.index.btn.roles') }}
+                        </a>
                         <a href="{{ url('admin/users/export') }}" class="btn btn-box-tool">
                             <i class="fa fa-file-excel-o"></i> {{ trans('users::admin.index.btn.export') }}
                         </a>
                     </div>
                 </div>
                 <div class="box-body no-padding">
-                    @include('users::users.admin.chunks.index_filters', ['filters' => $filters])
+                    @include('users::users.admin.users.chunks.index_filters', ['filters' => $filters])
                 </div>
                 <div class="js-call-filters">
                     <div id="filter-stage" style="display: block;">
-                        @include('users::users.admin.chunks.index_tables', ['users' => $users])
+                        @include('users::users.admin.users.chunks.index_tables', ['users' => $users])
                     </div>
                 </div>
             </div>
