@@ -13,7 +13,7 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Pages\Http\Contro
 			&& !Request::is($module->name . '/*');
 	}
 
-	foreach (explode('|', 'admin|themes|assets|modules|uploads|_debugbar|login|register|password|logout') as $private_base_uri) {
+	foreach (explode('|', 'vendor|admin|themes|assets|modules|uploads|_debugbar|login|register|password|logout') as $private_base_uri) {
 		$not_using_private_route = $not_using_private_route
 			&& !Request::is($private_base_uri)
 			&& !Request::is($private_base_uri . '/*');

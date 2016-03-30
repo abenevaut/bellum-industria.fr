@@ -37,7 +37,7 @@ class PageAdminOutputter extends AdminOutputter
         return $this->output(
             'pages.admin.index',
             [
-
+                'pages' => new \Doctrine\Common\Collections\ArrayCollection()
             ]
         );
     }

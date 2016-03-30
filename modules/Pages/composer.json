@@ -11,5 +11,9 @@
 		"psr-4": {
 			"Modules\\Pages\\": ""
 		}
-	}
+	},
+  "minimum-stability": "dev",
+  "require": {
+	"php": ">=5.5.9"
+  }
 }

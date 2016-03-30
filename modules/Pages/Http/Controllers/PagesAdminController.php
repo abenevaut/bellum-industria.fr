@@ -19,4 +19,9 @@ class PagesAdminController extends Controller
         return $this->outputter->index();
     }
 
+    public function create()
+    {
+        return $this->outputter->create();
+    }
+
 }

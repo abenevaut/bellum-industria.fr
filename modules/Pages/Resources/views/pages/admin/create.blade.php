@@ -1,4 +1,4 @@
-@extends('admin.layouts.default')
+@extends('adminlte::layouts.default')
 
 @section('content')
 
@@ -33,35 +33,19 @@
 
 
                     <div class="form-group form-group-default required">
-                        <label>Nom</label>
+                        <label>Page name</label>
                         <input type="text" class="form-control" name="last_name" required="required"
                                value="{{ old('last_name') }}" placeholder="Nom de l'utilisateur">
                     </div>
-                    <div class="form-group form-group-default required">
-                        <label>Prénom</label>
-                        <input type="text" class="form-control" name="first_name" required="required"
-                               value="{{ old('first_name') }}" placeholder="Prénom de l'utilisateur">
-                    </div>
-                    <div class="form-group form-group-default required">
-                        <label>Courriel</label>
-                        <input type="email" class="form-control" name="email" required="required"
-                               value="{{ old('email') }}" placeholder="Courriel de l'utilisateur">
-                    </div>
-                    <div class="form-group form-group-default required">
-                        <label>Roles</label>
-                        <br>
-                        @foreach ($roles as $role)
-                            <div class="form-group form-group-default input-group">
-                                <label>{{ $role->display_name }}</label>
-                                <label class="help">{{ $role->description }}</label>
-                                        <span class="input-group-addon bg-transparent">
-                                        <input type="checkbox" name="user_role_id[]"
-                                               data-init-plugin="switchery" value="{{ $role->id }}"/>
-                                        </span>
-                            </div>
-                        @endforeach
-                    </div>
 
+                    <div class="form-group form-group-default required">
+                        <label>Content</label>
+
+                        <textarea name="page_content" id="page_content" class="js-call-tinymce form-control" cols="30" rows="10" required="required">
+                            {{ old('page_content') }}
+                        </textarea>
+
+                    </div>
 
                 </div>
                 <!-- /.box-body -->

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f18c37f0cab10b906d23e49b069fde2b",
-    "content-hash": "798ce7610c3326ee0a25501b1db91f14",
+    "hash": "2749e8cf92c242219b632ab161f8dc6d",
+    "content-hash": "b3b651b6d45bcf4da2e9ef951b6856bc",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -321,16 +321,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.0.0-beta1",
+            "version": "1.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "5cb2b522637a941d608c58bd522f3b2a7bda4a1c"
+                "reference": "91d92c4ff80e4c6573a4dc91aee08e50d2617d30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/5cb2b522637a941d608c58bd522f3b2a7bda4a1c",
-                "reference": "5cb2b522637a941d608c58bd522f3b2a7bda4a1c",
+                "url": "https://api.github.com/repos/composer/composer/zipball/91d92c4ff80e4c6573a4dc91aee08e50d2617d30",
+                "reference": "91d92c4ff80e4c6573a4dc91aee08e50d2617d30",
                 "shasum": ""
             },
             "require": {
@@ -392,7 +392,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2016-03-03 15:15:10"
+            "time": "2016-03-27 15:00:34"
         },
         {
             "name": "composer/installers",
@@ -1126,12 +1126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "382cc2c8e1bae7453e8598b5c52c951a9c97d53d"
+                "reference": "392b8dd9e04c073e832fcda99270ec5a8f5e30cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/382cc2c8e1bae7453e8598b5c52c951a9c97d53d",
-                "reference": "382cc2c8e1bae7453e8598b5c52c951a9c97d53d",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/392b8dd9e04c073e832fcda99270ec5a8f5e30cd",
+                "reference": "392b8dd9e04c073e832fcda99270ec5a8f5e30cd",
                 "shasum": ""
             },
             "require": {
@@ -1184,7 +1184,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2016-03-25 08:33:42"
+            "time": "2016-03-27 19:22:52"
         },
         {
             "name": "doctrine/common",
@@ -2424,12 +2424,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "edd00ab96933e3ef053533cce81e958fb26921af"
+                "reference": "c1b8622bbf31b8a155e6874db98b6083ac82ff9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/edd00ab96933e3ef053533cce81e958fb26921af",
-                "reference": "edd00ab96933e3ef053533cce81e958fb26921af",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/c1b8622bbf31b8a155e6874db98b6083ac82ff9a",
+                "reference": "c1b8622bbf31b8a155e6874db98b6083ac82ff9a",
                 "shasum": ""
             },
             "require": {
@@ -2470,7 +2470,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2016-03-21 14:30:30"
+            "time": "2016-03-28 01:58:37"
         },
         {
             "name": "laravelcollective/html",
@@ -2927,17 +2927,65 @@
             "time": "2016-01-22 12:22:23"
         },
         {
+            "name": "mcamara/laravel-localization",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mcamara/laravel-localization.git",
+                "reference": "e305d2d2b32dc07a24e0699dcb05cf4f2064cdf8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/e305d2d2b32dc07a24e0699dcb05cf4f2064cdf8",
+                "reference": "e305d2d2b32dc07a24e0699dcb05cf4f2064cdf8",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.2",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [],
+                "psr-0": {
+                    "Mcamara\\LaravelLocalization": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marc Cámara",
+                    "email": "mcamara88@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easy localization for Laravel",
+            "homepage": "https://github.com/mcamara/laravel-localization",
+            "keywords": [
+                "laravel",
+                "localization",
+                "php"
+            ],
+            "time": "2016-01-08 07:14:49"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "a9ccae25cbb5c0af6f2a549e4cc3ee6628c253ab"
+                "reference": "dec4e574c2efcbbd4b6441ef64334daa79edf8f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/a9ccae25cbb5c0af6f2a549e4cc3ee6628c253ab",
-                "reference": "a9ccae25cbb5c0af6f2a549e4cc3ee6628c253ab",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/dec4e574c2efcbbd4b6441ef64334daa79edf8f2",
+                "reference": "dec4e574c2efcbbd4b6441ef64334daa79edf8f2",
                 "shasum": ""
             },
             "require": {
@@ -3002,7 +3050,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-03-13 16:20:24"
+            "time": "2016-03-26 08:27:31"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -3101,12 +3149,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "e7ca4b7b04e1e10e37e2e411fc8c47a5bb6c9bae"
+                "reference": "eb4bfe1366364e1fb0c2313156553336a92ff5e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/e7ca4b7b04e1e10e37e2e411fc8c47a5bb6c9bae",
-                "reference": "e7ca4b7b04e1e10e37e2e411fc8c47a5bb6c9bae",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/eb4bfe1366364e1fb0c2313156553336a92ff5e7",
+                "reference": "eb4bfe1366364e1fb0c2313156553336a92ff5e7",
                 "shasum": ""
             },
             "require": {
@@ -3144,7 +3192,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2016-03-15 16:39:37"
+            "time": "2016-03-27 12:52:15"
         },
         {
             "name": "paragonie/random_compat",
@@ -4736,12 +4784,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "d46a5ec18b78bdd0ab04798d6710ca91c3588837"
+                "reference": "3402bb927c2ae25caca38d6faf901f25fc42a926"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/d46a5ec18b78bdd0ab04798d6710ca91c3588837",
-                "reference": "d46a5ec18b78bdd0ab04798d6710ca91c3588837",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/3402bb927c2ae25caca38d6faf901f25fc42a926",
+                "reference": "3402bb927c2ae25caca38d6faf901f25fc42a926",
                 "shasum": ""
             },
             "require": {
@@ -4777,7 +4825,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-16 16:22:05"
+            "time": "2016-03-27 16:15:51"
         },
         {
             "name": "symfony/finder",
@@ -4834,12 +4882,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "3bbea2cc807b15c36e46b51ff1e359ef0c619842"
+                "reference": "99f38445a874e7becb8afc4b4a79ee181cf6ec3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/3bbea2cc807b15c36e46b51ff1e359ef0c619842",
-                "reference": "3bbea2cc807b15c36e46b51ff1e359ef0c619842",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/99f38445a874e7becb8afc4b4a79ee181cf6ec3f",
+                "reference": "99f38445a874e7becb8afc4b4a79ee181cf6ec3f",
                 "shasum": ""
             },
             "require": {
@@ -4879,7 +4927,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-16 15:33:32"
+            "time": "2016-03-27 14:50:32"
         },
         {
             "name": "symfony/http-kernel",
@@ -5380,6 +5428,44 @@
                 "dump"
             ],
             "time": "2016-03-10 10:34:12"
+        },
+        {
+            "name": "tahq69/laravel-filemanager",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tahq69/laravel-filemanager.git",
+                "reference": "6842d28586dbbdb47a124b97b65bc2d9d790c5c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tahq69/laravel-filemanager/zipball/6842d28586dbbdb47a124b97b65bc2d9d790c5c5",
+                "reference": "6842d28586dbbdb47a124b97b65bc2d9d790c5c5",
+                "shasum": ""
+            },
+            "require": {
+                "intervention/image": "^2.3",
+                "laravel/framework": "^5.1",
+                "mcamara/laravel-localization": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tahq69\\ScriptFileManager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Igors Krasjukovs",
+                    "email": "tahq69@gmail.com"
+                }
+            ],
+            "description": "Script Laravel and AngularJs filemanager",
+            "time": "2016-01-23 13:10:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -5895,7 +5981,8 @@
         "composer/composer": 10,
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,
-        "cvepdb-cms/theme-flatly": 20
+        "cvepdb-cms/theme-flatly": 20,
+        "tahq69/laravel-filemanager": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

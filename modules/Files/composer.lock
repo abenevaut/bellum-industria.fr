@@ -184,16 +184,16 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v5.2.21",
+            "version": "v5.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
-                "reference": "93e30593dafe249f83f08effc5340aace8551f98"
+                "reference": "4c45efed0f93e107cd0357d02ac1bbb220b36ba4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/bus/zipball/93e30593dafe249f83f08effc5340aace8551f98",
-                "reference": "93e30593dafe249f83f08effc5340aace8551f98",
+                "url": "https://api.github.com/repos/illuminate/bus/zipball/4c45efed0f93e107cd0357d02ac1bbb220b36ba4",
+                "reference": "4c45efed0f93e107cd0357d02ac1bbb220b36ba4",
                 "shasum": ""
             },
             "require": {
@@ -229,16 +229,16 @@
         },
         {
             "name": "illuminate/console",
-            "version": "v5.2.21",
+            "version": "v5.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/console.git",
-                "reference": "a58e77d91c949eed906d3b8c67e0f0ad9246ee96"
+                "reference": "9cab11b6a5df66e6d77459c838f65386f88b4210"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/console/zipball/a58e77d91c949eed906d3b8c67e0f0ad9246ee96",
-                "reference": "a58e77d91c949eed906d3b8c67e0f0ad9246ee96",
+                "url": "https://api.github.com/repos/illuminate/console/zipball/9cab11b6a5df66e6d77459c838f65386f88b4210",
+                "reference": "9cab11b6a5df66e6d77459c838f65386f88b4210",
                 "shasum": ""
             },
             "require": {
@@ -276,20 +276,20 @@
             ],
             "description": "The Illuminate Console package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-22 14:14:58"
+            "time": "2016-03-08 23:27:04"
         },
         {
             "name": "illuminate/container",
-            "version": "v5.2.21",
+            "version": "v5.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
-                "reference": "ba7a8b3c24535ab102ebe9738a0003846c372b95"
+                "reference": "1e156f8017490f5583ab161030bf839c77c95e54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/container/zipball/ba7a8b3c24535ab102ebe9738a0003846c372b95",
-                "reference": "ba7a8b3c24535ab102ebe9738a0003846c372b95",
+                "url": "https://api.github.com/repos/illuminate/container/zipball/1e156f8017490f5583ab161030bf839c77c95e54",
+                "reference": "1e156f8017490f5583ab161030bf839c77c95e54",
                 "shasum": ""
             },
             "require": {
@@ -319,20 +319,20 @@
             ],
             "description": "The Illuminate Container package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-22 06:42:06"
+            "time": "2016-03-16 17:19:17"
         },
         {
             "name": "illuminate/contracts",
-            "version": "v5.2.21",
+            "version": "v5.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "eea3cf7ce90651e067a914d16383b019da45fcb5"
+                "reference": "411b851962c211078ade7664a6976e77a78cd2a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/eea3cf7ce90651e067a914d16383b019da45fcb5",
-                "reference": "eea3cf7ce90651e067a914d16383b019da45fcb5",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/411b851962c211078ade7664a6976e77a78cd2a5",
+                "reference": "411b851962c211078ade7664a6976e77a78cd2a5",
                 "shasum": ""
             },
             "require": {
@@ -361,20 +361,20 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-22 09:18:57"
+            "time": "2016-03-07 20:37:17"
         },
         {
             "name": "illuminate/database",
-            "version": "v5.2.21",
+            "version": "v5.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "8b0068c326652332fd364399f4d8cce894953172"
+                "reference": "1b021f63226e2188711c3f419defa1138c2f605f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/8b0068c326652332fd364399f4d8cce894953172",
-                "reference": "8b0068c326652332fd364399f4d8cce894953172",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/1b021f63226e2188711c3f419defa1138c2f605f",
+                "reference": "1b021f63226e2188711c3f419defa1138c2f605f",
                 "shasum": ""
             },
             "require": {
@@ -421,20 +421,20 @@
                 "orm",
                 "sql"
             ],
-            "time": "2016-02-24 15:02:47"
+            "time": "2016-03-29 13:26:26"
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v5.2.21",
+            "version": "v5.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
-                "reference": "57a5690e2e3047e21d8d8669d2ce1e64fe268fe0"
+                "reference": "bb39e31370cf2c4e45d672f5e967b885cf6ca882"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/pipeline/zipball/57a5690e2e3047e21d8d8669d2ce1e64fe268fe0",
-                "reference": "57a5690e2e3047e21d8d8669d2ce1e64fe268fe0",
+                "url": "https://api.github.com/repos/illuminate/pipeline/zipball/bb39e31370cf2c4e45d672f5e967b885cf6ca882",
+                "reference": "bb39e31370cf2c4e45d672f5e967b885cf6ca882",
                 "shasum": ""
             },
             "require": {
@@ -469,28 +469,28 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v5.2.21",
+            "version": "v5.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "6749fab3f3d38d8b15427536a8e7bbdc57497c9e"
+                "reference": "b8d2131e38fc26e42f742c7af68de1ca726a545c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/6749fab3f3d38d8b15427536a8e7bbdc57497c9e",
-                "reference": "6749fab3f3d38d8b15427536a8e7bbdc57497c9e",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/b8d2131e38fc26e42f742c7af68de1ca726a545c",
+                "reference": "b8d2131e38fc26e42f742c7af68de1ca726a545c",
                 "shasum": ""
             },
             "require": {
                 "doctrine/inflector": "~1.0",
                 "ext-mbstring": "*",
                 "illuminate/contracts": "5.2.*",
+                "paragonie/random_compat": "~1.4",
                 "php": ">=5.5.9"
             },
             "suggest": {
                 "illuminate/filesystem": "Required to use the composer class (5.2.*).",
                 "jeremeamia/superclosure": "Required to be able to serialize closures (~2.2).",
-                "paragonie/random_compat": "Provides a compatible interface like PHP7's random_bytes() in PHP 5 projects (~1.1).",
                 "symfony/polyfill-php56": "Required to use the hash_equals function on PHP 5.5 (~1.0).",
                 "symfony/process": "Required to use the composer class (2.8.*|3.0.*).",
                 "symfony/var-dumper": "Improves the dd function (2.8.*|3.0.*)."
@@ -521,7 +521,7 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-22 20:29:02"
+            "time": "2016-03-29 11:17:27"
         },
         {
             "name": "intervention/image",
@@ -778,6 +778,54 @@
             "time": "2015-11-04 20:07:17"
         },
         {
+            "name": "paragonie/random_compat",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paragonie/random_compat.git",
+                "reference": "c7e26a21ba357863de030f0b9e701c7d04593774"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/c7e26a21ba357863de030f0b9e701c7d04593774",
+                "reference": "c7e26a21ba357863de030f0b9e701c7d04593774",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*|5.*"
+            },
+            "suggest": {
+                "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/random.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paragon Initiative Enterprises",
+                    "email": "security@paragonie.com",
+                    "homepage": "https://paragonie.com"
+                }
+            ],
+            "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+            "keywords": [
+                "csprng",
+                "pseudorandom",
+                "random"
+            ],
+            "time": "2016-03-18 20:34:03"
+        },
+        {
             "name": "patchwork/utf8",
             "version": "v1.3.0",
             "source": {
@@ -968,23 +1016,23 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "3.16.1",
+            "version": "3.17.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "8c0a3693ae5d3b5117e6153897a73e3c199f1614"
+                "reference": "feddc9c2ade269500b7b6913aed41268ea19890d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/8c0a3693ae5d3b5117e6153897a73e3c199f1614",
-                "reference": "8c0a3693ae5d3b5117e6153897a73e3c199f1614",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/feddc9c2ade269500b7b6913aed41268ea19890d",
+                "reference": "feddc9c2ade269500b7b6913aed41268ea19890d",
                 "shasum": ""
             },
             "require": {
-                "illuminate/bus": "^5.1|^5.2",
-                "illuminate/console": "^5.1|^5.2",
-                "illuminate/database": "^5.1|^5.2",
-                "illuminate/support": "^5.1|^5.2",
+                "illuminate/bus": "~5.1|~5.2",
+                "illuminate/console": "~5.1|~5.2",
+                "illuminate/database": "~5.1|~5.2",
+                "illuminate/support": "~5.1|~5.2",
                 "php": "^5.5|^7.0",
                 "spatie/laravel-glide": "^2.2.4",
                 "spatie/pdf-to-image": "^1.0.1",
@@ -1024,7 +1072,7 @@
                 "media",
                 "spatie"
             ],
-            "time": "2016-03-20 11:04:10"
+            "time": "2016-03-25 08:43:55"
         },
         {
             "name": "spatie/pdf-to-image",

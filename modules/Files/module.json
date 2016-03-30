@@ -3,7 +3,7 @@
     "alias": "files",
     "description": "",
     "keywords": [],
-    "active": 1,
+    "active": 0,
     "order": 4,
     "providers": [
         "Modules\\Files\\Providers\\FilesServiceProvider"

@@ -80,7 +80,7 @@ class Kernel extends HttpKernel
         'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
         'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
         // CMS specific
-        'CMSAllowInstallation' => \App\Http\Middleware\CMSAllowInstallation::class,
-        'CMSInstalled' => \App\Http\Middleware\CMSInstalled::class,
+        'CMSAllowInstallation' => \Modules\Installer\Http\Middleware\CMSAllowInstallation::class,
+        'CMSInstalled' => \Modules\Installer\Http\Middleware\CMSInstalled::class,
     ];
 }
