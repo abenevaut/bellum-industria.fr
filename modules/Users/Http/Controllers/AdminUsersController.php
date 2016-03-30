@@ -1,5 +1,6 @@
 <?php namespace Modules\Users\Http\Controllers;
 
+use Request;
 use Pingpong\Modules\Routing\Controller;
 use Modules\Users\Outputters\UserAdminOutputter;
 use Modules\Users\Http\Requests\UserAdminFormRequest;
@@ -27,6 +28,10 @@ class AdminUsersController extends Controller {
 	 */
 	public function index(UsersIndexFiltersAdminFormRequest $request)
 	{
+		if (Request::ajax())
+		{
+			return $this->outputter->ajax_index($request);
+		}
 		return $this->outputter->index($request);
 	}
 

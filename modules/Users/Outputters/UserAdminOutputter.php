@@ -62,6 +62,26 @@ class UserAdminOutputter extends AdminOutputter
      */
     public function index(IFormRequest $request)
     {
+        $users = $this->r_user->paginate(config('app.pagination'));
+
+        return $this->output(
+            'users.admin.index',
+            [
+                'users' => $users,
+                'nb_users' => $this->r_user->allCount(),
+                'filters' => [
+                    'name' => null,
+                    'email' => null,
+                ]
+            ]
+        );
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function ajax_index(IFormRequest $request)
+    {
         $name = null;
         $email = null;
 
@@ -76,7 +96,7 @@ class UserAdminOutputter extends AdminOutputter
         $users = $this->r_user->paginate(config('app.pagination'));
 
         return $this->output(
-            'users.admin.index',
+            'users.admin.chunks.index_tables',
             [
                 'users' => $users,
                 'nb_users' => $this->r_user->allCount(),

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2749e8cf92c242219b632ab161f8dc6d",
-    "content-hash": "b3b651b6d45bcf4da2e9ef951b6856bc",
+    "hash": "fd6ed05b248d75ab6d86619cf5532a35",
+    "content-hash": "798ce7610c3326ee0a25501b1db91f14",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2927,54 +2927,6 @@
             "time": "2016-01-22 12:22:23"
         },
         {
-            "name": "mcamara/laravel-localization",
-            "version": "1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mcamara/laravel-localization.git",
-                "reference": "e305d2d2b32dc07a24e0699dcb05cf4f2064cdf8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/e305d2d2b32dc07a24e0699dcb05cf4f2064cdf8",
-                "reference": "e305d2d2b32dc07a24e0699dcb05cf4f2064cdf8",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "~5.2",
-                "php": ">=5.5.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "3.2.*"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [],
-                "psr-0": {
-                    "Mcamara\\LaravelLocalization": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marc Cámara",
-                    "email": "mcamara88@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Easy localization for Laravel",
-            "homepage": "https://github.com/mcamara/laravel-localization",
-            "keywords": [
-                "laravel",
-                "localization",
-                "php"
-            ],
-            "time": "2016-01-08 07:14:49"
-        },
-        {
             "name": "monolog/monolog",
             "version": "1.x-dev",
             "source": {
@@ -5430,44 +5382,6 @@
             "time": "2016-03-10 10:34:12"
         },
         {
-            "name": "tahq69/laravel-filemanager",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tahq69/laravel-filemanager.git",
-                "reference": "6842d28586dbbdb47a124b97b65bc2d9d790c5c5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tahq69/laravel-filemanager/zipball/6842d28586dbbdb47a124b97b65bc2d9d790c5c5",
-                "reference": "6842d28586dbbdb47a124b97b65bc2d9d790c5c5",
-                "shasum": ""
-            },
-            "require": {
-                "intervention/image": "^2.3",
-                "laravel/framework": "^5.1",
-                "mcamara/laravel-localization": "^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Tahq69\\ScriptFileManager\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Igors Krasjukovs",
-                    "email": "tahq69@gmail.com"
-                }
-            ],
-            "description": "Script Laravel and AngularJs filemanager",
-            "time": "2016-01-23 13:10:00"
-        },
-        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "1.5.5",
             "source": {
@@ -5813,12 +5727,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "68c0d749b7a9bb527a7b0d3226fa397f26005955"
+                "reference": "8deb6343c80c4edf546a6fff01a2b05c7dc59ac4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/68c0d749b7a9bb527a7b0d3226fa397f26005955",
-                "reference": "68c0d749b7a9bb527a7b0d3226fa397f26005955",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/8deb6343c80c4edf546a6fff01a2b05c7dc59ac4",
+                "reference": "8deb6343c80c4edf546a6fff01a2b05c7dc59ac4",
                 "shasum": ""
             },
             "require": {
@@ -5855,7 +5769,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-03-24 17:39:55"
+            "time": "2016-03-29 16:49:43"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -5981,8 +5895,7 @@
         "composer/composer": 10,
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,
-        "cvepdb-cms/theme-flatly": 20,
-        "tahq69/laravel-filemanager": 20
+        "cvepdb-cms/theme-flatly": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
