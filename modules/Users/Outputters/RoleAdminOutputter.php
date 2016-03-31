@@ -3,7 +3,7 @@
 use Config;
 use App\Http\Admin\Outputters\AdminOutputter;
 use CVEPDB\Requests\IFormRequest;
-use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
+use Modules\Users\Repositories\RoleRepositoryEloquent;
 
 class RoleAdminOutputter extends AdminOutputter
 {
@@ -56,13 +56,9 @@ class RoleAdminOutputter extends AdminOutputter
      */
     public function create()
     {
-        // On exclue le role user qui est ajoute par defaut
-        $roles = $this->r_role->findWhereNotIn('name', ['user']);
-
         return $this->output(
-            'users.admin.create',
+            'users.admin.roles.create',
             [
-                'roles' => $roles
             ]
         );
     }

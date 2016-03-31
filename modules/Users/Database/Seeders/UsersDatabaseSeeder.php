@@ -22,7 +22,7 @@ class UsersDatabaseSeeder extends Seeder {
 		$faker = Faker::create();
 		$m_apikey = new ApiKey;
 
-		foreach (range(1,10) as $index) {
+		foreach (range(1,20) as $index) {
 			$user = User::create([
 				'last_name' => $faker->lastName,
 				'first_name' => $faker->firstName,

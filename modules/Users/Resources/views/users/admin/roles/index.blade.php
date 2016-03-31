@@ -6,20 +6,14 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">{{ trans('users::roles.index.title') }}</h3>
-
                     <div class="box-tools hidden-xs pull-right">
                         <a href="{{ url('admin/roles/create') }}" class="btn btn-box-tool btn-box-tool-primary">
-                            <i class="fa fa-user-plus"></i> {{ trans('users::roles.index.btn.add_role') }}
+                            <i class="fa fa-plus"></i> {{ trans('users::roles.index.btn.add_role') }}
                         </a>
                     </div>
                 </div>
                 @if ($roles->count())
                     <div class="box-body no-padding">
-
-                        <div class="overlay hidden">
-                            <i class="fa fa-refresh fa-spin"></i>
-                        </div>
-
                         <table class="table table-bordered">
                             <tbody>
                             <tr>
@@ -38,7 +32,7 @@
                                     <td class="hidden-xs cell-center">
 
                                         @if ($role->unchangeable)
-                                            No action
+                                            {{ trans('global.unchangeable') }}
                                         @else
                                             <a href="{{ url('admin/roles/' . $role->id . '/edit') }}"
                                                class="btn btn-warning btn-flat btn-mobile">
@@ -67,15 +61,8 @@
                     </div>
                 @else
                     <div class="box-body">
-
-                        <div class="overlay hidden">
-                            <i class="fa fa-refresh fa-spin"></i>
-                        </div>
-
                         <div class="callout callout-info" role="alert">
-                            <h4><i class="icon fa fa-info"></i> {{ trans('users::roles.index.no_data.title') }}
-                            </h4>
-
+                            <h4><i class="icon fa fa-info"></i> {{ trans('users::roles.index.no_data.title') }}</h4>
                             <p>{{ trans('users::roles.index.no_data.description') }}</p>
                         </div>
                     </div>
@@ -88,6 +75,7 @@
                     </div>
                 @endif
                 @foreach ($roles as $role)
+                    @if (!$role->unchangeable)
                     <div class="modal modal-danger" id="delete_user_{{ $role->id }}">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -98,7 +86,7 @@
                                     <h4 class="modal-title">{{ trans('global.attention') }}</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <p>{{ trans('users::roles.index.delete.question') }} {{ $role->name }} ?</p>
+                                    <p>{{ trans('users::roles.index.delete.question') }} {!! trans('users::roles.index.tab.name') !!} ?</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">
@@ -113,6 +101,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 @endforeach
             </div>
         </div>

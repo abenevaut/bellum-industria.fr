@@ -20,5 +20,6 @@ return [
     'close' => 'Close',
     'preview' => 'Preview',
     'filters' => 'Filters',
+    'unchangeable' => 'Unchangeable',
 
 ];
