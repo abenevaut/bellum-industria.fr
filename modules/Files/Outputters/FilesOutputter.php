@@ -60,9 +60,4 @@ class FilesOutputter extends AdminOutputter
             ]
         );
     }
-
-    public function update(IFormRequest $request)
-    {
-
-    }
 }

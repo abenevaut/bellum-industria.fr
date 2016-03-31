@@ -3,15 +3,16 @@
 use Illuminate\Foundation\Application;
 use Barryvdh\Elfinder\ElfinderController;
 use Modules\Files\Outputters\FilesOutputter;
-
-
 use Barryvdh\Elfinder\Session\LaravelSession;
 use Barryvdh\Elfinder\Connector;
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Request;
 
-
+/**
+ * Class AdminFilesController
+ * @package Modules\Files\Http\Controllers
+ */
 class AdminFilesController extends ElfinderController
 {
     /**
@@ -34,11 +35,6 @@ class AdminFilesController extends ElfinderController
     public function index()
     {
         return $this->outputter->index();
-    }
-
-    public function update(UpdateDashboardFormRequest $request)
-    {
-        return $this->outputter->update($request);
     }
 
     /**
