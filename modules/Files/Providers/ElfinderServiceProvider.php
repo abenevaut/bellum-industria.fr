@@ -22,13 +22,6 @@ class ElfinderServiceProvider extends ServiceProvider {
         $configPath = __DIR__ . '/../config/elfinder.php';
         $this->mergeConfigFrom($configPath, 'elfinder');
         $this->publishes([$configPath => config_path('elfinder.php')], 'config');
-
-        $this->app['command.elfinder.publish'] = $this->app->share(function($app)
-        {
-            $publicPath = $app['path.public'];
-            return new \Barryvdh\Elfinder\Console\PublishCommand($app['files'], $publicPath);
-        });
-        $this->commands('command.elfinder.publish');
     }
 
     /**
@@ -61,7 +54,7 @@ class ElfinderServiceProvider extends ServiceProvider {
      */
     public function provides()
     {
-        return array('command.elfinder.publish');
+        return [];
     }
 
 }
