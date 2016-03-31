@@ -1,10 +1,10 @@
 {
-	"name": "pingpong-modules/files",
-	"description": "",
+	"name": "cvepdb-cms/files",
+	"description": "Files module for #CVEPDB CMS",
 	"authors": [
 		{
-			"name": "Pingpong Labs",
-			"email": "pingpong.labs@gmail.com"
+			"name": "Antoine Benevaut",
+			"email": "antoine@cvepdb.fr"
 		}
 	],
 	"autoload": {

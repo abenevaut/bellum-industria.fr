@@ -1,20 +1,30 @@
 <?php namespace Modules\Files\Http\Controllers;
 
-use Pingpong\Modules\Routing\Controller;
+use Illuminate\Foundation\Application;
+use Barryvdh\Elfinder\ElfinderController;
 use Modules\Files\Outputters\FilesOutputter;
 
-class AdminFilesController extends Controller
+
+use Barryvdh\Elfinder\Session\LaravelSession;
+use Barryvdh\Elfinder\Connector;
+use Illuminate\Filesystem\FilesystemAdapter;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Request;
+
+
+class AdminFilesController extends ElfinderController
 {
     /**
-     * @var UserRepository|null
+     * @var FilesOutputter|null
      */
     protected $outputter = null;
 
     /**
      * @param FilesOutputter $outputter
      */
-    public function __construct(FilesOutputter $outputter)
+    public function __construct(Application $app, FilesOutputter $outputter)
     {
+        parent::__construct($app);
         $this->outputter = $outputter;
     }
 
@@ -37,5 +47,79 @@ class AdminFilesController extends Controller
     public function config()
     {
         return $this->outputter->edit();
+    }
+
+    public function showTinyMCE4()
+    {
+        return $this->outputter->showTinyMCE4();
+    }
+
+    public function showPopup($input_id)
+    {
+        return $this->app['view']
+            ->make($this->package . '::standalonepopup')
+            ->with($this->getViewVars())
+            ->with(compact('input_id'));
+    }
+
+    public function showFilePicker($input_id)
+    {
+        $type = Request::input('type');
+        return $this->app['view']
+            ->make($this->package . '::filepicker')
+            ->with($this->getViewVars())
+            ->with(compact('input_id','type'));
+    }
+
+    public function showConnector()
+    {
+        $roots = $this->app->config->get('elfinder.roots', []);
+
+        if (empty($roots)) {
+            $dirs = (array) $this->app['config']->get('elfinder.dir', []);
+
+//            var_dump( $dirs );
+
+            foreach ($dirs as $dir) {
+                $roots[] = [
+                    'driver' => 'LocalFileSystem', // driver for accessing file system (REQUIRED)
+                    'path' => public_path($dir), // path to files (REQUIRED)
+                    'URL' => url($dir), // URL to files (REQUIRED)
+                    'accessControl' => $this->app->config->get('elfinder.access') // filter callback (OPTIONAL)
+                ];
+            }
+
+            $disks = (array) $this->app['config']->get('elfinder.disks', []);
+            foreach ($disks as $key => $root) {
+                if (is_string($root)) {
+                    $key = $root;
+                    $root = [];
+                }
+                $disk = app('filesystem')->disk($key);
+                if ($disk instanceof FilesystemAdapter) {
+                    $defaults = [
+                        'driver' => 'Flysystem',
+                        'filesystem' => $disk->getDriver(),
+                        'alias' => $key,
+                    ];
+                    $roots[] = array_merge($defaults, $root);
+                }
+            }
+        }
+
+        if (app()->bound('session.store')) {
+            $sessionStore = app('session.store');
+            $session = new LaravelSession($sessionStore);
+        } else {
+            $session = null;
+        }
+
+        $opts = $this->app->config->get('elfinder.options', array());
+        $opts = array_merge(['roots' => $roots, 'session' => $session], $opts);
+
+        // run elFinder
+        $connector = new Connector(new \elFinder($opts));
+        $connector->run();
+        return $connector->getResponse();
     }
 }

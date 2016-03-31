@@ -1,122 +1,35 @@
 @extends('adminlte::layouts.default')
 
+@section('head')
+    <link rel="stylesheet" type="text/css" href="{{ asset('themes/adminlte/css/jquery-ui_custom/jquery-ui.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('modules/files/css/elfinder.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('modules/files/css/theme.css') }}">
+@endsection
+
+@section('js')
+    <script src="{{ asset('modules/files/js/elfinder.min.js') }}"></script>
+    {{--@if ($locale)--}}
+    {{--<script src="{{ asset('modules/files/js/i18n/elfinder.'.$locale.'.js') }}"></script>--}}
+    {{--@endif--}}
+
+    <script type="text/javascript" charset="utf-8">
+        // Documentation for client options:
+        // https://github.com/Studio-42/elFinder/wiki/Client-configuration-options
+        $().ready(function() {
+            $('#elfinder').elfinder({
+                // set your elFinder options here
+                @if ($locale)
+                    lang: 'en', // locale
+                @endif
+                customData: {
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                },
+                url : '{{ route("elfinder.connector") }}'  // connector URL
+            });
+        });
+    </script>
+@endsection
+
 @section('content')
-
-    <div class="row">
-
-        <div class="col-lg-3">
-
-            <div class="box box-solid">
-
-                <div class="overlay hidden">
-                    <i class="fa fa-refresh fa-spin"></i>
-                </div>
-
-                <div class="box-header with-border">
-                    <h4 class="box-title">Directories</h4>
-                </div>
-                <div class="box-body">
-
-
-                </div>
-                <div class="box-footer with-border">
-
-                    root / Dir
-
-                </div>
-            </div>
-
-        </div>
-        <div class="col-lg-9">
-            <div class="box box-default">
-
-                <div class="overlay hidden">
-                    <i class="fa fa-refresh fa-spin"></i>
-                </div>
-
-                <div class="box-header with-border">
-
-                    <div class="js-action-default">
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i> Refresh folder
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> New folder
-                        </button>
-                    </div>
-
-                    <div class="js-action-folder hidden">
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-folder-open"></i> Open
-                            folder
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i>
-                            Rename folder
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash"></i> Delete folder
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-info"></i> Folder details
-                        </button>
-                    </div>
-
-                    <div class="js-action-file hidden">
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i>
-                            Rename file
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-download"></i> Download
-                            file
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-history"></i> Replace file
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash"></i> Delete file
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-info"></i> File details
-                        </button>
-                    </div>
-
-                </div>
-                <div class="box-body">
-                    The great content goes here
-                </div>
-                <!-- /.box-body -->
-                <div class="box-footer with-border">
-
-                    <div class="js-action-default">
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i> Refresh folder
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> New folder
-                        </button>
-                    </div>
-
-                    <div class="js-action-folder hidden">
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-folder-open"></i> Open
-                            folder
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i>
-                            Rename folder
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash"></i> Delete folder
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-info"></i> Folder details
-                        </button>
-                    </div>
-
-                    <div class="js-action-file hidden">
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i>
-                            Rename file
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-download"></i> Download
-                            file
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-history"></i> Replace file
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash"></i> Delete file
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-info"></i> File details
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-@stop
+    <div id="elfinder"></div>
+@endsection

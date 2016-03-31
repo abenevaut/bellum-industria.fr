@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e1c1c21e0e08aef1b0d0542a4d7cd2f9",
-    "content-hash": "fc14a79994a769d2ccdbc5f7f7dc3f7d",
+    "hash": "7add2b3b7db489dbbb3969f7ced0926f",
+    "content-hash": "b0495ef67d29a69f5d6bc3039d215eed",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -989,16 +989,16 @@
         },
         {
             "name": "cvepdb/abstract",
-            "version": "1.0.52.4",
+            "version": "1.0.52.5",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb/abstract.git",
-                "reference": "39682af541138d6aa8b24f6fc6cd11460325ac97"
+                "reference": "a39fe6783dda17860d39e629b36dd5ef03e8f95d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb%2Fabstract/repository/archive.zip?sha=39682af541138d6aa8b24f6fc6cd11460325ac97",
-                "reference": "39682af541138d6aa8b24f6fc6cd11460325ac97",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb%2Fabstract/repository/archive.zip?sha=a39fe6783dda17860d39e629b36dd5ef03e8f95d",
+                "reference": "a39fe6783dda17860d39e629b36dd5ef03e8f95d",
                 "shasum": ""
             },
             "require": {
@@ -1010,6 +1010,7 @@
                 "jenssegers/raven": "^1.4",
                 "laravel/socialite": "^2.0",
                 "laravelcollective/html": "5.2.*",
+                "maatwebsite/excel": "~2.1.0",
                 "nesbot/carbon": "^1.21",
                 "phoenix/eloquent-meta": "1.4.*",
                 "php": ">=5.5.9",
@@ -1053,7 +1054,7 @@
                 "interfaces",
                 "laravel"
             ],
-            "time": "2016-03-22 10:17:15"
+            "time": "2016-03-31 12:12:26"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1235,7 +1236,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/392b8dd9e04c073e832fcda99270ec5a8f5e30cd",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/9f89fd349fd2b537be8a0a0c41f87f2f640dfc8a",
                 "reference": "392b8dd9e04c073e832fcda99270ec5a8f5e30cd",
                 "shasum": ""
             },

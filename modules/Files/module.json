@@ -6,9 +6,12 @@
     "active": 1,
     "order": 4,
     "providers": [
-        "Modules\\Files\\Providers\\FilesServiceProvider"
+        "Modules\\Files\\Providers\\FilesServiceProvider",
+        "Modules\\Files\\Providers\\ElfinderServiceProvider",
+        "Spatie\\MediaLibrary\\MediaLibraryServiceProvider"
     ],
-    "aliases":{},
+    "aliases":{
+    },
     "files": [
         "start.php"
     ]

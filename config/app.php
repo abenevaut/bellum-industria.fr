@@ -132,7 +132,6 @@ return [
     */
 
     'providers' => [
-
         /*
          * Laravel Framework Service Providers...
          */
@@ -157,7 +156,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
         /*
          * Application Service Providers...
          */
@@ -165,40 +163,26 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-//        Modules\Users\Providers\PasswordResetServiceProvider::class,
-
-        // Entrust
+        /*
+         * CMS
+         */
         Zizaco\Entrust\EntrustServiceProvider::class,
-
-        // Pingpong
         'Pingpong\Modules\ModulesServiceProvider',
         'Pingpong\Menus\MenusServiceProvider',
         'Pingpong\Widget\WidgetServiceProvider',
         'Pingpong\Themes\ThemesServiceProvider',
-
-        // ApiGuard
         Chrisbjr\ApiGuard\Providers\ApiGuardServiceProvider::class,
-
-        // Collective
         Collective\Html\HtmlServiceProvider::class,
-
-        // Debugbar
         Barryvdh\Debugbar\ServiceProvider::class,
-
-        // Repository
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
-
-        // EloquentMeta
         'Phoenix\EloquentMeta\ServiceProvider',
+        'Maatwebsite\Excel\ExcelServiceProvider',
 
-        // Spatie
-        Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
-
-        // #CVEPDB CMS
+        // Todo : Merge ModulesServiceProvider in installer / Merge ThemesServiceProvider in Themes module provider
         App\Providers\ModulesServiceProvider::class,
         App\Providers\ThemesServiceProvider::class,
-
-        'Maatwebsite\Excel\ExcelServiceProvider',
+        // Todo : finish and move this in Users module provider
+        // Modules\Users\Providers\PasswordResetServiceProvider::class,
 
     ],
 
@@ -214,7 +198,6 @@ return [
     */
 
     'aliases' => [
-
         'App'       => Illuminate\Support\Facades\App::class,
         'Artisan'   => Illuminate\Support\Facades\Artisan::class,
         'Auth'      => Illuminate\Support\Facades\Auth::class,
@@ -245,29 +228,18 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-
-        // Entrust
+        // CMS
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
-
-        // Pingpong
+        'ApiGuardAuth' => \Chrisbjr\ApiGuard\Facades\ApiGuardAuth::class,
         'Module' => 'Pingpong\Modules\Facades\Module',
         'Menu' => 'Pingpong\Menus\MenuFacade',
         'Widget' => 'Pingpong\Widget\WidgetFacade',
         'Theme' => 'Pingpong\Themes\ThemeFacade',
-
-        // ApiGuard
-        'ApiGuardAuth' => \Chrisbjr\ApiGuard\Facades\ApiGuardAuth::class,
-
-        // Collective
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Input' => Illuminate\Support\Facades\Input::class,
-
-        // Debugbar
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-
         'Excel' => 'Maatwebsite\Excel\Facades\Excel',
-
     ],
 
 ];
