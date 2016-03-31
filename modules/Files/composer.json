@@ -13,6 +13,7 @@
 		}
 	},
 	"require": {
-		"spatie/laravel-medialibrary": "^3.16"
+		"spatie/laravel-medialibrary": "^3.16",
+	  	"barryvdh/laravel-elfinder": "^0.3.6"
 	}
 }
