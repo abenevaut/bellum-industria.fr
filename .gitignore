@@ -9,6 +9,7 @@ resources/assets/bower
 public/assets/*
 public/modules/*
 public/themes/*
+public/uploads/*
 resources/views/modules/*
 .env.production
 database/migrations/*
