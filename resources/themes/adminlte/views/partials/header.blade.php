@@ -51,12 +51,13 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         {{--<li class="user-header">--}}
-                            {{--<img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}}
-
-                            {{--<p>--}}
-                                {{--Alexander Pierce - Web Developer--}}
-                                {{--<small>Member since Nov. 2012</small>--}}
-                            {{--</p>--}}
+                            {{--@if (Auth::check())--}}
+                                {{--{{ Widget::get('gravatar', [Auth::user()->email, ["class" => "img-circle"]]) }}--}}
+                                {{--<p>--}}
+                                    {{--{{ Auth::user()->full_name }}--}}
+                                    {{--<small>Member since Nov. 2012</small>--}}
+                                {{--</p>--}}
+                            {{--@endif--}}
                         {{--</li>--}}
                         {{--<!-- Menu Body -->--}}
                         {{--<li class="user-body">--}}
@@ -84,10 +85,9 @@
                         </li>
                     </ul>
                 </li>
-                <!-- Control Sidebar Toggle Button -->
-                {{--<li>--}}
-                    {{--<a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>--}}
-                {{--</li>--}}
+                <li>
+                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                </li>
             </ul>
         </div>
     </nav>
