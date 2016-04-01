@@ -74,8 +74,6 @@ class AdminFilesController extends ElfinderController
         if (empty($roots)) {
             $dirs = (array) $this->app['config']->get('elfinder.dir', []);
 
-//            var_dump( $dirs );
-
             foreach ($dirs as $dir) {
                 $roots[] = [
                     'driver' => 'LocalFileSystem', // driver for accessing file system (REQUIRED)
