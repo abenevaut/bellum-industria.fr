@@ -22,6 +22,7 @@ class AdminOutputter extends CoreOutputter
             $view,
             $data
                 + $this->admin_data_sidebar()
+                + $this->admin_data_settings()
                 + $this->admin_data_footer()
         );
     }
@@ -33,7 +34,7 @@ class AdminOutputter extends CoreOutputter
 
             foreach (Module::getOrdered() as $module) {
 
-                $route = Config::get(strtolower($module->name) . '.admin.route');
+                $route = Config::get(strtolower($module->name) . '.admin.sidebar.route');
 
                 if (!is_null($route)) {
                     $menu->route(
@@ -41,7 +42,7 @@ class AdminOutputter extends CoreOutputter
                         Config::get(strtolower($module->name) . '.name'),
                         [],
                         [
-                            'icon' => Config::get(strtolower($module->name) . '.admin.icon')
+                            'icon' => Config::get(strtolower($module->name) . '.admin.sidebar.icon')
                         ]
                     );
                 }
@@ -53,6 +54,56 @@ class AdminOutputter extends CoreOutputter
         return [
             'sidebar' => [
                 'menu' => Menu::render('navbar', 'App\Http\Admin\Presenters\SidebarPresenter')
+            ]
+        ];
+    }
+
+    private function admin_data_settings()
+    {
+        $modules = [];
+
+        foreach (Module::getOrdered() as $module) {
+            $slug = strtolower($module->name);
+            $settings = Config::get($slug . '.admin.settings');
+            if (!is_null($settings)) {
+                $modules[$slug] = [
+                    'title' => $module->name,
+                    'widgets' => $settings['widgets']
+                ];
+            }
+        }
+
+        Menu::create('navbar', function ($menu) {
+            foreach (Module::getOrdered() as $module) {
+
+                $slug = strtolower($module->name);
+                $settings = Config::get($slug . '.admin.settings');
+
+                if (!is_null($settings)) {
+
+                    $menu->url(
+                        '#control-sidebar-'.$slug.'-tab',
+                        $module->name,
+                        [],
+                        [
+                            'icon' => $settings['icon']
+                        ]
+                    );
+                }
+
+                $m[$slug] = [
+                    'title' => $module->name,
+                    'widgets' => $settings['widgets']
+                ];
+            }
+        });
+
+//        dd( $modules );
+
+        return [
+            'settings' => [
+                'menu' => Menu::render('navbar', 'App\Http\Admin\Presenters\SettingsPresenter'),
+                'modules' => $modules
             ]
         ];
     }
