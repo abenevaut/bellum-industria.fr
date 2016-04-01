@@ -16,3 +16,11 @@ Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Mo
         Route::get('filepicker/{input_id}', ['as' => 'elfinder.filepicker', 'uses' => 'AdminFilesController@showFilePicker']);
     });
 });
+
+Route::get('glide/{path}', function($path){
+    $server = \League\Glide\ServerFactory::create([
+        'source' => app('filesystem')->disk('thumbnails')->getDriver(),
+        'cache' => storage_path('glide'),
+    ]);
+    return $server->getImageResponse($path, Input::query());
+})->where('path', '.+');

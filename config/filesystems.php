@@ -54,6 +54,12 @@ return [
             'visibility' => 'public',
         ],
 
+        'thumbnails' => [
+            'driver' => 'local',
+            'root' => public_path('thumbnails'),
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWSS3_KEY'),
