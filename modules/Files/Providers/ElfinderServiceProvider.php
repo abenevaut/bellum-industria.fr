@@ -1,6 +1,5 @@
 <?php namespace Modules\Files\Providers;
 
-use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
 class ElfinderServiceProvider extends ServiceProvider {
@@ -27,10 +26,9 @@ class ElfinderServiceProvider extends ServiceProvider {
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
      * @return void
      */
-    public function boot(Router $router)
+    public function boot()
     {
         $viewPath = __DIR__.'/../resources/views';
         $this->loadViewsFrom($viewPath, 'elfinder');

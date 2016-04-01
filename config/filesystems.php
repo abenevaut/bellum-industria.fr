@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'cloud' => 'cloud',
+    'cloud' => 's3',
 
     /*
     |--------------------------------------------------------------------------
@@ -54,20 +54,15 @@ return [
             'visibility' => 'public',
         ],
 
-        'cloud' => [
-            'driver' => 's3',
-            'key' => 'your-key',
-            'secret' => 'your-secret',
-            'region' => 'your-region',
-            'bucket' => 'your-bucket',
-        ],
-
         's3' => [
             'driver' => 's3',
-            'key' => 'your-key',
-            'secret' => 'your-secret',
-            'region' => 'your-region',
-            'bucket' => 'your-bucket',
+            'key' => env('AWSS3_KEY'),
+            'secret' => env('AWSS3_SECRET'),
+            'region' => env('AWSS3_REGION'),
+            'bucket' => env('AWSS3_BUCKET'),
+            'version' => 'latest',
+            'visibility' => 'public',
+            'ACL' => 'public-read',
         ],
 
     ],
