@@ -3,110 +3,128 @@
 use Illuminate\Support\ServiceProvider;
 use Module;
 use Config;
+use Modules\Pages\Repositories\PagesRepositoryEloquent;
+use Illuminate\Routing\Router;
 
-class PagesServiceProvider extends ServiceProvider {
+class PagesServiceProvider extends ServiceProvider
+{
 
-	/**
-	 * Indicates if loading of the provider is deferred.
-	 *
-	 * @var bool
-	 */
-	protected $defer = false;
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = false;
 
-	/**
-	 * Boot the application events.
-	 * 
-	 * @return void
-	 */
-	public function boot()
-	{
-		$this->registerTranslations();
-		$this->registerConfig();
-		$this->registerViews();
-//		$this->preparePagesURIPattern();
-	}
+    /**
+     * @var PagesRepositoryEloquent|null
+     */
+    protected $r_page = null;
 
-	/**
-	 * Register the service provider.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{		
-		//
-	}
+    /**
+     * @var Router|null
+     */
+    protected $router = null;
 
-	/**
-	 * Register config.
-	 * 
-	 * @return void
-	 */
-	protected function registerConfig()
-	{
-		$this->publishes([
-		    __DIR__.'/../Config/config.php' => config_path('pages.php'),
-		]);
-		$this->mergeConfigFrom(
-		    __DIR__.'/../Config/config.php', 'pages'
-		);
-	}
+    /**
+     * Boot the application events.
+     *
+     * @return void
+     */
+    public function boot(Router $router, PagesRepositoryEloquent $r_page)
+    {
+        $this->r_page = $r_page;
+        $this->router = $router;
 
-	/**
-	 * Register views.
-	 * 
-	 * @return void
-	 */
-	public function registerViews()
-	{
-		$viewPath = base_path('resources/views/modules/pages');
+        $this->registerTranslations();
+        $this->registerConfig();
+        $this->registerViews();
+        $this->registerRoutes();
+    }
 
-		$sourcePath = __DIR__.'/../Resources/views';
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
 
-		$this->publishes([
-			$sourcePath => $viewPath
-		]);
+    /**
+     * Register config.
+     *
+     * @return void
+     */
+    protected function registerConfig()
+    {
+        $this->publishes([
+            __DIR__ . '/../Config/config.php' => config_path('pages.php'),
+        ]);
+        $this->mergeConfigFrom(
+            __DIR__ . '/../Config/config.php', 'pages'
+        );
+    }
 
-		$this->loadViewsFrom(array_merge(array_map(function ($path) {
-			return $path . '/modules/pages';
-		}, \Config::get('view.paths')), [$sourcePath]), 'pages');
-	}
+    /**
+     * Register views.
+     *
+     * @return void
+     */
+    public function registerViews()
+    {
+        $viewPath = base_path('resources/views/modules/pages');
 
-	/**
-	 * Register translations.
-	 * 
-	 * @return void
-	 */
-	public function registerTranslations()
-	{
-		$langPath = base_path('resources/lang/modules/pages');
+        $sourcePath = __DIR__ . '/../Resources/views';
 
-		if (is_dir($langPath)) {
-			$this->loadTranslationsFrom($langPath, 'pages');
-		} else {
-			$this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'pages');
-		}
-	}
+        $this->publishes([
+            $sourcePath => $viewPath
+        ]);
 
-	/**
-	 * Get the services provided by the provider.
-	 *
-	 * @return array
-	 */
-	public function provides()
-	{
-		return array();
-	}
+        $this->loadViewsFrom(array_merge(array_map(function ($path) {
+            return $path . '/modules/pages';
+        }, \Config::get('view.paths')), [$sourcePath]), 'pages');
+    }
 
-	/**
-	 * Add pattern to exclude for pages URI search (pages.route_pattern)
-	 */
-	private function preparePagesURIPattern()
-	{
-		$patterns = config('pages.route_pattern');
-		foreach (Module::all() as $module) {
-			$patterns .= '|' . $module->name;
-		}
-		Config::set('pages.route_pattern', $patterns);
-	}
+    /**
+     * Register translations.
+     *
+     * @return void
+     */
+    public function registerTranslations()
+    {
+        $langPath = base_path('resources/lang/modules/pages');
 
+        if (is_dir($langPath)) {
+            $this->loadTranslationsFrom($langPath, 'pages');
+        } else {
+            $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'pages');
+        }
+    }
+
+    public function registerRoutes()
+    {
+        $pages = $this->r_page->all();
+
+        $config['namespace'] = 'Modules\Pages\Http\Controllers';
+        $config['middleware'] = ['web'];
+
+        $this->router->group($config, function ($router) use ($pages) {
+            foreach ($pages as $page) {
+                $router->get('{uri}', 'PagesController@map')
+                    ->with('uri', '^'.$page->title.'$');
+            }
+        });
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return array();
+    }
 }
