@@ -24,7 +24,11 @@
 
                             @foreach ($pages as $page)
                                 <tr>
-                                    <td>{{ $page->title }}</td>
+                                    <td>
+                                        <a href="{{ url($page->uri) }}" target="_blank">
+                                            {{ $page->title }}
+                                        </a>
+                                    </td>
                                     <td>
 
                                         <a href="{{ url('admin/pages/' . $page->id . '/edit') }}"

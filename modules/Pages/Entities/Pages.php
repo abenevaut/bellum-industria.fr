@@ -15,7 +15,9 @@ class Pages extends Model implements Transformable
     protected $fillable = [
         'title',
         'content',
-        'is_home'
+        'is_home',
+        'uri',
+        'slug'
     ];
 
 }

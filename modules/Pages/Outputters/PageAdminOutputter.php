@@ -71,10 +71,16 @@ class PageAdminOutputter extends AdminOutputter
      */
     public function store(IFormRequest $request)
     {
+        $title = $request->get('title');
+        $slug = slugify($title);
+        $uri = $slug; // Todo : when page parent in place, construct child URI
+
         $page = $this->r_page->create([
-            'title' => $request->get('title'),
+            'title' => $title,
             'content' => $request->get('content'),
-            'is_home' => $request->get('is_home')
+            'is_home' => $request->get('is_home'),
+            'slug' => $slug,
+            'uri' => $uri
         ]);
         return $this->redirectTo('admin/pages');
     }

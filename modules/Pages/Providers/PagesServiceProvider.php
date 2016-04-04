@@ -105,15 +105,16 @@ class PagesServiceProvider extends ServiceProvider
 
     public function registerRoutes()
     {
-        $pages = $this->r_page->all();
+
+        // Todo :: CACHE THIS
+        $pages = $this->r_page->findWhere(['is_home' => 0]);
 
         $config['namespace'] = 'Modules\Pages\Http\Controllers';
         $config['middleware'] = ['web'];
 
         $this->router->group($config, function ($router) use ($pages) {
             foreach ($pages as $page) {
-                $router->get('{uri}', 'PagesController@map')
-                    ->with('uri', '^'.$page->title.'$');
+                $router->get($page->uri, 'PagesController@map');
             }
         });
     }

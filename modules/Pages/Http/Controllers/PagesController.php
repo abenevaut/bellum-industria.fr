@@ -2,6 +2,7 @@
 
 use Pingpong\Modules\Routing\Controller;
 use Modules\Pages\Repositories\PagesRepositoryEloquent;
+use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
@@ -36,10 +37,16 @@ class PagesController extends Controller
         );
     }
 
-    public function map($page)
+    public function map(Request $request)
     {
+        $uri = $request->getRequestUri();
+        $uri = trim($uri, '/');
 
-        $page = $this->r_page->findWhere(['title' => $page])->first();
+        $page = $this->r_page->findWhere(['uri' => $uri])->first();
+
+        if (is_null($page)) {
+            abort(404);
+        }
 
         return cmsview(
             'pages::pages.pages.page',
