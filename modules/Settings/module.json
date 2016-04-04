@@ -4,7 +4,7 @@
     "description": "",
     "keywords": [],
     "active": 1,
-    "order": 6,
+    "order": 7,
     "providers": [
         "Modules\\Settings\\Providers\\SettingsServiceProvider"
     ],

@@ -1,7 +1,7 @@
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a href="../" class="navbar-brand">Bootswatch</a>
+            <a href="../" class="navbar-brand">#CVEPDB CMS</a>
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -24,6 +24,10 @@
                             {{ Auth::user()->full_name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="download">
+
+                            <li><a href="{{ url('users/my-profile') }}">My profile</a></li>
+                            <li class="divider"></li>
+
                             @if (Auth::user()->hasRole('admin'))
                                 <li><a href="{{ url('admin') }}" target="_blank">Admin dashboard</a></li>
                                 <li class="divider"></li>

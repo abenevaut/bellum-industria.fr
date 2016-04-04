@@ -2,7 +2,7 @@
 
 use Pingpong\Modules\Routing\Controller;
 
-class SettingsController extends Controller {
+class AdminSettingsController extends Controller {
 	
 	public function index()
 	{

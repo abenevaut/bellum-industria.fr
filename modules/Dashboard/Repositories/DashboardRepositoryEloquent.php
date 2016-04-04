@@ -85,7 +85,7 @@ class DashboardRepositoryEloquent extends BaseRepository implements DashboardRep
                 $recorded_module_widgets = $registered_widgets[$module->name];
             }
 
-            $module_widgets = Config(strtolower($module->name) . '.admin.widgets');
+            $module_widgets = Config(strtolower($module->name) . '.admin.dashboard.widgets');
 
             if (!empty($module_widgets)) {
                 foreach ($module_widgets as $widget) {

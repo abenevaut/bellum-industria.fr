@@ -5,29 +5,36 @@
 //	Route::get('/', 'UsersController@index');
 //});
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Controllers\Auth'], function () {
 	// Registration routes...
-	Route::get('register', '\Modules\Users\Http\Controllers\Auth\AuthController@getRegister');
-	Route::post('register', '\Modules\Users\Http\Controllers\Auth\AuthController@postRegister');
+	Route::get('register', 'AuthController@getRegister');
+	Route::post('register', 'AuthController@postRegister');
 	// Authentication routes...
-	Route::get('login', '\Modules\Users\Http\Controllers\Auth\AuthController@getLogin');
-	Route::post('login', '\Modules\Users\Http\Controllers\Auth\AuthController@postLogin');
-	Route::get('logout', '\Modules\Users\Http\Controllers\Auth\AuthController@getLogout');
-	Route::group(['prefix' => 'password'], function () {
+	Route::get('login', 'AuthController@getLogin');
+	Route::post('login', 'AuthController@postLogin');
+	Route::get('logout', 'AuthController@getLogout');
+	Route::group(['prefix' => 'password', 'namespace' => 'Modules\Users\Http\Controllers\Auth'], function () {
 		// Password reset link request routes...
-		Route::get('reset', '\Modules\Users\Http\Controllers\Auth\PasswordController@getEmail');
-		Route::post('email', '\Modules\Users\Http\Controllers\Auth\PasswordController@postEmail');
+		Route::get('reset', 'PasswordController@getEmail');
+		Route::post('email', 'PasswordController@postEmail');
 		// Password reset routes...
-		Route::get('reset/{token}', '\Modules\Users\Http\Controllers\Auth\PasswordController@getReset');
-		Route::post('reset', '\Modules\Users\Http\Controllers\Auth\PasswordController@postReset');
+		Route::get('reset/{token}', 'PasswordController@getReset');
+		Route::post('reset', 'PasswordController@postReset');
 	});
 });
 
-Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers'], function() {
+Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Controllers'], function() {
+	//Route::resource('users', 'UsersController');
+	Route::get('users/my-profile', ['as' => 'users.my-profile', 'uses' => 'UsersController@myProfile']);
+	Route::get('users/edit-my-profile', ['as' => 'users.edit-my-profile', 'uses' => 'UsersController@editMyProfile']);
+	Route::put('users/update-my-profile', ['as' => 'users.update-my-profile', 'uses' => 'UsersController@updateMyProfile']);
+});
+
+Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Auth'], function() {
 	// Authentication routes...
-	Route::get('login', '\Modules\Users\Http\Controllers\Auth\AuthAdminController@getLogin');
-	Route::post('login', '\Modules\Users\Http\Controllers\Auth\AuthAdminController@postLogin');
-	Route::get('logout', '\Modules\Users\Http\Controllers\Auth\AuthAdminController@getLogout');
+	Route::get('login', 'AuthAdminController@getLogin');
+	Route::post('login', 'AuthAdminController@postLogin');
+	Route::get('logout', 'AuthAdminController@getLogout');
 });
 
 Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers'], function() {
