@@ -8,12 +8,12 @@
 
                 <div class="box-header with-border">
 
-                    <h3 class="box-title">Edit user</h3>
+                    <h3 class="box-title">Add new page</h3>
 
                 </div>
                 <!-- /.box-header -->
 
-                {!! Form::open(array('route' => 'admin.users.store', 'class' => 'forms')) !!}
+                {!! Form::open(array('route' => 'admin.pages.store', 'class' => 'forms')) !!}
 
                 <div class="box-body">
 
@@ -33,16 +33,22 @@
 
 
                     <div class="form-group form-group-default required">
-                        <label>Page name</label>
-                        <input type="text" class="form-control" name="last_name" required="required"
-                               value="{{ old('last_name') }}" placeholder="Nom de l'utilisateur">
+                        <label>Page title</label>
+                        <input type="text" class="form-control" name="title" required="required"
+                               value="{{ old('title') }}" placeholder="Page title">
                     </div>
 
                     <div class="form-group form-group-default required">
-                        <label>Content</label>
+                        <label>Is home ?</label>
+                        <input type="text" class="form-control" name="is_home" required="required"
+                               value="{{ old('is_home') }}" placeholder="is home">
+                    </div>
 
-                        <textarea name="page_content" id="page_content" class="js-call-tinymce form-control" cols="30" rows="10" required="required">
-                            {{ old('page_content') }}
+                    <div class="form-group form-group-default required">
+                        <label>Page content</label>
+
+                        <textarea name="content" id="content" class="js-call-tinymce form-control" cols="30" rows="10" required="required">
+                            {{ old('content') }}
                         </textarea>
 
                     </div>
@@ -52,7 +58,7 @@
 
                 <div class="box-footer clearfix">
 
-                    <button class="btn btn-complete" type="submit">Ajouter l'utilisateur</button>
+                    <button class="btn btn-complete" type="submit">Ajouter la page</button>
 
 
                 </div>

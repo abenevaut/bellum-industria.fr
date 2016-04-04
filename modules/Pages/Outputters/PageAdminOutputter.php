@@ -3,6 +3,7 @@
 use Config;
 use App\Http\Admin\Outputters\AdminOutputter;
 use CVEPDB\Requests\IFormRequest;
+use Modules\Pages\Repositories\PagesRepositoryEloquent;
 
 class PageAdminOutputter extends AdminOutputter
 {
@@ -16,13 +17,20 @@ class PageAdminOutputter extends AdminOutputter
      */
     protected $description = 'page redaction';
 
-    public function __construct(
+    /**
+     * @var PagesRepositoryEloquent|null
+     */
+    protected $r_page = null;
 
+    public function __construct(
+        PagesRepositoryEloquent $r_page
     )
     {
         parent::__construct();
 
         $this->set_current_module('pages');
+
+        $this->r_page = $r_page;
 
         $this->addBreadcrumb('Pages', 'admin/pages');
     }
@@ -32,12 +40,12 @@ class PageAdminOutputter extends AdminOutputter
      */
     public function index()
     {
-
+        $pages = $this->r_page->all();
 
         return $this->output(
             'pages.admin.index',
             [
-                'pages' => new \Doctrine\Common\Collections\ArrayCollection()
+                'pages' => $pages
             ]
         );
     }
@@ -63,7 +71,11 @@ class PageAdminOutputter extends AdminOutputter
      */
     public function store(IFormRequest $request)
     {
-
+        $page = $this->r_page->create([
+            'title' => $request->get('title'),
+            'content' => $request->get('content'),
+            'is_home' => $request->get('is_home')
+        ]);
         return $this->redirectTo('admin/pages');
     }
 
@@ -87,11 +99,11 @@ class PageAdminOutputter extends AdminOutputter
     public function edit($id)
     {
 
-        return $this->output(
-            'pages.admin.edit',
-            [
-            ]
-        );
+//        return $this->output(
+//            'pages.admin.edit',
+//            [
+//            ]
+//        );
     }
 
     /**

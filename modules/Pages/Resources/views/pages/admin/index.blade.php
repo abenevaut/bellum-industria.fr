@@ -14,40 +14,38 @@
                 </div>
                 @if ($pages->count())
                     <div class="box-body">
-                        {{--<table class="table table-bordered">--}}
-                            {{--<tbody>--}}
+                        <table class="table table-bordered">
+                            <tbody>
 
-                            {{--<tr>--}}
-                                {{--<th>Full name</th>--}}
-                                {{--<th>Email</th>--}}
-                                {{--<th width="20%">Actions</th>--}}
-                            {{--</tr>--}}
+                            <tr>
+                                <th>Title</th>
+                                <th width="20%">Actions</th>
+                            </tr>
 
-                            {{--@foreach ($users as $user)--}}
-                                {{--<tr>--}}
-                                    {{--<td>{{ $user->full_name }}</td>--}}
-                                    {{--<td>{{ $user->email }}</td>--}}
-                                    {{--<td>--}}
+                            @foreach ($pages as $page)
+                                <tr>
+                                    <td>{{ $page->title }}</td>
+                                    <td>
 
-                                        {{--<a href="{{ url('admin/users/' . $user->id . '/edit') }}"--}}
-                                           {{--class="btn btn-warning btn-flat"><i class="fa fa-pencil"></i> Edit</a>--}}
+                                        <a href="{{ url('admin/pages/' . $page->id . '/edit') }}"
+                                           class="btn btn-warning btn-flat"><i class="fa fa-pencil"></i> Edit</a>
                                         {{--<button type="button" class="btn btn-danger btn-flat" data-toggle="modal"--}}
-                                                {{--data-target="#delete_user_{{ $user->id }}"><i class="fa fa-trash"></i>--}}
+                                                {{--data-target="#delete_user_{{ $page->id }}"><i class="fa fa-trash"></i>--}}
                                             {{--Remove--}}
                                         {{--</button>--}}
 
-                                    {{--</td>--}}
-                                {{--</tr>--}}
-                            {{--@endforeach--}}
+                                    </td>
+                                </tr>
+                            @endforeach
 
-                            {{--</tbody>--}}
-                        {{--</table>--}}
+                            </tbody>
+                        </table>
                     </div>
                     <div class="box-footer clearfix">
 
-                        {{--<div class="no-margin pull-right">--}}
-                            {{--{!! $pages->render() !!}--}}
-                        {{--</div>--}}
+                        <div class="no-margin pull-right">
+{{--                            {!! $pages->render() !!}--}}
+                        </div>
 
                     </div>
                 @else
