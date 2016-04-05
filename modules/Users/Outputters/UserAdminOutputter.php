@@ -316,7 +316,7 @@ class UserAdminOutputter extends AdminOutputter
                     /*
                      * Style
                      */
-                    
+
                     // Set black background
                     $sheet->row(1, function ($row) {
                         // Set font
