@@ -82,6 +82,7 @@ class PageAdminOutputter extends AdminOutputter
             'slug' => $slug,
             'uri' => $uri
         ]);
+
         return $this->redirectTo('admin/pages');
     }
 

@@ -22,12 +22,16 @@ class PagesController extends Controller
     {
         $page = $this->r_page->findWhere(['is_home' => true])->first();
 
+        $page->addMeta('new_key', ['First Value']);
+        $page->addMeta('title', 'Powerfull home title');
+        $page->addMeta('description', 'First Value EZ PZ!');
+
         return cmsview(
             'pages::pages.pages.page',
             [
                 'header' => [
-                    'title' => '',
-                    'description' => ''
+                    'title' => $page->getMeta('title'),
+                    'description' => $page->getMeta('description')
                 ],
                 'page' => [
                     'title' => $page->title,
