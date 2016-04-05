@@ -26,7 +26,7 @@
                                     <td class="cell-center">
                                         {!! trans($role->display_name) !!}
                                     </td>
-                                    <td class="cell-center">
+                                    <td class="">
                                         {!! trans($role->description) !!}
                                     </td>
                                     <td class="hidden-xs cell-center">

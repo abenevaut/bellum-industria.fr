@@ -1,4 +1,42 @@
 (function ($, W, D) {
+
+    $(D).bind('CVEPDB_READY', function () {
+        var input_display_name = $('input[name="display_name"]');
+        var input_name = $('input[name="name"]');
+
+        input_display_name.keyup(function(){
+            var slug = cvepdb.string.slugify($(this).val());
+            input_name.val(slug);
+        });
+    });
+
+    $(D).bind('CVEPDB_TINYMCE_EDITOR_READY', function (e, params) {
+        cvepdb.debug('admin.roles.form.js > CVEPDB_TINYMCE_EDITOR_READY : success : Start');
+        cvepdb.debug('admin.roles.form.js > CVEPDB_TINYMCE_EDITOR_READY : success : editor ID : #' + params.editor.id);
+
+        tinyMCE.DOM.setStyle(
+            tinyMCE.DOM.get(params.editor.id + '_ifr'),
+            'height',
+            '150px'
+        );
+
+        $('#' + params.editor.id + '_ifr')
+            .closest('div.mce-tinymce')
+            .css('width', '100%');
+
+        cvepdb.debug('admin.roles.form.js > CVEPDB_TINYMCE_EDITOR_READY : success : End');
+    });
+
+    $(D).bind('CVEPDB_TINYMCE_CHANGE', function (e, params) {
+        cvepdb.debug('admin.roles.form.js > CVEPDB_TINYMCE_CHANGE : success : Start');
+        cvepdb.debug('admin.roles.form.js > CVEPDB_TINYMCE_CHANGE : success : editor ID : #' + params.editor.id);
+
+        $('#' + params.editor.id).text(params.content);
+
+        cvepdb.debug('admin.roles.form.js > CVEPDB_TINYMCE_CHANGE : success : End');
+    });
+
+
     $(D).bind('CVEPDB_FORM_VALIDATION_READY', function () {
         cvepdb.debug('admin.roles.form.js > CVEPDB_FORM_VALIDATION_READY : success : Start');
 
@@ -7,6 +45,7 @@
         });
 
         cvepdb.fv.set_rules('form.forms', {
+            ignore: [':textarea:hidden.not(".js-call-tinymce")'],
             rules: {
                 name: {
                     required: true,
@@ -37,7 +76,9 @@
             },
             errorPlacement: function (error, element) {
 
-                error.insertAfter(element);
+                if ($(element).attr('type') != 'hidden') {
+                    error.insertAfter(element);
+                }
 
                 var current_form_group = $(element).closest(".form-group");
                 current_form_group.removeClass("has-success");

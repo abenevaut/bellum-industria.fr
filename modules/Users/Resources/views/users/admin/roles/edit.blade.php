@@ -27,7 +27,7 @@
                     <a href="{{ url('admin/roles') }}" class="btn btn-default btn-flat btn-xs">
                         <i class="fa fa-caret-left"></i> {{ trans('global.back') }}
                     </a>
-                    <h3 class="box-title">{{ trans('users::roles.create.title') }}</h3>
+                    <h3 class="box-title">{{ trans('users::roles.edit.title') }}</h3>
                 </div>
                 {!! Form::open(array('route' => 'admin.roles.store', 'class' => 'forms js-call-form_validation')) !!}
                 <div class="box-body">
@@ -46,14 +46,14 @@
                     <div class="form-group form-group-default">
                         <label>{{ trans('global.name') }}</label>
                         <input type="text" class="form-control" name="display_name" required="required"
-                               value="{{ old('display_name') }}" placeholder="{{ trans('global.name') }}">
-                        <input type="hidden" class="form-control" name="name" value="{{ old('name') }}">
+                               value="{{ old('display_name', $role->display_name) }}" placeholder="{{ trans('global.name') }}">
+                        <input type="hidden" class="form-control" name="name" value="{{ old('name', $role->name) }}">
                     </div>
                     <div class="form-group form-group-default">
                         <label>{{ trans('users::roles.create.description') }}</label>
                         <textarea id="description" class="js-call-tinymce" name="description"
                                   placeholder="{{ trans('users::roles.description') }}">
-                            {{ old('description') }}
+                            {{ old('description', $role->description) }}
                         </textarea>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                     </div>
                     <div class="pull-right">
                         <button class="btn btn-primary btn-flat" type="submit">
-                            <i class="fa fa-plus"></i> {{ trans('users::roles.create.btn.add_role') }}
+                            <i class="fa fa-pencil"></i> {{ trans('users::roles.edit.btn.edit_role') }}
                         </button>
                     </div>
                 </div>

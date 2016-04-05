@@ -2,7 +2,7 @@
 
 use CVEPDB\Requests\Request;
 
-class UserAdminFormRequest extends Request
+class RoleAdminFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,9 @@ class UserAdminFormRequest extends Request
     public function rules()
     {
         return [
-            'first_name' => 'required|max:50',
-            'last_name' => 'required|max:50',
-            'email' => 'required|email|max:255|unique:users,email'
+            'name' => 'required|unique:roles,name',
+            'display_name' => 'required',
+            'description' => 'required'
         ];
     }
 }

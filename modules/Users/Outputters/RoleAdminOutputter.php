@@ -72,20 +72,12 @@ class RoleAdminOutputter extends AdminOutputter
      */
     public function store(IFormRequest $request)
     {
-        $user = $this->r_user->create_user(
-            $request->get('first_name'),
-            $request->get('last_name'),
-            $request->get('email')
-        );
-
-        $this->r_apikey->generate_api_key($user);
-
-        $roles = $request->only('user_role_id');
-
-        if (count($roles['user_role_id']) > 0) {
-            $user->roles()->attach($roles['user_role_id']);
-        }
-
+        $role = $this->r_role->create([
+            'name' => $request->get('name'),
+            'display_name' => trim($request->get('display_name')),
+            'description' => $request->get('description'),
+            'unchangeable' => false
+        ]);
         return $this->redirectTo('admin/users');
     }
 
@@ -108,16 +100,12 @@ class RoleAdminOutputter extends AdminOutputter
      */
     public function edit($id)
     {
-        $user = $this->r_user->find($id);
-
-        // On exclue le role user qui est ajoute par defaut
-        $roles = $this->r_role->findWhereNotIn('name', ['user']);
+        $role = $this->r_role->find($id);
 
         return $this->output(
-            'users.admin.edit',
+            'users.admin.roles.edit',
             [
-                'user' => $user,
-                'roles' => $roles
+                'role' => $role
             ]
         );
     }

@@ -14,6 +14,9 @@ return [
     'index.delete.question' => 'Would you delete the role :',
 
     'create.title' => 'Create a new role',
+    'create.description' => 'Role description',
     'create.btn.add_role' => 'Add role',
 
+    'edit.title' => 'Edit role',
+    'edit.btn.edit_role' => 'Edit',
 ];

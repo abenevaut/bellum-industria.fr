@@ -2,7 +2,7 @@
 
 use Pingpong\Modules\Routing\Controller;
 use Modules\Users\Outputters\RoleAdminOutputter;
-use Modules\Users\Requests\RoleAdminFormRequest;
+use Modules\Users\Http\Requests\RoleAdminFormRequest;
 
 class AdminRolesController extends Controller {
 
