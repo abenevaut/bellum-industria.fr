@@ -10,6 +10,8 @@ use Modules\Users\Entities\EmailLikeCriteria;
 use Modules\Users\Entities\UserNameLikeCriteria;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
+use Modules\Users\Transformers\UsersAdminExcelTransformer;
+use Modules\Users\Presenters\UsersAdminExcelPresenter;
 use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
 use \Maatwebsite\Excel\Files\NewExcelFile;
 
@@ -285,7 +287,8 @@ class UserAdminOutputter extends AdminOutputter
 
     public function export(NewExcelFile $excel)
     {
-        $users = $this->r_user->all($excel->getModelColumns());
+        $this->r_user->setPresenter(new UsersAdminExcelPresenter());
+        $users = $this->r_user->all();
         $nb_users = $this->r_user->allCount();
 
         return $excel->setTitle(trans(''))
@@ -296,25 +299,24 @@ class UserAdminOutputter extends AdminOutputter
                 trans('users::admin.export.users_list.sheet_title') . date('Y-m-d H\hi'),
                 function ($sheet) use ($users, $nb_users) {
 
-                    $sheet->prependRow(array(
+                    $sheet->prependRow([
                         '#',
                         trans('global.last_name'),
                         trans('global.first_name'),
-                        trans('global.email')
-                    ));
+                        trans('global.email'),
+                        trans('global.role_s')
+                    ]);
 
                     // Append row after row 2
-                    $sheet->rows($users->toArray());
+                    $sheet->rows($users['data']);
 
                     // Append row after row 2
-                    $sheet->appendRow($nb_users + 2, array('Total users : ' . $nb_users));
-
+                    $sheet->appendRow($nb_users + 2, ['Total users : ' . $nb_users]);
 
                     /*
                      * Style
                      */
-
-
+                    
                     // Set black background
                     $sheet->row(1, function ($row) {
                         // Set font
@@ -332,10 +334,10 @@ class UserAdminOutputter extends AdminOutputter
                     $sheet->cells('A2:D' . ($nb_users + 2), function ($cells) {
 
                         // Set font
-                        $cells->setFont(array(
+                        $cells->setFont([
                             'size' => '12',
                             'bold' => false
-                        ));
+                        ]);
                         $cells->setAlignment('center');
                         $cells->setValignment('middle');
 
@@ -344,10 +346,10 @@ class UserAdminOutputter extends AdminOutputter
                     // Set black background
                     $sheet->row($nb_users + 2, function ($row) {
                         // Set font
-                        $row->setFont(array(
+                        $row->setFont([
                             'size' => '12',
                             'bold' => true
-                        ));
+                        ]);
                         $row->setAlignment('center');
                         $row->setValignment('middle');
                     });

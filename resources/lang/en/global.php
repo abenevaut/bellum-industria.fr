@@ -16,6 +16,7 @@ return [
     'first_name' => 'First name',
     'role' => 'Role',
     'roles' => 'Roles',
+    'role_s' => 'Role(s)',
     'navigation' => 'Navigation',
     'close' => 'Close',
     'preview' => 'Preview',
