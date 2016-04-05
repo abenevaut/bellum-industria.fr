@@ -21,8 +21,12 @@ class RoleAdminFormRequest extends Request
      */
     public function rules()
     {
+        $id = $this->method() === 'PUT'  // only if updating
+            ? $this->segment(3)
+            : 0;
+
         return [
-            'name' => 'required|unique:roles,name',
+            'name' => 'required|unique:roles,name' . ($this->method() === 'PUT' && $id > 0 ? ',' . $id : ''),
             'display_name' => 'required',
             'description' => 'required'
         ];

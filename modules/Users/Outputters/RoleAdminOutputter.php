@@ -4,6 +4,7 @@ use Config;
 use App\Http\Admin\Outputters\AdminOutputter;
 use CVEPDB\Requests\IFormRequest;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
+use Modules\Users\Repositories\PermissionRepositoryEloquent;
 
 class RoleAdminOutputter extends AdminOutputter
 {
@@ -22,8 +23,14 @@ class RoleAdminOutputter extends AdminOutputter
      */
     private $r_role = null;
 
+    /**
+     * @var PermissionRepositoryEloquent|null
+     */
+    private $r_permission = null;
+
     public function __construct(
-        RoleRepositoryEloquent $r_role
+        RoleRepositoryEloquent $r_role,
+        PermissionRepositoryEloquent $r_permission
     )
     {
         parent::__construct();
@@ -31,6 +38,7 @@ class RoleAdminOutputter extends AdminOutputter
         $this->set_current_module('users');
 
         $this->r_role = $r_role;
+        $this->r_permission = $r_permission;
 
         $this->addBreadcrumb('Users', 'users');
         $this->addBreadcrumb('Roles', 'roles');
@@ -56,9 +64,12 @@ class RoleAdminOutputter extends AdminOutputter
      */
     public function create()
     {
+        $permissions = $this->r_permission->all();
+
         return $this->output(
             'users.admin.roles.create',
             [
+                'permissions' => $permissions
             ]
         );
     }
@@ -78,7 +89,14 @@ class RoleAdminOutputter extends AdminOutputter
             'description' => $request->get('description'),
             'unchangeable' => false
         ]);
-        return $this->redirectTo('admin/users');
+
+        $permissions = $request->only('role_permission_id');
+
+        if (count($permissions['role_permission_id']) > 0) {
+            $role->permissions()->attach($permissions['role_permission_id']);
+        }
+
+        return $this->redirectTo('admin/roles');
     }
 
     /**
@@ -101,11 +119,13 @@ class RoleAdminOutputter extends AdminOutputter
     public function edit($id)
     {
         $role = $this->r_role->find($id);
+        $permissions = $this->r_permission->all();
 
         return $this->output(
             'users.admin.roles.edit',
             [
-                'role' => $role
+                'role' => $role,
+                'permissions' => $permissions
             ]
         );
     }
@@ -118,9 +138,21 @@ class RoleAdminOutputter extends AdminOutputter
      */
     public function update($id, IFormRequest $request)
     {
-        $this->r_user->update([
-            // '' => $request->get('')
+        $role = $this->r_role->update([
+            'name' => $request->get('name'),
+            'display_name' => trim($request->get('display_name')),
+            'description' => $request->get('description'),
+            'unchangeable' => false
         ], $id);
+
+        $permissions = $request->only('role_permission_id');
+        $role->permissions()->detach();
+
+        if (count($permissions['role_permission_id']) > 0) {
+            $role->permissions()->attach($permissions['role_permission_id']);
+        }
+
+        return $this->redirectTo('admin/roles');
     }
 
     /**

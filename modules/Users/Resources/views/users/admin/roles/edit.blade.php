@@ -1,6 +1,7 @@
 @extends('adminlte::layouts.default')
 
 @section('head')
+    <link rel="stylesheet" href="{{ asset('themes/adminlte/bower/iCheck/skins/square/blue.css') }}">
     <script>
         cvepdb_config.libraries.push(
                 {
@@ -16,6 +17,7 @@
 @endsection
 
 @section('js')
+    <script src="{{ asset('themes/adminlte/bower/iCheck/icheck.min.js') }}"></script>
     <script src="{{ asset('modules/users/js/admin.roles.form.js') }}"></script>
 @endsection
 
@@ -29,7 +31,7 @@
                     </a>
                     <h3 class="box-title">{{ trans('users::roles.edit.title') }}</h3>
                 </div>
-                {!! Form::open(array('route' => 'admin.roles.store', 'class' => 'forms js-call-form_validation')) !!}
+                {!! Form::open(array('route' => ['admin.roles.update', $role->id], 'class' => 'forms js-call-form_validation', 'method' => 'PUT')) !!}
                 <div class="box-body">
                     @if (count($errors) > 0)
                         <div class="alert alert-danger" role="alert">
@@ -56,6 +58,34 @@
                             {{ old('description', $role->description) }}
                         </textarea>
                     </div>
+
+
+                        <div class="form-group form-group-default">
+                            <label>Permissions</label>
+                            <br>
+                            @if ($permissions->count())
+                                @foreach ($permissions as $permission)
+                                    <div class="form-group form-group-default input-group">
+                                        <label>
+                                            <input type="checkbox" name="role_permission_id[]"
+                                                   data-init-plugin="switchery" value="{{ $permission->id }}"
+                                                   @if ($role->permissions->contains($permission->id))
+                                                   checked="checked"
+                                                   @endif
+                                                />
+                                            {{ trans($permission->display_name) }} :
+                                            <small>{{ trans($permission->description) }}</small>
+                                        </label>
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="alert alert-info" role="alert">
+                                    Il n'y a aucune permission
+                                </div>
+                            @endif
+                        </div>
+
+
                 </div>
                 <div class="box-footer clearfix">
                     <div class="pull-left">

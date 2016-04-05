@@ -8,6 +8,12 @@
             var slug = cvepdb.string.slugify($(this).val());
             input_name.val(slug);
         });
+
+        $('input[type="checkbox"]').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%'
+        });
     });
 
     $(D).bind('CVEPDB_TINYMCE_EDITOR_READY', function (e, params) {
