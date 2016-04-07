@@ -1,8 +1,8 @@
-<?php namespace Modules\Users\Http\Requests\Admin;
+<?php namespace Modules\Users\Http\Requests;
 
 use CVEPDB\Requests\Request;
 
-class UsersIndexFiltersFormRequest extends Request
+class UsersFilteredFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.

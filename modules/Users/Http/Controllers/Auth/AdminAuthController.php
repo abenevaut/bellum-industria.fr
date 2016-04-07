@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Theme;
 use Modules\Users\Outputters\AuthAdminOutputter;
 
-class AuthAdminController extends Controller
+class AdminAuthController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -47,7 +47,6 @@ class AuthAdminController extends Controller
         parent::__construct();
         $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
         $this->outputter = $outputter;
-        $this->view_prefix = Theme::getCurrent() . '::';
     }
 
     /**
@@ -66,6 +65,9 @@ class AuthAdminController extends Controller
         ]);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getLogin()
     {
         return $this->outputter->output('users.admin.login');

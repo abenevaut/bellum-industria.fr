@@ -76,6 +76,9 @@ class AuthController extends Controller
         return $this->outputter->create($data);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getLogin()
     {
         return $this->outputter->output('users.login');

@@ -32,9 +32,9 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Contro
 
 Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Auth'], function() {
 	// Authentication routes...
-	Route::get('login', 'AuthAdminController@getLogin');
-	Route::post('login', 'AuthAdminController@postLogin');
-	Route::get('logout', 'AuthAdminController@getLogout');
+	Route::get('login', 'AdminAuthController@getLogin');
+	Route::post('login', 'AdminAuthController@postLogin');
+	Route::get('logout', 'AdminAuthController@getLogout');
 });
 
 Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Admin'], function() {

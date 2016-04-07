@@ -2,6 +2,7 @@
 
 use Chrisbjr\ApiGuard\Http\Controllers\ApiGuardController;
 use Modules\Users\Repositories\UserRepositoryEloquent;
+use Modules\Users\Http\Requests\UsersFilteredFormRequest;
 use Modules\Users\Transformers\UserApiTransformer;
 
 class UsersController extends ApiGuardController
@@ -45,6 +46,7 @@ class UsersController extends ApiGuardController
         parent::__construct();
 
         $this->r_user = $r_user;
+        // reset user
         $this->user = $this->r_user->find($this->user->id)->first();
 
         switch ($this->user->apikey->level)
@@ -65,15 +67,32 @@ class UsersController extends ApiGuardController
     }
 
     /**
-     * $> curl --header "X-Authorization: <API_KEY>" http://localhost/v1/users
+     * $> curl --header "X-Authorization: <API_KEY>" http://localhost/v1/users?email=&name=
      *
      * @return mixed
      */
-    public function index()
+    public function index(UsersFilteredFormRequest $request)
     {
         $users = [];
 
         if (\Auth::user()->hasRole('admin')) {
+
+            $name = $request->has('name')
+                ? $request->get('name')
+                : null;
+
+            $email = $request->has('email')
+                ? $request->get('email')
+                : null;
+
+            if (!is_null($name)) {
+                $this->r_user->filterUserName($name);
+            }
+
+            if (!is_null($email)) {
+                $this->r_user->filterEmail($email);
+            }
+
             $users = $this->r_user->all();
         }
 
