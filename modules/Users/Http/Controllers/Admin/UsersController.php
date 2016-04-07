@@ -34,10 +34,7 @@ class UsersController extends Controller
      */
     public function index(UsersFilteredFormRequest $request)
     {
-        if (Request::ajax()) {
-            return $this->outputter->index($request, true);
-        }
-        return $this->outputter->index($request);
+        return $this->outputter->index($request, Request::ajax());
     }
 
     /**

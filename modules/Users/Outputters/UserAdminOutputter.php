@@ -140,8 +140,6 @@ class UserAdminOutputter extends AdminOutputter
 
         event(new NewUserCreatedEvent($user));
 
-        // Todo : send mail to new user
-
         return $this->redirectTo('admin/users')
             ->with('message-success', 'users::admin.create.message.success');
     }
