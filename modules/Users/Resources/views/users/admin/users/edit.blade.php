@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.default')
 
 @section('js')
-    <script src="{{ asset('modules/users/js/admin.form.js') }}"></script>
+    <script src="{{ asset('modules/users/js/admin.users.form.js') }}"></script>
 @endsection
 
 @section('content')

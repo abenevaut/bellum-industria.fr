@@ -85,6 +85,6 @@
         cvepdb.filter.init();
     });
 
-    $('#filters').find("button[data-widget='collapse']").click()
+    $('#filters').find("button[data-widget='collapse']").click();
 
 })(jQuery, document, window);

@@ -1,7 +1,6 @@
 @extends('adminlte::layouts.default')
 
 @section('head')
-    <link rel="stylesheet" href="{{ asset('themes/adminlte/bower/iCheck/skins/square/blue.css') }}">
     <script>
         cvepdb_config.libraries.push(
                 {
@@ -17,7 +16,6 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('themes/adminlte/bower/iCheck/icheck.min.js') }}"></script>
     <script src="{{ asset('modules/users/js/admin.roles.form.js') }}"></script>
 @endsection
 
