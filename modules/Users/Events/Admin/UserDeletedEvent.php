@@ -5,20 +5,20 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Modules\Users\Entities\User;
 
-class NewUserCreatedEvent extends Event
+class UserDeletedEvent extends Event
 {
     use SerializesModels;
 
-    public $user = null;
+    public $user_id = 0;
 
     /**
      * Create a new event instance.
      *
-     * @return void
+     * @param $user_id
      */
-    public function __construct(User $user)
+    public function __construct($user_id)
     {
-        $this->user = $user;
+        $this->user_id = $user_id;
     }
 
     /**

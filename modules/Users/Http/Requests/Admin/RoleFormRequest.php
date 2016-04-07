@@ -26,7 +26,7 @@ class RoleFormRequest extends Request
             : 0;
 
         return [
-            'name' => 'required|unique:roles,name' . ($this->method() === 'PUT' && $id > 0 ? ',' . $id : ''),
+            'name' => 'required|unique:roles,name' . ((($this->method() === 'PUT') && ($id > 0)) ? ',' . $id : ''),
             'display_name' => 'required',
             'description' => 'required'
         ];

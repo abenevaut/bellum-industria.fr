@@ -21,10 +21,14 @@ class UserFormRequest extends Request
      */
     public function rules()
     {
+        $id = $this->method() === 'PUT'  // only if updating
+            ? $this->segment(3)
+            : 0;
+
         return [
             'first_name' => 'required|max:50',
             'last_name' => 'required|max:50',
-            'email' => 'required|email|max:255|unique:users,email'
+            'email' => 'required|email|max:255|unique:users,email' . ((($this->method() === 'PUT') && ($id > 0)) ? ',' . $id : ''),
         ];
     }
 }

@@ -13,8 +13,9 @@ use Modules\Users\Transformers\UsersAdminExcelTransformer;
 use Modules\Users\Presenters\UsersAdminExcelPresenter;
 use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
 use \Maatwebsite\Excel\Files\NewExcelFile;
-use Modules\Users\Events\Admin\NewUserCreatedEvent;
+use Modules\Users\Events\Admin\UserCreatedEvent;
 use Modules\Users\Events\Admin\UserUpdatedEvent;
+use Modules\Users\Events\Admin\UserDeletedEvent;
 
 class UserAdminOutputter extends AdminOutputter
 {
@@ -139,7 +140,7 @@ class UserAdminOutputter extends AdminOutputter
             $user->roles()->attach($roles['user_role_id']);
         }
 
-        event(new NewUserCreatedEvent($user));
+        event(new UserCreatedEvent($user));
 
         return $this->redirectTo('admin/users')
             ->with('message-success', 'users::admin.create.message.success');
@@ -224,9 +225,9 @@ class UserAdminOutputter extends AdminOutputter
      */
     public function destroy($id)
     {
-        $this->_delete_user($id);
+        $this->r_user->findAndDelete($id);
 
-        // Todo : emit event
+        event(new UserDeletedEvent($id));
 
         return $this->redirectTo('admin/users')
             ->with('message-success', 'users::admin.delete.message.success');
@@ -237,7 +238,8 @@ class UserAdminOutputter extends AdminOutputter
         $users = $request->only('users_multi_destroy');
 
         foreach ($users['users_multi_destroy'] as $user_id) {
-            $this->_delete_user($user_id);
+            $this->r_user->findAndDelete($user_id);
+            event(new UserDeletedEvent($user_id));
         }
 
         return $this->redirectTo('admin/users')
@@ -333,34 +335,5 @@ class UserAdminOutputter extends AdminOutputter
                     });
 
             })->export('xls');
-    }
-
-    // Todo merge to repository
-    private function _delete_user($id)
-    {
-        $user = $this->r_user->find($id);
-
-        /*
-         * delete all roles except user; in case the user was re-activated
-         */
-
-        $user->roles()->detach();
-        // Always attach client role
-        $role = $this->r_role->role_exists(RoleRepositoryEloquent::USER);
-        $user->attachRole($role);
-
-        /*
-         * delete api key
-         */
-
-        $user->apikey()->delete();
-
-        /*
-         * delete user
-         */
-
-        $user->delete();
-
-        // Todo : send mail to deleted user
     }
 }

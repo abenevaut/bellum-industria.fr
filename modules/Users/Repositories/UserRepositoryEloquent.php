@@ -4,6 +4,7 @@ use Modules\Users\Entities\User;
 use CVEPDB\Repositories\Users\UserRepositoryEloquent as UserRepositoryEloquentParent;
 use Modules\Users\Criterias\EmailLikeCriteria;
 use Modules\Users\Criterias\UserNameLikeCriteria;
+use Modules\Users\Repositories\RoleRepositoryEloquent;
 
 /**
  * Class UserRepositoryEloquent
@@ -44,5 +45,31 @@ class UserRepositoryEloquent extends UserRepositoryEloquentParent
     public function filterEmail($email)
     {
         $this->pushCriteria(new EmailLikeCriteria($email));
+    }
+
+    public function findAndDelete($id)
+    {
+        $user = $this->find($id);
+
+        /*
+         * delete all roles except user; in case the user was re-activated
+         */
+
+        $user->roles()->detach();
+        // Always attach client role
+        $role = $this->r_roles->role_exists(RoleRepositoryEloquent::USER);
+        $user->attachRole($role);
+
+        /*
+         * delete api key
+         */
+
+        $user->apikey()->delete();
+
+        /*
+         * delete user
+         */
+
+        $user->delete();
     }
 }
