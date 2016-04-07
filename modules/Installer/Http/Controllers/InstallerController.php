@@ -221,6 +221,7 @@ class InstallerController extends Controller
         $contents .= 'APP_SITE_NAME="' . $formRequest->get('APP_SITE_NAME') . '"' . PHP_EOL;
         $contents .= 'APP_SITE_DESCRIPTION="' . $formRequest->get('APP_SITE_DESCRIPTION') . '"' . PHP_EOL;
         $contents .= 'APP_URL=' . $formRequest->get('APP_URL') . PHP_EOL;
+        $contents .= 'APP_CONTACT_MAIL=' . $formRequest->get('email') . PHP_EOL;
         $contents .= PHP_EOL;
         $contents .= 'CACHE_DRIVER=array' . PHP_EOL;
         $contents .= PHP_EOL;

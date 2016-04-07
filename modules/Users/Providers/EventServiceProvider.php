@@ -11,8 +11,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Modules\Users\Events\NewUserCreatedEvent' => [
-            'Modules\Users\Listeners\EventListener',
+        'Modules\Users\Events\Admin\NewUserCreatedEvent' => [
+            'Modules\Users\Listeners\Admin\EventListener',
         ],
     ];
 

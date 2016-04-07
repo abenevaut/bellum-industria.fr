@@ -9,7 +9,7 @@ class NewUserCreatedEvent extends Event
 {
     use SerializesModels;
 
-    private $user = null;
+    public $user = null;
 
     /**
      * Create a new event instance.

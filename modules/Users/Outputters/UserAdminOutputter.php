@@ -84,8 +84,6 @@ class UserAdminOutputter extends AdminOutputter
 
         $users = $this->r_user->paginate(config('app.pagination'));
 
-        event(new NewUserCreatedEvent($users[0]));
-
         return $this->output(
             $usePartial
                 ? 'users.admin.users.chunks.index_tables'
