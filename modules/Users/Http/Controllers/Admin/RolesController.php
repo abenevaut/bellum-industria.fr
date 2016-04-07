@@ -2,7 +2,7 @@
 
 use Pingpong\Modules\Routing\Controller;
 use Modules\Users\Outputters\RoleAdminOutputter;
-use Modules\Users\Http\Requests\RoleAdminFormRequest;
+use Modules\Users\Http\Requests\Admin\RoleFormRequest;
 
 /**
  * Class AdminRolesController
@@ -44,10 +44,10 @@ class RolesController extends Controller {
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * @param RoleAdminFormRequest $request
+	 * @param RoleFormRequest $request
 	 * @return \Modules\Users\Outputters\Response
 	 */
-	public function store(RoleAdminFormRequest $request)
+	public function store(RoleFormRequest $request)
 	{
 		return $this->outputter->store($request);
 	}
@@ -78,10 +78,10 @@ class RolesController extends Controller {
 	 * Update the specified resource in storage.
 	 *
 	 * @param $id
-	 * @param RoleAdminFormRequest $request
+	 * @param RoleFormRequest $request
 	 * @return mixed|\Redirect
 	 */
-	public function update($id, RoleAdminFormRequest $request)
+	public function update($id, RoleFormRequest $request)
 	{
 		return $this->outputter->update($id, $request);
 	}

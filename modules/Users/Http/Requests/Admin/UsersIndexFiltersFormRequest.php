@@ -1,8 +1,8 @@
-<?php namespace Modules\Users\Http\Requests;
+<?php namespace Modules\Users\Http\Requests\Admin;
 
 use CVEPDB\Requests\Request;
 
-class UserAdminFormRequest extends Request
+class UsersIndexFiltersFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,9 @@ class UserAdminFormRequest extends Request
     public function rules()
     {
         return [
-            'first_name' => 'required|max:50',
-            'last_name' => 'required|max:50',
-            'email' => 'required|email|max:255|unique:users,email'
+            'first_name' => '',
+            'last_name' => '',
+            'email' => ''
         ];
     }
 }

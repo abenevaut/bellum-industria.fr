@@ -3,9 +3,9 @@
 use Request;
 use Pingpong\Modules\Routing\Controller;
 use Modules\Users\Outputters\UserAdminOutputter;
-use Modules\Users\Http\Requests\UserAdminFormRequest;
-use Modules\Users\Http\Requests\UsersIndexFiltersAdminFormRequest;
-use Modules\Users\Http\Requests\UsersMultiDestroyAdminFormRequest;
+use Modules\Users\Http\Requests\Admin\UserFormRequest;
+use Modules\Users\Http\Requests\Admin\UsersIndexFiltersFormRequest;
+use Modules\Users\Http\Requests\Admin\UsersMultiDestroyFormRequest;
 use Modules\Users\Exports\UsersListAdminExport;
 
 /**
@@ -28,10 +28,10 @@ class UsersController extends Controller {
 	}
 
 	/**
-	 * @param UsersIndexFiltersAdminFormRequest $request
+	 * @param UsersIndexFiltersFormRequest $request
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function index(UsersIndexFiltersAdminFormRequest $request)
+	public function index(UsersIndexFiltersFormRequest $request)
 	{
 		if (Request::ajax())
 		{
@@ -43,7 +43,7 @@ class UsersController extends Controller {
 	/**
 	 * Show the form for creating a new resource.
 	 *
-	 * @return Response
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function create()
 	{
@@ -53,10 +53,10 @@ class UsersController extends Controller {
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * @param Request $request
-	 * @return Response
+	 * @param UserFormRequest $request
+	 * @return \Modules\Users\Outputters\Response
 	 */
-	public function store(UserAdminFormRequest $request)
+	public function store(UserFormRequest $request)
 	{
 		return $this->outputter->store($request);
 	}
@@ -64,8 +64,8 @@ class UsersController extends Controller {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
-	 * @return Response
+	 * @param $id
+	 * @return \Modules\Users\Outputters\Response
 	 */
 	public function show($id)
 	{
@@ -75,8 +75,8 @@ class UsersController extends Controller {
 	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param  int  $id
-	 * @return Response
+	 * @param $id
+	 * @return \Modules\Users\Outputters\Response
 	 */
 	public function edit($id)
 	{
@@ -86,10 +86,11 @@ class UsersController extends Controller {
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
-	 * @return Response
+	 * @param $id
+	 * @param UserFormRequest $request
+	 * @return \Modules\Users\Outputters\Response
 	 */
-	public function update($id, UserAdminFormRequest $request)
+	public function update($id, UserFormRequest $request)
 	{
 		return $this->outputter->update($id, $request);
 	}
@@ -108,10 +109,10 @@ class UsersController extends Controller {
 	/**
 	 * Remove multiple users
 	 *
-	 * @param UsersMultiDestroyAdminFormRequest $request
+	 * @param UsersMultiDestroyFormRequest $request
 	 * @return mixed
 	 */
-	public function destroy_multiple(UsersMultiDestroyAdminFormRequest $request)
+	public function destroy_multiple(UsersMultiDestroyFormRequest $request)
 	{
 		return $this->outputter->destroy_multiple($request);
 	}

@@ -1,8 +1,8 @@
-<?php namespace Modules\Users\Http\Requests;
+<?php namespace Modules\Users\Http\Requests\Admin;
 
 use CVEPDB\Requests\Request;
 
-class UsersMultiDestroyAdminFormRequest extends Request
+class UsersMultiDestroyFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
