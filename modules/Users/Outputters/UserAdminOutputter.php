@@ -14,6 +14,7 @@ use Modules\Users\Presenters\UsersAdminExcelPresenter;
 use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
 use \Maatwebsite\Excel\Files\NewExcelFile;
 use Modules\Users\Events\Admin\NewUserCreatedEvent;
+use Modules\Users\Events\Admin\UserUpdatedEvent;
 
 class UserAdminOutputter extends AdminOutputter
 {
@@ -209,7 +210,7 @@ class UserAdminOutputter extends AdminOutputter
             $user->roles()->attach($roles['user_role_id']);
         }
 
-        // Todo : emit event
+        event(new UserUpdatedEvent($user));
 
         return $this->redirectTo('admin/users')
             ->with('message-success', 'users::admin.edit.message.success');
