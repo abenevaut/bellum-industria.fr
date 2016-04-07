@@ -105,12 +105,14 @@ class PageAdminOutputter extends AdminOutputter
      */
     public function edit($id)
     {
+        $page = $this->r_page->find($id);
 
-//        return $this->output(
-//            'pages.admin.edit',
-//            [
-//            ]
-//        );
+        return $this->output(
+            'pages.admin.edit',
+            [
+                'page' => $page
+            ]
+        );
     }
 
     /**
@@ -121,7 +123,19 @@ class PageAdminOutputter extends AdminOutputter
      */
     public function update($id, IFormRequest $request)
     {
+        $title = $request->get('title');
+        $slug = slugify($title);
+        $uri = $slug; // Todo : when page parent in place, construct child URI
 
+        $page = $this->r_page->update([
+            'title' => $title,
+            'content' => $request->get('content'),
+            'is_home' => $request->get('is_home'),
+            'slug' => $slug,
+            'uri' => $uri
+        ], $id);
+
+        return $this->redirectTo('admin/pages');
     }
 
     /**

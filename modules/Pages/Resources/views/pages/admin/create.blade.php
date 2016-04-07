@@ -1,5 +1,9 @@
 @extends('adminlte::layouts.default')
 
+@section('js')
+    <script src="{{ asset('modules/pages/js/tinymce.js') }}"></script>
+@endsection
+
 @section('content')
 
     <div class="row">
@@ -11,7 +15,6 @@
                     <h3 class="box-title">Add new page</h3>
 
                 </div>
-                <!-- /.box-header -->
 
                 {!! Form::open(array('route' => 'admin.pages.store', 'class' => 'forms')) !!}
 
