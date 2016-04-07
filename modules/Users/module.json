@@ -6,6 +6,7 @@
   "active": 1,
   "order": 5,
   "providers": [
+    "Modules\\Users\\Providers\\PasswordResetServiceProvider",
     "Modules\\Users\\Providers\\UsersServiceProvider",
     "Modules\\Users\\Providers\\EventServiceProvider"
   ],

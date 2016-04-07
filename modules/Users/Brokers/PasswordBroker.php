@@ -1,8 +1,12 @@
-<?php namespace Modules\Users\Providers;
+<?php namespace Modules\Users\Brokers;
 
+use Closure;
 use Illuminate\Auth\Passwords\PasswordBroker as IlluminatePasswordBroker;
 use Illuminate\Foundation\Auth\ResetsPasswords;
-use Illuminate\Contracts\Auth\CanResetPassword;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Contracts\Mail\Mailer as MailerContract;
+use Illuminate\Contracts\Auth\UserProvider;
+use Illuminate\Auth\Passwords\TokenRepositoryInterface;
 
 class PasswordBroker extends IlluminatePasswordBroker
 {
@@ -22,28 +26,23 @@ class PasswordBroker extends IlluminatePasswordBroker
     /**
      * Create a new password broker instance.
      *
-     * @param  \Illuminate\Auth\Passwords\TokenRepositoryInterface $tokens
-     * @param  \Illuminate\Contracts\Auth\UserProvider $users
-     * @param  \Illuminate\Contracts\Mail\Mailer $mailer
-     * @param  string $emailView
-     * @return void
+     * @param TokenRepositoryInterface $tokens
+     * @param UserProvider $users
+     * @param MailerContract $mailer
+     * @param string $emailView
      */
-    public function __construct(
-        TokenRepositoryInterface $tokens,
-        UserProvider $users,
-        MailerContract $mailer,
-        $emailView
-    )
+    public function __construct(TokenRepositoryInterface $tokens,
+                                UserProvider $users,
+                                MailerContract $mailer,
+                                $emailView)
     {
         parent::__construct($tokens, $users, $mailer, $emailView);
     }
 
-    public function emailResetLink(CanResetPassword $user, $token, \Closure $callback = null)
+    public function emailResetLink(CanResetPasswordContract $user, $token, Closure $callback = null)
     {
         $this->emailView = \Theme::getCurrent() . '::users.emails.password';
         $view = $this->emailView;
-
-        dd($view);
 
         return $this->mailer->queue($view, compact('token', 'user'), function ($m) use ($user, $token, $callback) {
 
@@ -58,4 +57,15 @@ class PasswordBroker extends IlluminatePasswordBroker
         });
     }
 
+    /**
+     * Reset the password for the given token.
+     *
+     * @param  array  $credentials
+     * @param  \Closure  $callback
+     * @return mixed
+     */
+    public function reset(array $credentials, Closure $callback)
+    {
+        return parent::reset($credentials, $callback);
+    }
 }
