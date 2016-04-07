@@ -89,7 +89,7 @@ class UsersController extends ApiGuardController
     public function show($id)
     {
         $users = [];
-        
+
         try {
 
             if (\Auth::user()->hasRole('admin')) {
