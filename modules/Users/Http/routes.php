@@ -13,7 +13,7 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Contro
 	Route::get('login', 'AuthController@getLogin');
 	Route::post('login', 'AuthController@postLogin');
 	Route::get('logout', 'AuthController@getLogout');
-	Route::group(['prefix' => 'password', 'namespace' => 'Modules\Users\Http\Controllers\Auth'], function () {
+	Route::group(['prefix' => 'password'], function () {
 		// Password reset link request routes...
 		Route::get('reset', 'PasswordController@getEmail');
 		Route::post('email', 'PasswordController@postEmail');
