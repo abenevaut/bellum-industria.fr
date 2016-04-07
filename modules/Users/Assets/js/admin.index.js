@@ -62,6 +62,12 @@
                 }
             });
         }
+
+        //$('input[type="checkbox"]').iCheck({
+        //    checkboxClass: 'icheckbox_square-blue',
+        //    radioClass: 'iradio_square-blue',
+        //    increaseArea: '20%'
+        //});
     });
 
     $(D).bind('CVEPDB_FILTERS_DOFILTER_START', function () {

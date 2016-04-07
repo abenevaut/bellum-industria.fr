@@ -53,7 +53,7 @@
                     </div>
                     <div class="box-footer clearfix">
                         <div class="pull-left">
-                            <a href="{{ URL::previous() }}" class="btn btn-default btn-flat">
+                            <a href="{{ url('admin/users') }}" class="btn btn-default btn-flat">
                                 <i class="fa fa-caret-left"></i> {{ trans('users::roles.index.btn.back_user_panel') }}
                             </a>
                         </div>
@@ -68,7 +68,7 @@
                     </div>
                     <div class="box-footer clearfix">
                         <div class="pull-left">
-                            <a href="{{ URL::previous() }}" class="btn btn-default btn-flat">
+                            <a href="{{ url('admin/users') }}" class="btn btn-default btn-flat">
                                 <i class="fa fa-caret-left"></i> {{ trans('global.back') }}
                             </a>
                         </div>

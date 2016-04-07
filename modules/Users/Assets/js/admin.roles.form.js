@@ -8,12 +8,12 @@
             var slug = cvepdb.string.slugify($(this).val());
             input_name.val(slug);
         });
+    });
 
-        $('input[type="checkbox"]').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%'
-        });
+    $(D).bind('CVEPDB_TINYMCE_READY', function () {
+        cvepdb.debug('admin.roles.form.js > CVEPDB_TINYMCE_READY : success : Start');
+        cvepdb.editor.simple_editor('textarea#description');
+        cvepdb.debug('admin.roles.form.js > CVEPDB_TINYMCE_READY : success : End');
     });
 
     $(D).bind('CVEPDB_TINYMCE_EDITOR_READY', function (e, params) {

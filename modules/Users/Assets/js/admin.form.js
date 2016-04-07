@@ -1,11 +1,6 @@
 (function ($, W, D) {
     $(D).bind('CVEPDB_READY', function () {
         cvepdb.debug('admin.form.js > CVEPDB_READY : success : Start');
-        $('input[type="checkbox"]').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%'
-        });
         cvepdb.debug('admin.form.js > CVEPDB_READY : success : End');
     });
 

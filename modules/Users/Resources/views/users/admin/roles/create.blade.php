@@ -65,13 +65,26 @@
                             <br>
                             @if ($permissions->count())
                                 @foreach ($permissions as $permission)
-                                    <div class="form-group form-group-default input-group">
-                                        <label>
-                                            <input type="checkbox" name="role_permission_id[]"
-                                                   data-init-plugin="switchery" value="{{ $permission->id }}"/>
-                                            {{ trans($permission->display_name) }} :
-                                            <small>{{ trans($permission->description) }}</small>
-                                        </label>
+                                    <div class="box box-widget collapsed-box">
+                                        <div class="box-header with-border">
+                                            <div class="user-block">
+
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                                </button>
+
+                                                <span class="username">{!! trans($permission->display_name) !!}</span>
+                                            </div>
+                                            <div class="box-tools">
+                                                <div class="material-switch pull-right" style="padding-top: 10px;">
+                                                    <input type="checkbox" name="role_permission_id[]" id="someSwitchOptionDefault{{ $permission->id }}"
+                                                           data-init-plugin="switchery" value="{{ $permission->id }}" />
+                                                    <label for="someSwitchOptionDefault{{ $permission->id }}" class="label-success"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="box-body">
+                                            {!! trans($permission->description) !!}
+                                        </div>
                                     </div>
                                 @endforeach
                             @else

@@ -1,6 +1,7 @@
 <?php namespace Modules\Users\Entities;
 
 use CVEPDB\Repositories\Roles\Role as RoleModel;
+use Phoenix\EloquentMeta\MetaTrait;
 
 /**
  * Class Role
@@ -8,6 +9,8 @@ use CVEPDB\Repositories\Roles\Role as RoleModel;
  */
 class Role extends RoleModel
 {
+    use MetaTrait;
+
     /**
      * The attributes that are mass assignable.
      *

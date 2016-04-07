@@ -1,11 +1,6 @@
 @extends('adminlte::layouts.default')
 
-@section('head')
-    <link rel="stylesheet" href="{{ asset('themes/adminlte/bower/iCheck/skins/square/blue.css') }}">
-@endsection
-
 @section('js')
-    <script src="{{ asset('themes/adminlte/bower/iCheck/icheck.min.js') }}"></script>
     <script src="{{ asset('modules/users/js/admin.form.js') }}"></script>
 @endsection
 
@@ -52,17 +47,29 @@
                         <label>{{ trans('global.roles') }}</label>
                         <br>
                         @foreach ($roles as $role)
-                            <div class="form-group form-group-default input-group">
-                                <label>
-                                    <input type="checkbox" name="user_role_id[]"
-                                           data-init-plugin="switchery" value="{{ $role->id }}"
-                                           @if ($user->roles->contains($role->id))
-                                           checked="checked"
-                                           @endif
-                                            />
-                                    {{ trans($role->display_name) }} :
-                                    <small>{{ trans($role->description) }}</small>
-                                </label>
+                            <div class="box box-widget collapsed-box">
+                                <div class="box-header with-border">
+                                    <div class="user-block">
+
+                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                        </button>
+
+                                        <span class="username">{!! trans($role->display_name) !!}</span>
+                                    </div>
+                                    <div class="box-tools">
+                                        <div class="material-switch pull-right" style="padding-top: 10px;">
+                                            <input type="checkbox" name="user_role_id[]" id="someSwitchOptionDefault{{ $role->id }}"
+                                                   data-init-plugin="switchery" value="{{ $role->id }}"
+                                                   @if ($user->roles->contains($role->id))
+                                                   checked="checked"
+                                                   @endif/>
+                                            <label for="someSwitchOptionDefault{{ $role->id }}" class="label-success"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                    {!! trans($role->description) !!}
+                                </div>
                             </div>
                         @endforeach
                     </div>
