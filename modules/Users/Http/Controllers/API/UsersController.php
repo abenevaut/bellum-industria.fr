@@ -45,22 +45,23 @@ class UsersController extends ApiGuardController
         parent::__construct();
 
         $this->r_user = $r_user;
+        $this->user = $this->r_user->find($this->user->id)->first();
 
-//        switch ($this->user->id)
-//        {
-//            case 10:
-//            case 9:
-//            case 8:
-//            case 7:
-//            case 6:
-//            case 5:
-//            case 4:
-//            case 3:
-//            case 2:
-//            case 1:
-//            default:
-//                $this->obj_userTransformer = UserApiTransformer::class;
-//        }
+        switch ($this->user->apikey->level)
+        {
+            case 10:
+            case 9:
+            case 8:
+            case 7:
+            case 6:
+            case 5:
+            case 4:
+            case 3:
+            case 2:
+            case 1:
+            default:
+                $this->obj_userTransformer = UserApiTransformer::class;
+        }
     }
 
     /**
@@ -70,7 +71,12 @@ class UsersController extends ApiGuardController
      */
     public function index()
     {
-        $users = $this->r_user->all();
+        $users = [];
+
+        if (\Auth::user()->hasRole('admin')) {
+            $users = $this->r_user->all();
+        }
+
         return $this->response->withCollection($users, new $this->obj_userTransformer);
     }
 
@@ -82,10 +88,17 @@ class UsersController extends ApiGuardController
      */
     public function show($id)
     {
+        $users = [];
+        
         try {
-            $users = $this->r_user->find($id);
+
+            if (\Auth::user()->hasRole('admin')) {
+                $users = $this->r_user->find($id);
+            }
+
             return $this->response->withItem($users, new $this->obj_userTransformer);
-        } catch (ModelNotFoundException $e) {
+        }
+        catch (ModelNotFoundException $e) {
             return $this->response->errorNotFound();
         }
     }
