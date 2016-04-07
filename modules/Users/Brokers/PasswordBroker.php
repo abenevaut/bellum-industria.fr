@@ -41,14 +41,14 @@ class PasswordBroker extends IlluminatePasswordBroker
 
     public function emailResetLink(CanResetPasswordContract $user, $token, Closure $callback = null)
     {
-        $this->emailView = \Theme::getCurrent() . '::users.emails.password';
+        $this->emailView = 'users::users.emails.password';
         $view = $this->emailView;
 
         return $this->mailer->queue($view, compact('token', 'user'), function ($m) use ($user, $token, $callback) {
 
             $m->to($user->getEmailForPasswordReset())
-                ->from(config('cvepdb.emails.from.contact'))
-                ->bcc(config('cvepdb.emails.copy.mailwatch'));
+                ->from(env('MAIL_FROM_EMAIL'), env('MAIL_FROM_NAME'))
+                ->bcc(env('MAIL_FROM_EMAIL'), env('MAIL_FROM_NAME'));
 
             if (!is_null($callback)) {
                 call_user_func($callback, $m, $user, $token);
