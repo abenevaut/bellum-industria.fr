@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="{{ asset('themes/adminlte/bower/components-font-awesome/css/font-awesome.min.css') }}">
 <link rel="stylesheet" href="{{ asset('themes/adminlte/bower/Ionicons/css/ionicons.min.css') }}">
 <link rel="stylesheet" href="{{ asset('themes/adminlte/css/' . css_file_rev('style.css')) }}">
+<link rel="stylesheet" href="{{ asset('themes/adminlte/bower/iCheck/skins/square/blue.css') }}">
 <script src="{{ asset('themes/adminlte/js/pace.js') }}"></script>
 <!--[if lt IE 9]>
 <script src="{{ asset('themes/adminlte/bower/html5shiv/dist/html5shiv.min.js') }}"></script>
