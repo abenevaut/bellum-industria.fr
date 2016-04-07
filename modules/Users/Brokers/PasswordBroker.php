@@ -31,14 +31,22 @@ class PasswordBroker extends IlluminatePasswordBroker
      * @param MailerContract $mailer
      * @param string $emailView
      */
-    public function __construct(TokenRepositoryInterface $tokens,
-                                UserProvider $users,
-                                MailerContract $mailer,
-                                $emailView)
+    public function __construct(
+        TokenRepositoryInterface $tokens,
+        UserProvider $users,
+        MailerContract $mailer,
+        $emailView
+    )
     {
         parent::__construct($tokens, $users, $mailer, $emailView);
     }
 
+    /**
+     * @param CanResetPasswordContract $user
+     * @param string $token
+     * @param Closure|null $callback
+     * @return mixed
+     */
     public function emailResetLink(CanResetPasswordContract $user, $token, Closure $callback = null)
     {
         $this->emailView = cmsview_prefix('users.emails.password', $view_prefix = null, 'users') . '::users.emails.password';
@@ -60,8 +68,8 @@ class PasswordBroker extends IlluminatePasswordBroker
     /**
      * Reset the password for the given token.
      *
-     * @param  array  $credentials
-     * @param  \Closure  $callback
+     * @param  array $credentials
+     * @param  \Closure $callback
      * @return mixed
      */
     public function reset(array $credentials, Closure $callback)
