@@ -15,6 +15,7 @@ use \Illuminate\Filesystem\FileException;
 use \Illuminate\Filesystem\FileNotFoundException;
 use CVEPDB\Repositories\Users\UserRepositoryEloquent;
 use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
+use Modules\Users\Entities\ApiKey;
 
 class InstallerController extends Controller
 {
@@ -28,13 +29,22 @@ class InstallerController extends Controller
      */
     private $r_role = null;
 
+    private $m_apikey = null;
+
+    /**
+     * @param UserRepositoryEloquent $r_user
+     * @param RoleRepositoryEloquent $r_role
+     * @param ApiKey $m_apikey
+     */
     public function __construct(
         UserRepositoryEloquent $r_user,
-        RoleRepositoryEloquent $r_role
+        RoleRepositoryEloquent $r_role,
+        ApiKey $m_apikey
     )
     {
         $this->r_user = $r_user;
         $this->r_role = $r_role;
+        $this->m_apikey = $m_apikey;
     }
 
     /**
@@ -264,6 +274,13 @@ class InstallerController extends Controller
 
         $role = $this->r_role->role_exists(RoleRepositoryEloquent::ADMIN);
         $user->attachRole($role);
+
+        $this->m_apikey->create([
+            'user_id' => $user->id,
+            'key' => $this->m_apikey->generateKey(),
+            'level' => 10,
+            'ignore_limits' => 0,
+        ]);
 
         return true;
     }
