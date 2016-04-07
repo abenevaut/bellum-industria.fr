@@ -221,7 +221,6 @@ class InstallerController extends Controller
         $contents .= 'APP_SITE_NAME="' . $formRequest->get('APP_SITE_NAME') . '"' . PHP_EOL;
         $contents .= 'APP_SITE_DESCRIPTION="' . $formRequest->get('APP_SITE_DESCRIPTION') . '"' . PHP_EOL;
         $contents .= 'APP_URL=' . $formRequest->get('APP_URL') . PHP_EOL;
-        $contents .= 'APP_CONTACT_MAIL=' . $formRequest->get('email') . PHP_EOL;
         $contents .= PHP_EOL;
         $contents .= 'CACHE_DRIVER=array' . PHP_EOL;
         $contents .= PHP_EOL;
@@ -229,6 +228,9 @@ class InstallerController extends Controller
         $contents .= 'DB_DATABASE=' . $formRequest->get('DB_DATABASE') . PHP_EOL;
         $contents .= 'DB_USERNAME=' . $formRequest->get('DB_USERNAME') . PHP_EOL;
         $contents .= 'DB_PASSWORD=' . $formRequest->get('DB_PASSWORD') . PHP_EOL;
+        $contents .= PHP_EOL;
+        $contents .= 'MAIL_FROM_EMAIL=' . $formRequest->get('email') . PHP_EOL;
+        $contents .= 'MAIL_FROM_NAME=' . $formRequest->get('first_name') .' '. $formRequest->get('first_name') . PHP_EOL;
 
         $bytes_written = File::put(base_path('.env.production'), $contents);
         if ($bytes_written === false) {

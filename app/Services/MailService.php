@@ -18,7 +18,7 @@ abstract class MailService implements IMailService
     {
         Mail::send($view, $data, function($message) use ($emails, $subject) {
             $message->to($emails)
-                ->from(env('APP_CONTACT_MAIL'))
+                ->from(env('MAIL_FROM_EMAIL'))
                 ->subject($subject);
         });
     }
