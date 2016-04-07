@@ -81,6 +81,7 @@ class AuthController extends Controller
      */
     public function getLogin()
     {
+        $this->outputter->setLoginMeta();
         return $this->outputter->output('users.login');
     }
 
@@ -91,6 +92,7 @@ class AuthController extends Controller
      */
     public function getRegister()
     {
+        $this->outputter->setRegisterMeta();
         return $this->outputter->output('users.register');
     }
 

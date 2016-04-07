@@ -61,4 +61,16 @@ class AuthOutputter extends FrontOutputter
 
         return $user;
     }
+
+    public function setLoginMeta()
+    {
+        $this->title = 'users::login.frontend_meta_title';
+        $this->description = 'users::login.frontend_meta_description';
+    }
+
+    public function setRegisterMeta()
+    {
+        $this->title = 'users::register.frontend_meta_title';
+        $this->description = 'users::register.frontend_meta_description';
+    }
 }
