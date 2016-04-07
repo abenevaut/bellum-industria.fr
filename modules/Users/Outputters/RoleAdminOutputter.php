@@ -6,6 +6,10 @@ use CVEPDB\Requests\IFormRequest;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
 use Modules\Users\Repositories\PermissionRepositoryEloquent;
 
+/**
+ * Class RoleAdminOutputter
+ * @package Modules\Users\Outputters
+ */
 class RoleAdminOutputter extends AdminOutputter
 {
     /**
@@ -60,7 +64,7 @@ class RoleAdminOutputter extends AdminOutputter
     }
 
     /**
-     * Show the form for creating a new resource.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
@@ -75,11 +79,8 @@ class RoleAdminOutputter extends AdminOutputter
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     *
-     * @return Response
+     * @param IFormRequest $request
+     * @return mixed|\Redirect
      */
     public function store(IFormRequest $request)
     {
@@ -100,10 +101,7 @@ class RoleAdminOutputter extends AdminOutputter
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return Response
+     * @param $id
      */
     public function show($id)
     {
@@ -111,10 +109,8 @@ class RoleAdminOutputter extends AdminOutputter
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return Response
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
     {
@@ -131,10 +127,9 @@ class RoleAdminOutputter extends AdminOutputter
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  int $id
-     * @return Response
+     * @param $id
+     * @param IFormRequest $request
+     * @return mixed|\Redirect
      */
     public function update($id, IFormRequest $request)
     {
@@ -156,10 +151,8 @@ class RoleAdminOutputter extends AdminOutputter
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return Response
+     * @param $id
+     * @return string
      */
     public function destroy($id)
     {

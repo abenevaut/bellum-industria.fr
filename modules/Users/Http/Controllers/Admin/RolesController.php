@@ -1,10 +1,14 @@
-<?php namespace Modules\Users\Http\Controllers;
+<?php namespace Modules\Users\Http\Controllers\Admin;
 
 use Pingpong\Modules\Routing\Controller;
 use Modules\Users\Outputters\RoleAdminOutputter;
 use Modules\Users\Http\Requests\RoleAdminFormRequest;
 
-class AdminRolesController extends Controller {
+/**
+ * Class AdminRolesController
+ * @package Modules\Users\Http\Controllers
+ */
+class RolesController extends Controller {
 
 	/**
 	 * @var RoleAdminOutputter|null
@@ -30,7 +34,7 @@ class AdminRolesController extends Controller {
 	/**
 	 * Show the form for creating a new resource.
 	 *
-	 * @return Response
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function create()
 	{
@@ -40,8 +44,8 @@ class AdminRolesController extends Controller {
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * @param Request $request
-	 * @return Response
+	 * @param RoleAdminFormRequest $request
+	 * @return \Modules\Users\Outputters\Response
 	 */
 	public function store(RoleAdminFormRequest $request)
 	{
@@ -51,8 +55,8 @@ class AdminRolesController extends Controller {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
-	 * @return Response
+	 * @param $id
+	 * @return \Modules\Users\Outputters\Response
 	 */
 	public function show($id)
 	{
@@ -62,8 +66,8 @@ class AdminRolesController extends Controller {
 	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param  int  $id
-	 * @return Response
+	 * @param $id
+	 * @return \Modules\Users\Outputters\Response
 	 */
 	public function edit($id)
 	{
@@ -73,8 +77,9 @@ class AdminRolesController extends Controller {
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
-	 * @return Response
+	 * @param $id
+	 * @param RoleAdminFormRequest $request
+	 * @return mixed|\Redirect
 	 */
 	public function update($id, RoleAdminFormRequest $request)
 	{
@@ -84,8 +89,8 @@ class AdminRolesController extends Controller {
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  int  $id
-	 * @return Response
+	 * @param $id
+	 * @return \Modules\Users\Outputters\Response
 	 */
 	public function destroy($id)
 	{

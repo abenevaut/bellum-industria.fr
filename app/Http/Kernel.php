@@ -49,6 +49,8 @@ class Kernel extends HttpKernel
         ],
         'api' => [
             'throttle:60,1',
+            'APIResponseHeaderJsCVEPDBMiddleware',
+            'apiguard'
         ],
         'installer' => [
             \App\Http\Middleware\EncryptCookies::class,
@@ -82,5 +84,7 @@ class Kernel extends HttpKernel
         // CMS specific
         'CMSAllowInstallation' => \Modules\Installer\Http\Middleware\CMSAllowInstallation::class,
         'CMSInstalled' => \Modules\Installer\Http\Middleware\CMSInstalled::class,
+        'APIResponseHeaderJsCVEPDBMiddleware' => \App\Http\Middleware\APIResponseHeaderJsCVEPDBMiddleware::class,
+        'apiguard' => \Chrisbjr\ApiGuard\Http\Middleware\ApiGuard::class,
     ];
 }

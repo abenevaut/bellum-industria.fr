@@ -37,11 +37,18 @@ Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Modu
 	Route::get('logout', 'AuthAdminController@getLogout');
 });
 
-Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers'], function() {
-	Route::get('users/impersonate/{id}', ['as' => 'admin.users.impersonate', 'uses' => 'AdminUsersController@impersonate']);
-	Route::get('users/endimpersonate', ['as' => 'admin.users.endimpersonate', 'uses' => 'AdminUsersController@endimpersonate']);
-	Route::get('users/export', ['as' => 'admin.users.export', 'uses' => 'AdminUsersController@export']);
-	Route::delete('users/destroy_multiple', ['as' => 'admin.users.destroy_multiple', 'uses' => 'AdminUsersController@destroy_multiple']);
-	Route::resource('users', 'AdminUsersController');
-	Route::resource('roles', 'AdminRolesController');
+Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Admin'], function() {
+	Route::get('users/impersonate/{id}', ['as' => 'admin.users.impersonate', 'uses' => 'UsersController@impersonate']);
+	Route::get('users/endimpersonate', ['as' => 'admin.users.endimpersonate', 'uses' => 'UsersController@endimpersonate']);
+	Route::get('users/export', ['as' => 'admin.users.export', 'uses' => 'UsersController@export']);
+	Route::delete('users/destroy_multiple', ['as' => 'admin.users.destroy_multiple', 'uses' => 'UsersController@destroy_multiple']);
+	Route::resource('users', 'UsersController');
+	Route::resource('roles', 'RolesController');
+});
+
+Route::group(['middleware' => ['api'], 'namespace' => 'Modules\Users\Http\Controllers\Api'], function () {
+	Route::group(['prefix' => 'v1'], function () {
+		Route::get('users/profile', 'UsersController@userProfile');
+		Route::resource('users', 'UsersController');
+	});
 });

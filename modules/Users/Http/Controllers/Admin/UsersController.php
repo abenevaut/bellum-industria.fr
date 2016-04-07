@@ -1,4 +1,4 @@
-<?php namespace Modules\Users\Http\Controllers;
+<?php namespace Modules\Users\Http\Controllers\Admin;
 
 use Request;
 use Pingpong\Modules\Routing\Controller;
@@ -8,7 +8,11 @@ use Modules\Users\Http\Requests\UsersIndexFiltersAdminFormRequest;
 use Modules\Users\Http\Requests\UsersMultiDestroyAdminFormRequest;
 use Modules\Users\Exports\UsersListAdminExport;
 
-class AdminUsersController extends Controller {
+/**
+ * Class AdminUsersController
+ * @package Modules\Users\Http\Controllers
+ */
+class UsersController extends Controller {
 
 	/**
 	 * @var UserAdminOutputter|null
@@ -24,6 +28,7 @@ class AdminUsersController extends Controller {
 	}
 
 	/**
+	 * @param UsersIndexFiltersAdminFormRequest $request
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function index(UsersIndexFiltersAdminFormRequest $request)
