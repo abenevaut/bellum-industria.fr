@@ -22,7 +22,8 @@
     "spatie/laravel-medialibrary": "^3.16",
     "barryvdh/laravel-elfinder": "^0.3.6",
     "league/flysystem-aws-s3-v3": "~1.0",
-    "league/flysystem-rackspace": "~1.0"
+    "league/flysystem-rackspace": "~1.0",
+    "Users": "dev-master"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

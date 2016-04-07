@@ -4,6 +4,7 @@ use Auth;
 use Config;
 use Session;
 use Request;
+use Event;
 use App\Http\Admin\Outputters\AdminOutputter;
 use CVEPDB\Requests\IFormRequest;
 use Modules\Users\Repositories\UserRepositoryEloquent;
@@ -12,6 +13,7 @@ use Modules\Users\Transformers\UsersAdminExcelTransformer;
 use Modules\Users\Presenters\UsersAdminExcelPresenter;
 use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
 use \Maatwebsite\Excel\Files\NewExcelFile;
+use Modules\Users\Events\Admin\NewUserCreatedEvent;
 
 class UserAdminOutputter extends AdminOutputter
 {
@@ -58,9 +60,11 @@ class UserAdminOutputter extends AdminOutputter
     }
 
     /**
+     * @param IFormRequest $request
+     * @param bool|false $usePartial
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(IFormRequest $request, $userPartial = false)
+    public function index(IFormRequest $request, $usePartial = false)
     {
         $name = $request->has('name')
             ? $request->get('name')
@@ -80,8 +84,12 @@ class UserAdminOutputter extends AdminOutputter
 
         $users = $this->r_user->paginate(config('app.pagination'));
 
+        event(new NewUserCreatedEvent($users[0]));
+
         return $this->output(
-            $userPartial ? 'users.admin.users.chunks.index_tables' : 'users.admin.users.index',
+            $usePartial
+                ? 'users.admin.users.chunks.index_tables'
+                : 'users.admin.users.index',
             [
                 'users' => $users,
                 'nb_users' => $this->r_user->allCount(),
@@ -98,7 +106,7 @@ class UserAdminOutputter extends AdminOutputter
      */
     public function create()
     {
-        // On exclue le role user qui est ajoute par defaut
+        // Exclude user role because always added to every new user
         $roles = $this->r_role->findWhereNotIn('name', ['user']);
 
         return $this->output(
@@ -132,7 +140,8 @@ class UserAdminOutputter extends AdminOutputter
             $user->roles()->attach($roles['user_role_id']);
         }
 
-        // Todo : emit event
+        event(new NewUserCreatedEvent($user));
+
         // Todo : send mail to new user
 
         return $this->redirectTo('admin/users')
