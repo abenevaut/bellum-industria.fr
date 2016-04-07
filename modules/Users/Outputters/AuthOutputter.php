@@ -5,6 +5,7 @@ use App\Http\Front\Outputters\FrontOutputter;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
 use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
+use Modules\Users\Events\UserCreatedEvent;
 
 class AuthOutputter extends FrontOutputter
 {
@@ -58,6 +59,8 @@ class AuthOutputter extends FrontOutputter
         // Always attach client role
         $role = $this->r_role->role_exists(RoleRepositoryEloquent::USER);
         $user->attachRole($role);
+
+        event(new UserCreatedEvent($user));
 
         return $user;
     }
