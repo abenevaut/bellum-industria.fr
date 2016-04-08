@@ -6,24 +6,27 @@ use Session;
 use Request;
 use App\Http\Admin\Outputters\AdminOutputter;
 use CVEPDB\Requests\IFormRequest;
-use Modules\Users\Entities\EmailLikeCriteria;
-use Modules\Users\Entities\UserNameLikeCriteria;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
 use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
-use \Maatwebsite\Excel\Files\NewExcelFile;
+use Modules\Users\Events\Admin\UserUpdatedEvent;
+use Modules\Users\Events\Admin\UserDeletedEvent;
 
+/**
+ * Class UserOutputter
+ * @package Modules\Users\Outputters
+ */
 class UserOutputter extends AdminOutputter
 {
     /**
      * @var string Outputter header title
      */
-    protected $title = 'users::admin.meta_title';
+    protected $title = 'users::front.meta_title';
 
     /**
      * @var string Outputter header description
      */
-    protected $description = 'users::admin.meta_description';
+    protected $description = 'users::front.meta_description';
 
     /**
      * @var null UserRepositoryEloquent
@@ -60,9 +63,9 @@ class UserOutputter extends AdminOutputter
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(IFormRequest $request)
+    public function index()
     {
-        return null;
+        return $this->redirectTo('users/my-profile');
     }
 
     /**
@@ -113,14 +116,10 @@ class UserOutputter extends AdminOutputter
     {
         $user = $this->r_user->find($id);
 
-        // On exclue le role user qui est ajoute par defaut
-        $roles = $this->r_role->findWhereNotIn('name', ['user']);
-
         return $this->output(
             'users.users.edit',
             [
-                'user' => $user,
-                'roles' => $roles
+                'user' => $user
             ]
         );
     }
@@ -139,7 +138,7 @@ class UserOutputter extends AdminOutputter
             'email' => $request->get('email')
         ], $id);
 
-        // Todo : emit event
+        event(new UserUpdatedEvent($user));
 
         return $this->redirectTo('users/my-profile')
             ->with('message-success', 'users::admin.edit.message.success');
@@ -154,5 +153,12 @@ class UserOutputter extends AdminOutputter
     public function destroy($id)
     {
         return null;
+
+//        $this->r_user->findAndDelete($id);
+//
+//        event(new UserDeletedEvent($id));
+//
+//        return $this->redirectTo('admin/users')
+//            ->with('message-success', 'users::admin.delete.message.success');
     }
 }

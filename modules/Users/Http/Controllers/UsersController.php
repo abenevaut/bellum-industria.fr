@@ -25,7 +25,7 @@ class UsersController extends Controller {
      */
     public function index()
     {
-        return null;
+        return $this->outputter->index();
     }
 
     /**
@@ -33,16 +33,17 @@ class UsersController extends Controller {
      */
     public function create()
     {
-        return null;
+        abort(404);
     }
 
     /**
-     * @param Request $request
+     * @param UserFormRequest $request
      * @return Response
      */
-    public function store( $request)
+    public function store(UserFormRequest $request)
     {
-        return null;
+        abort(404);
+        return $this->outputter->store($request);
     }
 
     /**
@@ -53,7 +54,8 @@ class UsersController extends Controller {
      */
     public function show($id)
     {
-        return $this->outputter->show($id);
+        abort(404);
+        //return $this->outputter->show($id);
     }
 
     /**
@@ -64,7 +66,8 @@ class UsersController extends Controller {
      */
     public function edit($id)
     {
-        return $this->outputter->edit($id);
+        abort(404);
+        //return $this->outputter->edit($id);
     }
 
     /**
@@ -75,7 +78,8 @@ class UsersController extends Controller {
      */
     public function update($id, UserFormRequest $request)
     {
-        return $this->outputter->update($id, $request);
+        abort(404);
+        //return $this->outputter->update($id, $request);
     }
 
     /**
@@ -89,26 +93,36 @@ class UsersController extends Controller {
         return null;
     }
 
+    /**
+     * @return \Modules\Users\Outputters\Response
+     */
     public function myProfile()
     {
         if (\Auth::check()) {
-            return $this->show(\Auth::user()->id);
+            return $this->outputter->show(\Auth::user()->id);
         }
         abort(404);
     }
 
+    /**
+     * @return \Modules\Users\Outputters\Response
+     */
     public function editMyProfile()
     {
         if (\Auth::check()) {
-            return $this->edit(\Auth::user()->id);
+            return $this->outputter->edit(\Auth::user()->id);
         }
         abort(404);
     }
 
+    /**
+     * @param UserFormRequest $request
+     * @return \Modules\Users\Outputters\Response
+     */
     public function updateMyProfile(UserFormRequest $request)
     {
         if (\Auth::check()) {
-            return $this->update(\Auth::user()->id, $request);
+            return $this->outputter->update(\Auth::user()->id, $request);
         }
         abort(404);
     }

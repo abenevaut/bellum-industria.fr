@@ -25,6 +25,7 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Contro
 
 Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Controllers'], function() {
 	//Route::resource('users', 'UsersController');
+	Route::get('users', ['as' => 'users.index', 'uses' => 'UsersController@index']);
 	Route::get('users/my-profile', ['as' => 'users.my-profile', 'uses' => 'UsersController@myProfile']);
 	Route::get('users/edit-my-profile', ['as' => 'users.edit-my-profile', 'uses' => 'UsersController@editMyProfile']);
 	Route::put('users/update-my-profile', ['as' => 'users.update-my-profile', 'uses' => 'UsersController@updateMyProfile']);
