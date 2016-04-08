@@ -2,10 +2,12 @@
 
 use CVEPDB\Repositories\Users\User as UserModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Conner\Addresses\Addressable;
 
 class User extends UserModel
 {
     use SoftDeletes;
+    use Addressable;
 
     /**
      * The attributes that are mass assignable.

@@ -16,6 +16,7 @@ use \Maatwebsite\Excel\Files\NewExcelFile;
 use Modules\Users\Events\Admin\UserCreatedEvent;
 use Modules\Users\Events\Admin\UserUpdatedEvent;
 use Modules\Users\Events\Admin\UserDeletedEvent;
+use Conner\Addresses\AddressesFacade as Addresses;
 
 class UserAdminOutputter extends AdminOutputter
 {
@@ -173,6 +174,11 @@ class UserAdminOutputter extends AdminOutputter
     public function edit($id)
     {
         $user = $this->r_user->find($id);
+
+//        dd( $user->addresses() );
+//        dd( $user->primaryAddress() );
+//        dd( $user->billingAddress() );
+//        dd( $user->shippingAddress() );
 
         // On exclue le role user qui est ajoute par defaut
         $roles = $this->r_role->findWhereNotIn('name', ['user']);
