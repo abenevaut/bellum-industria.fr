@@ -96,7 +96,36 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab_2">
-                                @include('users::users.admin.users.chunks.form_addresses_fields')
+
+
+                                @foreach (\Config::get('users.flags') as $type)
+
+                                    <div class="box box-widget collapsed-box">
+                                        <div class="box-header with-border">
+                                            <div class="user-block">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                                <span class="username">
+                                                    @if ($type == 'primary')
+                                                        <i class="fa fa-home"></i> Primary address
+                                                    @elseif ($type == 'billing')
+                                                        <i class="fa fa-credit-card"></i> Billing address
+                                                    @elseif ($type == 'shipping')
+                                                        <i class="fa fa-truck"></i> Shipping address
+                                                    @endif
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="box-body">
+                                            @include('users::users.admin.users.chunks.form_addresses_fields', ['type' => $type, 'addresse' => null])
+                                        </div>
+                                    </div>
+
+                                @endforeach
+
+
+
                             </div>
                         </div>
                     </div>

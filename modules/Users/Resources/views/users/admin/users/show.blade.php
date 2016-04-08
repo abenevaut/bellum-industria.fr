@@ -76,9 +76,6 @@
                             @endif
                         </td>
                         <td>
-
-
-
                             {!! trans($addresse->organization) !!}<br/>
                             {!! trans($addresse->street) !!}
                             {!! trans($addresse->street_extra) !!}<br/>

@@ -1,3 +1,5 @@
+{!! Form::hidden('is_' . $type, 1) !!}
+
 <div class="form-group form-group-default">
     {!! Form::label('organization', 'Organization', array('class'=>'control-label')) !!}
     {!! Form::text('organization', null, array('class'=>'form-control', 'placeholder'=>'Organization')) !!}
@@ -30,12 +32,3 @@
         {!! Addresses::selectCountry('country', \Config::get('users.default_country'), array('class'=>'form-control')) !!}
     </div>
 @endif
-
-@foreach(\Config::get('users.flags') as $flag)
-    <div class="form-group form-group-default">
-        <div class="checkbox">
-            {!! Form::hidden('is_'.$flag, 0) !!}
-            <label>{!! Form::checkbox('is_'.$flag) !!} Set as {!! ucfirst($flag) !!} Address</label>
-        </div>
-    </div>
-@endforeach

@@ -87,7 +87,6 @@
                             </div>
                             <div class="tab-pane" id="tab_2">
                                 @foreach ($user->addresses as $addresse)
-
                                     <div class="box box-widget collapsed-box">
                                         <div class="box-header with-border">
                                             <div class="user-block">
@@ -104,14 +103,15 @@
                                                     @endif
                                                 </span>
                                             </div>
-                                            <div class="box-tools">
-                                                <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>
-                                            </div>
                                         </div>
                                         <div class="box-body">
-                                            @include('users::users.admin.users.chunks.form_addresses_fields', ['addresse' => $addresse])
+                                            @if ($addresse->is_primary)
+                                                @include('users::users.admin.users.chunks.form_addresses_fields', ['type' => 'primary', 'addresse' => $addresse])
+                                            @elseif ($addresse->is_billing)
+                                                @include('users::users.admin.users.chunks.form_addresses_fields', ['type' => 'billing', 'addresse' => $addresse])
+                                            @elseif ($addresse->is_shipping)
+                                                @include('users::users.admin.users.chunks.form_addresses_fields', ['type' => 'shipping', 'addresse' => $addresse])
+                                            @endif
                                         </div>
                                     </div>
                                 @endforeach
