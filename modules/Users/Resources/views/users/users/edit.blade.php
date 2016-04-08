@@ -56,6 +56,46 @@
                            value="{{ old('email', $user->email) }}"
                            placeholder="{{ trans('global.email') }}">
                 </div>
+
+                <hr>
+
+
+                <div class="bs-component">
+                    <ul class="nav nav-tabs">
+                        @foreach ($user->addresses as $addresse)
+                            @if ($addresse->is_primary)
+                                <li class="active"><a href="#primary" data-toggle="tab" aria-expanded="true">Primary address</a></li>
+                            @elseif ($addresse->is_billing)
+                                <li class=""><a href="#billing" data-toggle="tab" aria-expanded="false">Billing address</a></li>
+                            @elseif ($addresse->is_shipping)
+                                <li class=""><a href="#shipping" data-toggle="tab" aria-expanded="false">Shipping address</a></li>
+                            @endif
+                        @endforeach
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+
+                        @foreach ($user->addresses as $addresse)
+                            @if ($addresse->is_primary)
+                                <div class="tab-pane fade active in" id="primary">
+                                    @include('users::users.users.chunks.form_addresses_fields', ['type' => 'primary', 'addresse' => $addresse])
+                                </div>
+                            @elseif ($addresse->is_billing)
+                                <div class="tab-pane fade" id="billing">
+                                    @include('users::users.users.chunks.form_addresses_fields', ['type' => 'billing', 'addresse' => $addresse])
+                                </div>
+                            @elseif ($addresse->is_shipping)
+                                <div class="tab-pane fade" id="shipping">
+                                    @include('users::users.users.chunks.form_addresses_fields', ['type' => 'shipping', 'addresse' => $addresse])
+                                </div>
+                            @endif
+                        @endforeach
+
+                    </div>
+                    <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
+                </div>
+
+                <hr>
+
                 <div class="clearfix">
                     <div class="pull-left">
                         <a href="{{ URL::previous() }}" class="btn btn-default">
