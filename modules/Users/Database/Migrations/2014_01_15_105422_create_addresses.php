@@ -9,7 +9,6 @@ class CreateAddresses extends Migration {
 		Schema::create('addresses', function($table) {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned()->index();
-			$table->string('addressee', 50)->nullable();
 			$table->string('organization', 50)->nullable();
 			$table->string('street', 50);
 			$table->string('street_extra', 50)->nullable();
@@ -19,7 +18,6 @@ class CreateAddresses extends Migration {
 			$table->string('zip', 11);
 			$table->string('country_a2', 2)->default(\Config::get('users::default_country'));
 			$table->string('country_name', 60)->default(\Config::get('users::default_country_name'));
-			$table->string('phone', 20)->nullable();
 
 			foreach(['primary', 'billing', 'shipping'] as $flag) {
 				$table->boolean('is_'.$flag)->default(false)->index();

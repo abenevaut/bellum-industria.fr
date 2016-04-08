@@ -86,7 +86,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab_2">
-                                @include('users::users.admin.users.addresses.fields')
+                                @include('users::users.admin.users.chunks.form_addresses_fields')
                             </div>
                         </div>
                     </div>

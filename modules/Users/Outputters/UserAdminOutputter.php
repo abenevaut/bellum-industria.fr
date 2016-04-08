@@ -200,6 +200,27 @@ class UserAdminOutputter extends AdminOutputter
      */
     public function update($id, IFormRequest $request)
     {
+
+
+        if (Addresses::getValidator()->fails()) {
+
+            die('fails');
+
+        }
+        else {
+            echo 'youpi';
+        }
+
+
+        $address = Addresses::createAddress($request->all());
+
+
+
+
+        exit;
+
+
+
         $user = $this->r_user->update([
             'first_name' => $request->get('first_name'),
             'last_name' => $request->get('last_name'),
