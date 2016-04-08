@@ -1,5 +1,28 @@
 @extends('adminlte::layouts.default')
 
+@section('head')
+    <script>
+        cvepdb_config.libraries.push(
+                {
+                    script: {
+                        CVEPDB_FORM_VALIDATION_LOADED: (cvepdb_config.url_theme + cvepdb_config.script_path + 'scripts/form_validation.js')
+                    },
+                    trigger: '.js-call-form_validation',
+                    mobile: true,
+                    browser: true
+                },
+                {
+                    script: {
+                        CVEPDB_SELECT2: (cvepdb_config.url_theme + cvepdb_config.script_path + 'scripts/select2.js')
+                    },
+                    trigger: '.js-call-select2',
+                    mobile: true,
+                    browser: true
+                }
+        );
+    </script>
+@endsection
+
 @section('js')
     <script src="{{ asset('modules/users/js/admin.users.form.js') }}"></script>
 @endsection
@@ -86,7 +109,21 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab_2">
-                                @foreach ($user->addresses as $addresse)
+                                @foreach (\Config::get('users.flags') as $type)
+
+                                    {{-- Todo : Change this --}}
+                                    <?php $current_address = null; ?>
+                                    @foreach ($user->addresses as $address)
+                                        @if ($type == 'primary' && $address->is_primary)
+                                            <?php $current_address = $address; ?>
+                                        @elseif ($type == 'billing' && $address->is_billing)
+                                            <?php $current_address = $address; ?>
+                                        @elseif ($type == 'shipping' && $address->is_shipping)
+                                            <?php $current_address = $address; ?>
+                                        @endif
+                                    @endforeach
+                                    {{-- !Todo : Change this --}}
+
                                     <div class="box box-widget collapsed-box">
                                         <div class="box-header with-border">
                                             <div class="user-block">
@@ -94,26 +131,21 @@
                                                     <i class="fa fa-plus"></i>
                                                 </button>
                                                 <span class="username">
-                                                    @if ($addresse->is_primary)
+                                                    @if ($type == 'primary')
                                                         <i class="fa fa-home"></i> Primary address
-                                                    @elseif ($addresse->is_billing)
+                                                    @elseif ($type == 'billing')
                                                         <i class="fa fa-credit-card"></i> Billing address
-                                                    @elseif ($addresse->is_shipping)
+                                                    @elseif ($type == 'shipping')
                                                         <i class="fa fa-truck"></i> Shipping address
                                                     @endif
                                                 </span>
                                             </div>
                                         </div>
                                         <div class="box-body">
-                                            @if ($addresse->is_primary)
-                                                @include('users::users.admin.users.chunks.form_addresses_fields', ['type' => 'primary', 'addresse' => $addresse])
-                                            @elseif ($addresse->is_billing)
-                                                @include('users::users.admin.users.chunks.form_addresses_fields', ['type' => 'billing', 'addresse' => $addresse])
-                                            @elseif ($addresse->is_shipping)
-                                                @include('users::users.admin.users.chunks.form_addresses_fields', ['type' => 'shipping', 'addresse' => $addresse])
-                                            @endif
+                                            @include('users::users.admin.users.chunks.form_addresses_fields', ['type' => $type, 'address' => $current_address])
                                         </div>
                                     </div>
+
                                 @endforeach
                             </div>
                         </div>

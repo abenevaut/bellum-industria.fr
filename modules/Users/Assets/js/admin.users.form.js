@@ -4,6 +4,27 @@
         cvepdb.debug('admin.form.js > CVEPDB_READY : success : End');
     });
 
+    $(D).bind('CVEPDB_SELECT2_READY', function() {
+        cvepdb.debug('select2.js > CVEPDB_SELECT2_READY : success : Start');
+
+        // select2 load time is too much important, to have this CSS loaded after all select2 we have to load it now
+        cvepdb.headjs.loadjs({
+            script: {
+                CVEPDB_THEME_ADMIN_JS_LOADED: (cvepdb_config.url_theme + cvepdb_config.base_path + "select2-bootstrap-theme/dist/select2-bootstrap.min.css")
+            },
+            trigger: 'always',
+            mobile: true,
+            browser: true
+        });
+
+        $('.js-call-select2').select2({
+            theme: "bootstrap",
+            width: '100%'
+        });
+
+        cvepdb.debug('select2.js > CVEPDB_SELECT2_READY : success : End');
+    });
+
     $(D).bind('CVEPDB_FORM_VALIDATION_READY', function () {
         cvepdb.debug('admin.form.js > CVEPDB_FORM_VALIDATION_READY : success : Start');
 

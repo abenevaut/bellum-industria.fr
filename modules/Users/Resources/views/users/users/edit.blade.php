@@ -60,36 +60,47 @@
                 <hr>
 
 
-                <div class="bs-component">
+                <div>
                     <ul class="nav nav-tabs">
-                        @foreach ($user->addresses as $addresse)
-                            @if ($addresse->is_primary)
+                        @foreach (\Config::get('users.flags') as $type)
+                            @if ($type == 'primary')
                                 <li class="active"><a href="#primary" data-toggle="tab" aria-expanded="true">Primary address</a></li>
-                            @elseif ($addresse->is_billing)
+                            @elseif ($type == 'billing')
                                 <li class=""><a href="#billing" data-toggle="tab" aria-expanded="false">Billing address</a></li>
-                            @elseif ($addresse->is_shipping)
+                            @elseif ($type == 'shipping')
                                 <li class=""><a href="#shipping" data-toggle="tab" aria-expanded="false">Shipping address</a></li>
                             @endif
                         @endforeach
                     </ul>
                     <div id="myTabContent" class="tab-content">
+                        @foreach (\Config::get('users.flags') as $type)
 
-                        @foreach ($user->addresses as $addresse)
-                            @if ($addresse->is_primary)
-                                <div class="tab-pane fade active in" id="primary">
-                                    @include('users::users.users.chunks.form_addresses_fields', ['type' => 'primary', 'addresse' => $addresse])
-                                </div>
-                            @elseif ($addresse->is_billing)
-                                <div class="tab-pane fade" id="billing">
-                                    @include('users::users.users.chunks.form_addresses_fields', ['type' => 'billing', 'addresse' => $addresse])
-                                </div>
-                            @elseif ($addresse->is_shipping)
-                                <div class="tab-pane fade" id="shipping">
-                                    @include('users::users.users.chunks.form_addresses_fields', ['type' => 'shipping', 'addresse' => $addresse])
-                                </div>
-                            @endif
+                            {{-- Todo : Change this --}}
+                            <?php $current_address = null; ?>
+                            @foreach ($user->addresses as $address)
+                                @if ($type == 'primary' && $address->is_primary)
+                                    <?php $current_address = $address; ?>
+
+                                @elseif ($type == 'billing' && $address->is_billing)
+                                    <?php $current_address = $address; ?>
+                                    <div class="tab-pane fade" id="billing">
+                                @elseif ($type == 'shipping' && $address->is_shipping)
+                                    <?php $current_address = $address; ?>
+                                    <div class="tab-pane fade" id="shipping">
+                                @endif
+                            @endforeach
+                            {{-- !Todo : Change this --}}
+
+                            <div class="tab-pane fade
+                                @if ($type == 'primary')
+                                    active in
+                                @endif
+                                " id="{{ $type }}">
+
+                                @include('users::users.admin.users.chunks.form_addresses_fields', ['type' => $type, 'address' => $current_address])
+
+                            </div>
                         @endforeach
-
                     </div>
                     <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
                 </div>

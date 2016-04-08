@@ -132,6 +132,9 @@ class UserOutputter extends AdminOutputter
      */
     public function update($id, IFormRequest $request)
     {
+
+        dd( $request->all() );
+
         $user = $this->r_user->update([
             'first_name' => $request->get('first_name'),
             'last_name' => $request->get('last_name'),

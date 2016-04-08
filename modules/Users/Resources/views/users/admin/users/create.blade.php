@@ -10,6 +10,14 @@
                     trigger: '.js-call-form_validation',
                     mobile: true,
                     browser: true
+                },
+                {
+                    script: {
+                        CVEPDB_SELECT2: (cvepdb_config.url_theme + cvepdb_config.script_path + 'scripts/select2.js')
+                    },
+                    trigger: '.js-call-select2',
+                    mobile: true,
+                    browser: true
                 }
         );
     </script>

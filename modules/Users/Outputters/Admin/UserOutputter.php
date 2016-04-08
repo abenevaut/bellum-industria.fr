@@ -127,6 +127,9 @@ class UserOutputter extends AdminOutputter
      */
     public function store(IFormRequest $request)
     {
+
+        dd( $request->all() );
+
         $user = $this->r_user->create_user(
             $request->get('first_name'),
             $request->get('last_name'),
@@ -200,6 +203,8 @@ class UserOutputter extends AdminOutputter
      */
     public function update($id, IFormRequest $request)
     {
+
+        dd( $request->all() );
 
 
         if (Addresses::getValidator()->fails()) {
