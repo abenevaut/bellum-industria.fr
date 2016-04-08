@@ -1,5 +1,50 @@
 @extends('lumen::layouts.default')
 
+@section('head')
+    <style>
+
+        .select2-container--bootstrap .select2-selection {
+            display: block !important;
+            width: 100% !important;
+            height: 38px !important;
+            padding: 7px 12px !important;
+            font-size: 14px !important;
+            line-height: 1.42857143 !important;
+            color: #555555 !important;
+            background-color: #ffffff !important;
+            background-image: none !important;
+            border: 1px solid #e7e7e7 !important;
+            border-radius: 4px !important;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075) !important;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075) !important;
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s !important;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s !important;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s !important;
+        }
+
+    </style>
+@endsection
+
+@section('js')
+    <script>
+        (function ($, W, D) {
+            $(D).bind('ready', function() {
+
+                $('select[name^="address["][name$="][country]"]').select2({
+                    theme: "bootstrap",
+                    width: '100%'
+                });
+
+                $('select[name^="address["][name$="][state]"]').select2({
+                    theme: "bootstrap",
+                    width: '100%'
+                });
+
+            });
+        })(jQuery, window, document);
+    </script>
+@endsection
+
 @section('content')
 
     <div class="container">

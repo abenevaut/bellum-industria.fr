@@ -31,8 +31,8 @@ return [
      */
 
 
-    // flags that can be linked to addresses
-    'flags' => array('primary', 'billing', 'shipping'),
+    // flags that can be linked to addresses ['primary', 'billing', 'shipping']
+    'flags' => ['primary', 'billing', 'shipping'],
 
     // whether or not to show country on address view/edit
     'show_country' => true,

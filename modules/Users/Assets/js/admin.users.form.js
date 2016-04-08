@@ -17,7 +17,12 @@
             browser: true
         });
 
-        $('.js-call-select2').select2({
+        $('select[name^="address["][name$="][country]"]').select2({
+            theme: "bootstrap",
+            width: '100%'
+        });
+
+        $('select[name^="address["][name$="][state]"]').select2({
             theme: "bootstrap",
             width: '100%'
         });
