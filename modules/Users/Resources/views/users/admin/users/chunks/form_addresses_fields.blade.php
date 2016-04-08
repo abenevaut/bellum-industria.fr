@@ -35,9 +35,7 @@
     <div class="form-group form-group-default">
         <div class="checkbox">
             {!! Form::hidden('is_'.$flag, 0) !!}
-            <label>
-                {!! Form::checkbox('is_'.$flag) !!}
-                Set as {!! ucfirst($flag) !!} Address</label>
+            <label>{!! Form::checkbox('is_'.$flag) !!} Set as {!! ucfirst($flag) !!} Address</label>
         </div>
     </div>
 @endforeach

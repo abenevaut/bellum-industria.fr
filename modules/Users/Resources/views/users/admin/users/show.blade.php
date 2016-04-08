@@ -87,7 +87,18 @@
                 @foreach ($user->addresses as $addresse)
                     <tr class="cell-center">
                         <td>
-                            {!! trans($addresse->addressee) !!}
+                            {!! trans($addresse->organization) !!}
+                            {!! trans($addresse->street) !!}
+                            {!! trans($addresse->street_extra) !!}
+                            {!! trans($addresse->city) !!}
+                            {{--{!! trans($addresse->state_a2) !!}--}}
+                            {!! trans($addresse->state_name) !!}
+                            {!! trans($addresse->zip) !!}
+                            {{--{!! trans($addresse->country_a2) !!}--}}
+                            {!! trans($addresse->country_name) !!}
+                            {!! trans($addresse->is_primary) !!}
+                            {!! trans($addresse->is_billing) !!}
+                            {!! trans($addresse->is_shipping) !!}
                         </td>
                     </tr>
                 @endforeach
