@@ -43,63 +43,77 @@
                             @endforeach
                         </div>
                     @endif
-                    <div class="form-group form-group-default">
-                        <label>{{ trans('global.last_name') }}</label>
-                        <input type="text" class="form-control" name="last_name" required="required"
-                               value="{{ old('last_name') }}" placeholder="{{ trans('global.last_name') }}">
-                    </div>
-                    <div class="form-group form-group-default">
-                        <label>{{ trans('global.first_name') }}</label>
-                        <input type="text" class="form-control" name="first_name" required="required"
-                               value="{{ old('first_name') }}" placeholder="{{ trans('global.first_name') }}">
-                    </div>
-                    <div class="form-group form-group-default">
-                        <label>{{ trans('global.email') }}</label>
-                        <input type="text" class="form-control" name="email" required="required"
-                               value="{{ old('email') }}" placeholder="{{ trans('global.email') }}">
-                    </div>
-                    <div class="form-group form-group-default">
-                        <label>{{ trans('global.roles') }}</label>
-                        <br>
-                        @foreach ($roles as $role)
-                            <div class="box box-widget collapsed-box">
-                                <div class="box-header with-border">
-                                    <div class="user-block">
-
-                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                                        </button>
-
-                                        <span class="username">{!! trans($role->display_name) !!}</span>
-                                    </div>
-                                    <div class="box-tools">
-                                        <div class="material-switch pull-right" style="padding-top: 10px;">
-                                            <input type="checkbox" name="user_role_id[]" id="someSwitchOptionDefault{{ $role->id }}"
-                                                   data-init-plugin="switchery" value="{{ $role->id }}"/>
-                                            <label for="someSwitchOptionDefault{{ $role->id }}" class="label-success"></label>
-                                        </div>
-                                    </div>
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">General</a></li>
+                            <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Addresses</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1">
+                                <div class="form-group form-group-default">
+                                    <label>{{ trans('global.last_name') }}</label>
+                                    <input type="text" class="form-control" name="last_name" required="required"
+                                           value="{{ old('last_name') }}" placeholder="{{ trans('global.last_name') }}">
                                 </div>
-                                <div class="box-body">
-                                    {!! trans($role->description) !!}
+                                <div class="form-group form-group-default">
+                                    <label>{{ trans('global.first_name') }}</label>
+                                    <input type="text" class="form-control" name="first_name" required="required"
+                                           value="{{ old('first_name') }}"
+                                           placeholder="{{ trans('global.first_name') }}">
+                                </div>
+                                <div class="form-group form-group-default">
+                                    <label>{{ trans('global.email') }}</label>
+                                    <input type="text" class="form-control" name="email" required="required"
+                                           value="{{ old('email') }}" placeholder="{{ trans('global.email') }}">
+                                </div>
+                                <div class="form-group form-group-default">
+                                    <label>{{ trans('global.roles') }}</label>
+                                    <br>
+                                    @foreach ($roles as $role)
+                                        <div class="box box-widget collapsed-box">
+                                            <div class="box-header with-border">
+                                                <div class="user-block">
+                                                    <button type="button" class="btn btn-box-tool"
+                                                            data-widget="collapse"><i class="fa fa-plus"></i>
+                                                    </button>
+                                                    <span class="username">{!! trans($role->display_name) !!}</span>
+                                                </div>
+                                                <div class="box-tools">
+                                                    <div class="material-switch pull-right" style="padding-top: 10px;">
+                                                        <input type="checkbox" name="user_role_id[]"
+                                                               id="someSwitchOptionDefault{{ $role->id }}"
+                                                               data-init-plugin="switchery" value="{{ $role->id }}"/>
+                                                        <label for="someSwitchOptionDefault{{ $role->id }}"
+                                                               class="label-success"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="box-body">
+                                                {!! trans($role->description) !!}
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
-                        @endforeach
+                            <div class="tab-pane" id="tab_2">
+                                @include('users::users.admin.users.addresses.fields')
+                            </div>
+                        </div>
                     </div>
+                    <div class="box-footer clearfix">
+                        <div class="pull-left">
+                            <a href="{{ URL::previous() }}" class="btn btn-default btn-flat">
+                                <i class="fa fa-caret-left"></i> {{ trans('global.back') }}
+                            </a>
+                        </div>
+                        <div class="pull-right">
+                            <button class="btn btn-primary btn-flat" type="submit">
+                                <i class="fa fa-user-plus"></i> {{ trans('users::admin.create.btn.add_user') }}
+                            </button>
+                        </div>
+                    </div>
+                    {!! Form::close() !!}
                 </div>
-                <div class="box-footer clearfix">
-                    <div class="pull-left">
-                        <a href="{{ URL::previous() }}" class="btn btn-default btn-flat">
-                            <i class="fa fa-caret-left"></i> {{ trans('global.back') }}
-                        </a>
-                    </div>
-                    <div class="pull-right">
-                        <button class="btn btn-primary btn-flat" type="submit">
-                            <i class="fa fa-user-plus"></i> {{ trans('users::admin.create.btn.add_user') }}
-                        </button>
-                    </div>
-                </div>
-                {!! Form::close() !!}
             </div>
         </div>
-    </div>
 @endsection

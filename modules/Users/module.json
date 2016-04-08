@@ -11,7 +11,9 @@
     "Modules\\Users\\Providers\\EventServiceProvider",
     "Conner\\Addresses\\AddressesServiceProvider"
   ],
-  "aliases": {},
+  "aliases": {
+    "Addresses": "Conner\\Addresses\\AddressesFacade"
+  },
   "files": [
     "start.php"
   ]

@@ -49,7 +49,7 @@ return [
     // if this is true, two things happen ..
     // 1. latitude and longitude will be saved into the address table
     // 2. saves run a bit slower because we have to hit google servers
-    'geocode' => false,
+    'geocode' => true,
 
     'user' => array(
 

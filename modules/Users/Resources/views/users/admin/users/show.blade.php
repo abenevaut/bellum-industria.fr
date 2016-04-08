@@ -74,6 +74,26 @@
                 </tbody>
             </table>
         @endif
+
+        @if ($user->addresses->count())
+            <br>
+            <table class="table table-bordered">
+                <tbody>
+                <tr class="cell-center">
+                    <th>
+                        <b>Addresses</b>
+                    </th>
+                </tr>
+                @foreach ($user->addresses as $addresse)
+                    <tr class="cell-center">
+                        <td>
+                            {!! trans($addresse->addressee) !!}
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        @endif
     </div>
 @endsection
 
