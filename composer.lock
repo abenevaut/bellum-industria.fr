@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1ff0c1016a677b5cd10ce8311acb7152",
+    "hash": "10c86652ef2f8fb8310a45dfdafad311",
     "content-hash": "2e8f4c4202631c9e939fec2efa5bc921",
     "packages": [
         {
@@ -59,16 +59,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.17.4",
+            "version": "3.17.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "9899865dda8e388a6f9aa7425af50730eabf5ffd"
+                "reference": "1cef9b334729b3564c9aef15481a55561c54b53f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9899865dda8e388a6f9aa7425af50730eabf5ffd",
-                "reference": "9899865dda8e388a6f9aa7425af50730eabf5ffd",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1cef9b334729b3564c9aef15481a55561c54b53f",
+                "reference": "1cef9b334729b3564c9aef15481a55561c54b53f",
                 "shasum": ""
             },
             "require": {
@@ -135,7 +135,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-04-06 00:39:52"
+            "time": "2016-04-07 22:44:13"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -5027,12 +5027,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "828355f947939f44aa5dad820779e843eb561eec"
+                "reference": "07ce08b6029746422b3053f299bf02dd64c6c3a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/828355f947939f44aa5dad820779e843eb561eec",
-                "reference": "828355f947939f44aa5dad820779e843eb561eec",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/07ce08b6029746422b3053f299bf02dd64c6c3a9",
+                "reference": "07ce08b6029746422b3053f299bf02dd64c6c3a9",
                 "shasum": ""
             },
             "require": {
@@ -5077,7 +5077,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-04-07 08:02:06"
+            "time": "2016-04-08 00:09:34"
         },
         {
             "name": "swiftmailer/swiftmailer",

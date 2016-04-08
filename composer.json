@@ -35,7 +35,8 @@
     "psr-4": {
       "App\\": "app/",
       "Modules\\": "modules/",
-      "CVEPDB\\": "vendor/cvepdb/abstract/src"
+      "CVEPDB\\": "vendor/cvepdb/abstract/src",
+      "": "laravel-addresses/src"
     },
     "files": [
       "app/helpers.php"

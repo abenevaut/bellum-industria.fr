@@ -1,0 +1,3 @@
+[submodule "laravel-addresses"]
+	path = laravel-addresses
+	url = git@github.com:CavaENCOREparlerdebits/laravel-addresses.git
