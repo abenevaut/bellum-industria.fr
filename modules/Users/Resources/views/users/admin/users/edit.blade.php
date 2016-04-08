@@ -86,7 +86,35 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab_2">
-                                @include('users::users.admin.users.chunks.form_addresses_fields')
+                                @foreach ($user->addresses as $addresse)
+
+                                    <div class="box box-widget collapsed-box">
+                                        <div class="box-header with-border">
+                                            <div class="user-block">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                                <span class="username">
+                                                    @if ($addresse->is_primary)
+                                                        <i class="fa fa-home"></i> Primary address
+                                                    @elseif ($addresse->is_billing)
+                                                        <i class="fa fa-credit-card"></i> Billing address
+                                                    @elseif ($addresse->is_shipping)
+                                                        <i class="fa fa-truck"></i> Shipping address
+                                                    @endif
+                                                </span>
+                                            </div>
+                                            <div class="box-tools">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="box-body">
+                                            @include('users::users.admin.users.chunks.form_addresses_fields', ['addresse' => $addresse])
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

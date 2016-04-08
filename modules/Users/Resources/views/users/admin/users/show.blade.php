@@ -55,6 +55,46 @@
             </tbody>
         </table>
 
+        @if ($user->addresses->count())
+            <br>
+            <table class="table table-bordered">
+                <tbody>
+                <tr class="cell-center">
+                    <th colspan="2">
+                        <b>Addresses</b>
+                    </th>
+                </tr>
+                @foreach ($user->addresses as $addresse)
+                    <tr class="cell-center">
+                        <td class="cell-center" width="15%">
+                            @if ($addresse->is_primary)
+                                <i class="fa fa-home"></i><br/>Primary<br/>address
+                            @elseif ($addresse->is_billing)
+                                <i class="fa fa-credit-card"></i><br/>Billing<br/>address
+                            @elseif ($addresse->is_shipping)
+                                <i class="fa fa-truck"></i><br/>Shipping<br/>address
+                            @endif
+                        </td>
+                        <td>
+
+
+
+                            {!! trans($addresse->organization) !!}<br/>
+                            {!! trans($addresse->street) !!}
+                            {!! trans($addresse->street_extra) !!}<br/>
+                            {!! trans($addresse->city) !!}
+                            {{--{!! trans($addresse->state_a2) !!}--}}
+                            {!! trans($addresse->state_name) !!}
+                            {!! trans($addresse->zip) !!}<br/>
+                            {{--{!! trans($addresse->country_a2) !!}--}}
+                            {!! trans($addresse->country_name) !!}
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        @endif
+
         @if ($user->roles->count())
             <br>
             <table class="table table-bordered">
@@ -75,36 +115,6 @@
             </table>
         @endif
 
-        @if ($user->addresses->count())
-            <br>
-            <table class="table table-bordered">
-                <tbody>
-                <tr class="cell-center">
-                    <th>
-                        <b>Addresses</b>
-                    </th>
-                </tr>
-                @foreach ($user->addresses as $addresse)
-                    <tr class="cell-center">
-                        <td>
-                            {!! trans($addresse->organization) !!}
-                            {!! trans($addresse->street) !!}
-                            {!! trans($addresse->street_extra) !!}
-                            {!! trans($addresse->city) !!}
-                            {{--{!! trans($addresse->state_a2) !!}--}}
-                            {!! trans($addresse->state_name) !!}
-                            {!! trans($addresse->zip) !!}
-                            {{--{!! trans($addresse->country_a2) !!}--}}
-                            {!! trans($addresse->country_name) !!}
-                            {!! trans($addresse->is_primary) !!}
-                            {!! trans($addresse->is_billing) !!}
-                            {!! trans($addresse->is_shipping) !!}
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-        @endif
     </div>
 @endsection
 
