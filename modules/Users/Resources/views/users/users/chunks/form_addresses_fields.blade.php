@@ -1,13 +1,13 @@
 {!! Form::hidden('address['.$type.'][is_' . $type . ']', 1) !!}
 
 <div class="form-group form-group-default">
-    {!! Form::label('country', 'Country', array('class'=>'control-label')) !!}
-    {!! Addresses::selectCountry('address['.$type.'][country]', old('address['.$type.'][country]', (!empty($address) ? $address->country : \Config::get('users.default_country'))), array('class'=>'form-control js-call-select2')) !!}
+    {!! Form::label('country_a2', 'Country', array('class'=>'control-label')) !!}
+    {!! Addresses::selectCountry('address['.$type.'][country_a2]', old('address['.$type.'][country_a2]', (!empty($address) ? $address->country_a2 : \Config::get('users.default_country'))), array('class'=>'form-control js-call-select2')) !!}
 </div>
 
 <div class="form-group form-group-default">
-    {!! Form::label('state', 'State / Province', array('class'=>'control-label')) !!}
-    {!! Addresses::selectState('address['.$type.'][state]', old('address['.$type.'][state]', (!empty($address) ? $address->state : null)), array('class'=>'form-control js-call-select2', 'country'=>\Config::get('users.default_country'))) !!}
+    {!! Form::label('state_a2', 'State / Province', array('class'=>'control-label')) !!}
+    {!! Addresses::selectState('address['.$type.'][state_a2]', old('address['.$type.'][state_a2]', (!empty($address) ? $address->state_a2 : null)), array('class'=>'form-control js-call-select2', 'country'=>\Config::get('users.default_country'))) !!}
 </div>
 
 <div class="form-group form-group-default">

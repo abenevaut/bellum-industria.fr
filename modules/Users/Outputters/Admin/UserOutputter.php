@@ -128,7 +128,7 @@ class UserOutputter extends AdminOutputter
     public function store(IFormRequest $request)
     {
 
-        dd( $request->all() );
+        dd($request->all());
 
         $user = $this->r_user->create_user(
             $request->get('first_name'),
@@ -203,29 +203,6 @@ class UserOutputter extends AdminOutputter
      */
     public function update($id, IFormRequest $request)
     {
-
-        dd( $request->all() );
-
-
-        if (Addresses::getValidator()->fails()) {
-
-            die('fails');
-
-        }
-        else {
-            echo 'youpi';
-        }
-
-
-        $address = Addresses::createAddress($request->all());
-
-
-
-
-        exit;
-
-
-
         $user = $this->r_user->update([
             'first_name' => $request->get('first_name'),
             'last_name' => $request->get('last_name'),
@@ -242,6 +219,37 @@ class UserOutputter extends AdminOutputter
         if (count($roles['user_role_id']) > 0) {
             $user->roles()->attach($roles['user_role_id']);
         }
+
+        $addresses = $request->only('address');
+        $addresses = $addresses['address'];
+        $primary_address = array_key_exists('primary', $addresses) ? $addresses['primary'] : [];
+
+        /**
+         * Check addresses values
+         *
+         * If primary address registered and not others, use primary foreach addresses
+         */
+        foreach ($addresses as $type => $address) {
+
+//            $validator = Addresses::getValidator($address);
+//
+//            if (!$validator->fails()) {
+
+                $db_address = $user->{$type . 'Address'}();
+
+                if (is_null($db_address)) {
+                    Addresses::createAddress($address, $user->id);
+                }
+                else {
+                    Addresses::updateAddress($db_address, $address, $user->id);
+                }
+            }
+//            else {
+//                return redirect('admin/users/' . $id . '/edit')
+//                    ->withErrors($validator)
+//                    ->withInput();
+//            }
+//        }
 
         event(new UserUpdatedEvent($user));
 
@@ -366,6 +374,6 @@ class UserOutputter extends AdminOutputter
                         $row->setValignment('middle');
                     });
 
-            })->export('xls');
+                })->export('xls');
     }
 }

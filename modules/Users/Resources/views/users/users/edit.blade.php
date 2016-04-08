@@ -125,13 +125,10 @@
                             @foreach ($user->addresses as $address)
                                 @if ($type == 'primary' && $address->is_primary)
                                     <?php $current_address = $address; ?>
-
                                 @elseif ($type == 'billing' && $address->is_billing)
                                     <?php $current_address = $address; ?>
-                                    <div class="tab-pane fade" id="billing">
                                 @elseif ($type == 'shipping' && $address->is_shipping)
                                     <?php $current_address = $address; ?>
-                                    <div class="tab-pane fade" id="shipping">
                                 @endif
                             @endforeach
                             {{-- !Todo : Change this --}}

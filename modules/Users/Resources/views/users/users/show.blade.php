@@ -31,7 +31,6 @@
                     </div>
                 </div>
 
-
                 <table class="table table-bordered">
                     <tbody>
                     <tr class="cell-center">
@@ -56,6 +55,42 @@
                     {{--</tr>--}}
                     </tbody>
                 </table>
+
+                @if ($user->addresses->count())
+                    <table class="table table-bordered">
+                        <tbody>
+                        <tr class="cell-center">
+                            <th colspan="2">
+                                <b>Addresses</b>
+                            </th>
+                        </tr>
+                        @foreach ($user->addresses as $addresse)
+                            <tr class="cell-center">
+                                <td class="cell-center" width="15%">
+                                    @if ($addresse->is_primary)
+                                        Primary<br/>address
+                                    @elseif ($addresse->is_billing)
+                                        Billing<br/>address
+                                    @elseif ($addresse->is_shipping)
+                                        Shipping<br/>address
+                                    @endif
+                                </td>
+                                <td>
+                                    {!! trans($addresse->organization) !!}<br/>
+                                    {!! trans($addresse->street) !!}
+                                    {!! trans($addresse->street_extra) !!}<br/>
+                                    {!! trans($addresse->city) !!}
+                                    {{--{!! trans($addresse->state_a2) !!}--}}
+                                    {!! trans($addresse->state_name) !!}
+                                    {!! trans($addresse->zip) !!}<br/>
+                                    {{--{!! trans($addresse->country_a2) !!}--}}
+                                    {!! trans($addresse->country_name) !!}
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                @endif
 
                 <div class="pull-right">
                     <a href="{{ url('users/edit-my-profile') }}" class="btn btn-info">Edit</a>

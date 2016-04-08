@@ -12,6 +12,17 @@
 <link rel="stylesheet" href="{{ asset('themes/lumen/css/custom.min.css') }}">
 <link rel="stylesheet" href="{{ asset('themes/lumen/bower/select2/dist/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('themes/lumen/bower/select2-bootstrap-theme/dist/select2-bootstrap.min.css') }}">
+<style>
+    .table .cell-center,
+    .table-bordered .cell-center {
+        text-align: center;
+        vertical-align: middle;
+    }
+    .table tr:hover td,
+    .table-bordered tr:hover td {
+        background-color: #CEE3F6;
+    }
+</style>
 <!--[if lt IE 9]>
 <script src="{{ asset('themes/lumen/bower/html5shiv/dist/html5shiv.min.js') }}"></script>
 <script src="{{ asset('themes/lumen/bower/respond/dest/respond.min.js') }}"></script>
