@@ -80,6 +80,14 @@ $icon-font-path: '../fonts/';
   left: 20px;
 }
 
+.select2-container--bootstrap .select2-selection {
+  border-radius: 0px !important;
+}
+.select2-container--bootstrap .select2-search--dropdown .select2-search__field,
+.select2-container--bootstrap .select2-selection {
+  border: 1px solid #d2d6de !important;
+}
+
 @media (max-width: 1024px) {
   .btn-mobile {
     width:100%;
