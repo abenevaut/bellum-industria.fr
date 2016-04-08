@@ -156,14 +156,8 @@ class UserOutputter extends AdminOutputter
 //
 //            if (!$validator->fails()) {
 
-            $db_address = $user->{$type . 'Address'}();
-
-            if (is_null($db_address)) {
                 Addresses::createAddress($address, $user->id);
-            }
-            else {
-                Addresses::updateAddress($db_address, $address, $user->id);
-            }
+
 //            else {
 //                return redirect('admin/users/' . $id . '/edit')
 //                    ->withErrors($validator)
