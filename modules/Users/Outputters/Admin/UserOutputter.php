@@ -1,4 +1,4 @@
-<?php namespace Modules\Users\Outputters;
+<?php namespace Modules\Users\Outputters\Admin;
 
 use Auth;
 use Config;
@@ -18,7 +18,7 @@ use Modules\Users\Events\Admin\UserUpdatedEvent;
 use Modules\Users\Events\Admin\UserDeletedEvent;
 use Conner\Addresses\AddressesFacade as Addresses;
 
-class UserAdminOutputter extends AdminOutputter
+class UserOutputter extends AdminOutputter
 {
     /**
      * @var string Outputter header title

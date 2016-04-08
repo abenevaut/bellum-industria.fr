@@ -1,7 +1,7 @@
 <?php namespace Modules\Users\Http\Controllers\Admin;
 
 use Pingpong\Modules\Routing\Controller;
-use Modules\Users\Outputters\RoleAdminOutputter;
+use Modules\Users\Outputters\Admin\RoleOutputter;
 use Modules\Users\Http\Requests\Admin\RoleFormRequest;
 
 /**
@@ -11,14 +11,14 @@ use Modules\Users\Http\Requests\Admin\RoleFormRequest;
 class RolesController extends Controller {
 
 	/**
-	 * @var RoleAdminOutputter|null
+	 * @var RoleOutputter|null
 	 */
 	protected $outputter = null;
 
 	/**
-	 * @param RoleAdminOutputter $outputter
+	 * @param RoleOutputter $outputter
 	 */
-	public function __construct(RoleAdminOutputter $outputter)
+	public function __construct(RoleOutputter $outputter)
 	{
 		$this->outputter = $outputter;
 	}

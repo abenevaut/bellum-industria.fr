@@ -2,7 +2,7 @@
 
 use Request;
 use Pingpong\Modules\Routing\Controller;
-use Modules\Users\Outputters\UserAdminOutputter;
+use Modules\Users\Outputters\Admin\UserOutputter;
 use Modules\Users\Http\Requests\Admin\UserFormRequest;
 use Modules\Users\Http\Requests\UsersFilteredFormRequest;
 use Modules\Users\Http\Requests\Admin\UsersMultiDestroyFormRequest;
@@ -16,14 +16,14 @@ class UsersController extends Controller
 {
 
     /**
-     * @var UserAdminOutputter|null
+     * @var UserOutputter|null
      */
     protected $outputter = null;
 
     /**
-     * @param UserAdminOutputter $outputter
+     * @param UserOutputter $outputter
      */
-    public function __construct(UserAdminOutputter $outputter)
+    public function __construct(UserOutputter $outputter)
     {
         $this->outputter = $outputter;
     }

@@ -43,7 +43,7 @@ class PasswordController extends Controller
     /**
      * Create a new password controller instance.
      *
-     * @return void
+     * @param PasswordOutputter $outputter
      */
     public function __construct(PasswordOutputter $outputter)
     {

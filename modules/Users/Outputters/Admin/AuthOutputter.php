@@ -1,9 +1,9 @@
-<?php namespace Modules\Users\Outputters;
+<?php namespace Modules\Users\Outputters\Admin;
 
 use Config;
 use App\Http\Admin\Outputters\AdminOutputter;
 
-class AuthAdminOutputter extends AdminOutputter
+class AuthOutputter extends AdminOutputter
 {
     /**
      * @var string Outputter header title

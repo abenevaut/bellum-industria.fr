@@ -1,4 +1,4 @@
-<?php namespace Modules\Users\Outputters;
+<?php namespace Modules\Users\Outputters\Admin;
 
 use Config;
 use App\Http\Admin\Outputters\AdminOutputter;
@@ -10,7 +10,7 @@ use Modules\Users\Repositories\PermissionRepositoryEloquent;
  * Class RoleAdminOutputter
  * @package Modules\Users\Outputters
  */
-class RoleAdminOutputter extends AdminOutputter
+class RoleOutputter extends AdminOutputter
 {
     /**
      * @var string Outputter header title

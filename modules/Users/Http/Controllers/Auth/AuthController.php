@@ -40,7 +40,7 @@ class AuthController extends Controller
     /**
      * Create a new authentication controller instance.
      *
-     * @return void
+     * @param AuthOutputter $outputter
      */
     public function __construct(AuthOutputter $outputter)
     {

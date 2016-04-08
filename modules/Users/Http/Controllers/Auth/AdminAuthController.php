@@ -8,7 +8,7 @@ use CVEPDB\Controllers\AbsController as Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Theme;
-use Modules\Users\Outputters\AuthAdminOutputter;
+use Modules\Users\Outputters\Admin\AuthOutputter;
 
 class AdminAuthController extends Controller
 {
@@ -40,9 +40,9 @@ class AdminAuthController extends Controller
     /**
      * Create a new authentication controller instance.
      *
-     * @return void
+     * @param AuthOutputter $outputter
      */
-    public function __construct(AuthAdminOutputter $outputter)
+    public function __construct(AuthOutputter $outputter)
     {
         parent::__construct();
         $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
