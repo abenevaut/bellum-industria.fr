@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "10c86652ef2f8fb8310a45dfdafad311",
+    "hash": "6da1b927cb84532de320d79ea4f47e07",
     "content-hash": "2e8f4c4202631c9e939fec2efa5bc921",
     "packages": [
         {
@@ -917,16 +917,16 @@
         },
         {
             "name": "cvepdb-cms/module-themes",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-themes.git",
-                "reference": "d84326bda6a487ee080e91bda25fb6673cb7ba5a"
+                "reference": "1b33991d9c2a800c9e643ead34549226ba93be0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=d84326bda6a487ee080e91bda25fb6673cb7ba5a",
-                "reference": "d84326bda6a487ee080e91bda25fb6673cb7ba5a",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=1b33991d9c2a800c9e643ead34549226ba93be0d",
+                "reference": "1b33991d9c2a800c9e643ead34549226ba93be0d",
                 "shasum": ""
             },
             "require": {
@@ -960,7 +960,7 @@
                 "module",
                 "themes"
             ],
-            "time": "2016-03-24 10:37:42"
+            "time": "2016-03-24 12:30:00"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -1052,12 +1052,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-lumen.git",
-                "reference": "6d3970256b49c95151699ee184b5f7f31d76537a"
+                "reference": "95d43b7093c9e31bef1295506e4d9544e22172ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=6d3970256b49c95151699ee184b5f7f31d76537a",
-                "reference": "6d3970256b49c95151699ee184b5f7f31d76537a",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=95d43b7093c9e31bef1295506e4d9544e22172ab",
+                "reference": "95d43b7093c9e31bef1295506e4d9544e22172ab",
                 "shasum": ""
             },
             "require": {
@@ -1086,7 +1086,7 @@
                 "lumen",
                 "theme"
             ],
-            "time": "2016-03-21 10:49:20"
+            "time": "2016-03-23 14:18:34"
         },
         {
             "name": "cvepdb/abstract",
@@ -3532,12 +3532,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "2d0c3b70f8e701b957fc2e5a35ff32ba57ee5d21"
+                "reference": "39f93f09f945578a8fa943a7bd65c92412887dac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/2d0c3b70f8e701b957fc2e5a35ff32ba57ee5d21",
-                "reference": "2d0c3b70f8e701b957fc2e5a35ff32ba57ee5d21",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/39f93f09f945578a8fa943a7bd65c92412887dac",
+                "reference": "39f93f09f945578a8fa943a7bd65c92412887dac",
                 "shasum": ""
             },
             "require": {
@@ -3575,7 +3575,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2016-04-07 05:39:20"
+            "time": "2016-04-09 09:41:38"
         },
         {
             "name": "paragonie/random_compat",

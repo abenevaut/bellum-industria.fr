@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http;
+namespace Core\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -25,22 +25,22 @@ class Kernel extends HttpKernel
     protected $middlewareGroups = [
         'web' => [
             'guest',
-            \App\Http\Middleware\EncryptCookies::class,
+            \Core\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
+            \Core\Http\Middleware\VerifyCsrfToken::class,
             // CVEPDB
             \CVEPDB\Middlewares\SetLocaleMiddleware::class,
             'CMSInstalled',
             'UserImpersonate',
         ],
         'admin' => [
-            \App\Http\Middleware\EncryptCookies::class,
+            \Core\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
+            \Core\Http\Middleware\VerifyCsrfToken::class,
             'auth',
             'role:admin',
             // CVEPDB
@@ -53,11 +53,11 @@ class Kernel extends HttpKernel
             'apiguard'
         ],
         'installer' => [
-            \App\Http\Middleware\EncryptCookies::class,
+            \Core\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
+            \Core\Http\Middleware\VerifyCsrfToken::class,
             // CVEPDB
             \CVEPDB\Middlewares\SetLocaleMiddleware::class,
             'CMSAllowInstallation'
@@ -73,9 +73,9 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'UserImpersonate' => \Modules\Users\Http\Middleware\UserImpersonate::class,
-        'auth' => \App\Http\Middleware\Authenticate::class,
+        'auth' => \Core\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \Core\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         // Entrust
         'role' => \Zizaco\Entrust\Middleware\EntrustRole::class,
@@ -84,7 +84,7 @@ class Kernel extends HttpKernel
         // CMS specific
         'CMSAllowInstallation' => \Modules\Installer\Http\Middleware\CMSAllowInstallation::class,
         'CMSInstalled' => \Modules\Installer\Http\Middleware\CMSInstalled::class,
-        'APIResponseHeaderJsCVEPDBMiddleware' => \App\Http\Middleware\APIResponseHeaderJsCVEPDBMiddleware::class,
+        'APIResponseHeaderJsCVEPDBMiddleware' => \Core\Http\Middleware\APIResponseHeaderJsCVEPDBMiddleware::class,
         'apiguard' => \Chrisbjr\ApiGuard\Http\Middleware\ApiGuard::class,
     ];
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\FileViewFinder;
@@ -105,5 +105,4 @@ class ThemesServiceProvider extends ServiceProvider
         return $this->app->make('request')->is(config('app.installer'))
             || $this->app->make('request')->is(config('app.installer') . '/*');
     }
-
 }

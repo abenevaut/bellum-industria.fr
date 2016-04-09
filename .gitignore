@@ -12,6 +12,5 @@ public/themes/*
 public/uploads/*
 resources/views/modules/*
 .env.production
-database/migrations/*
 
 modules/Themes
