@@ -1,6 +1,4 @@
-<?php
-
-namespace App\Http\Outputters;
+<?php namespace Core\Http\Outputters;
 
 use App;
 use Config;

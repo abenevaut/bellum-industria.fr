@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Contracts;
+namespace Core\Http\Contracts;
 
 abstract class AbsWidgets
 {

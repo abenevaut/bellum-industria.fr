@@ -1,8 +1,4 @@
-<?php
-
-namespace App\Http\Front\Outputters;
-
-use App\Http\Outputters\CoreOutputter;
+<?php namespace Core\Http\Outputters;
 
 class FrontOutputter extends CoreOutputter
 {

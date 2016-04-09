@@ -1,12 +1,9 @@
-<?php
-
-namespace App\Http\Admin\Outputters;
+<?php namespace Core\Http\Outputters;
 
 use App;
 use Config;
 use Menu;
 use Module;
-use App\Http\Outputters\CoreOutputter;
 
 class AdminOutputter extends CoreOutputter
 {

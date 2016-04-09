@@ -1,6 +1,6 @@
 <?php namespace Modules\Users\Http\Controllers\Admin;
 
-use Pingpong\Modules\Routing\Controller;
+use Modules\Core\Http\Controllers\CoreAdminController as Controller;
 use Modules\Users\Outputters\Admin\RoleOutputter;
 use Modules\Users\Http\Requests\Admin\RoleFormRequest;
 

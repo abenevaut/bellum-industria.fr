@@ -1,11 +1,11 @@
 <?php namespace Modules\Users\Http\Controllers\Api;
 
-use Chrisbjr\ApiGuard\Http\Controllers\ApiGuardController;
+use Modules\Core\Http\Controllers\CoreAdminController as Controller;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Http\Requests\UsersFilteredFormRequest;
 use Modules\Users\Transformers\UserApiTransformer;
 
-class UsersController extends ApiGuardController
+class UsersController extends Controller
 {
     /**
      * @var UserRepositoryEloquent|null
