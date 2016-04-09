@@ -21,6 +21,10 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Contro
 		Route::get('reset/{token}', 'PasswordController@getReset');
 		Route::post('reset', 'PasswordController@postReset');
 	});
+	// Social Login
+	Route::get('login/{provider?}', ['uses' => 'AuthController@redirectToProvider']);
+	// Login callbacks
+	Route::get('login/callback/{provider?}', ['uses' => 'AuthController@handleProviderCallback']);
 });
 
 Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Controllers'], function() {

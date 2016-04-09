@@ -4,6 +4,8 @@ namespace Modules\Users\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Socialite;
+use Session;
 use CVEPDB\Controllers\AbsController as Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -103,6 +105,32 @@ class AuthController extends Controller
      */
     public function redirectPath()
     {
+        Session::flash('message', trans('auth.message_success_loggedin'));
         return property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
+    }
+
+    /**
+     * Redirect the user to a provider authentication page.
+     *
+     * @return Response
+     */
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    /**
+     * Obtain the user information from a provider.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback($provider)
+    {
+        $user = Socialite::driver($provider)->user();
+
+        dd($user);
+
+        // Todo : Si logguer -> ajouter le token au compte courant
+        // Todo : Si pas logguer -> on enregistre l'utilisateur
     }
 }

@@ -35,4 +35,46 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+
+    'raven' => [
+        'dsn'   => env('SENTRY_DSN'),
+        'level' => env('SENTRY_LEVEL')
+    ],
+
+//    'github' => [
+//        'client_id' => 'your-github-app-id',
+//        'client_secret' => 'your-github-app-secret',
+//        'redirect' => 'http://your-callback-url',
+//    ],
+
+    'facebook' => [
+        'client_id' => env('FACEBOOK_APP_ID'),
+        'client_secret' => env('FACEBOOK_APP_SECRET'),
+        'redirect' => env('APP_URL') . '/login/callback/facebook',
+    ],
+
+    'twitter' => [
+        'client_id' => env('TWITTER_APP_ID'),
+        'client_secret' => env('TWITTER_APP_SECRET'),
+        'redirect' => env('APP_URL') . '/login/callback/twitter',
+    ],
+
+//    'google' => [
+//        'client_id' => 'your-google-app-id',
+//        'client_secret' => 'your-google-app-secret',
+//        'redirect' => 'http://your-callback-url',
+//    ],
+
+    'linkedin' => [
+        'client_id' => env('LINKEDIN_APP_ID'),
+        'client_secret' => env('LINKEDIN_APP_SECRET'),
+        'redirect' => env('APP_URL') . '/login/callback/linkedin',
+    ],
+
+//    'bitbucket' => [
+//        'client_id' => 'your-bitbucket-app-id',
+//        'client_secret' => 'your-bitbucket-app-secret',
+//        'redirect' => 'http://your-callback-url',
+//    ],
+
 ];
