@@ -1,7 +1,7 @@
-<?php namespace Modules\Users\Outputters;
+<?php namespace Modules\Users\Http\Outputters;
 
 use Config;
-use App\Http\Front\Outputters\FrontOutputter;
+use Core\Http\Outputters\FrontOutputter;
 
 class PasswordOutputter extends FrontOutputter
 {

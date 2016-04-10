@@ -1,4 +1,4 @@
-<?php namespace Modules\Users\Outputters\Admin;
+<?php namespace Modules\Users\Http\Outputters\Admin;
 
 use Auth;
 use Config;

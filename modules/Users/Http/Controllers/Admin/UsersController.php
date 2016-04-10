@@ -2,7 +2,7 @@
 
 use Request;
 use Core\Http\Controllers\CoreAdminController as Controller;
-use Modules\Users\Outputters\Admin\UserOutputter;
+use Modules\Users\Http\Outputters\Admin\UserOutputter;
 use Modules\Users\Http\Requests\Admin\UserFormRequest;
 use Modules\Users\Http\Requests\UsersFilteredFormRequest;
 use Modules\Users\Http\Requests\Admin\UsersMultiDestroyFormRequest;

@@ -1,7 +1,7 @@
 <?php namespace Modules\Users\Http\Controllers\Admin;
 
 use Core\Http\Controllers\CoreAdminController as Controller;
-use Modules\Users\Outputters\Admin\RoleOutputter;
+use Modules\Users\Http\Outputters\Admin\RoleOutputter;
 use Modules\Users\Http\Requests\Admin\RoleFormRequest;
 
 /**

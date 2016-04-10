@@ -1,10 +1,10 @@
-<?php namespace Modules\Users\Outputters;
+<?php namespace Modules\Users\Http\Outputters;
 
 use Auth;
 use Config;
 use Session;
 use Request;
-use App\Http\Admin\Outputters\AdminOutputter;
+use Core\Http\Outputters\AdminOutputter;
 use CVEPDB\Requests\IFormRequest;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
