@@ -5,7 +5,7 @@ use Config;
 use Session;
 use Request;
 use Event;
-use App\Http\Admin\Outputters\AdminOutputter;
+use Core\Http\Outputters\AdminOutputter;
 use CVEPDB\Requests\IFormRequest;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;

@@ -1,6 +1,4 @@
-<?php
-
-namespace App\Http\Admin\Presenters;
+<?php namespace Core\Http\Presenters;
 
 use Pingpong\Menus\Presenters\Presenter;
 

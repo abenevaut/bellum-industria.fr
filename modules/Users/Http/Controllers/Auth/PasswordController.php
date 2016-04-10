@@ -2,10 +2,10 @@
 
 namespace Modules\Users\Http\Controllers\Auth;
 
-use CVEPDB\Controllers\AbsController as Controller;
+use Core\Http\Controllers\CorePublicController as Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Theme;
-use Modules\Users\Outputters\PasswordOutputter;
+use Modules\Users\Http\Outputters\PasswordOutputter;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Password;

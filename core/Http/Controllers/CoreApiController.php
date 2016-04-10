@@ -29,6 +29,8 @@ class CoreApiController extends CoreController
 
     public function __construct()
     {
+        parent::__construct();
+
         $serializedApiMethods = serialize($this->apiMethods);
 
         // Launch middleware

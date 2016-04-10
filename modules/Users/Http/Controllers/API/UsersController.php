@@ -1,6 +1,6 @@
 <?php namespace Modules\Users\Http\Controllers\Api;
 
-use Modules\Core\Http\Controllers\CoreAdminController as Controller;
+use Core\Http\Controllers\CoreAdminController as Controller;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Http\Requests\UsersFilteredFormRequest;
 use Modules\Users\Transformers\UserApiTransformer;

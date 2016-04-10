@@ -1,7 +1,7 @@
-<?php namespace Modules\Users\Outputters\Admin;
+<?php namespace Modules\Users\Http\Outputters\Admin;
 
 use Config;
-use App\Http\Admin\Outputters\AdminOutputter;
+use Core\Http\Outputters\AdminOutputter;
 use CVEPDB\Requests\IFormRequest;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
 use Modules\Users\Repositories\PermissionRepositoryEloquent;

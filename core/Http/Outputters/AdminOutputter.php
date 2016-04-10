@@ -5,6 +5,10 @@ use Config;
 use Menu;
 use Module;
 
+/**
+ * Class AdminOutputter
+ * @package Core\Http\Outputters
+ */
 class AdminOutputter extends CoreOutputter
 {
     public function __construct()
@@ -50,7 +54,7 @@ class AdminOutputter extends CoreOutputter
 
         return [
             'sidebar' => [
-                'menu' => Menu::render('navbar', 'App\Http\Admin\Presenters\SidebarPresenter')
+                'menu' => Menu::render('navbar', 'Core\Http\Presenters\SidebarPresenter')
             ]
         ];
     }
@@ -99,7 +103,7 @@ class AdminOutputter extends CoreOutputter
 
         return [
             'settings' => [
-                'menu' => Menu::render('navbar', 'App\Http\Admin\Presenters\SettingsPresenter'),
+                'menu' => Menu::render('navbar', 'Core\Http\Presenters\SettingsPresenter'),
                 'modules' => $modules
             ]
         ];

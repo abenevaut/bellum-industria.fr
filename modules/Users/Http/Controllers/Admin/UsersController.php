@@ -1,7 +1,7 @@
 <?php namespace Modules\Users\Http\Controllers\Admin;
 
 use Request;
-use Modules\Core\Http\Controllers\CoreAdminController as Controller;
+use Core\Http\Controllers\CoreAdminController as Controller;
 use Modules\Users\Outputters\Admin\UserOutputter;
 use Modules\Users\Http\Requests\Admin\UserFormRequest;
 use Modules\Users\Http\Requests\UsersFilteredFormRequest;

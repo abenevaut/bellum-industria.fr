@@ -69,7 +69,7 @@ class PasswordBroker extends IlluminatePasswordBroker
      * Reset the password for the given token.
      *
      * @param  array $credentials
-     * @param  \Closure $callback
+     * @param  Closure $callback
      * @return mixed
      */
     public function reset(array $credentials, Closure $callback)

@@ -1,6 +1,6 @@
 <?php namespace Modules\Users\Events\Admin;
 
-use App\Events\Event;
+use Core\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Modules\Users\Entities\User;

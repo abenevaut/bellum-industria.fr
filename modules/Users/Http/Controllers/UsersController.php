@@ -1,8 +1,8 @@
 <?php namespace Modules\Users\Http\Controllers;
 
 use Request;
-use Pingpong\Modules\Routing\Controller;
-use Modules\Users\Outputters\UserOutputter;
+use Core\Http\Controllers\CorePublicController as Controller;
+use Modules\Users\Http\Outputters\UserOutputter;
 use Modules\Users\Http\Requests\UserFormRequest;
 
 class UsersController extends Controller {

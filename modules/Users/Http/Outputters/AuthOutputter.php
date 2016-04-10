@@ -1,10 +1,10 @@
-<?php namespace Modules\Users\Outputters;
+<?php namespace Modules\Users\Http\Outputters;
 
 use Config;
-use App\Http\Front\Outputters\FrontOutputter;
+use Core\Http\Outputters\FrontOutputter;
+use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
-use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
 use Modules\Users\Events\UserCreatedEvent;
 
 class AuthOutputter extends FrontOutputter
