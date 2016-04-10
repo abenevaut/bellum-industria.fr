@@ -1,25 +1,25 @@
 {
-	"name": "cvepdb-cms/files",
-	"description": "Files module for #CVEPDB CMS",
-	"authors": [
-		{
-			"name": "Antoine Benevaut",
-			"email": "antoine@cvepdb.fr"
-		}
-	],
-	"autoload": {
-		"psr-4": {
-			"Modules\\Files\\": ""
-		}
-	},
-	"require": {
-		"spatie/laravel-medialibrary": "^3.16",
-	  	"barryvdh/laravel-elfinder": "^0.3.6",
-	  	"league/flysystem-aws-s3-v3": "~1.0",
-	  	"league/flysystem-rackspace": "~1.0",
-		"league/flysystem": "^1.0",
-		"doctrine/cache": "^1.6",
-		"aws/aws-php-sns-message-validator": "^1.1",
-		"league/flysystem-dropbox": "^1.0"
-	}
+  "name": "cvepdb-cms/module-files",
+  "description": "Files module for #CVEPDB CMS",
+  "authors": [
+    {
+      "name": "Antoine Benevaut",
+      "email": "antoine@cvepdb.fr"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Modules\\Files\\": ""
+    }
+  },
+  "require": {
+    "league/flysystem": "^1.0",
+    "league/flysystem-aws-s3-v3": "~1.0",
+    "league/flysystem-rackspace": "~1.0",
+    "league/flysystem-dropbox": "^1.0"
+    "spatie/laravel-medialibrary": "^3.16",
+    "barryvdh/laravel-elfinder": "^0.3.6",
+    "aws/aws-php-sns-message-validator": "^1.1",
+    "doctrine/cache": "^1.6"
+  }
 }

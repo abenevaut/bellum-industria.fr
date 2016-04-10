@@ -158,10 +158,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Core\Providers\AppServiceProvider::class,
+        Core\Providers\AuthServiceProvider::class,
+        Core\Providers\EventServiceProvider::class,
+        Core\Providers\RouteServiceProvider::class,
         /*
          * CMS
          */
@@ -178,8 +178,8 @@ return [
         'Maatwebsite\Excel\ExcelServiceProvider',
 
         // Todo : Merge ModulesServiceProvider in installer / Merge ThemesServiceProvider in Themes module provider
-        App\Providers\ModulesServiceProvider::class,
-        App\Providers\ThemesServiceProvider::class,
+        Core\Providers\ModulesServiceProvider::class,
+        Core\Providers\ThemesServiceProvider::class,
         // Todo : finish and move this in Users module provider
         // Modules\Users\Providers\PasswordResetServiceProvider::class,
 

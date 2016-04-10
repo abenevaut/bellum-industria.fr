@@ -1,14 +1,13 @@
 {
-  "name": "adminlte",
-  "description": "",
-  "type": "backend",
-  "author": [
-    {
-      "name": "Antoine Benevaut",
-      "email": "antoine@cvepdb.fr"
-    }
-  ],
-  "files": [
-    "theme.php"
-  ]
+	"name": "adminlte",
+	"description": "",
+	"author": [
+		{
+			"name": "",
+			"email": ""
+		}
+	],
+	"files": [
+		"theme.php"
+	]
 }

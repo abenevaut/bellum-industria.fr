@@ -1,4 +1,4 @@
-<?php namespace Modules\Core\Http\Controllers;
+<?php namespace Core\Http\Controllers;
 
 use Chrisbjr\ApiGuard\Facades\ApiGuardAuth;
 use Chrisbjr\ApiGuard\Builders\ApiResponseBuilder;

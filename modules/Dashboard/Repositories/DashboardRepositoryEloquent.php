@@ -1,6 +1,4 @@
-<?php
-
-namespace Modules\Dashboard\Repositories;
+<?php namespace Modules\Dashboard\Repositories;
 
 use Config;
 use Module;

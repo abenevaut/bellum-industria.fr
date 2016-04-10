@@ -1,7 +1,7 @@
 <?php namespace Modules\Users\Widgets;
 
 use Widget;
-use App\Http\Contracts\AbsWidgets;
+use Core\Http\Contracts\AbsWidgets;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 
 class CountUsers extends AbsWidgets

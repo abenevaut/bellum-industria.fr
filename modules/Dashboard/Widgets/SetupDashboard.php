@@ -1,7 +1,7 @@
 <?php namespace Modules\Dashboard\Widgets;
 
 use Widget;
-use App\Http\Contracts\AbsWidgets;
+use Core\Http\Contracts\AbsWidgets;
 use Modules\Dashboard\Repositories\DashboardRepositoryEloquent;
 
 class SetupDashboard extends AbsWidgets

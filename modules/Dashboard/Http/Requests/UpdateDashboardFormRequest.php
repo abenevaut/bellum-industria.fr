@@ -1,0 +1,29 @@
+<?php namespace Modules\Dashboard\Http\Requests;
+
+use CVEPDB\Requests\Request;
+
+class UpdateDashboardFormRequest extends Request
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'id' => 'required',
+            'status' => 'required'
+        ];
+    }
+}

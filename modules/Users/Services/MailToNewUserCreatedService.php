@@ -1,7 +1,7 @@
 <?php namespace Modules\Users\Services;
 
 use Mail;
-use App\Services\MailService;
+use Core\Services\MailService;
 
 class MailToNewUserCreatedService extends MailService
 {

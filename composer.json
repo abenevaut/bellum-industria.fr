@@ -14,6 +14,7 @@
     "composer/composer": "^1.0@beta",
     "composer/installers": "~1.0",
     "laravel/framework": "5.2.24",
+    "doctrine/cache": "^1.6",
     "cvepdb/abstract": "dev-master",
     "cvepdb-cms/theme-adminlte": "master-dev",
     "cvepdb-cms/theme-lumen": "master-dev",
@@ -39,7 +40,7 @@
       "": "laravel-addresses/src"
     },
     "files": [
-      "app/helpers.php"
+      "core/helpers.php"
     ]
   },
   "autoload-dev": {

@@ -37,14 +37,6 @@
                     <li><a href="{{ url('login') }}">Login</a></li>
                 @endif
 
-                @if (Session::get('impersonate_member'))
-                    <li>
-                        <a href="{{ url('admin/users/endimpersonate') }}">
-                            Restore session
-                        </a>
-                    </li>
-                @endif
-
             </ul>
         </div>
     </div>

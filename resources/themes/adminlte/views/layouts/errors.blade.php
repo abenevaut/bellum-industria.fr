@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    @include('adminlte::partials.metadata', ['header' => ['title' => 'Error', 'description' => 'error']])
+    @include('admin.partials.metadata')
 </head>
 <body class="hold-transition skin-blue layout-top-nav">
 <div class="wrapper">
@@ -11,6 +11,6 @@
         </section>
     </div>
 </div>
-@include('adminlte::partials.js-footer')
+@include('admin.partials.js-footer')
 </body>
 </html>

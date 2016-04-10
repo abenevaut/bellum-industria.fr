@@ -1,4 +1,4 @@
-<?php namespace Modules\Users;
+<?php namespace Modules\Dashboard;
 
 use Widget;
 

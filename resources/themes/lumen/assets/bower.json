@@ -21,9 +21,7 @@
   ],
   "dependencies": {
     "html5shiv": "^3.7.3",
-    "respond": "^1.4.2",
-    "select2-bootstrap-theme": "^0.1.0-beta.4",
-    "select2": "^4.0.2"
+    "respond": "^1.4.2"
   },
   "devDependencies": {}
 }
