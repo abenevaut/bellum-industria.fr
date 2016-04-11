@@ -5,6 +5,10 @@ use Core\Http\Controllers\CorePublicController as Controller;
 use Modules\Users\Http\Outputters\UserOutputter;
 use Modules\Users\Http\Requests\UserFormRequest;
 
+/**
+ * Class UsersController
+ * @package Modules\Users\Http\Controllers
+ */
 class UsersController extends Controller {
 
     /**
@@ -94,7 +98,7 @@ class UsersController extends Controller {
     }
 
     /**
-     * @return \Modules\Users\Outputters\Response
+     * @return \Modules\Users\Http\Outputters\Response
      */
     public function myProfile()
     {
@@ -105,7 +109,7 @@ class UsersController extends Controller {
     }
 
     /**
-     * @return \Modules\Users\Outputters\Response
+     * @return \Modules\Users\Http\Outputters\Response
      */
     public function editMyProfile()
     {
@@ -117,7 +121,7 @@ class UsersController extends Controller {
 
     /**
      * @param UserFormRequest $request
-     * @return \Modules\Users\Outputters\Response
+     * @return \Modules\Users\Http\Outputters\Response
      */
     public function updateMyProfile(UserFormRequest $request)
     {

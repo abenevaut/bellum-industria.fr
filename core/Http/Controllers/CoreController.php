@@ -1,6 +1,6 @@
 <?php namespace Core\Http\Controllers;
 
-use Pingpong\Modules\Routing\Controller;
+use CVEPDB\Abstracts\Http\Controllers\CoreController as Controller;
 
 /**
  * Class CoreController

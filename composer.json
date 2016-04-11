@@ -15,7 +15,7 @@
     "composer/installers": "~1.0",
     "laravel/framework": "5.2.24",
     "doctrine/cache": "^1.6",
-    "cvepdb/abstract": "dev-master",
+    "cvepdb/laravel": "dev-master",
     "cvepdb-cms/theme-adminlte": "master-dev",
     "cvepdb-cms/theme-lumen": "master-dev",
     "cvepdb-cms/theme-flatly": "master-dev",

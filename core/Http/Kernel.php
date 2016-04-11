@@ -31,7 +31,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \Core\Http\Middleware\VerifyCsrfToken::class,
             // CVEPDB
-            \CVEPDB\Middlewares\SetLocaleMiddleware::class,
+            \CVEPDB\Http\Middlewares\SetLocaleMiddleware::class,
             'CMSInstalled',
             'UserImpersonate',
         ],
@@ -44,12 +44,12 @@ class Kernel extends HttpKernel
             'auth',
             'role:admin',
             // CVEPDB
-            \CVEPDB\Middlewares\SetLocaleMiddleware::class,
+            \CVEPDB\Http\Middlewares\SetLocaleMiddleware::class,
             'CMSInstalled'
         ],
         'api' => [
             'throttle:60,1',
-            'APIResponseHeaderJsCVEPDBMiddleware',
+            'APIResponseHeaderJsMiddleware',
             'apiguard'
         ],
         'installer' => [
@@ -59,7 +59,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \Core\Http\Middleware\VerifyCsrfToken::class,
             // CVEPDB
-            \CVEPDB\Middlewares\SetLocaleMiddleware::class,
+            \CVEPDB\Http\Middlewares\SetLocaleMiddleware::class,
             'CMSAllowInstallation'
         ]
     ];
@@ -84,7 +84,7 @@ class Kernel extends HttpKernel
         // CMS specific
         'CMSAllowInstallation' => \Modules\Installer\Http\Middleware\CMSAllowInstallation::class,
         'CMSInstalled' => \Modules\Installer\Http\Middleware\CMSInstalled::class,
-        'APIResponseHeaderJsCVEPDBMiddleware' => \Core\Http\Middleware\APIResponseHeaderJsCVEPDBMiddleware::class,
+        'APIResponseHeaderJsMiddleware' => \CVEPDB\Http\Middlewares\APIResponseHeaderJsMiddleware::class,
         'apiguard' => \Chrisbjr\ApiGuard\Http\Middleware\ApiGuard::class,
     ];
 }

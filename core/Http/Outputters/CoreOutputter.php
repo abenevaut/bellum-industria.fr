@@ -5,7 +5,7 @@ use Config;
 use Menu;
 use Module;
 use Theme;
-use CVEPDB\Services\Outputters\AbsLaravelOutputter;
+use CVEPDB\Abstracts\Services\Outputters\AbsLaravelOutputter;
 
 class CoreOutputter extends AbsLaravelOutputter
 {
