@@ -1,4 +1,4 @@
-@extends('admin.layouts.errors')
+@extends('adminlte::layouts.errors')
 
 @section('content')
     <div class="error-page">

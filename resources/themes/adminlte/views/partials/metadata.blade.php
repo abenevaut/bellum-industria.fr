@@ -1,16 +1,23 @@
+<title>
+    @section('title')
+        {{ trans($header['title'] ? $header['title'] : 'adminlte::adminlte.default_title') }}
+    @show
+</title>
+<meta name="description" itemprop="description"
+      content="@section("meta-description"){{ trans($header['description'] ? $header['description'] : 'adminlte::adminlte.default_description') }}@show" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Admin | #CVEPDB CMS</title>
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="{{ asset('themes/adminlte/bower/components-font-awesome/css/font-awesome.min.css') }}">
 <link rel="stylesheet" href="{{ asset('themes/adminlte/bower/Ionicons/css/ionicons.min.css') }}">
 <link rel="stylesheet" href="{{ asset('themes/adminlte/css/' . css_file_rev('style.css')) }}">
+<link rel="stylesheet" href="{{ asset('themes/adminlte/bower/iCheck/skins/square/blue.css') }}">
+<script src="{{ asset('themes/adminlte/js/pace.js') }}"></script>
 <!--[if lt IE 9]>
 <script src="{{ asset('themes/adminlte/bower/html5shiv/dist/html5shiv.min.js') }}"></script>
 <script src="{{ asset('themes/adminlte/bower/respond/dest/respond.min.js') }}"></script>
 <![endif]-->
-
 <script>
     var cvepdb_config = {
         env: '{{ config('app.debug') ? 'development' : 'production' }}',
