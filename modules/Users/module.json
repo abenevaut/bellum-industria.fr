@@ -10,8 +10,10 @@
     "Modules\\Users\\Providers\\UsersServiceProvider",
     "Modules\\Users\\Providers\\EventServiceProvider",
     "Laravel\\Socialite\\SocialiteServiceProvider",
+    "CVEPDB\\Addresses\\AddressesServiceProvider"
   ],
   "aliases": {
+    "Addresses": "CVEPDB\\Addresses\\AddressesFacade",
     "Socialite": "Laravel\\Socialite\\Facades\\Socialite"
   },
   "files": [
