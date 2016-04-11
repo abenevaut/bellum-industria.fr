@@ -27,7 +27,10 @@
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
-    "mockery/mockery": "0.9.*"
+    "mockery/mockery": "0.9.*",
+    "codeception/codeception": "*",
+    "deployer/deployer": "^3.0",
+    "deployphp/recipes": "~3.0"
   },
   "autoload": {
     "classmap": [

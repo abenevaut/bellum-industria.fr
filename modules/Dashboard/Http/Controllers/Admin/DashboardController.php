@@ -4,6 +4,10 @@ use Core\Http\Controllers\CoreAdminController as Controller;
 use Modules\Dashboard\Http\Outputters\Admin\DashboardOutputter;
 use Modules\Dashboard\Http\Requests\UpdateDashboardFormRequest;
 
+/**
+ * Class DashboardController
+ * @package Modules\Dashboard\Http\Controllers\Admin
+ */
 class DashboardController extends Controller
 {
     /**
@@ -16,6 +20,8 @@ class DashboardController extends Controller
      */
     public function __construct(DashboardOutputter $outputter)
     {
+        parent::__construct();
+
         $this->outputter = $outputter;
     }
 

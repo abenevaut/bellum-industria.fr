@@ -5,17 +5,21 @@ use Core\Http\Outputters\AdminOutputter;
 use CVEPDB\Requests\IFormRequest;
 use Modules\Dashboard\Repositories\DashboardRepositoryEloquent;
 
+/**
+ * Class DashboardOutputter
+ * @package Modules\Dashboard\Http\Outputters\Admin
+ */
 class DashboardOutputter extends AdminOutputter
 {
     /**
      * @var string Outputter header title
      */
-    protected $title = 'Dashboard';
+    protected $title = 'admin.dashboard.meta_title';
 
     /**
      * @var string Outputter header description
      */
-    protected $description = 'control panel';
+    protected $description = 'admin.dashboard.meta_description';
 
     /**
      * @var null UserRepositoryEloquent

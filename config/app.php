@@ -176,13 +176,6 @@ return [
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         'Phoenix\EloquentMeta\ServiceProvider',
         'Maatwebsite\Excel\ExcelServiceProvider',
-
-        // Todo : Merge ModulesServiceProvider in installer / Merge ThemesServiceProvider in Themes module provider
-        Core\Providers\ModulesServiceProvider::class,
-        Core\Providers\ThemesServiceProvider::class,
-        // Todo : finish and move this in Users module provider
-        // Modules\Users\Providers\PasswordResetServiceProvider::class,
-
     ],
 
     /*

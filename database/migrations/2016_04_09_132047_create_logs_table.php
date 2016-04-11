@@ -4,9 +4,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class CreateLogTable
+ * Class CreateLogsTable
  */
-class CreateLogTable extends Migration
+class CreateLogsTable extends Migration
 {
     /**
      * Run the migrations.
