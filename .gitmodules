@@ -1,6 +1,0 @@
-[submodule "core/Settings"]
-	path = core/Settings
-	url = git@github.com:CavaENCOREparlerdebits/laravel-settings.git
-[submodule "core/Addresses"]
-	path = core/Addresses
-	url = git@github.com:CavaENCOREparlerdebits/laravel-addresses.git

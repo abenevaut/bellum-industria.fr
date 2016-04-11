@@ -38,9 +38,7 @@
     ],
     "psr-4": {
       "Core\\": "core/",
-      "Modules\\": "modules/",
-      "CVEPDB\\": "vendor/cvepdb/abstract/src",
-      "": "laravel-addresses/src"
+      "Modules\\": "modules/"
     },
     "files": [
       "core/helpers.php"

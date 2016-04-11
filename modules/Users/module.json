@@ -10,10 +10,8 @@
     "Modules\\Users\\Providers\\UsersServiceProvider",
     "Modules\\Users\\Providers\\EventServiceProvider",
     "Laravel\\Socialite\\SocialiteServiceProvider",
-    "Conner\\Addresses\\AddressesServiceProvider"
   ],
   "aliases": {
-    "Addresses": "Conner\\Addresses\\AddressesFacade",
     "Socialite": "Laravel\\Socialite\\Facades\\Socialite"
   },
   "files": [
