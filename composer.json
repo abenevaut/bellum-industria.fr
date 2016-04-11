@@ -28,6 +28,8 @@
   "require-dev": {
     "fzaninotto/faker": "~1.4",
     "mockery/mockery": "0.9.*",
+    "league/factory-muffin": "^3.0",
+    "league/factory-muffin-faker": "^1.0",
     "codeception/codeception": "*",
     "deployer/deployer": "^3.0",
     "deployphp/recipes": "~3.0"
@@ -42,11 +44,6 @@
     },
     "files": [
       "core/helpers.php"
-    ]
-  },
-  "autoload-dev": {
-    "classmap": [
-      "tests/TestCase.php"
     ]
   },
   "scripts": {
