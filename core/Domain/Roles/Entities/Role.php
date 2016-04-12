@@ -1,13 +1,16 @@
-<?php namespace Modules\Users\Entities;
+<?php namespace Core\Domain\Roles\Entities;
 
-use Core\Domain\Roles\Entities\Role as RoleModel;
+use CVEPDB\Domain\Roles\Entities\Role as Model;
+use Phoenix\EloquentMeta\MetaTrait;
 
 /**
  * Class Role
- * @package Modules\Users\Entities
+ * @package Core\Domain\Roles\Entities
  */
-class Role extends RoleModel
+class Role extends Model
 {
+    use MetaTrait;
+
     /**
      * The attributes that are mass assignable.
      *

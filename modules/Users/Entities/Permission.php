@@ -1,16 +1,13 @@
 <?php namespace Modules\Users\Entities;
 
-use CVEPDB\Repositories\Permissions\Permission as PermissionModel;
-use Phoenix\EloquentMeta\MetaTrait;
+use Core\Domain\Permissions\Entities\Permission as Model;
 
 /**
  * Class Permission
  * @package Modules\Users\Entities
  */
-class Permission extends PermissionModel
+class Permission extends Model
 {
-    use MetaTrait;
-
     /**
      * The attributes that are mass assignable.
      *

@@ -19,7 +19,7 @@ return [
     | the role if it is in a different namespace.
     |
     */
-    'role' => 'CVEPDB\Repositories\Roles\Role',
+    'role' => 'Core\Domain\Roles\Entities\Role',
 
     /*
     |--------------------------------------------------------------------------
@@ -40,7 +40,7 @@ return [
     | Update the permission if it is in a different namespace.
     |
     */
-    'permission' => 'CVEPDB\Repositories\Permissions\Permission',
+    'permission' => 'Core\Domain\Permissions\Entities\Permission',
 
     /*
     |--------------------------------------------------------------------------

@@ -1,13 +1,13 @@
 <?php namespace Modules\Users\Repositories;
 
 use Modules\Users\Entities\Role;
-use CVEPDB\Repositories\Roles\RoleRepositoryEloquent as RoleRepositoryEloquentParent;
+use Core\Domain\Roles\Repositories\RoleRepositoryEloquent as RepositoryEloquent;
 
 /**
  * Class RoleRepositoryEloquent
  * @package Modules\Users\Repositories
  */
-class RoleRepositoryEloquent extends RoleRepositoryEloquentParent
+class RoleRepositoryEloquent extends RepositoryEloquent
 {
     /**
      * Specify Model class name

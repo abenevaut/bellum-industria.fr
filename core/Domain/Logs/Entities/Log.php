@@ -1,15 +1,9 @@
-<?php
-
-namespace Modules\Core\Entities;
+<?php namespace Core\Domain\Logs\Entities;
 
 use Illuminate\Database\Eloquent\Model;
-use Prettus\Repository\Contracts\Transformable;
-use Prettus\Repository\Traits\TransformableTrait;
 
-class Log extends Model implements Transformable
+class Log extends Model
 {
-    use TransformableTrait;
-
     /**
      * The database table used by the model.
      *

@@ -1,12 +1,12 @@
 <?php namespace Modules\Users\Repositories;
 
-use CVEPDB\Repositories\Users\UserRepository as UserRepositoryParent;
+use Core\Domain\Users\Repositories\UserRepository as Repository;
 
 /**
  * Interface UserRepository
- * @package namespace App\Repositories;
+ * @package Modules\Users\Repositories
  */
-interface UserRepository extends UserRepositoryParent
+interface UserRepository extends Repository
 {
     //
 }

@@ -1,11 +1,8 @@
-<?php
-
-namespace App\Repositories;
+<?php namespace Core\Domain\Logs\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\LogRepository;
-use App\Repositories\Log;
+use Core\Domain\Logs\Entities\Log;
 use App\Validators\LogValidator;
 
 /**

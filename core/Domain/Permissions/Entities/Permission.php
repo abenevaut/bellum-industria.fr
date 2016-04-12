@@ -1,13 +1,16 @@
-<?php namespace Modules\Users\Entities;
+<?php namespace Core\Domain\Permissions\Entities;
 
-use Core\Domain\Roles\Entities\Role as RoleModel;
+use CVEPDB\Repositories\Permissions\Permission as Model;
+use Phoenix\EloquentMeta\MetaTrait;
 
 /**
- * Class Role
+ * Class Permission
  * @package Modules\Users\Entities
  */
-class Role extends RoleModel
+class Permission extends Model
 {
+    use MetaTrait;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -17,6 +20,6 @@ class Role extends RoleModel
         'name',
         'display_name',
         'description',
-        'unchangeable',
     ];
+
 }

@@ -1,6 +1,6 @@
-<?php namespace Modules\Users\Repositories;
+<?php namespace Core\Domain\Roles\Repositories;
 
-use Core\Domain\Roles\Repositories\RoleRepository as Repository;
+use CVEPDB\Domain\Roles\Repositories\RoleRepository as Repository;
 
 /**
  * Interface RoleRepository

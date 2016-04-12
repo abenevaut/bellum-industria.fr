@@ -1,6 +1,4 @@
-<?php
-
-namespace App\Repositories;
+<?php namespace Core\Domain\Logs\Repositories;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
 

@@ -1,4 +1,4 @@
-<?php namespace Core\Users\Entities;
+<?php namespace Core\Domain\Users\Entities;
 
 use CVEPDB\Domain\Users\Entities\User as Model;
 
