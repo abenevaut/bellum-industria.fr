@@ -1,10 +1,7 @@
 <?php namespace Core\Entities;
 
-use Illuminate\Database\Eloquent\Model;
-use Prettus\Repository\Contracts\Transformable;
-use Prettus\Repository\Traits\TransformableTrait;
+use CVEPDB\Abstracts\Entities\Model as AbsModel;
 
-class AbsModel extends Model implements Transformable
+class Model extends AbsModel
 {
-    use TransformableTrait;
 }

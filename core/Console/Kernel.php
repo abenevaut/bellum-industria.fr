@@ -13,7 +13,13 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        // Commands\Inspire::class,
+        \Core\Console\Commands\BindingsCommand::class,
+        \Core\Console\Commands\ControllerCommand::class,
+        \Core\Console\Commands\EntityCommand::class,
+        \Core\Console\Commands\PresenterCommand::class,
+        \Core\Console\Commands\RepositoryCommand::class,
+        \Core\Console\Commands\TransformerCommand::class,
+        \Core\Console\Commands\ValidatorCommand::class,
     ];
 
     /**

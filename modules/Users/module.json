@@ -9,11 +9,9 @@
     "Modules\\Users\\Providers\\PasswordResetServiceProvider",
     "Modules\\Users\\Providers\\UsersServiceProvider",
     "Modules\\Users\\Providers\\EventServiceProvider",
-    "Laravel\\Socialite\\SocialiteServiceProvider",
-    "CVEPDB\\Addresses\\AddressesServiceProvider"
+    "Laravel\\Socialite\\SocialiteServiceProvider"
   ],
   "aliases": {
-    "Addresses": "CVEPDB\\Addresses\\AddressesFacade",
     "Socialite": "Laravel\\Socialite\\Facades\\Socialite"
   },
   "files": [

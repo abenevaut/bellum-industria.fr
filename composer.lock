@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cc25b114021aafb34d9c131ddfd76b0f",
-    "content-hash": "fd338c01b728a867472540e3988cb420",
+    "hash": "290ba4f37d8fb3cdbfc8d1bf5eefd23d",
+    "content-hash": "d5fcf98812a66db6778f7e6ef349d3ce",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -59,16 +59,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.17.5",
+            "version": "3.17.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "1cef9b334729b3564c9aef15481a55561c54b53f"
+                "reference": "d5a5145263da88c9ba870b579c3d4f648b82d2a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1cef9b334729b3564c9aef15481a55561c54b53f",
-                "reference": "1cef9b334729b3564c9aef15481a55561c54b53f",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d5a5145263da88c9ba870b579c3d4f648b82d2a9",
+                "reference": "d5a5145263da88c9ba870b579c3d4f648b82d2a9",
                 "shasum": ""
             },
             "require": {
@@ -135,7 +135,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-04-07 22:44:13"
+            "time": "2016-04-11 17:36:01"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -1090,22 +1090,24 @@
         },
         {
             "name": "cvepdb/laravel",
-            "version": "dev-master",
+            "version": "1.0.52.7",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb/laravel.git",
-                "reference": "47cf96859c4fed937ae79055486f2190e3eeb0d1"
+                "reference": "0baaff591df5fef487abb3749596a90a66118035"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb%2Flaravel/repository/archive.zip?sha=47cf96859c4fed937ae79055486f2190e3eeb0d1",
-                "reference": "47cf96859c4fed937ae79055486f2190e3eeb0d1",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb%2Flaravel/repository/archive.zip?sha=0baaff591df5fef487abb3749596a90a66118035",
+                "reference": "0baaff591df5fef487abb3749596a90a66118035",
                 "shasum": ""
             },
             "require": {
                 "barryvdh/laravel-debugbar": "^2.2",
                 "chrisbjr/api-guard": "^3.1",
                 "creitive/laravel5-breadcrumbs": "^1.0",
+                "cvepdb/laravel-addresses": "1.0.52.*",
+                "cvepdb/laravel-settings": "1.2.52.*",
                 "doctrine/dbal": "~2.3",
                 "jenssegers/raven": "^1.4",
                 "laravel/socialite": "^2.0",
@@ -1136,6 +1138,9 @@
             },
             "type": "library",
             "autoload": {
+                "classmap": [
+                    "src/config"
+                ],
                 "psr-4": {
                     "CVEPDB\\": "src"
                 }
@@ -1159,7 +1164,113 @@
                 "laravel",
                 "middlewares"
             ],
-            "time": "2016-04-11 15:11:41"
+            "time": "2016-04-12 14:50:07"
+        },
+        {
+            "name": "cvepdb/laravel-addresses",
+            "version": "1.0.52.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CavaENCOREparlerdebits/laravel-addresses.git",
+                "reference": "654e4649f74d55adc6f5c4d28597cab4287ff5cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CavaENCOREparlerdebits/laravel-addresses/zipball/654e4649f74d55adc6f5c4d28597cab4287ff5cc",
+                "reference": "654e4649f74d55adc6f5c4d28597cab4287ff5cc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.2.*",
+                "laravelcollective/html": "5.2",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/migrations",
+                    "src/controllers"
+                ],
+                "psr-4": {
+                    "CVEPDB\\Addresses\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vasil Boshnyakov",
+                    "email": "boshnyakov@gmail.com"
+                },
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Helps you build multiple address storage like Amazon and PayPal have",
+            "homepage": "https://github.com/CavaENCOREparlerdebits/laravel-addresses",
+            "keywords": [
+                "address",
+                "addresses",
+                "laravel"
+            ],
+            "time": "2016-04-12 12:31:22"
+        },
+        {
+            "name": "cvepdb/laravel-settings",
+            "version": "1.2.52.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CavaENCOREparlerdebits/laravel-settings.git",
+                "reference": "e241c67efec309cd6a2b957c306c428cb74cfe79"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CavaENCOREparlerdebits/laravel-settings/zipball/e241c67efec309cd6a2b957c306c428cb74cfe79",
+                "reference": "e241c67efec309cd6a2b957c306c428cb74cfe79",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "illuminate/database": "~5.1",
+                "illuminate/events": "5.1.*",
+                "phpunit/phpunit": "4.6.*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "CVEPDB\\Settings\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Efriandika Pratama",
+                    "email": "efriandika@gmail.com"
+                },
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Laravel 5 Persistent Settings",
+            "keywords": [
+                "Settings",
+                "laravel",
+                "persistent"
+            ],
+            "time": "2016-04-12 13:28:48"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2639,16 +2750,16 @@
         },
         {
             "name": "laravelcollective/html",
-            "version": "5.2.x-dev",
+            "version": "v5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "02c75dff24fa9c306a907816ee6cff8c85a0d96b"
+                "reference": "5a8f1380a0d5ef21cdef37e775d86566307f8358"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/02c75dff24fa9c306a907816ee6cff8c85a0d96b",
-                "reference": "02c75dff24fa9c306a907816ee6cff8c85a0d96b",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/5a8f1380a0d5ef21cdef37e775d86566307f8358",
+                "reference": "5a8f1380a0d5ef21cdef37e775d86566307f8358",
                 "shasum": ""
             },
             "require": {
@@ -2689,7 +2800,7 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
-            "time": "2016-03-03 04:07:38"
+            "time": "2015-12-23 07:46:46"
         },
         {
             "name": "league/flysystem",
@@ -4118,12 +4229,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/andersao/l5-repository.git",
-                "reference": "5befb2d43fbcc06fd47a505d4f93f1c0e3844424"
+                "reference": "ebb2f779457702aa4db5085da64889496e1eea0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/5befb2d43fbcc06fd47a505d4f93f1c0e3844424",
-                "reference": "5befb2d43fbcc06fd47a505d4f93f1c0e3844424",
+                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/ebb2f779457702aa4db5085da64889496e1eea0a",
+                "reference": "ebb2f779457702aa4db5085da64889496e1eea0a",
                 "shasum": ""
             },
             "require": {
@@ -4170,7 +4281,7 @@
                 "model",
                 "repository"
             ],
-            "time": "2016-04-01 20:59:17"
+            "time": "2016-04-12 12:09:58"
         },
         {
             "name": "prettus/laravel-validation",
@@ -4820,16 +4931,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "3.17.3",
+            "version": "3.17.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "a9762c74a95eacd0cb697742ce117a7876edd5f7"
+                "reference": "7f96cd3c709643ab0dde977936b98a7f75396d31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/a9762c74a95eacd0cb697742ce117a7876edd5f7",
-                "reference": "a9762c74a95eacd0cb697742ce117a7876edd5f7",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/7f96cd3c709643ab0dde977936b98a7f75396d31",
+                "reference": "7f96cd3c709643ab0dde977936b98a7f75396d31",
                 "shasum": ""
             },
             "require": {
@@ -4876,7 +4987,7 @@
                 "media",
                 "spatie"
             ],
-            "time": "2016-04-04 14:28:53"
+            "time": "2016-04-12 09:57:52"
         },
         {
             "name": "spatie/pdf-to-image",
@@ -4987,12 +5098,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "9654d86b28d7b49f2cd6807742335581e7dfd4e7"
+                "reference": "ace4b5cb9ce909587222bd389dc4744e310bf26d"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/ace4b5cb9ce909587222bd389dc4744e310bf26d",
-                "reference": "9654d86b28d7b49f2cd6807742335581e7dfd4e7",
+                "reference": "ace4b5cb9ce909587222bd389dc4744e310bf26d",
                 "shasum": ""
             },
             "require": {
@@ -5037,7 +5148,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-04-11 08:37:42"
+            "time": "2016-04-12 11:30:03"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6378,12 +6489,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "c38beaa63816ed065ffcdec95ff8be4609065204"
+                "reference": "2a751371d6558acba23f06acd2ad15b167b7a3ba"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/Codeception/Codeception/zipball/2a751371d6558acba23f06acd2ad15b167b7a3ba",
-                "reference": "c38beaa63816ed065ffcdec95ff8be4609065204",
+                "reference": "2a751371d6558acba23f06acd2ad15b167b7a3ba",
                 "shasum": ""
             },
             "require": {
@@ -6455,7 +6566,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2016-04-08 00:11:54"
+            "time": "2016-04-12 10:33:17"
         },
         {
             "name": "deployer/deployer",
@@ -6568,16 +6679,16 @@
         },
         {
             "name": "deployphp/recipes",
-            "version": "dev-master",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/deployphp/recipes.git",
-                "reference": "bdcf49f8e409971b79583aeed618aa87ae714f93"
+                "reference": "01d1a3b86350903c673eaa562c11e63f30c3b409"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/deployphp/recipes/zipball/01d1a3b86350903c673eaa562c11e63f30c3b409",
-                "reference": "bdcf49f8e409971b79583aeed618aa87ae714f93",
+                "reference": "01d1a3b86350903c673eaa562c11e63f30c3b409",
                 "shasum": ""
             },
             "type": "library",
@@ -6621,7 +6732,7 @@
                 "recipes",
                 "slack"
             ],
-            "time": "2016-03-15 20:24:07"
+            "time": "2016-04-12 08:46:40"
         },
         {
             "name": "doctrine/instantiator",
@@ -6812,52 +6923,6 @@
                 "webdriver"
             ],
             "time": "2015-12-31 15:58:49"
-        },
-        {
-            "name": "felixkiss/uniquewith-validator",
-            "version": "2.0.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/felixkiss/uniquewith-validator.git",
-                "reference": "7b166096749923512615fc0fba992fd65b0c3b9e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/felixkiss/uniquewith-validator/zipball/7b166096749923512615fc0fba992fd65b0c3b9e",
-                "reference": "7b166096749923512615fc0fba992fd65b0c3b9e",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "5.x",
-                "illuminate/validation": "5.x",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "~0.9",
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Felixkiss\\UniqueWithValidator\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Felix Kiss",
-                    "email": "felix@felixkiss.com"
-                }
-            ],
-            "description": "Custom Laravel Validator for combined unique indexes",
-            "homepage": "https://github.com/felixkiss/uniquewith-validator",
-            "keywords": [
-                "laravel"
-            ],
-            "time": "2016-02-11 14:14:06"
         },
         {
             "name": "fzaninotto/faker",
@@ -8074,15 +8139,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "8556b20220f39d4d0082e0610f53a269de44248c"
+                "reference": "b3171cc63f44c715a2b29200d9549d866e94d123"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/b3171cc63f44c715a2b29200d9549d866e94d123",
-                "reference": "8556b20220f39d4d0082e0610f53a269de44248c",
+                "reference": "b3171cc63f44c715a2b29200d9549d866e94d123",
                 "shasum": ""
             },
             "require": {
+                "paragonie/random_compat": "^1.4|^2.0",
                 "php": ">=5.3.3"
             },
             "require-dev": {
@@ -8094,7 +8160,8 @@
             "suggest": {
                 "ext-gmp": "Install the GMP (GNU Multiple Precision) extension in order to speed up arbitrary precision integer arithmetic operations.",
                 "ext-libsodium": "SSH2/SFTP can make use of some algorithms provided by the libsodium-php extension.",
-                "ext-mcrypt": "Install the Mcrypt extension in order to speed up a wide variety of cryptographic operations."
+                "ext-mcrypt": "Install the Mcrypt extension in order to speed up a few other cryptographic operations.",
+                "ext-openssl": "Install the OpenSSL extension in order to speed up a wide variety of cryptographic operations."
             },
             "type": "library",
             "autoload": {
@@ -8106,9 +8173,6 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "include-path": [
-                "phpseclib/"
-            ],
             "license": [
                 "MIT"
             ],
@@ -8131,6 +8195,11 @@
                 {
                     "name": "Hans-Jürgen Petrich",
                     "email": "petrich@tronic-media.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@alt-three.com",
                     "role": "Developer"
                 }
             ],
@@ -8155,7 +8224,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2016-04-10 16:57:58"
+            "time": "2016-04-12 00:30:45"
         },
         {
             "name": "phpspec/prophecy",
@@ -8466,12 +8535,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "5a481bd0a79d94af635e47d2e02ddda84d00ce2c"
+                "reference": "5b6283a80cdb98dd482a86eee75f8e6a8f598cd8"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/5b6283a80cdb98dd482a86eee75f8e6a8f598cd8",
-                "reference": "5a481bd0a79d94af635e47d2e02ddda84d00ce2c",
+                "reference": "5b6283a80cdb98dd482a86eee75f8e6a8f598cd8",
                 "shasum": ""
             },
             "require": {
@@ -8487,7 +8556,7 @@
                 "phpunit/php-file-iterator": "~1.4",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": "^1.0.6",
-                "phpunit/phpunit-mock-objects": "^3.1",
+                "phpunit/phpunit-mock-objects": "^3.2",
                 "sebastian/comparator": "~1.1",
                 "sebastian/diff": "~1.2",
                 "sebastian/environment": "~1.3",
@@ -8533,7 +8602,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-04-10 09:46:33"
+            "time": "2016-04-12 10:13:44"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -8541,12 +8610,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "7b18bbdad9880e09740959e90eec4b91c35a4aa9"
+                "reference": "0f05e28d831e5ecca7f224bff6e5072391abda47"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/0f05e28d831e5ecca7f224bff6e5072391abda47",
-                "reference": "7b18bbdad9880e09740959e90eec4b91c35a4aa9",
+                "reference": "0f05e28d831e5ecca7f224bff6e5072391abda47",
                 "shasum": ""
             },
             "require": {
@@ -8556,7 +8625,7 @@
                 "sebastian/exporter": "~1.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5"
+                "phpunit/phpunit": "^5.4"
             },
             "suggest": {
                 "ext-soap": "*"
@@ -8564,7 +8633,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1.x-dev"
+                    "dev-master": "3.2.x-dev"
                 }
             },
             "autoload": {
@@ -8589,7 +8658,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2016-03-24 06:24:17"
+            "time": "2016-04-12 09:35:37"
         },
         {
             "name": "react/cache",
@@ -9911,7 +9980,6 @@
     "stability-flags": {
         "beelab/bowerphp": 10,
         "composer/composer": 10,
-        "cvepdb/laravel": 20,
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,
         "cvepdb-cms/theme-flatly": 20
