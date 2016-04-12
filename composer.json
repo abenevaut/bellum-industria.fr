@@ -32,7 +32,8 @@
     "league/factory-muffin-faker": "^1.0",
     "codeception/codeception": "*",
     "deployer/deployer": "^3.0",
-    "deployphp/recipes": "~3.0"
+    "deployphp/recipes": "~3.0",
+    "phpmetrics/phpmetrics": "^1.10"
   },
   "autoload": {
     "classmap": [
