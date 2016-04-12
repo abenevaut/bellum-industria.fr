@@ -1,8 +1,8 @@
 <?php namespace Modules\Dashboard\Entities;
 
-use Core\Entities\AbsModel;
+use Core\Entities\Model;
 
-class Dashboard extends AbsModel
+class Dashboard extends Model
 {
     /**
      * The database table used by the model.
