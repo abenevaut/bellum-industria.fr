@@ -1,7 +1,7 @@
 <?php namespace Core\Entities;
 
-use CVEPDB\Abstracts\Entities\Model as AbsModel;
+use CVEPDB\Abstracts\Entities\Model;
 
-class Model extends AbsModel
+class AbsModel extends Model
 {
 }

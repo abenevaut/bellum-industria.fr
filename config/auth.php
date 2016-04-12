@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => CVEPDB\Repositories\Users\User::class,
+            'model' => Core\Users\Entities\User::class,
         ],
 
         // 'users' => [
