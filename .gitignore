@@ -13,7 +13,16 @@ public/uploads/*
 resources/views/modules/*
 .env.production
 
+# Modules directory
 modules/Themes
 
+# Tests
 tests/_output/*
 tests/_support/_generated/*
+
+# Deployer
+!deployer/shared/.env.example
+deployer/release
+deployer/releases
+deploy.yml
+deployer/current
