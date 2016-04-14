@@ -4,6 +4,7 @@ use Modules\Users\Entities\User;
 use Core\Domain\Users\Repositories\UserRepositoryEloquent as UserRepositoryEloquentParent;
 use Modules\Users\Criterias\EmailLikeCriteria;
 use Modules\Users\Criterias\UserNameLikeCriteria;
+use Illuminate\Container\Container as Application;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
 
 /**
@@ -12,6 +13,11 @@ use Modules\Users\Repositories\RoleRepositoryEloquent;
  */
 class UserRepositoryEloquent extends UserRepositoryEloquentParent
 {
+    public function __construct(Application $app, RoleRepositoryEloquent $r_roles)
+    {
+        parent::__construct($app, $r_roles);
+    }
+
     /**
      * Specify Model class name
      *

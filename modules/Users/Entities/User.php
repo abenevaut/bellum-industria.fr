@@ -1,14 +1,9 @@
 <?php namespace Modules\Users\Entities;
 
-use CVEPDB\Repositories\Users\User as UserModel;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Conner\Addresses\Addressable;
+use Core\Domain\Users\Entities\User as Model;
 
-class User extends UserModel
+class User extends Model
 {
-    use SoftDeletes;
-    use Addressable;
-
     /**
      * The attributes that are mass assignable.
      *
