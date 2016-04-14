@@ -177,6 +177,7 @@ return [
         Core\Providers\EventServiceProvider::class,
         Core\Providers\RouteServiceProvider::class,
         Core\Providers\ModulesServiceProvider::class,
+        CVEPDB\Addresses\AddressesServiceProvider::class,
     ],
 
     /*

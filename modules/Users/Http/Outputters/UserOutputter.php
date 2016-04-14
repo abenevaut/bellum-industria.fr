@@ -5,10 +5,10 @@ use Config;
 use Session;
 use Request;
 use Core\Http\Outputters\AdminOutputter;
-use CVEPDB\Requests\IFormRequest;
+use CVEPDB\Contracts\Http\Requests\FormRequest as IFormRequest;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
-use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
+use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
 use Modules\Users\Events\Admin\UserUpdatedEvent;
 use Modules\Users\Events\Admin\UserDeletedEvent;
 
