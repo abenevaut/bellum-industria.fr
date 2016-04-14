@@ -1,8 +1,8 @@
 <?php namespace Modules\Files\Outputters;
 
 use Widget;
-use App\Http\Admin\Outputters\AdminOutputter;
-use CVEPDB\Requests\IFormRequest;
+use Core\Http\Outputters\AdminOutputter;
+use CVEPDB\Contracts\Http\Requests\IFormRequest;
 use Modules\Files\Repositories\FolderRepositoryEloquent;
 
 class FilesOutputter extends AdminOutputter

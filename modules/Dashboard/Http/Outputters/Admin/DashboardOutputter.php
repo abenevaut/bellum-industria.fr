@@ -14,12 +14,12 @@ class DashboardOutputter extends AdminOutputter
     /**
      * @var string Outputter header title
      */
-    protected $title = 'admin.dashboard.meta_title';
+    protected $title = 'dashboard::admin.dashboard.meta_title';
 
     /**
      * @var string Outputter header description
      */
-    protected $description = 'admin.dashboard.meta_description';
+    protected $description = 'dashboard::admin.dashboard.meta_description';
 
     /**
      * @var null UserRepositoryEloquent

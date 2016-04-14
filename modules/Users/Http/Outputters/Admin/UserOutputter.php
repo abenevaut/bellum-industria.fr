@@ -6,17 +6,17 @@ use Session;
 use Request;
 use Event;
 use Core\Http\Outputters\AdminOutputter;
-use CVEPDB\Requests\IFormRequest;
+use CVEPDB\Contracts\Http\Requests\IFormRequest;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
 use Modules\Users\Transformers\UsersAdminExcelTransformer;
 use Modules\Users\Presenters\UsersAdminExcelPresenter;
-use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
+use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
 use \Maatwebsite\Excel\Files\NewExcelFile;
 use Modules\Users\Events\Admin\UserCreatedEvent;
 use Modules\Users\Events\Admin\UserUpdatedEvent;
 use Modules\Users\Events\Admin\UserDeletedEvent;
-use Conner\Addresses\AddressesFacade as Addresses;
+//use Conner\Addresses\AddressesFacade as Addresses;
 
 class UserOutputter extends AdminOutputter
 {

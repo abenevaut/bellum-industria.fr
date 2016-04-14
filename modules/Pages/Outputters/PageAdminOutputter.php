@@ -1,8 +1,8 @@
 <?php namespace Modules\Pages\Outputters;
 
 use Config;
-use App\Http\Admin\Outputters\AdminOutputter;
-use CVEPDB\Requests\IFormRequest;
+use Core\Http\Outputters\AdminOutputter;
+use CVEPDB\Contracts\Http\Requests\IFormRequest;
 use Modules\Pages\Repositories\PagesRepositoryEloquent;
 
 class PageAdminOutputter extends AdminOutputter
