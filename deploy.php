@@ -4,27 +4,33 @@
 require 'recipe/common.php';
 require 'vendor/deployphp/recipes/recipes/local.php';
 
-// Specific a OVH Mutualisé
-//env('bin/php', function () {
-//    return run('which php.TEST.5')->toString();
-//});
-
 serverList('deploy.yml');
 // Where we run the deployement
 env('local_deploy_path', './deployer');
 // Removes old releases and keeps the last 5
 set('keep_releases', 5);
 
-set('repository', 'git@gitlab.com:cvepdb-bedrock/demo.git');
+set('repository', 'https://gitlab.com/cvepdb/cms.git');
 env('branch', 'master');
 env('env_vars', ''); // For Composer installation. Like SYMFONY_ENV=prod
 env('composer_options', 'install --no-dev --verbose --prefer-dist --optimize-autoloader --no-progress --no-interaction');
-
-// Bedrock shared file
-set('shared_files', ['.env', 'web/.htaccess', 'web/.ovhconfig', 'config/environments/production.php']);
-// Bedrock writable dirs
-set('writable_dirs', ['web/app/uploads']);
-
+// CMS shared file
+set('shared_files', ['.env', '.env.production']);
+// Todo : CMS shared directories
+//set('shared_dirs', [
+//    'storage/app',
+//    'storage/framework/cache',
+//    'storage/framework/sessions',
+//    'storage/framework/views',
+//    'storage/logs',
+//]);
+// CMS writable dirs
+set('writable_dirs', ['bootstrap/cache', 'storage']);
+// Specific to OVH Mutualised
+//env('bin/php', function () {
+//    return run('which php.TEST.5')->toString();
+//});
+// Composer local path
 env('bin/composer', function () {
     $composer = runLocally('which composer')->toString();
     return $composer;
