@@ -156,13 +156,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         /*
-         * Application Service Providers...
-         */
-        Core\Providers\AppServiceProvider::class,
-        Core\Providers\AuthServiceProvider::class,
-        Core\Providers\EventServiceProvider::class,
-        Core\Providers\RouteServiceProvider::class,
-        /*
          * CMS
          */
         Zizaco\Entrust\EntrustServiceProvider::class,
@@ -176,6 +169,14 @@ return [
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         'Phoenix\EloquentMeta\ServiceProvider',
         'Maatwebsite\Excel\ExcelServiceProvider',
+        /*
+         * Core Service Providers...
+         */
+        Core\Providers\AppServiceProvider::class,
+        Core\Providers\AuthServiceProvider::class,
+        Core\Providers\EventServiceProvider::class,
+        Core\Providers\RouteServiceProvider::class,
+        Core\Providers\ModulesServiceProvider::class,
     ],
 
     /*

@@ -1,10 +1,10 @@
 <?php namespace Modules\Users\Widgets;
 
 use Widget;
-use Core\Http\Contracts\AbsWidgets;
+use CVEPDB\Contracts\Widgets;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 
-class CountUsers extends AbsWidgets
+class CountUsers implements Widgets
 {
     /**
      * @var string Widget title
@@ -34,6 +34,49 @@ class CountUsers extends AbsWidgets
     public function __construct(UserRepositoryEloquent $r_user)
     {
         $this->r_user = $r_user;
+    }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    public function getTitlte()
+    {
+        return $this->title;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setModuleName($module_name)
+    {
+        $this->module = $module_name . '::';
+    }
+
+    public function getModuleName()
+    {
+        return $this->module;
+    }
+
+    public function output($view, $data = [])
+    {
+        return cmsview($view, $data, $this->view_prefix, $this->module);
+    }
+
+    public function widgetInformation()
+    {
+        return [
+            'title' => $this->getTitlte(),
+            'description' => $this->getDescription(),
+        ];
     }
 
     public function register($action = null)

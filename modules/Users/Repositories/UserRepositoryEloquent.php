@@ -1,7 +1,7 @@
 <?php namespace Modules\Users\Repositories;
 
 use Modules\Users\Entities\User;
-use CVEPDB\Repositories\Users\UserRepositoryEloquent as UserRepositoryEloquentParent;
+use Core\Domain\Users\Repositories\UserRepositoryEloquent as UserRepositoryEloquentParent;
 use Modules\Users\Criterias\EmailLikeCriteria;
 use Modules\Users\Criterias\UserNameLikeCriteria;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
