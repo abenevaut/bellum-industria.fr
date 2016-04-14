@@ -4,13 +4,19 @@
 /public/storage
 Homestead.yaml
 Homestead.json
-.env
 resources/assets/bower
 public/assets/*
 public/modules/*
 public/themes/*
 public/uploads/*
 resources/views/modules/*
+
+# Dotenv
+.env
+.env.*
+!.env.example
+!.env.installer
+!.env.testing
 .env.production
 
 # Modules directory
@@ -22,6 +28,7 @@ tests/_support/_generated/*
 
 # Deployer
 !deployer/shared/.env.example
+!deployer/shared/.env.production.example
 deployer/release
 deployer/releases
 deploy.yml
