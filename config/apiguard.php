@@ -16,9 +16,9 @@ return [
 
     'models'               => [
 
-        'apiKey' => \Modules\Users\Entities\ApiKey::class,
+        'apiKey' => \Core\Domain\Users\Entities\ApiKey::class,
 
-        'apiLog' => \Modules\Users\Entities\ApiLog::class,
+        'apiLog' => \Core\Domain\Users\Entities\ApiLog::class,
 
     ],
 

@@ -1,6 +1,6 @@
 <?php namespace Core\Domain\Permissions\Entities;
 
-use CVEPDB\Repositories\Permissions\Permission as Model;
+use CVEPDB\Domain\Permissions\Entities\Permission as Model;
 use Phoenix\EloquentMeta\MetaTrait;
 
 /**

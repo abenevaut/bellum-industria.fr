@@ -1,4 +1,4 @@
-<?php namespace Modules\Users\Repositories;
+<?php namespace Core\Domain\Users\Repositories;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
 

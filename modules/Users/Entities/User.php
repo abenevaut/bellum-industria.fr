@@ -22,12 +22,4 @@ class User extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-
-    /**
-     * The apikey that belong to the user.
-     */
-    public function apikey()
-    {
-        return $this->hasOne('Modules\Users\Entities\ApiKey');
-    }
 }

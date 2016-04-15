@@ -1,4 +1,4 @@
-<?php namespace Modules\Users\Entities;
+<?php namespace Core\Domain\Users\Entities;
 
 use Chrisbjr\ApiGuard\Models\ApiLog as ApiLogApiGuard;
 use Prettus\Repository\Contracts\Transformable;
@@ -21,6 +21,6 @@ class ApiLog extends ApiLogApiGuard implements Transformable
      */
     public function apikey()
     {
-        return $this->hasOne('Modules\Users\Entities\ApiKey', 'api_key_id');
+        return $this->hasOne('Core\Domain\Users\Entities\ApiKey', 'api_key_id');
     }
 }

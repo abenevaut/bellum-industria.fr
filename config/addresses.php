@@ -22,12 +22,9 @@ return [
     'geocode' => false,
 
     'user' => array(
-
         // user model class
-        'model' => 'Modules\Users\Entities\User',
-
+        'model' => 'Core\Domain\Users\Entities\User',
         // Function to fetch currently logged in user. Any valid $callback to call_user_func works here
         'current' => '\Auth::user',
-
     ),
 ];

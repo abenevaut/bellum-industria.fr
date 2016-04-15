@@ -1,10 +1,10 @@
-<?php namespace Modules\Users\Repositories;
+<?php namespace Core\Domain\Users\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use Modules\Users\Repositories\ApiKeyRepository;
-use Modules\Users\Entities\ApiKey;
-use Modules\Users\Entities\User;
+use Core\Domain\Users\Repositories\ApiKeyRepository;
+use Core\Domain\Users\Entities\ApiKey;
+use Core\Domain\Users\Entities\User;
 
 /**
  * Class ApiKeyRepositoryEloquent

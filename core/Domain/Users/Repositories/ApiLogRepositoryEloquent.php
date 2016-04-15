@@ -1,9 +1,9 @@
-<?php namespace Modules\Users\Repositories;
+<?php namespace Core\Domain\Users\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use Modules\Users\Repositories\ApiLogRepository;
-use Modules\Users\Entities\ApiLog;
+use Core\Domain\Users\Repositories\ApiLogRepository;
+use Core\Domain\Users\Entities\ApiLog;
 
 /**
  * Class ApiLogRepositoryEloquent
