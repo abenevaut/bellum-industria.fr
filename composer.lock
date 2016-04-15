@@ -1095,12 +1095,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb/laravel.git",
-                "reference": "7ae1b4e25d20b08c8d651541d5f417c46af7785a"
+                "reference": "6a119d6235db6e62a8c27cb34630cee71bb8b9c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb%2Flaravel/repository/archive.zip?sha=7ae1b4e25d20b08c8d651541d5f417c46af7785a",
-                "reference": "7ae1b4e25d20b08c8d651541d5f417c46af7785a",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb%2Flaravel/repository/archive.zip?sha=6a119d6235db6e62a8c27cb34630cee71bb8b9c2",
+                "reference": "6a119d6235db6e62a8c27cb34630cee71bb8b9c2",
                 "shasum": ""
             },
             "require": {
@@ -1165,7 +1165,7 @@
                 "laravel",
                 "middlewares"
             ],
-            "time": "2016-04-15 10:52:21"
+            "time": "2016-04-15 12:56:56"
         },
         {
             "name": "cvepdb/laravel-addresses",
