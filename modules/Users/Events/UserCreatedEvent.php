@@ -5,6 +5,10 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Modules\Users\Entities\User;
 
+/**
+ * Class UserCreatedEvent
+ * @package Modules\Users\Events
+ */
 class UserCreatedEvent extends Event
 {
     use SerializesModels;
