@@ -1,24 +1,32 @@
 <?php namespace Modules\Users\Criterias;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
-use Core\Criterias\Criteria as CriteriaInterface;
+use Core\Criterias\Criteria as AbsCriteria;
 
 /**
  * Class UserNameLikeCriteria
  * @package Modules\Users\Criterias
  */
-class UserNameLikeCriteria extends CriteriaInterface
+class UserNameLikeCriteria extends AbsCriteria
 {
     /**
      * @var array emails list
      */
     private $name = null;
 
+    /**
+     * @param array $name
+     */
     public function __construct($name = [])
     {
         $this->name = $name;
     }
 
+    /**
+     * @param $model
+     * @param RepositoryInterface $repository
+     * @return mixed
+     */
     public function apply($model, RepositoryInterface $repository)
     {
         $model = $model

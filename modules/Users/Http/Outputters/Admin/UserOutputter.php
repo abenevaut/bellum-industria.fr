@@ -16,8 +16,12 @@ use \Maatwebsite\Excel\Files\NewExcelFile;
 use Modules\Users\Events\Admin\UserCreatedEvent;
 use Modules\Users\Events\Admin\UserUpdatedEvent;
 use Modules\Users\Events\Admin\UserDeletedEvent;
-//use Conner\Addresses\AddressesFacade as Addresses;
+use CVEPDB\Addresses\AddressesFacade as Addresses;
 
+/**
+ * Class UserOutputter
+ * @package Modules\Users\Http\Outputters\Admin
+ */
 class UserOutputter extends AdminOutputter
 {
     /**
