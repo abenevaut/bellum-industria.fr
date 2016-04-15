@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab_2">
-                                @foreach (\Config::get('users.flags') as $type)
+                                @foreach (\Config::get('addresses.flags') as $type)
 
                                     {{-- Todo : Change this --}}
                                     <?php $current_address = null; ?>

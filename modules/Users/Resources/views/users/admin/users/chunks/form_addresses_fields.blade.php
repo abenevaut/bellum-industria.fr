@@ -2,12 +2,12 @@
 
 <div class="form-group form-group-default">
     {!! Form::label('country', 'Country', array('class'=>'control-label')) !!}
-    {!! Addresses::selectCountry('address['.$type.'][country]', old('address['.$type.'][country]', (!empty($address) ? $address->country : \Config::get('users.default_country'))), array('class'=>'form-control js-call-select2', 'data-type' => $type)) !!}
+    {!! Addresses::selectCountry('address['.$type.'][country]', old('address['.$type.'][country]', (!empty($address) ? $address->country : \Config::get('addresses.default_country'))), array('class'=>'form-control js-call-select2', 'data-type' => $type)) !!}
 </div>
 
 <div class="form-group form-group-default">
     {!! Form::label('state', 'State / Province', array('class'=>'control-label')) !!}
-    {!! Addresses::selectState('address['.$type.'][state]', old('address['.$type.'][state]', (!empty($address) ? $address->state : null)), array('class'=>'form-control js-call-select2', 'data-type' => $type, 'country'=>\Config::get('users.default_country'))) !!}
+    {!! Addresses::selectState('address['.$type.'][state]', old('address['.$type.'][state]', (!empty($address) ? $address->state : null)), array('class'=>'form-control js-call-select2', 'data-type' => $type, 'country'=>\Config::get('addresses.default_country'))) !!}
 </div>
 
 <div class="form-group form-group-default">

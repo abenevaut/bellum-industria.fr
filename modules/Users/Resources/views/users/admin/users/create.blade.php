@@ -106,7 +106,7 @@
                             <div class="tab-pane" id="tab_2">
 
 
-                                @foreach (\Config::get('users.flags') as $type)
+                                @foreach (\Config::get('addresses.flags') as $type)
 
                                     <div class="box box-widget collapsed-box">
                                         <div class="box-header with-border">

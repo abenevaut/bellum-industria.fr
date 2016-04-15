@@ -1,10 +1,12 @@
 <?php namespace Modules\Users\Exports;
 
+use \Maatwebsite\Excel\Files\NewExcelFile;
+
 /**
  * Class UsersListAdminExport
  * @package Modules\Users\Exports
  */
-class UsersListAdminExport extends \Maatwebsite\Excel\Files\NewExcelFile
+class UsersListAdminExport extends NewExcelFile
 {
     /**
      * @return string
