@@ -1,9 +1,13 @@
 <?php namespace Modules\Users\Criterias;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
-use Prettus\Repository\Contracts\CriteriaInterface;
+use Core\Criterias\Criteria as CriteriaInterface;
 
-class EmailLikeCriteria implements CriteriaInterface
+/**
+ * Class EmailLikeCriteria
+ * @package Modules\Users\Criterias
+ */
+class EmailLikeCriteria extends CriteriaInterface
 {
     /**
      * @var array emails list

@@ -8,6 +8,10 @@ use Illuminate\Contracts\Mail\Mailer as MailerContract;
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Auth\Passwords\TokenRepositoryInterface;
 
+/**
+ * Class PasswordBroker
+ * @package Modules\Users\Brokers
+ */
 class PasswordBroker extends IlluminatePasswordBroker
 {
     /*

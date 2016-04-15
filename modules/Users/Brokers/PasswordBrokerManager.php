@@ -4,6 +4,10 @@ use InvalidArgumentException;
 use Illuminate\Contracts\Auth\PasswordBrokerFactory as FactoryContract;
 use Illuminate\Auth\Passwords\DatabaseTokenRepository;
 
+/**
+ * Class PasswordBrokerManager
+ * @package Modules\Users\Brokers
+ */
 class PasswordBrokerManager implements FactoryContract
 {
     /**
