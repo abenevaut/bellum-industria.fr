@@ -2,7 +2,7 @@
 
 use Config;
 use Core\Http\Outputters\FrontOutputter;
-use CVEPDB\Repositories\Roles\RoleRepositoryEloquent;
+use Modules\Users\Repositories\RoleRepositoryEloquent;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
 use Modules\Users\Events\UserCreatedEvent;

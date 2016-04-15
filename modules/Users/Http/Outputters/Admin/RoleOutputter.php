@@ -2,7 +2,7 @@
 
 use Config;
 use Core\Http\Outputters\AdminOutputter;
-use CVEPDB\Contracts\Http\Requests\FormRequest as IFormRequest;
+use Core\Http\Requests\FormRequest as IFormRequest;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
 use Modules\Users\Repositories\PermissionRepositoryEloquent;
 

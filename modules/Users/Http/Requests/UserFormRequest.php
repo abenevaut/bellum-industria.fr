@@ -1,8 +1,8 @@
 <?php namespace Modules\Users\Http\Requests;
 
-use CVEPDB\Requests\Request;
+use Core\Http\Requests\FormRequest;
 
-class UserFormRequest extends Request
+class UserFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

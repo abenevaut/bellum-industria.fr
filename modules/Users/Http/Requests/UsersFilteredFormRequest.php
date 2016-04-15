@@ -1,6 +1,6 @@
 <?php namespace Modules\Users\Http\Requests;
 
-use CVEPDB\Abstracts\Http\Requests\FormRequest;
+use Core\Http\Requests\FormRequest;
 
 class UsersFilteredFormRequest extends FormRequest
 {

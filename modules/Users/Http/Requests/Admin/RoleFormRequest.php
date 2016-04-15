@@ -1,8 +1,12 @@
 <?php namespace Modules\Users\Http\Requests\Admin;
 
-use CVEPDB\Requests\Request;
+use Core\Http\Requests\FormRequest;
 
-class RoleFormRequest extends Request
+/**
+ * Class RoleFormRequest
+ * @package Modules\Users\Http\Requests\Admin
+ */
+class RoleFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
