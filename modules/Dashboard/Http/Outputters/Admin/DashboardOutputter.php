@@ -2,8 +2,8 @@
 
 use Widget;
 use Core\Http\Outputters\AdminOutputter;
-use CVEPDB\Requests\IFormRequest;
-use Modules\Dashboard\Repositories\DashboardRepositoryEloquent;
+use Core\Http\Requests\FormRequest as IFormRequest;
+use Modules\Dashboard\Repositories\SettingsRepository;
 
 /**
  * Class DashboardOutputter
@@ -21,19 +21,11 @@ class DashboardOutputter extends AdminOutputter
      */
     protected $description = 'dashboard::admin.dashboard.meta_description';
 
-    /**
-     * @var null UserRepositoryEloquent
-     */
-    private $r_dashboard = null;
-
     public function __construct(
-        DashboardRepositoryEloquent $r_dashboard
+        SettingsRepository $r_settings
     )
     {
-        parent::__construct();
-
-        $this->r_dashboard = $r_dashboard;
-
+        parent::__construct($r_settings);
         $this->set_current_module('dashboard');
     }
 
@@ -42,7 +34,7 @@ class DashboardOutputter extends AdminOutputter
      */
     public function index()
     {
-        $widgets = $this->r_dashboard->activeWidgets();
+        $widgets = $this->r_settings->activeWidgets();
 
         return $this->output(
             'dashboard.admin.index',
@@ -52,30 +44,40 @@ class DashboardOutputter extends AdminOutputter
         );
     }
 
+    /**
+     * @param IFormRequest $request
+     * @return array
+     */
     public function update(IFormRequest $request)
     {
         $status = $request->get('status');
         $id = $request->get('id');
 
         switch ($status) {
-            case DashboardRepositoryEloquent::DASHBOARD_WIDGET_STATUS_ACTIVE: {
-                $this->r_dashboard->update(['status' => DashboardRepositoryEloquent::DASHBOARD_WIDGET_STATUS_ACTIVE], $id);
+            case SettingsRepository::DASHBOARD_WIDGET_STATUS_ACTIVE: {
+                $this->r_settings->update(['status' => SettingsRepository::DASHBOARD_WIDGET_STATUS_ACTIVE], $id);
                 break;
             }
-            case DashboardRepositoryEloquent::DASHBOARD_WIDGET_STATUS_INACTIVE:
+            case SettingsRepository::DASHBOARD_WIDGET_STATUS_INACTIVE:
             default: {
-                $this->r_dashboard->update(['status' => DashboardRepositoryEloquent::DASHBOARD_WIDGET_STATUS_INACTIVE], $id);
+                $this->r_settings->update(['status' => SettingsRepository::DASHBOARD_WIDGET_STATUS_INACTIVE], $id);
             }
         }
         return ['results' => 'success'];
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit()
     {
-        $this->r_dashboard->checkWidgetsList();
+        $this->r_settings->checkWidgetsList();
 
-        $active_widgets = $this->r_dashboard->activeWidgets();
-        $inactive_widgets = $this->r_dashboard->inactiveWidgets();
+        $active_widgets = $this->r_settings->activeWidgets();
+
+        dd($active_widgets);
+
+        $inactive_widgets = $this->r_settings->inactiveWidgets();
 
         return $this->output(
             'dashboard.admin.settings',

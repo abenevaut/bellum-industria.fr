@@ -23,7 +23,7 @@
 
     <div class="row">
 
-        @if ($widgets->count())
+        @if (count($widgets))
             @foreach ($widgets as $widget)
 
                 {!! Widget::get($widget->name) !!}

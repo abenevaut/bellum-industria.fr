@@ -178,6 +178,7 @@ return [
         Core\Providers\RouteServiceProvider::class,
         Core\Providers\ModulesServiceProvider::class,
         CVEPDB\Addresses\AddressesServiceProvider::class,
+        CVEPDB\Settings\SettingsServiceProvider::class,
     ],
 
     /*

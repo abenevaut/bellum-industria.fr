@@ -6,6 +6,7 @@ use Menu;
 use Module;
 use Theme;
 use CVEPDB\Abstracts\Services\Outputters\AbsLaravelOutputter;
+use Core\Domain\Settings\Repositories\SettingsRepository;
 
 class CoreOutputter extends AbsLaravelOutputter
 {
@@ -29,9 +30,16 @@ class CoreOutputter extends AbsLaravelOutputter
      */
     private $current_module = null;
 
-    public function __construct()
+    /**
+     * @var Settings|null
+     */
+    protected $r_settings = null;
+
+    public function __construct(SettingsRepository $r_settings)
     {
         parent::__construct();
+
+        $this->r_settings = $r_settings;
 
         $this->setBreadcrumbDivider('');
         $this->breadcrumbs->setListElement('li');

@@ -4,6 +4,7 @@ use App;
 use Config;
 use Menu;
 use Module;
+use Core\Domain\Settings\Repositories\SettingsRepository;
 
 /**
  * Class AdminOutputter
@@ -11,9 +12,9 @@ use Module;
  */
 class AdminOutputter extends CoreOutputter
 {
-    public function __construct()
+    public function __construct(SettingsRepository $r_settings)
     {
-        parent::__construct();
+        parent::__construct($r_settings);
         $this->addBreadcrumb('Dashboard', config('app.backend'));
     }
 

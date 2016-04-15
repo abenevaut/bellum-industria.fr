@@ -2,7 +2,7 @@
 
 use Widget;
 use CVEPDB\Contracts\Widgets;
-use Modules\Dashboard\Repositories\DashboardRepositoryEloquent;
+use Modules\Dashboard\Repositories\SettingsRepository;
 
 class SetupDashboard implements Widgets
 {
@@ -31,7 +31,7 @@ class SetupDashboard implements Widgets
      */
     private $r_dash = null;
 
-    public function __construct(DashboardRepositoryEloquent $r_dash)
+    public function __construct(SettingsRepository $r_dash)
     {
         $this->r_dash = $r_dash;
     }
