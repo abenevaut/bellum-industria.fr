@@ -1,8 +1,8 @@
-<?php namespace Modules\Users\Repositories;
+<?php namespace Core\Domain\Permissions\Repositories;
 
 use Prettus\Repository\Criteria\RequestCriteria;
 use CVEPDB\Domain\Permissions\Repositories\PermissionRepositoryEloquent as BasePermissionRepositoryEloquent;
-use Modules\Users\Entities\Permission;
+use Core\Domain\Permissions\Entities\Permission;
 
 /**
  * Class PermissionRepositoryEloquent

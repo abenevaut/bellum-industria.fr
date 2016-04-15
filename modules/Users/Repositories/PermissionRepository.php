@@ -1,10 +1,10 @@
 <?php namespace Modules\Users\Repositories;
 
-use CVEPDB\Repositories\Permissions\PermissionRepository as BasePermissionRepository;
+use Core\Domain\Permissions\Repositories\PermissionRepository as BasePermissionRepository;
 
 /**
  * Interface PermissionRepository
- * @package namespace App\Repositories;
+ * @package Modules\Users\Repositories
  */
 interface PermissionRepository extends BasePermissionRepository
 {
