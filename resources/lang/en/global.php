@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     'error' => 'Error',
     'errors' => 'Errors',
     'attention' => 'Attention',
