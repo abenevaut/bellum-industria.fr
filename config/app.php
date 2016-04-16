@@ -6,10 +6,6 @@ return [
     'title' => '#CVEPDB CMS',
     'backend' => 'admin',
     'installer' => 'installer',
-    'themes' => [
-        'frontend' => 'lumen',
-        'backend' => 'adminlte'
-    ],
     'pagination' => 15,
 
     /*
