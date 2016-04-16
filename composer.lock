@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "aa8bc2a7b2f0c992e0c4071771f86063",
-    "content-hash": "4d9734dadee25842c66fbffd9b4dcbaa",
+    "hash": "5bb86e204f2b70dc0e7f1b6f34f4dd55",
+    "content-hash": "da757f6bfcf57a0176ca4a9e996389cf",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -56,6 +56,57 @@
                 "toolkit"
             ],
             "time": "2015-05-16 19:24:58"
+        },
+        {
+            "name": "aws/aws-php-sns-message-validator",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aws/aws-php-sns-message-validator.git",
+                "reference": "c9fce7635417bcc75383ec5f6fa3790a4d9729b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aws/aws-php-sns-message-validator/zipball/c9fce7635417bcc75383ec5f6fa3790a4d9729b8",
+                "reference": "c9fce7635417bcc75383ec5f6fa3790a4d9729b8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0",
+                "squizlabs/php_codesniffer": "^2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aws\\Sns\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Amazon Web Services",
+                    "homepage": "http://aws.amazon.com"
+                }
+            ],
+            "description": "Amazon SNS message validation for PHP",
+            "homepage": "http://aws.amazon.com/sdkforphp",
+            "keywords": [
+                "SNS",
+                "amazon",
+                "aws",
+                "cloud",
+                "message",
+                "sdk",
+                "webhooks"
+            ],
+            "time": "2015-09-03 20:53:53"
         },
         {
             "name": "aws/aws-sdk-php",
@@ -995,6 +1046,132 @@
             "time": "2016-04-16 16:50:01"
         },
         {
+            "name": "cvepdb-cms/theme-adminlte",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/theme-adminlte.git",
+                "reference": "6cd651358a892b0afdec8bc727e3e5e5b93a7747"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=6cd651358a892b0afdec8bc727e3e5e5b93a7747",
+                "reference": "6cd651358a892b0afdec8bc727e3e5e5b93a7747",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "adminlte"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "open"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Theme adminlte for #CVEPDB CMS",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "AdminLTE",
+                "CVEPDB",
+                "cms",
+                "theme"
+            ],
+            "time": "2016-04-12 13:39:02"
+        },
+        {
+            "name": "cvepdb-cms/theme-flatly",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/theme-flatly.git",
+                "reference": "9ea941af60f8e0b41e33ced8b75897d86f2a3961"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-flatly/repository/archive.zip?sha=9ea941af60f8e0b41e33ced8b75897d86f2a3961",
+                "reference": "9ea941af60f8e0b41e33ced8b75897d86f2a3961",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "flatly"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "open"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Theme flatly for #CVEPDB CMS",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "CVEPDB",
+                "cms",
+                "flatly",
+                "theme"
+            ],
+            "time": "2016-04-12 13:55:29"
+        },
+        {
+            "name": "cvepdb-cms/theme-lumen",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/theme-lumen.git",
+                "reference": "596901c3ca9bdcc1994f03eb2a462b94206dd784"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=596901c3ca9bdcc1994f03eb2a462b94206dd784",
+                "reference": "596901c3ca9bdcc1994f03eb2a462b94206dd784",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "lumen"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "open"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Theme lumen for #CVEPDB CMS",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "CVEPDB",
+                "cms",
+                "lumen",
+                "theme"
+            ],
+            "time": "2016-04-12 13:55:34"
+        },
+        {
             "name": "cvepdb/laravel",
             "version": "dev-master",
             "source": {
@@ -1678,6 +1855,45 @@
                 "parser"
             ],
             "time": "2014-09-09 13:34:57"
+        },
+        {
+            "name": "dropbox/dropbox-sdk",
+            "version": "v1.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dropbox/dropbox-sdk-php.git",
+                "reference": "6901f8122458e0ce7e391468c0cf6cca465bd0ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dropbox/dropbox-sdk-php/zipball/6901f8122458e0ce7e391468c0cf6cca465bd0ee",
+                "reference": "6901f8122458e0ce7e391468c0cf6cca465bd0ee",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">= 5.3"
+            },
+            "require-dev": {
+                "apigen/apigen": "2.8.2",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "2.0.0RC3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Dropbox": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Dropbox SDK for PHP",
+            "keywords": [
+                "dropbox"
+            ],
+            "time": "2015-06-29 21:47:57"
         },
         {
             "name": "ellipsesynergie/api-response",
@@ -2714,12 +2930,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "38bc75e18ea2b0fae9b338a53e961464163e61a5"
+                "reference": "21565564f1cd3b2ef92b09349c3d89f0a68905b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/38bc75e18ea2b0fae9b338a53e961464163e61a5",
-                "reference": "38bc75e18ea2b0fae9b338a53e961464163e61a5",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/21565564f1cd3b2ef92b09349c3d89f0a68905b5",
+                "reference": "21565564f1cd3b2ef92b09349c3d89f0a68905b5",
                 "shasum": ""
             },
             "require": {
@@ -2789,7 +3005,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-04-16 14:49:32"
+            "time": "2016-04-16 15:31:58"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -2885,6 +3101,52 @@
             ],
             "description": "An adapter decorator to enable meta-data caching.",
             "time": "2016-01-25 08:21:11"
+        },
+        {
+            "name": "league/flysystem-dropbox",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem-dropbox.git",
+                "reference": "41b1d82d6887dc7f5a5f940c85fe5cc2c1263fa7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-dropbox/zipball/41b1d82d6887dc7f5a5f940c85fe5cc2c1263fa7",
+                "reference": "41b1d82d6887dc7f5a5f940c85fe5cc2c1263fa7",
+                "shasum": ""
+            },
+            "require": {
+                "dropbox/dropbox-sdk": "~1.1",
+                "league/flysystem": "~1.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Flysystem\\Dropbox\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "Flysystem adapter for Dropbox",
+            "time": "2016-04-13 07:01:52"
         },
         {
             "name": "league/flysystem-rackspace",
@@ -8850,7 +9112,10 @@
     "stability-flags": {
         "beelab/bowerphp": 10,
         "composer/composer": 10,
-        "cvepdb/laravel": 20
+        "cvepdb/laravel": 20,
+        "cvepdb-cms/theme-adminlte": 20,
+        "cvepdb-cms/theme-lumen": 20,
+        "cvepdb-cms/theme-flatly": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
