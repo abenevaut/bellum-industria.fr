@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "67da2c4df3ab038b0d47236d74321d15",
-    "content-hash": "13c2cd60c4d6a12706022d0b7735ebe9",
+    "hash": "a20a2edee20000b9bb722887b60d19ad",
+    "content-hash": "1c6659ea855a2f9154c6914f6fee13d0",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1247,24 +1247,22 @@
         },
         {
             "name": "cvepdb/laravel",
-            "version": "dev-master",
+            "version": "1.0.52.10",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb/laravel.git",
-                "reference": "6a119d6235db6e62a8c27cb34630cee71bb8b9c2"
+                "reference": "e35ede260f24cf700730714b5a5dd9d6f33b81d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb%2Flaravel/repository/archive.zip?sha=6a119d6235db6e62a8c27cb34630cee71bb8b9c2",
-                "reference": "6a119d6235db6e62a8c27cb34630cee71bb8b9c2",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb%2Flaravel/repository/archive.zip?sha=e35ede260f24cf700730714b5a5dd9d6f33b81d2",
+                "reference": "e35ede260f24cf700730714b5a5dd9d6f33b81d2",
                 "shasum": ""
             },
             "require": {
                 "barryvdh/laravel-debugbar": "^2.2",
                 "chrisbjr/api-guard": "^3.1",
                 "creitive/laravel5-breadcrumbs": "^1.0",
-                "cvepdb/laravel-addresses": "1.0.52.*",
-                "cvepdb/laravel-settings": "1.2.52.*",
                 "doctrine/dbal": "~2.3",
                 "jenssegers/raven": "^1.4",
                 "laravel/socialite": "^2.0",
@@ -1321,25 +1319,25 @@
                 "laravel",
                 "middlewares"
             ],
-            "time": "2016-04-15 14:56:56"
+            "time": "2016-04-16 19:32:02"
         },
         {
             "name": "cvepdb/laravel-addresses",
-            "version": "1.0.52.4",
+            "version": "1.0.52.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CavaENCOREparlerdebits/laravel-addresses.git",
-                "reference": "654e4649f74d55adc6f5c4d28597cab4287ff5cc"
+                "reference": "cde983b0456b5a398de8a4013938ca6b3fc98916"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CavaENCOREparlerdebits/laravel-addresses/zipball/654e4649f74d55adc6f5c4d28597cab4287ff5cc",
-                "reference": "654e4649f74d55adc6f5c4d28597cab4287ff5cc",
+                "url": "https://api.github.com/repos/CavaENCOREparlerdebits/laravel-addresses/zipball/cde983b0456b5a398de8a4013938ca6b3fc98916",
+                "reference": "cde983b0456b5a398de8a4013938ca6b3fc98916",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "5.2.*",
-                "laravelcollective/html": "5.2",
+                "illuminate/support": "5.2.24",
+                "laravelcollective/html": "~5.0",
                 "php": ">=5.5.9"
             },
             "type": "library",
@@ -1373,7 +1371,7 @@
                 "addresses",
                 "laravel"
             ],
-            "time": "2016-04-12 12:31:22"
+            "time": "2016-04-16 17:41:20"
         },
         {
             "name": "cvepdb/laravel-settings",
@@ -9439,7 +9437,6 @@
     "stability-flags": {
         "beelab/bowerphp": 10,
         "composer/composer": 10,
-        "cvepdb/laravel": 20,
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,
         "cvepdb-cms/theme-flatly": 20
