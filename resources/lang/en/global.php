@@ -22,5 +22,6 @@ return [
     'preview' => 'Preview',
     'filters' => 'Filters',
     'unchangeable' => 'Unchangeable',
-
+    'module' => 'Module',
+    'description' => 'Description',
 ];

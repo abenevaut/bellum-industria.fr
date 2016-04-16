@@ -41,12 +41,4 @@ class DashboardController extends Controller
     {
         return $this->outputter->update($request);
     }
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function settings()
-    {
-        return $this->outputter->edit();
-    }
 }

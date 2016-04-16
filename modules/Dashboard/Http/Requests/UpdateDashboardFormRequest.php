@@ -22,8 +22,8 @@ class UpdateDashboardFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required',
-            'status' => 'required'
+            'id' => 'required|alpha_dash',
+            'status' => 'required|alpha'
         ];
     }
 }

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-        <h4 style="color: #E6E6E6;">Inactive widgets</h4>
+        <h4 style="color: #E6E6E6;">{{ trans('dashboard::setupdashboard.inactive_w_title') }}</h4>
         <div style="padding:25px;min-height: 140px;border: 2px solid #E6E6E6">
             <section class="connectedSortable ui-sortable js-inactive-list">
                 @foreach ($widgets['inactive'] as $widget)
@@ -18,8 +18,8 @@
                         </div>
                     </div>
                     <div class="box-body" style="color:black;">
-                        Module : {{ $widget['module'] }}<br/>
-                        Description : {{ Widget::get($widget['name'], ['info'])['description'] }}
+                        {{ trans('global.module') }} : {{ $widget['module'] }}<br/>
+                        {{ trans('global.description') }} : {{ Widget::get($widget['name'], ['info'])['description'] }}
                     </div>
                 </div>
                 @endforeach
@@ -30,7 +30,7 @@
         <i class="fa fa-arrows-h" style="font-size: 100px;"></i>
     </div>
     <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-        <h4 style="color: #E6E6E6;">Active widgets</h4>
+        <h4 style="color: #E6E6E6;">{{ trans('dashboard::setupdashboard.active_w_title') }}</h4>
         <div style="padding:25px;min-height: 140px;border: 2px solid #E6E6E6">
             <section class=" connectedSortable ui-sortable js-active-list">
                 @foreach ($widgets['active'] as $widget)
@@ -47,8 +47,8 @@
                         </div>
                     </div>
                     <div class="box-body" style="color:black;">
-                        Module : {{ $widget['module'] }}<br/>
-                        Description : {{ Widget::get($widget['name'], ['info'])['description'] }}
+                        {{ trans('global.module') }} : {{ $widget['module'] }}<br/>
+                        {{ trans('global.description') }} : {{ Widget::get($widget['name'], ['info'])['description'] }}
                     </div>
                 </div>
                 @endforeach

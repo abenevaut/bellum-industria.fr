@@ -1,33 +1,10 @@
 @extends('adminlte::layouts.default')
 
 @section('content')
-
-    {{--<div class="row">--}}
-
-        {{--<div class="col-lg-12">--}}
-            {{--<div class="small-box" style="background-color: white;">--}}
-
-                {{--<div class="" style="padding: 5px; ">--}}
-
-                    {{--<a href="{{ url('admin/dashboard/settings') }}" class="btn btn-default btn-flat">--}}
-                        {{--<i class="fa fa-cog"></i> Settings--}}
-                    {{--</a>--}}
-                {{--</div>--}}
-
-            {{--</div>--}}
-        {{--</div>--}}
-
-    {{--</div>--}}
-
-
-
     <div class="row">
-
         @if (count($widgets))
             @foreach ($widgets as $widget)
-
-                {!! Widget::get($widget->name) !!}
-
+                {!! Widget::get($widget['name']) !!}
             @endforeach
         @else
             <div class="col-lg-12">
@@ -35,11 +12,10 @@
                     <div class="pull-right">
                         <a href="#" data-toggle="control-sidebar" class="btn btn-info"><i class="fa fa-gears"></i></a>
                     </div>
-                    <h4>No widget</h4>
-                    <p>No widget was set to be displayed.</p>
+                    <h4>{{ trans('dashboard::admin.dashboard.nodata_title') }}</h4>
+                    <p>{{ trans('dashboard::admin.dashboard.nodata_title') }}</p>
                 </div>
             </div>
         @endif
-
     </div>
 @endsection

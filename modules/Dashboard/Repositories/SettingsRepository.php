@@ -42,6 +42,10 @@ class SettingsRepository extends BaseSettingsRepository
         return $widgets;
     }
 
+    /**
+     * @param $status
+     * @param $id
+     */
     public function update($status, $id)
     {
         $widgets_collection = $this->get('dashboard.widgets');
@@ -51,8 +55,8 @@ class SettingsRepository extends BaseSettingsRepository
                 return $item['name'] === $id ? $key : null;
             });
 
-            $current_widget = $widgets_collection->get($widget_key);
-            $widgets_collection->forget($widget_key);
+            $current_widget = $widgets_collection->get($widget_key->first());
+            $widgets_collection->forget($widget_key->first());
 
             $current_widget['status'] = $status;
 
@@ -85,7 +89,8 @@ class SettingsRepository extends BaseSettingsRepository
 
         foreach (\Module::getOrdered() as $module) {
 
-            $module_widgets_list = config(strtolower($module->name) . '.admin.dashboard.widgets');
+            $module_name = $module->name;
+            $module_widgets_list = config(strtolower($module_name) . '.admin.dashboard.widgets');
 
             /*
              * Save new widgets
@@ -110,8 +115,8 @@ class SettingsRepository extends BaseSettingsRepository
              * Remove deleted widgets
              */
 
-            $deleted_widgets = $widgets_collection->map(function ($item, $key) use ($listed_widgets) {
-                return !in_array($item['name'], $listed_widgets) ? $key : null;
+            $deleted_widgets = $widgets_collection->map(function ($item, $key) use ($listed_widgets, $module_name) {
+                return !in_array($item['name'], $listed_widgets) && $module_name === $item['module'] ? $key : null;
             });
 
             if ($deleted_widgets->count()) {

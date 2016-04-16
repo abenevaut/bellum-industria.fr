@@ -65,25 +65,4 @@ class DashboardOutputter extends AdminOutputter
         }
         return ['results' => 'success'];
     }
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function edit()
-    {
-        $this->r_settings->checkWidgetsList();
-
-        $active_widgets = $this->r_settings->activeWidgets();
-        $inactive_widgets = $this->r_settings->inactiveWidgets();
-
-        return $this->output(
-            'dashboard.admin.settings',
-            [
-                'widgets' => [
-                    'inactive' => $inactive_widgets,
-                    'active' => $active_widgets,
-                ]
-            ]
-        );
-    }
 }

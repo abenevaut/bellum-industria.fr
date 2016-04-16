@@ -1,14 +1,6 @@
 $(function () {
     "use strict";
 
-    $.ajaxPrefilter(function(options, originalOptions, xhr) { // this will run before each request
-        var token = $('meta[name="csrf-token"]').attr('content'); // or _token, whichever you are using
-
-        if (token) {
-            return xhr.setRequestHeader('X-CSRF-TOKEN', token); // adds directly to the XmlHttpRequest Object
-        }
-    });
-
     function connectedSortableNoDataMessage() {
         $.each($('.connectedSortable'), function (k, elem) {
             elem = $(elem);
@@ -69,17 +61,10 @@ $(function () {
                         },
                         error: function (resultat, statut, erreur) {
                             cvepdb.error(resultat);
-                            //var errors = $.parseJSON(resultat.responseText);
-                            //cvepdb.error(errors);
                         },
                         complete: function (jqXHR, status) {
                             connectedSortableNoDataMessage();
-                        }//,
-                        //statusCode: {
-                        //    422: function () {
-                        //        //$thisSortable.sortable('cancel');
-                        //    }
-                        //}
+                        }
                     });
                 }, 300);
             }
@@ -107,17 +92,10 @@ $(function () {
                         },
                         error: function (resultat, statut, erreur) {
                             cvepdb.error(resultat);
-                            //var errors = $.parseJSON(resultat.responseText);
-                            //cvepdb.error(errors);
                         },
                         complete: function (jqXHR, status) {
                             connectedSortableNoDataMessage();
-                        }//,
-                        //statusCode: {
-                        //    422: function () {
-                        //        //$thisSortable.sortable('cancel');
-                        //    }
-                        //}
+                        }
                     });
                 }, 300);
             }
