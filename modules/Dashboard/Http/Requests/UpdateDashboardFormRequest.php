@@ -1,8 +1,8 @@
 <?php namespace Modules\Dashboard\Http\Requests;
 
-use CVEPDB\Requests\Request;
+use Core\Http\Requests\FormRequest;
 
-class UpdateDashboardFormRequest extends Request
+class UpdateDashboardFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

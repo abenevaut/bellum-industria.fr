@@ -22,7 +22,7 @@ class SettingsRepository extends BaseSettingsRepository
         $widgets = [];
         $widgets_collection = $this->get('dashboard.widgets');
         if (!is_null($widgets_collection)) {
-            $widgets = $widgets_collection->where('status', [self::DASHBOARD_WIDGET_STATUS_ACTIVE]);
+            $widgets = $widgets_collection->where('status', self::DASHBOARD_WIDGET_STATUS_ACTIVE);
         }
         return $widgets;
     }
@@ -37,9 +37,28 @@ class SettingsRepository extends BaseSettingsRepository
         $widgets = [];
         $widgets_collection = $this->get('dashboard.widgets');
         if (!is_null($widgets_collection)) {
-            $widgets = $widgets_collection->where('status', [self::DASHBOARD_WIDGET_STATUS_INACTIVE]);
+            $widgets = $widgets_collection->where('status', self::DASHBOARD_WIDGET_STATUS_INACTIVE);
         }
         return $widgets;
+    }
+
+    public function update($status, $id)
+    {
+        $widgets_collection = $this->get('dashboard.widgets');
+        if (!is_null($widgets_collection)) {
+
+            $widget_key = $widgets_collection->map(function ($item, $key) use ($id) {
+                return $item['name'] === $id ? $key : null;
+            });
+
+            $current_widget = $widgets_collection->get($widget_key);
+            $widgets_collection->forget($widget_key);
+
+            $current_widget['status'] = $status;
+
+            $widgets_collection->push($current_widget);
+            $this->set('dashboard.widgets', $widgets_collection);
+        }
     }
 
     /**

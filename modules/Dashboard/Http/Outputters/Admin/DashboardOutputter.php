@@ -55,12 +55,12 @@ class DashboardOutputter extends AdminOutputter
 
         switch ($status) {
             case SettingsRepository::DASHBOARD_WIDGET_STATUS_ACTIVE: {
-                $this->r_settings->update(['status' => SettingsRepository::DASHBOARD_WIDGET_STATUS_ACTIVE], $id);
+                $this->r_settings->update(SettingsRepository::DASHBOARD_WIDGET_STATUS_ACTIVE, $id);
                 break;
             }
             case SettingsRepository::DASHBOARD_WIDGET_STATUS_INACTIVE:
             default: {
-                $this->r_settings->update(['status' => SettingsRepository::DASHBOARD_WIDGET_STATUS_INACTIVE], $id);
+                $this->r_settings->update(SettingsRepository::DASHBOARD_WIDGET_STATUS_INACTIVE, $id);
             }
         }
         return ['results' => 'success'];
@@ -74,9 +74,6 @@ class DashboardOutputter extends AdminOutputter
         $this->r_settings->checkWidgetsList();
 
         $active_widgets = $this->r_settings->activeWidgets();
-
-        dd($active_widgets);
-
         $inactive_widgets = $this->r_settings->inactiveWidgets();
 
         return $this->output(
