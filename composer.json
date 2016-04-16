@@ -69,6 +69,7 @@
   "extra": {
     "installer-paths": {
       "modules/{$name}": [
+        "cvepdb-cms/module-dashboard",
         "cvepdb-cms/module-themes"
       ]
     }
