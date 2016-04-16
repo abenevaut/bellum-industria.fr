@@ -21,6 +21,7 @@ resources/views/modules/*
 
 # Modules directory
 modules/Themes
+modules/Dashboard
 
 # Tests
 tests/_output/*

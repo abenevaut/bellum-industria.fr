@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "488cb46466b84d27b9b4154dae0452a5",
-    "content-hash": "2732d7abd01769c89575a55fb68653c5",
+    "hash": "aa8bc2a7b2f0c992e0c4071771f86063",
+    "content-hash": "4d9734dadee25842c66fbffd9b4dcbaa",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -606,12 +606,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e"
+                "reference": "eef05aa80320f7d563acee6a16dc526bb0d54b9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
-                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
+                "url": "https://api.github.com/repos/composer/installers/zipball/eef05aa80320f7d563acee6a16dc526bb0d54b9c",
+                "reference": "eef05aa80320f7d563acee6a16dc526bb0d54b9c",
                 "shasum": ""
             },
             "require": {
@@ -658,6 +658,7 @@
                 "MODX Evo",
                 "Mautic",
                 "OXID",
+                "RadPHP",
                 "SMF",
                 "Thelia",
                 "WolfCMS",
@@ -698,7 +699,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-04-13 19:46:30"
+            "time": "2016-04-15 21:04:42"
         },
         {
             "name": "composer/semver",
@@ -917,17 +918,47 @@
             "time": "2015-03-07 18:48:36"
         },
         {
-            "name": "cvepdb-cms/module-themes",
-            "version": "1.0.3",
+            "name": "cvepdb-cms/module-dashboard",
+            "version": "1.0.52.0",
             "source": {
                 "type": "git",
-                "url": "git@gitlab.com:cvepdb-cms/module-themes.git",
-                "reference": "1b33991d9c2a800c9e643ead34549226ba93be0d"
+                "url": "git@gitlab.com:cvepdb-cms/module-dashboard.git",
+                "reference": "4d0a342284e7c74d4eb4c83577f98b9c2bf43b0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=1b33991d9c2a800c9e643ead34549226ba93be0d",
-                "reference": "1b33991d9c2a800c9e643ead34549226ba93be0d",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-dashboard/repository/archive.zip?sha=4d0a342284e7c74d4eb4c83577f98b9c2bf43b0d",
+                "reference": "4d0a342284e7c74d4eb4c83577f98b9c2bf43b0d",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Modules\\Dashboard\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Dashboard module for #CVEPDB CMS",
+            "time": "2016-04-16 16:49:15"
+        },
+        {
+            "name": "cvepdb-cms/module-themes",
+            "version": "1.0.52.4",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/module-themes.git",
+                "reference": "e3467501e607b621415d5cece04aa9339a499056"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=e3467501e607b621415d5cece04aa9339a499056",
+                "reference": "e3467501e607b621415d5cece04aa9339a499056",
                 "shasum": ""
             },
             "require": {
@@ -961,133 +992,7 @@
                 "module",
                 "themes"
             ],
-            "time": "2016-03-24 12:30:00"
-        },
-        {
-            "name": "cvepdb-cms/theme-adminlte",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@gitlab.com:cvepdb-cms/theme-adminlte.git",
-                "reference": "6cd651358a892b0afdec8bc727e3e5e5b93a7747"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=6cd651358a892b0afdec8bc727e3e5e5b93a7747",
-                "reference": "6cd651358a892b0afdec8bc727e3e5e5b93a7747",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "~1.0",
-                "php": ">=5.5.9"
-            },
-            "type": "laravel-library",
-            "extra": {
-                "installer-name": "adminlte"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "open"
-            ],
-            "authors": [
-                {
-                    "name": "Antoine Benevaut",
-                    "email": "antoine@cvepdb.fr"
-                }
-            ],
-            "description": "Theme adminlte for #CVEPDB CMS",
-            "homepage": "http://cavaencoreparlerdebits.fr",
-            "keywords": [
-                "AdminLTE",
-                "CVEPDB",
-                "cms",
-                "theme"
-            ],
-            "time": "2016-04-12 15:39:02"
-        },
-        {
-            "name": "cvepdb-cms/theme-flatly",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@gitlab.com:cvepdb-cms/theme-flatly.git",
-                "reference": "9ea941af60f8e0b41e33ced8b75897d86f2a3961"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-flatly/repository/archive.zip?sha=9ea941af60f8e0b41e33ced8b75897d86f2a3961",
-                "reference": "9ea941af60f8e0b41e33ced8b75897d86f2a3961",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "~1.0",
-                "php": ">=5.5.9"
-            },
-            "type": "laravel-library",
-            "extra": {
-                "installer-name": "flatly"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "open"
-            ],
-            "authors": [
-                {
-                    "name": "Antoine Benevaut",
-                    "email": "antoine@cvepdb.fr"
-                }
-            ],
-            "description": "Theme flatly for #CVEPDB CMS",
-            "homepage": "http://cavaencoreparlerdebits.fr",
-            "keywords": [
-                "CVEPDB",
-                "cms",
-                "flatly",
-                "theme"
-            ],
-            "time": "2016-04-12 15:55:29"
-        },
-        {
-            "name": "cvepdb-cms/theme-lumen",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@gitlab.com:cvepdb-cms/theme-lumen.git",
-                "reference": "596901c3ca9bdcc1994f03eb2a462b94206dd784"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=596901c3ca9bdcc1994f03eb2a462b94206dd784",
-                "reference": "596901c3ca9bdcc1994f03eb2a462b94206dd784",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "~1.0",
-                "php": ">=5.5.9"
-            },
-            "type": "laravel-library",
-            "extra": {
-                "installer-name": "lumen"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "open"
-            ],
-            "authors": [
-                {
-                    "name": "Antoine Benevaut",
-                    "email": "antoine@cvepdb.fr"
-                }
-            ],
-            "description": "Theme lumen for #CVEPDB CMS",
-            "homepage": "http://cavaencoreparlerdebits.fr",
-            "keywords": [
-                "CVEPDB",
-                "cms",
-                "lumen",
-                "theme"
-            ],
-            "time": "2016-04-12 15:55:34"
+            "time": "2016-04-16 16:50:01"
         },
         {
             "name": "cvepdb/laravel",
@@ -2809,12 +2714,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "a8294fb7d939433abfaeb0fc1a34a278acfa5b39"
+                "reference": "38bc75e18ea2b0fae9b338a53e961464163e61a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/a8294fb7d939433abfaeb0fc1a34a278acfa5b39",
-                "reference": "a8294fb7d939433abfaeb0fc1a34a278acfa5b39",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/38bc75e18ea2b0fae9b338a53e961464163e61a5",
+                "reference": "38bc75e18ea2b0fae9b338a53e961464163e61a5",
                 "shasum": ""
             },
             "require": {
@@ -2884,7 +2789,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-04-04 14:52:20"
+            "time": "2016-04-16 14:49:32"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -3378,12 +3283,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf"
+                "reference": "04dedae4a81eeb2135eeb10b5323935f879ced0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5f56ed5212dc509c8dc8caeba2715732abb32dbf",
-                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/04dedae4a81eeb2135eeb10b5323935f879ced0a",
+                "reference": "04dedae4a81eeb2135eeb10b5323935f879ced0a",
                 "shasum": ""
             },
             "require": {
@@ -3448,7 +3353,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-04-12 18:29:35"
+            "time": "2016-04-15 16:52:32"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -3602,12 +3507,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "82bb6627c9b804e1d40d29fc9ec97a39165f0e8e"
+                "reference": "f8a40b3f2458c119274a09b147794efeba626a7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/82bb6627c9b804e1d40d29fc9ec97a39165f0e8e",
-                "reference": "82bb6627c9b804e1d40d29fc9ec97a39165f0e8e",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/f8a40b3f2458c119274a09b147794efeba626a7e",
+                "reference": "f8a40b3f2458c119274a09b147794efeba626a7e",
                 "shasum": ""
             },
             "require": {
@@ -3645,7 +3550,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2016-04-15 12:36:11"
+            "time": "2016-04-15 13:07:30"
         },
         {
             "name": "paragonie/random_compat",
@@ -4226,16 +4131,16 @@
         },
         {
             "name": "prettus/l5-repository",
-            "version": "dev-develop",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andersao/l5-repository.git",
-                "reference": "3fb2cb778edcad84c3904bd8a26a6fc843cf83d9"
+                "reference": "e4cfef3de00f0ad039a4bcdb8e9772ad4c11879c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/3fb2cb778edcad84c3904bd8a26a6fc843cf83d9",
-                "reference": "3fb2cb778edcad84c3904bd8a26a6fc843cf83d9",
+                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/e4cfef3de00f0ad039a4bcdb8e9772ad4c11879c",
+                "reference": "e4cfef3de00f0ad039a4bcdb8e9772ad4c11879c",
                 "shasum": ""
             },
             "require": {
@@ -4282,7 +4187,7 @@
                 "model",
                 "repository"
             ],
-            "time": "2016-04-13 22:00:01"
+            "time": "2016-04-15 19:54:15"
         },
         {
             "name": "prettus/laravel-validation",
@@ -8945,10 +8850,7 @@
     "stability-flags": {
         "beelab/bowerphp": 10,
         "composer/composer": 10,
-        "cvepdb/laravel": 20,
-        "cvepdb-cms/theme-adminlte": 20,
-        "cvepdb-cms/theme-lumen": 20,
-        "cvepdb-cms/theme-flatly": 20
+        "cvepdb/laravel": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
