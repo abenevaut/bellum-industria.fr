@@ -18,7 +18,18 @@
     "cvepdb/laravel": "dev-master",
     "cvepdb-cms/module-installer": "1.0.52.*",
     "cvepdb-cms/module-dashboard": "1.0.52.*",
-    "cvepdb-cms/module-themes": "1.0.52.*"
+    "cvepdb-cms/module-themes": "1.0.52.*",
+    "cvepdb-cms/theme-adminlte": "dev-master",
+    "cvepdb-cms/theme-lumen": "dev-master",
+    "cvepdb-cms/theme-flatly": "dev-master",
+    "league/flysystem": "^1.0",
+    "league/flysystem-aws-s3-v3": "~1.0",
+    "league/flysystem-rackspace": "~1.0",
+    "league/flysystem-dropbox": "^1.0",
+    "spatie/laravel-medialibrary": "^3.16",
+    "barryvdh/laravel-elfinder": "^0.3.6",
+    "aws/aws-php-sns-message-validator": "^1.1",
+    "laravel/socialite": "^2.0"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
@@ -51,14 +62,28 @@
     "post-install-cmd": [
       "php artisan clear-compiled",
       "php artisan optimize",
-      "php artisan module:install"
+      "php artisan module:install Dashboard",
+      "php artisan module:install Files",
+      "php artisan module:install Installer",
+      "php artisan module:install Pages",
+      "php artisan module:install Posts",
+      "php artisan module:install Themes",
+      "php artisan module:install Users",
+      "npm install",
+      "gulp build"
     ],
     "pre-update-cmd": [
     ],
     "post-update-cmd": [
       "php artisan clear-compiled",
       "php artisan optimize",
-      "php artisan module:update"
+      "php artisan module:update Dashboard",
+      "php artisan module:update Files",
+      "php artisan module:update Installer",
+      "php artisan module:update Pages",
+      "php artisan module:update Posts",
+      "php artisan module:update Themes",
+      "php artisan module:update Users"
     ]
   },
   "config": {
