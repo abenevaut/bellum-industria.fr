@@ -1,9 +1,8 @@
 <?php
 
-Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Pages\Http\Controllers'], function()
-{
+Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Pages\Http\Controllers'], function () {
 
-	Route::get('/', 'PagesController@homepage');
+    Route::get('/', 'PagesController@homepage');
 
 //	$not_using_private_route = true;
 //
@@ -35,7 +34,6 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Pages\Http\Contro
 //	});
 //});
 
-Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Pages\Http\Controllers'], function()
-{
-	Route::resource('pages', 'PagesAdminController');
+Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Pages\Http\Controllers\Admin'], function () {
+    Route::resource('pages', 'PagesController');
 });

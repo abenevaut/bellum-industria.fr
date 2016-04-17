@@ -1,15 +1,22 @@
-<?php namespace Modules\Pages\Http\Controllers;
+<?php namespace Modules\Pages\Http\Controllers\Admin;
 
 use Pingpong\Modules\Routing\Controller;
-use Modules\Pages\Outputters\PageAdminOutputter;
+use Modules\Pages\Http\Outputters\Admin\PageOutputter;
 use Modules\Pages\Http\Requests\AdminPagesFormRequest;
 
-class PagesAdminController extends Controller
+/**
+ * Class PagesController
+ * @package Modules\Pages\Http\Controllers
+ */
+class PagesController extends Controller
 {
+    /**
+     * @var PageOutputter|null
+     */
     private $outputter = null;
 
     public function __construct(
-        PageAdminOutputter $outputter
+        PageOutputter $outputter
     )
     {
         $this->outputter = $outputter;

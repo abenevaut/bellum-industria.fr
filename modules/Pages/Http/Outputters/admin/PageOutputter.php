@@ -1,11 +1,12 @@
-<?php namespace Modules\Pages\Outputters;
+<?php namespace Modules\Pages\Http\Outputters\Admin;
 
 use Config;
 use Core\Http\Outputters\AdminOutputter;
-use CVEPDB\Contracts\Http\Requests\IFormRequest;
+use Core\Http\Requests\FormRequest as IFormRequest;
+use Modules\Dashboard\Repositories\SettingsRepository;
 use Modules\Pages\Repositories\PagesRepositoryEloquent;
 
-class PageAdminOutputter extends AdminOutputter
+class PageOutputter extends AdminOutputter
 {
     /**
      * @var string Outputter header title
@@ -23,15 +24,13 @@ class PageAdminOutputter extends AdminOutputter
     protected $r_page = null;
 
     public function __construct(
+        SettingsRepository $r_settings,
         PagesRepositoryEloquent $r_page
     )
     {
-        parent::__construct();
-
-        $this->set_current_module('pages');
-
+        parent::__construct($r_settings);
         $this->r_page = $r_page;
-
+        $this->set_current_module('pages');
         $this->addBreadcrumb('Pages', 'admin/pages');
     }
 
