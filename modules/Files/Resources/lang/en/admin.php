@@ -2,5 +2,5 @@
 
 return [
     'meta_title' => 'Files',
-    'meta_description' => 'mdia manager',
+    'meta_description' => 'media manager',
 ];

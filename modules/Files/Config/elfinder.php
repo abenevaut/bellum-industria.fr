@@ -28,17 +28,17 @@ return array(
     |    ]
     */
     'disks' => [
-        'local' => [
-            'glideUrl' => url('glide'),
-            'tmbUrl' => url('thumbnails')
-        ],
-        's3' => [
-            'URL' => 'https://s3.eu-central-1.amazonaws.com/cvepdb-test/',
-            'url' => 'https://s3.eu-central-1.amazonaws.com/cvepdb-test/',
-            'alias' => 'AWS',
-            //'glideUrl' => url('glide'),
-            //'tmbUrl' => url('thumbnails')
-        ],
+//        'local' => [
+//            'glideUrl' => url('glide'),
+//            'tmbUrl' => url('thumbnails')
+//        ],
+//        's3' => [
+//            'URL' => 'https://s3.eu-central-1.amazonaws.com/cvepdb-test/',
+//            'url' => 'https://s3.eu-central-1.amazonaws.com/cvepdb-test/',
+//            'alias' => 'AWS',
+//            //'glideUrl' => url('glide'),
+//            //'tmbUrl' => url('thumbnails')
+//        ],
     ],
 
     /*

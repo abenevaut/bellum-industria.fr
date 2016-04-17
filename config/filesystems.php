@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => 'local',
+    'default' => 'uploads',
 
     /*
     |--------------------------------------------------------------------------
@@ -43,10 +43,10 @@ return [
 
     'disks' => [
 
-        'local' => [
-            'driver' => 'local',
-            'root' => storage_path('app'),
-        ],
+//        'local' => [
+//            'driver' => 'local',
+//            'root' => storage_path('app'),
+//        ],
 
         'uploads' => [
             'driver' => 'local',
@@ -60,16 +60,16 @@ return [
             'visibility' => 'public',
         ],
 
-        's3' => [
-            'driver' => 's3',
-            'key' => env('AWSS3_KEY'),
-            'secret' => env('AWSS3_SECRET'),
-            'region' => env('AWSS3_REGION'),
-            'bucket' => env('AWSS3_BUCKET'),
-            'version' => 'latest',
-            'visibility' => 'public',
-            'ACL' => 'public-read',
-        ],
+//        's3' => [
+//            'driver' => 's3',
+//            'key' => env('AWSS3_KEY'),
+//            'secret' => env('AWSS3_SECRET'),
+//            'region' => env('AWSS3_REGION'),
+//            'bucket' => env('AWSS3_BUCKET'),
+//            'version' => 'latest',
+//            'visibility' => 'public',
+//            'ACL' => 'public-read',
+//        ],
 
     ],
 
