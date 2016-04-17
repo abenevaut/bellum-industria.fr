@@ -1,8 +1,8 @@
-<?php namespace Modules\Files\Http\Controllers;
+<?php namespace Modules\Files\Http\Controllers\Admin;
 
 use Illuminate\Foundation\Application;
 use Barryvdh\Elfinder\ElfinderController;
-use Modules\Files\Outputters\FilesOutputter;
+use Modules\Files\Outputters\Admin\FilesOutputter;
 use Barryvdh\Elfinder\Session\LaravelSession;
 use Barryvdh\Elfinder\Connector;
 use Illuminate\Filesystem\FilesystemAdapter;
@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Request;
 
 /**
  * Class AdminFilesController
- * @package Modules\Files\Http\Controllers
+ * @package Modules\Files\Http\Controllers\Admin
  */
-class AdminFilesController extends ElfinderController
+class FilesController extends ElfinderController
 {
     /**
      * @var FilesOutputter|null

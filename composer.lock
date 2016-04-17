@@ -250,12 +250,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "72acfb159396b03ef5ef7f9e2bdfb8a361076d1e"
+                "reference": "cd1bc47be0a75ed93c7935a0572801c484517a19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/72acfb159396b03ef5ef7f9e2bdfb8a361076d1e",
-                "reference": "72acfb159396b03ef5ef7f9e2bdfb8a361076d1e",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/cd1bc47be0a75ed93c7935a0572801c484517a19",
+                "reference": "cd1bc47be0a75ed93c7935a0572801c484517a19",
                 "shasum": ""
             },
             "require": {
@@ -296,7 +296,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2016-02-18 13:49:47"
+            "time": "2016-04-16 21:12:56"
         },
         {
             "name": "barryvdh/laravel-elfinder",
@@ -2944,16 +2944,16 @@
         },
         {
             "name": "laravelcollective/html",
-            "version": "v5.2",
+            "version": "5.2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "5a8f1380a0d5ef21cdef37e775d86566307f8358"
+                "reference": "02c75dff24fa9c306a907816ee6cff8c85a0d96b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/5a8f1380a0d5ef21cdef37e775d86566307f8358",
-                "reference": "5a8f1380a0d5ef21cdef37e775d86566307f8358",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/02c75dff24fa9c306a907816ee6cff8c85a0d96b",
+                "reference": "02c75dff24fa9c306a907816ee6cff8c85a0d96b",
                 "shasum": ""
             },
             "require": {
@@ -2994,7 +2994,7 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
-            "time": "2015-12-23 07:46:46"
+            "time": "2016-03-03 04:07:38"
         },
         {
             "name": "league/flysystem",
@@ -3841,12 +3841,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "f8a40b3f2458c119274a09b147794efeba626a7e"
+                "reference": "4c7ad7e19419ceaea504b9aa5cfdc78bdd775e43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/f8a40b3f2458c119274a09b147794efeba626a7e",
-                "reference": "f8a40b3f2458c119274a09b147794efeba626a7e",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/4c7ad7e19419ceaea504b9aa5cfdc78bdd775e43",
+                "reference": "4c7ad7e19419ceaea504b9aa5cfdc78bdd775e43",
                 "shasum": ""
             },
             "require": {
@@ -3884,7 +3884,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2016-04-15 13:07:30"
+            "time": "2016-04-16 19:39:49"
         },
         {
             "name": "paragonie/random_compat",
@@ -5338,12 +5338,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "6ce8322398cbb53e58466359cb628314bda41e4e"
+                "reference": "666f097bbb345057ad3b467a4269d476915ff763"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/6ce8322398cbb53e58466359cb628314bda41e4e",
-                "reference": "6ce8322398cbb53e58466359cb628314bda41e4e",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/666f097bbb345057ad3b467a4269d476915ff763",
+                "reference": "666f097bbb345057ad3b467a4269d476915ff763",
                 "shasum": ""
             },
             "require": {
@@ -5388,7 +5388,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-04-14 12:09:28"
+            "time": "2016-04-17 05:34:36"
         },
         {
             "name": "swiftmailer/swiftmailer",

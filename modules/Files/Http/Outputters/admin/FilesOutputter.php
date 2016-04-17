@@ -1,37 +1,32 @@
-<?php namespace Modules\Files\Outputters;
+<?php namespace Modules\Files\Outputters\Admin;
 
 use Widget;
 use Core\Http\Outputters\AdminOutputter;
-use CVEPDB\Contracts\Http\Requests\IFormRequest;
-use Modules\Files\Repositories\FolderRepositoryEloquent;
+use Core\Domain\Settings\Repositories\SettingsRepository;
+use CVEPDB\Abstracts\Http\Requests\FormRequest as IFormRequest;
 
+/**
+ * Class FilesOutputter
+ * @package Modules\Files\Outputters\Admin
+ */
 class FilesOutputter extends AdminOutputter
 {
     /**
      * @var string Outputter header title
      */
-    protected $title = 'Files';
+    protected $title = 'files::admin.meta_title';
 
     /**
      * @var string Outputter header description
      */
-    protected $description = 'media manager';
-
-    /**
-     * @var null FilesRepositoryEloquent
-     */
-    private $r_folders = null;
+    protected $description = 'files::admin.meta_description';
 
     public function __construct(
-        FolderRepositoryEloquent $r_folders
+        SettingsRepository $r_settings
     )
     {
-        parent::__construct();
-
+        parent::__construct($r_settings);
         $this->set_current_module('files');
-
-        $this->r_folders = $r_folders;
-
         $this->addBreadcrumb('Files', 'files');
     }
 
@@ -43,7 +38,7 @@ class FilesOutputter extends AdminOutputter
         return $this->output(
             'files.admin.index',
             [
-                'locale' => 'en'
+                'locale' => \Session::get('lang')
             ]
         );
     }
@@ -56,7 +51,7 @@ class FilesOutputter extends AdminOutputter
         return $this->output(
             'files.admin.elfinder.tinymce4',
             [
-                'locale' => 'en'
+                'locale' => \Session::get('lang')
             ]
         );
     }
