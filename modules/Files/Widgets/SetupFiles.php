@@ -1,4 +1,4 @@
-<?php namespace Modules\Dashboard\Widgets;
+<?php namespace Modules\Files\Widgets;
 
 use Widget;
 use CVEPDB\Contracts\Widgets;
