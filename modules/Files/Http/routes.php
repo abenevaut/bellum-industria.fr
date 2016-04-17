@@ -1,13 +1,6 @@
 <?php
 
-//Route::group(['middleware' => 'web', 'prefix' => 'files', 'namespace' => 'Modules\Files\Http\Controllers'], function()
-//{
-//	Route::get('/', 'FilesController@index');
-//});
-
 Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Files\Http\Controllers\Admin'], function () {
-//	Route::resource('files', 'AdminFilesController');
-
     Route::group(['prefix' => 'files'], function () {
         Route::get('/', ['as' => 'admin.files.index', 'uses' => 'FilesController@index']);
         Route::any('connector', ['as' => 'elfinder.connector', 'uses' => 'FilesController@showConnector']);

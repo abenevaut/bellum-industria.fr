@@ -2,8 +2,8 @@
 
 use Illuminate\Support\ServiceProvider;
 
-class ElfinderServiceProvider extends ServiceProvider {
-
+class ElfinderServiceProvider extends ServiceProvider
+{
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -30,7 +30,7 @@ class ElfinderServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $viewPath = __DIR__.'/../resources/views';
+        $viewPath = __DIR__ . '/../resources/views';
         $this->loadViewsFrom($viewPath, 'elfinder');
         $this->publishes([
             $viewPath => base_path('resources/views/vendor/elfinder'),
@@ -54,5 +54,4 @@ class ElfinderServiceProvider extends ServiceProvider {
     {
         return [];
     }
-
 }

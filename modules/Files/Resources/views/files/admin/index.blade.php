@@ -8,9 +8,9 @@
 
 @section('js')
     <script src="{{ asset('modules/files/js/elfinder.min.js') }}"></script>
-    {{--@if ($locale)--}}
-    {{--<script src="{{ asset('modules/files/js/i18n/elfinder.'.$locale.'.js') }}"></script>--}}
-    {{--@endif--}}
+    @if ($locale != 'en')
+        <script src="{{ asset('modules/files/js/i18n/elfinder.'.$locale.'.js') }}"></script>
+    @endif
 
     <script type="text/javascript" charset="utf-8">
         // Documentation for client options:
@@ -18,8 +18,8 @@
         $().ready(function() {
             $('#elfinder').elfinder({
                 // set your elFinder options here
-                @if ($locale)
-                    lang: 'en', // locale
+                @if ($locale != 'en')
+                    lang: "{{ $locale }}", // locale
                 @endif
                 customData: {
                     _token: $('meta[name="csrf-token"]').attr('content')

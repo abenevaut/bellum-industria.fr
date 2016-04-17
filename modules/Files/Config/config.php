@@ -14,6 +14,7 @@ return [
             'icon' => 'fa fa-folder',
             // All dashboard widgets
             'widgets' => [
+                'setup_files'
             ]
         ]
     ]

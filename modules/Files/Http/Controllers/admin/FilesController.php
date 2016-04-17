@@ -6,7 +6,6 @@ use Modules\Files\Outputters\Admin\FilesOutputter;
 use Barryvdh\Elfinder\Session\LaravelSession;
 use Barryvdh\Elfinder\Connector;
 use Illuminate\Filesystem\FilesystemAdapter;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Request;
 
 /**
@@ -45,11 +44,18 @@ class FilesController extends ElfinderController
         return $this->outputter->edit();
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showTinyMCE4()
     {
         return $this->outputter->showTinyMCE4();
     }
 
+    /**
+     * @param $input_id
+     * @return mixed
+     */
     public function showPopup($input_id)
     {
         return $this->app['view']
@@ -58,6 +64,10 @@ class FilesController extends ElfinderController
             ->with(compact('input_id'));
     }
 
+    /**
+     * @param $input_id
+     * @return mixed
+     */
     public function showFilePicker($input_id)
     {
         $type = Request::input('type');
@@ -67,6 +77,9 @@ class FilesController extends ElfinderController
             ->with(compact('input_id','type'));
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function showConnector()
     {
         $roots = $this->app->config->get('elfinder.roots', []);
