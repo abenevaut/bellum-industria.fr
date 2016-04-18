@@ -25,6 +25,7 @@ class UsersController extends Controller
      */
     public function __construct(UserOutputter $outputter)
     {
+        parent::__construct();
         $this->outputter = $outputter;
     }
 

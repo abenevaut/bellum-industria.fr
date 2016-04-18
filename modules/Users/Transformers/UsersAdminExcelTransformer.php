@@ -9,7 +9,6 @@ use Modules\Users\Entities\User;
  */
 class UsersAdminExcelTransformer extends TransformerAbstract
 {
-
     /**
      * Transform the User entity
      * @param User $model
@@ -18,12 +17,42 @@ class UsersAdminExcelTransformer extends TransformerAbstract
      */
     public function transform(User $model)
     {
+        $roles = [];
+        foreach ($model->roles as $role) {
+            $roles[] = trans($role->display_name);
+        }
+
+        $addresses = [];
+        foreach ($model->addresses as $addresse) {
+
+            $address_info = '';
+            if ($addresse->is_primary) {
+                $address_info = trans('users::addresses.primary');
+            }
+            else if ($addresse->is_billing) {
+                $address_info = trans('users::addresses.billing');
+            }
+            else if ($addresse->is_shipping) {
+                $address_info = trans('users::addresses.shipping');
+            }
+
+            $addresses[] = $address_info
+                . ' : ' . $addresse->organization
+                . ' ' . $addresse->street
+                . ' ' . $addresse->street_extra
+                . ' ' . $addresse->zip
+                . ' ' . $addresse->city
+                . ' ' . $addresse->state_name
+                . ' ' . $addresse->country_name;
+        }
+
         return [
             'id'         => (int) $model->id,
             'last_name' => $model->last_name,
             'first_name' => $model->first_name,
             'email' => $model->email,
-            'roles' => '',
+            'roles' => implode(', ', $roles),
+            'addresses' => implode(',' . PHP_EOL, $addresses),
         ];
     }
 }

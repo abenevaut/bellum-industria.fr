@@ -3,6 +3,7 @@
 use Config;
 use Core\Http\Outputters\AdminOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
+use Core\Domain\Settings\Repositories\SettingsRepository;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
 use Modules\Users\Repositories\PermissionRepositoryEloquent;
 
@@ -33,11 +34,12 @@ class RoleOutputter extends AdminOutputter
     private $r_permission = null;
 
     public function __construct(
+        SettingsRepository $r_settings,
         RoleRepositoryEloquent $r_role,
         PermissionRepositoryEloquent $r_permission
     )
     {
-        parent::__construct();
+        parent::__construct($r_settings);
 
         $this->set_current_module('users');
 

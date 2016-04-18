@@ -20,6 +20,7 @@ class RolesController extends Controller {
 	 */
 	public function __construct(RoleOutputter $outputter)
 	{
+		parent::__construct();
 		$this->outputter = $outputter;
 	}
 

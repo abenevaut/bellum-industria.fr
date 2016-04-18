@@ -2,6 +2,7 @@
 
 use Config;
 use Core\Http\Outputters\AdminOutputter;
+use Core\Domain\Settings\Repositories\SettingsRepository;
 
 class AuthOutputter extends AdminOutputter
 {
@@ -15,9 +16,9 @@ class AuthOutputter extends AdminOutputter
      */
     protected $description = 'users::login.backend_meta_description';
 
-    public function __construct()
+    public function __construct(SettingsRepository $r_settings)
     {
-        parent::__construct();
+        parent::__construct($r_settings);
         $this->set_current_module('users');
     }
 }

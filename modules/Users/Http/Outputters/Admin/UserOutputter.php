@@ -7,6 +7,7 @@ use Request;
 use Event;
 use Core\Http\Outputters\AdminOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
+use Core\Domain\Settings\Repositories\SettingsRepository;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
 use Modules\Users\Transformers\UsersAdminExcelTransformer;
@@ -50,12 +51,13 @@ class UserOutputter extends AdminOutputter
     private $r_apikey = null;
 
     public function __construct(
+        SettingsRepository $_settings,
         UserRepositoryEloquent $r_user,
         RoleRepositoryEloquent $r_role,
         ApiKeyRepositoryEloquent $r_apikey
     )
     {
-        parent::__construct();
+        parent::__construct($_settings);
 
         $this->set_current_module('users');
 
@@ -349,7 +351,8 @@ class UserOutputter extends AdminOutputter
                         trans('global.last_name'),
                         trans('global.first_name'),
                         trans('global.email'),
-                        trans('global.role_s')
+                        trans('global.role_s'),
+                        trans('global.addresse_s'),
                     ]);
 
                     // Append row after row 2
@@ -377,7 +380,6 @@ class UserOutputter extends AdminOutputter
                     $sheet->freezeFirstRow();
 
                     $sheet->cells('A2:D' . ($nb_users + 2), function ($cells) {
-
                         // Set font
                         $cells->setFont([
                             'size' => '12',
@@ -385,10 +387,8 @@ class UserOutputter extends AdminOutputter
                         ]);
                         $cells->setAlignment('center');
                         $cells->setValignment('middle');
-
                     });
 
-                    // Set black background
                     $sheet->row($nb_users + 2, function ($row) {
                         // Set font
                         $row->setFont([
@@ -397,6 +397,17 @@ class UserOutputter extends AdminOutputter
                         ]);
                         $row->setAlignment('center');
                         $row->setValignment('middle');
+                    });
+
+                    $sheet->cells('F2:F' . ($nb_users + 2), function ($cells) {
+                        // Set font
+                        $cells->setFont([
+                            'size' => '12',
+                            'bold' => false,
+                            'wrap-text' => true // Allow PHP_EOL
+                        ]);
+                        $cells->setAlignment('center');
+                        $cells->setValignment('middle');
                     });
 
                 })->export('xls');

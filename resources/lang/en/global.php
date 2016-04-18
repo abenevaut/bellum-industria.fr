@@ -23,4 +23,5 @@ return [
     'unchangeable' => 'Unchangeable',
     'module' => 'Module',
     'description' => 'Description',
+    'addresse_s' => 'Address(es)',
 ];
