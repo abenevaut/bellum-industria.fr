@@ -14,8 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-//    protected $namespace_front = 'Core\Http\Controllers\Front';
-//    protected $namespace_admin = 'Core\Http\Controllers\Admin';
+    protected $namespace_core = 'Core\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -25,8 +24,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        //
-
         parent::boot($router);
     }
 
@@ -38,12 +35,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map(Router $router)
     {
-//        $router->group(['namespace' => $this->namespace_front], function ($router) {
-//            require app_path('Http/Front/routes.php');
-//        });
-//
-//        $router->group(['namespace' => $this->namespace_admin], function ($router) {
-//            require app_path('Http/Admin/routes.php');
-//        });
+        $router->group(['namespace' => $this->namespace_core], function ($router) {
+            require base_path('core/Http/routes.php');
+        });
     }
 }
