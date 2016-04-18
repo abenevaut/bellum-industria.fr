@@ -4,6 +4,7 @@ use Modules\Users\Entities\User;
 use Core\Domain\Users\Repositories\UserRepositoryEloquent as UserRepositoryEloquentParent;
 use Modules\Users\Criterias\EmailLikeCriteria;
 use Modules\Users\Criterias\UserNameLikeCriteria;
+use Modules\Users\Criterias\RolesCriteria;
 use Illuminate\Container\Container as Application;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
 
@@ -43,14 +44,31 @@ class UserRepositoryEloquent extends UserRepositoryEloquentParent
         return User::all()->count();
     }
 
+    /**
+     * @param string $name
+     * @throws \Prettus\Repository\Exceptions\RepositoryException
+     */
     public function filterUserName($name)
     {
         $this->pushCriteria(new UserNameLikeCriteria($name));
     }
 
+    /**
+     * @param string $email
+     * @throws \Prettus\Repository\Exceptions\RepositoryException
+     */
     public function filterEmail($email)
     {
         $this->pushCriteria(new EmailLikeCriteria($email));
+    }
+
+    /**
+     * @param array $roles list of roles IDs
+     * @throws \Prettus\Repository\Exceptions\RepositoryException
+     */
+    public function filterRoles($roles = [])
+    {
+        $this->pushCriteria(new RolesCriteria($roles));
     }
 
     public function findAndDelete($id)

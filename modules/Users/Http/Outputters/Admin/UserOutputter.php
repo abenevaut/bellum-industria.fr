@@ -84,12 +84,20 @@ class UserOutputter extends AdminOutputter
             ? $request->get('email')
             : null;
 
+        $roles = $request->has('roles')
+            ? $request->get('roles')
+            : null;
+
         if (!is_null($name)) {
             $this->r_user->filterUserName($name);
         }
 
         if (!is_null($email)) {
             $this->r_user->filterEmail($email);
+        }
+
+        if (!is_null($roles)) {
+            $this->r_user->filterRoles($roles);
         }
 
         $users = $this->r_user->paginate(config('app.pagination'));
@@ -104,6 +112,7 @@ class UserOutputter extends AdminOutputter
                 'filters' => [
                     'name' => $name,
                     'email' => $email,
+                    'roles' => $roles,
                 ]
             ]
         );

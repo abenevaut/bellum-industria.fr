@@ -33,6 +33,14 @@
                     </div>
                 </div>
 
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user-md"></i></span>
+                        <input type="text" name="roles[]" class="form-control" placeholder="{{ trans('global.role_s') }}"
+                               value="{{ old('roles') }}">
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="box-footer">

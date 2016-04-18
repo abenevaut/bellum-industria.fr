@@ -10,14 +10,14 @@ use Core\Criterias\Criteria as AbsCriteria;
 class UserNameLikeCriteria extends AbsCriteria
 {
     /**
-     * @var array emails list
+     * @var string user first or last name
      */
     private $name = null;
 
     /**
-     * @param array $name
+     * @param string $name
      */
-    public function __construct($name = [])
+    public function __construct($name = '')
     {
         $this->name = $name;
     }

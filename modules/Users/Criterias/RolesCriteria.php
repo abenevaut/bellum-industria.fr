@@ -4,22 +4,22 @@ use Prettus\Repository\Contracts\RepositoryInterface;
 use Core\Criterias\Criteria as AbsCriteria;
 
 /**
- * Class EmailLikeCriteria
+ * Class RolesCriteria
  * @package Modules\Users\Criterias
  */
-class EmailLikeCriteria extends AbsCriteria
+class RolesCriteria extends AbsCriteria
 {
     /**
-     * @var string emails list
+     * @var array roles list of roles IDs
      */
-    private $emails = null;
+    private $roles = [];
 
     /**
-     * @param string $emails
+     * @param array $roles
      */
-    public function __construct($emails = '')
+    public function __construct($roles = [])
     {
-        $this->emails = $emails;
+        $this->roles = $roles;
     }
 
     /**
@@ -29,7 +29,9 @@ class EmailLikeCriteria extends AbsCriteria
      */
     public function apply($model, RepositoryInterface $repository)
     {
-        $model = $model->where('email', 'LIKE', '%' . $this->emails . '%');
+        if (count($this->roles)) {
+            $model = $model->roles()->whereIn('id', $this->roles);
+        }
         return $model;
     }
 }
