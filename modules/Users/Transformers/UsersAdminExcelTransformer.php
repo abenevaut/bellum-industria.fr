@@ -21,6 +21,7 @@ class UsersAdminExcelTransformer extends TransformerAbstract
         foreach ($model->roles as $role) {
             $roles[] = trans($role->display_name);
         }
+        sort($roles);
 
         $addresses = [];
         foreach ($model->addresses as $addresse) {
@@ -43,13 +44,14 @@ class UsersAdminExcelTransformer extends TransformerAbstract
                 . ' ' . $addresse->state_name
                 . ' ' . $addresse->country_name;
         }
+        sort($addresses);
 
         return [
             'id' => (int)$model->id,
             'last_name' => $model->last_name,
             'first_name' => $model->first_name,
             'email' => $model->email,
-            'roles' => implode(', ', $roles),
+            'roles' => implode(',' . PHP_EOL, $roles),
             'addresses' => implode(',' . PHP_EOL, $addresses),
         ];
     }

@@ -18,6 +18,7 @@ use Modules\Users\Events\Admin\UserCreatedEvent;
 use Modules\Users\Events\Admin\UserUpdatedEvent;
 use Modules\Users\Events\Admin\UserDeletedEvent;
 use CVEPDB\Addresses\AddressesFacade as Addresses;
+use CVEPDB\Settings\Facades\Settings;
 
 /**
  * Class UserOutputter
@@ -339,9 +340,9 @@ class UserOutputter extends AdminOutputter
         $nb_users = $this->r_user->allCount();
 
         return $excel->setTitle(trans(''))
+            ->setTitle(trans('users::admin.export.users_list.title'))
             ->setCreator(Auth::user()->full_name)
-            ->setCompany(env('APP_SITE_NAME'))
-            ->setDescription(trans('users::admin.export.users_list.title'))
+            ->setDescription(Settings::get('APP_SITE_NAME') . PHP_EOL . Settings::get('APP_SITE_DESCRIPTION'))
             ->sheet(
                 trans('users::admin.export.users_list.sheet_title') . date('Y-m-d H\hi'),
                 function ($sheet) use ($users, $nb_users) {
@@ -370,44 +371,34 @@ class UserOutputter extends AdminOutputter
                         // Set font
                         $row->setFont(array(
                             'size' => '14',
-                            'bold' => true
-                        ));
-                        $row->setAlignment('center');
-                        $row->setValignment('middle');
+                            'bold' => true,
+                        ))
+                            ->setAlignment('center')
+                            ->setValignment('middle');
                     });
 
                     // Freeze first row
                     $sheet->freezeFirstRow();
 
-                    $sheet->cells('A2:D' . ($nb_users + 2), function ($cells) {
+                    $sheet->cells('A2:F' . ($nb_users + 2), function ($cells) {
                         // Set font
                         $cells->setFont([
                             'size' => '12',
-                            'bold' => false
-                        ]);
-                        $cells->setAlignment('center');
-                        $cells->setValignment('middle');
+                            'bold' => false,
+                            'wrap-text' => true, // Allow PHP_EOL
+                        ])
+                            ->setAlignment('center')
+                            ->setValignment('middle');
                     });
 
                     $sheet->row($nb_users + 2, function ($row) {
                         // Set font
                         $row->setFont([
                             'size' => '12',
-                            'bold' => true
-                        ]);
-                        $row->setAlignment('center');
-                        $row->setValignment('middle');
-                    });
-
-                    $sheet->cells('F2:F' . ($nb_users + 2), function ($cells) {
-                        // Set font
-                        $cells->setFont([
-                            'size' => '12',
-                            'bold' => false,
-                            'wrap-text' => true // Allow PHP_EOL
-                        ]);
-                        $cells->setAlignment('center');
-                        $cells->setValignment('middle');
+                            'bold' => true,
+                        ])
+                            ->setAlignment('center')
+                            ->setValignment('middle');
                     });
 
                 })->export('xls');
