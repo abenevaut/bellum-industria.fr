@@ -1,5 +1,6 @@
 <?php namespace Core\Http\Controllers\Admin;
 
+use CVEPDB\Settings\Facades\Settings;
 use Request;
 use Core\Http\Controllers\CoreAdminController;
 use Core\Http\Requests\Admin\SettingsGetFormRequest;
@@ -15,34 +16,37 @@ class SettingsController extends CoreAdminController
      * @param SettingsGetFormRequest $request
      * @return array
      */
-    public function get(/*SettingsGetFormRequest $request*/)
+    public function get(SettingsGetFormRequest $request)
     {
-        $data = [false];
-//        $setting_key = $request->get('setting_key');
+        $data = [];
+        $setting_key = $request->get('setting_key');
 
         if (Request::ajax()) {
-
-
-
+            $data = [
+                $setting_key => Settings::get($setting_key)
+            ];
         }
-        return $data;
+        return \Response::json($data);
     }
 
     /**
      * @param SettingsSetFormRequest $request
      * @return array
      */
-    public function set(/*SettingsSetFormRequest $request*/)
+    public function set(SettingsSetFormRequest $request)
     {
-        $data = [false];
-//        $setting_key = $request->get('setting_key');
-//        $setting_value = $request->get('setting_value');
+        $data = [];
+        $setting_key = $request->get('setting_key');
+        $setting_value = $request->get('setting_value');
 
         if (Request::ajax()) {
 
+            Settings::set($setting_key, $setting_value);
 
-
+            $data = [
+                $setting_key => $setting_value
+            ];
         }
-        return $data;
+        return \Response::json($data);
     }
 }

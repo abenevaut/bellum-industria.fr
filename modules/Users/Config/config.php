@@ -9,14 +9,13 @@ return [
             // Admin menu icon
             'icon' => 'fa fa-users',
         ],
-        'settings' => [
-            // Settings menu icon
-            'icon' => 'fa fa-users',
-            // All settings widgets
-            'widgets' => [
-                'count_users',
-            ]
-        ],
+//        'settings' => [
+//            // Settings menu icon
+//            'icon' => 'fa fa-users',
+//            // All settings widgets
+//            'widgets' => [
+//            ]
+//        ],
         'dashboard' => [
             // All dashboard widgets
             'widgets' => [

@@ -18,7 +18,8 @@ var config = {
     css: 'css',
     sass: 'sass',
     js: 'js',
-    themes: './resources/themes'
+    themes: './resources/themes',
+    core_assets: './resources/core/assets'
 };
 
 var themes = [];
@@ -66,7 +67,7 @@ gulp.task('bower', ['init'], function () {
 /**
  * Clean public directory, compile sass files if exist and deploy compiled files in public directory
  */
-gulp.task('build', ['clean', 'sass', 'deploy'], function () {});
+gulp.task('build', ['clean', 'sass', 'core_assets', 'deploy'], function () {});
 
 /**
  * Clean config.build_assets directory
@@ -88,7 +89,23 @@ gulp.task('clean-themes', function () {
 gulp.task('deploy', ['clean'], function () {
 
     console.log( 'php artisan theme:publish' );
+    console.log( 'php artisan module:publish' );
 
+});
+
+gulp.task('core_assets', ['clean'], function () {
+    return gulp.src([
+
+        config.core_assets + '/**',
+        '!' + config.core_assets + '/html/**',
+        '!' + config.core_assets + '/scss/**',
+
+        '!**/node_modules/**',
+        '!.gitgnore',
+        '!package.json',
+        '!Gruntfile.js',
+        '!gulpfile.js'
+    ]).pipe(gulp.dest(config.build_assets));
 });
 
 /**

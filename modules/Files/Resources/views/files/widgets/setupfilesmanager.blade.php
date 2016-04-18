@@ -9,7 +9,7 @@
     cvepdb_config.libraries.push(
             {
                 script: {
-                    CVEPDB_THEME_ADMIN_JS_LOADED: ('{{ asset('modules/dashboard/js/files.settings.js') }}')
+                    CVEPDB_THEME_ADMIN_JS_LOADED: ('{{ asset('modules/files/js/files.settings.js') }}')
                 },
                 trigger: 'always',
                 mobile: true,
