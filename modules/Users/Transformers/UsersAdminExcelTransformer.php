@@ -28,11 +28,9 @@ class UsersAdminExcelTransformer extends TransformerAbstract
             $address_info = '';
             if ($addresse->is_primary) {
                 $address_info = trans('users::addresses.primary');
-            }
-            else if ($addresse->is_billing) {
+            } else if ($addresse->is_billing) {
                 $address_info = trans('users::addresses.billing');
-            }
-            else if ($addresse->is_shipping) {
+            } else if ($addresse->is_shipping) {
                 $address_info = trans('users::addresses.shipping');
             }
 
@@ -47,7 +45,7 @@ class UsersAdminExcelTransformer extends TransformerAbstract
         }
 
         return [
-            'id'         => (int) $model->id,
+            'id' => (int)$model->id,
             'last_name' => $model->last_name,
             'first_name' => $model->first_name,
             'email' => $model->email,

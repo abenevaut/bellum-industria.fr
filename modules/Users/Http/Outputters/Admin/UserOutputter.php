@@ -359,7 +359,7 @@ class UserOutputter extends AdminOutputter
                     $sheet->rows($users['data']);
 
                     // Append row after row 2
-                    $sheet->appendRow($nb_users + 2, ['Total users : ' . $nb_users]);
+                    $sheet->appendRow($nb_users + 2, [trans('users::admin.export.total_users') . ' : ' . $nb_users]);
 
                     /*
                      * Style
