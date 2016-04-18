@@ -76,6 +76,16 @@ class AdminOutputter extends CoreOutputter
         }
 
         Menu::create('navbar', function ($menu) {
+
+            $menu->url(
+                '#control-sidebar-settings-tab',
+                'Settings',
+                [],
+                [
+                    'icon' => 'fa fa-gears'
+                ]
+            );
+
             foreach (Module::getOrdered() as $module) {
 
                 $slug = strtolower($module->name);
