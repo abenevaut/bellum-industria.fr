@@ -9,10 +9,7 @@ use Module;
 class ModulesServiceProvider extends ServiceProvider
 {
     /**
-     * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
-     * @return void
      */
     public function register()
     {

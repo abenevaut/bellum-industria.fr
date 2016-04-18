@@ -173,6 +173,7 @@ return [
         Core\Providers\EventServiceProvider::class,
         Core\Providers\RouteServiceProvider::class,
         Core\Providers\ModulesServiceProvider::class,
+        Core\Providers\SettingsServiceProvider::class,
         CVEPDB\Addresses\AddressesServiceProvider::class,
         CVEPDB\Settings\SettingsServiceProvider::class,
     ],
