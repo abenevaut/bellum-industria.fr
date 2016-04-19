@@ -348,8 +348,7 @@ class UserOutputter extends AdminOutputter
         $users = $this->r_user->all();
         $nb_users = $this->r_user->allCount();
 
-        return $excel->setTitle(trans(''))
-            ->setTitle(trans('users::admin.export.users_list.title'))
+        return $excel->setTitle(trans('users::admin.export.users_list.title'))
             ->setCreator(Auth::user()->full_name)
             ->setDescription(Settings::get('APP_SITE_NAME') . PHP_EOL . Settings::get('APP_SITE_DESCRIPTION'))
             ->sheet(
