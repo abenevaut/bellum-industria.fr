@@ -62,3 +62,8 @@ function cmsview_prefix($view, $view_prefix = null, $current_module = null)
     }
     return $current_prefix;
 }
+
+function cmsinstalled()
+{
+    return env('APP_INSTALLED');
+}
