@@ -47,7 +47,7 @@
                 {{--<button type="submit" class="btn btn-primary btn-flat btn-xs">--}}
                     {{--<i class="fa fa-filter"></i> {{ trans('users::admin.index.btn.apply_filters') }}--}}
                 {{--</button>--}}
-                <a href="javascript:void(0);" class="btn btn-default btn-flat btn-xs cancel">
+                <a href="javascript:void(0);" class="btn btn-default btn-flat btn-xs cancel js-cancel-filters">
                     {{ trans('users::admin.index.btn.reset_filters') }}
                 </a>
             </div>
