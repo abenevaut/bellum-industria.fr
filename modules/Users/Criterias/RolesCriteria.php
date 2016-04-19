@@ -19,7 +19,7 @@ class RolesCriteria extends AbsCriteria
      */
     public function __construct($roles = [])
     {
-        $this->roles = $roles;
+        $this->roles = array_filter($roles);
     }
 
     /**
@@ -30,7 +30,10 @@ class RolesCriteria extends AbsCriteria
     public function apply($model, RepositoryInterface $repository)
     {
         if (count($this->roles)) {
-            $model = $model->roles()->whereIn('id', $this->roles);
+            return $model->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
+                ->leftJoin('roles', 'roles.id', '=', 'role_user.role_id')
+                ->whereIn('roles.id', $this->roles)
+                ->groupBy('users.id');
         }
         return $model;
     }

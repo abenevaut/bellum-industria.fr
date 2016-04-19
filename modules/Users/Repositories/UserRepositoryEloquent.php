@@ -68,7 +68,11 @@ class UserRepositoryEloquent extends UserRepositoryEloquentParent
      */
     public function filterRoles($roles = [])
     {
-        $this->pushCriteria(new RolesCriteria($roles));
+        $roles = array_filter($roles);
+
+        if (count($roles)) {
+            $this->pushCriteria(new RolesCriteria($roles));
+        }
     }
 
     public function findAndDelete($id)

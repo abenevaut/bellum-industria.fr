@@ -29,7 +29,6 @@ class EmailLikeCriteria extends AbsCriteria
      */
     public function apply($model, RepositoryInterface $repository)
     {
-        $model = $model->where('email', 'LIKE', '%' . $this->emails . '%');
-        return $model;
+        return $model->where('email', 'LIKE', '%' . $this->emails . '%');
     }
 }
