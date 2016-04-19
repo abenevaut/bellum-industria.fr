@@ -3,6 +3,7 @@
 use Widget;
 use CVEPDB\Contracts\Widgets;
 use Core\Domain\Settings\Repositories\SettingsRepository;
+use Modules\Users\Repositories\RoleRepositoryEloquent;
 
 class RolesFields implements Widgets
 {
@@ -31,9 +32,15 @@ class RolesFields implements Widgets
      */
     private $r_settings = null;
 
-    public function __construct(SettingsRepository $r_settings)
+    /**
+     * @var RoleRepositoryEloquent|null
+     */
+    private $r_role = null;
+
+    public function __construct(SettingsRepository $r_settings, RoleRepositoryEloquent $r_role)
     {
         $this->r_settings = $r_settings;
+        $this->r_role = $r_role;
     }
 
     public function setTitle($title)
@@ -81,9 +88,16 @@ class RolesFields implements Widgets
 
     public function register($name = 'roles[]', $attributes = [])
     {
+        $roles = $this->r_role->lists('display_name', 'id');
+
+        foreach ($roles as $id => $role) {
+            $roles[$id] = trans($role);
+        }
+
         return $this->output(
             'users.widgets.rolesfields',
             [
+                'roles' => $roles,
                 'name' => $name,
                 'value' => array_key_exists('value', $attributes) ? $attributes['value'] : '',
                 'old_value' => preg_replace("/[^A-Za-z0-9 ]/", '', $name),

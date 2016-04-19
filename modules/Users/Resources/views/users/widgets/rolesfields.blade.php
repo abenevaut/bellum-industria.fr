@@ -1,15 +1,15 @@
 @push('widget-scripts')
 <script>
-
-
-
+    (function($, W, D){
+        $(D).bind('CVEPDB_SELECT2_READY', function(){
+            $('select[name="{{ $name }}"]').select2({
+                theme: "bootstrap",
+                width: '100%',
+                placeholder: "{{ $placeholder }}",
+            });
+        });
+    })(jQuery, window, document);
 </script>
 @endpush
 
-<span class="input-group-addon"><i class="fa fa-user-md"></i></span>
-<input type="text"
-       name="{{ $name }}"
-       class="{{ $class }}"
-       placeholder="{{ $placeholder }}"
-       value=""
-/>
+{!! Form::select($name, $roles, $value, ['class' => $class, 'multiple' => 'multiple']) !!}
