@@ -6,7 +6,7 @@ use App\User;
 use Validator;
 use Socialite;
 use Session;
-use Core\Http\Controllers\CorePublicController as Controller;
+use Core\Http\Controllers\CoreAuthController as Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Theme;

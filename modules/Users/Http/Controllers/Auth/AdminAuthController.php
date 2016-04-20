@@ -4,11 +4,12 @@ namespace Modules\Users\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
-use Core\Http\Controllers\CorePublicController as Controller;
+use Core\Http\Controllers\CoreAuthController as Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Theme;
 use Modules\Users\Http\Outputters\Admin\AuthOutputter;
+use Socialite;
 
 class AdminAuthController extends Controller
 {
