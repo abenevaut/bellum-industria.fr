@@ -50,7 +50,9 @@
 
 @section('content')
     <div class="box-body no-padding">
-        <div id="elfinder_popup"></div>
+        <div class="box box-primary">
+            <div id="elfinder_popup"></div>
+        </div>
     </div>
 @endsection
 

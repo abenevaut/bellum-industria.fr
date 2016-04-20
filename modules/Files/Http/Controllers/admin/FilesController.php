@@ -78,19 +78,6 @@ class FilesController extends ElfinderController
     }
 
     /**
-     * @param $input_id
-     * @return mixed
-     */
-    public function showFilePicker($input_id)
-    {
-        $type = Request::input('type');
-        return $this->app['view']
-            ->make($this->package . '::filepicker')
-            ->with($this->getViewVars())
-            ->with(compact('input_id','type'));
-    }
-
-    /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showConnector()
@@ -114,7 +101,7 @@ class FilesController extends ElfinderController
                     'path' => public_path($dir), // path to files (REQUIRED)
                     'URL' => url($dir), // URL to files (REQUIRED)
                     'accessControl' => $this->app->config->get('elfinder.access'), // filter callback (OPTIONAL)
-//                    'attributes' => array(
+                    'attributes' => array(
 //                        array( // hide readmes
 //                            'pattern' => '/README/',
 //                            'read' => false,
@@ -129,7 +116,7 @@ class FilesController extends ElfinderController
 //                            'hidden' => false,
 //                            'locked' => false
 //                        )
-//                    ),
+                    ),
                 ];
 
 

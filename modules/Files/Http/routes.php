@@ -6,7 +6,6 @@ Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Mo
         Route::any('connector', ['as' => 'elfinder.connector', 'uses' => 'FilesController@showConnector']);
         Route::get('tinymce4', ['as' => 'elfinder.tinymce4', 'uses' => 'FilesController@showTinyMCE4']);
         Route::get('popup/{input_id}', ['as' => 'elfinder.popup', 'uses' => 'FilesController@showPopup']);
-        Route::get('filepicker/{input_id}', ['as' => 'elfinder.filepicker', 'uses' => 'FilesController@showFilePicker']);
     });
 });
 

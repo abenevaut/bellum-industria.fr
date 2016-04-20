@@ -24,6 +24,7 @@
                 customData: {
                     _token: $('meta[name="csrf-token"]').attr('content')
                 },
+                resizable: false,
                 url : '{{ route("elfinder.connector") }}'  // connector URL
             });
         });
@@ -31,5 +32,7 @@
 @endsection
 
 @section('content')
-    <div id="elfinder"></div>
+    <div class="box box-primary">
+        <div id="elfinder"></div>
+    </div>
 @endsection
