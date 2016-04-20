@@ -6267,12 +6267,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "61e6b452cc873bb5e44403adfceb0fe903ed28e5"
+                "reference": "920a6d0e49334d3ba2ae6b551e32635b1e616e29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/61e6b452cc873bb5e44403adfceb0fe903ed28e5",
-                "reference": "61e6b452cc873bb5e44403adfceb0fe903ed28e5",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/920a6d0e49334d3ba2ae6b551e32635b1e616e29",
+                "reference": "920a6d0e49334d3ba2ae6b551e32635b1e616e29",
                 "shasum": ""
             },
             "require": {
@@ -6322,7 +6322,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2016-04-12 18:09:53"
+            "time": "2016-04-20 11:35:44"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
