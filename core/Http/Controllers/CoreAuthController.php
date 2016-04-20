@@ -1,7 +1,22 @@
-<?php
+<?php namespace Core\Http\Controllers;
+
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 /**
- * Created by PhpStorm.
- * User: 42antoine
- * Date: 20/04/16
- * Time: 15:36
+ * Class CoreAuthController
+ * @package Core\Http\Controllers
  */
+class CoreAuthController extends CoreController
+{
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    /**
+     * Create a new authentication controller instance.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+}
