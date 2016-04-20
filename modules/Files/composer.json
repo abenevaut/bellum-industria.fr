@@ -31,7 +31,9 @@
     "spatie/laravel-medialibrary": "^3.16",
     "barryvdh/laravel-elfinder": "^0.3.6",
     "aws/aws-php-sns-message-validator": "^1.1",
-    "doctrine/cache": "^1.6"
+    "doctrine/cache": "^1.6",
+    "spatie/laravel-backup": "^3.4",
+    "maknz/slack": "^1.7"
   },
   "extra": {
     "installer-name": "Files"

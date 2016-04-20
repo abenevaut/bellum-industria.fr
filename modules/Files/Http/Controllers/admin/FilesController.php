@@ -37,11 +37,27 @@ class FilesController extends ElfinderController
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
      */
-    public function config()
+    public function store()
     {
-        return $this->outputter->edit();
+        // add new disk settings
+    }
+
+    /**
+     *
+     */
+    public function update()
+    {
+        // edit new disk settings
+    }
+
+    /**
+     *
+     */
+    public function destroy()
+    {
+        // remove disk settings
     }
 
     /**
@@ -58,10 +74,7 @@ class FilesController extends ElfinderController
      */
     public function showPopup($input_id)
     {
-        return $this->app['view']
-            ->make($this->package . '::standalonepopup')
-            ->with($this->getViewVars())
-            ->with(compact('input_id'));
+        return $this->outputter->showPopup($input_id);
     }
 
     /**
@@ -85,24 +98,62 @@ class FilesController extends ElfinderController
         $roots = $this->app->config->get('elfinder.roots', []);
 
         if (empty($roots)) {
+
+
+
+
+
+
             $dirs = (array) $this->app['config']->get('elfinder.dir', []);
 
             foreach ($dirs as $dir) {
+
+
                 $roots[] = [
                     'driver' => 'LocalFileSystem', // driver for accessing file system (REQUIRED)
                     'path' => public_path($dir), // path to files (REQUIRED)
                     'URL' => url($dir), // URL to files (REQUIRED)
-                    'accessControl' => $this->app->config->get('elfinder.access') // filter callback (OPTIONAL)
+                    'accessControl' => $this->app->config->get('elfinder.access'), // filter callback (OPTIONAL)
+//                    'attributes' => array(
+//                        array( // hide readmes
+//                            'pattern' => '/README/',
+//                            'read' => false,
+//                            'write' => false,
+//                            'hidden' => true,
+//                            'locked' => false
+//                        ),
+//                        array( // restrict access to png files
+//                            'pattern' => '(.?)',
+//                            'read' => true,
+//                            'write' => true,
+//                            'hidden' => false,
+//                            'locked' => false
+//                        )
+//                    ),
                 ];
+
+
             }
 
+
+
+
+
+
+
+
+
             $disks = (array) $this->app['config']->get('elfinder.disks', []);
+
             foreach ($disks as $key => $root) {
+
                 if (is_string($root)) {
                     $key = $root;
                     $root = [];
                 }
+
                 $disk = app('filesystem')->disk($key);
+
                 if ($disk instanceof FilesystemAdapter) {
                     $defaults = [
                         'driver' => 'Flysystem',
@@ -111,15 +162,43 @@ class FilesController extends ElfinderController
                     ];
                     $roots[] = array_merge($defaults, $root);
                 }
-            }
-        }
 
-        if (app()->bound('session.store')) {
-            $sessionStore = app('session.store');
-            $session = new LaravelSession($sessionStore);
-        } else {
-            $session = null;
+            }
+
+
+
+
+
+
+
+
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+//        if (app()->bound('session.store')) {
+//            $sessionStore = app('session.store');
+//            $session = new LaravelSession($sessionStore);
+//        } else {
+            $session = null;
+//        }
 
         $opts = $this->app->config->get('elfinder.options', array());
         $opts = array_merge(['roots' => $roots, 'session' => $session], $opts);

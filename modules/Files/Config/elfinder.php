@@ -31,15 +31,37 @@ return array(
 //        'local' => [
 //            'glideUrl' => url('glide'),
 //            'tmbUrl' => url('thumbnails')
+//
 //        ],
-//        's3' => [
-//            'URL' => 'https://s3.eu-central-1.amazonaws.com/cvepdb-test/',
-//            'url' => 'https://s3.eu-central-1.amazonaws.com/cvepdb-test/',
-//            'alias' => 'AWS',
-//            //'glideUrl' => url('glide'),
-//            //'tmbUrl' => url('thumbnails')
-//        ],
+        's3' => [
+            'URL' => 'https://s3.eu-central-1.amazonaws.com/cvepdb-test/',
+            'url' => 'https://s3.eu-central-1.amazonaws.com/cvepdb-test/',
+            'alias' => 'AWS',
+            //'glideUrl' => url('glide'),
+            //'tmbUrl' => url('thumbnails')
+        ],
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Options
+    |--------------------------------------------------------------------------
+    |
+    | These options are merged, together with 'roots' and passed to the Connector.
+    | See https://github.com/Studio-42/elFinder/wiki/Connector-configuration-options-2.1
+    |
+    | @seealso https://github.com/Studio-42/elFinder/wiki/Logging
+    |
+    */
+
+    'options' => array(
+//        'bind' => [
+//            'mkdir mkfile rename duplicate upload rm paste' => [
+//                $myLogger,
+//                'log'
+//            ],
+//        ]
+    ),
 
     /*
     |--------------------------------------------------------------------------
@@ -47,6 +69,8 @@ return array(
     |--------------------------------------------------------------------------
     |
     | The default group settings for the elFinder routes.
+    |
+    | ABE : Used in class ElfinderServiceProvider
     |
     */
 
@@ -62,6 +86,9 @@ return array(
     |
     | Filter callback to check the files
     |
+    | ABE : Allow to exclude files and/or directories to be displayed by checking base name.
+    | In this filter, we exclure files and directories starting name with '.' to be displayed.
+    |
     */
 
     'access' => 'Barryvdh\Elfinder\Elfinder::checkAccess',
@@ -74,20 +101,11 @@ return array(
     | By default, the roots file is LocalFileSystem, with the above public dir.
     | If you want custom options, you can set your own roots below.
     |
+    | ABE : This variable overwrite previous var dirs and disks.
+    | @seealso Modules\Files\Http\Controllers\Admin\FilesController::showConnector()
+    | @seealso https://github.com/Studio-42/elFinder/wiki/Multiple-Roots
+    |
     */
 
     'roots' => null,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Options
-    |--------------------------------------------------------------------------
-    |
-    | These options are merged, together with 'roots' and passed to the Connector.
-    | See https://github.com/Studio-42/elFinder/wiki/Connector-configuration-options-2.1
-    |
-    */
-
-    'options' => array(),
-
 );

@@ -8,7 +8,8 @@
     "providers": [
         "Modules\\Files\\Providers\\FilesServiceProvider",
         "Modules\\Files\\Providers\\ElfinderServiceProvider",
-        "Spatie\\MediaLibrary\\MediaLibraryServiceProvider"
+        "Spatie\\MediaLibrary\\MediaLibraryServiceProvider",
+        "Spatie\\Backup\\BackupServiceProvider"
     ],
     "aliases":{
     },

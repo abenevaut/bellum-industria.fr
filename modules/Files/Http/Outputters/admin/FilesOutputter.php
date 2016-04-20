@@ -55,4 +55,18 @@ class FilesOutputter extends AdminOutputter
             ]
         );
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showPopup($input_id)
+    {
+        return $this->output(
+            'files.admin.elfinder.standalonepopup',
+            [
+                'input_id' => $input_id,
+                'locale' => \Session::get('lang')
+            ]
+        );
+    }
 }
