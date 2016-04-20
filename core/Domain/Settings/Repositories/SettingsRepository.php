@@ -9,6 +9,14 @@ use CVEPDB\Settings\Facades\Settings as SettingsFacade;
 class SettingsRepository
 {
     /**
+     * @return mixed
+     */
+    public function all()
+    {
+        return SettingsFacade::getAll();
+    }
+
+    /**
      * @param $key
      * @param $data
      */

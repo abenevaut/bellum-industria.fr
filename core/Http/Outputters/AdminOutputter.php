@@ -110,12 +110,11 @@ class AdminOutputter extends CoreOutputter
             }
         });
 
-//        dd( $modules );
-
         return [
             'settings' => [
                 'menu' => Menu::render('navbar', 'Core\Http\Presenters\SettingsPresenter'),
-                'modules' => $modules
+                'modules' => $modules,
+                'list' => $this->r_settings->all()
             ]
         ];
     }
