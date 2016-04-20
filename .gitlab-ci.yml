@@ -1,0 +1,10 @@
+ci:
+  script:
+  - chmod -R 777 storage
+  - composer install
+  - npm install
+  - gulp build
+  - gulp deploy
+  - php artisan theme:publish
+  - php artisan module:publish
+  - bin/codecept run
