@@ -143,7 +143,7 @@ class FilesController extends ElfinderController
 
                 if ($disk instanceof FilesystemAdapter) {
 
-                    dd( $disk );
+//                    dd( $disk );
 
                     $defaults = [
                         'driver' => 'Flysystem',
