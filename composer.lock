@@ -4217,12 +4217,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pingpong-labs/menus.git",
-                "reference": "7d59a9e774a6f6487d3fb6e483a5db453319cbc3"
+                "reference": "b8e3b10ae72cbd33bccccafc1b67609af99e02d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pingpong-labs/menus/zipball/7d59a9e774a6f6487d3fb6e483a5db453319cbc3",
-                "reference": "7d59a9e774a6f6487d3fb6e483a5db453319cbc3",
+                "url": "https://api.github.com/repos/pingpong-labs/menus/zipball/b8e3b10ae72cbd33bccccafc1b67609af99e02d6",
+                "reference": "b8e3b10ae72cbd33bccccafc1b67609af99e02d6",
                 "shasum": ""
             },
             "require": {
@@ -4261,7 +4261,7 @@
                 "navigation",
                 "pingpong"
             ],
-            "time": "2016-04-21 13:40:29"
+            "time": "2016-04-21 13:42:10"
         },
         {
             "name": "pingpong/modules",
