@@ -20,6 +20,7 @@ return [
             // All dashboard widgets
             'widgets' => [
                 'count_users',
+                'export_users',
             ]
         ]
     ]
