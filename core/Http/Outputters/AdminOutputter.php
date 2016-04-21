@@ -44,7 +44,7 @@ class AdminOutputter extends CoreOutputter
 
                 $menu->url(
                     '/',
-                    'View website',
+                    trans('menus.view_website'),
                     [],
                     [
                         'icon' => 'fa fa-globe'

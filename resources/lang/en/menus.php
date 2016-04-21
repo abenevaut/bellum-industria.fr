@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'main_navigation' => 'Main navigation'
+    'view_website' => 'View website',
+    'main_navigation' => 'Main navigation',
 ];
