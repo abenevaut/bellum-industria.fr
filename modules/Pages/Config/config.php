@@ -4,10 +4,14 @@ return [
     'name' => 'Pages',
     'admin' => [
         'sidebar' => [
-            // Admin entry point
-            'route' => 'admin.pages.index',
-            // Admin menu icon
-            'icon' => 'fa fa-file-text-o'
+            'menu' => [
+                'route' => 'admin.pages.index',
+                'icon' => 'fa fa-file-text-o'
+            ],
+            'settings' => [
+                'route' => null,
+                'icon' => null,
+            ]
         ]
     ]
 ];

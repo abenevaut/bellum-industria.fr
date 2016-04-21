@@ -31,7 +31,7 @@ class CoreOutputter extends AbsLaravelOutputter
     private $current_module = null;
 
     /**
-     * @var Settings|null
+     * @var SettingsRepository|null
      */
     protected $r_settings = null;
 

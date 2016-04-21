@@ -4,20 +4,23 @@ return [
     'name' => 'Users',
     'admin' => [
         'sidebar' => [
-            // Admin entry point
-            'route' => 'admin.users.index',
-            // Admin menu icon
-            'icon' => 'fa fa-users',
+            'menu' => [
+                'route' => 'admin.users.index',
+                'icon' => 'fa fa-users',
+            ],
+            'settings' => [
+                'route' => null,
+                'icon' => null,
+            ]
         ],
-//        'settings' => [
-//            // Settings menu icon
-//            'icon' => 'fa fa-users',
-//            // All settings widgets
-//            'widgets' => [
-//            ]
-//        ],
+        'settings' => [
+            // Settings menu icon
+            'icon' => 'fa fa-users',
+            // All settings widgets
+            'widgets' => [
+            ]
+        ],
         'dashboard' => [
-            // All dashboard widgets
             'widgets' => [
                 'count_users',
                 'export_users',

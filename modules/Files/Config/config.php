@@ -4,15 +4,17 @@ return [
     'name' => 'Files',
     'admin' => [
         'sidebar' => [
-            // Admin entry point
-            'route' => 'admin.files.index',
-            // Admin menu icon
-            'icon' => 'fa fa-folder'
+            'menu' => [
+                'route' => 'admin.files.index',
+                'icon' => 'fa fa-folder'
+            ],
+            'settings' => [
+                'route' => null,
+                'icon' => null
+            ]
         ],
         'settings' => [
-            // Settings menu icon
             'icon' => 'fa fa-folder',
-            // All dashboard widgets
             'widgets' => [
                 'setup_files'
             ]

@@ -142,6 +142,9 @@ class FilesController extends ElfinderController
                 $disk = app('filesystem')->disk($key);
 
                 if ($disk instanceof FilesystemAdapter) {
+
+                    dd( $disk );
+
                     $defaults = [
                         'driver' => 'Flysystem',
                         'filesystem' => $disk->getDriver(),

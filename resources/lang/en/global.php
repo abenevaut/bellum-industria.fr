@@ -24,4 +24,6 @@ return [
     'module' => 'Module',
     'description' => 'Description',
     'addresse_s' => 'Address(es)',
+    'settings' => 'Settings',
+    'general' => 'General',
 ];

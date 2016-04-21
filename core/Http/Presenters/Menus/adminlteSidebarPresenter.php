@@ -1,8 +1,12 @@
-<?php namespace Core\Http\Presenters;
+<?php namespace Core\Http\Presenters\Menus;
 
-use Pingpong\Menus\Presenters\Presenter;
+use Pingpong\Menus\MenuItem;
 
-class SidebarPresenter extends Presenter
+/**
+ * Class adminlteSidebarPresenter
+ * @package Core\Http\Presenters\Menus
+ */
+class adminlteSidebarPresenter extends CorePresenter
 {
     /**
      * {@inheritdoc }.
@@ -33,7 +37,7 @@ class SidebarPresenter extends Presenter
      */
     public function getActiveState($item, $state = 'active')
     {
-        return null; //$item->isActive() ? $item : null;
+        return $item->isActive() ? $state : null;
     }
 
     /**
@@ -70,16 +74,10 @@ class SidebarPresenter extends Presenter
      */
     public function getMenuWithDropDownWrapper($item)
     {
-        return '<li class="dropdown' . $this->getActiveStateOnChild($item, ' active') . '">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					' . $item->getIcon() . ' ' . $item->title . '
-			      	<b class="caret"></b>
-			      </a>
-			      <ul class="dropdown-menu">
-			      	' . $this->getChildMenuItems($item) . '
-			      </ul>
-		      	</li>'
-        . PHP_EOL;
+        return '<li class="treeview ' . $this->getActiveStateOnChild($item) . '"><a href="#">'
+            . $item->getIcon() . '<span>' . $item->title
+            . '</span><i class="fa fa-angle-left pull-right"></i></a><ul class="treeview-menu menu-open">'
+            . $this->getChildMenuItems($item) . '</ul></li>' . PHP_EOL;
     }
 
     /**
@@ -91,15 +89,36 @@ class SidebarPresenter extends Presenter
      */
     public function getMultiLevelDropdownWrapper($item)
     {
-        return '<li class="dropdown' . $this->getActiveStateOnChild($item, ' active') . '">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					' . $item->getIcon() . ' ' . $item->title . '
-			      	<b class="caret pull-right caret-right"></b>
-			      </a>
-			      <ul class="dropdown-menu">
-			      	' . $this->getChildMenuItems($item) . '
-			      </ul>
-		      	</li>'
-        . PHP_EOL;
+        return PHP_EOL;
+    }
+
+    /**
+     * Get child menu items.
+     *
+     * @param \Pingpong\Menus\MenuItem $item
+     *
+     * @return string
+     */
+    public function getChildMenuItems(MenuItem $item)
+    {
+        $results = '';
+
+        foreach ($item->getChilds() as $child) {
+
+            if ($child->hidden()) {
+                continue;
+            }
+
+            if ($child->hasSubMenu()) {
+                $results .= $this->getMultiLevelDropdownWrapper($child);
+            } elseif ($child->isHeader()) {
+                $results .= $this->getHeaderWrapper($child);
+            } elseif ($child->isDivider()) {
+                $results .= $this->getDividerWrapper();
+            } else {
+            $results .= $this->getMenuWithoutDropdownWrapper($child);
+            }
+        }
+        return $results;
     }
 }

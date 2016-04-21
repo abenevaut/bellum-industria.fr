@@ -1,8 +1,7 @@
 <?php namespace Core\Http\Controllers\Admin;
 
-use Request;
-use CVEPDB\Settings\Facades\Settings;
 use Core\Http\Controllers\CoreAdminController;
+use Core\Http\Outputters\Admin\SettingsOutputter;
 use Core\Http\Requests\Admin\SettingsGetFormRequest;
 use Core\Http\Requests\Admin\SettingsSetFormRequest;
 
@@ -13,36 +12,42 @@ use Core\Http\Requests\Admin\SettingsSetFormRequest;
 class SettingsController extends CoreAdminController
 {
     /**
+     * @var SettingsOutputter|null
+     */
+    protected $outputter = null;
+
+    public function __construct(SettingsOutputter $outputter)
+    {
+        $this->outputter = $outputter;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function index()
+    {
+        return $this->outputter->index();
+    }
+
+    /**
+     * Ajax method to get settings
+     *
      * @param SettingsGetFormRequest $request
      * @return array
      */
     public function get(SettingsGetFormRequest $request)
     {
-        $data = [];
-        $setting_key = $request->get('setting_key');
-        if (Request::ajax()) {
-            $data = [
-                $setting_key => Settings::get($setting_key)
-            ];
-        }
-        return \Response::json($data);
+        return $this->outputter->get($request);
     }
 
     /**
+     * Ajax method to set settings
+     *
      * @param SettingsSetFormRequest $request
      * @return array
      */
     public function set(SettingsSetFormRequest $request)
     {
-        $data = [];
-        $setting_key = $request->get('setting_key');
-        $setting_value = $request->get('setting_value');
-        if (Request::ajax()) {
-            Settings::set($setting_key, $setting_value);
-            $data = [
-                $setting_key => $setting_value
-            ];
-        }
-        return \Response::json($data);
+        return $this->outputter->set($request);
     }
 }

@@ -18,107 +18,98 @@ class AdminOutputter extends CoreOutputter
         $this->addBreadcrumb('Dashboard', config('app.backend'));
     }
 
+    /**
+     * @param string $view
+     * @param array $data
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function output($view, $data = [])
     {
         return parent::output(
             $view,
             $data
-                + $this->admin_data_sidebar()
-                + $this->admin_data_settings()
+                + $this->modules_menu()
                 + $this->admin_data_footer()
         );
     }
 
-    private function admin_data_sidebar()
+    /**
+     * @return array
+     */
+    private function modules_menu()
     {
-        Menu::create('navbar', function ($menu) {
-            $menu->header('Main navigation');
+        $modules_list = Module::getOrdered();
 
-            foreach (Module::getOrdered() as $module) {
+        Menu::create(
+            'navbar',
+            function ($menu) use ($modules_list) {
 
-                $route = Config::get(strtolower($module->name) . '.admin.sidebar.route');
+                $menu->header(trans('menus.main_navigation'));
 
-                if (!is_null($route)) {
-                    $menu->route(
-                        $route,
-                        Config::get(strtolower($module->name) . '.name'),
-                        [],
-                        [
-                            'icon' => Config::get(strtolower($module->name) . '.admin.sidebar.icon')
-                        ]
-                    );
+                foreach ($modules_list as $module) {
+
+                    $config_base_tag = strtolower($module->name) . '.admin.sidebar.menu.';
+                    $route = Config::get($config_base_tag . 'route');
+
+                    if (!is_null($route)) {
+                        $menu->route(
+                            $route,
+                            $module->name,
+                            [],
+                            [
+                                'icon' => Config::get($config_base_tag . 'icon')
+                            ]
+                        );
+                    }
                 }
+
+                $menu->dropdown(
+                    trans('global.settings'),
+                    function ($submenu) use ($modules_list) {
+
+                        $submenu->route(
+                            'admin.settings.index',
+                            trans('global.general'),
+                            [],
+                            [
+                                'icon' => 'fa fa-gear'
+                            ]
+                        );
+
+                        foreach ($modules_list as $module) {
+
+                            $config_base_tag = strtolower($module->name) . '.admin.sidebar.settings.';
+                            $route = Config::get($config_base_tag . 'route');
+
+                            if (!is_null($route)) {
+                                $submenu->route(
+                                    $route,
+                                    $module->name,
+                                    [],
+                                    [
+                                        'icon' => Config::get($config_base_tag . 'icon')
+                                    ]
+                                );
+                            }
+                        }
+                    },
+                    [],
+                    [
+                        'icon' => 'fa fa-gears'
+                    ]
+                );
             }
-
-
-        });
-
+        );
         return [
             'sidebar' => [
-                'menu' => Menu::render('navbar', 'Core\Http\Presenters\SidebarPresenter')
+                'menu' => Menu::render('navbar', 'Core\Http\Presenters\Menus\adminlteSidebarPresenter')
             ]
         ];
     }
 
-    private function admin_data_settings()
-    {
-        $modules = [];
-
-        foreach (Module::getOrdered() as $module) {
-            $slug = strtolower($module->name);
-            $settings = Config::get($slug . '.admin.settings');
-            if (!is_null($settings)) {
-                $modules[$slug] = [
-                    'title' => $module->name,
-                    'widgets' => $settings['widgets']
-                ];
-            }
-        }
-
-        Menu::create('navbar', function ($menu) {
-
-            $menu->url(
-                '#control-sidebar-settings-tab',
-                'Settings',
-                [],
-                [
-                    'icon' => 'fa fa-gears'
-                ]
-            );
-
-            foreach (Module::getOrdered() as $module) {
-
-                $slug = strtolower($module->name);
-                $settings = Config::get($slug . '.admin.settings');
-
-                if (!is_null($settings)) {
-
-                    $menu->url(
-                        '#control-sidebar-'.$slug.'-tab',
-                        $module->name,
-                        [],
-                        [
-                            'icon' => $settings['icon']
-                        ]
-                    );
-                }
-
-                $m[$slug] = [
-                    'title' => $module->name,
-                    'widgets' => $settings['widgets']
-                ];
-            }
-        });
-
-        return [
-            'settings' => [
-                'menu' => Menu::render('navbar', 'Core\Http\Presenters\SettingsPresenter'),
-                'modules' => $modules,
-                'list' => $this->r_settings->all()
-            ]
-        ];
-    }
-
+    /**
+     * @return array
+     */
     private function admin_data_footer()
     {
         return [

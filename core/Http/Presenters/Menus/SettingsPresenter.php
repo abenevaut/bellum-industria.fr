@@ -1,4 +1,4 @@
-<?php namespace Core\Http\Presenters;
+<?php namespace Core\Http\Presenters\Menus;
 
 use Pingpong\Menus\Presenters\Presenter;
 

@@ -4,10 +4,14 @@ return [
     'name' => 'Posts',
     'admin' => [
         'sidebar' => [
-            // Admin entry point
-            'route' => 'admin.posts.index',
-            // Admin menu icon
-            'icon' => 'fa fa-newspaper-o'
+            'menu' => [
+                'route' => 'admin.posts.index',
+                'icon' => 'fa fa-newspaper-o'
+            ],
+            'settings' => [
+                'route' => null,
+                'icon' => null,
+            ]
         ]
     ]
 ];
