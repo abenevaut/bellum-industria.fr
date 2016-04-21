@@ -70,13 +70,16 @@ class SettingsOutputter extends AdminOutputter
             }
         });
 
-        return [
-            'settings' => [
-                'menu' => Menu::render('navbar', 'Core\Http\Presenters\Menus\SettingsPresenter'),
-                'modules' => $modules,
-//                'list' => $this->r_settings->all()
+        return $this->output(
+            'core.admin.settings.index',
+            [
+                'settings' => [
+                    'menu' => Menu::render('navbar', 'Core\Http\Presenters\Menus\SettingsPresenter'),
+                    'modules' => $modules,
+                    'list' => $this->r_settings->all()
+                ]
             ]
-        ];
+        );
     }
 
     public function get(AbsFormRequest $request)

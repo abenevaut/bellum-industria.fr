@@ -3,9 +3,9 @@
 return [
     'backend' => [
         'menus' => [
-            'modules' => [
-                'reference' => 'menu_admin_modules',
-                'presenters' => '',
+            'sidebar' => [
+                // Presenter to display admin CMS sidebar
+                'presenters' => 'Core\Http\Presenters\Menus\adminlteSidebarPresenter',
             ]
         ]
     ]

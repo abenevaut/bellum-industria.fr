@@ -102,7 +102,7 @@ class AdminOutputter extends CoreOutputter
         );
         return [
             'sidebar' => [
-                'menu' => Menu::render('navbar', 'Core\Http\Presenters\Menus\adminlteSidebarPresenter')
+                'menu' => Menu::render('navbar', config('core.backend.menus.sidebar.presenters'))
             ]
         ];
     }
