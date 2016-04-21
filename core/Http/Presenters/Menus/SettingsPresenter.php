@@ -9,7 +9,7 @@ class SettingsPresenter extends Presenter
      */
     public function getOpenTagWrapper()
     {
-        return PHP_EOL . '<ul class="nav nav-tabs nav-justified control-sidebar-tabs">' . PHP_EOL;
+        return PHP_EOL . '<ul class="nav nav-tabs">' . PHP_EOL;
     }
 
     /**
@@ -25,7 +25,7 @@ class SettingsPresenter extends Presenter
      */
     public function getMenuWithoutDropdownWrapper($item)
     {
-        return '<li class="' . $this->getActiveState($item) . '"><a href="' . $item->getUrl() . '" data-toggle="tab" ' . $item->getAttributes() . '>' . $item->getIcon() . '</a></li>' . PHP_EOL;
+        return '<li class="' . $this->getActiveState($item) . '"><a href="' . $item->getUrl() . '" data-toggle="tab" ' . $item->getAttributes() . '>' . $item->getIcon() . ' ' . $item->title . '</a></li>' . PHP_EOL;
     }
 
     /**
@@ -33,7 +33,7 @@ class SettingsPresenter extends Presenter
      */
     public function getActiveState($item, $state = 'active')
     {
-        return null; //$item->isActive() ? $item : null;
+        return trans('global.general') === $item->title ? $state : null;
     }
 
     /**

@@ -12,5 +12,13 @@ return [
                 'presenters' => 'Core\Http\Presenters\Menus\adminlteSidebarPresenter',
             ]
         ]
+    ],
+    'settings' => [
+        'default_from_env' => [
+            'APP_SITE_NAME',
+            'APP_SITE_DESCRIPTION',
+            'APP_CONTACT_MAIL',
+            'APP_CONTACT_DISPLAY_NAME',
+        ]
     ]
 ];

@@ -1,6 +1,7 @@
 <?php namespace App;
 
 use Widget;
+use Settings;
 use HTML;
 
 /**
@@ -18,12 +19,12 @@ Widget::register('gravatar', function ($email, $attributs = []) {
  * Return the app site name
  */
 Widget::register('site_name', function () {
-    return env('APP_SITE_NAME');
+    return Settings::get('APP_SITE_NAME', env('APP_SITE_NAME'));
 });
 
 /**
  * Return the app site description
  */
 Widget::register('site_description', function () {
-    return env('APP_SITE_DESCRIPTION');
+    return Settings::get('APP_SITE_DESCRIPTION', env('APP_SITE_DESCRIPTION'));
 });

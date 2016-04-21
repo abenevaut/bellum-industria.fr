@@ -350,7 +350,7 @@ class UserOutputter extends AdminOutputter
 
         return $excel->setTitle(trans('users::admin.export.users_list.title'))
             ->setCreator(Auth::user()->full_name)
-            ->setDescription(Settings::get('APP_SITE_NAME') . PHP_EOL . Settings::get('APP_SITE_DESCRIPTION'))
+            ->setDescription(Settings::get('APP_SITE_NAME', env('APP_SITE_NAME')) . PHP_EOL . Settings::get('APP_SITE_DESCRIPTION', env('APP_SITE_DESCRIPTION')))
             ->sheet(
                 trans('users::admin.export.users_list.sheet_title') . date('Y-m-d H\hi'),
                 function ($sheet) use ($users, $nb_users) {

@@ -47,7 +47,8 @@ class AdminOutputter extends CoreOutputter
                     trans('menus.view_website'),
                     [],
                     [
-                        'icon' => 'fa fa-globe'
+                        'icon' => 'fa fa-globe',
+                        'target' => '_blank'
                     ]
                 );
 

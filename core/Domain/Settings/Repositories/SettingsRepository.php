@@ -13,7 +13,15 @@ class SettingsRepository
      */
     public function all()
     {
-        return SettingsFacade::getAll();
+        $default_settings = config('core.settings.default_from_env');
+        $settings = SettingsFacade::getAll();
+
+        foreach ($default_settings as $key) {
+            if (!array_key_exists($key, $settings)) {
+                $settings[$key] = SettingsFacade::get($key, env($key));
+            }
+        }
+        return $settings;
     }
 
     /**

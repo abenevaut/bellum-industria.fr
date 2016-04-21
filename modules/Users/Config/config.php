@@ -18,11 +18,8 @@ return [
             ]
         ],
         'settings' => [
-            // Settings menu icon
-            'icon' => 'fa fa-users',
-            // All settings widgets
-            'widgets' => [
-            ]
+//            'icon' => 'fa fa-users',
+//            'widgets' => [],
         ],
         'dashboard' => [
             'widgets' => [

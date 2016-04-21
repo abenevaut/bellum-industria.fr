@@ -56,55 +56,20 @@
 
 @section('content')
     <div class="row">
-            {!! $settings['menu'] !!}
-            <div class="tab-content">
-                @foreach ($settings['modules'] as $slug => $modules)
-                    <div class="tab-pane" id="control-sidebar-{{ $slug }}-tab">
-                        <div class="box box box-primary">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">{{ $modules['title'] }}</h3>
-                                <div class="box-tools hidden-xs pull-right">
-                                    <a href="javascript:void(0);" class="btn btn-box-tool btn-box-tool-primary"
-                                       data-toggle="control-sidebar">
-                                        <i class="fa fa-times"></i> {{ trans('adminlte::adminlte.settings:close') }}
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="box-body">
+        <div class="col-md-12">
+            <div class="nav-tabs-custom">
+                {!! $settings['menu'] !!}
+                <div class="tab-content">
+                    <div class="tab-content">
+                        @foreach ($settings['modules'] as $slug => $modules)
+                            <div class="tab-pane" id="control-sidebar-{{ $slug }}-tab">
                                 @foreach ($modules['widgets'] as $widget)
                                     {!! Widget::get($widget) !!}
                                 @endforeach
+                                <div class="clear"></div>
                             </div>
-                            <div class="box-footer">
-                                <div class="box-tools hidden-xs pull-left">
-
-                                </div>
-                                <div class="pull-right">
-                                    {{--<a href="javascript:void(0);" class="btn btn-primary btn-flat">--}}
-                                    {{--<i class="fa fa-save"></i> {{ trans('adminlte::adminlte.settings:save') }}--}}
-                                    {{--</a>--}}
-                                    <a href="javascript:void(0);" class="btn btn-box-tool btn-box-tool-primary"
-                                       data-toggle="control-sidebar">
-                                        <i class="fa fa-times"></i> {{ trans('adminlte::adminlte.settings:close') }}
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                <div class="tab-pane active" id="control-sidebar-settings-tab">
-                    <div class="box box box-primary">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">{{ trans('adminlte::adminlte.settings:title') }}</h3>
-                            <div class="box-tools hidden-xs pull-right">
-                                <a href="javascript:void(0);" class="btn btn-box-tool btn-box-tool-primary"
-                                   data-toggle="control-sidebar">
-                                    <i class="fa fa-times"></i> {{ trans('adminlte::adminlte.settings:close') }}
-                                </a>
-                            </div>
-                        </div>
-                        <div class="box-body forms">
-
+                        @endforeach
+                        <div class="tab-pane active" id="control-sidebar-settings-tab">
 
                             <div class="form-group form-group-default has-success">
                                 <label>{{ trans('settings.APP_SITE_NAME') }}</label>
@@ -131,24 +96,10 @@
                                        value="{{ $settings['list']['APP_CONTACT_DISPLAY_NAME'] }}">
                             </div>
 
-
-                        </div>
-                        <div class="box-footer">
-                            <div class="box-tools hidden-xs pull-left">
-
-                            </div>
-                            <div class="pull-right">
-                                {{--<a href="javascript:void(0);" class="btn btn-primary btn-flat">--}}
-                                {{--<i class="fa fa-save"></i> {{ trans('adminlte::adminlte.settings:save') }}--}}
-                                {{--</a>--}}
-                                <a href="javascript:void(0);" class="btn btn-box-tool btn-box-tool-primary"
-                                   data-toggle="control-sidebar">
-                                    <i class="fa fa-times"></i> {{ trans('adminlte::adminlte.settings:close') }}
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </div>
 @endsection

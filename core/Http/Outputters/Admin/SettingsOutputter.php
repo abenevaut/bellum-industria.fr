@@ -15,9 +15,20 @@ use CVEPDB\Abstracts\Http\Requests\FormRequest as AbsFormRequest;
  */
 class SettingsOutputter extends AdminOutputter
 {
+    /**
+     * @var string Outputter header title
+     */
+    protected $title = 'global.settings';
+
+    /**
+     * @var string Outputter header description
+     */
+    protected $description = '';
+
     public function __construct(SettingsRepository $r_settings)
     {
         parent::__construct($r_settings);
+        $this->addBreadcrumb(trans('global.settings'), 'admin/settings');
     }
 
     public function index()
@@ -27,7 +38,7 @@ class SettingsOutputter extends AdminOutputter
         foreach (Module::getOrdered() as $module) {
             $slug = strtolower($module->name);
             $settings = Config::get($slug . '.admin.settings');
-            if (!is_null($settings)) {
+            if (!is_null($settings) && !empty($settings)) {
                 $modules[$slug] = [
                     'title' => $module->name,
                     'widgets' => $settings['widgets']
@@ -39,10 +50,10 @@ class SettingsOutputter extends AdminOutputter
 
             $menu->url(
                 '#control-sidebar-settings-tab',
-                'Settings',
+                trans('global.general'),
                 [],
                 [
-                    'icon' => 'fa fa-gears'
+                    'icon' => 'fa fa-gear'
                 ]
             );
 
@@ -51,8 +62,7 @@ class SettingsOutputter extends AdminOutputter
                 $slug = strtolower($module->name);
                 $settings = Config::get($slug . '.admin.settings');
 
-                if (!is_null($settings)) {
-
+                if (!is_null($settings) && !empty($settings)) {
                     $menu->url(
                         '#control-sidebar-'.$slug.'-tab',
                         $module->name,
@@ -62,11 +72,6 @@ class SettingsOutputter extends AdminOutputter
                         ]
                     );
                 }
-
-                $m[$slug] = [
-                    'title' => $module->name,
-                    'widgets' => $settings['widgets']
-                ];
             }
         });
 

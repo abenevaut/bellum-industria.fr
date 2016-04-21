@@ -17,10 +17,10 @@ class SettingsServiceProvider extends ServiceProvider
         if (cmsinstalled()) {
             $this->app->booting(function () {
                 $settings = [
-                    'APP_SITE_NAME' => Settings::get('APP_SITE_NAME'),
-                    'APP_SITE_DESCRIPTION' => Settings::get('APP_SITE_DESCRIPTION'),
-                    'APP_CONTACT_MAIL' => Settings::get('APP_CONTACT_MAIL'),
-                    'APP_CONTACT_DISPLAY_NAME' => Settings::get('APP_CONTACT_DISPLAY_NAME'),
+                    'APP_SITE_NAME' => Settings::get('APP_SITE_NAME', env('APP_SITE_NAME')),
+                    'APP_SITE_DESCRIPTION' => Settings::get('APP_SITE_DESCRIPTION', env('APP_SITE_DESCRIPTION')),
+                    'APP_CONTACT_MAIL' => Settings::get('APP_CONTACT_MAIL', env('APP_CONTACT_MAIL')),
+                    'APP_CONTACT_DISPLAY_NAME' => Settings::get('APP_CONTACT_DISPLAY_NAME', env('APP_CONTACT_DISPLAY_NAME')),
                 ];
                 foreach ($settings as $env_name => $env_value) {
                     if (!is_null($env_value)) {
