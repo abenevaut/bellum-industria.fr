@@ -87,6 +87,10 @@ class SettingsOutputter extends AdminOutputter
         );
     }
 
+    /**
+     * @param AbsFormRequest $request
+     * @return mixed
+     */
     public function get(AbsFormRequest $request)
     {
         $data = [];
@@ -97,6 +101,10 @@ class SettingsOutputter extends AdminOutputter
         return Response::json($data);
     }
 
+    /**
+     * @param AbsFormRequest $request
+     * @return mixed
+     */
     public function set(AbsFormRequest $request)
     {
         $data = [];
