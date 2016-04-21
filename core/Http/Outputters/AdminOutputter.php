@@ -28,15 +28,75 @@ class AdminOutputter extends CoreOutputter
         return parent::output(
             $view,
             $data
-                + $this->modules_menu()
-                + $this->admin_data_footer()
+                + $this->header_navigation()
+                + $this->main_navigation()
+                + $this->footer()
         );
+    }
+
+    private function header_navigation()
+    {
+        $modules_list = Module::getOrdered();
+
+        Menu::create(
+            'navbar',
+            function ($menu) use ($modules_list) {
+
+                $menu->url(
+                    '/',
+                    'View website',
+                    [],
+                    [
+                        'icon' => 'fa fa-globe'
+                    ]
+                );
+
+                $menu->dropdown(
+                    trans('global.shortcuts'),
+                    function ($submenu) use ($modules_list) {
+
+                        $i = 0;
+
+                        foreach ($modules_list as $module) {
+
+                            $config_base_tag = strtolower($module->name) . '.admin.sidebar.shortcuts.';
+                            $route = Config::get($config_base_tag . 'route');
+
+                            if (!is_null($route)) {
+
+                                if ($i) {
+                                    $submenu->divider();
+                                }
+
+                                $submenu->route(
+                                    $route,
+                                    $module->name,
+                                    [],
+                                    [
+                                        'icon' => Config::get($config_base_tag . 'icon')
+                                    ]
+                                );
+
+                                $i++;
+                            }
+                        }
+                    },
+                    [],
+                    [
+                        'icon' => 'fa fa-fast-forward'
+                    ]
+                );
+            }
+        );
+        return [
+            'menu' => Menu::render('navbar', config('core.backend.menus.header.presenters'))
+        ];
     }
 
     /**
      * @return array
      */
-    private function modules_menu()
+    private function main_navigation()
     {
         $modules_list = Module::getOrdered();
 
@@ -110,7 +170,7 @@ class AdminOutputter extends CoreOutputter
     /**
      * @return array
      */
-    private function admin_data_footer()
+    private function footer()
     {
         return [
             'footer' => [

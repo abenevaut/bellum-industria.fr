@@ -26,4 +26,5 @@ return [
     'addresse_s' => 'Address(es)',
     'settings' => 'Settings',
     'general' => 'General',
+    'shortcuts' => 'Shortcuts',
 ];
