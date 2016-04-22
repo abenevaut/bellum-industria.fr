@@ -28,6 +28,7 @@ resources/themes
 # Tests
 tests/_output/*
 tests/_support/_generated/*
+tests/_data/testing.sqlite
 
 # Deployer
 !deployer/shared/.env.example
