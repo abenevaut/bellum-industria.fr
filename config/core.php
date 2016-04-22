@@ -3,18 +3,15 @@
 return [
     'title' => '#CVEPDB CMS',
     'version' => '0.1.0',
-
-    'core' => [
-        'site' => [
-            'name' => env('CORE_SITE_NAME'),
-            'description' => env('CORE_SITE_DESCRIPTION'),
-        ],
-        'uri' => [
-            'backend' => env('CORE_URI_BACKEND', 'admin'),
-            'installer' => env('CORE_URI_INSTALLER', 'installer'),
-        ],
-        'pagination' => 15,
+    'site' => [
+        'name' => env('CORE_SITE_NAME'),
+        'description' => env('CORE_SITE_DESCRIPTION'),
     ],
+    'uri' => [
+        'backend' => env('CORE_URI_BACKEND', 'admin'),
+        'installer' => env('CORE_URI_INSTALLER', 'installer'),
+    ],
+    'pagination' => 15,
     'backend' => [
         'menus' => [
             'header' => [
