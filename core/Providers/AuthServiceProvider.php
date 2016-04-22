@@ -1,10 +1,12 @@
-<?php
-
-namespace Core\Providers;
+<?php namespace Core\Providers;
 
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
+/**
+ * Class AuthServiceProvider
+ * @package Core\Providers
+ */
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -25,7 +27,5 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(GateContract $gate)
     {
         $this->registerPolicies($gate);
-
-        //
     }
 }

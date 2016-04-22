@@ -22,7 +22,7 @@ class KeyGenerateCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Set the application key';
+    protected $description = 'Set the core key';
 
     /**
      * Execute the console command.
@@ -67,7 +67,6 @@ class KeyGenerateCommand extends Command
         if ($cipher === 'AES-128-CBC') {
             return Str::random(16);
         }
-
         return Str::random(32);
     }
 

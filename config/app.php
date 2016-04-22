@@ -2,12 +2,6 @@
 
 return [
 
-    'version' => '0.1.0',
-    'title' => '#CVEPDB CMS',
-    'backend' => 'admin',
-    'installer' => 'installer',
-    'pagination' => 15,
-
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -168,12 +162,10 @@ return [
         /*
          * Core Service Providers...
          */
-        Core\Providers\AppServiceProvider::class,
         Core\Providers\AuthServiceProvider::class,
         Core\Providers\EventServiceProvider::class,
         Core\Providers\RouteServiceProvider::class,
         Core\Providers\ModulesServiceProvider::class,
-        Core\Providers\SettingsServiceProvider::class,
         CVEPDB\Addresses\AddressesServiceProvider::class,
         CVEPDB\Settings\SettingsServiceProvider::class,
     ],

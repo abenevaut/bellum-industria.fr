@@ -63,9 +63,9 @@ $env = $app->detectEnvironment(function(){
         $setEnv = 'installer';
     }
 
-    putenv('APP_ENV=' . $setEnv);
+    putenv('CORE_ENV=' . $setEnv);
 
-    $dotenv = new \Dotenv\Dotenv(__DIR__ . '/../', '.env' . '.' . getenv('APP_ENV')); // Laravel 5.2
+    $dotenv = new \Dotenv\Dotenv(__DIR__ . '/../', '.env' . '.' . getenv('CORE_ENV')); // Laravel 5.2
     $dotenv->overload(); //this is important
 });
 

@@ -26,8 +26,8 @@ class SettingsStoreFormRequest extends AbsFormRequest
     public function rules()
     {
         return [
-            'CORE_SITE_NAME' => 'required',
-            'CORE_SITE_DESCRIPTION' => 'required',
+            'core.site.name' => 'required',
+            'core.site.description' => 'required',
             'CORE_CONTACT_MAIL' => 'required|email',
 
             'CORE_CONTACT_DISPLAY_NAME' => 'required',

@@ -1,6 +1,20 @@
 <?php
 
 return [
+    'title' => '#CVEPDB CMS',
+    'version' => '0.1.0',
+
+    'core' => [
+        'site' => [
+            'name' => env('CORE_SITE_NAME'),
+            'description' => env('CORE_SITE_DESCRIPTION'),
+        ],
+        'uri' => [
+            'backend' => env('CORE_URI_BACKEND', 'admin'),
+            'installer' => env('CORE_URI_INSTALLER', 'installer'),
+        ],
+        'pagination' => 15,
+    ],
     'backend' => [
         'menus' => [
             'header' => [
@@ -11,21 +25,6 @@ return [
                 // Presenter to display admin CMS sidebar
                 'presenters' => 'Core\Http\Presenters\Menus\adminlteSidebarPresenter',
             ]
-        ]
-    ],
-    'settings' => [
-        'default_from_env' => [
-            'CORE_SITE_NAME',
-            'CORE_SITE_DESCRIPTION',
-            'CORE_CONTACT_MAIL',
-            'CORE_CONTACT_DISPLAY_NAME',
-            'CORE_MAILWATCH_MAIL',
-            'CORE_MAIL_HOST',
-            'CORE_MAIL_USERNAME',
-            'CORE_MAIL_PASSWORD',
-            'CORE_MAIL_PORT',
-            'CORE_MAIL_DRIVER',
-            'CORE_MAIL_ENCRYPTION',
         ]
     ]
 ];
