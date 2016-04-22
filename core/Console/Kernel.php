@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         \Core\Console\Commands\BindingsCommand::class,
         \Core\Console\Commands\ControllerCommand::class,
         \Core\Console\Commands\EntityCommand::class,
+        \Core\Console\Commands\KeyGenerateCommand::class,
         \Core\Console\Commands\PresenterCommand::class,
         \Core\Console\Commands\RepositoryCommand::class,
         \Core\Console\Commands\TransformerCommand::class,
