@@ -63,7 +63,14 @@ function cmsview_prefix($view, $view_prefix = null, $current_module = null)
     return $current_prefix;
 }
 
-function cmsinstalled()
-{
-    return env('CORE_INSTALLED');
+if (! function_exists('cmsinstalled')) {
+    /**
+     * Allow to know if CMS is installed
+     *
+     * @return bool True if CMS installed
+     */
+    function cmsinstalled()
+    {
+        return env('CORE_INSTALLED');
+    }
 }
