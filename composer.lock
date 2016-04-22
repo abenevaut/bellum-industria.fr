@@ -1064,16 +1064,16 @@
         },
         {
             "name": "cvepdb-cms/module-themes",
-            "version": "1.0.52.5",
+            "version": "1.0.52.7",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-themes.git",
-                "reference": "5c20cb7347f3354f788334cf50fc4c02c019add1"
+                "reference": "3ae706ec84343fffdfbc1a23220d11b241e20867"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=5c20cb7347f3354f788334cf50fc4c02c019add1",
-                "reference": "5c20cb7347f3354f788334cf50fc4c02c019add1",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=3ae706ec84343fffdfbc1a23220d11b241e20867",
+                "reference": "3ae706ec84343fffdfbc1a23220d11b241e20867",
                 "shasum": ""
             },
             "require": {
@@ -1117,7 +1117,7 @@
                 "module",
                 "themes"
             ],
-            "time": "2016-04-16 17:51:14"
+            "time": "2016-04-22 16:38:54"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
