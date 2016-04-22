@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('CACHE_DRIVER', 'file'),
+    'default' => env('CORE_CACHE_DRIVER', 'file'),
 
     /*
     |--------------------------------------------------------------------------

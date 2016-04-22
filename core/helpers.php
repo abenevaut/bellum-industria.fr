@@ -65,5 +65,5 @@ function cmsview_prefix($view, $view_prefix = null, $current_module = null)
 
 function cmsinstalled()
 {
-    return env('APP_INSTALLED');
+    return env('CORE_INSTALLED');
 }

@@ -1,105 +1,76 @@
 @extends('adminlte::layouts.default')
 
-@push('widget-scripts')
-<script src="{{ asset('assets/js/core.settings.js') }}"></script>
-<script src="{{ asset('themes/adminlte/bower/jquery-throttle-debounce/jquery.ba-throttle-debounce.min.js') }}"></script>
-<script>
-    (function ($, W, D) {
-        function set_my_setting(key, $input) {
-            $.cms.settings.set(
-                    key,
-                    $input.val(),
-                    function () { // success
-                        $input.removeClass('ui-autocomplete-loading')
-                                .closest('.form-group')
-                                .removeClass('has-warning')
-                                .removeClass('has-error')
-                                .addClass('has-success');
-                    },
-                    function () { // error
-                        $input.removeClass('ui-autocomplete-loading')
-                                .closest('.form-group')
-                                .removeClass('has-success')
-                                .removeClass('has-warning')
-                                .addClass('has-error');
-                    },
-                    function () { // complete
-                    },
-                    function () { // beforeSend
-                        $input.addClass('ui-autocomplete-loading')
-                                .closest('.form-group')
-                                .removeClass('has-success')
-                                .removeClass('has-error')
-                                .addClass('has-warning');
-                    });
-        }
-
-        $('input[name="APP_SITE_NAME"]').on('keyup', $.debounce(500, function () {
-            set_my_setting('APP_SITE_NAME', $(this));
-        }));
-
-        $('input[name="APP_SITE_DESCRIPTION"]').on('keyup', $.debounce(500, function () {
-            set_my_setting('APP_SITE_DESCRIPTION', $(this));
-        }));
-
-        $('input[name="APP_CONTACT_MAIL"]').on('keyup', $.debounce(500, function () {
-            set_my_setting('APP_CONTACT_MAIL', $(this));
-        }));
-
-        $('input[name="APP_CONTACT_DISPLAY_NAME"]').on('keyup', $.debounce(500, function () {
-            set_my_setting('APP_CONTACT_DISPLAY_NAME', $(this));
-        }));
-
-    })(jQuery, window, document);
-</script>
-@endpush
-
 @section('content')
     <div class="row">
         <div class="col-md-12">
+
+            @if (count($errors) > 0)
+                <div class="alert alert-danger" role="alert">
+                    <p class="pull-left">
+                        {{ count($errors) > 1 ? trans('global.errors') : trans('global.error') }}
+                    </p>
+                    <div class="clearfix"></div>
+                    @foreach ($errors->all() as $error)
+                        <br>
+                        <p>{{ trans($error) }}</p>
+                    @endforeach
+                </div>
+            @endif
+
+            {!! Form::open(array('route' => 'admin.settings.store', 'class' => 'forms js-call-form_validation')) !!}
             <div class="nav-tabs-custom">
-                {!! $settings['menu'] !!}
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#control-sidebar-settings-tab" data-toggle="tab">
+                            <i class="fa fa-gear"></i> {{ trans('global.general') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#control-sidebar-mails-tab" data-toggle="tab">
+                            <i class="fa fa-envelope"></i> {{ trans('global.mails') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#control-sidebar-socials-tab" data-toggle="tab">
+                            <i class="fa fa-share-square-o"></i> {{ trans('global.socials') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#control-sidebar-clouds-tab" data-toggle="tab">
+                            <i class="fa fa-cloud"></i> {{ trans('global.clouds') }}
+                        </a>
+                    </li>
+                </ul>
                 <div class="tab-content">
                     <div class="tab-content">
-                        @foreach ($settings['modules'] as $slug => $modules)
-                            <div class="tab-pane" id="control-sidebar-{{ $slug }}-tab">
-                                @foreach ($modules['widgets'] as $widget)
-                                    {!! Widget::get($widget) !!}
-                                @endforeach
-                                <div class="clear"></div>
-                            </div>
-                        @endforeach
                         <div class="tab-pane active" id="control-sidebar-settings-tab">
-
-                            <div class="form-group form-group-default has-success">
-                                <label>{{ trans('settings.APP_SITE_NAME') }}</label>
-                                <input type="text" class="form-control" name="APP_SITE_NAME" required="required"
-                                       value="{{ $settings['list']['APP_SITE_NAME'] }}">
-                            </div>
-
-
-                            <div class="form-group form-group-default has-success">
-                                <label>{{ trans('settings.APP_SITE_DESCRIPTION') }}</label>
-                                <input type="text" class="form-control" name="APP_SITE_DESCRIPTION" required="required"
-                                       value="{{ $settings['list']['APP_SITE_DESCRIPTION'] }}">
-                            </div>
-
-                            <div class="form-group form-group-default has-success">
-                                <label>{{ trans('settings.APP_CONTACT_MAIL') }}</label>
-                                <input type="text" class="form-control" name="APP_CONTACT_MAIL" required="required"
-                                       value="{{ $settings['list']['APP_CONTACT_MAIL'] }}">
-                            </div>
-
-                            <div class="form-group form-group-default has-success">
-                                <label>{{ trans('settings.APP_CONTACT_DISPLAY_NAME') }}</label>
-                                <input type="text" class="form-control" name="APP_CONTACT_DISPLAY_NAME" required="required"
-                                       value="{{ $settings['list']['APP_CONTACT_DISPLAY_NAME'] }}">
-                            </div>
-
+                            @include('core.admin.settings.chunks.general')
+                        </div>
+                        <div class="tab-pane" id="control-sidebar-mails-tab">
+                            @include('core.admin.settings.chunks.mails')
+                        </div>
+                        <div class="tab-pane" id="control-sidebar-socials-tab">
+                            @include('core.admin.settings.chunks.socials')
+                        </div>
+                        <div class="tab-pane" id="control-sidebar-clouds-tab">
+                            @include('core.admin.settings.chunks.clouds')
                         </div>
                     </div>
                 </div>
+                <div class="box-footer clearfix">
+                    <div class="pull-left">
+                        <a href="{{ URL::current() }}" class="btn btn-default btn-flat">
+                            <i class="fa fa-cancel"></i> {{ trans('global.cancel') }}
+                        </a>
+                    </div>
+                    <div class="pull-right">
+                        <button class="btn btn-primary btn-flat" type="submit">
+                            <i class="fa fa-pencil"></i> {{ trans('settings.btn.edit') }}
+                        </button>
+                    </div>
+                </div>
             </div>
+            {!! Form::close() !!}
         </div>
     </div>
 @endsection

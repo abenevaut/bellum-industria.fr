@@ -19,12 +19,12 @@ Widget::register('gravatar', function ($email, $attributs = []) {
  * Return the app site name
  */
 Widget::register('site_name', function () {
-    return Settings::get('APP_SITE_NAME', env('APP_SITE_NAME'));
+    return Settings::get('CORE_SITE_NAME', env('CORE_SITE_NAME'));
 });
 
 /**
  * Return the app site description
  */
 Widget::register('site_description', function () {
-    return Settings::get('APP_SITE_DESCRIPTION', env('APP_SITE_DESCRIPTION'));
+    return Settings::get('CORE_SITE_DESCRIPTION', env('CORE_SITE_DESCRIPTION'));
 });

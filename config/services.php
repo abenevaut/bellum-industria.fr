@@ -50,13 +50,13 @@ return [
     'facebook' => [
         'client_id' => env('FACEBOOK_APP_ID'),
         'client_secret' => env('FACEBOOK_APP_SECRET'),
-        'redirect' => env('APP_URL') . '/login/callback/facebook',
+        'redirect' => env('CORE_URL') . '/login/callback/facebook',
     ],
 
     'twitter' => [
         'client_id' => env('TWITTER_APP_ID'),
         'client_secret' => env('TWITTER_APP_SECRET'),
-        'redirect' => env('APP_URL') . '/login/callback/twitter',
+        'redirect' => env('CORE_URL') . '/login/callback/twitter',
     ],
 
 //    'google' => [
@@ -68,7 +68,7 @@ return [
     'linkedin' => [
         'client_id' => env('LINKEDIN_APP_ID'),
         'client_secret' => env('LINKEDIN_APP_SECRET'),
-        'redirect' => env('APP_URL') . '/login/callback/linkedin',
+        'redirect' => env('CORE_URL') . '/login/callback/linkedin',
     ],
 
 //    'bitbucket' => [

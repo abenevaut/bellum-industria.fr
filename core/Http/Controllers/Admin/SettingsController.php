@@ -4,6 +4,7 @@ use Core\Http\Controllers\CoreAdminController;
 use Core\Http\Outputters\Admin\SettingsOutputter;
 use Core\Http\Requests\Admin\SettingsGetFormRequest;
 use Core\Http\Requests\Admin\SettingsSetFormRequest;
+use Core\Http\Requests\Admin\SettingsStoreFormRequest;
 
 /**
  * Class SettingsController
@@ -27,6 +28,14 @@ class SettingsController extends CoreAdminController
     public function index()
     {
         return $this->outputter->index();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function store(SettingsStoreFormRequest $request)
+    {
+        return $this->outputter->store($request);
     }
 
     /**

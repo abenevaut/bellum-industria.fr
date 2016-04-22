@@ -27,4 +27,6 @@ return [
     'settings' => 'Settings',
     'general' => 'General',
     'shortcuts' => 'Shortcuts',
+    'mails' => 'Mails',
+    'cancel' => 'Cancel',
 ];

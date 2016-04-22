@@ -33,58 +33,28 @@ class SettingsOutputter extends AdminOutputter
 
     public function index()
     {
-        $modules = [];
-
-        foreach (Module::getOrdered() as $module) {
-            $slug = strtolower($module->name);
-            $settings = Config::get($slug . '.admin.settings');
-            if (!is_null($settings) && !empty($settings)) {
-                $modules[$slug] = [
-                    'title' => $module->name,
-                    'widgets' => $settings['widgets']
-                ];
-            }
-        }
-
-        Menu::create('navbar', function ($menu) {
-
-            $menu->url(
-                '#control-sidebar-settings-tab',
-                trans('global.general'),
-                [],
-                [
-                    'icon' => 'fa fa-gear'
-                ]
-            );
-
-            foreach (Module::getOrdered() as $module) {
-
-                $slug = strtolower($module->name);
-                $settings = Config::get($slug . '.admin.settings');
-
-                if (!is_null($settings) && !empty($settings)) {
-                    $menu->url(
-                        '#control-sidebar-'.$slug.'-tab',
-                        $module->name,
-                        [],
-                        [
-                            'icon' => $settings['icon']
-                        ]
-                    );
-                }
-            }
-        });
-
         return $this->output(
             'core.admin.settings.index',
             [
                 'settings' => [
-                    'menu' => Menu::render('navbar', 'Core\Http\Presenters\Menus\SettingsPresenter'),
-                    'modules' => $modules,
                     'list' => $this->r_settings->all()
                 ]
             ]
         );
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function store(AbsFormRequest $request)
+    {
+        $posts = $request->all();
+        unset($posts['_token']);
+
+        foreach ($posts as $key => $value) {
+            $this->r_settings->set($key, $value);
+        }
+        return $this->redirectTo('admin/settings');
     }
 
     /**
