@@ -16,12 +16,6 @@ return [
                 'route' => null,
                 'icon' => null
             ]
-        ],
-        'settings' => [
-            'icon' => 'fa fa-folder',
-            'widgets' => [
-                'setup_files'
-            ]
         ]
     ]
 ];
