@@ -33,7 +33,8 @@
     "aws/aws-php-sns-message-validator": "^1.1",
     "laravel/socialite": "^2.0",
     "spatie/laravel-backup": "^3.4",
-    "maknz/slack": "^1.7"
+    "maknz/slack": "^1.7",
+    "monolog/monolog": "^1.19"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
