@@ -13,7 +13,7 @@ class AlterRolesTableAddUnchangeableBool extends Migration
     public function up()
     {
         Schema::table('roles', function($table){
-            $table->boolean('unchangeable');
+            $table->boolean('unchangeable')->default(false);
         });
     }
 
