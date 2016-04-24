@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2a4d83af80e0c4f0fd1ce49aa536d660",
-    "content-hash": "42965cf0082126b9618e77a25a98d797",
+    "hash": "6b22cff2c98333a9003d0f285e0a89a5",
+    "content-hash": "59fa93a46803648746824965ab810fd2",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1017,16 +1017,16 @@
         },
         {
             "name": "cvepdb-cms/module-installer",
-            "version": "1.0.52.1",
+            "version": "1.0.52.2",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-installer.git",
-                "reference": "37e938d1d23b0e48e2ffa720cfc90b9879198719"
+                "reference": "cb259f04e27dc1e65e8e839220237268550b13b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=37e938d1d23b0e48e2ffa720cfc90b9879198719",
-                "reference": "37e938d1d23b0e48e2ffa720cfc90b9879198719",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=cb259f04e27dc1e65e8e839220237268550b13b0",
+                "reference": "cb259f04e27dc1e65e8e839220237268550b13b0",
                 "shasum": ""
             },
             "require": {
@@ -1060,7 +1060,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-04-16 18:01:24"
+            "time": "2016-04-22 15:30:54"
         },
         {
             "name": "cvepdb-cms/module-themes",
@@ -5499,12 +5499,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "a7f79cdc0ceceabd0b9d5513bccb8654458ceac7"
+                "reference": "537b3cfbaf50a379d3baca4700e72957251bbf5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/a7f79cdc0ceceabd0b9d5513bccb8654458ceac7",
-                "reference": "a7f79cdc0ceceabd0b9d5513bccb8654458ceac7",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/537b3cfbaf50a379d3baca4700e72957251bbf5e",
+                "reference": "537b3cfbaf50a379d3baca4700e72957251bbf5e",
                 "shasum": ""
             },
             "require": {
@@ -5549,7 +5549,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-04-22 13:58:23"
+            "time": "2016-04-24 11:24:48"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6825,80 +6825,20 @@
     ],
     "packages-dev": [
         {
-            "name": "behat/gherkin",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "6f005467f571c3c53477fb0a646ba8092aa54bd4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/6f005467f571c3c53477fb0a646ba8092aa54bd4",
-                "reference": "6f005467f571c3c53477fb0a646ba8092aa54bd4",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.5|~5",
-                "symfony/phpunit-bridge": "~2.7|~3",
-                "symfony/yaml": "~2.3|~3"
-            },
-            "suggest": {
-                "symfony/yaml": "If you want to parse features, represented in YAML files"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Behat\\Gherkin": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Konstantin Kudryashov",
-                    "email": "ever.zet@gmail.com",
-                    "homepage": "http://everzet.com"
-                }
-            ],
-            "description": "Gherkin DSL parser for PHP 5.3",
-            "homepage": "http://behat.org/",
-            "keywords": [
-                "BDD",
-                "Behat",
-                "Cucumber",
-                "DSL",
-                "gherkin",
-                "parser"
-            ],
-            "time": "2015-12-31 10:51:34"
-        },
-        {
             "name": "codeception/codeception",
-            "version": "dev-master",
+            "version": "2.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "061cd3b6bece7cdd32456079b5217734342aeda9"
+                "reference": "a95099cf7e5a6585995e0d147dc6fde914571de1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/061cd3b6bece7cdd32456079b5217734342aeda9",
-                "reference": "061cd3b6bece7cdd32456079b5217734342aeda9",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/a95099cf7e5a6585995e0d147dc6fde914571de1",
+                "reference": "a95099cf7e5a6585995e0d147dc6fde914571de1",
                 "shasum": ""
             },
             "require": {
-                "behat/gherkin": "~4.4.0",
                 "ext-json": "*",
                 "ext-mbstring": "*",
                 "facebook/webdriver": ">=1.0.1 <2.0",
@@ -6907,31 +6847,28 @@
                 "php": ">=5.4.0 <8.0",
                 "phpunit/php-code-coverage": ">=2.1.3",
                 "phpunit/phpunit": ">4.8.20 <6.0",
-                "symfony/browser-kit": ">=2.7 <3.1",
-                "symfony/console": ">=2.7 <3.1",
-                "symfony/css-selector": ">=2.7 <3.1",
-                "symfony/dom-crawler": ">=2.7 <3.1",
-                "symfony/event-dispatcher": ">=2.7 <3.1",
-                "symfony/finder": ">=2.7 <3.1",
-                "symfony/yaml": ">=2.7 <3.1"
+                "symfony/browser-kit": ">=2.5 <3.1",
+                "symfony/console": ">=2.5 <3.1",
+                "symfony/css-selector": ">=2.5 <3.1",
+                "symfony/dom-crawler": ">=2.5 <3.1",
+                "symfony/event-dispatcher": ">=2.5 <3.1",
+                "symfony/finder": ">=2.5 <3.1",
+                "symfony/yaml": ">=2.5 <3.1"
             },
             "require-dev": {
                 "codeception/specify": "~0.3",
                 "facebook/php-sdk-v4": "~5.0",
                 "flow/jsonpath": "~0.2",
-                "league/factory-muffin": "^3.0",
-                "league/factory-muffin-faker": "^1.0",
                 "monolog/monolog": "~1.8",
-                "pda/pheanstalk": "~3.0",
+                "pda/pheanstalk": "~2.0",
                 "php-amqplib/php-amqplib": "~2.4"
             },
             "suggest": {
+                "codeception/phpbuiltinserver": "Extension to start and stop PHP built-in web server for your tests",
                 "codeception/specify": "BDD-style code blocks",
                 "codeception/verify": "BDD-style assertions",
-                "flow/jsonpath": "For using JSONPath in REST module",
-                "league/factory-muffin": "For DataFactory module",
-                "league/factory-muffin-faker": "For Faker support in DataFactory module",
-                "phpseclib/phpseclib": "for SFTP option in FTP Module"
+                "monolog/monolog": "Log test steps",
+                "phpseclib/phpseclib": "Extension required to use the SFTP option in the FTP Module."
             },
             "bin": [
                 "codecept"
@@ -6966,7 +6903,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2016-04-20 22:27:36"
+            "time": "2016-04-23 15:09:58"
         },
         {
             "name": "deployer/deployer",
@@ -9381,6 +9318,53 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2016-02-04 12:56:52"
+        },
+        {
+            "name": "site5/phantoman",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/site5/phantoman.git",
+                "reference": "f8428a3643a6920cf1e01fe3d5cceb314e569e2f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/site5/phantoman/zipball/f8428a3643a6920cf1e01fe3d5cceb314e569e2f",
+                "reference": "f8428a3643a6920cf1e01fe3d5cceb314e569e2f",
+                "shasum": ""
+            },
+            "require": {
+                "codeception/codeception": "~2.1.0",
+                "php": ">=5.4.0"
+            },
+            "suggest": {
+                "jakoch/phantomjs-installer": "Automatically installs PhantomJS locally to your project."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Codeception\\Extension\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grant Lucas",
+                    "email": "grant.lucas@wwwh.com"
+                }
+            ],
+            "description": "The Codeception extension for automatically starting and stopping PhantomJS when running tests.",
+            "homepage": "https://github.com/site5/phantoman",
+            "keywords": [
+                "codeception",
+                "extension",
+                "headless",
+                "phantomjs"
+            ],
+            "time": "2016-04-14 14:12:08"
         },
         {
             "name": "symfony/browser-kit",

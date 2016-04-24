@@ -14,19 +14,17 @@ extensions:
     enabled:
         - Codeception\Extension\RunFailed
 modules:
-    enabled: [Laravel5, Filesystem, PhpBrowser, REST]
+    enabled: [PhpBrowser, Filesystem, REST]
     config:
-        Laravel5:
-            environment_file: .env.testing
-            cleanup: false
-            bootstrap: bootstrap/app.php
-            root: ''
-            packages: workbench
-            disable_middleware: false
-            disable_events: false
-        PhpBrowser:
-            url: 'http://localhost:8000'
+        WebDriver:
+            url: 'http://cms.cvepdb.local/'
+            browser: firefox
+            window_size: 1024x768
+            capabilities:
+                webStorageEnabled: true
+                javascriptEnabled: true
+                firefox_binary: /Applications/Firefox.app
         REST:
-            url: 'http://localhost:8000'
+            url: 'http://cms.cvepdb.local/'
             depends: PhpBrowser
 error_level: "E_ALL & ~E_STRICT & ~E_DEPRECATED"
