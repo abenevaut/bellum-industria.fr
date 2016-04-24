@@ -5,8 +5,24 @@
 # If you need both WebDriver and PHPBrowser tests - create a separate suite.
 
 class_name: AcceptanceTester
+extensions:
+    enabled:
+        - Codeception\Extension\Recorder
+    config:
+        Codeception\Extension\Recorder:
+            delete_successful: false
 modules:
     enabled:
+#        - WebDriver
         - PhpBrowser:
             url: http://localhost:8000/
         - \Helper\Acceptance
+#    config:
+#        WebDriver:
+#            url: 'http://localhost:8000'
+#            browser: firefox
+#            window_size: 1024x768
+#            capabilities:
+#                webStorageEnabled: true
+#                javascriptEnabled: true
+#                firefox_binary: /Applications/Firefox.app

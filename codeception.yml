@@ -14,15 +14,15 @@ extensions:
     enabled:
         - Codeception\Extension\RunFailed
         - Codeception\Extension\Logger
-        - Codeception\Extension\Recorder
+#        - Codeception\Extension\Recorder
         - Codeception\Extension\Phantoman
         - Codeception\Extension\Teststatistics
         - Codeception\Extension\PhpBuiltinServer
     config:
         Codeception\Extension\Logger:
             max_files: 5
-        Codeception\Extension\Recorder:
-            delete_successful: false
+#        Codeception\Extension\Recorder:
+#            delete_successful: false
         Codeception\Extension\Phantoman:
             path: 'bin/phantomjs'
             port: 4444
@@ -41,14 +41,6 @@ extensions:
 modules:
     enabled: [PhpBrowser, Filesystem, REST, MailCatcher]
     config:
-        WebDriver:
-            url: 'http://localhost:8000'
-            browser: firefox
-            window_size: 1024x768
-            capabilities:
-                webStorageEnabled: true
-                javascriptEnabled: true
-                firefox_binary: /Applications/Firefox.app
         MailCatcher:
             url: 'http://localhost'
             port: '1080'
