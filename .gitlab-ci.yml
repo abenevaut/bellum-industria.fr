@@ -3,6 +3,7 @@ ci:
   - chmod -R 777 storage
   - composer install
   - npm install
+  - gulp bower
   - gulp build
   - gulp deploy
   - php artisan theme:publish
