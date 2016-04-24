@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5ef4841cbcd1a98535ef6db9ec172100",
-    "content-hash": "d82804c427d2e197600cb64e3a8855a7",
+    "hash": "11e22132f1e3898aea14eb0ba4b1435d",
+    "content-hash": "7e64383331745656459816c40deded53",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -6825,6 +6825,39 @@
     ],
     "packages-dev": [
         {
+            "name": "captbaritone/mailcatcher-codeception-module",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/captbaritone/codeception-mailcatcher-module.git",
+                "reference": "468e9dbae85d1a23cae3247b8d3979263b0b37d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/captbaritone/codeception-mailcatcher-module/zipball/468e9dbae85d1a23cae3247b8d3979263b0b37d9",
+                "reference": "468e9dbae85d1a23cae3247b8d3979263b0b37d9",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/guzzle": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Codeception\\Module\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Jordan Eldredge",
+                    "email": "jordan@jordaneldredge.com"
+                }
+            ],
+            "description": "Test emails in your Codeception acceptance tests",
+            "time": "2015-08-26 23:40:21"
+        },
+        {
             "name": "codeception/codeception",
             "version": "2.1.x-dev",
             "source": {
@@ -6904,6 +6937,46 @@
                 "unit testing"
             ],
             "time": "2016-04-23 15:09:58"
+        },
+        {
+            "name": "codeception/phpbuiltinserver",
+            "version": "v1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tiger-seo/PhpBuiltinServer.git",
+                "reference": "53cd8fc4b1134e9e2c1a6d7478490db11160e323"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tiger-seo/PhpBuiltinServer/zipball/53cd8fc4b1134e9e2c1a6d7478490db11160e323",
+                "reference": "53cd8fc4b1134e9e2c1a6d7478490db11160e323",
+                "shasum": ""
+            },
+            "require": {
+                "codeception/codeception": "~2.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Codeception": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "tiger-seo",
+                    "email": "tiger.seo@gmail.com"
+                }
+            ],
+            "description": "PhpBuiltinServer extension for Codeception",
+            "keywords": [
+                "codeception"
+            ],
+            "time": "2016-01-14 00:29:41"
         },
         {
             "name": "deployer/deployer",
@@ -8903,6 +8976,51 @@
             "time": "2015-10-07 18:32:58"
         },
         {
+            "name": "redcomponent/teststatistics",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/redCOMPONENT-COM/teststatistics.git",
+                "reference": "a291f2a482247c082b1a4202c200df8a0d3bf6d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/redCOMPONENT-COM/teststatistics/zipball/a291f2a482247c082b1a4202c200df8a0d3bf6d1",
+                "reference": "a291f2a482247c082b1a4202c200df8a0d3bf6d1",
+                "shasum": ""
+            },
+            "require-dev": {
+                "codeception/codeception": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Codeception\\Extension\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL2"
+            ],
+            "authors": [
+                {
+                    "name": "Javier Gómez",
+                    "email": "javier@redcomponent.com",
+                    "homepage": "https://github.com/redCOMPONENT-COM/teststatistics"
+                }
+            ],
+            "description": "Codeception Extension to measure the performance of your tests",
+            "homepage": "https://github.com/redCOMPONENT-COM/teststatistics",
+            "keywords": [
+                "TDD",
+                "acceptance testing",
+                "functional testing",
+                "performance",
+                "unit testing"
+            ],
+            "time": "2015-07-20 17:10:31"
+        },
+        {
             "name": "sebastian/code-unit-reverse-lookup",
             "version": "dev-master",
             "source": {
@@ -9854,7 +9972,8 @@
         "composer/composer": 10,
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,
-        "cvepdb-cms/theme-flatly": 20
+        "cvepdb-cms/theme-flatly": 20,
+        "redcomponent/teststatistics": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

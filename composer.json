@@ -46,7 +46,10 @@
     "deployphp/recipes": "3.1.*",
     "site5/phantoman": "^1.1",
     "jonnyw/php-phantomjs": "^4.3",
-    "jakoch/phantomjs-installer": "^2.1"
+    "jakoch/phantomjs-installer": "^2.1",
+    "captbaritone/mailcatcher-codeception-module": "^1.1",
+    "codeception/phpbuiltinserver": "^1.2",
+    "redcomponent/teststatistics": "dev-master"
   },
   "autoload": {
     "classmap": [
