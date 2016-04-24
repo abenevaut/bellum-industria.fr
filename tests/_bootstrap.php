@@ -16,4 +16,4 @@ exec('cp ' . base_path(env('TEST_SQLITE_DB_TO_COPY')) . ' ' . base_path(env('TES
 //exec(base_path("bin/phpmetrics --report-html=tests/_output/phpmetrics-core.html core"));
 //exec(base_path("bin/phpmetrics --report-html=tests/_output/phpmetrics-modules.html modules"));
 
-//Artisan::call('migrate');
+Artisan::call('migrate');
