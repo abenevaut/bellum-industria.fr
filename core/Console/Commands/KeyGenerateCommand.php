@@ -1,14 +1,13 @@
 <?php namespace Core\Console\Commands;
 
 use Illuminate\Support\Str;
-use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
  * Class KeyGenerateCommand
  * @package Core\Console\Commands
  */
-class KeyGenerateCommand extends Command
+class KeyGenerateCommand extends CoreCommand
 {
     /**
      * The console command name.
@@ -31,7 +30,7 @@ class KeyGenerateCommand extends Command
      */
     public function fire()
     {
-        $this->line("<comment>" . config('core.licenses.phpcli') . "</comment>\n");
+        parent::fire();
 
         $app = $this->laravel;
 
