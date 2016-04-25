@@ -1,5 +1,3 @@
-/!\ Under development
-
 [![Latest Stable Version](https://poser.pugx.org/cvepdb/cms/v/stable.svg)](https://packagist.org/packages/cvepdb/cms)
 [![Latest Unstable Version](https://poser.pugx.org/cvepdb/cms/v/unstable.svg)](https://packagist.org/packages/cvepdb/cms)
 [![License](https://poser.pugx.org/cvepdb/cms/license.svg)](https://packagist.org/packages/cvepdb/cms)
