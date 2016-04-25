@@ -1017,16 +1017,16 @@
         },
         {
             "name": "cvepdb-cms/module-installer",
-            "version": "1.0.52.4",
+            "version": "1.0.52.6",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-installer.git",
-                "reference": "bdcc5fb99f367ed83b0abb2a9898ff789bf68c99"
+                "reference": "76b3bb250a38deca16e28ea5f0ccfcac8e427def"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=bdcc5fb99f367ed83b0abb2a9898ff789bf68c99",
-                "reference": "bdcc5fb99f367ed83b0abb2a9898ff789bf68c99",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=76b3bb250a38deca16e28ea5f0ccfcac8e427def",
+                "reference": "76b3bb250a38deca16e28ea5f0ccfcac8e427def",
                 "shasum": ""
             },
             "require": {
@@ -1060,7 +1060,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-04-25 14:45:41"
+            "time": "2016-04-25 15:15:01"
         },
         {
             "name": "cvepdb-cms/module-themes",
