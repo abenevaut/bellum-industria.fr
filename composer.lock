@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "11e22132f1e3898aea14eb0ba4b1435d",
+    "hash": "d54ea1f85e8673ce9cb3930eddf323d9",
     "content-hash": "7e64383331745656459816c40deded53",
     "packages": [
         {
@@ -657,12 +657,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "eef05aa80320f7d563acee6a16dc526bb0d54b9c"
+                "reference": "21a8c06dd5fe0a22b776797cc552e51d17d7e7dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/eef05aa80320f7d563acee6a16dc526bb0d54b9c",
-                "reference": "eef05aa80320f7d563acee6a16dc526bb0d54b9c",
+                "url": "https://api.github.com/repos/composer/installers/zipball/21a8c06dd5fe0a22b776797cc552e51d17d7e7dd",
+                "reference": "21a8c06dd5fe0a22b776797cc552e51d17d7e7dd",
                 "shasum": ""
             },
             "require": {
@@ -750,7 +750,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-04-15 21:04:42"
+            "time": "2016-04-24 13:17:36"
         },
         {
             "name": "composer/semver",
@@ -1017,16 +1017,16 @@
         },
         {
             "name": "cvepdb-cms/module-installer",
-            "version": "1.0.52.2",
+            "version": "1.0.52.4",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-installer.git",
-                "reference": "cb259f04e27dc1e65e8e839220237268550b13b0"
+                "reference": "bdcc5fb99f367ed83b0abb2a9898ff789bf68c99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=cb259f04e27dc1e65e8e839220237268550b13b0",
-                "reference": "cb259f04e27dc1e65e8e839220237268550b13b0",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=bdcc5fb99f367ed83b0abb2a9898ff789bf68c99",
+                "reference": "bdcc5fb99f367ed83b0abb2a9898ff789bf68c99",
                 "shasum": ""
             },
             "require": {
@@ -1060,20 +1060,20 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-04-22 15:30:54"
+            "time": "2016-04-25 14:45:41"
         },
         {
             "name": "cvepdb-cms/module-themes",
-            "version": "1.0.52.7",
+            "version": "1.0.52.8",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-themes.git",
-                "reference": "3ae706ec84343fffdfbc1a23220d11b241e20867"
+                "reference": "b4751cdba451c0c2d6545ea7e329ec0d7a7038a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=3ae706ec84343fffdfbc1a23220d11b241e20867",
-                "reference": "3ae706ec84343fffdfbc1a23220d11b241e20867",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=b4751cdba451c0c2d6545ea7e329ec0d7a7038a9",
+                "reference": "b4751cdba451c0c2d6545ea7e329ec0d7a7038a9",
                 "shasum": ""
             },
             "require": {
@@ -1117,7 +1117,7 @@
                 "module",
                 "themes"
             ],
-            "time": "2016-04-22 16:38:54"
+            "time": "2016-04-25 14:38:54"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -1125,12 +1125,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-adminlte.git",
-                "reference": "497026951824f0bf6e8dc2a1debda79802a867a0"
+                "reference": "93b0fce23886eb70c095c9804b7270e4fe67d35f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=497026951824f0bf6e8dc2a1debda79802a867a0",
-                "reference": "497026951824f0bf6e8dc2a1debda79802a867a0",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=93b0fce23886eb70c095c9804b7270e4fe67d35f",
+                "reference": "93b0fce23886eb70c095c9804b7270e4fe67d35f",
                 "shasum": ""
             },
             "require": {
@@ -1159,7 +1159,7 @@
                 "cms",
                 "theme"
             ],
-            "time": "2016-04-21 17:24:16"
+            "time": "2016-04-25 14:46:03"
         },
         {
             "name": "cvepdb-cms/theme-flatly",
@@ -5499,12 +5499,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "537b3cfbaf50a379d3baca4700e72957251bbf5e"
+                "reference": "db9d4fbf990204bb1baa827a52fb29331473a05f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/537b3cfbaf50a379d3baca4700e72957251bbf5e",
-                "reference": "537b3cfbaf50a379d3baca4700e72957251bbf5e",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/db9d4fbf990204bb1baa827a52fb29331473a05f",
+                "reference": "db9d4fbf990204bb1baa827a52fb29331473a05f",
                 "shasum": ""
             },
             "require": {
@@ -5549,7 +5549,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-04-24 11:24:48"
+            "time": "2016-04-24 15:17:45"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6428,12 +6428,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "65529251d42d7ef1c49f0bbb462085465421acc4"
+                "reference": "0e918c269093ba4c77fca14e9424fa74ed16f1a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/65529251d42d7ef1c49f0bbb462085465421acc4",
-                "reference": "65529251d42d7ef1c49f0bbb462085465421acc4",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/0e918c269093ba4c77fca14e9424fa74ed16f1a6",
+                "reference": "0e918c269093ba4c77fca14e9424fa74ed16f1a6",
                 "shasum": ""
             },
             "require": {
@@ -6483,7 +6483,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2016-04-20 18:53:54"
+            "time": "2016-04-25 11:17:47"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -6863,12 +6863,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "a95099cf7e5a6585995e0d147dc6fde914571de1"
+                "reference": "80a1513b18dc7bbce3f5d4af7d5557c367e39732"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/a95099cf7e5a6585995e0d147dc6fde914571de1",
-                "reference": "a95099cf7e5a6585995e0d147dc6fde914571de1",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/80a1513b18dc7bbce3f5d4af7d5557c367e39732",
+                "reference": "80a1513b18dc7bbce3f5d4af7d5557c367e39732",
                 "shasum": ""
             },
             "require": {
@@ -6936,7 +6936,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2016-04-23 15:09:58"
+            "time": "2016-04-25 01:17:30"
         },
         {
             "name": "codeception/phpbuiltinserver",
@@ -8374,12 +8374,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "9b5b99b3da70e3eea5294712bc5843910ad2bad6"
+                "reference": "70eb7c9d0884284b18168bbb96993ada58675af9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9b5b99b3da70e3eea5294712bc5843910ad2bad6",
-                "reference": "9b5b99b3da70e3eea5294712bc5843910ad2bad6",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/70eb7c9d0884284b18168bbb96993ada58675af9",
+                "reference": "70eb7c9d0884284b18168bbb96993ada58675af9",
                 "shasum": ""
             },
             "require": {
@@ -8441,7 +8441,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-04-19 17:48:13"
+            "time": "2016-04-25 09:18:44"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -9696,12 +9696,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "b4228df525aa115ee00b53dc6db1761e6e722687"
+                "reference": "2c0bc23adef82cb3ed40577936ea25afb035f504"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/b4228df525aa115ee00b53dc6db1761e6e722687",
-                "reference": "b4228df525aa115ee00b53dc6db1761e6e722687",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/2c0bc23adef82cb3ed40577936ea25afb035f504",
+                "reference": "2c0bc23adef82cb3ed40577936ea25afb035f504",
                 "shasum": ""
             },
             "require": {
@@ -9747,7 +9747,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-04-20 11:42:08"
+            "time": "2016-04-25 11:21:08"
         },
         {
             "name": "symfony/dom-crawler",
@@ -9909,12 +9909,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "babe6fca0eea3bac736017f817fb7d26147e4792"
+                "reference": "f167cc0a65ab0a2a53558c9385b4a324c1a36b02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/babe6fca0eea3bac736017f817fb7d26147e4792",
-                "reference": "babe6fca0eea3bac736017f817fb7d26147e4792",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/f167cc0a65ab0a2a53558c9385b4a324c1a36b02",
+                "reference": "f167cc0a65ab0a2a53558c9385b4a324c1a36b02",
                 "shasum": ""
             },
             "require": {
@@ -9962,7 +9962,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-04-20 06:47:43"
+            "time": "2016-04-24 13:54:56"
         }
     ],
     "aliases": [],
