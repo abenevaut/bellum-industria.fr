@@ -23,4 +23,19 @@ class AcceptanceTester extends \Codeception\Actor
    /**
     * Define custom actions here
     */
+
+    /**
+     * @var Faker\Factory|null
+     */
+    protected $faker = null;
+
+    public function init_faker()
+    {
+        $this->faker = Faker\Factory::create();
+    }
+
+    public function getfaker()
+    {
+        return $this->faker;
+    }
 }
