@@ -1,0 +1,11 @@
+class_name: ApiTester
+modules:
+    enabled:
+        - \Helper\Api
+        - PhpBrowser
+        - REST
+    config:
+      PhpBrowser:
+          url: http://localhost:8000/
+      REST:
+          url: http://localhost:8000/v1/
