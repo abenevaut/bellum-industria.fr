@@ -31,20 +31,22 @@ class KeyGenerateCommand extends Command
      */
     public function fire()
     {
+        $this->line("<comment>" . config('core.licenses.phpcli') . "</comment>\n");
+
         $app = $this->laravel;
 
         $key = $this->getRandomKey($app['config']['app.cipher']);
 
         if ($this->option('show')) {
-            return $this->line('<comment>'.$key.'</comment>');
+            return $this->line('<comment>' . $key . '</comment>');
         }
 
-        $path = $app->environmentPath().'/'.$app->environmentFile();
+        $path = $app->environmentPath() . '/' . $app->environmentFile();
 
         if (file_exists($path)) {
-            $content = str_replace('CORE_KEY='.$app['config']['app.key'], 'CORE_KEY='.$key, file_get_contents($path));
+            $content = str_replace('CORE_KEY=' . $app['config']['app.key'], 'CORE_KEY=' . $key, file_get_contents($path));
 
-            if (! Str::contains($content, 'CORE_KEY')) {
+            if (!Str::contains($content, 'CORE_KEY')) {
                 $content = sprintf("%s\nCORE_KEY=%s\n", $content, $key);
             }
 
@@ -59,7 +61,7 @@ class KeyGenerateCommand extends Command
     /**
      * Generate a random key for the application.
      *
-     * @param  string  $cipher
+     * @param  string $cipher
      * @return string
      */
     protected function getRandomKey($cipher)
