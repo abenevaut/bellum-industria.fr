@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('CORE_MAIL_DRIVER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', '127.0.0.1'),
+    'host' => env('CORE_MAIL_HOST', '127.0.0.1'),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 25),
+    'port' => env('CORE_MAIL_PORT', 25),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,8 +55,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_EMAIL'),
-        'name' => env('MAIL_FROM_NAME')
+        'address' => env('CORE_CONTACT_MAIL'),
+        'name' => env('CORE_CONTACT_DISPLAY_NAME')
     ],
 
     /*
@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('CORE_MAIL_ENCRYPTION', 'tls'),
 
     /*
     |--------------------------------------------------------------------------
@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('CORE_MAIL_USERNAME'),
 
     /*
     |--------------------------------------------------------------------------
@@ -96,7 +96,7 @@ return [
     |
     */
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('CORE_MAIL_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------

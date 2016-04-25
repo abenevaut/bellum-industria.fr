@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services;
+namespace Core\Services;
 
 use Mail;
-use CVEPDB\Services\Mails\IMailService;
+use CVEPDB\Abstracts\Services\Mails\MailService as AbsMailService;
 
-abstract class MailService implements IMailService
+abstract class MailService extends AbsMailService
 {
     /**
      * @param array $emails All emails to send the message
@@ -19,6 +19,9 @@ abstract class MailService implements IMailService
         Mail::send($view, $data, function($message) use ($emails, $subject) {
             $message->to($emails)
                 ->from(env('CORE_CONTACT_MAIL'), env('CORE_CONTACT_DISPLAY_NAME'))
+
+                // ->bcc(config('cvepdb.emails.copy.mailwatch'))
+
                 ->subject($subject);
         });
     }
