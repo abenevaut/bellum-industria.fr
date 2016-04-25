@@ -5,7 +5,7 @@ $I->amOnPage('/installer');
 $I->see('#CVEPDB CMS');
 
 /*
- * Don't field any
+ * Field form with well sized values but without the right format
  */
 
 $I->fillField('#core_site_name', str_random(25));

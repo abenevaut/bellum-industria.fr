@@ -5,7 +5,7 @@ $I->amOnPage('/installer');
 $I->see('#CVEPDB CMS');
 
 /*
- * Don't field any
+ * Field the form with too short values
  */
 
 $I->fillField('#core_site_name', '');
