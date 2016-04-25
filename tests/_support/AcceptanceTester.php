@@ -29,13 +29,16 @@ class AcceptanceTester extends \Codeception\Actor
      */
     protected $faker = null;
 
-    public function init_faker()
-    {
-        $this->faker = Faker\Factory::create();
-    }
-
     public function getfaker()
     {
+        if (is_null($this->faker)) {
+            $this->init_faker();
+        }
         return $this->faker;
+    }
+
+    protected function init_faker()
+    {
+        $this->faker = Faker\Factory::create();
     }
 }
