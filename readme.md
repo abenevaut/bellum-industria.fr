@@ -11,20 +11,20 @@
 
 [\#CVEPDB](http://cvepdb.fr/) CMS is a content manager system build for final user, so you don't need to be developper to use it.
 
-## Official Documentation
+# Official Documentation
 
 Documentation for the CMS can be found on the [Wiki](https://gitlab.com/cvepdb/cms/wikis/home).
 
-## Security Vulnerabilities
+# Security Vulnerabilities
 
 If you discover a security vulnerability within #CVEPDB CMS, please send an e-mail to our contact mailbox at [Contact#CVEPDB](mailto:contact@cvepdb.fr).
 
-## Who i am
+# Who i am
 
 [Antoine Benevaut](mailto:antoine@cvepdb.fr), Consultant freelance & Web developer.
 [\#CVEPDB](http://cvepdb.fr/)
 
-## License [Copyleft](http://www.gnu.org/licenses/gpl-3.0.html)
+# License [Copyleft](http://www.gnu.org/licenses/gpl-3.0.html)
 
 Copyright (C) 2016  Antoine Benevaut
 
