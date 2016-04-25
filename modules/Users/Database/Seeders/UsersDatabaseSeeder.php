@@ -3,8 +3,8 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Users\Entities\User;
-use CVEPDB\Repositories\Roles\Role;
-use Modules\Users\Entities\ApiKey;
+use Core\Domain\Roles\Entities\Role;
+use Core\Domain\Users\Entities\ApiKey;
 
 use Faker\Factory as Faker;
 
