@@ -5,7 +5,7 @@
 [![Monthly Downloads](https://poser.pugx.org/cvepdb/cms/d/monthly)](https://packagist.org/packages/cvepdb/cms)
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/974737a3-478f-445e-9005-b275c23586ec/big.png)](https://insight.sensiolabs.com/projects/974737a3-478f-445e-9005-b275c23586ec)
-[![Copyleft](http://www.gnu.org/graphics/gplv3-127x51.png)](license)
+[![Copyleft](http://www.gnu.org/graphics/gplv3-127x51.png)](https://gitlab.com/cvepdb/cms/wikis/license)
 
 # [\#CVEPDB](http://cvepdb.fr/) CMS
 
