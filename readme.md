@@ -13,12 +13,6 @@
 
 [\#CVEPDB](http://cvepdb.fr/) CMS is a content manager system build for final user, so you don't need to be developper to use it.
 
-
-- [Installation process](installation)
-- [Unit testing](unit-testing)
-- [License](license)
-
-
 ## Official Documentation
 
 Documentation for the CMS can be found on the [Wiki](https://gitlab.com/cvepdb/cms/wikis/home).
