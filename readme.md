@@ -19,7 +19,7 @@ Documentation for the CMS can be found on the [Wiki](https://gitlab.com/cvepdb/c
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within #CVEPDB CMS, please send an e-mail to our contact mailbox at contact@cvepdb.fr.
+If you discover a security vulnerability within #CVEPDB CMS, please send an e-mail to our contact mailbox at [Contact#CVEPDB](mailto:contact@cvepdb.fr).
 
 ## Who i am
 
