@@ -8,7 +8,6 @@
 [![Code Coverage](https://scrutinizer-ci.com/gp/cvepdb-cms/badges/coverage.png?b=master&s=9ce34ee75512da641830ab5f3436596f0c3e7cfd)](https://scrutinizer-ci.com/gp/cvepdb-cms/?branch=master)
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/974737a3-478f-445e-9005-b275c23586ec/big.png)](https://insight.sensiolabs.com/projects/974737a3-478f-445e-9005-b275c23586ec)
-
 [![Copyleft](http://www.gnu.org/graphics/gplv3-127x51.png)](license)
 
 # [\#CVEPDB](http://cvepdb.fr/) CMS
