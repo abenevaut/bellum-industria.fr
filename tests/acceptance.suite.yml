@@ -13,11 +13,17 @@ extensions:
             delete_successful: false
 modules:
     enabled:
+#        - Selenium2 # http://codeception.com/05-13-2013/phantom-js-headless-testing.html#.Vx4rkqNcRBc
 #        - WebDriver
         - PhpBrowser:
             url: http://localhost:8000/
         - \Helper\Acceptance
 #    config:
+#        Selenium2:
+#             url: 'http://localhost:8000/'
+#             browser: phantomjs
+#             capabilities:
+#                 webStorageEnabled: true
 #        WebDriver:
 #            url: 'http://localhost:8000'
 #            browser: firefox
