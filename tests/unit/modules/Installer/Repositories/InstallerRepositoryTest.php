@@ -27,8 +27,6 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
     {
 //        $this->r_installer = $r_installer;
         parent::setUp();
-
-        $this->scenario->group(\SenarioGroups::INSTALLATION);
     }
 
     // tests

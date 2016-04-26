@@ -15,7 +15,7 @@ extensions:
         - Codeception\Extension\RunFailed
         - Codeception\Extension\Logger
         - Codeception\Extension\Phantoman
-        - Codeception\Extension\Teststatistics
+#        - Codeception\Extension\Teststatistics
         - Codeception\Extension\PhpBuiltinServer
     config:
         Codeception\Extension\Logger:
