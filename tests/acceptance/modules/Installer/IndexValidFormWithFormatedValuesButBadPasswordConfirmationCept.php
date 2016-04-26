@@ -1,6 +1,6 @@
 <?php 
 $I = new InstallerAcceptanceTester($scenario);
-$I->wantTo('Test Installer form with empty value');
+$I->wantTo('Test Installer form with formated values but bad password confirmation');
 $I->amOnPage('/installer');
 $I->see('#CVEPDB CMS');
 

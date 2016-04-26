@@ -1,6 +1,6 @@
 <?php 
 $I = new InstallerFunctionalTester($scenario);
-$I->wantTo('Test Installer form with empty value');
+$I->wantTo('Test Installer form with too short values');
 $I->amOnPage('/installer');
 $I->see('#CVEPDB CMS');
 
