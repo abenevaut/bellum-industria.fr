@@ -23,18 +23,18 @@ $I->fillField('#core_db_password', '');
 
 $I->click('Install');
 
-$I->seeElement($I->div_error('CORE_SITE_NAME'));
-$I->see($I->trans_field_required(), $I->div_error('CORE_SITE_NAME'));
-$I->dontSee($I->trans_field_max(254), $I->div_error('CORE_SITE_NAME'));
+$I->seeElement($I->div_error('core_site_name'));
+$I->see($I->trans_field_required(), $I->div_error('core_site_name'));
+$I->dontSee($I->trans_field_max(254), $I->div_error('core_site_name'));
 
-$I->seeElement($I->div_error('CORE_SITE_DESCRIPTION'));
-$I->see($I->trans_field_required(), $I->div_error('CORE_SITE_DESCRIPTION'));
-$I->dontSee($I->trans_field_max(254), $I->div_error('CORE_SITE_DESCRIPTION'));
+$I->seeElement($I->div_error('core_site_description'));
+$I->see($I->trans_field_required(), $I->div_error('core_site_description'));
+$I->dontSee($I->trans_field_max(254), $I->div_error('core_site_description'));
 
-$I->seeElement($I->div_error('CORE_URL'));
-$I->see($I->trans_field_required(), $I->div_error('CORE_URL'));
-$I->dontSee($I->trans_field_max(254), $I->div_error('CORE_URL'));
-$I->dontSee($I->trans_field_url(), $I->div_error('CORE_URL'));
+$I->seeElement($I->div_error('core_url'));
+$I->see($I->trans_field_required(), $I->div_error('core_url'));
+$I->dontSee($I->trans_field_max(254), $I->div_error('core_url'));
+$I->dontSee($I->trans_field_url(), $I->div_error('core_url'));
 
 $I->seeElement($I->div_error('first_name'));
 $I->see($I->trans_field_required(), $I->div_error('first_name'));
@@ -53,12 +53,12 @@ $I->seeElement($I->div_error('password'));
 $I->dontSee($I->trans_field_required(), $I->div_error('password'));
 $I->dontSee($I->trans_field_max(60), $I->div_error('password'));
 $I->see($I->trans_field_min(6), $I->div_error('password'));
-$I->dontSee($I->trans_password_confirmed(), $I->div_error('password'));
 
-$I->seeElement($I->div_error('password_confirmation'));
+$I->dontSeeElement($I->div_error('password_confirmation'));
 $I->dontSee($I->trans_field_required(), $I->div_error('password_confirmation'));
 $I->dontSee($I->trans_field_max(60), $I->div_error('password_confirmation'));
-$I->see($I->trans_field_min(6), $I->div_error('password_confirmation'));
+$I->dontSee($I->trans_field_min(6), $I->div_error('password_confirmation'));
+$I->dontSee($I->trans_password_confirmed(), $I->div_error('password_confirmation'));
 
 $I->seeElement($I->div_error('core_db_host'));
 $I->see($I->trans_field_required(), $I->div_error('core_db_host'));

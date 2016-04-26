@@ -53,12 +53,12 @@ $I->seeElement($I->div_error('password'));
 $I->see($I->trans_field_required(), $I->div_error('password'));
 $I->dontSee($I->trans_field_max(60), $I->div_error('password'));
 $I->dontSee($I->trans_field_min(6), $I->div_error('password'));
-$I->dontSee($I->trans_password_confirmed(), $I->div_error('password'));
 
 $I->dontSeeElement($I->div_error('password_confirmation'));
 $I->dontSee($I->trans_field_required(), $I->div_error('password_confirmation'));
 $I->dontSee($I->trans_field_max(60), $I->div_error('password_confirmation'));
 $I->dontSee($I->trans_field_min(6), $I->div_error('password_confirmation'));
+$I->dontSee($I->trans_password_confirmed(), $I->div_error('password_confirmation'));
 
 $I->seeElement($I->div_error('core_db_host'));
 $I->see($I->trans_field_required(), $I->div_error('core_db_host'));

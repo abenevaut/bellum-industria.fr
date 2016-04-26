@@ -26,7 +26,7 @@ class InstallerAcceptanceTester extends AcceptanceTester
 
     public function trans_password_confirmed()
     {
-        return str_replace("%text%", "password", 'Please enter the same "%text%" as above');
+        return 'Please enter the same value again.';
     }
 
     public function trans_db_connection()
