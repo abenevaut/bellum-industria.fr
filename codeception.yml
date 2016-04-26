@@ -22,7 +22,7 @@ extensions:
             max_files: 5
         Codeception\Extension\Phantoman:
             path: 'bin/phantomjs'
-            port: 4444
+            port: 4480
             suites: ['acceptance']
             debug: true
         Codeception\Extension\PhpBuiltinServer:
