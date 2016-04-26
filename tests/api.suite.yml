@@ -4,9 +4,12 @@ modules:
         - \Helper\Api
         - PhpBrowser
         - REST
+        - Laravel5
     config:
       PhpBrowser:
           url: http://localhost:8000/
+      Laravel5:
+          environment_file: "tests/.env.testing"
       REST:
           url: http://localhost:8000/v1/
-          depends: PhpBrowser
+          depends: Laravel5

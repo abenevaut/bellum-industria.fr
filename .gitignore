@@ -28,8 +28,6 @@ resources/themes
 # Tests
 tests/_output/*
 tests/_support/_generated/*
-tests/_data/testing.sqlite
-tests/_data/.env.installer
 !tests/_data/.env.installer.example
 
 # Deployer

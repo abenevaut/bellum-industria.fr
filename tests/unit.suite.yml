@@ -8,13 +8,8 @@ modules:
         - Asserts
         - \Helper\Unit
         - \Helper\Factory
-        - Laravel5
-    config:
-        Laravel5:
-            environment_file: .env.testing
+        - Laravel5:
+            environment_file: "tests/.env.testing"
             cleanup: false
-            bootstrap: bootstrap/app.php
-            root: ''
-            packages: workbench
-            disable_middleware: false
+            disable_middleware: true
             disable_events: false
