@@ -5,24 +5,28 @@
  */
 class InstallerAcceptanceTester extends AcceptanceTester
 {
+    /**
+     * according with js translation : themes/adminlte/bower/cvepdbjs/scripts/globalize/locale_en.js
+     */
+
     public function trans_field_required()
     {
-        return trans('installer::installer.error:field_required');
+        return 'This field is required';
     }
 
     public function trans_field_url()
     {
-        return trans('installer::installer.error:field_url');
+        return 'This field have to be a valid URL (starts with http:// or https://)';
     }
 
     public function trans_field_email()
     {
-        return trans('installer::installer.error:field_email');
+        return 'This field have to be a valid email';
     }
 
     public function trans_password_confirmed()
     {
-        return trans('installer::installer.error:password_confirmed');
+        return str_replace("%text%", "password", 'Please enter the same "%text%" as above');
     }
 
     public function trans_db_connection()
@@ -32,12 +36,12 @@ class InstallerAcceptanceTester extends AcceptanceTester
 
     public function trans_field_max($value)
     {
-        return str_replace(":max", "$value", trans('installer::installer.error:field_max'));
+        return str_replace("%text%", "$value", 'This field must be at maximum %text% characters long');
     }
 
     public function trans_field_min($value)
     {
-        return str_replace(":min", "$value", trans('installer::installer.error:field_min'));
+        return str_replace("%text%", "$value", 'This field must be at least %text% characters long');
     }
 
     public function div_error($id)
