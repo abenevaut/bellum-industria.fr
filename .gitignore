@@ -28,7 +28,6 @@ resources/themes
 # Tests
 tests/_output/*
 tests/_support/_generated/*
-!tests/_data/.env.installer.example
 
 # Deployer
 !deployer/shared/.env.example
