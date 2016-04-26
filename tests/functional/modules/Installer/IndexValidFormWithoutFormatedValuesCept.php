@@ -1,4 +1,5 @@
-<?php 
+<?php
+// @group installer
 $I = new InstallerFunctionalTester($scenario);
 $I->wantTo('Test Installer form without formated values');
 $I->amOnPage('/installer');

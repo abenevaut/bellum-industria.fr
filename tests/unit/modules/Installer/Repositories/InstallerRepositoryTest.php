@@ -1,5 +1,11 @@
 <?php namespace modules\Installer\Repositories;
 
+/**
+ * Class InstallerRepositoryTest
+ * @package modules\Installer\Repositories
+ *
+ * @group installer
+ */
 class InstallerRepositoryTest extends \Codeception\TestCase\Test
 {
     //protected $r_installer = null;
@@ -21,11 +27,13 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
     {
 //        $this->r_installer = $r_installer;
         parent::setUp();
+
+        $this->scenario->group(\SenarioGroups::INSTALLATION);
     }
 
     // tests
     public function testMe()
     {
-//        $this->assertEquals(true, 1);
+        $this->assertEquals(true, 1);
     }
 }

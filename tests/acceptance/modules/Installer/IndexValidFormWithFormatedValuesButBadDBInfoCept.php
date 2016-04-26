@@ -1,4 +1,5 @@
-<?php 
+<?php
+// @group installer
 $I = new InstallerAcceptanceTester($scenario);
 $I->wantTo('Test Installer form with formated values but bad DB credentials');
 $I->amOnPage('/installer');
