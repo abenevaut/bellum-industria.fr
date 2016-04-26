@@ -1,6 +1,6 @@
 <?php namespace Modules\Users\Database\Seeders;
 
-use Conner\Addresses\State;
+use CVEPDB\Addresses\State;
 use Illuminate\Database\Seeder;
 
 class StateTableSeeder extends Seeder

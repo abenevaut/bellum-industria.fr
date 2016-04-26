@@ -20,7 +20,7 @@ require 'bootstrap/autoload.php';
 */
 
 $app = new Illuminate\Foundation\Application(
-    realpath(__DIR__.'/../')
+    realpath(__DIR__ . '/../')
 );
 
 /*
@@ -60,7 +60,7 @@ $app->singleton(
 |
 */
 
-$app->detectEnvironment(function(){
+$app->detectEnvironment(function () {
     $dotenv = new \Dotenv\Dotenv(__DIR__, '.env.testing');
     $dotenv->overload(); //this is important
 });
@@ -84,4 +84,6 @@ exec('cp ' . base_path(env('TEST_ENV_INSTALLER_TO_COPY')) . ' ' . base_path(env(
 //exec(base_path("bin/phpmetrics --report-html=tests/_output/phpmetrics-core.html core"));
 //exec(base_path("bin/phpmetrics --report-html=tests/_output/phpmetrics-modules.html modules"));
 
+Artisan::call('module:publish-migration');
 Artisan::call('migrate');
+Artisan::call('db:seed', ['--class' => 'testingSeeder']);

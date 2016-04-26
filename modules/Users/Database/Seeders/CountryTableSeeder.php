@@ -1,6 +1,6 @@
 <?php namespace Modules\Users\Database\Seeders;
 
-use Conner\Addresses\Country;
+use CVEPDB\Addresses\Country;
 use Illuminate\Database\Seeder;
 
 class CountryTableSeeder extends Seeder {

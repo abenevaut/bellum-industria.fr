@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d54ea1f85e8673ce9cb3930eddf323d9",
+    "hash": "c7892d3b1835fa13b5dd8e70759bc551",
     "content-hash": "7e64383331745656459816c40deded53",
     "packages": [
         {
@@ -250,12 +250,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "cd1bc47be0a75ed93c7935a0572801c484517a19"
+                "reference": "de3055a8e7935dfecf7a8fca32a92f566da23114"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/cd1bc47be0a75ed93c7935a0572801c484517a19",
-                "reference": "cd1bc47be0a75ed93c7935a0572801c484517a19",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/de3055a8e7935dfecf7a8fca32a92f566da23114",
+                "reference": "de3055a8e7935dfecf7a8fca32a92f566da23114",
                 "shasum": ""
             },
             "require": {
@@ -296,7 +296,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2016-04-16 21:12:56"
+            "time": "2016-04-25 17:23:07"
         },
         {
             "name": "barryvdh/laravel-elfinder",
@@ -1017,16 +1017,16 @@
         },
         {
             "name": "cvepdb-cms/module-installer",
-            "version": "1.0.52.6",
+            "version": "1.0.52.7",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-installer.git",
-                "reference": "76b3bb250a38deca16e28ea5f0ccfcac8e427def"
+                "reference": "5c85a5ad0b8ba0eecc40e71e6a206fb8657499ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=76b3bb250a38deca16e28ea5f0ccfcac8e427def",
-                "reference": "76b3bb250a38deca16e28ea5f0ccfcac8e427def",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=5c85a5ad0b8ba0eecc40e71e6a206fb8657499ad",
+                "reference": "5c85a5ad0b8ba0eecc40e71e6a206fb8657499ad",
                 "shasum": ""
             },
             "require": {
@@ -1060,7 +1060,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-04-25 15:15:01"
+            "time": "2016-04-25 17:02:31"
         },
         {
             "name": "cvepdb-cms/module-themes",
@@ -2894,12 +2894,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "0c27019afa5f3751c1720a97bbccb1ec55ad33db"
+                "reference": "38193be348affd74cd259b3d52059290fafc9990"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/0c27019afa5f3751c1720a97bbccb1ec55ad33db",
-                "reference": "0c27019afa5f3751c1720a97bbccb1ec55ad33db",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/38193be348affd74cd259b3d52059290fafc9990",
+                "reference": "38193be348affd74cd259b3d52059290fafc9990",
                 "shasum": ""
             },
             "require": {
@@ -2940,7 +2940,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2016-04-21 13:22:00"
+            "time": "2016-04-25 15:34:30"
         },
         {
             "name": "laravelcollective/html",
@@ -3002,12 +3002,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "35a83cf67d80d7040f306c77b0a84b9fbcc4fbfb"
+                "reference": "94294e4b9feec0b9a126d729812eb411ec7b577d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/35a83cf67d80d7040f306c77b0a84b9fbcc4fbfb",
-                "reference": "35a83cf67d80d7040f306c77b0a84b9fbcc4fbfb",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/94294e4b9feec0b9a126d729812eb411ec7b577d",
+                "reference": "94294e4b9feec0b9a126d729812eb411ec7b577d",
                 "shasum": ""
             },
             "require": {
@@ -3077,7 +3077,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-04-22 10:56:25"
+            "time": "2016-04-26 07:20:38"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -3180,12 +3180,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem-dropbox.git",
-                "reference": "5d44f1d1a7f809115ec8fa2cfabad4599d51fb78"
+                "reference": "939f91ca00d0255d9b3aa313e191480d00f09382"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem-dropbox/zipball/5d44f1d1a7f809115ec8fa2cfabad4599d51fb78",
-                "reference": "5d44f1d1a7f809115ec8fa2cfabad4599d51fb78",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-dropbox/zipball/939f91ca00d0255d9b3aa313e191480d00f09382",
+                "reference": "939f91ca00d0255d9b3aa313e191480d00f09382",
                 "shasum": ""
             },
             "require": {
@@ -3218,7 +3218,7 @@
                 }
             ],
             "description": "Flysystem adapter for Dropbox",
-            "time": "2016-04-22 13:15:41"
+            "time": "2016-04-25 18:51:39"
         },
         {
             "name": "league/flysystem-rackspace",
@@ -3461,12 +3461,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "d0fa02ddec4922111f7924493d9862152e5f81b4"
+                "reference": "ab13890a08d2be3626d609d0143407b5f2a4761b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/d0fa02ddec4922111f7924493d9862152e5f81b4",
-                "reference": "d0fa02ddec4922111f7924493d9862152e5f81b4",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/ab13890a08d2be3626d609d0143407b5f2a4761b",
+                "reference": "ab13890a08d2be3626d609d0143407b5f2a4761b",
                 "shasum": ""
             },
             "require": {
@@ -3494,8 +3494,7 @@
             "type": "library",
             "autoload": {
                 "classmap": [
-                    "src/Maatwebsite/Excel",
-                    "tests/TestCase.php"
+                    "src/Maatwebsite/Excel"
                 ],
                 "psr-0": {
                     "Maatwebsite\\Excel\\": "src/"
@@ -3521,7 +3520,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2016-04-06 14:29:35"
+            "time": "2016-04-26 07:25:32"
         },
         {
             "name": "maknz/slack",
@@ -4889,12 +4888,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/raven-php.git",
-                "reference": "210ddbcf6282f3a8a0ed68f3febcb47a9be065dc"
+                "reference": "cd3ed417c85dc488ad33b7a2ff846a7d056101bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/raven-php/zipball/210ddbcf6282f3a8a0ed68f3febcb47a9be065dc",
-                "reference": "210ddbcf6282f3a8a0ed68f3febcb47a9be065dc",
+                "url": "https://api.github.com/repos/getsentry/raven-php/zipball/cd3ed417c85dc488ad33b7a2ff846a7d056101bb",
+                "reference": "cd3ed417c85dc488ad33b7a2ff846a7d056101bb",
                 "shasum": ""
             },
             "require": {
@@ -4935,7 +4934,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2016-04-20 17:01:48"
+            "time": "2016-04-26 11:20:44"
         },
         {
             "name": "roumen/feed",
@@ -5499,12 +5498,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "db9d4fbf990204bb1baa827a52fb29331473a05f"
+                "reference": "2b917f6cf88381ce23c9707782bfb0d9d5b6dc19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/db9d4fbf990204bb1baa827a52fb29331473a05f",
-                "reference": "db9d4fbf990204bb1baa827a52fb29331473a05f",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/2b917f6cf88381ce23c9707782bfb0d9d5b6dc19",
+                "reference": "2b917f6cf88381ce23c9707782bfb0d9d5b6dc19",
                 "shasum": ""
             },
             "require": {
@@ -5549,7 +5548,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-04-24 15:17:45"
+            "time": "2016-04-26 09:14:48"
         },
         {
             "name": "swiftmailer/swiftmailer",
