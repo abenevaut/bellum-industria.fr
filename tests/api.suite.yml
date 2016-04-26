@@ -9,3 +9,4 @@ modules:
           url: http://localhost:8000/
       REST:
           url: http://localhost:8000/v1/
+          depends: PhpBrowser

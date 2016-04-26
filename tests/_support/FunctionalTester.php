@@ -23,4 +23,22 @@ class FunctionalTester extends \Codeception\Actor
    /**
     * Define custom actions here
     */
+
+    /**
+     * @var Faker\Factory|null
+     */
+    protected $faker = null;
+
+    public function getfaker()
+    {
+        if (is_null($this->faker)) {
+            $this->init_faker();
+        }
+        return $this->faker;
+    }
+
+    protected function init_faker()
+    {
+        $this->faker = Faker\Factory::create();
+    }
 }

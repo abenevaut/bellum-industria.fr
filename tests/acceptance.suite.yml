@@ -16,16 +16,12 @@ modules:
         - WebDriver
         - \Helper\Acceptance
     config:
-#        WebDriver:
-#             url: 'http://localhost:8000/'
-#             browser: phantomjs
-#             capabilities:
-#                 webStorageEnabled: true
         WebDriver:
-            url: 'http://localhost:8000'
-            browser: firefox
-            window_size: 1024x768
-#            capabilities:
-#                webStorageEnabled: true
-#                javascriptEnabled: true
-#                firefox_binary: /Applications/Firefox.app
+             url: 'http://localhost:8000/'
+             browser: phantomjs
+
+              # Selenium 2 + webBrowser
+              # http://www.seleniumhq.org/
+              # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+#             browser: firefox
+#             window_size: 1024x768

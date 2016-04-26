@@ -14,15 +14,12 @@ extensions:
     enabled:
         - Codeception\Extension\RunFailed
         - Codeception\Extension\Logger
-#        - Codeception\Extension\Recorder
         - Codeception\Extension\Phantoman
         - Codeception\Extension\Teststatistics
         - Codeception\Extension\PhpBuiltinServer
     config:
         Codeception\Extension\Logger:
             max_files: 5
-#        Codeception\Extension\Recorder:
-#            delete_successful: false
         Codeception\Extension\Phantoman:
             path: 'bin/phantomjs'
             port: 4444
@@ -32,19 +29,15 @@ extensions:
             hostname: localhost
             port: 8000
             autostart: true
-            documentRoot: tests/_data
             startDelay: 1
             documentRoot: public
             router: public/index.php
             directoryIndex: index.php
 #            phpIni: /usr/local/etc/php/5.6/php.ini
 modules:
-    enabled: [PhpBrowser, Filesystem, REST, MailCatcher]
+    enabled: [Filesystem, MailCatcher]
     config:
         MailCatcher:
             url: 'http://localhost'
             port: '1080'
-        REST:
-            url: 'http://localhost:8000'
-            depends: PhpBrowser
 error_level: "E_ALL & ~E_STRICT & ~E_DEPRECATED"

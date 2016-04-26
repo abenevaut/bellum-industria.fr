@@ -7,15 +7,14 @@
 class_name: FunctionalTester
 modules:
     enabled:
-        # add framework module here
         - \Helper\Functional
-#        - Laravel5
-#    config:
-#        Laravel5:
-#            environment_file: .env.testing
-#            cleanup: false
-#            bootstrap: bootstrap/app.php
-#            root: ''
-#            packages: workbench
-#            disable_middleware: false
-#            disable_events: false
+        - Laravel5
+    config:
+        Laravel5:
+            environment_file: .env.testing
+            cleanup: false
+            bootstrap: bootstrap/app.php
+            root: ''
+            packages: workbench
+            disable_middleware: false
+            disable_events: false
