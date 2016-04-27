@@ -42,8 +42,6 @@ class KeyGenerateCommand extends CoreCommand
 
         $path = $app->environmentPath() . '/' . $app->environmentFile() . '.' . env('CORE_ENV');
 
-        $this->line('<comment> PATH :: ' . $path . '</comment>');
-
         if (file_exists($path)) {
             $content = str_replace('CORE_KEY=' . $app['config']['app.key'], 'CORE_KEY=' . $key, file_get_contents($path));
 
