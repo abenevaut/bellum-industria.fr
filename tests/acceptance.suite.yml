@@ -29,7 +29,7 @@ env:
         l5:
             env:
                 file: "tests/_data/.env.installer"
-                name: notinstalled
+                name: installer
         modules:
             WebDriver:
                  url: 'http://localhost:8000/'
