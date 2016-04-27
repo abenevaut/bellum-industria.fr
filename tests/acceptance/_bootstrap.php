@@ -1,11 +1,6 @@
-<?php
-// Here you can initialize variables that will be available to your tests
+<?php // Here you can initialize variables that will be available to your tests
 
-/*
- * Run Laravel
- */
-
-require '../bootstrap/autoload.php';
+require 'bootstrap/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -49,26 +44,21 @@ $app->singleton(
 );
 
 $app->instance('request', new \Illuminate\Http\Request);
-
-/*
- * Force testing environment
- */
-$app->useEnvironmentPath($app->environmentPath() . '/tests');
-$app->loadEnvironmentFrom('.env.testing');
-
-$app->make('Illuminate\Contracts\Http\Kernel')->bootstrap();
+// Force testing environment
+$app->loadEnvironmentFrom('tests/'.$settings['l5_env_file']);
+$app->make(Illuminate\Contracts\Http\Kernel::class)->bootstrap();
 
 /**
  * Prepare stuff for execution
  */
 
 // Prepare SQlite DB
-exec('rm ' . base_path(env('TEST_SQLITE_DB_PATH')));
-exec('cp ' . base_path(env('TEST_SQLITE_DB_TO_COPY')) . ' ' . base_path(env('TEST_SQLITE_DB_PATH')));
+//exec('rm ' . base_path(env('TEST_SQLITE_DB_PATH')));
+//exec('cp ' . base_path(env('TEST_SQLITE_DB_TO_COPY')) . ' ' . base_path(env('TEST_SQLITE_DB_PATH')));
 
 // Prepare fake .env.installer file
-exec('rm ' . base_path(env('TEST_ENV_INSTALLER_PATH')));
-exec('cp ' . base_path(env('TEST_ENV_INSTALLER_TO_COPY')) . ' ' . base_path(env('TEST_ENV_INSTALLER_PATH')));
+//exec('rm ' . base_path(env('TEST_ENV_INSTALLER_PATH')));
+//exec('cp ' . base_path(env('TEST_ENV_INSTALLER_TO_COPY')) . ' ' . base_path(env('TEST_ENV_INSTALLER_PATH')));
 
 // Could not be integrated in project because of event function conflict between HOA lib and Laravel
 //exec(base_path("bin/phpmetrics --report-html=tests/_output/phpmetrics-core.html core"));
