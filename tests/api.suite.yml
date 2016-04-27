@@ -9,7 +9,15 @@ modules:
       PhpBrowser:
           url: http://localhost:8000/
       Laravel5:
-          environment_file: "tests/.env.testing"
+          environment_file: "tests/_data/.env.installed"
       REST:
           url: http://localhost:8000/v1/
           depends: Laravel5
+env:
+    notinstalled:
+        modules:
+            enabled:
+                - Laravel5
+            config:
+                Laravel5:
+                    environment_file: "tests/_data/.env.notinstalled"

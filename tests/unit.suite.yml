@@ -13,3 +13,9 @@ modules:
             cleanup: false
             disable_middleware: true
             disable_events: false
+env:
+    notinstalled:
+        modules:
+            enabled:
+                - Laravel5:
+                    environment_file: "tests/_data/.env.notinstalled"

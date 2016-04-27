@@ -26,6 +26,7 @@ modules/Installer
 resources/themes
 
 # Tests
+!tests/_data/*
 tests/_output/*
 tests/_support/_generated/*
 
