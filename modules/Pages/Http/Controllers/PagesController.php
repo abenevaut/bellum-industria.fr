@@ -22,6 +22,10 @@ class PagesController extends Controller
     {
         $page = $this->r_page->findWhere(['is_home' => true])->first();
 
+        if (is_null($page)) {
+            abort(404);
+        }
+
         $page->addMeta('new_key', ['First Value']);
         $page->addMeta('title', 'Powerfull home title');
         $page->addMeta('description', 'First Value EZ PZ!');

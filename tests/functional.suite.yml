@@ -11,7 +11,7 @@ modules:
         - Laravel5
     config:
         Laravel5:
-            environment_file: "tests/_data/.env.installed"
+            environment_file: "tests/_data/.env.testing"
             cleanup: false
             bootstrap: bootstrap/app.php
             root: ''
@@ -19,10 +19,10 @@ modules:
             disable_middleware: false
             disable_events: false
 env:
-    notinstalled:
+    installer:
         modules:
             enabled:
                 - Laravel5
             config:
                 Laravel5:
-                    environment_file: "tests/_data/.env.notinstalled"
+                    environment_file: "tests/_data/.env.installer"

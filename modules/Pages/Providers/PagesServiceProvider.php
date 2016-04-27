@@ -112,11 +112,13 @@ class PagesServiceProvider extends ServiceProvider
             $config['namespace'] = 'Modules\Pages\Http\Controllers';
             $config['middleware'] = ['web'];
 
-            $this->router->group($config, function ($router) use ($pages) {
-                foreach ($pages as $page) {
-                    $router->get($page->uri, 'PagesController@map');
-                }
-            });
+            if ($pages->count()) {
+                $this->router->group($config, function ($router) use ($pages) {
+                    foreach ($pages as $page) {
+                        $router->get($page->uri, 'PagesController@map');
+                    }
+                });
+            }
         }
     }
 

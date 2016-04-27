@@ -1,5 +1,5 @@
 <?php
-// @env notinstalled
+// @env installer
 $I = new InstallerAcceptanceTester($scenario);
 $I->wantTo('Test Installer form with formated values but bad password confirmation');
 $I->amOnPage('/installer');

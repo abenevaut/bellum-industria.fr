@@ -7,7 +7,7 @@
 class_name: AcceptanceTester
 l5:
     env:
-        file: "tests/_data/.env.installed"
+        file: "tests/_data/.env.testing"
         name: default
 extensions:
     enabled:
@@ -25,10 +25,10 @@ modules:
              port: 4480
              browser: phantomjs
 env:
-    notinstalled:
+    installer:
         l5:
             env:
-                file: "tests/_data/.env.notinstalled"
+                file: "tests/_data/.env.installer"
                 name: notinstalled
         modules:
             WebDriver:

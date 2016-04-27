@@ -1,5 +1,5 @@
 <?php
-// @env notinstalled
+// @env installer
 $I = new InstallerAcceptanceTester($scenario);
 $I->wantTo('Test Installer form with empty value');
 $I->amOnPage('/installer');

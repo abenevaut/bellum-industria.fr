@@ -4,7 +4,7 @@
  * Class InstallerRepositoryTest
  * @package modules\Installer\Repositories
  *
- * @env notinstalled
+ * @env installer
  */
 class InstallerRepositoryTest extends \Codeception\TestCase\Test
 {
@@ -27,7 +27,7 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
     }
 
     /**
-     * @env notinstalled
+     * @env installer
      */
     public function testMe()
     {
