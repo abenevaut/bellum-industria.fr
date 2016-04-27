@@ -49,23 +49,14 @@ $app->singleton(
     Core\Exceptions\Handler::class
 );
 
-/*
-|--------------------------------------------------------------------------
-| Detect The Application Environment
-|--------------------------------------------------------------------------
-|
-| Laravel takes a dead simple approach to your application environments
-| so you can just specify a machine name for the host that matches a
-| given environment, then we will automatically detect it for you.
-|
-*/
-
-$app->detectEnvironment(function () {
-    $dotenv = new \Dotenv\Dotenv(__DIR__, '.env.testing');
-    $dotenv->overload(); //this is important
-});
-
 $app->instance('request', new \Illuminate\Http\Request);
+
+/*
+ * Force testing environment
+ */
+$app->useEnvironmentPath($app->environmentPath() . '/tests');
+$app->loadEnvironmentFrom('.env.testing');
+
 $app->make('Illuminate\Contracts\Http\Kernel')->bootstrap();
 
 /**
