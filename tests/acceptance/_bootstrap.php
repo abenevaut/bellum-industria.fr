@@ -1,52 +1,10 @@
 <?php // Here you can initialize variables that will be available to your tests
 
 require 'bootstrap/autoload.php';
-
-/*
-|--------------------------------------------------------------------------
-| Create The Application
-|--------------------------------------------------------------------------
-|
-| The first thing we will do is create a new Laravel application instance
-| which serves as the "glue" for all the components of Laravel, and is
-| the IoC container for the system binding all of the various parts.
-|
-*/
-
-$app = new Illuminate\Foundation\Application(
-    realpath(__DIR__ . '/../')
-);
-
-/*
-|--------------------------------------------------------------------------
-| Bind Important Interfaces
-|--------------------------------------------------------------------------
-|
-| Next, we need to bind some important interfaces into the container so
-| we will be able to resolve them when needed. The kernels serve the
-| incoming requests to this application from both the web and CLI.
-|
-*/
-
-$app->singleton(
-    Illuminate\Contracts\Http\Kernel::class,
-    Core\Http\Kernel::class
-);
-
-$app->singleton(
-    Illuminate\Contracts\Console\Kernel::class,
-    Core\Console\Kernel::class
-);
-
-$app->singleton(
-    Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Core\Exceptions\Handler::class
-);
-
+$app = require 'bootstrap/app.php';
+$app->loadEnvironmentFrom($settings['l5_env_file']);
 $app->instance('request', new \Illuminate\Http\Request);
-// Force testing environment
-$app->loadEnvironmentFrom('tests/'.$settings['l5_env_file']);
-$app->make(Illuminate\Contracts\Http\Kernel::class)->bootstrap();
+$app->make('Illuminate\Contracts\Http\Kernel')->bootstrap();
 
 /**
  * Prepare stuff for execution

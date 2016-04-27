@@ -5,7 +5,7 @@
 # If you need both WebDriver and PHPBrowser tests - create a separate suite.
 
 class_name: AcceptanceTester
-l5_env_file: "_data/.env.installed"
+l5_env_file: "tests/_data/.env.installed"
 extensions:
     enabled:
         - Codeception\Extension\Recorder
@@ -23,7 +23,7 @@ modules:
              browser: phantomjs
 env:
     notinstalled:
-        l5_env_file: "_data/.env.notinstalled"
+        l5_env_file: "tests/_data/.env.notinstalled"
         modules:
             WebDriver:
                  url: 'http://localhost:8000/'
