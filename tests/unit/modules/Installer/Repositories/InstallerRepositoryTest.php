@@ -29,7 +29,9 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
         parent::setUp();
     }
 
-    // tests
+    /**
+     * @env notinstalled
+     */
     public function testMe()
     {
         $this->assertEquals(true, 1);
