@@ -40,7 +40,7 @@ class KeyGenerateCommand extends CoreCommand
             return $this->line('<comment>' . $key . '</comment>');
         }
 
-        $path = $app->environmentPath() . '/' . $app->environmentFile();
+        $path = $app->environmentPath() . '/' . $app->environmentFile() . '.' . env('CORE_ENV');
 
         $this->line('<comment> PATH :: ' . $path . '</comment>');
 
