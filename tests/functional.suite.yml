@@ -12,7 +12,7 @@ modules:
     config:
         Laravel5:
             environment_file: "tests/_data/.env.testing"
-            cleanup: false
+            cleanup: true
             bootstrap: bootstrap/app.php
             root: ''
             packages: workbench
@@ -26,3 +26,4 @@ env:
             config:
                 Laravel5:
                     environment_file: "tests/_data/.env.installer"
+                    cleanup: true

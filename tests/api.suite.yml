@@ -10,6 +10,7 @@ modules:
           url: http://localhost:8000/
       Laravel5:
           environment_file: "tests/_data/.env.testing"
+          cleanup: true
       REST:
           url: http://localhost:8000/v1/
           depends: Laravel5
@@ -21,3 +22,4 @@ env:
             config:
                 Laravel5:
                     environment_file: "tests/_data/.env.installer"
+                    cleanup: true

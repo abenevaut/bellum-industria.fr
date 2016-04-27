@@ -19,6 +19,7 @@ env:
             enabled:
                 - Laravel5:
                     environment_file: "tests/_data/.env.installer"
+                    cleanup: true
     core:
         modules:
             enabled:
