@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c7892d3b1835fa13b5dd8e70759bc551",
-    "content-hash": "7e64383331745656459816c40deded53",
+    "hash": "7d647ed67205aaf705d8a1d7f6ddabce",
+    "content-hash": "c46946e006b2c251a0a18b5cd3265d9b",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -110,16 +110,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.18.1",
+            "version": "3.18.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "ed9bfdfd19b1e50a13f7ac772fd3d09a00ed8ed1"
+                "reference": "b02e402e4795819a06dc0e4ebf59f2585e8afbcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ed9bfdfd19b1e50a13f7ac772fd3d09a00ed8ed1",
-                "reference": "ed9bfdfd19b1e50a13f7ac772fd3d09a00ed8ed1",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b02e402e4795819a06dc0e4ebf59f2585e8afbcd",
+                "reference": "b02e402e4795819a06dc0e4ebf59f2585e8afbcd",
                 "shasum": ""
             },
             "require": {
@@ -186,7 +186,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-04-21 21:16:40"
+            "time": "2016-04-26 20:02:37"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -2379,12 +2379,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "e368d262887dbb2fdfaf710880571ede51e9c0e6"
+                "reference": "22088b04728a039bd1fc32f7e79a89a118b78698"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/e368d262887dbb2fdfaf710880571ede51e9c0e6",
-                "reference": "e368d262887dbb2fdfaf710880571ede51e9c0e6",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/22088b04728a039bd1fc32f7e79a89a118b78698",
+                "reference": "22088b04728a039bd1fc32f7e79a89a118b78698",
                 "shasum": ""
             },
             "require": {
@@ -2433,7 +2433,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2016-02-26 18:18:19"
+            "time": "2016-04-26 14:08:40"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -4513,16 +4513,16 @@
         },
         {
             "name": "prettus/l5-repository",
-            "version": "2.5.0",
+            "version": "2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andersao/l5-repository.git",
-                "reference": "4f34bd3e38b29c9cbb562ab5ea545a6d4aae1f34"
+                "reference": "a6f52e0d79b91569fee183210765f9401a7b9be8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/4f34bd3e38b29c9cbb562ab5ea545a6d4aae1f34",
-                "reference": "4f34bd3e38b29c9cbb562ab5ea545a6d4aae1f34",
+                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/a6f52e0d79b91569fee183210765f9401a7b9be8",
+                "reference": "a6f52e0d79b91569fee183210765f9401a7b9be8",
                 "shasum": ""
             },
             "require": {
@@ -4569,7 +4569,7 @@
                 "model",
                 "repository"
             ],
-            "time": "2016-04-21 08:53:47"
+            "time": "2016-04-26 15:53:10"
         },
         {
             "name": "prettus/laravel-validation",
@@ -4888,12 +4888,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/raven-php.git",
-                "reference": "cd3ed417c85dc488ad33b7a2ff846a7d056101bb"
+                "reference": "b13485dc0d2aec6f1c82820c1a24cb63024f16c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/raven-php/zipball/cd3ed417c85dc488ad33b7a2ff846a7d056101bb",
-                "reference": "cd3ed417c85dc488ad33b7a2ff846a7d056101bb",
+                "url": "https://api.github.com/repos/getsentry/raven-php/zipball/b13485dc0d2aec6f1c82820c1a24cb63024f16c2",
+                "reference": "b13485dc0d2aec6f1c82820c1a24cb63024f16c2",
                 "shasum": ""
             },
             "require": {
@@ -4934,7 +4934,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2016-04-26 11:20:44"
+            "time": "2016-04-27 08:41:21"
         },
         {
             "name": "roumen/feed",
@@ -5331,7 +5331,7 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "3.17.4",
+            "version": "v3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
@@ -6858,16 +6858,16 @@
         },
         {
             "name": "codeception/codeception",
-            "version": "2.1.x-dev",
+            "version": "2.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "80a1513b18dc7bbce3f5d4af7d5557c367e39732"
+                "reference": "f3daa61f0f11c531b33eb3623ab0daa599d88a79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/80a1513b18dc7bbce3f5d4af7d5557c367e39732",
-                "reference": "80a1513b18dc7bbce3f5d4af7d5557c367e39732",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/f3daa61f0f11c531b33eb3623ab0daa599d88a79",
+                "reference": "f3daa61f0f11c531b33eb3623ab0daa599d88a79",
                 "shasum": ""
             },
             "require": {
@@ -6935,7 +6935,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2016-04-25 01:17:30"
+            "time": "2016-04-15 02:56:43"
         },
         {
             "name": "codeception/phpbuiltinserver",
@@ -8980,12 +8980,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/redCOMPONENT-COM/teststatistics.git",
-                "reference": "a291f2a482247c082b1a4202c200df8a0d3bf6d1"
+                "reference": "a7fd0b21b85e87a911951f9f0f65cf16857a0245"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/redCOMPONENT-COM/teststatistics/zipball/a291f2a482247c082b1a4202c200df8a0d3bf6d1",
-                "reference": "a291f2a482247c082b1a4202c200df8a0d3bf6d1",
+                "url": "https://api.github.com/repos/redCOMPONENT-COM/teststatistics/zipball/a7fd0b21b85e87a911951f9f0f65cf16857a0245",
+                "reference": "a7fd0b21b85e87a911951f9f0f65cf16857a0245",
                 "shasum": ""
             },
             "require-dev": {
@@ -9017,7 +9017,7 @@
                 "performance",
                 "unit testing"
             ],
-            "time": "2015-07-20 17:10:31"
+            "time": "2016-04-27 10:28:11"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

@@ -1,5 +1,5 @@
 <?php
-// @group installer
+// @env notinstalled
 $I = new InstallerAcceptanceTester($scenario);
 $I->wantTo('Test Installer form with too short values');
 $I->amOnPage('/installer');

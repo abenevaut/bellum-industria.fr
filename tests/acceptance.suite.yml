@@ -21,6 +21,14 @@ modules:
              port: 4480
              browser: phantomjs
 env:
+    notinstalled:
+        settings:
+          bootstrap: _bootstrap_notinstalled.php
+        modules:
+            WebDriver:
+                 url: 'http://localhost:8000/'
+                 port: 4480
+                 browser: phantomjs
     chrome:
         # Selenium 2 + webBrowser
         # http://www.seleniumhq.org/
@@ -40,4 +48,14 @@ env:
                 WebDriver:
                     port: 4444
                     browser: firefox
+                    window_size: 1024x768
+    ie:
+        # Selenium 2 + webBrowser
+        # http://www.seleniumhq.org/
+        # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+         modules:
+            config:
+                WebDriver:
+                    browser: 'internet explorer'
+                    port: 4444
                     window_size: 1024x768

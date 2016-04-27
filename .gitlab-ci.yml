@@ -8,4 +8,5 @@ ci:
   - gulp deploy
   - php artisan theme:publish
   - php artisan module:publish
+  - bin/codecept run --env=notinstalled
   - bin/codecept run

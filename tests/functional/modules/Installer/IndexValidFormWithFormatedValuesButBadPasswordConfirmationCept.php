@@ -1,5 +1,5 @@
 <?php
-// @group installer
+// @env notinstalled
 $I = new InstallerFunctionalTester($scenario);
 $I->wantTo('Test Installer form with formated values but bad password confirmation');
 $I->amOnPage('/installer');

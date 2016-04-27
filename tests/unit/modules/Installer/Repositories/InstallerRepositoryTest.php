@@ -4,7 +4,7 @@
  * Class InstallerRepositoryTest
  * @package modules\Installer\Repositories
  *
- * @group installer
+ * @env notinstalled
  */
 class InstallerRepositoryTest extends \Codeception\TestCase\Test
 {

@@ -23,7 +23,7 @@ extensions:
         Codeception\Extension\Phantoman:
             path: 'bin/phantomjs'
             port: 4480
-            suites: ['acceptance']
+            suites: ['acceptance', 'acceptance (notinstalled)']
             debug: true
         Codeception\Extension\PhpBuiltinServer:
             hostname: localhost
@@ -45,44 +45,3 @@ modules:
             password: ''
             dump: tests/_output/testing.sql
 error_level: "E_ALL & ~E_STRICT & ~E_DEPRECATED"
-env:
-    chrome:
-        # Selenium 2 + webBrowser
-        # http://www.seleniumhq.org/
-        # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-        extensions:
-            enabled:
-                - Codeception\Extension\RunFailed
-                - Codeception\Extension\Logger
-                - Codeception\Extension\PhpBuiltinServer
-            config:
-                Codeception\Extension\Logger:
-                    max_files: 5
-                Codeception\Extension\PhpBuiltinServer:
-                    hostname: localhost
-                    port: 8000
-                    autostart: true
-                    startDelay: 1
-                    documentRoot: public
-                    router: public/index.php
-                    directoryIndex: index.php
-    firefox:
-        # Selenium 2 + webBrowser
-        # http://www.seleniumhq.org/
-        # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-        extensions:
-            enabled:
-                - Codeception\Extension\RunFailed
-                - Codeception\Extension\Logger
-                - Codeception\Extension\PhpBuiltinServer
-            config:
-                Codeception\Extension\Logger:
-                    max_files: 5
-                Codeception\Extension\PhpBuiltinServer:
-                    hostname: localhost
-                    port: 8000
-                    autostart: true
-                    startDelay: 1
-                    documentRoot: public
-                    router: public/index.php
-                    directoryIndex: index.php
