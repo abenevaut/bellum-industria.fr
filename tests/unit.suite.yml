@@ -10,8 +10,8 @@ modules:
         - \Helper\Factory
         - Laravel5:
             environment_file: "tests/.env.testing"
-            cleanup: false
-            disable_middleware: true
+            cleanup: true
+            disable_middleware: false
             disable_events: false
 env:
     notinstalled:
@@ -19,3 +19,10 @@ env:
             enabled:
                 - Laravel5:
                     environment_file: "tests/_data/.env.notinstalled"
+    core:
+        modules:
+            enabled:
+                - Laravel5:
+                    environment_file: "tests/_data/.env.installed"
+                    cleanup: false
+                    disable_middleware: true

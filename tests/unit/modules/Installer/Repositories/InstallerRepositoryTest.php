@@ -8,8 +8,6 @@
  */
 class InstallerRepositoryTest extends \Codeception\TestCase\Test
 {
-    //protected $r_installer = null;
-
     /**
      * @var \UnitTester
      */
@@ -23,9 +21,8 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
     {
     }
 
-    protected function setUp(/*InstallerRepository $r_installer*/)
+    protected function setUp()
     {
-//        $this->r_installer = $r_installer;
         parent::setUp();
     }
 
