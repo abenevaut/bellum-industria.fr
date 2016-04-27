@@ -15,7 +15,8 @@ class CoreMigrationTest extends \Codeception\TestCase\Test
 
     protected function _after()
     {
-        exec('rm tests/_data/testing_installed.sqlite && touch tests/_data/testing_installed.sqlite');
+        $file = base_path('tests/_data/testing.sqlite');
+//        exec("rm $file && touch $file && chmod 777 $file");
 //        \Artisan::call('module:publish-migration');
 //        \Artisan::call('migrate');
 //        \Artisan::call('db:seed', ['--class' => 'testingSeeder']);
@@ -26,8 +27,8 @@ class CoreMigrationTest extends \Codeception\TestCase\Test
      */
     public function testRunMigration()
     {
-//        \Artisan::call('module:publish-migration');
-//        \Artisan::call('migrate');
+        \Artisan::call('module:publish-migration');
+        \Artisan::call('migrate');
         $this->assertEquals(true, 1);
     }
 }
