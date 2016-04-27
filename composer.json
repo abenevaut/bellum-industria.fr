@@ -66,10 +66,10 @@
   },
   "scripts": {
     "post-root-package-install": [
+      "php artisan cms:key_generate",
       "php -r \"file_put_contents('.env', 'installer');\""
     ],
     "post-create-project-cmd": [
-      "php artisan cms:key_generate"
     ],
     "post-install-cmd": [
       "PhantomInstaller\\Installer::installPhantomJS",
