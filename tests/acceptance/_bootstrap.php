@@ -2,7 +2,7 @@
 
 require 'bootstrap/autoload.php';
 $app = require 'bootstrap/app.php';
-$app->loadEnvironmentFrom($settings['l5_env_file']);
+$app->loadEnvironmentFrom($settings['l5']['env']['file']);
 $app->instance('request', new \Illuminate\Http\Request);
 $app->make('Illuminate\Contracts\Http\Kernel')->bootstrap();
 
@@ -11,17 +11,31 @@ $app->make('Illuminate\Contracts\Http\Kernel')->bootstrap();
  */
 
 // Prepare SQlite DB
-//exec('rm ' . base_path(env('TEST_SQLITE_DB_PATH')));
-//exec('cp ' . base_path(env('TEST_SQLITE_DB_TO_COPY')) . ' ' . base_path(env('TEST_SQLITE_DB_PATH')));
+exec('rm ' . base_path(env('TEST_SQLITE_DB_PATH')));
+exec('cp ' . base_path(env('TEST_SQLITE_DB_TO_COPY')) . ' ' . base_path(env('TEST_SQLITE_DB_PATH')));
 
 // Prepare fake .env.installer file
-//exec('rm ' . base_path(env('TEST_ENV_INSTALLER_PATH')));
-//exec('cp ' . base_path(env('TEST_ENV_INSTALLER_TO_COPY')) . ' ' . base_path(env('TEST_ENV_INSTALLER_PATH')));
+exec('rm ' . base_path(env('TEST_ENV_INSTALLER_PATH')));
+exec('cp ' . base_path(env('TEST_ENV_INSTALLER_TO_COPY')) . ' ' . base_path(env('TEST_ENV_INSTALLER_PATH')));
+
+// Prepare migration files
+Artisan::call('module:publish-migration');
+
+switch ($settings['l5']['env']['name'])
+{
+    case 'notinstalled':
+    {
+
+        break;
+    }
+    default:
+    {
+        Artisan::call('migrate');
+        Artisan::call('db:seed', ['--class' => 'testingSeeder']);
+        break;
+    }
+}
 
 // Could not be integrated in project because of event function conflict between HOA lib and Laravel
 //exec(base_path("bin/phpmetrics --report-html=tests/_output/phpmetrics-core.html core"));
 //exec(base_path("bin/phpmetrics --report-html=tests/_output/phpmetrics-modules.html modules"));
-
-//Artisan::call('module:publish-migration');
-//Artisan::call('migrate');
-//Artisan::call('db:seed', ['--class' => 'testingSeeder']);
