@@ -14,12 +14,11 @@ modules:
             disable_middleware: false
             disable_events: false
         - Db:
-            dsn: 'sqlite:tests/_data/testing.sqlite'
+            dsn: 'sqlite:database/testing.sqlite'
             user: ''
             password: ''
-            cleanup: false
+            cleanup: true
             populate: false
-            dump: tests/_data/testing_dump.sql
 env:
     installer:
         modules:
@@ -28,23 +27,21 @@ env:
                     environment_file: "tests/_data/.env.installer"
                     cleanup: true
                 - Db:
-                    dsn: 'sqlite:tests/_data/installer.sqlite'
+                    dsn: 'sqlite:database/testing.sqlite'
                     user: ''
                     password: ''
-                    cleanup: false
+                    cleanup: true
                     populate: false
-                    dump: tests/_data/installer_dump.sql
     core:
         modules:
             enabled:
                 - Laravel5:
                     environment_file: "tests/_data/.env.testing"
-                    cleanup: false
+                    cleanup: true
                     disable_middleware: true
                 - Db:
-                    dsn: 'sqlite:tests/_data/testing.sqlite'
+                    dsn: 'sqlite:database/testing.sqlite'
                     user: ''
                     password: ''
-                    cleanup: false
+                    cleanup: true
                     populate: false
-                    dump: tests/_data/testing_dump.sql

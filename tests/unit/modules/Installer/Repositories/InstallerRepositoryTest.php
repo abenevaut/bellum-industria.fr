@@ -21,6 +21,9 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
 
     protected function _before()
     {
+
+        //            dd($this->getModule('Laravel5')->app);
+
         $this->_env_installer_content = file_get_contents(base_path('.env.installer'));
     }
 
@@ -136,7 +139,10 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
         $r_installer = \App::make('Modules\Installer\Repositories\InstallerRepository');
 
         try {
-            $r_installer->migrate();
+            $r_installer->migrate(
+                ['--force' => true, '--database' => 'testing'],
+                ['--force' => true, '--database' => 'testing', '--class' => 'installerSeeder']
+            );
 
             $this->tester->seeNumRecords(0, 'users', []);
             $this->tester->seeNumRecords(240, 'countries', []);
@@ -203,7 +209,10 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
 
         try {
             // Make migration
-//            $r_installer->migrate();
+            $r_installer->migrate(
+                ['--force' => true, '--database' => 'testing'],
+                ['--class' => 'installerSeeder', '--database' => 'testing']
+            );
 
             // Add admin
 //            $r_installer->addUserAdmin([

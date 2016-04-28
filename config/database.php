@@ -52,9 +52,9 @@ return [
             'prefix'   => '',
         ],
 
-        'sqlite_testing' => [
+        'testing' => [
             'driver'   => 'sqlite',
-            'database' => env('CORE_DB_TESTING_PATH', database_path('database.sqlite')),
+            'database' => env('CORE_DB_TESTING_PATH', database_path('testing.sqlite')),
             'prefix'   => '',
         ],
 
