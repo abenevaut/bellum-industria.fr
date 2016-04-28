@@ -1,5 +1,6 @@
 <?php namespace modules\Installer\Repositories;
 
+use Doctrine\DBAL\Driver\PDOException;
 use Illuminate\Filesystem\FileException;
 use Illuminate\Filesystem\FileNotFoundException;
 
@@ -59,14 +60,14 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
          * Test existant DB
          */
 
-        $res = $r_installer->testDBConnection(
-            env('GITLAB_DB_HOST', 'localhost'),
-            env('GITLAB_DB_DATABASE', 'cvepdb_cms'),
-            env('GITLAB_DB_USERNAME', 'root'),
-            env('GITLAB_DB_PASSWORD', 'mySQL'),
-            env('GITLAB_DB_SOCKET', '/Applications/MAMP/tmp/mysql/mysql.sock')
-        );
-        $this->assertEquals(true, $res);
+//        $res = $r_installer->testDBConnection(
+//            env('GITLAB_DB_HOST', 'localhost'),
+//            env('GITLAB_DB_DATABASE', 'cvepdb_cms'),
+//            env('GITLAB_DB_USERNAME', 'root'),
+//            env('GITLAB_DB_PASSWORD', 'mySQL'),
+//            env('GITLAB_DB_SOCKET', '/Applications/MAMP/tmp/mysql/mysql.sock')
+//        );
+//        $this->assertEquals(true, $res);
     }
 
     /**
@@ -136,9 +137,15 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
 
         try {
             $r_installer->migrate();
-            $this->assertEquals(true, true);
+
+            $this->tester->seeNumRecords(0, 'users', []);
+            $this->tester->seeNumRecords(240, 'countries', []);
+            $this->tester->seeNumRecords(120, 'states', []);
         }
         catch (FileException $e) {
+            $this->assertEquals(true, false);
+        }
+        catch (PDOException $e) {
             $this->assertEquals(true, false);
         }
     }
@@ -154,8 +161,6 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
             $this->assertEquals(false, file_exists(base_path('.env')));
 
             $r_installer->set_env_as_production();
-
-            $this->tester->canSeeInDatabase();
 
             $this->assertEquals(true, file_exists(base_path('.env')));
             $this->assertEquals('production' . PHP_EOL, file_get_contents(base_path('.env')));
@@ -198,16 +203,19 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
 
         try {
             // Make migration
-            $r_installer->migrate();
+//            $r_installer->migrate();
+
             // Add admin
-            $r_installer->addUserAdmin([
-                'first_name' => 'Antoine',
-                'last_name' => 'Benevaut',
-                'email' => 'antoine@cvepdb.fr',
-                'password' => 'myPassword',
-            ]);
+//            $r_installer->addUserAdmin([
+//                'first_name' => 'Antoine',
+//                'last_name' => 'Benevaut',
+//                'email' => 'antoine@cvepdb.fr',
+//                'password' => 'myPassword',
+//            ]);
+
 
             // Todo tests
+
 
         }
         catch (FileException $e) {
