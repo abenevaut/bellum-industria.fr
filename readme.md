@@ -12,9 +12,16 @@
 
 [\#CVEPDB](http://cvepdb.fr/) CMS is a content manager system build for final user, so you don't need to be developper to use it.
 
-# Official Documentation
+## Download your website
 
-Documentation for the CMS can be found on the [Wiki](https://gitlab.com/cvepdb/cms/wikis/home).
+Get website package from ~~[this link (currently not available)](https://gitlab.com/cvepdb/cms/repository/archive.zip?ref=master)~~.
+- unzip
+- send files to your host
+    - note that your webserver have to point to the "public" directory
+- get your database information
+- go to your website URL and follow the installation process
+
+**More CMS documentation can be found on the [Wiki](https://gitlab.com/cvepdb/cms/wikis/home)**.
 
 # Security Vulnerabilities
 
