@@ -29,6 +29,10 @@ resources/themes
 !tests/_data/*
 tests/_output/*
 tests/_support/_generated/*
+
+# Databases
+database/database.sqlite
+database/testing.sqlite
 :memory:
 
 # Deployer

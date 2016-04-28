@@ -136,13 +136,15 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
      */
     public function testInstallerRepositoryMigrate()
     {
-        $r_installer = \App::make('Modules\Installer\Repositories\InstallerRepository');
+        //$r_installer = \App::make('Modules\Installer\Repositories\InstallerRepository');
 
         try {
-            $r_installer->migrate(
-                ['--force' => true, '--database' => 'testing'],
-                ['--force' => true, '--database' => 'testing', '--class' => 'installerSeeder']
-            );
+
+            // DB already seeded by artisan before tests
+            //$r_installer->migrate(
+            //    ['--force' => true, '--database' => 'testing'],
+            //    ['--force' => true, '--database' => 'testing', '--class' => 'installerSeeder']
+            //);
 
             $this->tester->seeNumRecords(0, 'users', []);
             $this->tester->seeNumRecords(240, 'countries', []);
@@ -208,13 +210,6 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
         $r_installer = \App::make('Modules\Installer\Repositories\InstallerRepository');
 
         try {
-            // Make migration
-            $r_installer->migrate(
-                ['--force' => true, '--database' => 'testing'],
-                ['--class' => 'installerSeeder', '--database' => 'testing']
-            );
-
-            // Add admin
 //            $r_installer->addUserAdmin([
 //                'first_name' => 'Antoine',
 //                'last_name' => 'Benevaut',
