@@ -60,10 +60,11 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
          */
 
         $res = $r_installer->testDBConnection(
-            env('GITLAB_HOST', '127.0.0.1'),
-            env('GITLAB_DATABASE', 'cvepdb_cms'),
-            env('GITLAB_USERNAME', 'root'),
-            env('GITLAB_PASSWORD', 'mySQL')
+            env('GITLAB_DB_HOST', 'localhost'),
+            env('GITLAB_DB_DATABASE', 'cvepdb_cms'),
+            env('GITLAB_DB_USERNAME', 'root'),
+            env('GITLAB_DB_PASSWORD', 'mySQL'),
+            env('GITLAB_DB_SOCKET', '/Applications/MAMP/tmp/mysql/mysql.sock')
         );
         $this->assertEquals(true, $res);
     }
