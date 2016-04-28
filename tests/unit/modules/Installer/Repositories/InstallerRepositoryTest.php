@@ -139,7 +139,7 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
             $this->assertEquals(true, true);
         }
         catch (FileException $e) {
-            $this->assertEquals(true, true);
+            $this->assertEquals(true, false);
         }
     }
 
@@ -151,11 +151,67 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
         $r_installer = \App::make('Modules\Installer\Repositories\InstallerRepository');
 
         try {
+            $this->assertEquals(false, file_exists(base_path('.env')));
+
             $r_installer->set_env_as_production();
-            $this->assertEquals(true, true);
+
+            $this->tester->canSeeInDatabase();
+
+            $this->assertEquals(true, file_exists(base_path('.env')));
+            $this->assertEquals('production' . PHP_EOL, file_get_contents(base_path('.env')));
         }
         catch (FileException $e) {
             $this->assertEquals(true, true);
+        }
+    }
+
+    /**
+     * @env installer
+     */
+    public function testInstallerRepositoryRevertEnvToInstaller()
+    {
+        touch(base_path('.env'));
+        touch(base_path('.env.production'));
+
+        $r_installer = \App::make('Modules\Installer\Repositories\InstallerRepository');
+
+        try {
+            $this->assertEquals(true, file_exists(base_path('.env')));
+            $this->assertEquals(true, file_exists(base_path('.env.production')));
+
+            $r_installer->revert_env_to_installer();
+
+            $this->assertEquals(false, file_exists(base_path('.env')));
+            $this->assertEquals(false, file_exists(base_path('.env.production')));
+        }
+        catch (FileException $e) {
+            $this->assertEquals(true, false);
+        }
+    }
+
+    /**
+     * @env installer
+     */
+    public function testInstallerRepositoryAddUserAdmin()
+    {
+        $r_installer = \App::make('Modules\Installer\Repositories\InstallerRepository');
+
+        try {
+
+            // Make migration
+            $r_installer->migrate();
+
+            $r_installer->addUserAdmin([
+                'first_name' => 'Antoine',
+                'last_name' => 'Benevaut',
+                'email' => 'antoine@cvepdb.fr',
+                'password' => 'myPassword',
+            ]);
+
+
+        }
+        catch (FileException $e) {
+            $this->assertEquals(true, false);
         }
     }
 }

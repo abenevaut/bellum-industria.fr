@@ -39,9 +39,4 @@ modules:
         MailCatcher:
             url: 'http://localhost'
             port: '1080'
-        Db:
-            dsn: ''
-            user: ''
-            password: ''
-            dump: tests/_output/testing.sql
 error_level: "E_ALL & ~E_STRICT & ~E_DEPRECATED"
