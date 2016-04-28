@@ -197,10 +197,9 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
         $r_installer = \App::make('Modules\Installer\Repositories\InstallerRepository');
 
         try {
-
             // Make migration
             $r_installer->migrate();
-
+            // Add admin
             $r_installer->addUserAdmin([
                 'first_name' => 'Antoine',
                 'last_name' => 'Benevaut',
@@ -208,6 +207,7 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
                 'password' => 'myPassword',
             ]);
 
+            // Todo tests
 
         }
         catch (FileException $e) {
