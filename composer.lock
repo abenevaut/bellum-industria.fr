@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7d647ed67205aaf705d8a1d7f6ddabce",
-    "content-hash": "c46946e006b2c251a0a18b5cd3265d9b",
+    "hash": "e963f3bc9a2e3907c2e3ac4f050ff404",
+    "content-hash": "793f98737a0e24dbaa83c07159f7c494",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -56,6 +56,54 @@
                 "toolkit"
             ],
             "time": "2015-05-16 19:24:58"
+        },
+        {
+            "name": "antennaio/laravel-codeception-dbdump",
+            "version": "v0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antennaio/laravel-codeception-dbdump.git",
+                "reference": "86ea3b8afba100fa8299909ce4165577cc8316c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/antennaio/laravel-codeception-dbdump/zipball/86ea3b8afba100fa8299909ce4165577cc8316c7",
+                "reference": "86ea3b8afba100fa8299909ce4165577cc8316c7",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^5.1",
+                "illuminate/support": "^5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Antennaio\\Codeception\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kazik",
+                    "email": "antenna@antenna.io"
+                }
+            ],
+            "description": "Create database dumps ready to be used with Codeception",
+            "homepage": "https://github.com/antennaio/laravel-codeception-dbdump",
+            "keywords": [
+                "codeception",
+                "database",
+                "dump",
+                "laravel",
+                "mysql",
+                "php",
+                "sqlite",
+                "testing"
+            ],
+            "time": "2016-03-03 15:07:39"
         },
         {
             "name": "aws/aws-php-sns-message-validator",
@@ -254,7 +302,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/de3055a8e7935dfecf7a8fca32a92f566da23114",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/7b8aaacfdeb8d0c150a390509386a2f72585ad80",
                 "reference": "de3055a8e7935dfecf7a8fca32a92f566da23114",
                 "shasum": ""
             },
@@ -1607,7 +1655,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/9f89fd349fd2b537be8a0a0c41f87f2f640dfc8a",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/4a9f909f73a2f70be8cd8cdd5b72ce376f21db26",
                 "reference": "9f89fd349fd2b537be8a0a0c41f87f2f640dfc8a",
                 "shasum": ""
             },
@@ -4892,7 +4940,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/raven-php/zipball/b13485dc0d2aec6f1c82820c1a24cb63024f16c2",
+                "url": "https://api.github.com/repos/getsentry/raven-php/zipball/767858c741bddf61b61fd693d0f7144b09673bd8",
                 "reference": "b13485dc0d2aec6f1c82820c1a24cb63024f16c2",
                 "shasum": ""
             },
@@ -5502,7 +5550,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/2b917f6cf88381ce23c9707782bfb0d9d5b6dc19",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/dfe210f125d236324ed151aa66fe2d900741d3d6",
                 "reference": "2b917f6cf88381ce23c9707782bfb0d9d5b6dc19",
                 "shasum": ""
             },
@@ -5613,7 +5661,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/8e6292db6e77aa7fec40aaf12ae4bdee6b5b8007",
+                "url": "https://api.github.com/repos/symfony/console/zipball/34a214710e0714b6efcf40ba3cd1e31373a97820",
                 "reference": "8e6292db6e77aa7fec40aaf12ae4bdee6b5b8007",
                 "shasum": ""
             },
@@ -6292,7 +6340,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/ae4742f364bc6d6c75748709aecfc6bfd4fb8426",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/6ab6fd5ee754fb53a303a5621ae35f3afd5970ac",
                 "reference": "ae4742f364bc6d6c75748709aecfc6bfd4fb8426",
                 "shasum": ""
             },
