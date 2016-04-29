@@ -21,9 +21,7 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
 
     protected function _before()
     {
-
-        //            dd($this->getModule('Laravel5')->app);
-
+        parent::_before();
         $this->_env_installer_content = file_get_contents(base_path('.env.installer'));
     }
 
@@ -38,6 +36,8 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
         if (file_exists(base_path('.env.production'))) {
             unlink(base_path('.env.production'));
         }
+
+        parent::_after();
     }
 
     /**
@@ -64,11 +64,11 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
          */
 
 //        $res = $r_installer->testDBConnection(
-//            env('GITLAB_DB_HOST', 'localhost'),
-//            env('GITLAB_DB_DATABASE', 'cvepdb_cms'),
-//            env('GITLAB_DB_USERNAME', 'root'),
-//            env('GITLAB_DB_PASSWORD', 'mySQL'),
-//            env('GITLAB_DB_SOCKET', '/Applications/MAMP/tmp/mysql/mysql.sock')
+//            env('CORE_DB_HOST'),
+//            env('CORE_DB_DATABASE'),
+//            env('CORE_DB_USERNAME'),
+//            env('CORE_DB_PASSWORD'),
+//            env('CORE_DB_SOCKET')
 //        );
 //        $this->assertEquals(true, $res);
     }
@@ -98,10 +98,10 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
             '#CVEPDB',
             'Mon super blog',
             'http://cvepdb.fr',
-            env('GITLAB_HOST', '127.0.0.1'),
-            env('GITLAB_DATABASE', 'cvepdb_cms'),
-            env('GITLAB_USERNAME', 'root'),
-            env('GITLAB_PASSWORD', 'mySQL'),
+            env('CORE_DB_HOST'),
+            env('CORE_DB_DATABASE'),
+            env('CORE_DB_USERNAME'),
+            env('CORE_DB_PASSWORD'),
             'Antoine',
             'Benevaut',
             'antoine@cvepdb.fr'
@@ -117,18 +117,18 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
          * Check content
          */
 
-        $this->assertEquals(true, preg_match("#CORE_DB_HOST=127.0.0.1\n#", $generated_file_content));
-        $this->assertEquals(true, preg_match("#CORE_DB_DATABASE=cvepdb_cms\n#", $generated_file_content));
-        $this->assertEquals(true, preg_match("#CORE_DB_USERNAME=root\n#", $generated_file_content));
-        $this->assertEquals(true, preg_match("#CORE_DB_PASSWORD=mySQL\n#", $generated_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_HOST=".env('CORE_DB_HOST')."\n#", $generated_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_DATABASE=".env('CORE_DB_DATABASE')."\n#", $generated_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_USERNAME=".env('CORE_DB_USERNAME')."\n#", $generated_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_PASSWORD=".env('CORE_DB_PASSWORD')."\n#", $generated_file_content));
 
         $this->assertEquals(true, preg_match("#CORE_SITE_NAME=\"\#CVEPDB\"\n#", $generated_production_file_content));
         $this->assertEquals(true, preg_match("#CORE_SITE_DESCRIPTION=\"Mon super blog\"\n#", $generated_production_file_content));
         $this->assertEquals(true, preg_match("#CORE_URL=\"http://cvepdb.fr\"\n#", $generated_production_file_content));
-        $this->assertEquals(true, preg_match("#CORE_DB_HOST=127.0.0.1\n#", $generated_production_file_content));
-        $this->assertEquals(true, preg_match("#CORE_DB_DATABASE=cvepdb_cms\n#", $generated_production_file_content));
-        $this->assertEquals(true, preg_match("#CORE_DB_USERNAME=root\n#", $generated_production_file_content));
-        $this->assertEquals(true, preg_match("#CORE_DB_PASSWORD=mySQL\n#", $generated_production_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_HOST=".env('CORE_DB_HOST')."\n#", $generated_production_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_DATABASE=".env('CORE_DB_DATABASE')."\n#", $generated_production_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_USERNAME=".env('CORE_DB_USERNAME')."\n#", $generated_production_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_PASSWORD=".env('CORE_DB_PASSWORD')."\n#", $generated_production_file_content));
     }
 
     /**
@@ -217,13 +217,43 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
                 'password' => 'myPassword',
             ]);
 
+            /*
+             * User
+             */
 
-            $this->tester->seeNumRecords(1, 'users', []);
-            $this->tester->seeInDatabase('users', [
+            $this->tester->seeRecord('users', [
+                'id' => 1,
                 'first_name' => 'Antoine',
-                'last_name' => 'Benevaut'
+                'last_name' => 'Benevaut',
+                'email' => 'antoine@cvepdb.fr',
             ]);
 
+            /*
+             * Roles
+             */
+
+            $this->tester->seeRecord('roles', [
+                'id' => 1,
+                'name' => RoleRepositoryEloquent::USER,
+                'display_name' => 'roles.' . RoleRepositoryEloquent::USER . ':display_name',
+                'description' => 'roles.' . RoleRepositoryEloquent::USER . ':description',
+                'unchangeable' => true
+            ]);
+            $this->tester->seeRecord('roles', [
+                'id' => 2,
+                'name' => RoleRepositoryEloquent::ADMIN,
+                'display_name' => 'roles.' . RoleRepositoryEloquent::ADMIN . ':display_name',
+                'description' => 'roles.' . RoleRepositoryEloquent::ADMIN . ':description',
+                'unchangeable' => true
+            ]);
+            $this->tester->seeRecord('role_user', [
+                'user_id' => 1,
+                'role_id' => 1
+            ]);
+            $this->tester->seeRecord('role_user', [
+                'user_id' => 1,
+                'role_id' => 2
+            ]);
 
         }
         catch (FileException $e) {

@@ -10,7 +10,7 @@ modules:
         - \Helper\Factory
         - Laravel5:
             environment_file: "tests/.env.testing"
-            cleanup: true
+            cleanup: false
             disable_middleware: false
             disable_events: false
         - Db:
@@ -18,30 +18,33 @@ modules:
             user: 'cvepdb_testing'
             password: ''
             cleanup: true
-            populate: false
+            populate: true
+            dump: 'tests/_data/testing.sql'
 env:
     installer:
         modules:
             enabled:
                 - Laravel5:
                     environment_file: "tests/_data/.env.installer"
-                    cleanup: true
+                    cleanup: false
                 - Db:
                     dsn: 'mysql:host=127.0.0.1;dbname=cvepdb_cms_testing'
                     user: 'cvepdb_testing'
                     password: ''
                     cleanup: true
-                    populate: false
+                    populate: true
+                    dump: 'tests/_data/testing.sql'
     core:
         modules:
             enabled:
                 - Laravel5:
                     environment_file: "tests/_data/.env.testing"
-                    cleanup: true
+                    cleanup: false
                     disable_middleware: true
                 - Db:
                     dsn: 'mysql:host=127.0.0.1;dbname=cvepdb_cms_testing'
                     user: 'cvepdb_testing'
                     password: ''
                     cleanup: true
-                    populate: false
+                    populate: true
+                    dump: 'tests/_data/testing.sql'

@@ -50,7 +50,8 @@
     "captbaritone/mailcatcher-codeception-module": "^1.1",
     "codeception/phpbuiltinserver": "^1.2",
     "redcomponent/teststatistics": "dev-master",
-    "blackfire/php-sdk": "^1.5"
+    "blackfire/php-sdk": "^1.5",
+    "antennaio/laravel-codeception-dbdump": "^0.0.2"
   },
   "autoload": {
     "classmap": [

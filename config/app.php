@@ -159,6 +159,7 @@ return [
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         'Phoenix\EloquentMeta\ServiceProvider',
         'Maatwebsite\Excel\ExcelServiceProvider',
+        Antennaio\Codeception\DbDumpServiceProvider::class,
         /*
          * Core Service Providers...
          */

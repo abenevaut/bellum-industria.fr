@@ -8,8 +8,9 @@ ci:
   - gulp deploy
   - php artisan theme:publish
   - php artisan module:publish
-  - php artisan migrate --database=testing
-  - php artisan db:seed --database=testing --class=installerSeeder
+  - php artisan codeception:dbdump testing --dump tests/_data/empty.sql --empty-database --no-seed
+  - php artisan codeception:dbdump testing --dump tests/_data/installer.sql --empty-database
+  - php artisan codeception:dbdump testing --dump tests/_data/testing.sql --empty-database --seed-class TestingSeeder
   - bin/codecept run --env=core -g migration
   - bin/codecept run --env=installer
   - bin/codecept run
