@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8a3acd18a5190dd41b804fc89962e6e6",
-    "content-hash": "192b0783e25146c298d3343d22f2d9ce",
+    "hash": "7e1c7a11c5b194c59a13db7413b35811",
+    "content-hash": "876409ee5a0810acffeb71dbe69f7657",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -4888,12 +4888,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/raven-php.git",
-                "reference": "767858c741bddf61b61fd693d0f7144b09673bd8"
+                "reference": "a90cdcf681a373b5150ee2b430db28d9f670abea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/raven-php/zipball/767858c741bddf61b61fd693d0f7144b09673bd8",
-                "reference": "767858c741bddf61b61fd693d0f7144b09673bd8",
+                "url": "https://api.github.com/repos/getsentry/raven-php/zipball/a90cdcf681a373b5150ee2b430db28d9f670abea",
+                "reference": "a90cdcf681a373b5150ee2b430db28d9f670abea",
                 "shasum": ""
             },
             "require": {
@@ -4910,7 +4910,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.14.x-dev"
+                    "dev-master": "0.16.x-dev"
                 }
             },
             "autoload": {
@@ -4934,7 +4934,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2016-04-27 13:41:03"
+            "time": "2016-04-29 11:51:40"
         },
         {
             "name": "roumen/feed",
@@ -8172,12 +8172,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "b02221e42163be673f9b44a0bc92a8b4907a7c6d"
+                "reference": "80138299aadb590ce3fd0b75d30343fff9f8d0a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/b02221e42163be673f9b44a0bc92a8b4907a7c6d",
-                "reference": "b02221e42163be673f9b44a0bc92a8b4907a7c6d",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/80138299aadb590ce3fd0b75d30343fff9f8d0a8",
+                "reference": "80138299aadb590ce3fd0b75d30343fff9f8d0a8",
                 "shasum": ""
             },
             "require": {
@@ -8226,7 +8226,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2016-02-21 17:41:21"
+            "time": "2016-04-29 12:18:42"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -8599,6 +8599,45 @@
                 "xunit"
             ],
             "time": "2016-04-20 14:39:30"
+        },
+        {
+            "name": "pragmarx/laravelcs",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antonioribeiro/laravelcs.git",
+                "reference": "f955f7b043fef894042e2a87ce3cc559fbdba991"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/antonioribeiro/laravelcs/zipball/f955f7b043fef894042e2a87ce3cc559fbdba991",
+                "reference": "f955f7b043fef894042e2a87ce3cc559fbdba991",
+                "shasum": ""
+            },
+            "require": {
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Carlos Ribeiro",
+                    "email": "acr@antoniocarlosribeiro.com",
+                    "role": "Creator"
+                }
+            ],
+            "description": "PHP_CodeSniffer custom Sniff for Laravel coding standard",
+            "keywords": [
+                "PHP_CodeSniffer",
+                "code",
+                "laravel",
+                "sniffer",
+                "standards"
+            ],
+            "time": "2014-12-09 13:52:13"
         },
         {
             "name": "react/cache",
@@ -9680,6 +9719,84 @@
                 "phantomjs"
             ],
             "time": "2016-04-14 14:12:08"
+        },
+        {
+            "name": "squizlabs/php_codesniffer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
+                "reference": "f4e18d4b3e5d96bce95ca5367159f790ccab3b73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/f4e18d4b3e5d96bce95ca5367159f790ccab3b73",
+                "reference": "f4e18d4b3e5d96bce95ca5367159f790ccab3b73",
+                "shasum": ""
+            },
+            "require": {
+                "ext-simplexml": "*",
+                "ext-tokenizer": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.1.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "bin": [
+                "scripts/phpcs",
+                "scripts/phpcbf"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "CodeSniffer.php",
+                    "CodeSniffer/CLI.php",
+                    "CodeSniffer/Exception.php",
+                    "CodeSniffer/File.php",
+                    "CodeSniffer/Fixer.php",
+                    "CodeSniffer/Report.php",
+                    "CodeSniffer/Reporting.php",
+                    "CodeSniffer/Sniff.php",
+                    "CodeSniffer/Tokens.php",
+                    "CodeSniffer/Reports/",
+                    "CodeSniffer/Tokenizers/",
+                    "CodeSniffer/DocGenerators/",
+                    "CodeSniffer/Standards/AbstractPatternSniff.php",
+                    "CodeSniffer/Standards/AbstractScopeSniff.php",
+                    "CodeSniffer/Standards/AbstractVariableSniff.php",
+                    "CodeSniffer/Standards/IncorrectPatternException.php",
+                    "CodeSniffer/Standards/Generic/Sniffs/",
+                    "CodeSniffer/Standards/MySource/Sniffs/",
+                    "CodeSniffer/Standards/PEAR/Sniffs/",
+                    "CodeSniffer/Standards/PSR1/Sniffs/",
+                    "CodeSniffer/Standards/PSR2/Sniffs/",
+                    "CodeSniffer/Standards/Squiz/Sniffs/",
+                    "CodeSniffer/Standards/Zend/Sniffs/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Sherwood",
+                    "role": "lead"
+                }
+            ],
+            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+            "homepage": "http://www.squizlabs.com/php-codesniffer",
+            "keywords": [
+                "phpcs",
+                "standards"
+            ],
+            "time": "2016-04-27 01:50:25"
         },
         {
             "name": "symfony/browser-kit",

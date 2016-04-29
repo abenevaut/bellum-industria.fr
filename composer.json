@@ -51,7 +51,9 @@
     "codeception/phpbuiltinserver": "^1.2",
     "redcomponent/teststatistics": "dev-master",
     "blackfire/php-sdk": "^1.5",
-    "antennaio/laravel-codeception-dbdump": "^0.0.2"
+    "antennaio/laravel-codeception-dbdump": "^0.0.2",
+    "squizlabs/php_codesniffer": "*",
+    "pragmarx/laravelcs": "^0.1.0"
   },
   "autoload": {
     "classmap": [

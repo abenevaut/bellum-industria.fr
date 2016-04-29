@@ -28,11 +28,7 @@ env:
                     environment_file: "tests/_data/.env.installer"
                     cleanup: false
                 - Db:
-                    dsn: 'mysql:host=127.0.0.1;dbname=cvepdb_cms_testing'
-                    user: 'cvepdb_testing'
-                    password: ''
                     cleanup: true
-                    populate: true
                     dump: 'tests/_data/empty.sql'
     core:
         modules:
@@ -41,10 +37,3 @@ env:
                     environment_file: "tests/_data/.env.testing"
                     cleanup: false
                     disable_middleware: true
-                - Db:
-                    dsn: 'mysql:host=127.0.0.1;dbname=cvepdb_cms_testing'
-                    user: 'cvepdb_testing'
-                    password: ''
-                    cleanup: true
-                    populate: true
-                    dump: 'tests/_data/testing.sql'

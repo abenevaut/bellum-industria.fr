@@ -10,6 +10,14 @@ ci:
   - php artisan module:publish
   - php artisan codeception:dbdump testing --dump tests/_data/empty.sql --empty-database --no-seed
   - php artisan codeception:dbdump testing --dump tests/_data/testing.sql --empty-database --seed-class TestingSeeder
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ core
+#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Dashboard
+#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Files
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Installer
+#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Pages
+#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Posts
+#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Themes
+#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Users
   - bin/codecept run --env=core -g migration
   - bin/codecept run --env=installer
   - bin/codecept run

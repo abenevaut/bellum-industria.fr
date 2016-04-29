@@ -117,18 +117,18 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
          * Check content
          */
 
-        $this->assertEquals(true, preg_match("#CORE_DB_HOST=".env('CORE_DB_HOST')."\n#", $generated_file_content));
-        $this->assertEquals(true, preg_match("#CORE_DB_DATABASE=".env('CORE_DB_DATABASE')."\n#", $generated_file_content));
-        $this->assertEquals(true, preg_match("#CORE_DB_USERNAME=".env('CORE_DB_USERNAME')."\n#", $generated_file_content));
-        $this->assertEquals(true, preg_match("#CORE_DB_PASSWORD=".env('CORE_DB_PASSWORD')."\n#", $generated_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_HOST=" . env('CORE_DB_HOST') . "\n#", $generated_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_DATABASE=" . env('CORE_DB_DATABASE') . "\n#", $generated_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_USERNAME=" . env('CORE_DB_USERNAME') . "\n#", $generated_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_PASSWORD=" . env('CORE_DB_PASSWORD') . "\n#", $generated_file_content));
 
         $this->assertEquals(true, preg_match("#CORE_SITE_NAME=\"\#CVEPDB\"\n#", $generated_production_file_content));
         $this->assertEquals(true, preg_match("#CORE_SITE_DESCRIPTION=\"Mon super blog\"\n#", $generated_production_file_content));
         $this->assertEquals(true, preg_match("#CORE_URL=\"http://cvepdb.fr\"\n#", $generated_production_file_content));
-        $this->assertEquals(true, preg_match("#CORE_DB_HOST=".env('CORE_DB_HOST')."\n#", $generated_production_file_content));
-        $this->assertEquals(true, preg_match("#CORE_DB_DATABASE=".env('CORE_DB_DATABASE')."\n#", $generated_production_file_content));
-        $this->assertEquals(true, preg_match("#CORE_DB_USERNAME=".env('CORE_DB_USERNAME')."\n#", $generated_production_file_content));
-        $this->assertEquals(true, preg_match("#CORE_DB_PASSWORD=".env('CORE_DB_PASSWORD')."\n#", $generated_production_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_HOST=" . env('CORE_DB_HOST') . "\n#", $generated_production_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_DATABASE=" . env('CORE_DB_DATABASE') . "\n#", $generated_production_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_USERNAME=" . env('CORE_DB_USERNAME') . "\n#", $generated_production_file_content));
+        $this->assertEquals(true, preg_match("#CORE_DB_PASSWORD=" . env('CORE_DB_PASSWORD') . "\n#", $generated_production_file_content));
     }
 
     /**
@@ -139,21 +139,16 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
         $r_installer = \App::make('Modules\Installer\Repositories\InstallerRepository');
 
         try {
-
-            // DB already seeded by artisan before tests
             $r_installer->migrate(
                 ['--force' => true, '--database' => 'testing'],
                 ['--force' => true, '--database' => 'testing']
             );
-
             $this->tester->seeNumRecords(0, 'users', []);
             $this->tester->seeNumRecords(240, 'countries', []);
             $this->tester->seeNumRecords(120, 'states', []);
-        }
-        catch (FileException $e) {
+        } catch (FileException $e) {
             $this->assertEquals(true, false);
-        }
-        catch (PDOException $e) {
+        } catch (PDOException $e) {
             $this->assertEquals(true, false);
         }
     }
@@ -172,8 +167,7 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
 
             $this->assertEquals(true, file_exists(base_path('.env')));
             $this->assertEquals('production' . PHP_EOL, file_get_contents(base_path('.env')));
-        }
-        catch (FileException $e) {
+        } catch (FileException $e) {
             $this->assertEquals(true, true);
         }
     }
@@ -196,8 +190,7 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
 
             $this->assertEquals(false, file_exists(base_path('.env')));
             $this->assertEquals(false, file_exists(base_path('.env.production')));
-        }
-        catch (FileException $e) {
+        } catch (FileException $e) {
             $this->assertEquals(true, false);
         }
     }
@@ -255,8 +248,7 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
                 'role_id' => 2
             ]);
 
-        }
-        catch (FileException $e) {
+        } catch (FileException $e) {
             $this->assertEquals(true, false);
         }
     }
