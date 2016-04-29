@@ -970,16 +970,16 @@
         },
         {
             "name": "cvepdb-cms/module-dashboard",
-            "version": "1.0.52.2",
+            "version": "1.0.52.3",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-dashboard.git",
-                "reference": "c76801820838efa7b28deb179953edba4dbce23a"
+                "reference": "1b822d6e6143d125b71753016f300c66d76525dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-dashboard/repository/archive.zip?sha=c76801820838efa7b28deb179953edba4dbce23a",
-                "reference": "c76801820838efa7b28deb179953edba4dbce23a",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-dashboard/repository/archive.zip?sha=1b822d6e6143d125b71753016f300c66d76525dc",
+                "reference": "1b822d6e6143d125b71753016f300c66d76525dc",
                 "shasum": ""
             },
             "require": {
@@ -1013,7 +1013,7 @@
                 "dashboard",
                 "module"
             ],
-            "time": "2016-04-17 12:35:58"
+            "time": "2016-04-22 12:59:40"
         },
         {
             "name": "cvepdb-cms/module-installer",
@@ -3577,12 +3577,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "fb9e263d288cfe247950bb9e2142d6c4f8ac5217"
+                "reference": "c2455dae3223ec2382f5eaa32e47b9a988e129f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/fb9e263d288cfe247950bb9e2142d6c4f8ac5217",
-                "reference": "fb9e263d288cfe247950bb9e2142d6c4f8ac5217",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/c2455dae3223ec2382f5eaa32e47b9a988e129f0",
+                "reference": "c2455dae3223ec2382f5eaa32e47b9a988e129f0",
                 "shasum": ""
             },
             "require": {
@@ -3630,7 +3630,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2016-04-29 09:02:27"
+            "time": "2016-04-29 13:30:52"
         },
         {
             "name": "mikemccabe/json-patch-php",
