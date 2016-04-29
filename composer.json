@@ -34,7 +34,8 @@
     "laravel/socialite": "^2.0",
     "spatie/laravel-backup": "^3.4",
     "maknz/slack": "^1.7",
-    "monolog/monolog": "^1.19"
+    "monolog/monolog": "^1.19",
+    "barryvdh/laravel-ide-helper": "^2.1"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
@@ -51,7 +52,7 @@
     "codeception/phpbuiltinserver": "^1.2",
     "redcomponent/teststatistics": "dev-master",
     "blackfire/php-sdk": "^1.5",
-    "antennaio/laravel-codeception-dbdump": "^0.0.2",
+    "antennaio/laravel-codeception-dbdump": "^0.0.3",
     "squizlabs/php_codesniffer": "*",
     "pragmarx/laravelcs": "^0.1.0"
   },

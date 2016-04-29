@@ -1,10 +1,5 @@
 <?php
 
-//Route::group(['middleware' => 'web', 'prefix' => 'users', 'namespace' => 'Modules\Users\Http\Controllers'], function()
-//{
-//	Route::get('/', 'UsersController@index');
-//});
-
 Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Controllers\Auth'], function () {
 	// Registration routes...
 	Route::get('register', 'AuthController@getRegister');
@@ -47,6 +42,7 @@ Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Mo
 	Route::get('users/endimpersonate', ['as' => 'admin.users.endimpersonate', 'uses' => 'UsersController@endimpersonate']);
 	Route::get('users/export', ['as' => 'admin.users.export', 'uses' => 'UsersController@export']);
 	Route::delete('users/destroy_multiple', ['as' => 'admin.users.destroy_multiple', 'uses' => 'UsersController@destroy_multiple']);
+	Route::resource('users/settings', 'SettingsController');
 	Route::resource('users', 'UsersController');
 	Route::resource('roles', 'RolesController');
 });

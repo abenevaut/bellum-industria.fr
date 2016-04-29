@@ -13,8 +13,8 @@ return [
                 'icon' => 'fa fa-users',
             ],
             'settings' => [
-                'route' => null,
-                'icon' => null,
+                'route' => 'admin.users.settings',
+                'icon' => 'fa fa-users',
             ]
         ],
         'settings' => [

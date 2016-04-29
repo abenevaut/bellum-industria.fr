@@ -160,6 +160,7 @@ return [
         'Phoenix\EloquentMeta\ServiceProvider',
         'Maatwebsite\Excel\ExcelServiceProvider',
         Antennaio\Codeception\DbDumpServiceProvider::class,
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         /*
          * Core Service Providers...
          */
