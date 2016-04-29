@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7d647ed67205aaf705d8a1d7f6ddabce",
-    "content-hash": "c46946e006b2c251a0a18b5cd3265d9b",
+    "hash": "78255072d6ac553b52b2fa807551799f",
+    "content-hash": "20bffb10a1bb98f3add2086e770da24f",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -110,16 +110,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.18.3",
+            "version": "3.18.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "899c5c982582d811754a57d2ca941c7f2dc8090b"
+                "reference": "fe2b49c01e09c74218cb681d5026f0c85c5e9094"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/899c5c982582d811754a57d2ca941c7f2dc8090b",
-                "reference": "899c5c982582d811754a57d2ca941c7f2dc8090b",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/fe2b49c01e09c74218cb681d5026f0c85c5e9094",
+                "reference": "fe2b49c01e09c74218cb681d5026f0c85c5e9094",
                 "shasum": ""
             },
             "require": {
@@ -186,7 +186,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-04-27 16:44:34"
+            "time": "2016-04-28 20:07:34"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -1017,16 +1017,16 @@
         },
         {
             "name": "cvepdb-cms/module-installer",
-            "version": "1.0.52.8",
+            "version": "1.0.52.9",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-installer.git",
-                "reference": "623a0f2d44c3182c1a270c9fcd7415a9427afcd1"
+                "reference": "4429c1a8bdd8dcf986c855cb5e78de69995ea0e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=623a0f2d44c3182c1a270c9fcd7415a9427afcd1",
-                "reference": "623a0f2d44c3182c1a270c9fcd7415a9427afcd1",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=4429c1a8bdd8dcf986c855cb5e78de69995ea0e4",
+                "reference": "4429c1a8bdd8dcf986c855cb5e78de69995ea0e4",
                 "shasum": ""
             },
             "require": {
@@ -1060,7 +1060,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-04-27 15:51:55"
+            "time": "2016-04-28 18:32:49"
         },
         {
             "name": "cvepdb-cms/module-themes",
@@ -5498,12 +5498,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "dfe210f125d236324ed151aa66fe2d900741d3d6"
+                "reference": "6f0159230536f4b36a257e5c2a3899bde8ff494e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/dfe210f125d236324ed151aa66fe2d900741d3d6",
-                "reference": "dfe210f125d236324ed151aa66fe2d900741d3d6",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/6f0159230536f4b36a257e5c2a3899bde8ff494e",
+                "reference": "6f0159230536f4b36a257e5c2a3899bde8ff494e",
                 "shasum": ""
             },
             "require": {
@@ -5548,7 +5548,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-04-28 12:29:52"
+            "time": "2016-04-29 02:17:50"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6645,12 +6645,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "63f37b9395e8041cd4313129c08ece896d06ca8e"
+                "reference": "40c41acb79ed6fd6ddd8d5790c6ec8c777ce039f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/63f37b9395e8041cd4313129c08ece896d06ca8e",
-                "reference": "63f37b9395e8041cd4313129c08ece896d06ca8e",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/40c41acb79ed6fd6ddd8d5790c6ec8c777ce039f",
+                "reference": "40c41acb79ed6fd6ddd8d5790c6ec8c777ce039f",
                 "shasum": ""
             },
             "require": {
@@ -6687,7 +6687,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2016-04-15 10:48:49"
+            "time": "2016-04-28 17:30:05"
         },
         {
             "name": "willdurand/geocoder",
@@ -6823,6 +6823,60 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "blackfire/php-sdk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/blackfireio/php-sdk.git",
+                "reference": "fee598740a7927db7781e645d279142a7a77bb4b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blackfireio/php-sdk/zipball/fee598740a7927db7781e645d279142a7a77bb4b",
+                "reference": "fee598740a7927db7781e645d279142a7a77bb4b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "suggest": {
+                "ext-blackfire": "The C version of the Blackfire probe",
+                "ext-xhprof": "XHProf is required as a fallback"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/autostart.php"
+                ],
+                "psr-4": {
+                    "Blackfire\\": "src/Blackfire"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Blackfire.io",
+                    "email": "support@blackfire.io"
+                }
+            ],
+            "description": "Blackfire.io PHP SDK",
+            "keywords": [
+                "performance",
+                "profiler",
+                "uprofiler",
+                "xhprof"
+            ],
+            "time": "2016-03-17 15:37:22"
+        },
         {
             "name": "captbaritone/mailcatcher-codeception-module",
             "version": "1.1.1",
