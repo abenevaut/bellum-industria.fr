@@ -35,5 +35,5 @@ env:
             enabled:
                 - Laravel5:
                     environment_file: "tests/_data/.env.testing"
-                    cleanup: false
+                    cleanup: true
                     disable_middleware: true
