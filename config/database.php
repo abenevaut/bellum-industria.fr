@@ -53,21 +53,17 @@ return [
         ],
 
         'testing' => [
-            'driver'   => 'sqlite',
-            'database' => env('CORE_DB_TESTING_PATH', base_path('tests/_data/testing.sqlite')),
-            'prefix'   => '',
-
-//            'driver'    => 'mysql',
-//            'host'      => env('CORE_DB_HOST', 'localhost'),
-//            'database'  => env('CORE_DB_DATABASE', 'forge'),
-//            'username'  => env('CORE_DB_USERNAME', 'forge'),
-//            'password'  => env('CORE_DB_PASSWORD', ''),
-//            'charset'   => 'utf8',
-//            'collation' => 'utf8_unicode_ci',
-//            'prefix'    => '',
-//            'strict'    => false,
-//            'engine'    => null,
-
+            'driver'    => 'mysql',
+            'host'      => env('CORE_DB_HOST', 'localhost'),
+            'database'  => env('CORE_DB_DATABASE', 'cvepdb_cms_testing'),
+            'username'  => env('CORE_DB_USERNAME', 'cvepdb_testing'),
+            'password'  => env('CORE_DB_PASSWORD', ''),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+            'strict'    => false,
+            'engine'    => null,
+            'unix_socket' => env('CORE_DB_SOCKET', '/Applications/MAMP/tmp/mysql/mysql.sock')
         ],
 
         'mysql' => [
@@ -81,6 +77,7 @@ return [
             'prefix'    => '',
             'strict'    => false,
             'engine'    => null,
+            'unix_socket' => env('CORE_DB_SOCKET', '')
         ],
 
         'pgsql' => [

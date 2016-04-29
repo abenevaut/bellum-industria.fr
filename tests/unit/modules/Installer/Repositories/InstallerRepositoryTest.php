@@ -218,7 +218,11 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
             ]);
 
 
-            // Todo tests
+            $this->tester->seeNumRecords(1, 'users', []);
+            $this->tester->seeInDatabase('users', [
+                'first_name' => 'Antoine',
+                'last_name' => 'Benevaut'
+            ]);
 
 
         }

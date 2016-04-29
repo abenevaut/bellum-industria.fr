@@ -14,8 +14,8 @@ modules:
             disable_middleware: false
             disable_events: false
         - Db:
-            dsn: 'sqlite:database/testing.sqlite'
-            user: ''
+            dsn: 'mysql:host=127.0.0.1;dbname=cvepdb_cms_testing'
+            user: 'cvepdb_testing'
             password: ''
             cleanup: true
             populate: false
@@ -27,8 +27,8 @@ env:
                     environment_file: "tests/_data/.env.installer"
                     cleanup: true
                 - Db:
-                    dsn: 'sqlite:database/testing.sqlite'
-                    user: ''
+                    dsn: 'mysql:host=127.0.0.1;dbname=cvepdb_cms_testing'
+                    user: 'cvepdb_testing'
                     password: ''
                     cleanup: true
                     populate: false
@@ -40,8 +40,8 @@ env:
                     cleanup: true
                     disable_middleware: true
                 - Db:
-                    dsn: 'sqlite:database/testing.sqlite'
-                    user: ''
+                    dsn: 'mysql:host=127.0.0.1;dbname=cvepdb_cms_testing'
+                    user: 'cvepdb_testing'
                     password: ''
                     cleanup: true
                     populate: false
