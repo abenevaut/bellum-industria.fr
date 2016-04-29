@@ -143,7 +143,7 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
             // DB already seeded by artisan before tests
             $r_installer->migrate(
                 ['--force' => true, '--database' => 'testing'],
-                ['--force' => true, '--database' => 'testing', '--class' => 'installerSeeder']
+                ['--force' => true, '--database' => 'testing']
             );
 
             $this->tester->seeNumRecords(0, 'users', []);

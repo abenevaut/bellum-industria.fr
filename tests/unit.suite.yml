@@ -33,7 +33,7 @@ env:
                     password: ''
                     cleanup: true
                     populate: true
-                    dump: 'tests/_data/testing.sql'
+                    dump: 'tests/_data/empty.sql'
     core:
         modules:
             enabled:
