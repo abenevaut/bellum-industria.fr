@@ -7,8 +7,9 @@ use Core\Domain\Roles\Entities\Role;
 use Core\Domain\Users\Entities\ApiKey;
 
 use Faker\Factory as Faker;
+use Modules\Users\Repositories\RoleRepositoryEloquent;
 
-class UsersDatabaseSeeder extends Seeder {
+class UserTableSeeder extends Seeder {
 
 	/**
 	 * Run the database seeds.
@@ -21,6 +22,34 @@ class UsersDatabaseSeeder extends Seeder {
 
 		$faker = Faker::create();
 		$m_apikey = new ApiKey;
+
+		/*
+		 * Admin
+		 */
+
+		$user = User::create([
+			'last_name' => 'Antoine',
+			'first_name' => 'Benevaut',
+			'email' => 'antoine@cvepdb.fr',
+			'password' => bcrypt('secret'),
+		]);
+
+		$role = Role::where('name', RoleRepositoryEloquent::USER)->first();
+		$user->attachRole($role->id);
+
+		$role = Role::where('name', RoleRepositoryEloquent::ADMIN)->first();
+		$user->attachRole($role->id);
+
+		$m_apikey->create([
+			'user_id' => $user->id,
+			'key' => $m_apikey->generateKey(),
+			'level' => 10,
+			'ignore_limits' => 0,
+		]);
+
+		/*
+		 * Users
+		 */
 
 		foreach (range(1,20) as $index) {
 			$user = User::create([
@@ -40,9 +69,6 @@ class UsersDatabaseSeeder extends Seeder {
 				'ignore_limits' => 0,
 			]);
 		}
-
-		// $this->call("OthersTableSeeder");
-
 		Model::reguard();
 	}
 

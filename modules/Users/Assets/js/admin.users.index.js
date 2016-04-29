@@ -81,7 +81,7 @@
 
     $(D).bind('CVEPDB_FILTERS_READY', function(){
         cvepdb.filter.display_get_filters = true;
-        cvepdb.filter.startup_load_filters = true;
+        cvepdb.filter.startup_load_filters = false;
         cvepdb.filter.init();
     });
 

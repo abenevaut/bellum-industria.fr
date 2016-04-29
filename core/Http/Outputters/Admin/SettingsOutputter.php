@@ -33,11 +33,13 @@ class SettingsOutputter extends AdminOutputter
 
     public function index()
     {
+        $this->r_settings->all();
+
         return $this->output(
             'core.admin.settings.index',
             [
                 'settings' => [
-                    'list' => $this->r_settings->all()
+                    'list' => null
                 ]
             ]
         );
