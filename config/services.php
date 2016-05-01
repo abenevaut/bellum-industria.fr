@@ -24,21 +24,20 @@ return [
     ],
 
     'ses' => [
-        'key'    => env('SES_KEY'),
+        'key' => env('SES_KEY'),
         'secret' => env('SES_SECRET'),
         'region' => 'us-east-1',
     ],
 
     'stripe' => [
-        'model'  => Core\Domain\Users\Entities\User::class,
-        'key'    => env('STRIPE_KEY'),
+        'model' => Core\Domain\Users\Entities\User::class,
+        'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
 
-
     'raven' => [
-        'dsn'   => env('SENTRY_DSN'),
-        'level' => env('SENTRY_LEVEL')
+        'dsn' => env('SENTRY_DSN'),
+        'level' => env('SENTRY_LEVEL'),
     ],
 
 //    'github' => [
@@ -50,13 +49,13 @@ return [
     'facebook' => [
         'client_id' => env('FACEBOOK_APP_ID'),
         'client_secret' => env('FACEBOOK_APP_SECRET'),
-        'redirect' => env('CORE_URL') . '/login/callback/facebook',
+        'redirect' => env('CORE_URL').'/login/callback/facebook',
     ],
 
     'twitter' => [
         'client_id' => env('TWITTER_APP_ID'),
         'client_secret' => env('TWITTER_APP_SECRET'),
-        'redirect' => env('CORE_URL') . '/login/callback/twitter',
+        'redirect' => env('CORE_URL').'/login/callback/twitter',
     ],
 
 //    'google' => [
@@ -68,7 +67,7 @@ return [
     'linkedin' => [
         'client_id' => env('LINKEDIN_APP_ID'),
         'client_secret' => env('LINKEDIN_APP_SECRET'),
-        'redirect' => env('CORE_URL') . '/login/callback/linkedin',
+        'redirect' => env('CORE_URL').'/login/callback/linkedin',
     ],
 
 //    'bitbucket' => [

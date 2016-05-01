@@ -7,5 +7,5 @@ return [
         'enabled' => false,
         'key' => 'pingpong.themes',
         'lifetime' => 86400,
-    ]
+    ],
 ];
