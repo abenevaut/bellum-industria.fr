@@ -33,22 +33,23 @@ set('writable_dirs', ['bootstrap/cache', 'storage']);
 // Composer local path
 env('bin/composer', function () {
     $composer = runLocally('which composer')->toString();
+
     return $composer;
 });
 
-task('cvepdb:git', function() {
+task('cvepdb:git', function () {
     runLocally('git submodule init');
     runLocally('git submodule update');
 })->desc('Deploy your project');
 
-task('cvepdb:vendors', function() {
+task('cvepdb:vendors', function () {
     upload(env('local_release_path'), env('release_path'));
 })->desc('Deploy your project');
 
-task('local:shared', function() {
+task('local:shared', function () {
 
-    $remoteSharedPath = "{{deploy_path}}/shared";
-    $localSharedPath = "{{local_deploy_path}}/shared";
+    $remoteSharedPath = '{{deploy_path}}/shared';
+    $localSharedPath = '{{local_deploy_path}}/shared';
 
     foreach (get('shared_files') as $file) {
         // Current file directory path
@@ -58,7 +59,7 @@ task('local:shared', function() {
         // Ensure dir is available in release
         run("if [ ! -d $(echo {{release_path}}/$dirname) ]; then mkdir -p {{release_path}}/$dirname;fi");
         // Create dir of shared file
-        run("mkdir -p $remoteSharedPath/" . $dirname);
+        run("mkdir -p $remoteSharedPath/".$dirname);
         // Send local shared file to remote shared directory
         upload("$localSharedPath/$file", "$remoteSharedPath/$file");
         // Symlink shared dir to release dir
@@ -77,7 +78,7 @@ task('deploy', [
     //'deploy:writable',
     'deploy:symlink',
     'cleanup',
-    'local:cleanup'
+    'local:cleanup',
 ])->desc('Deploy your project');
 
 after('local:update_code', 'cvepdb:git');
