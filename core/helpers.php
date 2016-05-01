@@ -27,14 +27,15 @@ function slugify($text)
 function css_file_rev($file)
 {
     $current_theme = \Theme::getCurrent();
-    $list = json_decode(\File::get(base_path() . '/public/themes/' . $current_theme . '/rev/css.manifest.json'));
+    $list = json_decode(\File::get(base_path().'/public/themes/'.$current_theme.'/rev/css.manifest.json'));
+
     return $list->{$file};
 }
 
 function cmsview($view, $data = [], $view_prefix = null, $current_module = null)
 {
     if (is_null($view_prefix)) {
-        $view_prefix = \Theme::getCurrent() . '::';
+        $view_prefix = \Theme::getCurrent().'::';
     }
 
     $current_prefix = $view_prefix;
@@ -44,13 +45,14 @@ function cmsview($view, $data = [], $view_prefix = null, $current_module = null)
     } catch (\InvalidArgumentException $e) {
         $current_prefix = $current_module;
     }
-    return view($current_prefix . $view, $data);
+
+    return view($current_prefix.$view, $data);
 }
 
 function cmsview_prefix($view, $view_prefix = null, $current_module = null)
 {
     if (is_null($view_prefix)) {
-        $view_prefix = \Theme::getCurrent() . '::';
+        $view_prefix = \Theme::getCurrent().'::';
     }
 
     $current_prefix = $view_prefix;
@@ -60,12 +62,13 @@ function cmsview_prefix($view, $view_prefix = null, $current_module = null)
     } catch (\InvalidArgumentException $e) {
         $current_prefix = $current_module;
     }
+
     return $current_prefix;
 }
 
-if (! function_exists('cmsinstalled')) {
+if (!function_exists('cmsinstalled')) {
     /**
-     * Allow to know if CMS is installed
+     * Allow to know if CMS is installed.
      *
      * @return bool True if CMS installed
      */
