@@ -54,7 +54,7 @@ return [
 
         'testing' => [
             'driver'    => 'mysql',
-            'host'      => env('CORE_DB_HOST', 'localhost'),
+            'host'      => env('CORE_DB_HOST', '127.0.0.1'),
             'database'  => env('CORE_DB_DATABASE', 'cvepdb_cms_testing'),
             'username'  => env('CORE_DB_USERNAME', 'cvepdb_testing'),
             'password'  => env('CORE_DB_PASSWORD', ''),
@@ -68,7 +68,7 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => env('CORE_DB_HOST', 'localhost'),
+            'host'      => env('CORE_DB_HOST', '127.0.0.1'),
             'database'  => env('CORE_DB_DATABASE', 'forge'),
             'username'  => env('CORE_DB_USERNAME', 'forge'),
             'password'  => env('CORE_DB_PASSWORD', ''),
@@ -82,7 +82,7 @@ return [
 
         'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => env('CORE_DB_HOST', 'localhost'),
+            'host'     => env('CORE_DB_HOST', '127.0.0.1'),
             'database' => env('CORE_DB_DATABASE', 'forge'),
             'username' => env('CORE_DB_USERNAME', 'forge'),
             'password' => env('CORE_DB_PASSWORD', ''),
@@ -93,7 +93,7 @@ return [
 
         'sqlsrv' => [
             'driver'   => 'sqlsrv',
-            'host'     => env('CORE_DB_HOST', 'localhost'),
+            'host'     => env('CORE_DB_HOST', '127.0.0.1'),
             'database' => env('CORE_DB_DATABASE', 'forge'),
             'username' => env('CORE_DB_USERNAME', 'forge'),
             'password' => env('CORE_DB_PASSWORD', ''),
