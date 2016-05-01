@@ -13,15 +13,15 @@ ci:
 #  - php artisan codeception:dbdump testing --dump tests/_data/testing.sql --empty-database --seeder-class TestingSeeder
 #  - bin/phpcpd modules/Dashboard
 #  - bin/phpcpd modules/Files
-  - bin/phpcpd modules/Installer
+#  - bin/phpcpd modules/Installer
 #  - bin/phpcpd modules/Pages
 #  - bin/phpcpd modules/Posts
 #  - bin/phpcpd modules/Themes
 #  - bin/phpcpd modules/Users
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ core
+#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ core
 #  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Dashboard
 #  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Files
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Installer
+#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Installer
 #  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Pages
 #  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Posts
 #  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Themes
