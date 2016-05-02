@@ -14,13 +14,13 @@
             <label>{{ trans('settings.CORE_MAIL_HOST') }}</label>
             <input type="text" class="form-control" name="CORE_MAIL_HOST"
                    required="required"
-                   value="{{ old('CORE_MAIL_HOST', $settings['list']['CORE_MAIL_HOST']) }}">
+                   value="{{ old('CORE_MAIL_HOST', $settings->get('core.site.description')) }}">
         </div>
         <div class="form-group form-group-default">
             <label>{{ trans('settings.CORE_MAIL_USERNAME') }}</label>
             <input type="text" class="form-control" name="CORE_MAIL_USERNAME"
                    required="required"
-                   value="{{ old('CORE_MAIL_USERNAME', $settings['list']['CORE_MAIL_USERNAME']) }}">
+                   value="{{ old('CORE_MAIL_USERNAME', $settings->get('core.site.description')) }}">
         </div>
     </div>
 </div>
@@ -41,13 +41,13 @@
             <label>{{ trans('settings.CORE_MAIL_HOST') }}</label>
             <input type="text" class="form-control" name="CORE_MAIL_HOST"
                    required="required"
-                   value="{{ old('CORE_MAIL_HOST', $settings['list']['CORE_MAIL_HOST']) }}">
+                   value="{{ old('CORE_MAIL_HOST', $settings->get('core.site.description')) }}">
         </div>
         <div class="form-group form-group-default">
             <label>{{ trans('settings.CORE_MAIL_USERNAME') }}</label>
             <input type="text" class="form-control" name="CORE_MAIL_USERNAME"
                    required="required"
-                   value="{{ old('CORE_MAIL_USERNAME', $settings['list']['CORE_MAIL_USERNAME']) }}">
+                   value="{{ old('CORE_MAIL_USERNAME', $settings->get('core.site.description')) }}">
         </div>
     </div>
 </div>

@@ -1,10 +1,10 @@
 <div class="form-group form-group-default">
-    <label>{{ trans('settings.CORE_SITE_NAME') }}</label>
-    <input type="text" class="form-control" name="CORE_SITE_NAME" required="required"
-           value="{{ old('CORE_SITE_NAME', $settings['list']['CORE_SITE_NAME']) }}">
+    <label>{{ trans('settings.core.site.name') }}</label>
+    <input type="text" class="form-control" name="core.site.name" required="required"
+           value="{{ old('core.site.name', $settings->get('core.site.name')) }}">
 </div>
 <div class="form-group form-group-default">
-    <label>{{ trans('settings.CORE_SITE_DESCRIPTION') }}</label>
-    <input type="text" class="form-control" name="CORE_SITE_DESCRIPTION" required="required"
-           value="{{ old('CORE_SITE_DESCRIPTION', $settings['list']['CORE_SITE_DESCRIPTION']) }}">
+    <label>{{ trans('settings.core.site.description') }}</label>
+    <input type="text" class="form-control" name="core.site.description" required="required"
+           value="{{ old('core.site.description', $settings->get('core.site.description')) }}">
 </div>
