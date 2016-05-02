@@ -49,10 +49,8 @@ class SettingsOutputter extends AdminOutputter
         $posts = $request->all();
         unset($posts['_token']);
 
-        dd($posts);
-
         foreach ($posts as $key => $value) {
-            $this->r_settings->set($key, $value);
+            $this->r_settings->set(str_replace('_', '.', $key), $value);
         }
         return $this->redirectTo('admin/settings');
     }
