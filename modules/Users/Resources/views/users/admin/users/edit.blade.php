@@ -124,7 +124,7 @@
                                     @endforeach
                                     {{-- !Todo : Change this --}}
 
-                                    <div class="box box-widget collapsed-box">
+                                    <div class="box box-primary box-widget collapsed-box">
                                         <div class="box-header with-border">
                                             <div class="user-block">
                                                 <button type="button" class="btn btn-box-tool" data-widget="collapse">
