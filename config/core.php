@@ -25,6 +25,9 @@ return [
             ],
         ],
     ],
+    'mail' => [
+        'mailwatch' => '',
+    ],
     'licenses' => [
         'phpcli' => '#CVEPDB CMS  Copyright (C) 2016  Antoine Benevaut
 

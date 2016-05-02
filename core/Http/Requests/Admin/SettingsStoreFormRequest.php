@@ -28,17 +28,14 @@ class SettingsStoreFormRequest extends AbsFormRequest
         return [
             'core.site.name' => 'required',
             'core.site.description' => 'required',
-            'CORE_CONTACT_MAIL' => 'required|email',
-
-            'CORE_CONTACT_DISPLAY_NAME' => 'required',
-            'CORE_CONTACT_DISPLAY_NAME' => 'required',
-
-            'CORE_MAIL_DRIVER' => 'required',
-            'CORE_MAIL_HOST' => 'required',
-            'CORE_MAIL_PORT' => 'required',
-            'CORE_MAIL_ENCRYPTION' => 'required',
-            'CORE_MAIL_USERNAME' => 'required',
-            'CORE_MAIL_PASSWORD' => 'required',
+            'mail.from.address' => 'required|email',
+            'mail.from.name' => 'required',
+            'mail.driver' => 'required',
+            'mail.host' => 'required',
+            'mail.port' => 'required',
+            'mail.encryption' => 'required',
+            'mail.username' => 'required',
+            'mail.password' => 'required',
         ];
     }
 }

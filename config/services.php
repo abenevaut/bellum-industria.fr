@@ -40,11 +40,11 @@ return [
         'level' => env('SENTRY_LEVEL'),
     ],
 
-//    'github' => [
-//        'client_id' => 'your-github-app-id',
-//        'client_secret' => 'your-github-app-secret',
-//        'redirect' => 'http://your-callback-url',
-//    ],
+    'github' => [
+        'client_id' => 'your-github-app-id',
+        'client_secret' => 'your-github-app-secret',
+        'redirect' => 'http://your-callback-url',
+    ],
 
     'facebook' => [
         'client_id' => env('FACEBOOK_APP_ID'),

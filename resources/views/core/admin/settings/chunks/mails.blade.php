@@ -1,20 +1,20 @@
 
 <div class="form-group form-group-default">
-    <label>{{ trans('settings.CORE_CONTACT_MAIL') }}</label>
-    <input type="text" class="form-control" name="CORE_CONTACT_MAIL" required="required"
-           value="{{ old('CORE_CONTACT_MAIL', $settings->get('core.site.name')) }}">
+    <label>{{ trans('mail.from.address') }}</label>
+    <input type="text" class="form-control" name="mail.from.address" required="required"
+           value="{{ old('mail.from.address', $settings->get('mail.from.address')) }}">
 </div>
 <div class="form-group form-group-default">
-    <label>{{ trans('settings.CORE_CONTACT_DISPLAY_NAME') }}</label>
-    <input type="text" class="form-control" name="CORE_CONTACT_DISPLAY_NAME"
+    <label>{{ trans('mail.from.name') }}</label>
+    <input type="text" class="form-control" name="mail.from.name"
            required="required"
-           value="{{ old('CORE_CONTACT_DISPLAY_NAME', $settings->get('core.site.name')) }}">
+           value="{{ old('mail.from.name', $settings->get('mail.from.name')) }}">
 </div>
 
 <div class="form-group form-group-default">
-    <label>{{ trans('settings.CORE_MAILWATCH_MAIL') }}</label>
-    <input type="text" class="form-control" name="CORE_MAILWATCH_MAIL" required="required"
-           value="{{ old('CORE_MAILWATCH_MAIL', $settings->get('core.site.name')) }}">
+    <label>{{ trans('core.mail.mailwatch') }}</label>
+    <input type="text" class="form-control" name="core.mail.mailwatch" required="required"
+           value="{{ old('core.mail.mailwatch', $settings->get('core.mail.mailwatch')) }}">
 </div>
 
 <div class="box box-primary box-widget collapsed-box">
@@ -32,38 +32,38 @@
 
 
         <div class="form-group form-group-default">
-            <label>{{ trans('settings.CORE_MAIL_HOST') }}</label>
-            <input type="text" class="form-control" name="CORE_MAIL_HOST"
+            <label>{{ trans('mail.host') }}</label>
+            <input type="text" class="form-control" name="mail.host"
                    required="required"
-                   value="{{ old('CORE_MAIL_HOST', $settings->get('core.site.name')) }}">
+                   value="{{ old('mail.host', $settings->get('mail.host')) }}">
         </div>
         <div class="form-group form-group-default">
-            <label>{{ trans('settings.CORE_MAIL_USERNAME') }}</label>
-            <input type="text" class="form-control" name="CORE_MAIL_USERNAME"
+            <label>{{ trans('mail.username') }}</label>
+            <input type="text" class="form-control" name="mail.username"
                    required="required"
-                   value="{{ old('CORE_MAIL_USERNAME', $settings->get('core.site.name')) }}">
+                   value="{{ old('mail.username', $settings->get('mail.username')) }}">
         </div>
         <div class="form-group form-group-default">
-            <label>{{ trans('settings.CORE_MAIL_PASSWORD') }}</label>
-            <input type="text" class="form-control" name="CORE_MAIL_PASSWORD"
+            <label>{{ trans('mail.password') }}</label>
+            <input type="text" class="form-control" name="mail.password"
                    required="required"
-                   value="{{ old('CORE_MAIL_PASSWORD', $settings->get('core.site.name')) }}">
+                   value="{{ old('mail.password', $settings->get('mail.password')) }}">
         </div>
         <div class="form-group form-group-default">
-            <label>{{ trans('settings.CORE_MAIL_DRIVER') }}</label>
-            <input type="text" class="form-control" name="CORE_MAIL_DRIVER" required="required"
-                   value="{{ old('CORE_MAIL_DRIVER', $settings->get('core.site.name')) }}">
+            <label>{{ trans('mail.driver') }}</label>
+            <input type="text" class="form-control" name="mail.driver" required="required"
+                   value="{{ old('mail.driver', $settings->get('mail.driver')) }}">
         </div>
         <div class="form-group form-group-default">
-            <label>{{ trans('settings.CORE_MAIL_PORT') }}</label>
-            <input type="text" class="form-control" name="CORE_MAIL_PORT" required="required"
-                   value="{{ old('CORE_MAIL_PORT', $settings->get('core.site.name')) }}">
+            <label>{{ trans('mail.port') }}</label>
+            <input type="text" class="form-control" name="mail.port" required="required"
+                   value="{{ old('mail.port', $settings->get('mail.port')) }}">
         </div>
         <div class="form-group form-group-default">
-            <label>{{ trans('settings.CORE_MAIL_ENCRYPTION') }}</label>
-            <input type="text" class="form-control" name="CORE_MAIL_ENCRYPTION"
+            <label>{{ trans('mail.encryption') }}</label>
+            <input type="text" class="form-control" name="mail.encryption"
                    required="required"
-                   value="{{ old('CORE_MAIL_ENCRYPTION', $settings->get('core.site.name')) }}">
+                   value="{{ old('mail.encryption', $settings->get('mail.encryption')) }}">
         </div>
 
 
