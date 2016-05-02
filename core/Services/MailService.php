@@ -18,9 +18,9 @@ abstract class MailService extends AbsMailService
     {
         Mail::send($view, $data, function($message) use ($emails, $subject) {
             $message->to($emails)
-                ->from(env('CORE_CONTACT_MAIL'), env('CORE_CONTACT_DISPLAY_NAME'))
+                ->from(Settings::get('mail.from.mail'), Settings::get('mail.from.name'))
 
-                // ->bcc(config('cvepdb.emails.copy.mailwatch'))
+                // ->bcc(Settings::get('core.mail.mailwatch'))
 
                 ->subject($subject);
         });

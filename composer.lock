@@ -250,12 +250,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "7b8aaacfdeb8d0c150a390509386a2f72585ad80"
+                "reference": "a03ffeaa4815fdfe1030fe83885e115185883075"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/7b8aaacfdeb8d0c150a390509386a2f72585ad80",
-                "reference": "7b8aaacfdeb8d0c150a390509386a2f72585ad80",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/a03ffeaa4815fdfe1030fe83885e115185883075",
+                "reference": "a03ffeaa4815fdfe1030fe83885e115185883075",
                 "shasum": ""
             },
             "require": {
@@ -296,7 +296,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2016-04-27 19:42:16"
+            "time": "2016-05-02 13:58:54"
         },
         {
             "name": "barryvdh/laravel-elfinder",
@@ -1184,16 +1184,16 @@
         },
         {
             "name": "cvepdb-cms/module-themes",
-            "version": "1.0.52.8",
+            "version": "1.0.52.9",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-themes.git",
-                "reference": "b4751cdba451c0c2d6545ea7e329ec0d7a7038a9"
+                "reference": "d87489de55d66a3053db58134315f358944d03ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=b4751cdba451c0c2d6545ea7e329ec0d7a7038a9",
-                "reference": "b4751cdba451c0c2d6545ea7e329ec0d7a7038a9",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=d87489de55d66a3053db58134315f358944d03ed",
+                "reference": "d87489de55d66a3053db58134315f358944d03ed",
                 "shasum": ""
             },
             "require": {
@@ -1237,7 +1237,7 @@
                 "module",
                 "themes"
             ],
-            "time": "2016-04-25 14:38:54"
+            "time": "2016-05-02 14:08:38"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -1443,16 +1443,16 @@
         },
         {
             "name": "cvepdb/laravel-addresses",
-            "version": "1.0.52.9",
+            "version": "1.0.52.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CavaENCOREparlerdebits/laravel-addresses.git",
-                "reference": "f015d3bc406c61569310bee392e7dcdbd6c2d18a"
+                "reference": "eb4723758349a0a1b6ad942668f4b0285bcbb696"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CavaENCOREparlerdebits/laravel-addresses/zipball/f015d3bc406c61569310bee392e7dcdbd6c2d18a",
-                "reference": "f015d3bc406c61569310bee392e7dcdbd6c2d18a",
+                "url": "https://api.github.com/repos/CavaENCOREparlerdebits/laravel-addresses/zipball/eb4723758349a0a1b6ad942668f4b0285bcbb696",
+                "reference": "eb4723758349a0a1b6ad942668f4b0285bcbb696",
                 "shasum": ""
             },
             "require": {
@@ -1491,7 +1491,7 @@
                 "addresses",
                 "laravel"
             ],
-            "time": "2016-04-22 14:17:05"
+            "time": "2016-05-02 11:05:43"
         },
         {
             "name": "cvepdb/laravel-settings",
@@ -3581,12 +3581,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "ab13890a08d2be3626d609d0143407b5f2a4761b"
+                "reference": "5d9638a7772603889b59db9b452a2a1f8666b02c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/ab13890a08d2be3626d609d0143407b5f2a4761b",
-                "reference": "ab13890a08d2be3626d609d0143407b5f2a4761b",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/5d9638a7772603889b59db9b452a2a1f8666b02c",
+                "reference": "5d9638a7772603889b59db9b452a2a1f8666b02c",
                 "shasum": ""
             },
             "require": {
@@ -3640,7 +3640,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2016-04-26 07:25:32"
+            "time": "2016-05-02 18:48:46"
         },
         {
             "name": "maknz/slack",
@@ -4385,12 +4385,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pingpong-labs/menus.git",
-                "reference": "b8e3b10ae72cbd33bccccafc1b67609af99e02d6"
+                "reference": "3ede3573a21762503c95f5c2676fd7b35bbb1e1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pingpong-labs/menus/zipball/b8e3b10ae72cbd33bccccafc1b67609af99e02d6",
-                "reference": "b8e3b10ae72cbd33bccccafc1b67609af99e02d6",
+                "url": "https://api.github.com/repos/pingpong-labs/menus/zipball/3ede3573a21762503c95f5c2676fd7b35bbb1e1e",
+                "reference": "3ede3573a21762503c95f5c2676fd7b35bbb1e1e",
                 "shasum": ""
             },
             "require": {
@@ -4429,7 +4429,7 @@
                 "navigation",
                 "pingpong"
             ],
-            "time": "2016-04-21 13:42:10"
+            "time": "2016-05-02 05:00:42"
         },
         {
             "name": "pingpong/modules",
@@ -5667,12 +5667,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "f3e7b98b693582f60f0aba23039bbe9d989d85b7"
+                "reference": "eb5e055ea190fbb158c4f2e452caaa52023376d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/f3e7b98b693582f60f0aba23039bbe9d989d85b7",
-                "reference": "f3e7b98b693582f60f0aba23039bbe9d989d85b7",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/eb5e055ea190fbb158c4f2e452caaa52023376d3",
+                "reference": "eb5e055ea190fbb158c4f2e452caaa52023376d3",
                 "shasum": ""
             },
             "require": {
@@ -5717,7 +5717,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-05-01 09:27:16"
+            "time": "2016-05-02 16:31:12"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7103,12 +7103,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/blackfireio/php-sdk.git",
-                "reference": "fee598740a7927db7781e645d279142a7a77bb4b"
+                "reference": "6c8a1a691dedb5630c0c6e250575641613327d78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blackfireio/php-sdk/zipball/fee598740a7927db7781e645d279142a7a77bb4b",
-                "reference": "fee598740a7927db7781e645d279142a7a77bb4b",
+                "url": "https://api.github.com/repos/blackfireio/php-sdk/zipball/6c8a1a691dedb5630c0c6e250575641613327d78",
+                "reference": "6c8a1a691dedb5630c0c6e250575641613327d78",
                 "shasum": ""
             },
             "require": {
@@ -7149,7 +7149,7 @@
                 "uprofiler",
                 "xhprof"
             ],
-            "time": "2016-03-17 15:37:22"
+            "time": "2016-04-29 15:23:28"
         },
         {
             "name": "captbaritone/mailcatcher-codeception-module",
@@ -8029,16 +8029,16 @@
         },
         {
             "name": "jonnyw/php-phantomjs",
-            "version": "v4.3.2",
+            "version": "v4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonnnnyw/php-phantomjs.git",
-                "reference": "5ba49503c445f36294093283a64e57b07ffb3504"
+                "reference": "1e09977d6fac345b438049594a894b0c87c16177"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonnnnyw/php-phantomjs/zipball/5ba49503c445f36294093283a64e57b07ffb3504",
-                "reference": "5ba49503c445f36294093283a64e57b07ffb3504",
+                "url": "https://api.github.com/repos/jonnnnyw/php-phantomjs/zipball/1e09977d6fac345b438049594a894b0c87c16177",
+                "reference": "1e09977d6fac345b438049594a894b0c87c16177",
                 "shasum": ""
             },
             "require": {
@@ -8080,7 +8080,7 @@
                 "phantomjs",
                 "testing"
             ],
-            "time": "2016-04-20 16:58:18"
+            "time": "2016-05-02 09:25:10"
         },
         {
             "name": "league/factory-muffin",
