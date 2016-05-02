@@ -1,9 +1,7 @@
 <?php namespace Modules\Users\Http\Controllers\Admin;
 
-use Request;
 use Core\Http\Controllers\CoreAdminController as Controller;
 use Modules\Users\Http\Outputters\Admin\SettingsOutputter;
-use Modules\Users\Http\Requests\UsersFilteredFormRequest;
 
 /**
  * Class AdminUsersController
@@ -11,7 +9,6 @@ use Modules\Users\Http\Requests\UsersFilteredFormRequest;
  */
 class SettingsController extends Controller
 {
-
     /**
      * @var SettingsOutputter|null
      */
