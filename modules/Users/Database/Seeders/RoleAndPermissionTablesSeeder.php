@@ -3,9 +3,14 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Users\Entities\Role;
+use Modules\Users\Repositories\RoleRepositoryEloquent;
 
-class RoleAndPermissionTablesSeeder extends Seeder {
-
+/**
+ * Class RoleAndPermissionTablesSeeder
+ * @package Modules\Users\Database\Seeders
+ */
+class RoleAndPermissionTablesSeeder extends Seeder
+{
 	/**
 	 * Run the database seeds.
 	 *
@@ -31,5 +36,4 @@ class RoleAndPermissionTablesSeeder extends Seeder {
 
 		Model::reguard();
 	}
-
 }
