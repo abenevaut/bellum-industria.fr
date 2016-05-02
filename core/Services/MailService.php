@@ -18,7 +18,7 @@ abstract class MailService extends AbsMailService
     {
         Mail::send($view, $data, function($message) use ($emails, $subject) {
             $message->to($emails)
-                ->from(Settings::get('mail.from.mail'), Settings::get('mail.from.name'))
+                ->from(Settings::get('mail.from.address'), Settings::get('mail.from.name'))
 
                 // ->bcc(Settings::get('core.mail.mailwatch'))
 
