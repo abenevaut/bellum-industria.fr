@@ -329,15 +329,28 @@ class UserOutputter extends AdminOutputter
 
     public function destroy_multiple(IFormRequest $request)
     {
+        $errors = 0;
+        $redirectTo = $this->redirectTo('admin/users');
         $users = $request->only('users_multi_destroy');
 
         foreach ($users['users_multi_destroy'] as $user_id) {
-            $this->r_user->findAndDelete($user_id);
-            event(new UserDeletedEvent($user_id));
+            try {
+                $this->r_user->findAndDelete($user_id);
+                event(new UserDeletedEvent($user_id));
+            }
+            catch (\Exception $e) {
+                switch ($e->getCode()) {
+                    case 1: {
+                        $redirectTo = $redirectTo->with('message-error', $e->getMessage());
+                        break;
+                    }
+                }
+                ++$errors;
+            }
         }
-
-        return $this->redirectTo('admin/users')
-            ->with('message-success', 'users::admin.delete_multiple.message.success');
+        return 0 === $errors
+            ? $redirectTo->with('message-success', 'users::admin.delete_multiple.message.success')
+            : $redirectTo;
     }
 
     /**

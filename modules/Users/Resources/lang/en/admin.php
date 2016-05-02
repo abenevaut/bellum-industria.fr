@@ -8,6 +8,7 @@ return [
     'index.no_data.title' => 'There is no user',
     'index.no_data.description' => 'Currently no user was register in website',
     'index.delete.question' => 'Would you really remove the user :',
+	'index.delete_multiple.question' => 'Would you really remove the selected users list',
     'index.total_users' => 'Total users',
     'index.btn.add_user' => 'Add user',
     'index.btn.roles' => 'Manage roles',
