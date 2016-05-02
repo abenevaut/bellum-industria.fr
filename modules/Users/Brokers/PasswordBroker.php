@@ -59,8 +59,9 @@ class PasswordBroker extends IlluminatePasswordBroker
         return $this->mailer->queue($view, compact('token', 'user'), function ($m) use ($user, $token, $callback) {
 
             $m->to($user->getEmailForPasswordReset())
-                ->from(env('MAIL_FROM_EMAIL'), env('MAIL_FROM_NAME'))
-                ->bcc(env('MAIL_FROM_EMAIL'), env('MAIL_FROM_NAME'));
+                ->from(Settings::get('mail.from.mail'), Settings::get('mail.from.name'));
+
+                // ->bcc(Settings::get('core.mail.mailwatch'))
 
             if (!is_null($callback)) {
                 call_user_func($callback, $m, $user, $token);

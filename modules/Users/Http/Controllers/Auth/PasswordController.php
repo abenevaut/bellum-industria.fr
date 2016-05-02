@@ -47,6 +47,7 @@ class PasswordController extends Controller
      */
     public function __construct(PasswordOutputter $outputter)
     {
+        parent::__construct();
         $this->middleware('guest');
         $this->outputter = $outputter;
         $this->subject = trans('passwords.mail_reset_password_title');
