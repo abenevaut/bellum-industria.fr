@@ -2,13 +2,10 @@
 
 namespace Modules\Users\Http\Controllers\Auth;
 
-use Core\Http\Controllers\CorePublicController as Controller;
+use Core\Http\Controllers\CoreAuthController as Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Theme;
 use Modules\Users\Http\Outputters\PasswordOutputter;
-use Illuminate\Http\Request;
-use Illuminate\Mail\Message;
-use Illuminate\Support\Facades\Password;
 
 class PasswordController extends Controller
 {

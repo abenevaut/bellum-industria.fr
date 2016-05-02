@@ -2,6 +2,7 @@
 
 use Config;
 use Core\Http\Outputters\FrontOutputter;
+use Core\Domain\Settings\Repositories\SettingsRepository;
 
 class PasswordOutputter extends FrontOutputter
 {
@@ -15,8 +16,9 @@ class PasswordOutputter extends FrontOutputter
      */
     protected $description = 'users::password.frontend_meta_description';
 
-    public function __construct()
+    public function __construct(SettingsRepository $r_settings)
     {
+        parent::__construct($r_settings);
         $this->set_current_module('users');
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Contracts\Mail\Mailer as MailerContract;
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Auth\Passwords\TokenRepositoryInterface;
+use CVEPDB\Settings\Facades\Settings;
 
 /**
  * Class PasswordBroker
@@ -59,7 +60,7 @@ class PasswordBroker extends IlluminatePasswordBroker
         return $this->mailer->queue($view, compact('token', 'user'), function ($m) use ($user, $token, $callback) {
 
             $m->to($user->getEmailForPasswordReset())
-                ->from(Settings::get('mail.from.mail'), Settings::get('mail.from.name'));
+                ->from(Settings::get('mail.from.address'), Settings::get('mail.from.name'));
 
                 // ->bcc(Settings::get('core.mail.mailwatch'))
 
