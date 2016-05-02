@@ -1,12 +1,16 @@
 <?php namespace Modules\Users\Http\Outputters;
 
-use Config;
 use Core\Http\Outputters\FrontOutputter;
+use Core\Domain\Settings\Repositories\SettingsRepository;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
 use Modules\Users\Events\UserCreatedEvent;
 
+/**
+ * Class AuthOutputter
+ * @package Modules\Users\Http\Outputters
+ */
 class AuthOutputter extends FrontOutputter
 {
     /**
@@ -35,10 +39,12 @@ class AuthOutputter extends FrontOutputter
     private $r_apikey = null;
 
     public function __construct(
+        SettingsRepository $_settings,
         UserRepositoryEloquent $r_user,
         RoleRepositoryEloquent $r_role,
         ApiKeyRepositoryEloquent $r_apikey)
     {
+        parent::__construct($_settings);
         $this->r_user = $r_user;
         $this->r_role = $r_role;
         $this->r_apikey = $r_apikey;

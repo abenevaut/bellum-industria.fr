@@ -4,11 +4,12 @@ use Auth;
 use Config;
 use Session;
 use Request;
-use Core\Http\Outputters\AdminOutputter;
+use Core\Http\Outputters\FrontOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
+use Core\Domain\Settings\Repositories\SettingsRepository;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
-use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
+use Modules\Users\Repositories\RoleRepositoryEloquent;
 use Modules\Users\Events\Admin\UserUpdatedEvent;
 use Modules\Users\Events\Admin\UserDeletedEvent;
 
@@ -16,7 +17,7 @@ use Modules\Users\Events\Admin\UserDeletedEvent;
  * Class UserOutputter
  * @package Modules\Users\Outputters
  */
-class UserOutputter extends AdminOutputter
+class UserOutputter extends FrontOutputter
 {
     /**
      * @var string Outputter header title
@@ -44,12 +45,13 @@ class UserOutputter extends AdminOutputter
     private $r_apikey = null;
 
     public function __construct(
+        SettingsRepository $_settings,
         UserRepositoryEloquent $r_user,
         RoleRepositoryEloquent $r_role,
         ApiKeyRepositoryEloquent $r_apikey
     )
     {
-        parent::__construct();
+        parent::__construct($_settings);
 
         $this->set_current_module('users');
 
