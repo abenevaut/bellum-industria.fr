@@ -26,16 +26,16 @@ class SettingsStoreFormRequest extends AbsFormRequest
     public function rules()
     {
         return [
-            'core.site.name' => 'required',
-            'core.site.description' => 'required',
-            'mail.from.address' => 'required|email',
-            'mail.from.name' => 'required',
-            'mail.driver' => 'required',
-            'mail.host' => 'required',
-            'mail.port' => 'required',
-            'mail.encryption' => 'required',
-            'mail.username' => 'required',
-            'mail.password' => 'required',
+            'core_site_name' => 'required',
+            'core_site_description' => 'required',
+            'mail_from_address' => 'required|email',
+            'mail_from_name' => 'required',
+            'mail_driver' => 'required',
+            'mail_host' => 'required',
+            'mail_port' => 'required',
+            'mail_encryption' => 'required',
+            'mail_username' => 'required',
+            'mail_password' => 'required',
         ];
     }
 }
