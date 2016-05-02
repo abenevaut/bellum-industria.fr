@@ -79,6 +79,11 @@ class UserRepositoryEloquent extends UserRepositoryEloquentParent
     {
         $user = $this->find($id);
 
+        $role = $this->r_roles->role_exists(RoleRepositoryEloquent::ADMIN);
+        if ($user->roles->contains($role->id) && 1 === $this->r_roles->count_users_by_roles([RoleRepositoryEloquent::ADMIN])) {
+            throw new \Exception('users::repository.findanddelete.error:this_is_the_last_user_admin', 1);
+        }
+
         /*
          * delete all roles except user; in case the user was re-activated
          */

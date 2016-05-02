@@ -2,6 +2,7 @@
 
 use Auth;
 use Config;
+use Mockery\CountValidator\Exception;
 use Session;
 use Request;
 use Event;
@@ -302,12 +303,28 @@ class UserOutputter extends AdminOutputter
      */
     public function destroy($id)
     {
-        $this->r_user->findAndDelete($id);
+        $redirectTo = null;
 
-        event(new UserDeletedEvent($id));
+        try {
+            $this->r_user->findAndDelete($id);
 
-        return $this->redirectTo('admin/users')
-            ->with('message-success', 'users::admin.delete.message.success');
+            event(new UserDeletedEvent($id));
+
+            $redirectTo = $this->redirectTo('admin/users')
+                ->with('message-success', 'users::admin.delete.message.success');
+        }
+        catch (\Exception $e) {
+            switch ($e->getCode())
+            {
+                case 1:
+                {
+                    $redirectTo = $this->redirectTo('admin/users')
+                        ->with('message-error', $e->getMessage());
+                    break;
+                }
+            }
+        }
+        return $redirectTo;
     }
 
     public function destroy_multiple(IFormRequest $request)
