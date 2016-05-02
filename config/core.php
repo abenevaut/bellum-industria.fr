@@ -13,6 +13,7 @@ return [
     ],
     'pagination' => 15,
     'backend' => [
+        'uri' => 'admin',
         'menus' => [
             'header' => [
                 // Presenter to display admin CMS header menu

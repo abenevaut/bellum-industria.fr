@@ -13,13 +13,9 @@ return [
                 'icon' => 'fa fa-users',
             ],
             'settings' => [
-                'route' => 'admin.users.settings',
+                'route' => 'admin.users.settings.index',
                 'icon' => 'fa fa-users',
             ]
-        ],
-        'settings' => [
-//            'icon' => 'fa fa-users',
-//            'widgets' => [],
         ],
         'dashboard' => [
             'widgets' => [

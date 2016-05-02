@@ -21,10 +21,10 @@ class Authenticate
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             } else if (
-                $request->is(config('app.backend'))
-                || $request->is(config('app.backend') . '/*')
+                $request->is(config('core.backend.uri'))
+                || $request->is(config('core.backend.uri') . '/*')
             ) {
-                return redirect()->guest(config('app.backend').'/login');
+                return redirect()->guest(config('core.backend.uri').'/login');
             } else {
                 return redirect()->guest('login');
             }
