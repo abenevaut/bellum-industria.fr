@@ -2,7 +2,7 @@
 
 use Request;
 use Core\Http\Controllers\CoreAdminController as Controller;
-use Modules\Users\Http\Outputters\Admin\UserOutputter;
+use Modules\Users\Http\Outputters\Admin\SettingsOutputter;
 use Modules\Users\Http\Requests\UsersFilteredFormRequest;
 
 /**
@@ -13,25 +13,24 @@ class SettingsController extends Controller
 {
 
     /**
-     * @var UserOutputter|null
+     * @var SettingsOutputter|null
      */
     protected $outputter = null;
 
     /**
-     * @param UserOutputter $outputter
+     * @param SettingsOutputter $outputter
      */
-    public function __construct(UserOutputter $outputter)
+    public function __construct(SettingsOutputter $outputter)
     {
         parent::__construct();
         $this->outputter = $outputter;
     }
 
     /**
-     * @param UsersFilteredFormRequest $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(UsersFilteredFormRequest $request)
+    public function index()
     {
-        return '';//$this->outputter->index($request, Request::ajax());
+        return $this->outputter->index();
     }
 }
