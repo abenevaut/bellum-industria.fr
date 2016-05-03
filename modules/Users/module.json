@@ -9,7 +9,7 @@
     "Modules\\Users\\Providers\\PasswordResetServiceProvider",
     "Modules\\Users\\Providers\\UsersServiceProvider",
     "Modules\\Users\\Providers\\EventServiceProvider",
-    "Laravel\\Socialite\\SocialiteServiceProvider"
+    "Modules\\Users\\Providers\\SocialiteServiceProvider"
   ],
   "aliases": {
     "Socialite": "Laravel\\Socialite\\Facades\\Socialite"
