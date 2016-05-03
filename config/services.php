@@ -36,8 +36,8 @@ return [
 	],
 
 	'raven' => [
-		'dsn' => env('SENTRY_DSN'),
-		'level' => env('SENTRY_LEVEL'),
+		'dsn' => env('CORE_SENTRY_DSN'),
+		'level' => env('CORE_SENTRY_LEVEL'),
 	],
 
 	'bitbucket' => [
