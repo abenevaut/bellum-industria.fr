@@ -175,8 +175,8 @@ class AdminOutputter extends CoreOutputter
     {
         return [
             'footer' => [
-                'version' => Config::get('app.version'),
-                'title' => Config::get('app.title'),
+                'version' => Config::get('core.version'),
+                'title' => Config::get('core.site.name'),
                 'url' => Config::get('app.url'),
             ]
         ];

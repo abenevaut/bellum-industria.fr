@@ -1,7 +1,6 @@
 <?php
 
 return [
-    'title' => '#CVEPDB CMS',
     'version' => '0.1.0',
     'site' => [
         'name' => env('CORE_SITE_NAME'),
