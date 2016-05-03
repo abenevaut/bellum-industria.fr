@@ -126,11 +126,22 @@ class AuthController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver($provider)->user();
+        try {
+            $user = Socialite::driver($provider)->user();
 
-        dd($user);
+            // Todo : Si logguer -> ajouter le token au compte courant
+            // Todo : Si pas logguer -> on enregistre l'utilisateur, si le mail n'existe pas deja
 
-        // Todo : Si logguer -> ajouter le token au compte courant
-        // Todo : Si pas logguer -> on enregistre l'utilisateur
+            Session::flash('message', trans('auth.message_success_loggedin'));
+        }
+        catch (\Exception $e) {
+
+
+
+
+
+            Session::flash('message', trans('auth.message_success_loggedin'));
+        }
+        return redirect(property_exists($this, 'redirectTo') ? $this->redirectTo : '/');
     }
 }

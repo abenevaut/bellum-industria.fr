@@ -98,6 +98,44 @@
 
 
             </div>
+
+            <div class="col-md-2">
+                <div class="social-auth-links text-center">
+
+                    <div class="page-header" id="banner" style="min-height: 30px;">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <p class="lead">Link your social accounts</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="{{ url('login/bitbucket') }}" class="btn btn-default btn-social btn-bitbucket">
+                        <i class="fa fa-bitbucket"></i> Link Bitbucket
+                    </a>
+
+                    <a href="{{ url('login/facebook') }}" class="btn btn-default btn-social btn-facebook">
+                        <i class="fa fa-facebook"></i> Link Facebook
+                    </a>
+
+                    <a href="{{ url('login/github') }}" class="btn btn-default btn-social btn-github">
+                        <i class="fa fa-github"></i> Link Github
+                    </a>
+
+                    <a href="{{ url('login/google') }}" class="btn btn-default btn-social btn-google">
+                        <i class="fa fa-google-plus"></i> Link Google+
+                    </a>
+
+                    <a href="{{ url('login/linkedin') }}" class="btn btn-default btn-social btn-linkedin">
+                        <i class="fa fa-linkedin"></i> Link Linkedin
+                    </a>
+
+                    <a href="{{ url('login/twitter') }}" class="btn btn-default btn-social btn-twitter">
+                        <i class="fa fa-twitter"></i> Link Twitter
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
 @endsection
