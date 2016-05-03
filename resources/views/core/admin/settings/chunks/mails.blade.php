@@ -12,7 +12,7 @@
 
 <div class="form-group form-group-default">
     <label>{{ trans('settings.core_mail_mailwatch') }}</label>
-    <input type="text" class="form-control" name="core_mail_mailwatch" required="required"
+    <input type="text" class="form-control" name="core_mail_mailwatch"
            value="{{ old('core_mail_mailwatch', $settings->get('core.mail.mailwatch')) }}">
 </div>
 
@@ -31,37 +31,37 @@
 
         <div class="form-group form-group-default">
             <label>{{ trans('settings.mail_host') }}</label>
-            <input type="text" class="form-control" name="mail_host" required="required"
+            <input type="text" class="form-control" name="mail_host"
                    value="{{ old('mail_host', $settings->get('mail.host')) }}">
         </div>
 
         <div class="form-group form-group-default">
             <label>{{ trans('settings.mail_username') }}</label>
-            <input type="text" class="form-control" name="mail_username" required="required"
+            <input type="text" class="form-control" name="mail_username"
                    value="{{ old('mail_username', $settings->get('mail.username')) }}">
         </div>
 
         <div class="form-group form-group-default">
             <label>{{ trans('settings.mail_password') }}</label>
-            <input type="text" class="form-control" name="mail_password" required="required"
+            <input type="text" class="form-control" name="mail_password"
                    value="{{ old('mail_password', $settings->get('mail.password')) }}">
         </div>
 
         <div class="form-group form-group-default">
             <label>{{ trans('settings.mail_driver') }}</label>
-            <input type="text" class="form-control" name="mail_driver" required="required"
+            <input type="text" class="form-control" name="mail_driver"
                    value="{{ old('mail_driver', $settings->get('mail.driver')) }}">
         </div>
 
         <div class="form-group form-group-default">
             <label>{{ trans('settings.mail_port') }}</label>
-            <input type="text" class="form-control" name="mail_port" required="required"
+            <input type="text" class="form-control" name="mail_port"
                    value="{{ old('mail_port', $settings->get('mail.port')) }}">
         </div>
 
         <div class="form-group form-group-default">
             <label>{{ trans('settings.mail_encryption') }}</label>
-            <input type="text" class="form-control" name="mail_encryption" required="required"
+            <input type="text" class="form-control" name="mail_encryption"
                    value="{{ old('mail_encryption', $settings->get('mail.encryption')) }}">
         </div>
 
