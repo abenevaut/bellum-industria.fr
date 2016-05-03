@@ -43,11 +43,6 @@ return [
 
     'disks' => [
 
-//        'local' => [
-//            'driver' => 'local',
-//            'root' => storage_path('app'),
-//        ],
-
         'uploads' => [
             'driver' => 'local',
             'root' => public_path('uploads'),
@@ -60,11 +55,11 @@ return [
             'visibility' => 'public',
         ],
 
-//        'dropbox' => [
-//            'driver' => 'dropbox',
-//            'appSecret' => env('DROPBOX_SECRET'),
-//            'accessToken' => env('DROPBOX_KEY'),
-//        ],
+        'dropbox' => [
+            'driver' => 'dropbox',
+            'appSecret' => env('DROPBOX_SECRET'),
+            'accessToken' => env('DROPBOX_KEY'),
+        ],
 
         's3' => [
             'driver' => 's3',
@@ -78,5 +73,4 @@ return [
         ],
 
     ],
-
 ];
