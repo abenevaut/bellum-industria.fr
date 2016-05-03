@@ -49,8 +49,7 @@
 
         <div class="form-group form-group-default">
             <label>{{ trans('settings.mail_driver') }}</label>
-            <input type="text" class="form-control" name="mail_driver"
-                   value="{{ old('mail_driver', $settings->get('mail.driver')) }}">
+            {{ Form::select('mail_driver', ['smtp' => 'SMTP'], old('mail_driver', $settings->get('mail.driver')), ['class' => 'form-control']) }}
         </div>
 
         <div class="form-group form-group-default">
@@ -61,8 +60,7 @@
 
         <div class="form-group form-group-default">
             <label>{{ trans('settings.mail_encryption') }}</label>
-            <input type="text" class="form-control" name="mail_encryption"
-                   value="{{ old('mail_encryption', $settings->get('mail.encryption')) }}">
+            {{ Form::select('mail_encryption', ['' => 'No encryption','tls' => 'TLS'], old('mail_encryption', $settings->get('mail.encryption')), ['class' => 'form-control']) }}
         </div>
 
     </div>
