@@ -85,17 +85,29 @@
     <div class="social-auth-links text-center">
         <p>- OR -</p>
 
+        <a href="{{ url('login/bitbucket') }}" class="btn btn-block btn-social btn-bitbucket btn-flat">
+            <i class="fa fa-bitbucket"></i> Sign in using Bitbucket
+        </a>
 
         <a href="{{ url('login/facebook') }}" class="btn btn-block btn-social btn-facebook btn-flat">
             <i class="fa fa-facebook"></i> Sign in using Facebook
         </a>
 
+        <a href="{{ url('login/github') }}" class="btn btn-block btn-social btn-github btn-flat">
+            <i class="fa fa-github"></i> Sign in using Github
+        </a>
 
         <a href="{{ url('login/google') }}" class="btn btn-block btn-social btn-google btn-flat">
             <i class="fa fa-google-plus"></i> Sign in using Google+
         </a>
 
+        <a href="{{ url('login/linkedin') }}" class="btn btn-block btn-social btn-linkedin btn-flat">
+            <i class="fa fa-linkedin"></i> Sign in using Linkedin
+        </a>
 
+        <a href="{{ url('login/twitter') }}" class="btn btn-block btn-social btn-twitter btn-flat">
+            <i class="fa fa-twitter"></i> Sign in using Twitter
+        </a>
     </div>
 @endsection
 
