@@ -32,12 +32,12 @@
                     </li>
                     <li>
                         <a href="#control-sidebar-socials-tab" data-toggle="tab">
-                            <i class="fa fa-share-square-o"></i> {{ trans('global.socials') }}
+                            <i class="fa fa-share-square-o"></i> {{ trans('settings.socials') }}
                         </a>
                     </li>
                     <li>
                         <a href="#control-sidebar-clouds-tab" data-toggle="tab">
-                            <i class="fa fa-cloud"></i> {{ trans('global.clouds') }}
+                            <i class="fa fa-cloud"></i> {{ trans('settings.clouds') }}
                         </a>
                     </li>
                 </ul>
