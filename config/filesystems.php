@@ -49,6 +49,11 @@ return [
             'visibility' => 'public',
         ],
 
+        'backups' => [
+            'driver' => 'local',
+            'root' => app_path('backups'),
+        ],
+
         'thumbnails' => [
             'driver' => 'local',
             'root' => public_path('thumbnails'),
