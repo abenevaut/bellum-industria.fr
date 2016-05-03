@@ -28,18 +28,26 @@ return array(
     |    ]
     */
     'disks' => [
+
+        'backups' => [
+            'alias' => 'Backups',
+            'URL' => null,
+        ],
+
 //        'local' => [
 //            'glideUrl' => url('glide'),
 //            'tmbUrl' => url('thumbnails')
 //
 //        ],
-        's3' => [
-            'URL' => 'https://s3.eu-central-1.amazonaws.com/cvepdb-test/',
-            'url' => 'https://s3.eu-central-1.amazonaws.com/cvepdb-test/',
-            'alias' => 'AWS',
+
+//        's3' => [
+//            'URL' => 'https://s3.eu-central-1.amazonaws.com/cvepdb-test/',
+//            'url' => 'https://s3.eu-central-1.amazonaws.com/cvepdb-test/',
+//            'alias' => 'AWS',
             //'glideUrl' => url('glide'),
             //'tmbUrl' => url('thumbnails')
-        ],
+//        ],
+
     ],
 
     /*

@@ -125,30 +125,29 @@ class FilesController extends ElfinderController
 
 
 
-//            $disks = (array) $this->app['config']->get('elfinder.disks', []);
-//
-//            foreach ($disks as $key => $root) {
-//
-//                if (is_string($root)) {
-//                    $key = $root;
-//                    $root = [];
-//                }
-//
-//                $disk = app('filesystem')->disk($key);
-//
-//                if ($disk instanceof FilesystemAdapter) {
-//
-////                    dd( $disk );
-//
-//                    $defaults = [
-//                        'driver' => 'Flysystem',
-//                        'filesystem' => $disk->getDriver(),
-//                        'alias' => $key,
-//                    ];
-//                    $roots[] = array_merge($defaults, $root);
-//                }
-//
-//            }
+            $disks = (array) $this->app['config']->get('elfinder.disks', []);
+
+            foreach ($disks as $key => $root) {
+
+                if (is_string($root)) {
+                    $key = $root;
+                    $root = [];
+                }
+
+                $disk = app('filesystem')->disk($key);
+
+                if ($disk instanceof FilesystemAdapter) {
+
+//                    dd( $disk );
+
+                    $defaults = [
+                        'driver' => 'Flysystem',
+                        'filesystem' => $disk->getDriver(),
+                        'alias' => $key,
+                    ];
+                    $roots[] = array_merge($defaults, $root);
+                }
+            }
 
 
 
