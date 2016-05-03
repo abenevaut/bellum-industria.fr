@@ -20,6 +20,12 @@ class ModulesServiceProvider extends ServiceProvider
             $loader = AliasLoader::getInstance();
             $loader->alias('Widget', 'Pingpong\Widget\WidgetFacade');
 
+            $file = base_path('core/widgets.php');
+
+            if (file_exists($file)) {
+                include $file;
+            }
+
             foreach (Module::getOrdered() as $module) {
 
                 $file = $module->getPath() . '/widgets.php';
