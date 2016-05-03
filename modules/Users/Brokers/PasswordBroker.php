@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Contracts\Mail\Mailer as MailerContract;
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Auth\Passwords\TokenRepositoryInterface;
-use CVEPDB\Settings\Facades\Settings;
+use Modules\Users\Services\MailToNewUserCreatedService;
 
 /**
  * Class PasswordBroker
@@ -29,6 +29,11 @@ class PasswordBroker extends IlluminatePasswordBroker
     use ResetsPasswords;
 
     /**
+     * @var MailToNewUserCreatedService|null
+     */
+    protected $s_mailer = null;
+
+    /**
      * Create a new password broker instance.
      *
      * @param TokenRepositoryInterface $tokens
@@ -40,10 +45,12 @@ class PasswordBroker extends IlluminatePasswordBroker
         TokenRepositoryInterface $tokens,
         UserProvider $users,
         MailerContract $mailer,
-        $emailView
+        $emailView,
+        MailToNewUserCreatedService $s_mailer
     )
     {
         parent::__construct($tokens, $users, $mailer, $emailView);
+        $this->s_mailer = $s_mailer;
     }
 
     /**
@@ -55,20 +62,11 @@ class PasswordBroker extends IlluminatePasswordBroker
     public function emailResetLink(CanResetPasswordContract $user, $token, Closure $callback = null)
     {
         $this->emailView = cmsview_prefix('users.emails.password', $view_prefix = null, 'users') . '::users.emails.password';
-        $view = $this->emailView;
-
-        return $this->mailer->queue($view, compact('token', 'user'), function ($m) use ($user, $token, $callback) {
-
-            $m->to($user->getEmailForPasswordReset())
-                ->from(Settings::get('mail.from.address'), Settings::get('mail.from.name'));
-
-                // ->bcc(Settings::get('core.mail.mailwatch'))
-
-            if (!is_null($callback)) {
-                call_user_func($callback, $m, $user, $token);
-            }
-
-        });
+        return $this->s_mailer->send(
+            $user->getEmailForPasswordReset(),
+            $this->emailView,
+            compact('token', 'user')
+        );
     }
 
     /**

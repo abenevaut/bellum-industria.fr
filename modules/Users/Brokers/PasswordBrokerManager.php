@@ -3,6 +3,7 @@
 use InvalidArgumentException;
 use Illuminate\Contracts\Auth\PasswordBrokerFactory as FactoryContract;
 use Illuminate\Auth\Passwords\DatabaseTokenRepository;
+use Modules\Users\Services\MailToNewUserCreatedService;
 
 /**
  * Class PasswordBrokerManager
@@ -73,7 +74,8 @@ class PasswordBrokerManager implements FactoryContract
             $this->createTokenRepository($config),
             $this->app['auth']->createUserProvider($config['provider']),
             $this->app['mailer'],
-            $config['email']
+            $config['email'],
+            new MailToNewUserCreatedService()
         );
     }
 
