@@ -64,14 +64,6 @@ return [
 		'services_linkedin_client_secret' => 'services.linkedin.client_secret',
 		'services_twitter_client_id' => 'services.twitter.client_id',
 		'services_twitter_client_secret' => 'services.twitter.client_secret',
-
-		'filesystems_disks_dropbox_appSecret' => 'filesystems.disks.dropbox.appSecret',
-		'filesystems_disks_dropbox_accessToken' => 'filesystems.disks.dropbox.accessToken',
-		'filesystems_disks_s3_key' => 'filesystems.disks.s3.key',
-		'filesystems_disks_s3_secret' => 'filesystems.disks.s3.secret',
-		'filesystems_disks_s3_region' => 'filesystems.disks.s3.region',
-		'filesystems_disks_s3_bucket' => 'filesystems.disks.s3.bucket',
-
 	],
 
 ];
