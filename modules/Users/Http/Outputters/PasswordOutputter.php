@@ -1,9 +1,12 @@
 <?php namespace Modules\Users\Http\Outputters;
 
-use Config;
 use Core\Http\Outputters\FrontOutputter;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 
+/**
+ * Class PasswordOutputter
+ * @package Modules\Users\Http\Outputters
+ */
 class PasswordOutputter extends FrontOutputter
 {
     /**

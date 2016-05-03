@@ -107,7 +107,7 @@
 
                 <div>
                     <ul class="nav nav-tabs">
-                        @foreach (\Config::get('users.flags') as $type)
+                        @foreach (\CVEPDB\Settings\Facades\Settings::get('addresses.flags') as $type)
                             @if ($type == 'primary')
                                 <li class="active"><a href="#primary" data-toggle="tab" aria-expanded="true">Primary address</a></li>
                             @elseif ($type == 'billing')
@@ -118,7 +118,7 @@
                         @endforeach
                     </ul>
                     <div id="myTabContent" class="tab-content">
-                        @foreach (\Config::get('users.flags') as $type)
+                        @foreach (\CVEPDB\Settings\Facades\Settings::get('addresses.flags') as $type)
 
                             {{-- Todo : Change this --}}
                             <?php $current_address = null; ?>
