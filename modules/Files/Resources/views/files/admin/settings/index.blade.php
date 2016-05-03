@@ -10,21 +10,20 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">{{ trans('files::settings.title') }}</h3>
-
-
                     <div class="box-tools hidden-xs pull-right">
-                        <a href="{{ url('admin/users/create') }}" class="btn btn-box-tool btn-box-tool-primary">
-                            <i class="fa fa-folder"></i> {{ trans('users::admin.index.btn.add_user') }}
+                        <a href="javascript:void(0);" class="btn btn-box-tool btn-box-tool-primary"
+                           data-toggle="modal" data-target="#add_folder">
+                            <i class="fa fa-folder"></i> {{ trans('files::settings.btn.add_folder') }}
                         </a>
-                        <a href="{{ url('admin/roles') }}" class="btn btn-box-tool btn-box-tool-primary">
-                            <i class="fa fa-amazon"></i> {{ trans('users::admin.index.btn.roles') }}
+                        <a href="javascript:void(0);" class="btn btn-box-tool btn-box-tool-primary"
+                           data-toggle="modal" data-target="#add_amazon">
+                            <i class="fa fa-amazon"></i> {{ trans('files::settings.btn.add_amazon') }}
                         </a>
-                        <a href="{{ url('admin/users/export') }}" class="btn btn-box-tool btn-box-tool-primary">
-                            <i class="fa fa-dropbox"></i> {{ trans('users::admin.index.btn.export') }}
+                        <a href="javascript:void(0);" class="btn btn-box-tool btn-box-tool-primary"
+                           data-toggle="modal" data-target="#add_dropbox">
+                            <i class="fa fa-dropbox"></i> {{ trans('files::settings.btn.add_dropbox') }}
                         </a>
                     </div>
-
-
                 </div>
                 {!! Form::open(array('route' => 'admin.files.settings.store', 'class' => 'forms js-call-form_validation')) !!}
                 <div class="box-body">
@@ -41,71 +40,28 @@
                         </div>
                     @endif
 
-                    <div class="box box-primary box-widget collapsed-box">
-                        <div class="box-header with-border">
-                            <div class="user-block">
-                                <button type="button" class="btn btn-box-tool"
-                                        data-widget="collapse"><i class="fa fa-plus"></i>
-                                </button>
-            <span class="username">
-                {{ trans('settings.filesystems_disks_dropbox_title') }}
-            </span>
+
+
+
+
+
+                    @if (count([]))
+                        @foreach ([] as $widget)
+                        @endforeach
+                    @else
+                        <div class="col-lg-12">
+                            <div class="callout callout-info">
+                                <h4>{{ trans('files::settings.nodata_title') }}</h4>
+                                <p>{{ trans('files::settings.nodata_description') }}</p>
                             </div>
                         </div>
-                        <div class="box-body">
+                    @endif
 
 
 
 
 
 
-
-                            <div class="form-group form-group-default">
-                                <label>{{ trans('settings.filesystems_disks_dropbox_appSecret') }}</label>
-                                <input type="text" class="form-control" name="filesystems_disks_dropbox_appSecret"
-                                       value="{{ old('filesystems_disks_dropbox_appSecret') }}">
-                            </div>
-                            <div class="form-group form-group-default">
-                                <label>{{ trans('settings.filesystems_disks_dropbox_accessToken') }}</label>
-                                <input type="text" class="form-control" name="filesystems_disks_dropbox_accessToken"
-                                       value="{{ old('filesystems_disks_dropbox_accessToken') }}">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="box box-primary box-widget collapsed-box">
-                        <div class="box-header with-border">
-                            <div class="user-block">
-                                <button type="button" class="btn btn-box-tool"
-                                        data-widget="collapse"><i class="fa fa-plus"></i>
-                                </button>
-            <span class="username">
-                {{ trans('settings.filesystems_disks_s3_title') }}
-            </span>
-                            </div>
-                        </div>
-                        <div class="box-body">
-                            <div class="form-group form-group-default">
-                                <label>{{ trans('settings.filesystems_disks_s3_key') }}</label>
-                                <input type="text" class="form-control" name="filesystems_disks_s3_key"
-                                       value="{{ old('filesystems_disks_s3_key') }}">
-                            </div>
-                            <div class="form-group form-group-default">
-                                <label>{{ trans('settings.filesystems_disks_s3_secret') }}</label>
-                                <input type="text" class="form-control" name="filesystems_disks_s3_secret"
-                                       value="{{ old('filesystems_disks_s3_secret') }}">
-                            </div>
-                            <div class="form-group form-group-default">
-                                <label>{{ trans('settings.filesystems_disks_s3_region') }}</label>
-                                {{ Form::select('filesystems_disks_s3_region', ['us-east-1' => 'US East (N. Virginia)', 'us-west-1' => 'US West (N. California)', 'us-west-2' => 'US West (Oregon)', 'eu-west-1' => 'EU (Ireland)', 'eu-central-1' => 'EU (Frankfurt)', 'ap-northeast-1' => 'Asia Pacific (Tokyo)', 'ap-northeast-2' => 'Asia Pacific (Seoul)', 'ap-southeast-1' => 'Asia Pacific (Singapore)', 'ap-southeast-2' => 'Asia Pacific (Sydney)', 'sa-east-1' => 'South America (São Paulo)'], old('mail_driver'), ['class' => 'form-control']) }}
-                            </div>
-                            <div class="form-group form-group-default">
-                                <label>{{ trans('settings.filesystems_disks_s3_bucket') }}</label>
-                                <input type="text" class="form-control" name="filesystems_disks_s3_bucket"
-                                       value="{{ old('filesystems_disks_s3_bucket') }}">
-                            </div>
-                        </div>
-                    </div>
 
 
                 </div>
@@ -117,11 +73,143 @@
                     </div>
                     <div class="pull-right">
                         <button class="btn btn-primary btn-flat" type="submit">
-                            <i class="fa fa-pencil"></i> {{ trans('settings.btn.edit') }}
+                            <i class="fa fa-pencil"></i> {{ trans('files::settings.btn.edit') }}
                         </button>
                     </div>
                 </div>
                 {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="add_folder">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">{{ trans('files::settings.btn.add_folder') }}</h4>
+                </div>
+                <div class="modal-body">
+
+
+                </div>
+                <div class="modal-footer">
+
+
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">
+                        {{ trans('global.cancel') }}
+                    </button>
+
+
+                    {!! Form::open(['route' => ['admin.users.destroy_multiple'], 'method' => 'delete', "class" => "js-users_multi_delete-container"]) !!}
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fa fa-trash"></i> {{ trans('users::admin.index.btn.valid_delete') }}
+                    </button>
+                    {!! Form::close() !!}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="add_amazon">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">{{ trans('files::settings.btn.add_amazon') }}</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <div class="form-group form-group-default">
+                        <label>{{ trans('files::settings.filesystems_disks_s3_key') }}</label>
+                        <input type="text" class="form-control" name="filesystems_disks_s3_key"
+                               value="{{ old('filesystems_disks_s3_key') }}">
+                    </div>
+                    <div class="form-group form-group-default">
+                        <label>{{ trans('files::settings.filesystems_disks_s3_secret') }}</label>
+                        <input type="text" class="form-control" name="filesystems_disks_s3_secret"
+                               value="{{ old('filesystems_disks_s3_secret') }}">
+                    </div>
+                    <div class="form-group form-group-default">
+                        <label>{{ trans('files::settings.filesystems_disks_s3_region') }}</label>
+                        {{ Form::select('filesystems_disks_s3_region', config('files.amazon.region'), old('mail_driver'), ['class' => 'form-control']) }}
+                    </div>
+                    <div class="form-group form-group-default">
+                        <label>{{ trans('files::settings.filesystems_disks_s3_bucket') }}</label>
+                        <input type="text" class="form-control" name="filesystems_disks_s3_bucket"
+                               value="{{ old('filesystems_disks_s3_bucket') }}">
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+
+
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">
+                        {{ trans('global.cancel') }}
+                    </button>
+
+
+                    {!! Form::open(['route' => ['admin.users.destroy_multiple'], 'method' => 'delete', "class" => "js-users_multi_delete-container"]) !!}
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fa fa-trash"></i> {{ trans('users::admin.index.btn.valid_delete') }}
+                    </button>
+                    {!! Form::close() !!}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="add_dropbox">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">{{ trans('files::settings.btn.add_dropbox') }}</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <div class="form-group form-group-default">
+                        <label>{{ trans('files::settings.filesystems_disks_dropbox_appSecret') }}</label>
+                        <input type="text" class="form-control" name="filesystems_disks_dropbox_appSecret"
+                               value="{{ old('filesystems_disks_dropbox_appSecret') }}">
+                    </div>
+                    <div class="form-group form-group-default">
+                        <label>{{ trans('files::settings.filesystems_disks_dropbox_accessToken') }}</label>
+                        <input type="text" class="form-control" name="filesystems_disks_dropbox_accessToken"
+                               value="{{ old('filesystems_disks_dropbox_accessToken') }}">
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+
+
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">
+                        {{ trans('global.cancel') }}
+                    </button>
+
+
+                    {!! Form::open(['route' => ['admin.users.destroy_multiple'], 'method' => 'delete', "class" => "js-users_multi_delete-container"]) !!}
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fa fa-trash"></i> {{ trans('users::admin.index.btn.valid_delete') }}
+                    </button>
+                    {!! Form::close() !!}
+
+
+                </div>
             </div>
         </div>
     </div>
