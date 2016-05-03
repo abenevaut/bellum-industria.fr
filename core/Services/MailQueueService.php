@@ -6,6 +6,9 @@ use CVEPDB\Settings\Facades\Settings;
 
 /**
  * Class MailQueueService
+ *
+ * Pool emails in a queue.
+ *
  * @package Core\Services
  */
 abstract class MailQueueService extends AbsMailService

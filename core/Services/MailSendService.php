@@ -6,6 +6,9 @@ use CVEPDB\Settings\Facades\Settings;
 
 /**
  * Class MailSendService
+ *
+ * Send emails without delay.
+ *
  * @package Core\Services
  */
 abstract class MailSendService extends AbsMailService
