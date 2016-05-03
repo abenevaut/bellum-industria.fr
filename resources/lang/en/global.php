@@ -29,4 +29,7 @@ return [
     'shortcuts' => 'Shortcuts',
     'mails' => 'Mails',
     'cancel' => 'Cancel',
+	'lang_fr' => 'Français',
+	'lang_en' => 'English',
+	'dashboard' => 'Dashboard',
 ];

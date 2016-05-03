@@ -15,7 +15,7 @@ class AdminOutputter extends CoreOutputter
     public function __construct(SettingsRepository $r_settings)
     {
         parent::__construct($r_settings);
-        $this->addBreadcrumb('Dashboard', config('app.backend'));
+        $this->addBreadcrumb(trans('global.dashboard'), config('app.backend'));
     }
 
     /**
