@@ -48,6 +48,8 @@ class SettingsOutputter extends AdminOutputter
     public function store(IFormRequest $request)
     {
 
+        // elfinder.disks
+
         return $this->redirectTo('admin/files/settings');
     }
 }

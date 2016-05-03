@@ -54,12 +54,6 @@ return [
             'root' => storage_path('app/backups'),
         ],
 
-        'thumbnails' => [
-            'driver' => 'local',
-            'root' => public_path('thumbnails'),
-            'visibility' => 'public',
-        ],
-
         'dropbox' => [
             'driver' => 'dropbox',
             'appSecret' => env('DROPBOX_SECRET'),
