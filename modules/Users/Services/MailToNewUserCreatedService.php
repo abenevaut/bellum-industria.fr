@@ -1,9 +1,12 @@
 <?php namespace Modules\Users\Services;
 
-use Mail;
-use Core\Services\MailService;
+use Core\Services\MailSendService;
 
-class MailToNewUserCreatedService extends MailService
+/**
+ * Class MailToNewUserCreatedService
+ * @package Modules\Users\Services
+ */
+class MailToNewUserCreatedService extends MailSendService
 {
     public function ez($user)
     {

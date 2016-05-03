@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Contracts\Mail\Mailer as MailerContract;
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Auth\Passwords\TokenRepositoryInterface;
-use Modules\Users\Services\MailToNewUserCreatedService;
+use Modules\Users\Services\MailPasswordResetService;
 
 /**
  * Class PasswordBroker
@@ -29,7 +29,7 @@ class PasswordBroker extends IlluminatePasswordBroker
     use ResetsPasswords;
 
     /**
-     * @var MailToNewUserCreatedService|null
+     * @var MailPasswordResetService|null
      */
     protected $s_mailer = null;
 
@@ -46,7 +46,7 @@ class PasswordBroker extends IlluminatePasswordBroker
         UserProvider $users,
         MailerContract $mailer,
         $emailView,
-        MailToNewUserCreatedService $s_mailer
+        MailPasswordResetService $s_mailer
     )
     {
         parent::__construct($tokens, $users, $mailer, $emailView);

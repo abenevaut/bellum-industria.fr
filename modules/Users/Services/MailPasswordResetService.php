@@ -6,7 +6,7 @@ use Core\Services\MailSendService;
  * Class MailToNewUserCreatedService
  * @package Modules\Users\Services
  */
-class MailToNewUserCreatedService extends MailSendService
+class MailPasswordResetService extends MailSendService
 {
 	/**
 	 * @param $email
