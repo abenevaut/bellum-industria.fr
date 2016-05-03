@@ -10,11 +10,11 @@ return [
             ],
             'menu' => [
                 'route' => 'admin.files.index',
-                'icon' => 'fa fa-folder'
+                'icon' => 'fa fa-folder',
             ],
             'settings' => [
-                'route' => null,
-                'icon' => null
+                'route' => 'admin.files.settings.index',
+                'icon' => 'fa fa-folder',
             ]
         ]
     ]

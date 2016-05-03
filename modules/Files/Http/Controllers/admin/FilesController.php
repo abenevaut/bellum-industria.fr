@@ -86,11 +86,6 @@ class FilesController extends ElfinderController
 
         if (empty($roots)) {
 
-
-
-
-
-
             $dirs = (array) $this->app['config']->get('elfinder.dir', []);
 
             foreach ($dirs as $dir) {
@@ -130,30 +125,30 @@ class FilesController extends ElfinderController
 
 
 
-            $disks = (array) $this->app['config']->get('elfinder.disks', []);
-
-            foreach ($disks as $key => $root) {
-
-                if (is_string($root)) {
-                    $key = $root;
-                    $root = [];
-                }
-
-                $disk = app('filesystem')->disk($key);
-
-                if ($disk instanceof FilesystemAdapter) {
-
-//                    dd( $disk );
-
-                    $defaults = [
-                        'driver' => 'Flysystem',
-                        'filesystem' => $disk->getDriver(),
-                        'alias' => $key,
-                    ];
-                    $roots[] = array_merge($defaults, $root);
-                }
-
-            }
+//            $disks = (array) $this->app['config']->get('elfinder.disks', []);
+//
+//            foreach ($disks as $key => $root) {
+//
+//                if (is_string($root)) {
+//                    $key = $root;
+//                    $root = [];
+//                }
+//
+//                $disk = app('filesystem')->disk($key);
+//
+//                if ($disk instanceof FilesystemAdapter) {
+//
+////                    dd( $disk );
+//
+//                    $defaults = [
+//                        'driver' => 'Flysystem',
+//                        'filesystem' => $disk->getDriver(),
+//                        'alias' => $key,
+//                    ];
+//                    $roots[] = array_merge($defaults, $root);
+//                }
+//
+//            }
 
 
 
@@ -163,32 +158,13 @@ class FilesController extends ElfinderController
 
 
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 
-//        if (app()->bound('session.store')) {
-//            $sessionStore = app('session.store');
-//            $session = new LaravelSession($sessionStore);
-//        } else {
+        if (app()->bound('session.store')) {
+            $sessionStore = app('session.store');
+            $session = new LaravelSession($sessionStore);
+        } else {
             $session = null;
-//        }
+        }
 
         $opts = $this->app->config->get('elfinder.options', array());
         $opts = array_merge(['roots' => $roots, 'session' => $session], $opts);

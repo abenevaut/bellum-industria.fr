@@ -2,6 +2,7 @@
 
 Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Files\Http\Controllers\Admin'], function () {
     Route::group(['prefix' => 'files'], function () {
+        Route::resource('settings', 'SettingsController');
         Route::get('/', ['as' => 'admin.files.index', 'uses' => 'FilesController@index']);
         Route::any('connector', ['as' => 'elfinder.connector', 'uses' => 'FilesController@showConnector']);
         Route::get('tinymce4', ['as' => 'elfinder.tinymce4', 'uses' => 'FilesController@showTinyMCE4']);
