@@ -1,6 +1,7 @@
 ci:
   script:
   - chmod -R 777 storage
+  - chmod -R 777 public/uploads
   - composer install
   - npm install
   - gulp bower
