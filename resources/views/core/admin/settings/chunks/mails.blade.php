@@ -43,7 +43,7 @@
 
         <div class="form-group form-group-default">
             <label>{{ trans('settings.mail_password') }}</label>
-            <input type="text" class="form-control" name="mail_password"
+            <input type="password" class="form-control" name="mail_password"
                    value="{{ old('mail_password', $settings->get('mail.password')) }}">
         </div>
 

@@ -19,7 +19,7 @@
 
         <div class="form-group form-group-default">
             <label>{{ trans('settings.bitbucket_client_secret') }}</label>
-            <input type="text" class="form-control" name="services_bitbucket_client_secret"
+            <input type="password" class="form-control" name="services_bitbucket_client_secret"
                    value="{{ old('services_bitbucket_client_secret', $settings->get('services.bitbucket.client_secret')) }}">
         </div>
 
@@ -47,7 +47,7 @@
 
         <div class="form-group form-group-default">
             <label>{{ trans('settings.facebook_client_secret') }}</label>
-            <input type="text" class="form-control" name="services_facebook_client_secret"
+            <input type="password" class="form-control" name="services_facebook_client_secret"
                    value="{{ old('services_facebook_client_secret', $settings->get('services.facebook.client_secret')) }}">
         </div>
 
@@ -75,7 +75,7 @@
 
         <div class="form-group form-group-default">
             <label>{{ trans('settings.github_client_secret') }}</label>
-            <input type="text" class="form-control" name="services_github_client_secret"
+            <input type="password" class="form-control" name="services_github_client_secret"
                    value="{{ old('services_github_client_secret', $settings->get('services.github.client_secret')) }}">
         </div>
 
@@ -103,7 +103,7 @@
 
         <div class="form-group form-group-default">
             <label>{{ trans('settings.google_client_secret') }}</label>
-            <input type="text" class="form-control" name="services_google_client_secret"
+            <input type="password" class="form-control" name="services_google_client_secret"
                    value="{{ old('services_google_client_secret', $settings->get('services.google.client_secret')) }}">
         </div>
 
@@ -131,7 +131,7 @@
 
         <div class="form-group form-group-default">
             <label>{{ trans('settings.linkedin_client_secret') }}</label>
-            <input type="text" class="form-control" name="services_linkedin_client_secret"
+            <input type="password" class="form-control" name="services_linkedin_client_secret"
                    value="{{ old('services_linkedin_client_secret', $settings->get('services.linkedin.client_secret')) }}">
         </div>
 
@@ -159,7 +159,7 @@
 
         <div class="form-group form-group-default">
             <label>{{ trans('settings.twitter_client_secret') }}</label>
-            <input type="text" class="form-control" name="services_twitter_client_secret"
+            <input type="password" class="form-control" name="services_twitter_client_secret"
                    value="{{ old('services_twitter_client_secret', $settings->get('services.twitter.client_secret')) }}">
         </div>
 
