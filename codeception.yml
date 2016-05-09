@@ -39,4 +39,26 @@ modules:
         MailCatcher:
             url: 'http://localhost'
             port: '1080'
+coverage:
+    enabled: true
+    include:
+        - app/*
+        - core/*
+    exclude:
+        - app/controllers/BaseController.php
+        - app/views/*
+        - app/storage/*
+        - app/start/*
+        - app/lang/*
+        - app/database/*
+        - app/config/*
+        - app/filters.php
+        - app/controllers/BaseController.php
+        - core/views/*
+        - core/storage/*
+        - core/start/*
+        - core/lang/*
+        - core/database/*
+        - core/config/*
+        - core/filters.php
 error_level: "E_ALL & ~E_STRICT & ~E_DEPRECATED"

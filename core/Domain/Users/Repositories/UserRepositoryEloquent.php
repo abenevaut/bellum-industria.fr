@@ -11,6 +11,12 @@ use Core\Domain\Roles\Repositories\RoleRepositoryEloquent as RoleRepositoryEloqu
  */
 abstract class UserRepositoryEloquent extends RepositoryEloquent
 {
+    /**
+     * UserRepositoryEloquent constructor.
+     *
+     * @param Application            $app
+     * @param RoleRepositoryEloquent $r_roles
+     */
     public function __construct(Application $app, RoleRepositoryEloquent $r_roles)
     {
         parent::__construct($app, $r_roles);

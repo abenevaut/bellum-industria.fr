@@ -8,6 +8,10 @@ use Theme;
 use CVEPDB\Abstracts\Services\Outputters\AbsLaravelOutputter;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 
+/**
+ * Class CoreOutputter
+ * @package Core\Http\Outputters
+ */
 class CoreOutputter extends AbsLaravelOutputter
 {
     /**
@@ -35,7 +39,12 @@ class CoreOutputter extends AbsLaravelOutputter
      */
     protected $r_settings = null;
 
-    public function __construct(SettingsRepository $r_settings)
+	/**
+	 * CoreOutputter constructor.
+	 *
+	 * @param SettingsRepository $r_settings
+	 */
+	public function __construct(SettingsRepository $r_settings)
     {
         parent::__construct();
 
