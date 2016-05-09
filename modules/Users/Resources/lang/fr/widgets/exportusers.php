@@ -1,6 +1,6 @@
 <?php
 
 return [
-	'title' => 'Tous les utilisateurs exportés dans un fichier Excel',
+	'title' => 'Tous les utilisateurs dans un fichier Excel',
 	'link.bottom' => 'Exporter',
 ];
