@@ -27,6 +27,6 @@ ci:
 #  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Posts
 #  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Themes
 #  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Users
-  - bin/codecept run --env=core -g migration
-  - bin/codecept run --env=installer
-  - bin/codecept run
+  - bin/codecept run --env=core -g migration --coverage --coverage-xml
+  - bin/codecept run --env=installer --coverage --coverage-xml
+  - bin/codecept run --coverage --coverage-xml
