@@ -12,33 +12,34 @@ use EllipseSynergie\ApiResponse\Laravel\Response;
  */
 class CoreApiController extends CoreController
 {
-    /**
-     * @var Response
-     */
-    public $response;
 
-    /**
-     * @var User The authenticated user
-     */
-    public $user;
+	/**
+	 * @var Response
+	 */
+	public $response;
 
-    /**
-     * @var array
-     */
-    protected $apiMethods;
+	/**
+	 * @var User The authenticated user
+	 */
+	public $user;
 
-    public function __construct()
-    {
-        parent::__construct();
+	/**
+	 * @var array
+	 */
+	protected $apiMethods;
 
-        $serializedApiMethods = serialize($this->apiMethods);
+	public function __construct()
+	{
+		parent::__construct();
 
-        // Launch middleware
-        $this->middleware('apiguard:' . $serializedApiMethods);
+		$serializedApiMethods = serialize($this->apiMethods);
 
-        // Attempt to get an authenticated user.
-        $this->user = ApiGuardAuth::getUser();
+		// Launch middleware
+		$this->middleware('apiguard:' . $serializedApiMethods);
 
-        $this->response = ApiResponseBuilder::build();
-    }
+		// Attempt to get an authenticated user.
+		$this->user = ApiGuardAuth::getUser();
+
+		$this->response = ApiResponseBuilder::build();
+	}
 }

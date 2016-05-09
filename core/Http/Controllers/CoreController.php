@@ -8,11 +8,12 @@ use CVEPDB\Abstracts\Http\Controllers\CoreController as Controller;
  */
 class CoreController extends Controller
 {
-    /**
-     * Create a new authentication controller instance.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
+
+	/**
+	 * Create a new authentication controller instance.
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+	}
 }

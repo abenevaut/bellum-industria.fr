@@ -9,17 +9,18 @@ use Phoenix\EloquentMeta\MetaTrait;
  */
 class Permission extends Model
 {
-    use MetaTrait;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name',
-        'display_name',
-        'description',
-    ];
+	use MetaTrait;
+
+	/**
+	 * The attributes that are mass assignable.
+	 *
+	 * @var array
+	 */
+	protected $fillable = [
+		'name',
+		'display_name',
+		'description',
+	];
 
 }

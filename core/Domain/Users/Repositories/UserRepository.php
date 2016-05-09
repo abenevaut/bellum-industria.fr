@@ -8,5 +8,5 @@ use CVEPDB\Domain\Users\Repositories\UserRepository as Repository;
  */
 interface UserRepository extends Repository
 {
-    //
+    
 }

@@ -8,13 +8,14 @@ use Pingpong\Menus\MenuItem;
  */
 abstract class CoreMenuItem extends MenuItem
 {
-    /**
-     * Constructor.
-     *
-     * @param array $properties
-     */
-    public function __construct($properties = array())
-    {
-        parent::__construct($properties);
-    }
+
+	/**
+	 * Constructor.
+	 *
+	 * @param array $properties
+	 */
+	public function __construct($properties = array())
+	{
+		parent::__construct($properties);
+	}
 }

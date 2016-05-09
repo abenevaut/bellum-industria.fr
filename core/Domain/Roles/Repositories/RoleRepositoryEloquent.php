@@ -9,13 +9,14 @@ use CVEPDB\Domain\Roles\Repositories\RoleRepositoryEloquent as RepositoryEloquen
  */
 abstract class RoleRepositoryEloquent extends RepositoryEloquent
 {
-    /**
-     * Specify Model class name
-     *
-     * @return string
-     */
-    public function model()
-    {
-        return Role::class;
-    }
+
+	/**
+	 * Specify Model class name
+	 *
+	 * @return string
+	 */
+	public function model()
+	{
+		return Role::class;
+	}
 }

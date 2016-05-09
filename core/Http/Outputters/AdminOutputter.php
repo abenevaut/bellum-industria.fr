@@ -12,173 +12,188 @@ use Core\Domain\Settings\Repositories\SettingsRepository;
  */
 class AdminOutputter extends CoreOutputter
 {
-    public function __construct(SettingsRepository $r_settings)
-    {
-        parent::__construct($r_settings);
-        $this->addBreadcrumb(trans('global.dashboard'), config('core.uri.backend'));
-    }
 
-    /**
-     * @param string $view
-     * @param array $data
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function output($view, $data = [])
-    {
-        return parent::output(
-            $view,
-            $data
-                + $this->header_navigation()
-                + $this->main_navigation()
-                + $this->footer()
-        );
-    }
+	public function __construct(SettingsRepository $r_settings)
+	{
+		parent::__construct($r_settings);
+		$this->addBreadcrumb(trans('global.dashboard'), config('core.uri.backend'));
+	}
 
-    private function header_navigation()
-    {
-        $modules_list = Module::getOrdered();
+	/**
+	 * @param string $view
+	 * @param array  $data
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function output($view, $data = [])
+	{
+		return parent::output(
+			$view,
+			$data
+			+ $this->header_navigation()
+			+ $this->main_navigation()
+			+ $this->footer()
+		);
+	}
 
-        Menu::create(
-            'navbar',
-            function ($menu) use ($modules_list) {
+	private function header_navigation()
+	{
+		$modules_list = Module::getOrdered();
 
-                $menu->url(
-                    '/',
-                    trans('menus.view_website'),
-                    [],
-                    [
-                        'icon' => 'fa fa-globe',
-                        'target' => '_blank'
-                    ]
-                );
+		Menu::create(
+			'navbar',
+			function ($menu) use ($modules_list)
+			{
 
-                $menu->dropdown(
-                    trans('global.shortcuts'),
-                    function ($submenu) use ($modules_list) {
+				$menu->url(
+					'/',
+					trans('menus.view_website'),
+					[],
+					[
+						'icon'   => 'fa fa-globe',
+						'target' => '_blank'
+					]
+				);
 
-                        $i = 0;
+				$menu->dropdown(
+					trans('global.shortcuts'),
+					function ($submenu) use ($modules_list)
+					{
 
-                        foreach ($modules_list as $module) {
+						$i = 0;
 
-                            $config_base_tag = strtolower($module->name) . '.admin.sidebar.shortcuts.';
-                            $route = Config::get($config_base_tag . 'route');
+						foreach ($modules_list as $module)
+						{
 
-                            if (!is_null($route)) {
+							$config_base_tag = strtolower($module->name) . '.admin.sidebar.shortcuts.';
+							$route = Config::get($config_base_tag . 'route');
 
-                                if ($i) {
-                                    $submenu->divider();
-                                }
+							if (!is_null($route))
+							{
 
-                                $submenu->route(
-                                    $route,
-                                    $module->name,
-                                    [],
-                                    [
-                                        'icon' => Config::get($config_base_tag . 'icon')
-                                    ]
-                                );
+								if ($i)
+								{
+									$submenu->divider();
+								}
 
-                                $i++;
-                            }
-                        }
-                    },
-                    [],
-                    [
-                        'icon' => 'fa fa-fast-forward'
-                    ]
-                );
-            }
-        );
-        return [
-            'menu' => Menu::render('navbar', config('core.backend.menus.header.presenters'))
-        ];
-    }
+								$submenu->route(
+									$route,
+									$module->name,
+									[],
+									[
+										'icon' => Config::get($config_base_tag . 'icon')
+									]
+								);
 
-    /**
-     * @return array
-     */
-    private function main_navigation()
-    {
-        $modules_list = Module::getOrdered();
+								$i++;
+							}
+						}
+					},
+					[],
+					[
+						'icon' => 'fa fa-fast-forward'
+					]
+				);
+			}
+		);
 
-        Menu::create(
-            'navbar',
-            function ($menu) use ($modules_list) {
+		return [
+			'menu' => Menu::render('navbar', config('core.backend.menus.header.presenters'))
+		];
+	}
 
-                $menu->header(trans('menus.main_navigation'));
+	/**
+	 * @return array
+	 */
+	private function main_navigation()
+	{
+		$modules_list = Module::getOrdered();
 
-                foreach ($modules_list as $module) {
+		Menu::create(
+			'navbar',
+			function ($menu) use ($modules_list)
+			{
 
-                    $config_base_tag = strtolower($module->name) . '.admin.sidebar.menu.';
-                    $route = Config::get($config_base_tag . 'route');
+				$menu->header(trans('menus.main_navigation'));
 
-                    if (!is_null($route)) {
-                        $menu->route(
-                            $route,
-                            $module->name,
-                            [],
-                            [
-                                'icon' => Config::get($config_base_tag . 'icon')
-                            ]
-                        );
-                    }
-                }
+				foreach ($modules_list as $module)
+				{
 
-                $menu->dropdown(
-                    trans('global.settings'),
-                    function ($submenu) use ($modules_list) {
+					$config_base_tag = strtolower($module->name) . '.admin.sidebar.menu.';
+					$route = Config::get($config_base_tag . 'route');
 
-                        $submenu->route(
-                            'admin.settings.index',
-                            trans('global.general'),
-                            [],
-                            [
-                                'icon' => 'fa fa-gear'
-                            ]
-                        );
+					if (!is_null($route))
+					{
+						$menu->route(
+							$route,
+							$module->name,
+							[],
+							[
+								'icon' => Config::get($config_base_tag . 'icon')
+							]
+						);
+					}
+				}
 
-                        foreach ($modules_list as $module) {
+				$menu->dropdown(
+					trans('global.settings'),
+					function ($submenu) use ($modules_list)
+					{
 
-                            $config_base_tag = strtolower($module->name) . '.admin.sidebar.settings.';
-                            $route = Config::get($config_base_tag . 'route');
+						$submenu->route(
+							'admin.settings.index',
+							trans('global.general'),
+							[],
+							[
+								'icon' => 'fa fa-gear'
+							]
+						);
 
-                            if (!is_null($route)) {
-                                $submenu->route(
-                                    $route,
-                                    $module->name,
-                                    [],
-                                    [
-                                        'icon' => Config::get($config_base_tag . 'icon')
-                                    ]
-                                );
-                            }
-                        }
-                    },
-                    [],
-                    [
-                        'icon' => 'fa fa-gears'
-                    ]
-                );
-            }
-        );
-        return [
-            'sidebar' => [
-                'menu' => Menu::render('navbar', config('core.backend.menus.sidebar.presenters'))
-            ]
-        ];
-    }
+						foreach ($modules_list as $module)
+						{
 
-    /**
-     * @return array
-     */
-    private function footer()
-    {
-        return [
-            'footer' => [
-                'version' => Config::get('core.version'),
-                'title' => Config::get('core.site.name'),
-                'url' => Config::get('app.url'),
-            ]
-        ];
-    }
+							$config_base_tag = strtolower($module->name) . '.admin.sidebar.settings.';
+							$route = Config::get($config_base_tag . 'route');
+
+							if (!is_null($route))
+							{
+								$submenu->route(
+									$route,
+									$module->name,
+									[],
+									[
+										'icon' => Config::get($config_base_tag . 'icon')
+									]
+								);
+							}
+						}
+					},
+					[],
+					[
+						'icon' => 'fa fa-gears'
+					]
+				);
+			}
+		);
+
+		return [
+			'sidebar' => [
+				'menu' => Menu::render('navbar', config('core.backend.menus.sidebar.presenters'))
+			]
+		];
+	}
+
+	/**
+	 * @return array
+	 */
+	private function footer()
+	{
+		return [
+			'footer' => [
+				'version' => Config::get('core.version'),
+				'title'   => Config::get('core.site.name'),
+				'url'     => Config::get('app.url'),
+			]
+		];
+	}
 }

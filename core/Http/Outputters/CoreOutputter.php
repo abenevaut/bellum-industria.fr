@@ -14,30 +14,31 @@ use Core\Domain\Settings\Repositories\SettingsRepository;
  */
 class CoreOutputter extends AbsLaravelOutputter
 {
-    /**
-     * @var string Outputter header title
-     */
-    protected $title = 'default';
 
-    /**
-     * @var string Outputter header description
-     */
-    protected $description = 'default';
+	/**
+	 * @var string Outputter header title
+	 */
+	protected $title = 'default';
 
-    /**
-     * @var string View namespace ('users::'|null)
-     */
-    private $view_prefix = null;
+	/**
+	 * @var string Outputter header description
+	 */
+	protected $description = 'default';
 
-    /**
-     * @var null
-     */
-    private $current_module = null;
+	/**
+	 * @var string View namespace ('users::'|null)
+	 */
+	private $view_prefix = null;
 
-    /**
-     * @var SettingsRepository|null
-     */
-    protected $r_settings = null;
+	/**
+	 * @var null
+	 */
+	private $current_module = null;
+
+	/**
+	 * @var SettingsRepository|null
+	 */
+	protected $r_settings = null;
 
 	/**
 	 * CoreOutputter constructor.
@@ -45,75 +46,76 @@ class CoreOutputter extends AbsLaravelOutputter
 	 * @param SettingsRepository $r_settings
 	 */
 	public function __construct(SettingsRepository $r_settings)
-    {
-        parent::__construct();
+	{
+		parent::__construct();
 
-        $this->r_settings = $r_settings;
+		$this->r_settings = $r_settings;
 
-        $this->setBreadcrumbDivider('');
-        $this->breadcrumbs->setListElement('li');
-        $this->set_view_prefix();
-    }
+		$this->setBreadcrumbDivider('');
+		$this->breadcrumbs->setListElement('li');
+		$this->set_view_prefix();
+	}
 
-    /**
-     * @param string $view
-     * @param array $data
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function output($view, $data = [])
-    {
-        return cmsview(
-            $view,
-            $data
-                + $this->data_header(),
-            $this->view_prefix,
-            $this->current_module
-        );
-    }
+	/**
+	 * @param string $view
+	 * @param array  $data
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function output($view, $data = [])
+	{
+		return cmsview(
+			$view,
+			$data
+			+ $this->data_header(),
+			$this->view_prefix,
+			$this->current_module
+		);
+	}
 
-    /**
-     *
-     */
-    private function set_view_prefix()
-    {
-        $this->view_prefix = Theme::getCurrent() . '::';
-    }
+	/**
+	 *
+	 */
+	private function set_view_prefix()
+	{
+		$this->view_prefix = Theme::getCurrent() . '::';
+	}
 
-    /**
-     * @return string
-     */
-    protected function get_view_prefix()
-    {
-        return $this->view_prefix;
-    }
+	/**
+	 * @return string
+	 */
+	protected function get_view_prefix()
+	{
+		return $this->view_prefix;
+	}
 
-    /**
-     * @param $module
-     */
-    protected function set_current_module($module)
-    {
-        $this->current_module = $module . '::';
-    }
+	/**
+	 * @param $module
+	 */
+	protected function set_current_module($module)
+	{
+		$this->current_module = $module . '::';
+	}
 
-    /**
-     * @return null
-     */
-    protected function get_current_module()
-    {
-        return $this->current_module;
-    }
+	/**
+	 * @return null
+	 */
+	protected function get_current_module()
+	{
+		return $this->current_module;
+	}
 
-    /**
-     * @return array
-     */
-    private function data_header()
-    {
-        return [
-            'header' => [
-                'title' => $this->title,
-                'description' => $this->description,
-            ],
-            'breadcrumbs' => $this->breadcrumbs
-        ];
-    }
+	/**
+	 * @return array
+	 */
+	private function data_header()
+	{
+		return [
+			'header'      => [
+				'title'       => $this->title,
+				'description' => $this->description,
+			],
+			'breadcrumbs' => $this->breadcrumbs
+		];
+	}
 }

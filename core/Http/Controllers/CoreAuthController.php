@@ -10,13 +10,14 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
  */
 class CoreAuthController extends CoreController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    /**
-     * Create a new authentication controller instance.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
+	use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+	/**
+	 * Create a new authentication controller instance.
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+	}
 }

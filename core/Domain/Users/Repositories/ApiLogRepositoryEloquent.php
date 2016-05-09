@@ -11,21 +11,22 @@ use Core\Domain\Users\Entities\ApiLog;
  */
 class ApiLogRepositoryEloquent extends BaseRepository implements ApiLogRepository
 {
-    /**
-     * Specify Model class name
-     *
-     * @return string
-     */
-    public function model()
-    {
-        return ApiLog::class;
-    }
 
-    /**
-     * Boot up the repository, pushing criteria
-     */
-    public function boot()
-    {
-        $this->pushCriteria(app(RequestCriteria::class));
-    }
+	/**
+	 * Specify Model class name
+	 *
+	 * @return string
+	 */
+	public function model()
+	{
+		return ApiLog::class;
+	}
+
+	/**
+	 * Boot up the repository, pushing criteria
+	 */
+	public function boot()
+	{
+		$this->pushCriteria(app(RequestCriteria::class));
+	}
 }

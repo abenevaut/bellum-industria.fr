@@ -6,11 +6,12 @@
  */
 class CorePublicController extends CoreController
 {
-    /**
-     * Create a new authentication controller instance.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
+
+	/**
+	 * Create a new authentication controller instance.
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+	}
 }

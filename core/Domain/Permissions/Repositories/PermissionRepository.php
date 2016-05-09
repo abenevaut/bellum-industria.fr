@@ -8,5 +8,5 @@ use CVEPDB\Domain\Permissions\Repositories\PermissionRepository as BasePermissio
  */
 interface PermissionRepository extends BasePermissionRepository
 {
-    //
+
 }

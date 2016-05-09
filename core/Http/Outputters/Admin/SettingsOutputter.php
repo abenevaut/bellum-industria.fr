@@ -15,6 +15,7 @@ use CVEPDB\Abstracts\Http\Requests\FormRequest as AbsFormRequest;
  */
 class SettingsOutputter extends AdminOutputter
 {
+
 	/**
 	 * @var string Outputter header title
 	 */
@@ -52,45 +53,54 @@ class SettingsOutputter extends AdminOutputter
 		$posts = $request->all();
 		unset($posts['_token']);
 
-		foreach ($posts as $key => $value) {
+		foreach ($posts as $key => $value)
+		{
 			$setting_key = $this->getSettingKey($key);
 			$this->r_settings->set($setting_key, $value);
 		}
+
 		return $this->redirectTo('admin/settings');
 	}
 
 	/**
 	 * @param AbsFormRequest $request
+	 *
 	 * @return mixed
 	 */
 	public function get(AbsFormRequest $request)
 	{
 		$data = [];
-		if (Request::ajax()) {
+		if (Request::ajax())
+		{
 			$setting_key = $request->get('setting_key');
 			$data[$setting_key] = $this->r_settings->get($setting_key);
 		}
+
 		return Response::json($data);
 	}
 
 	/**
 	 * @param AbsFormRequest $request
+	 *
 	 * @return mixed
 	 */
 	public function set(AbsFormRequest $request)
 	{
 		$data = [];
-		if (Request::ajax()) {
+		if (Request::ajax())
+		{
 			$setting_key = $request->get('setting_key');
 			$setting_value = $request->get('setting_value');
 			$this->r_settings->set($setting_key, $setting_value);
 			$data[$setting_key] = $setting_value;
 		}
+
 		return Response::json($data);
 	}
 
 	/**
 	 * @param $form_key
+	 *
 	 * @return mixed
 	 */
 	private function getSettingKey($form_key)

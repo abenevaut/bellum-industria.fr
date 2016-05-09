@@ -8,37 +8,39 @@ use CVEPDB\Settings\Facades\Settings as SettingsFacade;
  */
 class SettingsRepository
 {
-    /**
-     * @return mixed
-     */
-    public function all()
-    {
-        $settings = SettingsFacade::getAll();
-        return $settings;
-    }
 
-    /**
-     * @param $key
-     * @param $data
-     */
-    public function set($key, $data)
-    {
-        SettingsFacade::set($key, $data);
-    }
+	/**
+	 * @return mixed
+	 */
+	public function all()
+	{
+		$settings = SettingsFacade::getAll();
 
-    /**
-     * @param $key
-     */
-    public function get($key)
-    {
-        return SettingsFacade::get($key);
-    }
+		return $settings;
+	}
 
-    /**
-     * @param $key
-     */
-    public function delete($key)
-    {
-        SettingsFacade::forget($key);
-    }
+	/**
+	 * @param $key
+	 * @param $data
+	 */
+	public function set($key, $data)
+	{
+		SettingsFacade::set($key, $data);
+	}
+
+	/**
+	 * @param $key
+	 */
+	public function get($key)
+	{
+		return SettingsFacade::get($key);
+	}
+
+	/**
+	 * @param $key
+	 */
+	public function delete($key)
+	{
+		SettingsFacade::forget($key);
+	}
 }

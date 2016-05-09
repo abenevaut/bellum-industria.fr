@@ -12,42 +12,45 @@ use Core\Domain\Users\Entities\User;
  */
 class ApiKeyRepositoryEloquent extends BaseRepository implements ApiKeyRepository
 {
-    /**
-     * Specify Model class name
-     *
-     * @return string
-     */
-    public function model()
-    {
-        return ApiKey::class;
-    }
 
-    /**
-     * Boot up the repository, pushing criteria
-     */
-    public function boot()
-    {
-        $this->pushCriteria(app(RequestCriteria::class));
-    }
+	/**
+	 * Specify Model class name
+	 *
+	 * @return string
+	 */
+	public function model()
+	{
+		return ApiKey::class;
+	}
 
-    public function generate_api_key(User $user, $level = 10, $ignore_limit = 0)
-    {
-        if (!is_null($user->apikeys)) {
-            foreach ($user->apikeys as $key) {
-                $this->cancel_api_key($key->key);
-            }
-        }
+	/**
+	 * Boot up the repository, pushing criteria
+	 */
+	public function boot()
+	{
+		$this->pushCriteria(app(RequestCriteria::class));
+	}
 
-        $this->create([
-            'user_id' => $user->id,
-            'key' => $this->model->generateKey(),
-            'level' => $level,
-            'ignore_limits' => $ignore_limit,
-        ]);
-    }
+	public function generate_api_key(User $user, $level = 10, $ignore_limit = 0)
+	{
+		if (!is_null($user->apikeys))
+		{
+			foreach ($user->apikeys as $key)
+			{
+				$this->cancel_api_key($key->key);
+			}
+		}
 
-    public function cancel_api_key($key)
-    {
-        $this->findWhereIn('key', [$key])->first()->delete();
-    }
+		$this->create([
+			'user_id'       => $user->id,
+			'key'           => $this->model->generateKey(),
+			'level'         => $level,
+			'ignore_limits' => $ignore_limit,
+		]);
+	}
+
+	public function cancel_api_key($key)
+	{
+		$this->findWhereIn('key', [$key])->first()->delete();
+	}
 }

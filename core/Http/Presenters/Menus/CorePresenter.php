@@ -9,86 +9,87 @@ use Pingpong\Menus\MenuItem;
  */
 abstract class CorePresenter extends Presenter
 {
-    /**
-     * Get open tag wrapper.
-     *
-     * @return string
-     */
-    public function getOpenTagWrapper()
-    {
-    }
 
-    /**
-     * Get close tag wrapper.
-     *
-     * @return string
-     */
-    public function getCloseTagWrapper()
-    {
-    }
+	/**
+	 * Get open tag wrapper.
+	 *
+	 * @return string
+	 */
+	public function getOpenTagWrapper()
+	{
+	}
 
-    /**
-     * Get menu tag without dropdown wrapper.
-     *
-     * @param \Pingpong\Menus\MenuItem $item
-     *
-     * @return string
-     */
-    public function getMenuWithoutDropdownWrapper($item)
-    {
-    }
+	/**
+	 * Get close tag wrapper.
+	 *
+	 * @return string
+	 */
+	public function getCloseTagWrapper()
+	{
+	}
 
-    /**
-     * Get divider tag wrapper.
-     *
-     * @return string
-     */
-    public function getDividerWrapper()
-    {
-    }
+	/**
+	 * Get menu tag without dropdown wrapper.
+	 *
+	 * @param \Pingpong\Menus\MenuItem $item
+	 *
+	 * @return string
+	 */
+	public function getMenuWithoutDropdownWrapper($item)
+	{
+	}
 
-    /**
-     * Get header dropdown tag wrapper.
-     *
-     * @param \Pingpong\Menus\MenuItem $item
-     *
-     * @return string
-     */
-    public function getHeaderWrapper($item)
-    {
-    }
+	/**
+	 * Get divider tag wrapper.
+	 *
+	 * @return string
+	 */
+	public function getDividerWrapper()
+	{
+	}
 
-    /**
-     * Get menu tag with dropdown wrapper.
-     *
-     * @param \Pingpong\Menus\MenuItem $item
-     *
-     * @return string
-     */
-    public function getMenuWithDropDownWrapper($item)
-    {
-    }
+	/**
+	 * Get header dropdown tag wrapper.
+	 *
+	 * @param \Pingpong\Menus\MenuItem $item
+	 *
+	 * @return string
+	 */
+	public function getHeaderWrapper($item)
+	{
+	}
 
-    /**
-     * Get multi level dropdown menu wrapper.
-     *
-     * @param \Pingpong\Menus\MenuItem $item
-     *
-     * @return string
-     */
-    public function getMultiLevelDropdownWrapper($item)
-    {
-    }
+	/**
+	 * Get menu tag with dropdown wrapper.
+	 *
+	 * @param \Pingpong\Menus\MenuItem $item
+	 *
+	 * @return string
+	 */
+	public function getMenuWithDropDownWrapper($item)
+	{
+	}
 
-    /**
-     * Get child menu items.
-     *
-     * @param \Pingpong\Menus\MenuItem $item
-     *
-     * @return string
-     */
-    public function getChildMenuItems(MenuItem $item)
-    {
-        return parent::getChildMenuItems($item);
-    }
+	/**
+	 * Get multi level dropdown menu wrapper.
+	 *
+	 * @param \Pingpong\Menus\MenuItem $item
+	 *
+	 * @return string
+	 */
+	public function getMultiLevelDropdownWrapper($item)
+	{
+	}
+
+	/**
+	 * Get child menu items.
+	 *
+	 * @param \Pingpong\Menus\MenuItem $item
+	 *
+	 * @return string
+	 */
+	public function getChildMenuItems(MenuItem $item)
+	{
+		return parent::getChildMenuItems($item);
+	}
 }
