@@ -10,30 +10,35 @@ use Module;
  */
 class ModulesServiceProvider extends ServiceProvider
 {
-    /**
-     *
-     */
-    public function register()
-    {
-        $this->app->booting(function () {
 
-            $loader = AliasLoader::getInstance();
-            $loader->alias('Widget', 'Pingpong\Widget\WidgetFacade');
+	/**
+	 *
+	 */
+	public function register()
+	{
+		$this->app->booting(function ()
+		{
 
-            $file = base_path('core/widgets.php');
+			$loader = AliasLoader::getInstance();
+			$loader->alias('Widget', 'Pingpong\Widget\WidgetFacade');
 
-            if (file_exists($file)) {
-                include $file;
-            }
+			$file = base_path('core/widgets.php');
 
-            foreach (Module::getOrdered() as $module) {
+			if (file_exists($file))
+			{
+				include $file;
+			}
 
-                $file = $module->getPath() . '/widgets.php';
+			foreach (Module::getOrdered() as $module)
+			{
 
-                if (file_exists($file)) {
-                    include $file;
-                }
-            }
-        });
-    }
+				$file = $module->getPath() . '/widgets.php';
+
+				if (file_exists($file))
+				{
+					include $file;
+				}
+			}
+		});
+	}
 }

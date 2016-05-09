@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Artisan;
  */
 class Kernel extends ConsoleKernel
 {
+
 	/**
 	 * The Artisan commands provided by your application.
 	 *

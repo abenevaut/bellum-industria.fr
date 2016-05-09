@@ -9,77 +9,84 @@ use Symfony\Component\Console\Input\InputOption;
  */
 class KeyGenerateCommand extends CoreCommand
 {
-    /**
-     * The console command name.
-     *
-     * @var string
-     */
-    protected $name = 'cms:key_generate';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Set the core key';
+	/**
+	 * The console command name.
+	 *
+	 * @var string
+	 */
+	protected $name = 'cms:key_generate';
 
-    /**
-     * Execute the console command.
-     *
-     * @return void
-     */
-    public function fire()
-    {
-        parent::fire();
+	/**
+	 * The console command description.
+	 *
+	 * @var string
+	 */
+	protected $description = 'Set the core key';
 
-        $app = $this->laravel;
+	/**
+	 * Execute the console command.
+	 *
+	 * @return void
+	 */
+	public function fire()
+	{
+		parent::fire();
 
-        $key = $this->getRandomKey($app['config']['app.cipher']);
+		$app = $this->laravel;
 
-        if ($this->option('show')) {
-            return $this->line('<comment>' . $key . '</comment>');
-        }
+		$key = $this->getRandomKey($app['config']['app.cipher']);
 
-        $path = $app->environmentPath() . '/' . $app->environmentFile() . '.' . env('CORE_ENV');
+		if ($this->option('show'))
+		{
+			return $this->line('<comment>' . $key . '</comment>');
+		}
 
-        if (file_exists($path)) {
-            $content = str_replace('CORE_KEY=' . $app['config']['app.key'], 'CORE_KEY=' . $key, file_get_contents($path));
+		$path = $app->environmentPath() . '/' . $app->environmentFile() . '.' . env('CORE_ENV');
 
-            if (!Str::contains($content, 'CORE_KEY')) {
-                $content = sprintf("%s\nCORE_KEY=%s\n", $content, $key);
-            }
+		if (file_exists($path))
+		{
+			$content = str_replace('CORE_KEY=' . $app['config']['app.key'], 'CORE_KEY=' . $key, file_get_contents($path));
 
-            file_put_contents($path, $content);
-        }
+			if (!Str::contains($content, 'CORE_KEY'))
+			{
+				$content = sprintf("%s\nCORE_KEY=%s\n", $content, $key);
+			}
 
-        $app['config']['app.key'] = $key;
+			file_put_contents($path, $content);
+		}
 
-        $this->info("#CVEPDB CMS key [$key] set successfully.");
-    }
+		$app['config']['app.key'] = $key;
 
-    /**
-     * Generate a random key for the application.
-     *
-     * @param  string $cipher
-     * @return string
-     */
-    protected function getRandomKey($cipher)
-    {
-        if ($cipher === 'AES-128-CBC') {
-            return Str::random(16);
-        }
-        return Str::random(32);
-    }
+		$this->info("#CVEPDB CMS key [$key] set successfully.");
+	}
 
-    /**
-     * Get the console command options.
-     *
-     * @return array
-     */
-    protected function getOptions()
-    {
-        return [
-            ['show', null, InputOption::VALUE_NONE, 'Simply display the key instead of modifying files.'],
-        ];
-    }
+	/**
+	 * Generate a random key for the application.
+	 *
+	 * @param  string $cipher
+	 *
+	 * @return string
+	 */
+	protected function getRandomKey($cipher)
+	{
+		if ($cipher === 'AES-128-CBC')
+		{
+			return Str::random(16);
+		}
+
+		return Str::random(32);
+	}
+
+	/**
+	 * Get the console command options.
+	 *
+	 * @return array
+	 */
+	protected function getOptions()
+	{
+		return [
+			['show', null, InputOption::VALUE_NONE, 'Simply display the key instead of modifying files.'],
+		];
+	}
 }

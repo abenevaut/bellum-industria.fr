@@ -8,4 +8,5 @@ use CVEPDB\Abstracts\Criterias\Criteria as AbsCriteria;
  */
 abstract class Criteria extends AbsCriteria
 {
+
 }

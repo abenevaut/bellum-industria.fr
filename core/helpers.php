@@ -1,8 +1,10 @@
 <?php
 
-if (!function_exists('slugify')) {
+if (!function_exists('slugify'))
+{
 	/**
 	 * @param $text
+	 *
 	 * @return bool|mixed|string
 	 */
 	function slugify($text)
@@ -22,7 +24,8 @@ if (!function_exists('slugify')) {
 		// remove unwanted characters
 		$text = preg_replace('~[^-\w]+~', '', $text);
 
-		if (empty($text)) {
+		if (empty($text))
+		{
 			return 'n-a';
 		}
 
@@ -30,9 +33,11 @@ if (!function_exists('slugify')) {
 	}
 }
 
-if (!function_exists('css_file_rev')) {
+if (!function_exists('css_file_rev'))
+{
 	/**
 	 * @param $file
+	 *
 	 * @return mixed
 	 */
 	function css_file_rev($file)
@@ -44,25 +49,31 @@ if (!function_exists('css_file_rev')) {
 	}
 }
 
-if (!function_exists('cmsview')) {
+if (!function_exists('cmsview'))
+{
 	/**
-	 * @param $view
+	 * @param       $view
 	 * @param array $data
-	 * @param null $view_prefix
-	 * @param null $current_module
+	 * @param null  $view_prefix
+	 * @param null  $current_module
+	 *
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	function cmsview($view, $data = [], $view_prefix = null, $current_module = null)
 	{
-		if (is_null($view_prefix)) {
+		if (is_null($view_prefix))
+		{
 			$view_prefix = \Theme::getCurrent() . '::';
 		}
 
 		$current_prefix = $view_prefix;
 
-		try {
+		try
+		{
 			\Theme::view($view);
-		} catch (\InvalidArgumentException $e) {
+		}
+		catch (\InvalidArgumentException $e)
+		{
 			$current_prefix = $current_module;
 		}
 
@@ -70,24 +81,30 @@ if (!function_exists('cmsview')) {
 	}
 }
 
-if (!function_exists('cmsview_prefix')) {
+if (!function_exists('cmsview_prefix'))
+{
 	/**
-	 * @param $view
+	 * @param      $view
 	 * @param null $view_prefix
 	 * @param null $current_module
+	 *
 	 * @return null|string
 	 */
 	function cmsview_prefix($view, $view_prefix = null, $current_module = null)
 	{
-		if (is_null($view_prefix)) {
+		if (is_null($view_prefix))
+		{
 			$view_prefix = \Theme::getCurrent() . '::';
 		}
 
 		$current_prefix = $view_prefix;
 
-		try {
+		try
+		{
 			\Theme::view($view);
-		} catch (\InvalidArgumentException $e) {
+		}
+		catch (\InvalidArgumentException $e)
+		{
 			$current_prefix = $current_module;
 		}
 
@@ -95,7 +112,8 @@ if (!function_exists('cmsview_prefix')) {
 	}
 }
 
-if (!function_exists('cmsinstalled')) {
+if (!function_exists('cmsinstalled'))
+{
 	/**
 	 * Allow to know if CMS is installed.
 	 *

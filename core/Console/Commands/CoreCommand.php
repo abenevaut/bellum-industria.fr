@@ -8,8 +8,9 @@ use Illuminate\Console\Command;
  */
 abstract class CoreCommand extends Command
 {
-    public function fire()
-    {
-        $this->line("<comment>" . config('core.licenses.phpcli') . "</comment>\n");
-    }
+
+	public function fire()
+	{
+		$this->line("<comment>" . config('core.licenses.phpcli') . "</comment>\n");
+	}
 }

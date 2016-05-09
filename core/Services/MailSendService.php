@@ -13,18 +13,21 @@ use CVEPDB\Settings\Facades\Settings;
  */
 abstract class MailSendService extends AbsMailService
 {
+
 	/**
 	 * Send one mail to multiple emails.
 	 *
-	 * @param array $emails All emails to send the message
+	 * @param array  $emails All emails to send the message
 	 * @param string $view Blade path view
 	 * @param string $subject Mail subject
-	 * @param array $data Blade template data
+	 * @param array  $data Blade template data
+	 *
 	 * @return mixed
 	 */
 	public function emailTo($emails, $view, $subject, $data = [])
 	{
-		Mail::send($view, $data, function ($message) use ($emails, $subject) {
+		Mail::send($view, $data, function ($message) use ($emails, $subject)
+		{
 
 			$mailfrom = Settings::get('mail.from.address');
 			$mailname = Settings::get('mail.from.name');
@@ -34,7 +37,8 @@ abstract class MailSendService extends AbsMailService
 				->from($mailfrom, $mailname)
 				->subject($subject);
 
-			if (!is_null($mailwatch)) {
+			if (!is_null($mailwatch))
+			{
 				$message->bcc($mailwatch);
 			}
 		});
