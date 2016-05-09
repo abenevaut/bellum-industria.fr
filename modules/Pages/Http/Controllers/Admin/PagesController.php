@@ -1,12 +1,12 @@
 <?php namespace Modules\Pages\Http\Controllers\Admin;
 
-use Pingpong\Modules\Routing\Controller;
+use Core\Http\Controllers\CoreAdminController as Controller;
 use Modules\Pages\Http\Outputters\Admin\PageOutputter;
 use Modules\Pages\Http\Requests\AdminPagesFormRequest;
 
 /**
  * Class PagesController
- * @package Modules\Pages\Http\Controllers
+ * @package Modules\Pages\Http\Controllers\Admin
  */
 class PagesController extends Controller
 {
@@ -19,19 +19,30 @@ class PagesController extends Controller
         PageOutputter $outputter
     )
     {
+        parent::__construct();
         $this->outputter = $outputter;
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return $this->outputter->index();
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         return $this->outputter->create();
     }
 
+    /**
+     * @param AdminPagesFormRequest $request
+     * @return \Modules\Pages\Http\Outputters\Admin\Response
+     */
     public function store(AdminPagesFormRequest $request)
     {
         return $this->outputter->store($request);

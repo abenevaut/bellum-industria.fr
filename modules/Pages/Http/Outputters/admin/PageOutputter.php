@@ -1,11 +1,14 @@
 <?php namespace Modules\Pages\Http\Outputters\Admin;
 
-use Config;
 use Core\Http\Outputters\AdminOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
 use Modules\Dashboard\Repositories\SettingsRepository;
 use Modules\Pages\Repositories\PagesRepositoryEloquent;
 
+/**
+ * Class PageOutputter
+ * @package Modules\Pages\Http\Outputters\Admin
+ */
 class PageOutputter extends AdminOutputter
 {
     /**
@@ -73,11 +76,16 @@ class PageOutputter extends AdminOutputter
         $title = $request->get('title');
         $slug = slugify($title);
         $uri = $slug; // Todo : when page parent in place, construct child URI
+        $is_home = $request->get('is_home');
+
+        // if ($is_home) {
+        // Todo : on bascule la page home courante vers 0
+        //}
 
         $page = $this->r_page->create([
             'title' => $title,
             'content' => $request->get('content'),
-            'is_home' => $request->get('is_home'),
+            'is_home' => $is_home,
             'slug' => $slug,
             'uri' => $uri
         ]);
@@ -125,11 +133,16 @@ class PageOutputter extends AdminOutputter
         $title = $request->get('title');
         $slug = slugify($title);
         $uri = $slug; // Todo : when page parent in place, construct child URI
+        $is_home = $request->get('is_home');
+
+        // if ($is_home) {
+        // Todo : on bascule la page home courante vers 0
+        //}
 
         $page = $this->r_page->update([
             'title' => $title,
             'content' => $request->get('content'),
-            'is_home' => $request->get('is_home'),
+            'is_home' => $is_home,
             'slug' => $slug,
             'uri' => $uri
         ], $id);

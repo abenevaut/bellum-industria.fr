@@ -18,7 +18,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="box">
                 <div class="box-header with-border">
                     <h3 class="box-title">Pages list</h3>
@@ -42,7 +42,6 @@
                         <i class="fa fa-ellipsis-v"></i>
                         <i class="fa fa-ellipsis-v"></i>
                       </span>
-                                    <input type="checkbox" value="" name="">
                                     <span class="text"><a href="{{ url($page->uri) }}" target="_blank">
                                             {{ $page->title }}
                                         </a></span>
@@ -82,23 +81,6 @@
                     </div>
                 @endif
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Pages info</h3>
-                </div>
-                <div class="box-body">
-                </div>
-                <div class="box-footer clearfix">
-
-                    <div class="no-margin pull-right">
-                        {{--                            {!! $pages->render() !!}--}}
-                    </div>
-
-                </div>
-            </div>
-
         </div>
     </div>
 @stop
