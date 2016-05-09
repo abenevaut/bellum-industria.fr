@@ -11,7 +11,7 @@
 |
 */
 
-$app = new Illuminate\Foundation\Application(realpath(__DIR__.'/../'));
+$app = new Illuminate\Foundation\Application(realpath(__DIR__ . '/../'));
 
 /*
 |--------------------------------------------------------------------------
@@ -39,20 +39,24 @@ $app->singleton(Illuminate\Contracts\Debug\ExceptionHandler::class, Core\Excepti
 |
 */
 
-$env = $app->detectEnvironment(function () {
+$env = $app->detectEnvironment(function ()
+{
 
-    $environmentPath = __DIR__.'/../.env';
+	$environmentPath = __DIR__ . '/../.env';
 
-    if (file_exists($environmentPath)) {
-        $setEnv = trim(file_get_contents($environmentPath));
-    } else {
-        $setEnv = 'installer';
-    }
+	if (file_exists($environmentPath))
+	{
+		$setEnv = trim(file_get_contents($environmentPath));
+	}
+	else
+	{
+		$setEnv = 'installer';
+	}
 
-    putenv('CORE_ENV='.$setEnv);
+	putenv('CORE_ENV=' . $setEnv);
 
-    $dotenv = new \Dotenv\Dotenv(__DIR__.'/../', '.env'.'.'.getenv('CORE_ENV')); // Laravel 5.2
-    $dotenv->overload(); //this is important
+	$dotenv = new \Dotenv\Dotenv(__DIR__ . '/../', '.env' . '.' . getenv('CORE_ENV')); // Laravel 5.2
+	$dotenv->overload(); //this is important
 });
 
 /*
