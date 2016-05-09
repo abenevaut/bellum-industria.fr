@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "88af42eb5c0f82a4156305b421ed6cae",
-    "content-hash": "e9561c4bc1992cc5a7c9d3319fdb9be8",
+    "hash": "ef171a1065d523ef7a59daac196e3ca2",
+    "content-hash": "4fbe52fa521bb0012468d70c374f4e93",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2328,12 +2328,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "58e54017e95418968bddb1b16548e2e119312776"
+                "reference": "b1a96f6134f69cb41f8538d3a6491f4bb1dbab78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/58e54017e95418968bddb1b16548e2e119312776",
-                "reference": "58e54017e95418968bddb1b16548e2e119312776",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b1a96f6134f69cb41f8538d3a6491f4bb1dbab78",
+                "reference": "b1a96f6134f69cb41f8538d3a6491f4bb1dbab78",
                 "shasum": ""
             },
             "require": {
@@ -2382,7 +2382,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-05-06 16:50:02"
+            "time": "2016-05-08 19:39:56"
         },
         {
             "name": "guzzlehttp/promises",
@@ -3697,12 +3697,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "c2455dae3223ec2382f5eaa32e47b9a988e129f0"
+                "reference": "e6109df274647c38a5be0141d4227db67ace1943"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/c2455dae3223ec2382f5eaa32e47b9a988e129f0",
-                "reference": "c2455dae3223ec2382f5eaa32e47b9a988e129f0",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/e6109df274647c38a5be0141d4227db67ace1943",
+                "reference": "e6109df274647c38a5be0141d4227db67ace1943",
                 "shasum": ""
             },
             "require": {
@@ -3750,7 +3750,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2016-04-29 13:30:52"
+            "time": "2016-05-08 16:34:39"
         },
         {
             "name": "mikemccabe/json-patch-php",
@@ -4631,12 +4631,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "3ceaa39a3c6a58462ae35027364f0eb2ecfc52f4"
+                "reference": "13496664942916730b1208a2b3b7a07684a90629"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/3ceaa39a3c6a58462ae35027364f0eb2ecfc52f4",
-                "reference": "3ceaa39a3c6a58462ae35027364f0eb2ecfc52f4",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/13496664942916730b1208a2b3b7a07684a90629",
+                "reference": "13496664942916730b1208a2b3b7a07684a90629",
                 "shasum": ""
             },
             "require": {
@@ -4678,7 +4678,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2016-05-08 13:21:11"
+            "time": "2016-05-08 16:56:25"
         },
         {
             "name": "prettus/l5-repository",
@@ -5667,12 +5667,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "8c6bf305cd03bef9e56affcf44c6573539195776"
+                "reference": "731bf0a940dbf11d6fccfd398d97276f4cb3fa5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/8c6bf305cd03bef9e56affcf44c6573539195776",
-                "reference": "8c6bf305cd03bef9e56affcf44c6573539195776",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/731bf0a940dbf11d6fccfd398d97276f4cb3fa5b",
+                "reference": "731bf0a940dbf11d6fccfd398d97276f4cb3fa5b",
                 "shasum": ""
             },
             "require": {
@@ -5717,7 +5717,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-05-07 16:50:25"
+            "time": "2016-05-09 08:06:35"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7185,6 +7185,56 @@
             "time": "2015-08-26 23:40:21"
         },
         {
+            "name": "codeception/c3",
+            "version": "2.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Codeception/c3.git",
+                "reference": "da38bf6beab50977bcfeda23befd89cb0397fc59"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/da38bf6beab50977bcfeda23befd89cb0397fc59",
+                "reference": "da38bf6beab50977bcfeda23befd89cb0397fc59",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "php": ">=5.4.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Codeception\\c3\\Installer"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Codeception\\c3\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tiger Seo",
+                    "email": "tiger.seo@gmail.com"
+                },
+                {
+                    "name": "Michael Bodnarchuk",
+                    "email": "davert.php@codegyre.com",
+                    "homepage": "http://codegyre.com"
+                }
+            ],
+            "description": "CodeCoverage collector for Codeception",
+            "homepage": "http://codeception.com/",
+            "keywords": [
+                "code coverage",
+                "codecoverage"
+            ],
+            "time": "2016-04-13 21:44:59"
+        },
+        {
             "name": "codeception/codeception",
             "version": "2.1.8",
             "source": {
@@ -8199,7 +8249,7 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "0.9.4",
+            "version": "0.9.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
@@ -8460,16 +8510,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "dev-master",
+            "version": "3.3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "9eb699e97e0097f05bcf1cd9bbb91c582a48bf9e"
+                "reference": "5c8dd64bb3b3f4842933aa8c2876787b6c479229"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/9eb699e97e0097f05bcf1cd9bbb91c582a48bf9e",
-                "reference": "9eb699e97e0097f05bcf1cd9bbb91c582a48bf9e",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/5c8dd64bb3b3f4842933aa8c2876787b6c479229",
+                "reference": "5c8dd64bb3b3f4842933aa8c2876787b6c479229",
                 "shasum": ""
             },
             "require": {
@@ -8483,7 +8533,7 @@
             },
             "require-dev": {
                 "ext-xdebug": ">=2.1.4",
-                "phpunit/phpunit": "^5.4"
+                "phpunit/phpunit": "~5"
             },
             "suggest": {
                 "ext-dom": "*",
@@ -8493,7 +8543,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0.x-dev"
+                    "dev-master": "3.3.x-dev"
                 }
             },
             "autoload": {
@@ -8519,7 +8569,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-05-04 12:34:12"
+            "time": "2016-05-04 11:47:27"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -8701,16 +8751,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "dev-master",
+            "version": "5.3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "82a3aafd187033fd5572ad28dfff7c1989cbf68d"
+                "reference": "6867f2080438ad23132ce39fc8a008a0ea618486"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/82a3aafd187033fd5572ad28dfff7c1989cbf68d",
-                "reference": "82a3aafd187033fd5572ad28dfff7c1989cbf68d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6867f2080438ad23132ce39fc8a008a0ea618486",
+                "reference": "6867f2080438ad23132ce39fc8a008a0ea618486",
                 "shasum": ""
             },
             "require": {
@@ -8722,11 +8772,11 @@
                 "myclabs/deep-copy": "~1.3",
                 "php": "^5.6 || ^7.0",
                 "phpspec/prophecy": "^1.3.1",
-                "phpunit/php-code-coverage": "^4.0",
+                "phpunit/php-code-coverage": "^3.3.0",
                 "phpunit/php-file-iterator": "~1.4",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": "^1.0.6",
-                "phpunit/phpunit-mock-objects": "^3.2",
+                "phpunit/phpunit-mock-objects": "^3.1",
                 "sebastian/comparator": "~1.1",
                 "sebastian/diff": "~1.2",
                 "sebastian/environment": "~1.3",
@@ -8746,7 +8796,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.4.x-dev"
+                    "dev-master": "5.3.x-dev"
                 }
             },
             "autoload": {
@@ -8772,7 +8822,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-05-05 07:36:17"
+            "time": "2016-04-29 09:30:44"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
