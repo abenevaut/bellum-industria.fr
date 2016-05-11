@@ -53,6 +53,10 @@ class Kernel extends HttpKernel
 			'APIResponseHeaderJsMiddleware',
 			'apiguard'
 		],
+		'ajax' => [
+			'throttle:60,1',
+			'APIResponseHeaderJsMiddleware',
+		],
 		'installer' => [
 			\Core\Http\Middleware\EncryptCookies::class,
 			\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
