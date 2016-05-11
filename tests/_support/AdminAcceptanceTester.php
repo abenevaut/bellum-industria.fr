@@ -16,7 +16,7 @@ class AdminAcceptanceTester extends AcceptanceTester
 		// logging in
 		$this->amOnPage('/admin/login');
 		$this->fillField('email', 'antoine@cvepdb.fr');
-		$this->fillField('password', 'CMK7kodQ');
+		$this->fillField('password', 'secret');
 		$this->click('Sign In');
 
 		// saving snapshot

@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.5.42, for osx10.6 (i386)
 --
--- Host: localhost    Database: cvepdb_cms_testing
+-- Host: 127.0.0.1    Database: cvepdb_cms
 -- ------------------------------------------------------
 -- Server version	5.5.42
 
@@ -74,7 +74,7 @@ CREATE TABLE `api_keys` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `api_keys_key_unique` (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,6 +83,7 @@ CREATE TABLE `api_keys` (
 
 LOCK TABLES `api_keys` WRITE;
 /*!40000 ALTER TABLE `api_keys` DISABLE KEYS */;
+INSERT INTO `api_keys` (`id`, `user_id`, `key`, `level`, `ignore_limits`, `created_at`, `updated_at`, `deleted_at`) VALUES (1,1,'e2963477db70035b6c6609cea38c56e63c0b0520',10,0,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(2,2,'70de269b53ee3707c4d9ff2331441f3c4cc38b52',10,0,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(3,3,'d6188be347a8650328b5a27b7b1f8bd30dbc7b14',10,0,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(4,4,'6bce1a0947067e20056319699fb777dbc6928ca2',10,0,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(5,5,'407f97df3f454bbe8c3c26eac06fa0b2427c9841',10,0,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(6,6,'80696b62fdcdfb34aa7bdd7a7b439fd47015a0f5',10,0,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(7,7,'7780b8ff81aa8a092bd13da138c987c8d886ed61',10,0,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(8,8,'5adc96c626320220beae8e743d15608b92f02a52',10,0,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(9,9,'ec83473ec3cf0fee51311c6619f22688f5fe95a1',10,0,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(10,10,'dfe50da79ec5a3f83d3f28e0f05e7bbcee3a7402',10,0,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(11,11,'a06ac15b7bd376e8018a05c80e836b4ef96c6e9a',10,0,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(12,12,'f7a21d901d5811fd1bdb4c2cf9198cd49597a836',10,0,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(13,13,'468a68884e51bdabcd19645ddae9c025bea71670',10,0,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(14,14,'97a58e1c91298ad26d13237161e88fd3e4f32355',10,0,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(15,15,'24fe028344bccc9ff0b8087f87edbabf035f2511',10,0,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(16,16,'2fee699bd103c9783655233d5f993b6dcdf7b45a',10,0,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(17,17,'c237711e1d100ba53356f13e594dc10285054696',10,0,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(18,18,'1938a37ed2b950f9c03d842cb9c87501fbaf3abc',10,0,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(19,19,'8ea493942b94651ed07dd93c320f74dcbb80b47b',10,0,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(20,20,'c8ef1dd4250707d736e40b3f9d7d8deb402523b4',10,0,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(21,21,'0f9b76815fe74bf6e50e80c03419c5ce77ca802a',10,0,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL);
 /*!40000 ALTER TABLE `api_keys` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -421,6 +422,7 @@ CREATE TABLE `role_user` (
 
 LOCK TABLES `role_user` WRITE;
 /*!40000 ALTER TABLE `role_user` DISABLE KEYS */;
+INSERT INTO `role_user` (`user_id`, `role_id`) VALUES (1,1),(2,1),(3,1),(4,1),(5,1),(6,1),(7,1),(8,1),(9,1),(10,1),(11,1),(12,1),(13,1),(14,1),(15,1),(16,1),(17,1),(18,1),(19,1),(20,1),(21,1),(1,2);
 /*!40000 ALTER TABLE `role_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -441,7 +443,7 @@ CREATE TABLE `roles` (
   `unchangeable` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `roles_name_unique` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -450,6 +452,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`, `unchangeable`) VALUES (1,'user','roles.user:display_name','roles.user:description','2016-05-11 11:44:00','2016-05-11 11:44:00',1),(2,'admin','roles.admin:display_name','roles.admin:description','2016-05-11 11:44:00','2016-05-11 11:44:00',1);
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -521,7 +524,7 @@ CREATE TABLE `users` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -530,6 +533,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES (1,'Benevaut','Antoine','antoine@cvepdb.fr','$2y$10$nGiPR5wFJID33dlbhmtj6.hy39MK4luBURI9l6WHEYUO/Qo3aFqcS',NULL,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(2,'Florian','Lebsack','Bria16@Leuschke.com','$2y$10$XrQg6rL5e8BWXqpmDoIvqeT5ms6hUwx9g./1YLCdj54VsvSb4ptyy',NULL,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(3,'Olen','Rogahn','qBotsford@gmail.com','$2y$10$s6oWrg.ZJa.Jt74zVbFOEuKSxqK1SCFaNov6bvAnLgf5XjQOrIlBq',NULL,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(4,'Oma','Bogisich','Johnston.Rodger@hotmail.com','$2y$10$7p/bjC3VvvNdc1qpVWmSeevqiucywT8kAFG/ZCDuAbKNbLsgHyUwa',NULL,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(5,'Danielle','Morar','Marcelino21@yahoo.com','$2y$10$kEPtfJ32.ZNAQ7uY8e3m1eRwRyuYpBVMynnn.TmwwegrXMBVJi.wq',NULL,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(6,'Myrtle','Okuneva','nCasper@hotmail.com','$2y$10$rJH9Wkz2oHh67HTr9nA9BOTxJAodquqnyo4YGzwmgwKf.oZTbSvNm',NULL,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(7,'Milton','Cummings','Alexandro.Price@Quigley.com','$2y$10$MwuiaN.GN12zytziCivxc.HGCg2qTG8q4g38S5OyQe7w.uyTYgqXi',NULL,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(8,'Reginald','Gutmann','Senger.Magali@Gorczany.info','$2y$10$JHiUC29Xfg6mtKGKsWx1sOc5XHt4HK0j8N10Qxqi3lrFChxSlDBFa',NULL,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(9,'Leilani','Powlowski','Hagenes.Marina@Koss.biz','$2y$10$uwO1kL/gQrAaVArj2EVsyOx8/JSCLnd/ESGz74eupgkktpgPm/eNC',NULL,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(10,'Haylie','Gulgowski','Goldner.Marlene@yahoo.com','$2y$10$S7RrSXcqcL5bCB0ADeMHJe.Un9Vu7uQI9wVHjiOCyZ9r.FfiZqZQu',NULL,'2016-05-11 11:44:00','2016-05-11 11:44:00',NULL),(11,'Emilio','Corkery','Lavern90@hotmail.com','$2y$10$8xS91vF7hcZTwUkf2UnHr.qMsYW1iSZ0DXOOGREJzSSqWNqCoDcxG',NULL,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(12,'Kavon','Conroy','Joanne18@gmail.com','$2y$10$fFPHx96o.Yi55yg1THMcgeycDf1vaWxXJZwJAcSjpsWzgY8/wQaie',NULL,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(13,'Tristian','Marks','Daphney.Hyatt@gmail.com','$2y$10$4AhDv1imBhlmSQvLA5ZJWuR1372JfDiyKEE0sH1vjxUZ.Bh7uYFfO',NULL,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(14,'Macie','Von','dOsinski@Renner.com','$2y$10$fq8i2zBHVnrqVKozihoYROqSYwhCQE1Fzf7OJJuVGtMvANewL3vdm',NULL,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(15,'Audrey','Jerde','qDurgan@Cole.com','$2y$10$UkbPzC1pzvhfu2oGj1SwReIYUFCGrX1mZvAQW9xmnKw1Ff8OQWtWu',NULL,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(16,'Lauriane','Kuhn','Brooke.Johnson@hotmail.com','$2y$10$6o2RyaLhuRpB3fA3QJ5ld.uwZY4rp//Vlr59RpynqNgnxOSUC59du',NULL,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(17,'Kristofer','Kuhn','Leuschke.Rodger@Lind.net','$2y$10$MppVPphSRC1C7AC8zJCrdenX2CbyYThzLMq0dBd0xXosms9lE42RW',NULL,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(18,'Maximus','Ondricka','Audra89@yahoo.com','$2y$10$Xq3iZtd4whywcS/5oNIYXuvR4GgtWh7q2OXtWR4Eaw8JQArmlst.u',NULL,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(19,'Krista','Bashirian','kYundt@Strosin.biz','$2y$10$d/qrlKoZZweN4RL1be6xk.sm2xiePq3V6gwFcZHv43g6rESJOZA/2',NULL,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(20,'Ericka','Stanton','Grant.Jasper@yahoo.com','$2y$10$jEoOJl64P3v2DYTCbR3SH.rU4SAeyxjEylOSg94dGJlosRZPpVZ9i',NULL,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL),(21,'Marian','Mitchell','Barrows.Hope@Wolff.org','$2y$10$jIALBGFpekQxpWyw/prqWuHYGRc3ojz3qcEcvMG6DWcOOWTDLAoty',NULL,'2016-05-11 11:44:01','2016-05-11 11:44:01',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -542,4 +546,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-29 14:24:18
+-- Dump completed on 2016-05-11 15:44:01

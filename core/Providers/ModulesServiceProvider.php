@@ -51,6 +51,8 @@ class ModulesServiceProvider extends PingpongModulesServiceProvider
 	 */
 	protected function registerProviders()
 	{
+		$this->commands('Pingpong\Modules\Commands\PublishCommand');
+		$this->commands('Pingpong\Modules\Commands\PublishMigrationCommand');
 		$this->app->register('Pingpong\Modules\Providers\ContractsServiceProvider');
 	}
 

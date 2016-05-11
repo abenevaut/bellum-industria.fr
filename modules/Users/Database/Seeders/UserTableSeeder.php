@@ -42,7 +42,7 @@ class UserTableSeeder extends Seeder {
 
 		$m_apikey->create([
 			'user_id' => $user->id,
-			'key' => $m_apikey->generateKey(),
+			'key' => 'e2963477db70035b6c6609cea38c56e63c0b0520',
 			'level' => 10,
 			'ignore_limits' => 0,
 		]);

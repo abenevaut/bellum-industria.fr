@@ -14,7 +14,7 @@ class ThemesServiceProvider extends PingpongThemesServiceProvider
 	 */
 	protected function registerCommands()
 	{
-		return null;
+		$this->commands('Pingpong\Themes\Console\PublishCommand');
 	}
 
 }
