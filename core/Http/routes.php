@@ -9,7 +9,7 @@ Route::group(['middleware' => ['throttle:60,1', 'APIResponseHeaderJsMiddleware']
 {
 	Route::group(['prefix' => 'v1'], function ()
 	{
-		Route::post('settings/set', '\Core\Http\Controllers\Admin\SettingsController@set');
-		Route::post('settings/get', '\Core\Http\Controllers\Admin\SettingsController@get');
+		Route::post('settings/set', '\Core\Http\Controllers\Api\SettingsController@set');
+		Route::post('settings/get', '\Core\Http\Controllers\Api\SettingsController@get');
 	});
 });

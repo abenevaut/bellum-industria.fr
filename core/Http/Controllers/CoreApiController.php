@@ -28,6 +28,9 @@ class CoreApiController extends CoreController
 	 */
 	protected $apiMethods;
 
+	/**
+	 * CoreApiController constructor.
+	 */
 	public function __construct()
 	{
 		parent::__construct();
