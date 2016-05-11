@@ -47,9 +47,9 @@ Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Mo
 	Route::resource('roles', 'RolesController');
 });
 
-Route::group(['middleware' => ['api'], 'namespace' => 'Modules\Users\Http\Controllers\Api'], function () {
-	Route::group(['prefix' => 'v1'], function () {
-		Route::get('users/profile', 'UsersController@userProfile');
-		Route::resource('users', 'UsersController');
-	});
-});
+//Route::group(['middleware' => ['api'], 'namespace' => 'Modules\Users\Http\Controllers\Api'], function () {
+//	Route::group(['prefix' => 'v1'], function () {
+//		Route::get('users/profile', 'UsersController@userProfile');
+//		Route::resource('users', 'UsersController');
+//	});
+//});
