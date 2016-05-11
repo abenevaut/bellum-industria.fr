@@ -146,30 +146,28 @@ return [
 		Illuminate\Validation\ValidationServiceProvider::class,
 		Illuminate\View\ViewServiceProvider::class,
 		/*
-		 * CMS
+		 * Libraries Providers
 		 */
-		Zizaco\Entrust\EntrustServiceProvider::class,
-		'Pingpong\Modules\ModulesServiceProvider',
-		'Pingpong\Menus\MenusServiceProvider',
-		'Pingpong\Widget\WidgetServiceProvider',
-		'Pingpong\Themes\ThemesServiceProvider',
-		Chrisbjr\ApiGuard\Providers\ApiGuardServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
 		Barryvdh\Debugbar\ServiceProvider::class,
-		Prettus\Repository\Providers\RepositoryServiceProvider::class,
-		'Phoenix\EloquentMeta\ServiceProvider',
-		'Maatwebsite\Excel\ExcelServiceProvider',
 		Antennaio\Codeception\DbDumpServiceProvider::class,
-		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+		Maatwebsite\Excel\ExcelServiceProvider::class,
+		Pingpong\Menus\MenusServiceProvider::class,
+		Pingpong\Widget\WidgetServiceProvider::class,
 		/*
 		 * Core Service Providers...
 		 */
+		Core\Providers\EntrustServiceProvider::class,
+		Core\Providers\ApiGuardServiceProvider::class,
 		Core\Providers\AuthServiceProvider::class,
 		Core\Providers\EventServiceProvider::class,
 		Core\Providers\RouteServiceProvider::class,
 		Core\Providers\ModulesServiceProvider::class,
 		CVEPDB\Addresses\AddressesServiceProvider::class,
 		CVEPDB\Settings\SettingsServiceProvider::class,
+		Core\Providers\ModulesServiceProvider::class,
+		Core\Providers\ThemesServiceProvider::class,
 	],
 
 	/*
@@ -214,7 +212,9 @@ return [
 		'URL'          => Illuminate\Support\Facades\URL::class,
 		'Validator'    => Illuminate\Support\Facades\Validator::class,
 		'View'         => Illuminate\Support\Facades\View::class,
-		// CMS
+		/*
+		 * CMS
+		 */
 		'Entrust'      => Zizaco\Entrust\EntrustFacade::class,
 		'ApiGuardAuth' => \Chrisbjr\ApiGuard\Facades\ApiGuardAuth::class,
 		'Module'       => 'Pingpong\Modules\Facades\Module',

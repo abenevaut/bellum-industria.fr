@@ -1,14 +1,14 @@
 <?php namespace Core\Providers;
 
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\ServiceProvider;
+use Pingpong\Modules\ModulesServiceProvider as PingpongModulesServiceProvider;
 use Module;
 
 /**
  * Class ModulesServiceProvider
  * @package Core\Providers
  */
-class ModulesServiceProvider extends ServiceProvider
+class ModulesServiceProvider extends PingpongModulesServiceProvider
 {
 
 	/**
@@ -16,6 +16,10 @@ class ModulesServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
+		$this->registerServices();
+		$this->setupStubPath();
+		$this->registerProviders();
+
 		$this->app->booting(function ()
 		{
 
@@ -41,4 +45,13 @@ class ModulesServiceProvider extends ServiceProvider
 			}
 		});
 	}
+
+	/**
+	 * Register providers.
+	 */
+	protected function registerProviders()
+	{
+		$this->app->register('Pingpong\Modules\Providers\ContractsServiceProvider');
+	}
+
 }
