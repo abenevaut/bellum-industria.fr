@@ -136,7 +136,6 @@ return [
 		Illuminate\Filesystem\FilesystemServiceProvider::class,
 		Illuminate\Foundation\Providers\FoundationServiceProvider::class,
 		Illuminate\Hashing\HashServiceProvider::class,
-		Core\Providers\MailServiceProvider::class,
 		Illuminate\Pagination\PaginationServiceProvider::class,
 		Illuminate\Pipeline\PipelineServiceProvider::class,
 		Illuminate\Queue\QueueServiceProvider::class,
@@ -148,6 +147,7 @@ return [
 		/*
 		 * Core Service Providers...
 		 */
+		Core\Providers\MailServiceProvider::class,
 		Core\Providers\EntrustServiceProvider::class,
 		Core\Providers\ApiGuardServiceProvider::class,
 		Core\Providers\AuthServiceProvider::class,
