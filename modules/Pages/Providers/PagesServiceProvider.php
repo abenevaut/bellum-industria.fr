@@ -106,7 +106,7 @@ class PagesServiceProvider extends ServiceProvider
     public function registerRoutes()
     {
         if (cmsinstalled()) {
-            // Todo :: CACHE THIS
+            // xABE Todo :: CACHE THIS
             $pages = $this->r_page->findWhere(['is_home' => 0]);
 
             $config['namespace'] = 'Modules\Pages\Http\Controllers';

@@ -75,11 +75,11 @@ class PageOutputter extends AdminOutputter
     {
         $title = $request->get('title');
         $slug = slugify($title);
-        $uri = $slug; // Todo : when page parent in place, construct child URI
+        $uri = $slug; // xABE Todo : when page parent in place, construct child URI
         $is_home = $request->get('is_home');
 
         // if ($is_home) {
-        // Todo : on bascule la page home courante vers 0
+        // xABE Todo : on bascule la page home courante vers 0
         //}
 
         $page = $this->r_page->create([
@@ -132,11 +132,11 @@ class PageOutputter extends AdminOutputter
     {
         $title = $request->get('title');
         $slug = slugify($title);
-        $uri = $slug; // Todo : when page parent in place, construct child URI
+        $uri = $slug; // xABE Todo : when page parent in place, construct child URI
         $is_home = $request->get('is_home');
 
         // if ($is_home) {
-        // Todo : on bascule la page home courante vers 0
+        // xABE Todo : on bascule la page home courante vers 0
         //}
 
         $page = $this->r_page->update([

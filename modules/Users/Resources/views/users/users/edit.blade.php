@@ -120,7 +120,7 @@
                     <div id="myTabContent" class="tab-content">
                         @foreach (\CVEPDB\Settings\Facades\Settings::get('addresses.flags') as $type)
 
-                            {{-- Todo : Change this --}}
+                            {{-- xABE Todo : Change this --}}
                             <?php $current_address = null; ?>
                             @foreach ($user->addresses as $address)
                                 @if ($type == 'primary' && $address->is_primary)
@@ -131,7 +131,7 @@
                                     <?php $current_address = $address; ?>
                                 @endif
                             @endforeach
-                            {{-- !Todo : Change this --}}
+                            {{-- !xABE Todo : Change this --}}
 
                             <div class="tab-pane fade
                                 @if ($type == 'primary')

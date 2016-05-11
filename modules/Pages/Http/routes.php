@@ -21,7 +21,7 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Pages\Http\Contro
 //	if ($not_using_private_route)
 //	{
 //		Route::get('{uri}', 'PagesController@map')
-//			->where('uri', '^([A-z\d-\/_.]+)?'); // config('pages.route_pattern') // todo check PagesServiceProvider
+//			->where('uri', '^([A-z\d-\/_.]+)?'); // config('pages.route_pattern') // xABE todo check PagesServiceProvider
 //	}
 });
 

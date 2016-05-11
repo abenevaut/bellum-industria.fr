@@ -129,8 +129,8 @@ class AuthController extends Controller
         try {
             $user = Socialite::driver($provider)->user();
 
-            // Todo : Si logguer -> ajouter le token au compte courant
-            // Todo : Si pas logguer -> on enregistre l'utilisateur, si le mail n'existe pas deja
+            // xABE Todo : Si logguer -> ajouter le token au compte courant
+            // xABE Todo : Si pas logguer -> on enregistre l'utilisateur, si le mail n'existe pas deja
 
             Session::flash('message', trans('auth.message_success_loggedin'));
         }
