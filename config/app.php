@@ -146,6 +146,17 @@ return [
 		Illuminate\Validation\ValidationServiceProvider::class,
 		Illuminate\View\ViewServiceProvider::class,
 		/*
+		 * Core Service Providers...
+		 */
+		Core\Providers\EntrustServiceProvider::class,
+		Core\Providers\ApiGuardServiceProvider::class,
+		Core\Providers\AuthServiceProvider::class,
+		Core\Providers\EventServiceProvider::class,
+		Core\Providers\RouteServiceProvider::class,
+		Core\Providers\ModulesServiceProvider::class,
+		Core\Providers\ModulesServiceProvider::class,
+		Core\Providers\ThemesServiceProvider::class,
+		/*
 		 * Libraries Providers
 		 */
 		Collective\Html\HtmlServiceProvider::class,
@@ -155,19 +166,8 @@ return [
 		Maatwebsite\Excel\ExcelServiceProvider::class,
 		Pingpong\Menus\MenusServiceProvider::class,
 		Pingpong\Widget\WidgetServiceProvider::class,
-		/*
-		 * Core Service Providers...
-		 */
-		Core\Providers\EntrustServiceProvider::class,
-		Core\Providers\ApiGuardServiceProvider::class,
-		Core\Providers\AuthServiceProvider::class,
-		Core\Providers\EventServiceProvider::class,
-		Core\Providers\RouteServiceProvider::class,
-		Core\Providers\ModulesServiceProvider::class,
 		CVEPDB\Addresses\AddressesServiceProvider::class,
 		CVEPDB\Settings\SettingsServiceProvider::class,
-		Core\Providers\ModulesServiceProvider::class,
-		Core\Providers\ThemesServiceProvider::class,
 	],
 
 	/*
