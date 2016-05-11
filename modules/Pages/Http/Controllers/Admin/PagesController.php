@@ -15,6 +15,11 @@ class PagesController extends Controller
      */
     private $outputter = null;
 
+    /**
+     * PagesController constructor.
+     *
+     * @param PageOutputter $outputter
+     */
     public function __construct(
         PageOutputter $outputter
     )
@@ -51,8 +56,9 @@ class PagesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return Response
+     * @param $id
+     *
+     * @return \Modules\Pages\Http\Outputters\Admin\Response
      */
     public function show($id)
     {

@@ -95,9 +95,8 @@ class PageOutputter extends AdminOutputter
 
     /**
      * Display the specified resource.
-     *
-     * @param  int $id
-     * @return Response
+     * 
+     * @param $id
      */
     public function show($id)
     {
@@ -107,8 +106,9 @@ class PageOutputter extends AdminOutputter
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
-     * @return Response
+     * @param $id
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
     {
