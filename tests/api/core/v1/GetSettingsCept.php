@@ -9,18 +9,14 @@ $I->wantTo('Get settings by API (api/v1/settings/get)');
 // http://codeception.com/docs/modules/REST#Example
 
 /*
- * Bad method format request
- */
-
-$I->sendGET('api/v1/settings/get', ['setting_key' => 'test']);
-$I->seeResponseCodeIs(405);
-
-/*
  * Non authenticated request
  */
 
-$I->sendPost('api/v1/settings/get', ['setting_key' => 'test']);
+$I->sendGET('v1/settings/get', ['setting_key' => 'test']);
 $I->seeResponseCodeIs(401);
+$I->seeResponseContains(
+	'{"error":{"code":"GEN-UNAUTHORIZED","http_code":401,"message":"Unauthorized"}}'
+);
 
 /*
  * Valid request
@@ -28,7 +24,7 @@ $I->seeResponseCodeIs(401);
 
 $I->setHeader(config('apiguard.keyName'), $I->getApiAdminToken());
 $I->haveHttpHeader(config('apiguard.keyName'), $I->getApiAdminToken());
-$I->sendPost('api/v1/settings/get', ['setting_key' => 'test']);
+$I->sendGET('v1/settings/get', ['setting_key' => 'test']);
 $I->seeResponseCodeIs(200);
 $I->seeResponseIsJson();
-$I->dontSeeResponseContains('{"test":"test"}');
+$I->seeResponseContains('{"test":"test"}');

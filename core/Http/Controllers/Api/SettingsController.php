@@ -40,11 +40,8 @@ class SettingsController extends CoreApiController
 	{
 		$data = [];
 
-		if (Request::ajax())
-		{
-			$setting_key = $request->get('setting_key');
-			$data[$setting_key] = $this->r_settings->get($setting_key);
-		}
+		$setting_key = $request->get('setting_key');
+		$data[$setting_key] = $this->r_settings->get($setting_key);
 
 		return Response::json($data);
 	}
@@ -60,13 +57,10 @@ class SettingsController extends CoreApiController
 	{
 		$data = [];
 
-		if (Request::ajax())
-		{
-			$setting_key = $request->get('setting_key');
-			$setting_value = $request->get('setting_value');
-			$this->r_settings->set($setting_key, $setting_value);
-			$data[$setting_key] = $setting_value;
-		}
+		$setting_key = $request->get('setting_key');
+		$setting_value = $request->get('setting_value');
+		$this->r_settings->set($setting_key, $setting_value);
+		$data[$setting_key] = $setting_value;
 
 		return Response::json($data);
 	}
