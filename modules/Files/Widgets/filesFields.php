@@ -5,6 +5,10 @@ use CVEPDB\Contracts\Widgets;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
 
+/**
+ * Class FilesFields
+ * @package Modules\Files\Widgets
+ */
 class FilesFields implements Widgets
 {
     /**
@@ -37,46 +41,78 @@ class FilesFields implements Widgets
      */
     private $r_role = null;
 
+    /**
+     * FilesFields constructor.
+     *
+     * @param SettingsRepository $r_settings
+     */
     public function __construct(SettingsRepository $r_settings)
     {
         $this->r_settings = $r_settings;
     }
 
+    /**
+     * @param $title
+     */
     public function setTitle($title)
     {
         $this->title = $title;
     }
 
+    /**
+     * @return string
+     */
     public function getTitlte()
     {
         return $this->title;
     }
 
+    /**
+     * @param $description
+     */
     public function setDescription($description)
     {
         $this->description = $description;
     }
 
+    /**
+     * @return string
+     */
     public function getDescription()
     {
         return $this->description;
     }
 
+    /**
+     * @param $module_name
+     */
     public function setModuleName($module_name)
     {
         $this->module = $module_name . '::';
     }
 
+    /**
+     * @return string
+     */
     public function getModuleName()
     {
         return $this->module;
     }
 
+    /**
+     * @param       $view
+     * @param array $data
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function output($view, $data = [])
     {
         return cmsview($view, $data, $this->view_prefix, $this->module);
     }
 
+    /**
+     * @return array
+     */
     public function widgetInformation()
     {
         return [
@@ -85,6 +121,12 @@ class FilesFields implements Widgets
         ];
     }
 
+    /**
+     * @param string $name
+     * @param array  $attributes
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function register($name = 'roles[]', $attributes = [])
     {
         return $this->output(

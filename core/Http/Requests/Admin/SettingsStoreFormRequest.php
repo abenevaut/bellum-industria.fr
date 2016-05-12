@@ -29,6 +29,8 @@ class SettingsStoreFormRequest extends AbsFormRequest
 		return [
 			'core_site_name'        => 'required',
 			'core_site_description' => 'required',
+			'core_site_logo'        => '',
+			'core_site_favico'        => '',
 			'mail_from_address'     => 'required|email',
 			'mail_from_name'        => 'required',
 //            'mail_driver' => 'required',

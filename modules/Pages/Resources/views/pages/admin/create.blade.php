@@ -85,34 +85,6 @@
 				</div>
 			</div>
 
-			<div class="box box-widget collapsed-box box-primary">
-				<div class="box-header with-border">
-					<div class="user-block">
-						<button type="button" class="btn btn-box-tool" data-widget="collapse">
-							<i class="fa fa-plus"></i>
-						</button>
-						<span class="username">SEO</span>
-					</div>
-					<div class="box-tools">
-					</div>
-				</div>
-				<div class="box-body">
-
-					<div class="form-group form-group-default required">
-						<label>SEO Description</label>
-						<input type="text" class="form-control" name="title" required="required"
-							   value="{{ old('title') }}" placeholder="Page title">
-					</div>
-
-					<div class="form-group form-group-default required">
-						<label>SEO Tags</label>
-						<input type="text" class="form-control" name="title" required="required"
-							   value="{{ old('title') }}" placeholder="Page title">
-					</div>
-
-				</div>
-			</div>
-
 			<div class="box box-primary">
 
 				<div class="box-header with-border">
@@ -262,6 +234,34 @@
 				</div>
 
 
+			</div>
+
+			<div class="box box-widget collapsed-box box-primary">
+				<div class="box-header with-border">
+					<div class="user-block">
+						<button type="button" class="btn btn-box-tool" data-widget="collapse">
+							<i class="fa fa-plus"></i>
+						</button>
+						<span class="username">SEO</span>
+					</div>
+					<div class="box-tools">
+					</div>
+				</div>
+				<div class="box-body">
+
+					<div class="form-group form-group-default required">
+						<label>SEO Description</label>
+						<input type="text" class="form-control" name="title" required="required"
+							   value="{{ old('title') }}" placeholder="Page title">
+					</div>
+
+					<div class="form-group form-group-default required">
+						<label>SEO Tags</label>
+						<input type="text" class="form-control" name="title" required="required"
+							   value="{{ old('title') }}" placeholder="Page title">
+					</div>
+
+				</div>
 			</div>
 
 			<div class="box-footer clearfix">

@@ -168,6 +168,7 @@ return [
 		Pingpong\Widget\WidgetServiceProvider::class,
 		CVEPDB\Addresses\AddressesServiceProvider::class,
 		CVEPDB\Settings\SettingsServiceProvider::class,
+		Spatie\Glide\GlideServiceProvider::class,
 	],
 
 	/*
@@ -226,6 +227,7 @@ return [
 		'Input'        => Illuminate\Support\Facades\Input::class,
 		'Debugbar'     => Barryvdh\Debugbar\Facade::class,
 		'Excel'        => 'Maatwebsite\Excel\Facades\Excel',
+		'GlideImage' => Spatie\Glide\GlideImageFacade::class,
 	],
 
 ];

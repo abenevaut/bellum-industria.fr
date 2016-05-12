@@ -4,6 +4,7 @@ use Request;
 use Response;
 use Core\Http\Outputters\AdminOutputter;
 use Core\Domain\Settings\Repositories\SettingsRepository;
+use Core\Domain\Settings\Repositories\LogoSettingsRepository;
 use CVEPDB\Abstracts\Http\Requests\FormRequest as AbsFormRequest;
 
 /**
@@ -18,21 +19,35 @@ class SettingsOutputter extends AdminOutputter
 	 */
 	protected $title = 'global.settings';
 
-	private $form_key_to_settings = [];
-
 	/**
 	 * @var string Outputter header description
 	 */
 	protected $description = '';
 
 	/**
+	 * @var array|mixed
+	 */
+	private $form_key_to_settings = [];
+
+	/**
+	 * @var LogoSettingsRepository|null
+	 */
+	private $r_logo_settings = null;
+
+	/**
 	 * SettingsOutputter constructor.
 	 *
 	 * @param SettingsRepository $r_settings
 	 */
-	public function __construct(SettingsRepository $r_settings)
+	public function __construct(
+		SettingsRepository $r_settings,
+		LogoSettingsRepository $r_logo_settings
+	)
 	{
 		parent::__construct($r_settings);
+
+		$this->r_logo_settings = $r_logo_settings;
+
 		$this->addBreadcrumb(trans('global.settings'), 'admin/settings');
 		$this->form_key_to_settings = config('settings.form_key_to_settings');
 	}
@@ -51,7 +66,10 @@ class SettingsOutputter extends AdminOutputter
 	}
 
 	/**
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 * @param AbsFormRequest         $request
+	 * @param LogoSettingsRepository $r_logo_settings
+	 *
+	 * @return mixed|\Redirect
 	 */
 	public function store(AbsFormRequest $request)
 	{
@@ -63,6 +81,12 @@ class SettingsOutputter extends AdminOutputter
 			$setting_key = $this->getSettingKey($key);
 			$this->r_settings->set($setting_key, $value);
 		}
+
+		/**
+		 * If core.site.logo is set, generate logo and favicon
+		 */
+
+		$this->r_logo_settings->generateFavIco();
 
 		return $this->redirectTo('admin/settings');
 	}

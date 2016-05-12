@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ef171a1065d523ef7a59daac196e3ca2",
-    "content-hash": "4fbe52fa521bb0012468d70c374f4e93",
+    "hash": "f80bd08ba012a572875c6aff4566f2e1",
+    "content-hash": "ddf664152d075c37119bfd473bda85ac",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -254,7 +254,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/a03ffeaa4815fdfe1030fe83885e115185883075",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/c291e58d0a13953e0f68d99182ee77ebc693edc0",
                 "reference": "a03ffeaa4815fdfe1030fe83885e115185883075",
                 "shasum": ""
             },
@@ -360,7 +360,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/f7b31bdbdceaaea930c71df20e4180b0b7172b4a",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/35ebf3a2ba9443e11fbdb9066cc363ec7b2245e4",
                 "reference": "f7b31bdbdceaaea930c71df20e4180b0b7172b4a",
                 "shasum": ""
             },
@@ -649,7 +649,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/a2995e5fe351055f2c7630166af12ce8fd03edfc",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/72a4e3cf6011f2083ec4a44213dbdf13bcf86297",
                 "reference": "a2995e5fe351055f2c7630166af12ce8fd03edfc",
                 "shasum": ""
             },
@@ -3126,7 +3126,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/f9523f5cdb0d61953cf2cc968f973d40bf760088",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/b83e30fd7dd93c3b0e0aa661ae738bde7c50c164",
                 "reference": "f9523f5cdb0d61953cf2cc968f973d40bf760088",
                 "shasum": ""
             },
@@ -4279,7 +4279,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/8af620f97b8b1c8a677d90b3d7203fa562050db1",
+                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/b0ce48fd92e15a874b8246d645072ad817b68114",
                 "reference": "8af620f97b8b1c8a677d90b3d7203fa562050db1",
                 "shasum": ""
             },
@@ -5461,12 +5461,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-glide.git",
-                "reference": "d85517a1c1998e1621d8b12f1d4180e199102dfc"
+                "reference": "db0f3a83e7d128bc0964887190af569430557b22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-glide/zipball/d85517a1c1998e1621d8b12f1d4180e199102dfc",
-                "reference": "d85517a1c1998e1621d8b12f1d4180e199102dfc",
+                "url": "https://api.github.com/repos/spatie/laravel-glide/zipball/db0f3a83e7d128bc0964887190af569430557b22",
+                "reference": "db0f3a83e7d128bc0964887190af569430557b22",
                 "shasum": ""
             },
             "require": {
@@ -5496,7 +5496,7 @@
             ],
             "description": "A Glide Service Provider for Laravel",
             "homepage": "https://github.com/spatie/laravel-glide",
-            "time": "2016-05-10 18:17:12"
+            "time": "2016-05-11 21:10:33"
         },
         {
             "name": "spatie/laravel-medialibrary",
@@ -5671,7 +5671,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/97cae1f1ef7401d6a08e1e5e042534f809140604",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/82c0bd4509f49aa36c0398647346bf3fab2524a7",
                 "reference": "97cae1f1ef7401d6a08e1e5e042534f809140604",
                 "shasum": ""
             },
@@ -5729,7 +5729,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/68f50da0fdd6cb0146d17d6bde20b76e0e57e7fb",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/1460e98b53d2f916f1b4123069c96c90844a1a4d",
                 "reference": "68f50da0fdd6cb0146d17d6bde20b76e0e57e7fb",
                 "shasum": ""
             },
@@ -5951,7 +5951,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/a06d10888a45afd97534506afb058ec38d9ba35b",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/a5f488faf136760ad6c478087e40b501473b8800",
                 "reference": "a06d10888a45afd97534506afb058ec38d9ba35b",
                 "shasum": ""
             },
@@ -10010,7 +10010,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/e2e47568fcdc8b5f18f1dca088659944681e9ab5",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/0434c489d21e402199fb0b4ab581af5009cb706d",
                 "reference": "e2e47568fcdc8b5f18f1dca088659944681e9ab5",
                 "shasum": ""
             },
@@ -10198,7 +10198,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/0de12bdbbc3cf8d1ee94b38f0c782c39954298be",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/eab3de4bec16e4e4ac92fa8ce76e9f91eb64eb01",
                 "reference": "0de12bdbbc3cf8d1ee94b38f0c782c39954298be",
                 "shasum": ""
             },

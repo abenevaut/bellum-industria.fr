@@ -1,8 +1,7 @@
 @push('widget-scripts')
 <script>
-    //Edit SL: more universal
-    $(document).on('hidden.bs.modal', function (e) {
-        $(e.target).removeData('bs.modal');
+    $(document).on("hidden.bs.modal", '#file_{{ $name }}', function (e) {
+        $(e.target).removeData("bs.modal").find(".modal-content").empty();
     });
 </script>
 @endpush
@@ -10,10 +9,10 @@
 
 <div class="input-group">
     <div class="input-group-btn">
-        <button data-toggle="modal" href="{{ url('admin/files/popup/input_file_' . $name) }}"
+        <a data-toggle="modal" href="{{ url('admin/files/popup/input_file_' . $name) }}"
            data-target="#file_{{ $name }}" class="btn btn-primary">
             Choose file
-        </button>
+        </a>
     </div>
     <input type="text" id="input_file_{{ $name }}" name="{{ $name }}" value="{{ $value }}" class="form-control {{ $class }}">
 </div>

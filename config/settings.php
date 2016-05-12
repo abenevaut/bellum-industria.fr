@@ -43,6 +43,8 @@ return [
 	'form_key_to_settings' => [
 		'core_site_name'                   => 'core.site.name',
 		'core_site_description'            => 'core.site.description',
+		'core_site_logo'                   => 'core.site.logo',
+		'core_site_favico'                 => 'core.site.favico',
 		'mail_from_address'                => 'mail.from.address',
 		'mail_from_name'                   => 'mail.from.name',
 		'core_mail_mailwatch'              => 'core.mail.mailwatch',
