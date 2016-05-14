@@ -86,6 +86,7 @@ class SettingsOutputter extends AdminOutputter
 		 * If core.site.logo is set, generate logo and favicon
 		 */
 
+		$this->r_logo_settings->generateLogo();
 		$this->r_logo_settings->generateFavIco();
 
 		return $this->redirectTo('admin/settings');
