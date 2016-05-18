@@ -2,6 +2,10 @@
 
 use CVEPDB\Domain\Users\Entities\User as Model;
 
+/**
+ * Class User
+ * @package Core\Domain\Users\Entities
+ */
 class User extends Model
 {
 
@@ -11,5 +15,13 @@ class User extends Model
 	public function apikey()
 	{
 		return $this->hasOne('Core\Domain\Users\Entities\ApiKey');
+	}
+
+	/**
+	 * Social tokens that belong to the user.
+	 */
+	public function tokens()
+	{
+		return $this->hasOne('Core\Domain\Users\Entities\UserSocial');
 	}
 }

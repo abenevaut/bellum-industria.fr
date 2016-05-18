@@ -1,10 +1,7 @@
 <?php namespace Core\Http\Outputters;
 
-use App;
-use Config;
-use Menu;
-use Module;
-use Theme;
+use Illuminate\Support\Facades\App;
+use Pingpong\Themes\ThemeFacade as Theme;
 use CVEPDB\Abstracts\Services\Outputters\AbsLaravelOutputter;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 

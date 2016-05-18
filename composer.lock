@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f80bd08ba012a572875c6aff4566f2e1",
-    "content-hash": "ddf664152d075c37119bfd473bda85ac",
+    "hash": "687395d428d661109c202f49f005476d",
+    "content-hash": "65dc834c8d7ac614f7fb64fb3d558d0e",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -254,7 +254,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/c291e58d0a13953e0f68d99182ee77ebc693edc0",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/97e8f6095f650b9c5f22a11ad8adf9000987f624",
                 "reference": "a03ffeaa4815fdfe1030fe83885e115185883075",
                 "shasum": ""
             },
@@ -1548,6 +1548,61 @@
             "time": "2016-05-09 15:10:32"
         },
         {
+            "name": "da-mitchell/steam-api",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DaMitchell/steam-api-php.git",
+                "reference": "c004d4eecfeaf85d48a262b820934deebce82678"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DaMitchell/steam-api-php/zipball/c004d4eecfeaf85d48a262b820934deebce82678",
+                "reference": "c004d4eecfeaf85d48a262b820934deebce82678",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.1",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Steam\\": "src/Steam"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Mitchell",
+                    "email": "danmitchellster@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP wrapper for the steam web API",
+            "homepage": "https://github.com/DaMitchell/steam-api-php",
+            "keywords": [
+                "api",
+                "counter strike",
+                "csgo",
+                "dota",
+                "steam"
+            ],
+            "time": "2015-12-28 17:42:46"
+        },
+        {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
             "source": {
@@ -1937,7 +1992,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/90b2128806bfde671b6952ab8bea493942c1fdae",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/803a2ed9fea02f9ca47cd45395089fe78769a392",
                 "reference": "90b2128806bfde671b6952ab8bea493942c1fdae",
                 "shasum": ""
             },
@@ -2556,6 +2611,48 @@
             "time": "2016-04-26 14:08:40"
         },
         {
+            "name": "invisnik/laravel-steam-auth",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/invisnik/laravel-steam-auth.git",
+                "reference": "d75eda53996495db831eda1b7ea78326128544ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/invisnik/laravel-steam-auth/zipball/d75eda53996495db831eda1b7ea78326128544ab",
+                "reference": "d75eda53996495db831eda1b7ea78326128544ab",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Invisnik\\LaravelSteamAuth\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Brytkov",
+                    "email": "invis.nik@gmail.com"
+                }
+            ],
+            "description": "Laravel Steam Auth",
+            "keywords": [
+                "auth",
+                "laravel",
+                "steam"
+            ],
+            "time": "2015-08-19 12:25:26"
+        },
+        {
             "name": "jakub-onderka/php-console-color",
             "version": "0.1",
             "source": {
@@ -3126,7 +3223,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/b83e30fd7dd93c3b0e0aa661ae738bde7c50c164",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/ac575c3ec2ea19db742a226ac411f3739eb2b9c5",
                 "reference": "f9523f5cdb0d61953cf2cc968f973d40bf760088",
                 "shasum": ""
             },
@@ -3397,7 +3494,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/1a78f76c004009761e9a686f53239ac942bd1ca2",
+                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/d2be7f6a5b770c28272f575d48ae48bb73b35a31",
                 "reference": "1a78f76c004009761e9a686f53239ac942bd1ca2",
                 "shasum": ""
             },
@@ -3701,7 +3798,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/e6109df274647c38a5be0141d4227db67ace1943",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/e634fbd32cd6bc3fa0e8c972b52d4bf49bab3988",
                 "reference": "e6109df274647c38a5be0141d4227db67ace1943",
                 "shasum": ""
             },
@@ -4635,7 +4732,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/104e42cfe0d52451abc1b670fa23ce625cea8ae8",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/d55826f35cbce2e1125d91500ccfa00ee1a82a8d",
                 "reference": "104e42cfe0d52451abc1b670fa23ce625cea8ae8",
                 "shasum": ""
             },
@@ -5465,7 +5562,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-glide/zipball/db0f3a83e7d128bc0964887190af569430557b22",
+                "url": "https://api.github.com/repos/spatie/laravel-glide/zipball/06bcfb85464a1202dfaa7494d1b1600c88c418e5",
                 "reference": "db0f3a83e7d128bc0964887190af569430557b22",
                 "shasum": ""
             },
@@ -5671,7 +5768,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/82c0bd4509f49aa36c0398647346bf3fab2524a7",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/6a385875bbe26dcc130f333b1fc3ad59ff23aee2",
                 "reference": "97cae1f1ef7401d6a08e1e5e042534f809140604",
                 "shasum": ""
             },
@@ -5782,7 +5879,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/class-loader/zipball/6ebc60f69a6df4b3cf5ad6f260ba4edf5957ea05",
+                "url": "https://api.github.com/repos/symfony/class-loader/zipball/5ba9dc365a6ce605b8682e9be56f04f7c374d8c9",
                 "reference": "6ebc60f69a6df4b3cf5ad6f260ba4edf5957ea05",
                 "shasum": ""
             },
@@ -5838,7 +5935,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/34a214710e0714b6efcf40ba3cd1e31373a97820",
+                "url": "https://api.github.com/repos/symfony/console/zipball/c8471cf008b3a7b17a5b537838358f226b617dc3",
                 "reference": "34a214710e0714b6efcf40ba3cd1e31373a97820",
                 "shasum": ""
             },
@@ -6068,7 +6165,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/5751e80d6f94b7c018f338a4a7be0b700d6f3058",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/ae26c574678c9494f3a6fdbd790ff26f8b8846c0",
                 "reference": "5751e80d6f94b7c018f338a4a7be0b700d6f3058",
                 "shasum": ""
             },
@@ -6117,7 +6214,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/c54e407b35bc098916704e9fd090da21da4c4f52",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/39e5f3d533d07b5416b9d7aad53a27f939d4f811",
                 "reference": "c54e407b35bc098916704e9fd090da21da4c4f52",
                 "shasum": ""
             },
@@ -6166,7 +6263,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/18b24bc32d2495ae79d76e777368786a6536fe31",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/7cb53fb8f6b8150dd07d9710922b21ba6bf6d90c",
                 "reference": "18b24bc32d2495ae79d76e777368786a6536fe31",
                 "shasum": ""
             },
@@ -6219,7 +6316,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/710fdc71161656d48cff0d788c5c3a2886e4ee40",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/80001c27501d33a46d2fff4f4615358612d87b1c",
                 "reference": "710fdc71161656d48cff0d788c5c3a2886e4ee40",
                 "shasum": ""
             },
@@ -6813,6 +6910,48 @@
             "time": "2016-01-28 19:51:36"
         },
         {
+            "name": "toniperic/php-clash-of-clans",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/toniperic/php-clash-of-clans.git",
+                "reference": "9c2c43fb935a80ec39c0c9fe8552ba75a6c790d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/toniperic/php-clash-of-clans/zipball/9c2c43fb935a80ec39c0c9fe8552ba75a6c790d6",
+                "reference": "9c2c43fb935a80ec39c0c9fe8552ba75a6c790d6",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.1",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "php-vcr/php-vcr": "^1.2",
+                "php-vcr/phpunit-testlistener-vcr": "^1.1",
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ClashOfClans\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Toni Peric",
+                    "email": "toni.peric@hotmail.com"
+                }
+            ],
+            "description": "PHP wrapper for querying the Supercell Clash of Clans API",
+            "time": "2016-02-19 17:01:10"
+        },
+        {
             "name": "vierbergenlars/php-semver",
             "version": "3.0.1",
             "source": {
@@ -6979,6 +7118,48 @@
             "time": "2015-01-07 13:31:32"
         },
         {
+            "name": "xpaw/php-source-query-class",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xPaw/PHP-Source-Query.git",
+                "reference": "e798d8f7c2cdbfdd6496a8cd4574be32504c3338"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xPaw/PHP-Source-Query/zipball/e798d8f7c2cdbfdd6496a8cd4574be32504c3338",
+                "reference": "e798d8f7c2cdbfdd6496a8cd4574be32504c3338",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xPaw\\SourceQuery\\": "SourceQuery/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "description": "PHP library to query and send RCON commands to servers based on \"Source Engine Query\" protocol",
+            "homepage": "https://github.com/xPaw/PHP-Source-Query",
+            "keywords": [
+                "ark",
+                "counter-strike",
+                "csgo",
+                "gmod",
+                "minecraft",
+                "rcon",
+                "rust",
+                "starbound",
+                "team fortress"
+            ],
+            "time": "2015-10-11 10:10:35"
+        },
+        {
             "name": "zizaco/entrust",
             "version": "5.2.x-dev",
             "source": {
@@ -7107,7 +7288,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blackfireio/php-sdk/zipball/6c8a1a691dedb5630c0c6e250575641613327d78",
+                "url": "https://api.github.com/repos/blackfireio/php-sdk/zipball/6e1bfe4d77f8d1a8a18315eef5f57e9211ba4729",
                 "reference": "6c8a1a691dedb5630c0c6e250575641613327d78",
                 "shasum": ""
             },
@@ -8142,7 +8323,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/factory-muffin/zipball/fc98b8e7250ae6b170804782871dd9ff66f0606a",
+                "url": "https://api.github.com/repos/thephpleague/factory-muffin/zipball/316ed2bac70178567f995d877b831804c9c58d5a",
                 "reference": "fc98b8e7250ae6b170804782871dd9ff66f0606a",
                 "shasum": ""
             },
@@ -8364,7 +8545,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/c784d9e1e5da5b48f4994580c7bedd1f370ed0ce",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/3d265f7c079f5b37d33475f996d7a383c5fc8aeb",
                 "reference": "c784d9e1e5da5b48f4994580c7bedd1f370ed0ce",
                 "shasum": ""
             },
@@ -8759,7 +8940,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f7758865279831ce9c888cadba8c528e4afd43fb",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a61b9a9070a1a7ee73f8bc236d517193a2b292f5",
                 "reference": "f7758865279831ce9c888cadba8c528e4afd43fb",
                 "shasum": ""
             },
@@ -9611,7 +9792,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/2292b116f43c272ff4328083096114f84ea46a56",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/4e8f0da10ac5802913afc151413bc8c53b6c2716",
                 "reference": "2292b116f43c272ff4328083096114f84ea46a56",
                 "shasum": ""
             },
@@ -10145,7 +10326,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/1c01ac3d32124d922e1676aa09b550d0fa4b6f7a",
+                "url": "https://api.github.com/repos/symfony/config/zipball/79ab1a8f4988972a349e2cdcda1b6951a85659c1",
                 "reference": "1c01ac3d32124d922e1676aa09b550d0fa4b6f7a",
                 "shasum": ""
             },
@@ -10198,7 +10379,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/eab3de4bec16e4e4ac92fa8ce76e9f91eb64eb01",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/e9fae5c59795cb20df10cd3cd8b20097d6cda746",
                 "reference": "0de12bdbbc3cf8d1ee94b38f0c782c39954298be",
                 "shasum": ""
             },
@@ -10313,7 +10494,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/expression-language/zipball/9db6f176064fbd3f5ced4865be60b335b6a12723",
+                "url": "https://api.github.com/repos/symfony/expression-language/zipball/1c043b1418e777e9067883260b919284c9998640",
                 "reference": "9db6f176064fbd3f5ced4865be60b335b6a12723",
                 "shasum": ""
             },
@@ -10362,7 +10543,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/4670f122fa32a4900003a6802f6b8575f3f0b17e",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/567d31e8c8e7358cba21a9fc2ab362ee03a5cd6a",
                 "reference": "4670f122fa32a4900003a6802f6b8575f3f0b17e",
                 "shasum": ""
             },
@@ -10460,7 +10641,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/f167cc0a65ab0a2a53558c9385b4a324c1a36b02",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/71ad9ff322e9ef99465ccc26f704d706d76e0eea",
                 "reference": "f167cc0a65ab0a2a53558c9385b4a324c1a36b02",
                 "shasum": ""
             },
@@ -10520,6 +10701,7 @@
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,
         "cvepdb-cms/theme-flatly": 20,
+        "toniperic/php-clash-of-clans": 20,
         "redcomponent/teststatistics": 20
     },
     "prefer-stable": false,

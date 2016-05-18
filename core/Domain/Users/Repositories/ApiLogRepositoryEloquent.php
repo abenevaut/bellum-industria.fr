@@ -7,7 +7,7 @@ use Core\Domain\Users\Entities\ApiLog;
 
 /**
  * Class ApiLogRepositoryEloquent
- * @package namespace App\Admin\Repositories\Users;
+ * @package Core\Domain\Users\Repositories
  */
 class ApiLogRepositoryEloquent extends BaseRepository implements ApiLogRepository
 {

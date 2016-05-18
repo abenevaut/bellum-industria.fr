@@ -171,7 +171,7 @@ class SocialiteManager extends Manager implements Factory
 		return [
 			'client_id' => Settings::get('services.' . $provider . '.client_id'),
 			'client_secret' => Settings::get('services.' . $provider . '.client_secret'),
-			'redirect' => config('services.' . $provider . '.redirect'),
+			'redirect' => Settings::get('services.' . $provider . '.redirect'),
 		];
 	}
 }

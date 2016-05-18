@@ -13,6 +13,11 @@ use Core\Domain\Settings\Repositories\SettingsRepository;
 class AdminOutputter extends CoreOutputter
 {
 
+	/**
+	 * AdminOutputter constructor.
+	 *
+	 * @param SettingsRepository $r_settings
+	 */
 	public function __construct(SettingsRepository $r_settings)
 	{
 		parent::__construct($r_settings);
@@ -36,6 +41,9 @@ class AdminOutputter extends CoreOutputter
 		);
 	}
 
+	/**
+	 * @return array
+	 */
 	private function header_navigation()
 	{
 		$modules_list = Module::getOrdered();

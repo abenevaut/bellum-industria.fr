@@ -20,6 +20,9 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Contro
 	Route::get('login/{provider?}', ['uses' => 'AuthController@redirectToProvider']);
 	// Login callbacks
 	Route::get('login/callback/{provider?}', ['uses' => 'AuthController@handleProviderCallback']);
+	// Register from social networks
+	Route::get('register/{provider?}', ['uses' => 'AuthController@getRegisterFromProvider']);
+	Route::post('register/{provider?}', ['uses' => 'AuthController@postRegisterFromProvider']);
 });
 
 Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Controllers'], function() {

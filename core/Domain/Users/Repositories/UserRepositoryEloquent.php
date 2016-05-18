@@ -7,7 +7,7 @@ use Core\Domain\Roles\Repositories\RoleRepositoryEloquent as RoleRepositoryEloqu
 
 /**
  * Class UserRepositoryEloquent
- * @package namespace App\Repositories;
+ * @package Core\Domain\Users\Repositories
  */
 abstract class UserRepositoryEloquent extends RepositoryEloquent
 {

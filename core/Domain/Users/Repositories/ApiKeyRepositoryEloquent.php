@@ -8,7 +8,7 @@ use Core\Domain\Users\Entities\User;
 
 /**
  * Class ApiKeyRepositoryEloquent
- * @package namespace App\Admin\Repositories\Users;
+ * @package Core\Domain\Users\Repositories
  */
 class ApiKeyRepositoryEloquent extends BaseRepository implements ApiKeyRepository
 {
