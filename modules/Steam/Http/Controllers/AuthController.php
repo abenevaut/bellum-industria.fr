@@ -18,6 +18,13 @@ class AuthController extends Controller
 	private $steam;
 
 	/**
+	 * Where to redirect users after login / registration.
+	 *
+	 * @var string
+	 */
+	protected $redirectTo = '/';
+
+	/**
 	 * @var SocialTokenRepositoryEloquent|null
 	 */
 	private $r_socialtoken = null;
@@ -57,8 +64,11 @@ class AuthController extends Controller
 
 			if (!is_null($social_token))
 			{
-				$user = User::get($social_token->user_id);
+				$user = User::find($social_token->user_id);
 				\Auth::login($user);
+				\Session::flash('message', trans('auth.message_success_loggedin'));
+
+				return redirect(property_exists($this, 'redirectTo') ? $this->redirectTo : '/');
 			}
 			else
 			{

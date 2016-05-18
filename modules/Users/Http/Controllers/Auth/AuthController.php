@@ -8,7 +8,7 @@ use Socialite;
 use Illuminate\Support\Facades\Session;
 use Core\Http\Controllers\CoreAuthController as Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Core\Domain\Users\Repositories\SocialTokenRepositoryEloquent;
 use Modules\Users\Http\Outputters\AuthOutputter;
@@ -151,14 +151,15 @@ class AuthController extends Controller
 			$social_user = Socialite::driver($provider)->user();
 
 			$social_token = $this->r_socialtoken->findByField(
-				'provider',
+				'token',
 				$social_user->token
 			)->first();
 
 			if (!is_null($social_token))
 			{
-				$user = User::get($social_token->user_id);
+				$user = User::find($social_token->user_id);
 				\Auth::login($user);
+				Session::flash('message', trans('auth.message_success_loggedin'));
 			}
 			else
 			{
@@ -168,8 +169,6 @@ class AuthController extends Controller
 
 				return redirect('register/' . $provider);
 			}
-
-			Session::flash('message', trans('auth.message_success_loggedin'));
 		}
 		catch (\Exception $e)
 		{
@@ -188,7 +187,12 @@ class AuthController extends Controller
 	{
 		$this->outputter->setRegisterMeta();
 
-		return $this->outputter->output('users.register', []);
+		return $this->outputter->output(
+			'users.register',
+			[
+				'uri' => '/register/' . $provider
+			]
+		);
 	}
 
 	/**
@@ -214,13 +218,17 @@ class AuthController extends Controller
 
 		$social_user = Session::get('register_from_social');
 
+		// xABE Todo : check token doesn't exist - no duplicate token
+
 		$this->r_socialtoken->create([
 			'provider' => $provider,
-			'token'    => $social_user->token,
+			'token'    => $social_user['token'],
 			'user_id'  => $user->id
 		]);
 
-		Auth::guard($this->getGuard())->login($user);
+		\Auth::guard($this->getGuard())->login($user);
+
+		Session::set('register_from_social', []);
 
 		return redirect($this->redirectPath());
 	}
