@@ -1186,16 +1186,16 @@
         },
         {
             "name": "cvepdb-cms/module-themes",
-            "version": "1.0.52.9",
+            "version": "1.0.52.10",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-themes.git",
-                "reference": "d87489de55d66a3053db58134315f358944d03ed"
+                "reference": "c0b8ce754cb0e1a4e4cbccc4806c7e855281ac9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=d87489de55d66a3053db58134315f358944d03ed",
-                "reference": "d87489de55d66a3053db58134315f358944d03ed",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=c0b8ce754cb0e1a4e4cbccc4806c7e855281ac9c",
+                "reference": "c0b8ce754cb0e1a4e4cbccc4806c7e855281ac9c",
                 "shasum": ""
             },
             "require": {
@@ -1239,7 +1239,7 @@
                 "module",
                 "themes"
             ],
-            "time": "2016-05-02 14:08:38"
+            "time": "2016-05-03 13:30:58"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -1369,16 +1369,16 @@
         },
         {
             "name": "cvepdb/laravel",
-            "version": "1.0.52.10",
+            "version": "1.0.52.13",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb/laravel.git",
-                "reference": "e35ede260f24cf700730714b5a5dd9d6f33b81d2"
+                "reference": "17fe185d047172b5f89dca9c6db97c7f28c92d65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb%2Flaravel/repository/archive.zip?sha=e35ede260f24cf700730714b5a5dd9d6f33b81d2",
-                "reference": "e35ede260f24cf700730714b5a5dd9d6f33b81d2",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb%2Flaravel/repository/archive.zip?sha=17fe185d047172b5f89dca9c6db97c7f28c92d65",
+                "reference": "17fe185d047172b5f89dca9c6db97c7f28c92d65",
                 "shasum": ""
             },
             "require": {
@@ -1441,7 +1441,7 @@
                 "laravel",
                 "middlewares"
             ],
-            "time": "2016-04-16 19:32:02"
+            "time": "2016-05-19 12:25:12"
         },
         {
             "name": "cvepdb/laravel-addresses",
@@ -2289,22 +2289,22 @@
         },
         {
             "name": "guzzle/guzzle",
-            "version": "v3.8.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "4de0618a01b34aa1c8c33a3f13f396dcd3882eba"
+                "url": "https://github.com/guzzle/guzzle3.git",
+                "reference": "b3f5050cb6270c7a728a0b74ac2de50a262b3e02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/4de0618a01b34aa1c8c33a3f13f396dcd3882eba",
-                "reference": "4de0618a01b34aa1c8c33a3f13f396dcd3882eba",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/b3f5050cb6270c7a728a0b74ac2de50a262b3e02",
+                "reference": "b3f5050cb6270c7a728a0b74ac2de50a262b3e02",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "php": ">=5.3.3",
-                "symfony/event-dispatcher": ">=2.1"
+                "symfony/event-dispatcher": "~2.1"
             },
             "replace": {
                 "guzzle/batch": "self.version",
@@ -2331,18 +2331,21 @@
                 "guzzle/stream": "self.version"
             },
             "require-dev": {
-                "doctrine/cache": "*",
-                "monolog/monolog": "1.*",
+                "doctrine/cache": "~1.3",
+                "monolog/monolog": "~1.0",
                 "phpunit/phpunit": "3.7.*",
-                "psr/log": "1.0.*",
-                "symfony/class-loader": "*",
-                "zendframework/zend-cache": "<2.3",
-                "zendframework/zend-log": "<2.3"
+                "psr/log": "~1.0",
+                "symfony/class-loader": "~2.1",
+                "zendframework/zend-cache": "2.*,<2.3",
+                "zendframework/zend-log": "2.*,<2.3"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Guzzle 5 has moved to a new package name. The package you have installed, Guzzle 3, is deprecated."
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.8-dev"
+                    "dev-master": "3.9-dev"
                 }
             },
             "autoload": {
@@ -2366,7 +2369,7 @@
                     "homepage": "https://github.com/guzzle/guzzle/contributors"
                 }
             ],
-            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "description": "PHP HTTP client. This library is deprecated in favor of https://packagist.org/packages/guzzlehttp/guzzle",
             "homepage": "http://guzzlephp.org/",
             "keywords": [
                 "client",
@@ -2377,7 +2380,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-01-28 22:29:15"
+            "time": "2015-04-29 17:06:53"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -4730,19 +4733,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "354e5e26da714addd7e260c42d413a2ddc97bd18"
+                "reference": "01483234c73759452154373eb2c58694b174a512"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/354e5e26da714addd7e260c42d413a2ddc97bd18",
-                "reference": "354e5e26da714addd7e260c42d413a2ddc97bd18",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/01483234c73759452154373eb2c58694b174a512",
+                "reference": "01483234c73759452154373eb2c58694b174a512",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~4.8"
             },
             "suggest": {
                 "ext-curl": "Allows access to Webdis when paired with phpiredis",
@@ -4777,7 +4780,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2016-05-18 13:04:37"
+            "time": "2016-05-19 09:43:39"
         },
         {
             "name": "prettus/l5-repository",
@@ -6103,27 +6106,27 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "3.0.x-dev",
+            "version": "2.8.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "807dde98589f9b2b00624dca326740380d78dbbc"
+                "reference": "a158f13992a3147d466af7a23b564ac719a4ddd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/807dde98589f9b2b00624dca326740380d78dbbc",
-                "reference": "807dde98589f9b2b00624dca326740380d78dbbc",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/a158f13992a3147d466af7a23b564ac719a4ddd8",
+                "reference": "a158f13992a3147d466af7a23b564ac719a4ddd8",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": ">=5.3.9"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/config": "~2.8|~3.0",
-                "symfony/dependency-injection": "~2.8|~3.0",
-                "symfony/expression-language": "~2.8|~3.0",
-                "symfony/stopwatch": "~2.8|~3.0"
+                "symfony/config": "~2.0,>=2.0.5|~3.0.0",
+                "symfony/dependency-injection": "~2.6|~3.0.0",
+                "symfony/expression-language": "~2.6|~3.0.0",
+                "symfony/stopwatch": "~2.3|~3.0.0"
             },
             "suggest": {
                 "symfony/dependency-injection": "",
@@ -6132,7 +6135,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
@@ -6159,7 +6162,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-05-05 06:56:13"
+            "time": "2016-05-03 18:59:18"
         },
         {
             "name": "symfony/filesystem",
