@@ -12,18 +12,24 @@ use Modules\Users\Repositories\RoleRepositoryEloquent as RoleRepositoryEloquent;
  */
 class ApiKeyRepositoryEloquent extends BaseRepository implements ApiKeyRepository
 {
-    public function __construct(Application $app)
-    {
-        parent::__construct($app);
-    }
 
-    /**
-     * Specify Model class name
-     *
-     * @return string
-     */
-    public function model()
-    {
-        return parent::model();
-    }
+	/**
+	 * ApiKeyRepositoryEloquent constructor.
+	 *
+	 * @param Application $app
+	 */
+	public function __construct(Application $app)
+	{
+		parent::__construct($app);
+	}
+
+	/**
+	 * Specify Model class name
+	 *
+	 * @return string
+	 */
+	public function model()
+	{
+		return parent::model();
+	}
 }

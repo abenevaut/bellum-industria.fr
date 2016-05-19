@@ -8,5 +8,5 @@ use Core\Domain\Permissions\Repositories\PermissionRepository as BasePermissionR
  */
 interface PermissionRepository extends BasePermissionRepository
 {
-    //
+    
 }

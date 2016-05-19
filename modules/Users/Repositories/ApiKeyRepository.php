@@ -8,5 +8,5 @@ use Core\Domain\Users\Repositories\ApiKeyRepository as CoreApiKeyRepository;
  */
 interface ApiKeyRepository extends CoreApiKeyRepository
 {
-    //
+
 }

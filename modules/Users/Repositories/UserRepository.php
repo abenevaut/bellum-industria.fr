@@ -8,5 +8,5 @@ use Core\Domain\Users\Repositories\UserRepository as Repository;
  */
 interface UserRepository extends Repository
 {
-    //
+
 }
