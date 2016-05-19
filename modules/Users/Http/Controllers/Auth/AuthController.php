@@ -232,6 +232,9 @@ class AuthController extends Controller
 	 */
 	public function postRegisterFromProvider(Request $request, $provider)
 	{
+
+		// xABE Todo : check if email already exists, then redirect to link account
+
 		$validator = $this->validator($request->all());
 
 		if ($validator->fails())
@@ -257,6 +260,8 @@ class AuthController extends Controller
 		Auth::guard($this->getGuard())->login($user);
 
 		Session::set('register_from_social', []);
+
+		Session::flash('message-success', trans('auth.message_success_provider_register_and_loggedin'));
 
 		return redirect($this->redirectPath());
 	}

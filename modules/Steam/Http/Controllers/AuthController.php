@@ -69,7 +69,7 @@ class AuthController extends Controller
 				$user = User::find($social_token->user_id);
 
 				Auth::login($user);
-				
+
 				Session::flash('message-success', trans('auth.message_success_provider_loggedin'));
 
 				return redirect(property_exists($this, 'redirectTo') ? $this->redirectTo : '/');
@@ -87,13 +87,4 @@ class AuthController extends Controller
 		return $this->steam->redirect('/');
 	}
 
-	/**
-	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-	 */
-	public function logout()
-	{
-		Auth::logout();
-
-		return redirect('/');
-	}
 }
