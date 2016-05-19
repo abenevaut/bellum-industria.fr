@@ -1,10 +1,13 @@
 <?php namespace Modules\Users\Http\Controllers\Auth;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Core\Http\Controllers\CoreAuthController as Controller;
 use Modules\Users\Http\Outputters\Admin\AuthOutputter;
+use Core\Domain\Users\Entities\User;
 
 /**
  * Class AdminAuthController
@@ -34,7 +37,7 @@ class AdminAuthController extends Controller
 	protected $redirectTo = 'admin';
 
 	/**
-	 * @var AuthAdminOutputter|null
+	 * @var AuthOutputter|null
 	 */
 	private $outputter = null;
 
@@ -74,4 +77,37 @@ class AdminAuthController extends Controller
 	{
 		return $this->outputter->output('users.admin.login');
 	}
+
+	/**
+	 * Log the user out of the application.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function getLogout()
+	{
+		Session::flash('message-success', trans('auth.message_success_loggedout'));
+
+		return $this->logout();
+	}
+
+	/**
+	 * Once authenticated on site
+	 *
+	 * @param \Illuminate\Http\Request $request
+	 * @param User $user
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+	public function authenticated(\Illuminate\Http\Request $request, User $user)
+	{
+		$route = property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
+
+		if (Auth::check() && Auth::user()->hasRole('admin')) {
+			$route = 'admin';
+		}
+
+		$request->session()->flash('message-success', trans('auth.message_success_loggedin'));
+
+		return redirect()->intended($route);
+	}
+
 }

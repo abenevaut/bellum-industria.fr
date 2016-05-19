@@ -11,7 +11,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Laravel\Socialite\Facades\Socialite;
 use Core\Http\Controllers\CoreAuthController as Controller;
 use Core\Domain\Users\Repositories\SocialTokenRepositoryEloquent;
-use Modules\Users\Entities\User;
+use Core\Domain\Users\Entities\User;
 use Modules\Users\Http\Outputters\AuthOutputter;
 
 /**
@@ -131,6 +131,38 @@ class AuthController extends Controller
 	}
 
 	/**
+	 * Once authenticated on site
+	 *
+	 * @param \Illuminate\Http\Request $request
+	 * @param User $user
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+	public function authenticated(\Illuminate\Http\Request $request, User $user)
+	{
+		$route = property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
+
+		if (\Auth::check() && \Auth::user()->hasRole('admin')) {
+			$route = 'admin';
+		}
+
+		$request->session()->flash('message-success', trans('auth.message_success_loggedin'));
+
+		return redirect()->intended($route);
+	}
+
+	/**
+	 * Log the user out of the application.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function getLogout()
+	{
+		Session::flash('message-success', trans('auth.message_success_loggedout'));
+
+		return $this->logout();
+	}
+
+	/**
 	 * Redirect the user to a provider authentication page.
 	 *
 	 * @return Response
@@ -157,7 +189,7 @@ class AuthController extends Controller
 		if (!is_null($social_token))
 		{
 			$user = User::find($social_token->user_id);
-			
+
 			Auth::login($user);
 
 			Session::flash('message-success', trans('auth.message_success_provider_loggedin'));
