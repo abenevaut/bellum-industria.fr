@@ -1,5 +1,7 @@
 <?php namespace Modules\Steam\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Core\Http\Controllers\CorePublicController as Controller;
 use Core\Domain\Users\Repositories\SocialTokenRepositoryEloquent;
 use Modules\Steam\Entities\User;
@@ -65,14 +67,16 @@ class AuthController extends Controller
 			if (!is_null($social_token))
 			{
 				$user = User::find($social_token->user_id);
-				\Auth::login($user);
-				\Session::flash('message', trans('auth.message_success_loggedin'));
+
+				Auth::login($user);
+				
+				Session::flash('message-success', trans('auth.message_success_provider_loggedin'));
 
 				return redirect(property_exists($this, 'redirectTo') ? $this->redirectTo : '/');
 			}
 			else
 			{
-				\Session::set('register_from_social', [
+				Session::set('register_from_social', [
 					'token' => $social_user->getSteamID64()
 				]);
 
@@ -88,7 +92,7 @@ class AuthController extends Controller
 	 */
 	public function logout()
 	{
-		\Auth::logout();
+		Auth::logout();
 
 		return redirect('/');
 	}

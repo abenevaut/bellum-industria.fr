@@ -16,4 +16,9 @@ return [
 	'failed'   => 'These credentials do not match our records.',
 	'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
+	'message_success_loggedin' => 'You have successfully logged in.',
+	'message_success_loggedout' => 'You are logged out successfully.',
+
+	'message_success_provider_loggedin' => 'You have successfully logged in.',
+	'message_error_provider_loggedin' => 'You didn\'t successfully logged in.',
 ];

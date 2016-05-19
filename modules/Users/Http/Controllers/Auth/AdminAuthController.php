@@ -1,76 +1,77 @@
-<?php
+<?php namespace Modules\Users\Http\Controllers\Auth;
 
-namespace Modules\Users\Http\Controllers\Auth;
-
-use App\User;
-use Validator;
-use Core\Http\Controllers\CoreAuthController as Controller;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Theme;
+use Core\Http\Controllers\CoreAuthController as Controller;
 use Modules\Users\Http\Outputters\Admin\AuthOutputter;
-use Socialite;
 
+/**
+ * Class AdminAuthController
+ * @package Modules\Users\Http\Controllers\Auth
+ */
 class AdminAuthController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+	/*
+	|--------------------------------------------------------------------------
+	| Registration & Login Controller
+	|--------------------------------------------------------------------------
+	|
+	| This controller handles the registration of new users, as well as the
+	| authentication of existing users. By default, this controller uses
+	| a simple trait to add these behaviors. Why don't you explore it?
+	|
+	*/
 
-    /**
-     * Where to redirect users after login / registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = 'admin';
+	use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    /**
-     * @var AuthAdminOutputter|null
-     */
-    private $outputter = null;
+	/**
+	 * Where to redirect users after login / registration.
+	 *
+	 * @var string
+	 */
+	protected $redirectTo = 'admin';
 
-    /**
-     * Create a new authentication controller instance.
-     *
-     * @param AuthOutputter $outputter
-     */
-    public function __construct(AuthOutputter $outputter)
-    {
-        parent::__construct();
-        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
-        $this->outputter = $outputter;
-    }
+	/**
+	 * @var AuthAdminOutputter|null
+	 */
+	private $outputter = null;
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'last_name' => 'required|max:50',
-            'first_name' => 'required|max:50',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
-    }
+	/**
+	 * Create a new authentication controller instance.
+	 *
+	 * @param AuthOutputter $outputter
+	 */
+	public function __construct(AuthOutputter $outputter)
+	{
+		parent::__construct();
+		$this->middleware('guest', ['except' => ['logout', 'getLogout']]);
+		$this->outputter = $outputter;
+	}
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function getLogin()
-    {
-        return $this->outputter->output('users.admin.login');
-    }
+	/**
+	 * Get a validator for an incoming registration request.
+	 *
+	 * @param  array $data
+	 *
+	 * @return \Illuminate\Contracts\Validation\Validator
+	 */
+	protected function validator(array $data)
+	{
+		return Validator::make($data, [
+			'last_name'  => 'required|max:50',
+			'first_name' => 'required|max:50',
+			'email'      => 'required|email|max:255|unique:users',
+			'password'   => 'required|confirmed|min:6',
+		]);
+	}
+
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function getLogin()
+	{
+		return $this->outputter->output('users.admin.login');
+	}
 }

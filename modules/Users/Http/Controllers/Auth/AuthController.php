@@ -2,15 +2,16 @@
 
 namespace Modules\Users\Http\Controllers\Auth;
 
-use Modules\Users\Entities\User;
 use Illuminate\Support\Facades\Validator;
-use Socialite;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use Core\Http\Controllers\CoreAuthController as Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Laravel\Socialite\Facades\Socialite;
+use Core\Http\Controllers\CoreAuthController as Controller;
 use Core\Domain\Users\Repositories\SocialTokenRepositoryEloquent;
+use Modules\Users\Entities\User;
 use Modules\Users\Http\Outputters\AuthOutputter;
 
 /**
@@ -146,33 +147,28 @@ class AuthController extends Controller
 	 */
 	public function handleProviderCallback($provider)
 	{
-		try
+		$social_user = Socialite::driver($provider)->user();
+
+		$social_token = $this->r_socialtoken->findByField(
+			'token',
+			$social_user->token
+		)->first();
+
+		if (!is_null($social_token))
 		{
-			$social_user = Socialite::driver($provider)->user();
+			$user = User::find($social_token->user_id);
+			
+			Auth::login($user);
 
-			$social_token = $this->r_socialtoken->findByField(
-				'token',
-				$social_user->token
-			)->first();
-
-			if (!is_null($social_token))
-			{
-				$user = User::find($social_token->user_id);
-				\Auth::login($user);
-				Session::flash('message', trans('auth.message_success_loggedin'));
-			}
-			else
-			{
-				Session::set('register_from_social', [
-					'token' => $social_user->token
-				]);
-
-				return redirect('register/' . $provider);
-			}
+			Session::flash('message-success', trans('auth.message_success_provider_loggedin'));
 		}
-		catch (\Exception $e)
+		else
 		{
-			Session::flash('message', trans('auth.message_success_loggedin'));
+			Session::set('register_from_social', [
+				'token' => $social_user->token
+			]);
+
+			return redirect('register/' . $provider);
 		}
 
 		return redirect(property_exists($this, 'redirectTo') ? $this->redirectTo : '/');
@@ -226,7 +222,7 @@ class AuthController extends Controller
 			'user_id'  => $user->id
 		]);
 
-		\Auth::guard($this->getGuard())->login($user);
+		Auth::guard($this->getGuard())->login($user);
 
 		Session::set('register_from_social', []);
 
