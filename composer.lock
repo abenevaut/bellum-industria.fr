@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "728106a47a75af773091e300b54ec312",
-    "content-hash": "c10de4ff62abcf31d7d7ef851deb733f",
+    "hash": "687395d428d661109c202f49f005476d",
+    "content-hash": "65dc834c8d7ac614f7fb64fb3d558d0e",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -110,16 +110,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.18.10",
+            "version": "3.18.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "483e21b602fc5c9993437e6e04e44d936392c344"
+                "reference": "12386ad98e3a76df29cee9475264b7364a50542f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/483e21b602fc5c9993437e6e04e44d936392c344",
-                "reference": "483e21b602fc5c9993437e6e04e44d936392c344",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/12386ad98e3a76df29cee9475264b7364a50542f",
+                "reference": "12386ad98e3a76df29cee9475264b7364a50542f",
                 "shasum": ""
             },
             "require": {
@@ -186,7 +186,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-05-18 20:23:24"
+            "time": "2016-05-20 05:19:30"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -415,16 +415,16 @@
         },
         {
             "name": "beelab/bowerphp",
-            "version": "dev-master",
+            "version": "v0.3.6-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Bee-Lab/bowerphp.git",
-                "reference": "28b655c65c52ded560dbeb6ca311310bf0f5a64e"
+                "reference": "283b455e6cb259f9a67ce7488de2ed166f8b485b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Bee-Lab/bowerphp/zipball/28b655c65c52ded560dbeb6ca311310bf0f5a64e",
-                "reference": "28b655c65c52ded560dbeb6ca311310bf0f5a64e",
+                "url": "https://api.github.com/repos/Bee-Lab/bowerphp/zipball/283b455e6cb259f9a67ce7488de2ed166f8b485b",
+                "reference": "283b455e6cb259f9a67ce7488de2ed166f8b485b",
                 "shasum": ""
             },
             "require": {
@@ -480,12 +480,11 @@
             "description": "An implementation of bower in PHP",
             "homepage": "http://bowerphp.org/",
             "keywords": [
-                "bower",
                 "dependency",
                 "frontend",
                 "package"
             ],
-            "time": "2016-04-04 13:22:45"
+            "time": "2016-03-16 12:01:12"
         },
         {
             "name": "camspiers/json-pretty",
@@ -780,12 +779,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "21a8c06dd5fe0a22b776797cc552e51d17d7e7dd"
+                "reference": "2db1f3ce7bcf0d294811f5f0214e24d2878a57da"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/composer/installers/zipball/2db1f3ce7bcf0d294811f5f0214e24d2878a57da",
-                "reference": "21a8c06dd5fe0a22b776797cc552e51d17d7e7dd",
+                "reference": "2db1f3ce7bcf0d294811f5f0214e24d2878a57da",
                 "shasum": ""
             },
             "require": {
@@ -873,7 +872,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-04-24 13:17:36"
+            "time": "2016-05-19 16:58:29"
         },
         {
             "name": "composer/semver",
@@ -1248,12 +1247,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-adminlte.git",
-                "reference": "a8bc9a6dd31b70363aa59264f659cb35095e0d45"
+                "reference": "7d5adb2619d0bdb62298fd38d3c36562353115eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=a8bc9a6dd31b70363aa59264f659cb35095e0d45",
-                "reference": "a8bc9a6dd31b70363aa59264f659cb35095e0d45",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=7d5adb2619d0bdb62298fd38d3c36562353115eb",
+                "reference": "7d5adb2619d0bdb62298fd38d3c36562353115eb",
                 "shasum": ""
             },
             "require": {
@@ -1282,7 +1281,7 @@
                 "cms",
                 "theme"
             ],
-            "time": "2016-05-19 11:16:33"
+            "time": "2016-05-19 15:07:52"
         },
         {
             "name": "cvepdb-cms/theme-flatly",
@@ -1290,12 +1289,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-flatly.git",
-                "reference": "d73f713a0e616cd439e112ed7370fd1fa0144023"
+                "reference": "205ce29770ac227ca8477d115b5575922eb85652"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-flatly/repository/archive.zip?sha=d73f713a0e616cd439e112ed7370fd1fa0144023",
-                "reference": "d73f713a0e616cd439e112ed7370fd1fa0144023",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-flatly/repository/archive.zip?sha=205ce29770ac227ca8477d115b5575922eb85652",
+                "reference": "205ce29770ac227ca8477d115b5575922eb85652",
                 "shasum": ""
             },
             "require": {
@@ -1324,7 +1323,7 @@
                 "flatly",
                 "theme"
             ],
-            "time": "2016-05-19 11:15:16"
+            "time": "2016-05-19 15:08:45"
         },
         {
             "name": "cvepdb-cms/theme-lumen",
@@ -1332,12 +1331,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-lumen.git",
-                "reference": "fe7457ad4dbf8bc8e8840bed35d910aea6e61f04"
+                "reference": "3000a71f846ab4fa9a15cc06031a615369b4662b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=fe7457ad4dbf8bc8e8840bed35d910aea6e61f04",
-                "reference": "fe7457ad4dbf8bc8e8840bed35d910aea6e61f04",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=3000a71f846ab4fa9a15cc06031a615369b4662b",
+                "reference": "3000a71f846ab4fa9a15cc06031a615369b4662b",
                 "shasum": ""
             },
             "require": {
@@ -1366,7 +1365,7 @@
                 "lumen",
                 "theme"
             ],
-            "time": "2016-05-19 11:15:38"
+            "time": "2016-05-19 15:11:46"
         },
         {
             "name": "cvepdb/laravel",
@@ -3171,12 +3170,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "02c75dff24fa9c306a907816ee6cff8c85a0d96b"
+                "reference": "4d5ed8a59a436dff1ee50ca8281ab4092fabcb73"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/LaravelCollective/html/zipball/4d5ed8a59a436dff1ee50ca8281ab4092fabcb73",
-                "reference": "02c75dff24fa9c306a907816ee6cff8c85a0d96b",
+                "reference": "4d5ed8a59a436dff1ee50ca8281ab4092fabcb73",
                 "shasum": ""
             },
             "require": {
@@ -3217,7 +3216,7 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
-            "time": "2016-03-03 04:07:38"
+            "time": "2016-05-19 15:46:23"
         },
         {
             "name": "league/flysystem",
@@ -10652,12 +10651,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "71ad9ff322e9ef99465ccc26f704d706d76e0eea"
+                "reference": "3dfda00462b190f4b9666a7cb9ac9f4ba30aee24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/71ad9ff322e9ef99465ccc26f704d706d76e0eea",
-                "reference": "71ad9ff322e9ef99465ccc26f704d706d76e0eea",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3dfda00462b190f4b9666a7cb9ac9f4ba30aee24",
+                "reference": "3dfda00462b190f4b9666a7cb9ac9f4ba30aee24",
                 "shasum": ""
             },
             "require": {
@@ -10705,13 +10704,13 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-05-13 19:46:43"
+            "time": "2016-05-20 06:13:46"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "beelab/bowerphp": 20,
+        "beelab/bowerphp": 10,
         "composer/composer": 10,
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,

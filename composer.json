@@ -10,7 +10,7 @@
   "minimum-stability": "dev",
   "require": {
     "php": ">=5.5.9",
-    "beelab/bowerphp": "1.0.*@dev",
+    "beelab/bowerphp": "0.3.*@beta",
     "composer/composer": "^1.0@beta",
     "composer/installers": "~1.0",
     "laravel/framework": "5.2.24",
