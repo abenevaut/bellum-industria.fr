@@ -78,6 +78,8 @@ class ThemesPublishCommand extends Command
 
 	/**
 	 * @param $assetsPath
+	 *
+	 * xAbe Todo : Follow bowerphp : https://github.com/Bee-Lab/bowerphp/issues/144#issuecomment-220563159
 	 */
 	protected function installBowerDependencies($assetsPath)
 	{
