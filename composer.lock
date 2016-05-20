@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "687395d428d661109c202f49f005476d",
-    "content-hash": "65dc834c8d7ac614f7fb64fb3d558d0e",
+    "hash": "728106a47a75af773091e300b54ec312",
+    "content-hash": "c10de4ff62abcf31d7d7ef851deb733f",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -415,16 +415,16 @@
         },
         {
             "name": "beelab/bowerphp",
-            "version": "v0.3.6-beta",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Bee-Lab/bowerphp.git",
-                "reference": "283b455e6cb259f9a67ce7488de2ed166f8b485b"
+                "reference": "28b655c65c52ded560dbeb6ca311310bf0f5a64e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Bee-Lab/bowerphp/zipball/283b455e6cb259f9a67ce7488de2ed166f8b485b",
-                "reference": "283b455e6cb259f9a67ce7488de2ed166f8b485b",
+                "url": "https://api.github.com/repos/Bee-Lab/bowerphp/zipball/28b655c65c52ded560dbeb6ca311310bf0f5a64e",
+                "reference": "28b655c65c52ded560dbeb6ca311310bf0f5a64e",
                 "shasum": ""
             },
             "require": {
@@ -480,11 +480,12 @@
             "description": "An implementation of bower in PHP",
             "homepage": "http://bowerphp.org/",
             "keywords": [
+                "bower",
                 "dependency",
                 "frontend",
                 "package"
             ],
-            "time": "2016-03-16 12:01:12"
+            "time": "2016-04-04 13:22:45"
         },
         {
             "name": "camspiers/json-pretty",
@@ -783,7 +784,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/21a8c06dd5fe0a22b776797cc552e51d17d7e7dd",
+                "url": "https://api.github.com/repos/composer/installers/zipball/2db1f3ce7bcf0d294811f5f0214e24d2878a57da",
                 "reference": "21a8c06dd5fe0a22b776797cc552e51d17d7e7dd",
                 "shasum": ""
             },
@@ -3174,7 +3175,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/02c75dff24fa9c306a907816ee6cff8c85a0d96b",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/4d5ed8a59a436dff1ee50ca8281ab4092fabcb73",
                 "reference": "02c75dff24fa9c306a907816ee6cff8c85a0d96b",
                 "shasum": ""
             },
@@ -10710,7 +10711,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "beelab/bowerphp": 10,
+        "beelab/bowerphp": 20,
         "composer/composer": 10,
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,
