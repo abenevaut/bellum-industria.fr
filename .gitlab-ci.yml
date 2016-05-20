@@ -1,11 +1,11 @@
 stages:
-  - codestyle
+#  - codestyle
   - build
   - test
 
-cs: # CodeStyle
-  stage: codestyle
-  script:
+#cs: # CodeStyle
+#  stage: codestyle
+#  script:
 #  - bin/phpcpd modules/Dashboard
 #  - bin/phpcpd modules/Files
 #  - bin/phpcpd modules/Installer
