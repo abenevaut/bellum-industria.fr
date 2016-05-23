@@ -95,9 +95,15 @@
 				@endif
 
 				<div class="pull-right">
+
+					<a href="{{ url('users/edit-my-password') }}" class="btn btn-info">
+						Change password
+					</a>
+
 					<a href="{{ url('users/edit-my-profile') }}" class="btn btn-info">
 						{{ trans('global.edit') }}
 					</a>
+
 				</div>
 
 
