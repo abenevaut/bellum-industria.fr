@@ -66,7 +66,7 @@ class ThemesPublishCommand extends Command
 		{
 			$assetsPath = $theme->getPath('assets');
 
-			$this->installBowerDependencies($assetsPath);
+//			$this->installBowerDependencies($assetsPath);
 
 			$destinationPath = public_path('themes/' . $theme->getLowerName());
 

@@ -218,6 +218,7 @@ class AuthController extends Controller
 		return $this->outputter->output(
 			'users.register',
 			[
+				'provider' => $provider,
 				'uri' => '/register/' . $provider
 			]
 		);
