@@ -119,14 +119,36 @@ class AuthController extends Controller
 	}
 
 	/**
+	 * Handle a registration request for the application.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function register(Request $request)
+	{
+		$validator = $this->validator($request->all());
+
+		if ($validator->fails()) {
+			$this->throwValidationException(
+				$request, $validator
+			);
+		}
+		else {
+			Session::flash('message-success', trans('auth.message_success_register'));
+		}
+
+		Auth::guard($this->getGuard())->login($this->create($request->all()));
+
+		return redirect($this->redirectPath());
+	}
+
+	/**
 	 * Get the post register / login redirect path.
 	 *
 	 * @return string
 	 */
 	public function redirectPath()
 	{
-		Session::flash('message', trans('auth.message_success_loggedin'));
-
 		return property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
 	}
 
