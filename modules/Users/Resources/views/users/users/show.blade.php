@@ -114,7 +114,7 @@
 
 
 
-
+				@if (!empty($social_login))
 				<div class="social-auth-links text-center">
 
 					<hr class="hidden-md hidden-lg">
@@ -123,42 +123,58 @@
 
 					<hr>
 
-					<a href="{{ url('login/bitbucket') }}" class="btn btn-primary btn-social btn-bitbucket">
-						<i class="fa fa-bitbucket"></i>
-						| {{ trans('lumen::login.signin_bitbucket') }}
-					</a>
+					@if (in_array('bitbucket', $social_login))
+						<a href="{{ url('login/bitbucket') }}" class="btn btn-primary btn-social btn-bitbucket">
+							<i class="fa fa-bitbucket"></i>
+							| {{ trans('flatly::login.signin_bitbucket') }}
+						</a>
+					@endif
 
-					<a href="{{ url('login/facebook') }}" class="btn btn-primary btn-social btn-facebook">
-						<i class="fa fa-facebook"></i>
-						| {{ trans('lumen::login.signin_facebook') }}
-					</a>
+					@if (in_array('facebook', $social_login))
+						<a href="{{ url('login/facebook') }}" class="btn btn-primary btn-social btn-facebook">
+							<i class="fa fa-facebook"></i>
+							| {{ trans('flatly::login.signin_facebook') }}
+						</a>
+					@endif
 
-					<a href="{{ url('login/github') }}" class="btn btn-primary btn-social btn-github">
-						<i class="fa fa-github"></i>
-						| {{ trans('lumen::login.signin_github') }}
-					</a>
+					@if (in_array('github', $social_login))
+						<a href="{{ url('login/github') }}" class="btn btn-primary btn-social btn-github">
+							<i class="fa fa-github"></i>
+							| {{ trans('flatly::login.signin_github') }}
+						</a>
+					@endif
 
-					<a href="{{ url('login/google') }}" class="btn btn-primary btn-social btn-google">
-						<i class="fa fa-google-plus"></i>
-						| {{ trans('lumen::login.signin_google_plus') }}
-					</a>
+					@if (in_array('google', $social_login))
+						<a href="{{ url('login/google') }}" class="btn btn-primary btn-social btn-google">
+							<i class="fa fa-google-plus"></i>
+							| {{ trans('flatly::login.signin_google_plus') }}
+						</a>
+					@endif
 
-					<a href="{{ url('login/linkedin') }}" class="btn btn-primary btn-social btn-linkedin">
-						<i class="fa fa-linkedin"></i>
-						| {{ trans('lumen::login.signin_linkedin') }}
-					</a>
+					@if (in_array('linkedin', $social_login))
+						<a href="{{ url('login/linkedin') }}" class="btn btn-primary btn-social btn-linkedin">
+							<i class="fa fa-linkedin"></i>
+							| {{ trans('flatly::login.signin_linkedin') }}
+						</a>
+					@endif
 
-					<a href="{{ url('login/twitter') }}" class="btn btn-primary btn-social btn-twitter">
-						<i class="fa fa-twitter"></i>
-						| {{ trans('lumen::login.signin_twitter') }}
-					</a>
+					@if (in_array('twitter', $social_login))
+						<a href="{{ url('login/twitter') }}" class="btn btn-primary btn-social btn-twitter">
+							<i class="fa fa-twitter"></i>
+							| {{ trans('flatly::login.signin_twitter') }}
+						</a>
+					@endif
 
-					<a href="{{ url('steam/login') }}" class="btn btn-primary btn-social btn-steam">
-						<i class="fa fa-steam"></i>
-						| {{ trans('lumen::login.signin_steam') }}
-					</a>
+					@if (\CVEPDB\Settings\Facades\Settings::get('steam.login'))
+						<a href="{{ url('steam/login') }}" class="btn btn-primary btn-social btn-steam">
+							<i class="fa fa-steam"></i>
+							| {{ trans('flatly::login.signin_steam') }}
+						</a>
+					@endif
 
 				</div>
+				@endif
+
 			</div>
 
 		</div>

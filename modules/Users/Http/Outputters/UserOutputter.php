@@ -2,6 +2,7 @@
 
 use Auth;
 use Config;
+use CVEPDB\Settings\Facades\Settings;
 use Session;
 use Request;
 use Core\Http\Outputters\FrontOutputter;
@@ -19,145 +20,153 @@ use Modules\Users\Events\Admin\UserDeletedEvent;
  */
 class UserOutputter extends FrontOutputter
 {
-    /**
-     * @var string Outputter header title
-     */
-    protected $title = 'users::front.meta_title';
 
-    /**
-     * @var string Outputter header description
-     */
-    protected $description = 'users::front.meta_description';
+	/**
+	 * @var string Outputter header title
+	 */
+	protected $title = 'users::front.meta_title';
 
-    /**
-     * @var null UserRepositoryEloquent
-     */
-    private $r_user = null;
+	/**
+	 * @var string Outputter header description
+	 */
+	protected $description = 'users::front.meta_description';
 
-    /**
-     * @var RoleRepositoryEloquent|null
-     */
-    private $r_role = null;
+	/**
+	 * @var null UserRepositoryEloquent
+	 */
+	private $r_user = null;
 
-    /**
-     * @var ApiKeyRepositoryEloquent|null
-     */
-    private $r_apikey = null;
+	/**
+	 * @var RoleRepositoryEloquent|null
+	 */
+	private $r_role = null;
 
-    public function __construct(
-        SettingsRepository $_settings,
-        UserRepositoryEloquent $r_user,
-        RoleRepositoryEloquent $r_role,
-        ApiKeyRepositoryEloquent $r_apikey
-    )
-    {
-        parent::__construct($_settings);
+	/**
+	 * @var ApiKeyRepositoryEloquent|null
+	 */
+	private $r_apikey = null;
 
-        $this->set_current_module('users');
+	public function __construct(
+		SettingsRepository $_settings,
+		UserRepositoryEloquent $r_user,
+		RoleRepositoryEloquent $r_role,
+		ApiKeyRepositoryEloquent $r_apikey
+	)
+	{
+		parent::__construct($_settings);
 
-        $this->r_user = $r_user;
-        $this->r_role = $r_role;
-        $this->r_apikey = $r_apikey;
+		$this->set_current_module('users');
 
-        $this->addBreadcrumb('Users', 'admin/users');
-    }
+		$this->r_user = $r_user;
+		$this->r_role = $r_role;
+		$this->r_apikey = $r_apikey;
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function index()
-    {
-        return $this->redirectTo('users/my-profile');
-    }
+		$this->addBreadcrumb('Users', 'admin/users');
+	}
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return null;
-    }
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function index()
+	{
+		return $this->redirectTo('users/my-profile');
+	}
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     *
-     * @return Response
-     */
-    public function store(IFormRequest $request)
-    {
-        return null;
-    }
+	/**
+	 * Show the form for creating a new resource.
+	 */
+	public function create()
+	{
+		return null;
+	}
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        $user = $this->r_user->find($id);
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param Request $request
+	 *
+	 * @return Response
+	 */
+	public function store(IFormRequest $request)
+	{
+		return null;
+	}
 
-        return $this->output(
-            'users.users.show',
-            [
-                'user' => $user
-            ]
-        );
-    }
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		$user = $this->r_user->find($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        $user = $this->r_user->find($id);
+		$social_login = Settings::get('users.social.login');
 
-        return $this->output(
-            'users.users.edit',
-            [
-                'user' => $user
-            ]
-        );
-    }
+		return $this->output(
+			'users.users.show',
+			[
+				'user' => $user,
+				'social_login' => $social_login
+			]
+		);
+	}
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function update($id, IFormRequest $request)
-    {
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		$user = $this->r_user->find($id);
 
-        dd( $request->all() );
+		return $this->output(
+			'users.users.edit',
+			[
+				'user' => $user
+			]
+		);
+	}
 
-        $user = $this->r_user->update([
-            'first_name' => $request->get('first_name'),
-            'last_name' => $request->get('last_name'),
-            'email' => $request->get('email')
-        ], $id);
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function update($id, IFormRequest $request)
+	{
 
-        event(new UserUpdatedEvent($user));
+		dd($request->all());
 
-        return $this->redirectTo('users/my-profile')
-            ->with('message-success', 'users::admin.edit.message.success');
-    }
+		$user = $this->r_user->update([
+			'first_name' => $request->get('first_name'),
+			'last_name'  => $request->get('last_name'),
+			'email'      => $request->get('email')
+		], $id);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        return null;
+		event(new UserUpdatedEvent($user));
+
+		return $this->redirectTo('users/my-profile')
+			->with('message-success', 'users::admin.edit.message.success');
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
+		return null;
 
 //        $this->r_user->findAndDelete($id);
 //
@@ -165,5 +174,5 @@ class UserOutputter extends FrontOutputter
 //
 //        return $this->redirectTo('admin/users')
 //            ->with('message-success', 'users::admin.delete.message.success');
-    }
+	}
 }
