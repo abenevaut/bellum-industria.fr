@@ -151,7 +151,8 @@
 						@endforeach
 					</div>
 					<div id="source-button" class="btn btn-primary btn-xs" style="display: none;">
-						&lt; &gt;</div>
+						&lt; &gt;
+					</div>
 				</div>
 
 				<hr>
@@ -163,7 +164,7 @@
 						</a>
 					</div>
 					<div class="pull-right">
-						<button class="btn btn-info" type="submit">
+						<button class="btn btn-primary" type="submit">
 							<i class="fa fa-pencil"></i> {{ trans('users::admin.edit.btn.edit_user') }}
 						</button>
 					</div>
