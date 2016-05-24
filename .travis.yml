@@ -17,6 +17,6 @@ before_script:
   - echo "extension = xdebug.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 script:
-  - bin/codecept run --env=core -g migration
-  - bin/codecept run --env=installer
-  - bin/codecept run
+  - bin/codecept run --env=core -g migration --coverage
+  - bin/codecept run --env=installer --coverage
+  - bin/codecept run --coverage
