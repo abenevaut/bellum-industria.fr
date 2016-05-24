@@ -4,12 +4,14 @@ php:
   - 5.6
   - 7
 
-addons:
-  ssh_known_hosts: gitlab.com
+#addons:
+#  ssh_known_hosts:
+#  - gitlab.com
 
 before_script:
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
+  - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - composer install --prefer-dist --no-interaction --optimize-autoloader
   - php artisan theme:publish
   - php artisan module:publish
