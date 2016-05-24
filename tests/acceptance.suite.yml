@@ -65,3 +65,23 @@ env:
                     browser: 'internet explorer'
                     port: 4444
                     window_size: 1024x768
+    travis:
+        l5:
+            env:
+                file: "tests/_data/.env.travis"
+                name: travis
+    travis-installer:
+        l5:
+            env:
+                file: "tests/_data/.env.travis-installer"
+                name: travis
+    codeship:
+        l5:
+            env:
+                file: "tests/_data/.env.codeship"
+                name: codeship
+    codeship-installer:
+        l5:
+            env:
+                file: "tests/_data/.env.codeship-installer"
+                name: codeship

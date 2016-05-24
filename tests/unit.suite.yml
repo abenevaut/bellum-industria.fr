@@ -37,3 +37,23 @@ env:
                     environment_file: "tests/_data/.env.testing"
                     cleanup: true
                     disable_middleware: true
+    travis:
+        modules:
+            config:
+                Laravel5:
+                    environment_file: "tests/_data/.env.travis"
+    travis-installer:
+        modules:
+            config:
+                Laravel5:
+                    environment_file: "tests/_data/.env.travis-installer"
+    codeship:
+        modules:
+            config:
+                Laravel5:
+                    environment_file: "tests/_data/.env.codeship"
+    codeship-installer:
+        modules:
+            config:
+                Laravel5:
+                    environment_file: "tests/_data/.env.codeship-installer"

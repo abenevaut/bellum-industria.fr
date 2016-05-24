@@ -9,7 +9,6 @@ php:
 #  - gitlab.com
 
 before_script:
-  - cp tests/_data/.env.travis .env.travis
   - mysql -e 'CREATE DATABASE cvepdb_cms_testing;'
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
@@ -21,6 +20,6 @@ before_script:
   - echo "extension = xdebug.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 script:
-  - bin/codecept run --env=core -g migration --coverage
-  - bin/codecept run --env=installer --coverage
-  - bin/codecept run --coverage
+  - bin/codecept run --env=core,travis -g migration --coverage
+  - bin/codecept run --env=installer,travis-installer --coverage
+  - bin/codecept run --env=travis --coverage
