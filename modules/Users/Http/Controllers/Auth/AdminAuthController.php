@@ -77,11 +77,13 @@ class AdminAuthController extends Controller
 	public function getLogin()
 	{
 		$social_login = Settings::get('users.social.login');
+		$is_registration_allowed = Settings::get('users.is_registration_allowed');
 
 		return $this->outputter->output(
 			'users.admin.login',
 			[
-				'social_login' => $social_login
+				'social_login'            => $social_login,
+				'is_registration_allowed' => $is_registration_allowed,
 			]
 		);
 	}
@@ -102,14 +104,16 @@ class AdminAuthController extends Controller
 	 * Once authenticated on site
 	 *
 	 * @param \Illuminate\Http\Request $request
-	 * @param User $user
+	 * @param User                     $user
+	 *
 	 * @return \Illuminate\Http\RedirectResponse
 	 */
 	public function authenticated(\Illuminate\Http\Request $request, User $user)
 	{
 		$route = property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
 
-		if (Auth::check() && Auth::user()->hasRole('admin')) {
+		if (Auth::check() && Auth::user()->hasRole('admin'))
+		{
 			$route = 'admin';
 		}
 

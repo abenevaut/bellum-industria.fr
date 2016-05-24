@@ -90,7 +90,13 @@
 @endsection
 
 @section('help')
-	<a href="{{ url('password/reset') }}">I forgot my password</a><br>
-	<a href="{{ url('register') }}" class="text-center">Register a new
-		membership</a>
+	<a href="{{ url('password/reset') }}">
+		I forgot my password
+	</a>
+	<br>
+	@if ($is_registration_allowed)
+	<a href="{{ url('register') }}" class="text-center">
+		Register a new membership
+	</a>
+	@endif
 @endsection

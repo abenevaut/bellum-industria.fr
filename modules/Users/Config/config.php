@@ -1,8 +1,8 @@
 <?php
 
 return [
-	'name'   => 'Users',
-	'admin'  => [
+	'name'                    => 'Users',
+	'admin'                   => [
 		'sidebar'   => [
 			'shortcuts' => [
 				'route' => 'admin.users.create',
@@ -24,7 +24,8 @@ return [
 			]
 		]
 	],
-	'social' => [
+	'is_registration_allowed' => true,
+	'social'                  => [
 		'login' => []
 	]
 ];

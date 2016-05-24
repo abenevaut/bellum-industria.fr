@@ -36,11 +36,13 @@ class SettingsOutputter extends AdminOutputter
 	public function index()
 	{
 		$social_login = Settings::get('users.social.login');
+		$is_registration_allowed = Settings::get('users.is_registration_allowed');
 
 		return $this->output(
 			'users.admin.settings.index',
 			[
-				'social_login' => $social_login
+				'social_login' => $social_login,
+				'is_registration_allowed' => $is_registration_allowed
 			]
 		);
 	}
@@ -51,8 +53,10 @@ class SettingsOutputter extends AdminOutputter
 	 */
 	public function store(IFormRequest $request)
 	{
-		$social_login = $request->get('social_login');
+		$is_registration_allowed = $request->get('is_registration_allowed');
+		Settings::set('users.is_registration_allowed', !is_null($is_registration_allowed));
 
+		$social_login = $request->get('social_login');
 		Settings::set('users.social.login', is_array($social_login) ? $social_login : []);
 
 		return $this->redirectTo('admin/users/settings');

@@ -105,11 +105,13 @@ class AuthController extends Controller
 		$this->outputter->setLoginMeta();
 
 		$social_login = Settings::get('users.social.login');
+		$is_registration_allowed = Settings::get('users.is_registration_allowed');
 
 		return $this->outputter->output(
 			'users.login',
 			[
-				'social_login' => $social_login
+				'social_login'            => $social_login,
+				'is_registration_allowed' => $is_registration_allowed
 			]
 		);
 	}
@@ -124,11 +126,13 @@ class AuthController extends Controller
 		$this->outputter->setRegisterMeta();
 
 		$social_login = Settings::get('users.social.login');
+		$is_registration_allowed = Settings::get('users.is_registration_allowed');
 
 		return $this->outputter->output(
 			'users.register',
 			[
-				'social_login' => $social_login
+				'social_login'            => $social_login,
+				'is_registration_allowed' => $is_registration_allowed
 			]
 		);
 	}
@@ -136,19 +140,22 @@ class AuthController extends Controller
 	/**
 	 * Handle a registration request for the application.
 	 *
-	 * @param  \Illuminate\Http\Request  $request
+	 * @param  \Illuminate\Http\Request $request
+	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function register(Request $request)
 	{
 		$validator = $this->validator($request->all());
 
-		if ($validator->fails()) {
+		if ($validator->fails())
+		{
 			$this->throwValidationException(
 				$request, $validator
 			);
 		}
-		else {
+		else
+		{
 			Session::flash('message-success', trans('auth.message_success_register'));
 		}
 
@@ -171,14 +178,16 @@ class AuthController extends Controller
 	 * Once authenticated on site
 	 *
 	 * @param \Illuminate\Http\Request $request
-	 * @param User $user
+	 * @param User                     $user
+	 *
 	 * @return \Illuminate\Http\RedirectResponse
 	 */
 	public function authenticated(\Illuminate\Http\Request $request, User $user)
 	{
 		$route = property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
 
-		if (\Auth::check() && \Auth::user()->hasRole('admin')) {
+		if (\Auth::check() && \Auth::user()->hasRole('admin'))
+		{
 			$route = 'admin';
 		}
 
@@ -233,11 +242,18 @@ class AuthController extends Controller
 		}
 		else
 		{
-			Session::set('register_from_social', [
-				'token' => $social_user->token
-			]);
+			if (Settings::get('users.is_registration_allowed'))
+			{
+				Session::set('register_from_social', [
+					'token' => $social_user->token
+				]);
 
-			return redirect('register/' . $provider);
+				return redirect('register/' . $provider);
+			}
+			else
+			{
+
+			}
 		}
 
 		return redirect(property_exists($this, 'redirectTo') ? $this->redirectTo : '/');
@@ -256,7 +272,7 @@ class AuthController extends Controller
 			'users.register',
 			[
 				'provider' => $provider,
-				'uri' => '/register/' . $provider
+				'uri'      => '/register/' . $provider
 			]
 		);
 	}
