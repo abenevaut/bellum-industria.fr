@@ -20,7 +20,7 @@ job_build:
   - php7
   - composer
 
-job_tests: # Run tests suites
+job_tests_linux: # Run tests suites
   stage: test
   only:
   - master
@@ -41,6 +41,29 @@ job_tests: # Run tests suites
   - php7
   - composer
   - mysql
+  - linux
+
+
+job_tests_windows: # Run tests suites
+  stage: test
+  only:
+  - master
+  - staging
+  before_script:
+  - chmod -R 777 storage
+  - chmod -R 777 public/uploads
+  - composer install
+  - php artisan theme:publish
+  - php artisan module:publish
+  - php artisan module:publish-migration
+  script:
+  - bin/codecept run --env=installer,ie --coverage
+  when: on_success
+  tags:
+  - php
+  - composer
+  - mysql
+  - windows
 
 job_cs: # CodeStyle
   stage: test
