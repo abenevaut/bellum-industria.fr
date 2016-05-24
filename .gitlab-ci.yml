@@ -53,6 +53,7 @@ job_tests_windows: # Run tests suites
   - development
   before_script:
   - E:\MinGW\msys\1.0\bin\bash.exe
+  - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
   - composer install
