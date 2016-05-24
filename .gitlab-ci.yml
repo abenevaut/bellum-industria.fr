@@ -46,6 +46,8 @@ job_cs: # CodeStyle
   stage: test
   only:
   - development
+  before_script:
+  - composer install
   script:
   - bin/phpcpd modules/Dashboard
   - bin/phpcpd modules/Files
