@@ -1,5 +1,6 @@
 <?php namespace Modules\Users\Http\Controllers\Auth;
 
+use CVEPDB\Settings\Facades\Settings;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -75,7 +76,14 @@ class AdminAuthController extends Controller
 	 */
 	public function getLogin()
 	{
-		return $this->outputter->output('users.admin.login');
+		$social_login = Settings::get('users.social.login');
+
+		return $this->outputter->output(
+			'users.admin.login',
+			[
+				'social_login' => $social_login
+			]
+		);
 	}
 
 	/**

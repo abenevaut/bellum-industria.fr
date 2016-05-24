@@ -2,6 +2,7 @@
 
 namespace Modules\Users\Http\Controllers\Auth;
 
+use CVEPDB\Settings\Facades\Settings;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -103,7 +104,14 @@ class AuthController extends Controller
 	{
 		$this->outputter->setLoginMeta();
 
-		return $this->outputter->output('users.login');
+		$social_login = Settings::get('users.social.login');
+
+		return $this->outputter->output(
+			'users.login',
+			[
+				'social_login' => $social_login
+			]
+		);
 	}
 
 	/**
@@ -115,7 +123,14 @@ class AuthController extends Controller
 	{
 		$this->outputter->setRegisterMeta();
 
-		return $this->outputter->output('users.register');
+		$social_login = Settings::get('users.social.login');
+
+		return $this->outputter->output(
+			'users.register',
+			[
+				'social_login' => $social_login
+			]
+		);
 	}
 
 	/**

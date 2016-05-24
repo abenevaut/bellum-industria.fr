@@ -1289,12 +1289,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-flatly.git",
-                "reference": "205ce29770ac227ca8477d115b5575922eb85652"
+                "reference": "9be45fe0064c34f480d324282388f4c4cf0d0b9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-flatly/repository/archive.zip?sha=205ce29770ac227ca8477d115b5575922eb85652",
-                "reference": "205ce29770ac227ca8477d115b5575922eb85652",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-flatly/repository/archive.zip?sha=9be45fe0064c34f480d324282388f4c4cf0d0b9e",
+                "reference": "9be45fe0064c34f480d324282388f4c4cf0d0b9e",
                 "shasum": ""
             },
             "require": {
@@ -1323,7 +1323,7 @@
                 "flatly",
                 "theme"
             ],
-            "time": "2016-05-19 15:08:45"
+            "time": "2016-05-23 14:03:52"
         },
         {
             "name": "cvepdb-cms/theme-lumen",
@@ -1331,12 +1331,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-lumen.git",
-                "reference": "3000a71f846ab4fa9a15cc06031a615369b4662b"
+                "reference": "f53a60d074d916540b6f07341fc106410d06e26b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=3000a71f846ab4fa9a15cc06031a615369b4662b",
-                "reference": "3000a71f846ab4fa9a15cc06031a615369b4662b",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=f53a60d074d916540b6f07341fc106410d06e26b",
+                "reference": "f53a60d074d916540b6f07341fc106410d06e26b",
                 "shasum": ""
             },
             "require": {
@@ -1365,7 +1365,7 @@
                 "lumen",
                 "theme"
             ],
-            "time": "2016-05-19 15:11:46"
+            "time": "2016-05-23 13:33:23"
         },
         {
             "name": "cvepdb/laravel",
@@ -2289,22 +2289,22 @@
         },
         {
             "name": "guzzle/guzzle",
-            "version": "dev-master",
+            "version": "v3.8.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/guzzle3.git",
-                "reference": "b3f5050cb6270c7a728a0b74ac2de50a262b3e02"
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "4de0618a01b34aa1c8c33a3f13f396dcd3882eba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/b3f5050cb6270c7a728a0b74ac2de50a262b3e02",
-                "reference": "b3f5050cb6270c7a728a0b74ac2de50a262b3e02",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/4de0618a01b34aa1c8c33a3f13f396dcd3882eba",
+                "reference": "4de0618a01b34aa1c8c33a3f13f396dcd3882eba",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "php": ">=5.3.3",
-                "symfony/event-dispatcher": "~2.1"
+                "symfony/event-dispatcher": ">=2.1"
             },
             "replace": {
                 "guzzle/batch": "self.version",
@@ -2331,21 +2331,18 @@
                 "guzzle/stream": "self.version"
             },
             "require-dev": {
-                "doctrine/cache": "~1.3",
-                "monolog/monolog": "~1.0",
+                "doctrine/cache": "*",
+                "monolog/monolog": "1.*",
                 "phpunit/phpunit": "3.7.*",
-                "psr/log": "~1.0",
-                "symfony/class-loader": "~2.1",
-                "zendframework/zend-cache": "2.*,<2.3",
-                "zendframework/zend-log": "2.*,<2.3"
-            },
-            "suggest": {
-                "guzzlehttp/guzzle": "Guzzle 5 has moved to a new package name. The package you have installed, Guzzle 3, is deprecated."
+                "psr/log": "1.0.*",
+                "symfony/class-loader": "*",
+                "zendframework/zend-cache": "<2.3",
+                "zendframework/zend-log": "<2.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.9-dev"
+                    "dev-master": "3.8-dev"
                 }
             },
             "autoload": {
@@ -2369,7 +2366,7 @@
                     "homepage": "https://github.com/guzzle/guzzle/contributors"
                 }
             ],
-            "description": "PHP HTTP client. This library is deprecated in favor of https://packagist.org/packages/guzzlehttp/guzzle",
+            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
             "homepage": "http://guzzlephp.org/",
             "keywords": [
                 "client",
@@ -2380,7 +2377,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2015-04-29 17:06:53"
+            "time": "2014-01-28 22:29:15"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2617,16 +2614,16 @@
         },
         {
             "name": "invisnik/laravel-steam-auth",
-            "version": "v2.0.0",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/invisnik/laravel-steam-auth.git",
-                "reference": "d75eda53996495db831eda1b7ea78326128544ab"
+                "reference": "69388a6347aeb9436557be4d3383ee563c1a1ade"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/invisnik/laravel-steam-auth/zipball/d75eda53996495db831eda1b7ea78326128544ab",
-                "reference": "d75eda53996495db831eda1b7ea78326128544ab",
+                "url": "https://api.github.com/repos/invisnik/laravel-steam-auth/zipball/69388a6347aeb9436557be4d3383ee563c1a1ade",
+                "reference": "69388a6347aeb9436557be4d3383ee563c1a1ade",
                 "shasum": ""
             },
             "require": {
@@ -2655,7 +2652,7 @@
                 "laravel",
                 "steam"
             ],
-            "time": "2015-08-19 12:25:26"
+            "time": "2016-05-21 14:20:11"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -3887,12 +3884,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "b23ddb363f28b41d790744197c4cf71e3fdccfe4"
+                "reference": "ba9d57a96b3a2499599b2ca93a32f3ed955b269c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/b23ddb363f28b41d790744197c4cf71e3fdccfe4",
-                "reference": "b23ddb363f28b41d790744197c4cf71e3fdccfe4",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/ba9d57a96b3a2499599b2ca93a32f3ed955b269c",
+                "reference": "ba9d57a96b3a2499599b2ca93a32f3ed955b269c",
                 "shasum": ""
             },
             "require": {
@@ -3911,8 +3908,8 @@
                 "php-console/php-console": "^3.1.3",
                 "phpunit/phpunit": "~4.5",
                 "phpunit/phpunit-mock-objects": "2.3.0",
-                "raven/raven": "^0.13",
                 "ruflin/elastica": ">=0.90 <3.0",
+                "sentry/sentry": "^0.13",
                 "swiftmailer/swiftmailer": "~5.3"
             },
             "suggest": {
@@ -3924,9 +3921,9 @@
                 "mongodb/mongodb": "Allow sending log messages to a MongoDB server via PHP Driver",
                 "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
                 "php-console/php-console": "Allow sending log messages to Google Chrome",
-                "raven/raven": "Allow sending log messages to a Sentry server",
                 "rollbar/rollbar": "Allow sending log messages to Rollbar",
-                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
+                "sentry/sentry": "Allow sending log messages to a Sentry server"
             },
             "type": "library",
             "extra": {
@@ -3957,7 +3954,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-04-20 19:08:06"
+            "time": "2016-05-20 19:14:51"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -4733,12 +4730,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "01483234c73759452154373eb2c58694b174a512"
+                "reference": "75a8253ee465a59006aae6d3c32ab694043d557a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/01483234c73759452154373eb2c58694b174a512",
-                "reference": "01483234c73759452154373eb2c58694b174a512",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/75a8253ee465a59006aae6d3c32ab694043d557a",
+                "reference": "75a8253ee465a59006aae6d3c32ab694043d557a",
                 "shasum": ""
             },
             "require": {
@@ -4773,14 +4770,14 @@
                     "homepage": "http://clorophilla.net"
                 }
             ],
-            "description": "Flexible and feature-complete PHP client library for Redis",
+            "description": "Flexible and feature-complete Redis client for PHP and HHVM",
             "homepage": "http://github.com/nrk/predis",
             "keywords": [
                 "nosql",
                 "predis",
                 "redis"
             ],
-            "time": "2016-05-19 09:43:39"
+            "time": "2016-05-23 10:09:43"
         },
         {
             "name": "prettus/l5-repository",
@@ -5155,16 +5152,16 @@
         },
         {
             "name": "roumen/feed",
-            "version": "v2.10.1",
+            "version": "v2.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RoumenDamianoff/laravel-feed.git",
-                "reference": "4c7a0e3b0f1b252e96c617bfc27a138809f8fbb3"
+                "reference": "04bad00c402db03a59ef5de4531d2521120fa1ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-feed/zipball/4c7a0e3b0f1b252e96c617bfc27a138809f8fbb3",
-                "reference": "4c7a0e3b0f1b252e96c617bfc27a138809f8fbb3",
+                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-feed/zipball/04bad00c402db03a59ef5de4531d2521120fa1ac",
+                "reference": "04bad00c402db03a59ef5de4531d2521120fa1ac",
                 "shasum": ""
             },
             "require": {
@@ -5202,7 +5199,7 @@
                 "laravel",
                 "rss"
             ],
-            "time": "2016-02-07 13:47:41"
+            "time": "2016-05-23 13:10:24"
         },
         {
             "name": "roumen/sitemap",
@@ -5397,12 +5394,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
-                "reference": "dd7529b2b1d1a48d4b0c1c5dfff8c087cd5c4cea"
+                "reference": "49888eba869d14116c1022231165830d98c3d96c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/dd7529b2b1d1a48d4b0c1c5dfff8c087cd5c4cea",
-                "reference": "dd7529b2b1d1a48d4b0c1c5dfff8c087cd5c4cea",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/49888eba869d14116c1022231165830d98c3d96c",
+                "reference": "49888eba869d14116c1022231165830d98c3d96c",
                 "shasum": ""
             },
             "require": {
@@ -5447,7 +5444,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2016-05-18 16:09:38"
+            "time": "2016-05-23 19:50:25"
         },
         {
             "name": "spatie/db-dumper",
@@ -5773,12 +5770,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "2765e1967997959571591d974af908b058885220"
+                "reference": "c44bd7009b204476bec96388415acedb7bf5c58f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/2765e1967997959571591d974af908b058885220",
-                "reference": "2765e1967997959571591d974af908b058885220",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/c44bd7009b204476bec96388415acedb7bf5c58f",
+                "reference": "c44bd7009b204476bec96388415acedb7bf5c58f",
                 "shasum": ""
             },
             "require": {
@@ -5823,7 +5820,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-05-18 14:25:07"
+            "time": "2016-05-23 07:58:48"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6106,27 +6103,27 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "2.8.x-dev",
+            "version": "3.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "a158f13992a3147d466af7a23b564ac719a4ddd8"
+                "reference": "807dde98589f9b2b00624dca326740380d78dbbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/a158f13992a3147d466af7a23b564ac719a4ddd8",
-                "reference": "a158f13992a3147d466af7a23b564ac719a4ddd8",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/807dde98589f9b2b00624dca326740380d78dbbc",
+                "reference": "807dde98589f9b2b00624dca326740380d78dbbc",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": ">=5.5.9"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/config": "~2.0,>=2.0.5|~3.0.0",
-                "symfony/dependency-injection": "~2.6|~3.0.0",
-                "symfony/expression-language": "~2.6|~3.0.0",
-                "symfony/stopwatch": "~2.3|~3.0.0"
+                "symfony/config": "~2.8|~3.0",
+                "symfony/dependency-injection": "~2.8|~3.0",
+                "symfony/expression-language": "~2.8|~3.0",
+                "symfony/stopwatch": "~2.8|~3.0"
             },
             "suggest": {
                 "symfony/dependency-injection": "",
@@ -6135,7 +6132,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -6162,7 +6159,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-05-03 18:59:18"
+            "time": "2016-05-05 06:56:13"
         },
         {
             "name": "symfony/filesystem",
@@ -7865,12 +7862,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "e40fa2ba9b2d6a2aa42739a0e173303d4ee80f27"
+                "reference": "a956a371e5912dcdff2f66cb75ad89bfb6756963"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/e40fa2ba9b2d6a2aa42739a0e173303d4ee80f27",
-                "reference": "e40fa2ba9b2d6a2aa42739a0e173303d4ee80f27",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/a956a371e5912dcdff2f66cb75ad89bfb6756963",
+                "reference": "a956a371e5912dcdff2f66cb75ad89bfb6756963",
                 "shasum": ""
             },
             "require": {
@@ -7911,7 +7908,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2016-05-11 00:48:44"
+            "time": "2016-05-23 19:58:34"
         },
         {
             "name": "facebook/webdriver",
@@ -8444,12 +8441,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "70bba85e4aabc9449626651f48b9018ede04f86b"
+                "reference": "4db079511a283e5aba1b3c2fb19037c645e70fc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/70bba85e4aabc9449626651f48b9018ede04f86b",
-                "reference": "70bba85e4aabc9449626651f48b9018ede04f86b",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/4db079511a283e5aba1b3c2fb19037c645e70fc2",
+                "reference": "4db079511a283e5aba1b3c2fb19037c645e70fc2",
                 "shasum": ""
             },
             "require": {
@@ -8501,7 +8498,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2015-04-02 19:54:00"
+            "time": "2016-05-22 21:52:33"
         },
         {
             "name": "myclabs/deep-copy",
@@ -10149,16 +10146,16 @@
         },
         {
             "name": "site5/phantoman",
-            "version": "v1.1.1",
+            "version": "v1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/site5/phantoman.git",
-                "reference": "2cc18bdb38533ffc3476653b9cf46c67cb5f3290"
+                "reference": "31fba1d0978ac9505355644433e1f361d26f1b48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/site5/phantoman/zipball/2cc18bdb38533ffc3476653b9cf46c67cb5f3290",
-                "reference": "2cc18bdb38533ffc3476653b9cf46c67cb5f3290",
+                "url": "https://api.github.com/repos/site5/phantoman/zipball/31fba1d0978ac9505355644433e1f361d26f1b48",
+                "reference": "31fba1d0978ac9505355644433e1f361d26f1b48",
                 "shasum": ""
             },
             "require": {
@@ -10192,7 +10189,7 @@
                 "headless",
                 "phantomjs"
             ],
-            "time": "2016-05-18 15:04:58"
+            "time": "2016-05-23 18:25:11"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -10200,12 +10197,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "0434c489d21e402199fb0b4ab581af5009cb706d"
+                "reference": "34cbd794b8d75fa33a36a961da9ed95710384436"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/0434c489d21e402199fb0b4ab581af5009cb706d",
-                "reference": "0434c489d21e402199fb0b4ab581af5009cb706d",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/34cbd794b8d75fa33a36a961da9ed95710384436",
+                "reference": "34cbd794b8d75fa33a36a961da9ed95710384436",
                 "shasum": ""
             },
             "require": {
@@ -10270,7 +10267,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-05-12 04:41:00"
+            "time": "2016-05-24 04:23:12"
         },
         {
             "name": "symfony/browser-kit",
