@@ -15,5 +15,6 @@ return [
 		]
 	],
 	'api_key' => null,
+	'login'   => false,
 	'route'   => 'steam.login'
 ];

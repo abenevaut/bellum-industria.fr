@@ -31,6 +31,21 @@
 									   value="{{ old('api_key', $api_key) }}">
 							</div>
 
+					<div class="form-group form-group-default">
+						<label>{{ trans('users::settings.switch_google_login') }}</label>
+						<div class="material-switch pull-right" style="padding-top: 10px;">
+							<input type="checkbox" name="steam_login"
+								   id="someSwitchOptionDefaultSteam"
+								   data-init-plugin="switchery" value="1"
+									@if (\CVEPDB\Settings\Facades\Settings::get('steam.login'))
+								   checked="checked"
+								   @endif
+
+							/>
+							<label for="someSwitchOptionDefaultSteam" class="label-success"></label>
+						</div>
+					</div>
+
 
 				</div>
 				<div class="box-footer clearfix">

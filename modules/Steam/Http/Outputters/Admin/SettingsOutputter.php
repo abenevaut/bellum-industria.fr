@@ -11,53 +11,59 @@ use Core\Domain\Settings\Repositories\SettingsRepository;
  */
 class SettingsOutputter extends AdminOutputter
 {
-    /**
-     * @var string Outputter header title
-     */
-    protected $title = 'steam::admin.dashboard.meta_title';
 
-    /**
-     * @var string Outputter header description
-     */
-    protected $description = 'global.settings';
+	/**
+	 * @var string Outputter header title
+	 */
+	protected $title = 'steam::admin.dashboard.meta_title';
 
-    /**
-     * SettingsOutputter constructor.
-     *
-     * @param SettingsRepository $r_settings
-     */
-    public function __construct(
-        SettingsRepository $r_settings
-    )
-    {
-        parent::__construct($r_settings);
-        $this->set_current_module('steam');
-        $this->addBreadcrumb(trans('global.settings'), 'admin/steam/settings');
-    }
+	/**
+	 * @var string Outputter header description
+	 */
+	protected $description = 'global.settings';
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function index()
-    {
-        $api_key = $this->r_settings->get('steam.api_key');
+	/**
+	 * SettingsOutputter constructor.
+	 *
+	 * @param SettingsRepository $r_settings
+	 */
+	public function __construct(
+		SettingsRepository $r_settings
+	)
+	{
+		parent::__construct($r_settings);
+		$this->set_current_module('steam');
+		$this->addBreadcrumb(trans('global.settings'), 'admin/steam/settings');
+	}
 
-        return $this->output(
-            'steam.admin.settings.index',
-            [
-                'api_key' => $api_key
-            ]
-        );
-    }
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function index()
+	{
+		$api_key = $this->r_settings->get('steam.api_key');
 
-    /**
-     * @param IFormRequest $request
-     * @return array
-     */
-    public function store(IFormRequest $request)
-    {
-        $api_key = $request->get('api_key');
-        $this->r_settings->set('steam.api_key', $api_key);
-        return $this->redirectTo('admin/steam/settings');
-    }
+		return $this->output(
+			'steam.admin.settings.index',
+			[
+				'api_key' => $api_key
+			]
+		);
+	}
+
+	/**
+	 * @param IFormRequest $request
+	 *
+	 * @return array
+	 */
+	public function store(IFormRequest $request)
+	{
+		$steam_login = $request->get('steam_login');
+		$this->r_settings->set('steam.login', !is_null($steam_login));
+
+		$api_key = $request->get('api_key');
+		$this->r_settings->set('steam.api_key', $api_key);
+
+		return $this->redirectTo('admin/steam/settings');
+	}
 }
