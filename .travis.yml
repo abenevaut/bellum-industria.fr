@@ -7,6 +7,7 @@ php:
 addons:
   ssh_known_hosts:
   - gitlab.com
+  - 104.210.2.228 #GitLab
 
 before_script:
   - chmod -R 777 storage
