@@ -66,6 +66,20 @@ return [
 			'unix_socket' => env('CORE_DB_SOCKET', '/Applications/MAMP/tmp/mysql/mysql.sock'),
 		],
 
+		'codeship' => [
+			'driver'      => 'mysql',
+			'host'        => 'localhost',
+			'database'    => 'test',
+			'username'    => env('MYSQL_USER'),
+			'password'    => env('MYSQL_PASSWORD'),
+			'charset'     => 'utf8',
+			'collation'   => 'utf8_unicode_ci',
+			'prefix'      => '',
+			'strict'      => false,
+			'engine'      => null,
+			'unix_socket' => '',
+		],
+
 		'mysql' => [
 			'driver'                        => 'mysql',
 			'host'                          => env('CORE_DB_HOST', '127.0.0.1'),
