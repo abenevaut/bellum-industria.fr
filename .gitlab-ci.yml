@@ -7,6 +7,7 @@ job_build:
   only:
   - master
   - staging
+  - development
   script:
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
@@ -25,6 +26,7 @@ job_tests_linux: # Run tests suites
   only:
   - master
   - staging
+  - development
   before_script:
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
@@ -48,13 +50,18 @@ job_tests_windows: # Run tests suites
   only:
   - master
   - staging
+  - development
   before_script:
+  - E:\MinGW\msys\1.0\bin\bash.exe
+  - /c/xampp/mysql_start.bat
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
   - composer install
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
+  after_script:
+  - /c/xampp/mysql_stop.bat
   script:
   - bin/codecept run --env=core -g migration --coverage
   - bin/codecept run --env=installer --coverage
