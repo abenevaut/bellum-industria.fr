@@ -77,7 +77,19 @@ class AuthController extends Controller
 			}
 			else
 			{
-				if (Settings::get('users.is_registration_allowed'))
+				if (Auth::check())
+				{
+					$this->r_socialtoken->create([
+						'provider' => 'steam',
+						'token'    => $social_user->getSteamID64(),
+						'user_id'  => Auth::user()->id
+					]);
+
+					Session::flash('message-success', trans('auth.message_success_provider_linked'));
+
+					return redirect(property_exists($this, 'redirectTo') ? $this->redirectTo : '/');
+				}
+				else if (Settings::get('users.is_registration_allowed'))
 				{
 					Session::set('register_from_social', [
 						'token' => $social_user->getSteamID64()
@@ -88,6 +100,7 @@ class AuthController extends Controller
 				else
 				{
 					Session::flash('message-warning', trans('auth.message_warning_registration_not_allowed'));
+
 					return redirect(property_exists($this, 'redirectTo') ? $this->redirectTo : '/');
 				}
 			}

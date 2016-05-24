@@ -242,7 +242,17 @@ class AuthController extends Controller
 		}
 		else
 		{
-			if (Settings::get('users.is_registration_allowed'))
+			if (Auth::check())
+			{
+				$this->r_socialtoken->create([
+					'provider' => $provider,
+					'token' => $social_user->token,
+					'user_id' => Auth::user()->id
+				]);
+
+				Session::flash('message-success', trans('auth.message_success_provider_linked'));
+			}
+			else if (Settings::get('users.is_registration_allowed'))
 			{
 				Session::set('register_from_social', [
 					'token' => $social_user->token
