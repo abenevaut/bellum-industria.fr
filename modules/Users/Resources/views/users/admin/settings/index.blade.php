@@ -22,7 +22,7 @@
 				<ul class="nav nav-tabs">
 					<li class="active">
 						<a href="#control-sidebar-general-tab" data-toggle="tab">
-							<i class="fa fa-share-square-o"></i> {{ trans('settings.general') }}
+							<i class="fa fa-gear"></i> {{ trans('settings.general') }}
 						</a>
 					</li>
 					<li>

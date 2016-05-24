@@ -252,7 +252,7 @@ class AuthController extends Controller
 			}
 			else
 			{
-
+				Session::flash('message-warning', trans('auth.message_warning_registration_not_allowed'));
 			}
 		}
 

@@ -18,6 +18,8 @@ return [
 
 	'message_success_register' => 'You have successfully registered.',
 
+	'message_warning_registration_not_allowed' => 'Registrations are not open',
+
 	'message_success_loggedin' => 'You have successfully logged in.',
 	'message_success_loggedout' => 'You are logged out successfully.',
 
