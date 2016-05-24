@@ -1,5 +1,6 @@
 <?php namespace Modules\Steam\Http\Controllers;
 
+use CVEPDB\Settings\Facades\Settings;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Core\Http\Controllers\CorePublicController as Controller;
@@ -76,11 +77,19 @@ class AuthController extends Controller
 			}
 			else
 			{
-				Session::set('register_from_social', [
-					'token' => $social_user->getSteamID64()
-				]);
+				if (Settings::get('users.is_registration_allowed'))
+				{
+					Session::set('register_from_social', [
+						'token' => $social_user->getSteamID64()
+					]);
 
-				return redirect('register/steam');
+					return redirect('register/steam');
+				}
+				else
+				{
+					Session::flash('message-warning', trans('auth.message_warning_registration_not_allowed'));
+					return redirect(property_exists($this, 'redirectTo') ? $this->redirectTo : '/');
+				}
 			}
 		}
 
