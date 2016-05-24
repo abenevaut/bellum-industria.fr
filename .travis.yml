@@ -12,6 +12,7 @@ before_script:
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
+  - echo "extension = xdebug.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 script:
   - bin/codecept run --env=core -g migration
