@@ -22,6 +22,6 @@ class User extends Model
 	 */
 	public function tokens()
 	{
-		return $this->hasOne('Core\Domain\Users\Entities\UserSocial');
+		return $this->hasMany('Core\Domain\Users\Entities\SocialToken');
 	}
 }
