@@ -9,6 +9,8 @@ php:
 #  - gitlab.com
 
 before_script:
+  - cp tests/_data/.env.travis .env.travis
+  - mysql -e 'CREATE DATABASE cvepdb_cms_testing;'
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"

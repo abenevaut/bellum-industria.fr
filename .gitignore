@@ -17,6 +17,8 @@ resources/views/modules/*
 !.env.example
 !.env.installer
 !.env.testing
+!.env.codeship
+!.env.travis
 .env.production
 
 # Modules directory
