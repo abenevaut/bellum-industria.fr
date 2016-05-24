@@ -1,29 +1,12 @@
 stages:
-#  - codestyle
   - build
   - test
 
-#cs: # CodeStyle
-#  stage: codestyle
-#  script:
-#  - bin/phpcpd modules/Dashboard
-#  - bin/phpcpd modules/Files
-#  - bin/phpcpd modules/Installer
-#  - bin/phpcpd modules/Pages
-#  - bin/phpcpd modules/Posts
-#  - bin/phpcpd modules/Themes
-#  - bin/phpcpd modules/Users
-#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ core
-#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Dashboard
-#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Files
-#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Installer
-#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Pages
-#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Posts
-#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Themes
-#  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Users
-
 job_build:
   stage: build
+  only:
+  - master
+  - staging
   script:
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
@@ -34,13 +17,14 @@ job_build:
 #  - php artisan codeception:dbdump testing --dump tests/_data/empty.sql --empty-database --no-seeding
 #  - php artisan codeception:dbdump testing --dump tests/_data/testing.sql --empty-database --seeder-class TestingSeeder
   tags:
-  - php
+  - php7
   - composer
 
 job_tests: # Run tests suites
   stage: test
   only:
   - master
+  - staging
   before_script:
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
@@ -49,11 +33,32 @@ job_tests: # Run tests suites
   - php artisan module:publish
   - php artisan module:publish-migration
   script:
-  - bin/codecept run --env=core -g migration --coverage --coverage-xml
-  - bin/codecept run --env=installer --coverage --coverage-xml
-  - bin/codecept run --coverage --coverage-xml
+  - bin/codecept run --env=core -g migration --coverage
+  - bin/codecept run --env=installer --coverage
+  - bin/codecept run --coverage
   when: on_success
   tags:
-  - php
+  - php7
   - composer
   - mysql
+
+job_cs: # CodeStyle
+  stage: test
+  only:
+  - development
+  script:
+  - bin/phpcpd modules/Dashboard
+  - bin/phpcpd modules/Files
+  - bin/phpcpd modules/Installer
+  - bin/phpcpd modules/Pages
+  - bin/phpcpd modules/Posts
+  - bin/phpcpd modules/Themes
+  - bin/phpcpd modules/Users
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ core
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Dashboard
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Files
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Installer
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Pages
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Posts
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Themes
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Users
