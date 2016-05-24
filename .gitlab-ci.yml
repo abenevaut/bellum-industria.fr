@@ -22,7 +22,7 @@ stages:
 #  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Themes
 #  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Users
 
-ci:
+job_build:
   stage: build
   script:
   - chmod -R 777 storage
@@ -33,10 +33,27 @@ ci:
   - php artisan module:publish-migration
 #  - php artisan codeception:dbdump testing --dump tests/_data/empty.sql --empty-database --no-seeding
 #  - php artisan codeception:dbdump testing --dump tests/_data/testing.sql --empty-database --seeder-class TestingSeeder
+  tags:
+  - php
+  - composer
 
-tests: # Run tests suites
+job_tests: # Run tests suites
   stage: test
+  only:
+  - master
+  before_script:
+  - chmod -R 777 storage
+  - chmod -R 777 public/uploads
+  - composer install
+  - php artisan theme:publish
+  - php artisan module:publish
+  - php artisan module:publish-migration
   script:
   - bin/codecept run --env=core -g migration --coverage --coverage-xml
   - bin/codecept run --env=installer --coverage --coverage-xml
   - bin/codecept run --coverage --coverage-xml
+  when: on_success
+  tags:
+  - php
+  - composer
+  - mysql
