@@ -4,12 +4,13 @@ php:
   - 5.6
   - 7
 
-sudo: true
+addons:
+  ssh_known_hosts:
+  - gitlab.com
 
 before_script:
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
-  - sudo ssh -o "StrictHostKeyChecking no" gitlab.com
   - composer install --prefer-source --no-interaction --optimize-autoloader
   - php artisan theme:publish
   - php artisan module:publish
