@@ -10,7 +10,7 @@ addons:
 before_script:
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
-  - composer install --prefer-source --no-interaction --optimize-autoloader
+  - composer install --prefer-dist --no-interaction --optimize-autoloader
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
