@@ -42,11 +42,13 @@ class SettingsOutputter extends AdminOutputter
 	public function index()
 	{
 		$api_key = $this->r_settings->get('steam.api_key');
+		$login = $this->r_settings->get('steam.login');
 
 		return $this->output(
 			'steam.admin.settings.index',
 			[
-				'api_key' => $api_key
+				'api_key' => $api_key,
+				'login'   => $login
 			]
 		);
 	}

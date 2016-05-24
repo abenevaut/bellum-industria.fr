@@ -37,7 +37,7 @@
 							<input type="checkbox" name="steam_login"
 								   id="someSwitchOptionDefaultSteam"
 								   data-init-plugin="switchery" value="1"
-									@if (\CVEPDB\Settings\Facades\Settings::get('steam.login'))
+									@if ($login)
 								   checked="checked"
 								   @endif
 
