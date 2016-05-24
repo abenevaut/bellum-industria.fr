@@ -46,6 +46,14 @@ class UserOutputter extends FrontOutputter
 	 */
 	private $r_apikey = null;
 
+	/**
+	 * UserOutputter constructor.
+	 *
+	 * @param SettingsRepository       $_settings
+	 * @param UserRepositoryEloquent   $r_user
+	 * @param RoleRepositoryEloquent   $r_role
+	 * @param ApiKeyRepositoryEloquent $r_apikey
+	 */
 	public function __construct(
 		SettingsRepository $_settings,
 		UserRepositoryEloquent $r_user,

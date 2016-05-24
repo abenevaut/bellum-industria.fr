@@ -63,7 +63,17 @@ class AuthController extends Controller
 	)
 	{
 		parent::__construct();
-		$this->middleware('guest', ['except' => ['logout', 'getLogout']]);
+		$this->middleware(
+			'guest',
+			[
+				'except' => [
+					'logout',
+					'getLogout',
+					'redirectToProvider',
+					'handleProviderCallback'
+				]
+			]
+		);
 		$this->outputter = $outputter;
 		$this->r_socialtoken = $r_socialtoken;
 	}
@@ -246,8 +256,8 @@ class AuthController extends Controller
 			{
 				$this->r_socialtoken->create([
 					'provider' => $provider,
-					'token' => $social_user->token,
-					'user_id' => Auth::user()->id
+					'token'    => $social_user->token,
+					'user_id'  => Auth::user()->id
 				]);
 
 				Session::flash('message-success', trans('auth.message_success_provider_linked'));
