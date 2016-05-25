@@ -23,6 +23,7 @@ job_build:
   tags:
   - php7
   - composer
+  - linux
 
 job_tests_linux: # Run tests suites
   stage: test
@@ -57,7 +58,7 @@ job_tests_windows: # Run tests suites
   - master
   - staging
   - development
-  script:
+  before_script:
   - E:\MinGW\msys\1.0\bin\bash.exe
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - chmod -R 777 storage
@@ -69,6 +70,7 @@ job_tests_windows: # Run tests suites
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
+  script:
   - bin/codecept run --env=core --coverage
   - bin/codecept run --env=installer,firefox --env=installer,ie acceptance
   when: on_success
