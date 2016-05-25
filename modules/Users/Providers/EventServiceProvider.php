@@ -5,25 +5,25 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 
 class EventServiceProvider extends ServiceProvider
 {
-    /**
-     * The event listener mappings for the application.
-     *
-     * @var array
-     */
-    protected $listen = [
-        'Modules\Users\Events\Admin\NewUserCreatedEvent' => [
-            'Modules\Users\Listeners\Admin\EventListener',
-        ],
-    ];
+	/**
+	 * The event listener mappings for the application.
+	 *
+	 * @var array
+	 */
+	protected $listen = [
+		'Modules\Users\Events\Admin\NewUserCreatedEvent' => [
+			'Modules\Users\Listeners\Admin\EventListener',
+		],
+	];
 
-    /**
-     * Register any other events for your application.
-     *
-     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
-     * @return void
-     */
-    public function boot(DispatcherContract $events)
-    {
-        parent::boot($events);
-    }
+	/**
+	 * Register any other events for your application.
+	 *
+	 * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+	 * @return void
+	 */
+	public function boot(DispatcherContract $events)
+	{
+		parent::boot($events);
+	}
 }

@@ -8,5 +8,5 @@ use Core\Domain\Roles\Repositories\RoleRepository as Repository;
  */
 interface RoleRepository extends Repository
 {
-    
+	
 }

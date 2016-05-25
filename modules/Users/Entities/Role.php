@@ -8,15 +8,15 @@ use Core\Domain\Roles\Entities\Role as RoleModel;
  */
 class Role extends RoleModel
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name',
-        'display_name',
-        'description',
-        'unchangeable',
-    ];
+	/**
+	 * The attributes that are mass assignable.
+	 *
+	 * @var array
+	 */
+	protected $fillable = [
+		'name',
+		'display_name',
+		'description',
+		'unchangeable',
+	];
 }

@@ -11,27 +11,27 @@ use Modules\Users\Entities\User;
  */
 class UserUpdatedEvent extends Event
 {
-    use SerializesModels;
+	use SerializesModels;
 
-    public $user = null;
+	public $user = null;
 
-    /**
-     * Create a new event instance.
-     *
-     * @return void
-     */
-    public function __construct(User $user)
-    {
-        $this->user = $user;
-    }
+	/**
+	 * Create a new event instance.
+	 *
+	 * @return void
+	 */
+	public function __construct(User $user)
+	{
+		$this->user = $user;
+	}
 
-    /**
-     * Get the channels the event should be broadcast on.
-     *
-     * @return array
-     */
-    public function broadcastOn()
-    {
-        return [];
-    }
+	/**
+	 * Get the channels the event should be broadcast on.
+	 *
+	 * @return array
+	 */
+	public function broadcastOn()
+	{
+		return [];
+	}
 }

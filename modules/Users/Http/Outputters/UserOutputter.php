@@ -55,12 +55,12 @@ class UserOutputter extends FrontOutputter
 	 * @param ApiKeyRepositoryEloquent $r_apikey
 	 */
 	public function __construct(
-		SettingsRepository $_settings,
-		UserRepositoryEloquent $r_user,
-		RoleRepositoryEloquent $r_role,
-		ApiKeyRepositoryEloquent $r_apikey
-	)
-	{
+	 SettingsRepository $_settings,
+	 UserRepositoryEloquent $r_user,
+	 RoleRepositoryEloquent $r_role,
+	 ApiKeyRepositoryEloquent $r_apikey
+	) {
+	
 		parent::__construct($_settings);
 
 		$this->set_current_module('users');
@@ -114,11 +114,11 @@ class UserOutputter extends FrontOutputter
 		$social_login = Settings::get('users.social.login');
 
 		return $this->output(
-			'users.users.show',
-			[
-				'user' => $user,
-				'social_login' => $social_login
-			]
+	  'users.users.show',
+	  [
+	  'user' => $user,
+	  'social_login' => $social_login
+	  ]
 		);
 	}
 
@@ -134,10 +134,10 @@ class UserOutputter extends FrontOutputter
 		$user = $this->r_user->find($id);
 
 		return $this->output(
-			'users.users.edit',
-			[
-				'user' => $user
-			]
+	  'users.users.edit',
+	  [
+	  'user' => $user
+	  ]
 		);
 	}
 

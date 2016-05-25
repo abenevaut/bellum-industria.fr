@@ -22,9 +22,9 @@ class SettingsOutputter extends AdminOutputter
 	protected $description = 'users::admin.meta_description';
 
 	public function __construct(
-		SettingsRepository $_settings
-	)
-	{
+	 SettingsRepository $_settings
+	) {
+	
 		parent::__construct($_settings);
 		$this->set_current_module('users');
 		$this->addBreadcrumb('Settings', 'admin/users');
@@ -39,11 +39,11 @@ class SettingsOutputter extends AdminOutputter
 		$is_registration_allowed = Settings::get('users.is_registration_allowed');
 
 		return $this->output(
-			'users.admin.settings.index',
-			[
-				'social_login' => $social_login,
-				'is_registration_allowed' => $is_registration_allowed
-			]
+	  'users.admin.settings.index',
+	  [
+	  'social_login' => $social_login,
+	  'is_registration_allowed' => $is_registration_allowed
+	  ]
 		);
 	}
 

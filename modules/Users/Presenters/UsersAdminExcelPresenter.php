@@ -10,13 +10,13 @@ use Prettus\Repository\Presenter\FractalPresenter;
  */
 class UsersAdminExcelPresenter extends FractalPresenter
 {
-    /**
-     * Transformer
-     *
-     * @return \League\Fractal\TransformerAbstract
-     */
-    public function getTransformer()
-    {
-        return new UsersAdminExcelTransformer();
-    }
+	/**
+	 * Transformer
+	 *
+	 * @return \League\Fractal\TransformerAbstract
+	 */
+	public function getTransformer()
+	{
+		return new UsersAdminExcelTransformer();
+	}
 }

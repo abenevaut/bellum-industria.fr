@@ -53,12 +53,12 @@ class UserOutputter extends AdminOutputter
 	private $r_apikey = null;
 
 	public function __construct(
-		SettingsRepository $_settings,
-		UserRepositoryEloquent $r_user,
-		RoleRepositoryEloquent $r_role,
-		ApiKeyRepositoryEloquent $r_apikey
-	)
-	{
+	 SettingsRepository $_settings,
+	 UserRepositoryEloquent $r_user,
+	 RoleRepositoryEloquent $r_role,
+	 ApiKeyRepositoryEloquent $r_apikey
+	) {
+	
 		parent::__construct($_settings);
 
 		$this->set_current_module('users');
@@ -104,18 +104,18 @@ class UserOutputter extends AdminOutputter
 		$users = $this->r_user->paginate(config('app.pagination'));
 
 		return $this->output(
-			$usePartial
-				? 'users.admin.users.chunks.index_tables'
-				: 'users.admin.users.index',
-			[
-				'users' => $users,
-				'nb_users' => $this->r_user->allCount(),
-				'filters' => [
-					'name' => $name,
-					'email' => $email,
-					'roles' => $roles,
-				]
-			]
+	  $usePartial
+	  ? 'users.admin.users.chunks.index_tables'
+	  : 'users.admin.users.index',
+	  [
+	  'users' => $users,
+	  'nb_users' => $this->r_user->allCount(),
+	  'filters' => [
+	  'name' => $name,
+	  'email' => $email,
+	  'roles' => $roles,
+	  ]
+	  ]
 		);
 	}
 
@@ -128,10 +128,10 @@ class UserOutputter extends AdminOutputter
 		$roles = $this->r_role->findWhereNotIn('name', ['user']);
 
 		return $this->output(
-			'users.admin.users.create',
-			[
-				'roles' => $roles
-			]
+	  'users.admin.users.create',
+	  [
+	  'roles' => $roles
+	  ]
 		);
 	}
 
@@ -145,9 +145,9 @@ class UserOutputter extends AdminOutputter
 	public function store(IFormRequest $request)
 	{
 		$user = $this->r_user->create_user(
-			$request->get('first_name'),
-			$request->get('last_name'),
-			$request->get('email')
+	  $request->get('first_name'),
+	  $request->get('last_name'),
+	  $request->get('email')
 		);
 
 		$this->r_apikey->generate_api_key($user);
@@ -168,7 +168,6 @@ class UserOutputter extends AdminOutputter
 		 * If primary address registered and not others, use primary foreach addresses
 		 */
 		foreach ($addresses as $type => $address) {
-
 			$validator = Addresses::getValidator($address);
 
 			if (!$validator->fails()) {
@@ -197,10 +196,10 @@ class UserOutputter extends AdminOutputter
 		$user = $this->r_user->find($id);
 
 		return $this->output(
-			'users.admin.users.show',
-			[
-				'user' => $user
-			]
+	  'users.admin.users.show',
+	  [
+	  'user' => $user
+	  ]
 		);
 	}
 
@@ -218,11 +217,11 @@ class UserOutputter extends AdminOutputter
 		$roles = $this->r_role->findWhereNotIn('name', ['user']);
 
 		return $this->output(
-			'users.admin.users.edit',
-			[
-				'user' => $user,
-				'roles' => $roles
-			]
+	  'users.admin.users.edit',
+	  [
+	  'user' => $user,
+	  'roles' => $roles
+	  ]
 		);
 	}
 
@@ -261,11 +260,9 @@ class UserOutputter extends AdminOutputter
 		 * If primary address registered and not others, use primary foreach addresses
 		 */
 		foreach ($addresses as $type => $address) {
-
 			$validator = Addresses::getValidator($address);
 
 			if (!$validator->fails()) {
-
 				$db_address = $user->{$type . 'Address'}();
 
 				if (is_null($db_address)) {
@@ -369,63 +366,64 @@ class UserOutputter extends AdminOutputter
 			->setCreator(Auth::user()->full_name)
 			->setDescription(Settings::get('core.site.name') . PHP_EOL . Settings::get('core.site.description'))
 			->sheet(
-				trans('users::admin.export.users_list.sheet_title') . date('Y-m-d H\hi'),
-				function ($sheet) use ($users, $nb_users) {
+	   trans('users::admin.export.users_list.sheet_title') . date('Y-m-d H\hi'),
+	   function ($sheet) use ($users, $nb_users) {
 
-					$sheet->prependRow([
-						'#',
-						trans('global.last_name'),
-						trans('global.first_name'),
-						trans('global.email'),
-						trans('global.role_s'),
-						trans('global.addresse_s'),
-					]);
+	   $sheet->prependRow([
+	   '#',
+	   trans('global.last_name'),
+	   trans('global.first_name'),
+	   trans('global.email'),
+	   trans('global.role_s'),
+	   trans('global.addresse_s'),
+	   ]);
 
-					// Append row after row 2
-					$sheet->rows($users['data']);
+	   // Append row after row 2
+	   $sheet->rows($users['data']);
 
-					// Append row after row 2
-					$sheet->appendRow($nb_users + 2, [trans('users::admin.export.total_users') . ' : ' . $nb_users]);
+	   // Append row after row 2
+	   $sheet->appendRow($nb_users + 2, [trans('users::admin.export.total_users') . ' : ' . $nb_users]);
 
-					/*
-					 * Style
-					 */
+	   /*
+       * Style
+       */
 
-					// Set black background
-					$sheet->row(1, function ($row) {
-						// Set font
-						$row->setFont(array(
+	   // Set black background
+	   $sheet->row(1, function ($row) {
+	   // Set font
+	   $row->setFont(array(
 							'size' => '14',
 							'bold' => true,
-						))
+	   ))
 							->setAlignment('center')
 							->setValignment('middle');
-					});
+	   });
 
-					// Freeze first row
-					$sheet->freezeFirstRow();
+	   // Freeze first row
+	   $sheet->freezeFirstRow();
 
-					$sheet->cells('A2:F' . ($nb_users + 2), function ($cells) {
-						// Set font
-						$cells->setFont([
+	   $sheet->cells('A2:F' . ($nb_users + 2), function ($cells) {
+	   // Set font
+	   $cells->setFont([
 							'size' => '12',
 							'bold' => false,
 							'wrap-text' => true, // Allow PHP_EOL
-						])
+	   ])
 							->setAlignment('center')
 							->setValignment('middle');
-					});
+	   });
 
-					$sheet->row($nb_users + 2, function ($row) {
-						// Set font
-						$row->setFont([
+	   $sheet->row($nb_users + 2, function ($row) {
+	   // Set font
+	   $row->setFont([
 							'size' => '12',
 							'bold' => true,
-						])
+	   ])
 							->setAlignment('center')
 							->setValignment('middle');
-					});
+	   });
 
-				})->export('xls');
+          }
+   )->export('xls');
 	}
 }

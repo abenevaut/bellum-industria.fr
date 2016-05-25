@@ -7,31 +7,31 @@ use Modules\Users\Services\MailToNewUserCreatedService;
 
 class EventListener implements ShouldQueue
 {
-    use InteractsWithQueue;
+	use InteractsWithQueue;
 
-    /**
-     * @var MailToNewUserCreatedService|null
-     */
-    private $s_mail = null;
+	/**
+	 * @var MailToNewUserCreatedService|null
+	 */
+	private $s_mail = null;
 
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct(MailToNewUserCreatedService $s_mail)
-    {
-        $this->s_mail = $s_mail;
-    }
+	/**
+	 * Create the event listener.
+	 *
+	 * @return void
+	 */
+	public function __construct(MailToNewUserCreatedService $s_mail)
+	{
+		$this->s_mail = $s_mail;
+	}
 
-    /**
-     * Handle the event.
-     *
-     * @param  SomeEvent $event
-     * @return void
-     */
-    public function handle(NewUserCreatedEvent $event)
-    {
-        $this->s_mail->ez($event->user);
-    }
+	/**
+	 * Handle the event.
+	 *
+	 * @param  SomeEvent $event
+	 * @return void
+	 */
+	public function handle(NewUserCreatedEvent $event)
+	{
+		$this->s_mail->ez($event->user);
+	}
 }

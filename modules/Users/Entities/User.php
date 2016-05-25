@@ -8,5 +8,5 @@ use Core\Domain\Users\Entities\User as Model;
  */
 class User extends Model
 {
-    
+	
 }

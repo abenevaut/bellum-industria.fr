@@ -36,8 +36,8 @@ class SocialiteManager extends Manager implements Factory
 		$config = $this->getConfig('github');
 
 		return $this->buildProvider(
-			'Laravel\Socialite\Two\GithubProvider',
-			$config
+	  'Laravel\Socialite\Two\GithubProvider',
+	  $config
 		);
 	}
 
@@ -51,8 +51,8 @@ class SocialiteManager extends Manager implements Factory
 		$config = $this->getConfig('facebook');
 
 		return $this->buildProvider(
-			'Laravel\Socialite\Two\FacebookProvider',
-			$config
+	  'Laravel\Socialite\Two\FacebookProvider',
+	  $config
 		);
 	}
 
@@ -66,8 +66,8 @@ class SocialiteManager extends Manager implements Factory
 		$config = $this->getConfig('google');
 
 		return $this->buildProvider(
-			'Laravel\Socialite\Two\GoogleProvider',
-			$config
+	  'Laravel\Socialite\Two\GoogleProvider',
+	  $config
 		);
 	}
 
@@ -81,8 +81,8 @@ class SocialiteManager extends Manager implements Factory
 		$config = $this->getConfig('linkedin');
 
 		return $this->buildProvider(
-			'Laravel\Socialite\Two\LinkedInProvider',
-			$config
+	  'Laravel\Socialite\Two\LinkedInProvider',
+	  $config
 		);
 	}
 
@@ -113,8 +113,8 @@ class SocialiteManager extends Manager implements Factory
 		$config = $this->getConfig('twitter');
 
 		return new TwitterProvider(
-			$this->app['request'],
-			new TwitterServer($this->formatConfig($config))
+	  $this->app['request'],
+	  new TwitterServer($this->formatConfig($config))
 		);
 	}
 
@@ -128,8 +128,8 @@ class SocialiteManager extends Manager implements Factory
 		$config = $this->getConfig('bitbucket');
 
 		return new BitbucketProvider(
-			$this->app['request'],
-			new BitbucketServer($this->formatConfig($config))
+	  $this->app['request'],
+	  new BitbucketServer($this->formatConfig($config))
 		);
 	}
 

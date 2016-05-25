@@ -48,11 +48,12 @@ class AuthOutputter extends FrontOutputter
 	 * @param ApiKeyRepositoryEloquent $r_apikey
 	 */
 	public function __construct(
-		SettingsRepository $_settings,
-		UserRepositoryEloquent $r_user,
-		RoleRepositoryEloquent $r_role,
-		ApiKeyRepositoryEloquent $r_apikey)
-	{
+	 SettingsRepository $_settings,
+	 UserRepositoryEloquent $r_user,
+	 RoleRepositoryEloquent $r_role,
+	 ApiKeyRepositoryEloquent $r_apikey
+) {
+	
 		parent::__construct($_settings);
 		$this->r_user = $r_user;
 		$this->r_role = $r_role;
@@ -97,7 +98,7 @@ class AuthOutputter extends FrontOutputter
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public function setRegisterMeta()
 	{

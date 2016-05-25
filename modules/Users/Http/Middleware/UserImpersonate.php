@@ -12,29 +12,29 @@ use Auth;
  */
 class UserImpersonate
 {
-    /**
-     * @param $request
-     * @param Closure $next
-     * @return mixed
-     */
-    public function handle($request, Closure $next)
-    {
+	/**
+	 * @param $request
+	 * @param Closure $next
+	 * @return mixed
+	 */
+	public function handle($request, Closure $next)
+	{
 
-        // \Session::set('impersonate_member', 42 /* user id*/);
-        // \Session::forget('impersonate_member');
+		// \Session::set('impersonate_member', 42 /* user id*/);
+		// \Session::forget('impersonate_member');
 
-        if (
-            Auth::check()
-            && (
-                Auth::user()->hasRole('admin')
-                || Auth::user()->hasPermission('taking_session')
-            )
-            && $request->session()->has('impersonate_member')
-            && $id = $request->session()->get('impersonate_member')
-        )
-        {
-            Auth::onceUsingId($id);
-        }
-        return $next($request);
-    }
+		if (
+			Auth::check()
+			&& (
+				Auth::user()->hasRole('admin')
+				|| Auth::user()->hasPermission('taking_session')
+			)
+			&& $request->session()->has('impersonate_member')
+			&& $id = $request->session()->get('impersonate_member')
+		)
+		{
+			Auth::onceUsingId($id);
+		}
+		return $next($request);
+	}
 }
