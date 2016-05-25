@@ -9,15 +9,15 @@ use Phoenix\EloquentMeta\MetaTrait;
 
 class Pages extends Model implements Transformable
 {
-    use TransformableTrait;
-    use MetaTrait;
+	use TransformableTrait;
+	use MetaTrait;
 
-    protected $fillable = [
-        'title',
-        'content',
-        'is_home',
-        'uri',
-        'slug'
-    ];
+	protected $fillable = [
+		'title',
+		'content',
+		'is_home',
+		'uri',
+		'slug'
+	];
 
 }
