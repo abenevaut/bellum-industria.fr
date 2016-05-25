@@ -33,11 +33,11 @@ class AdminOutputter extends CoreOutputter
 	public function output($view, $data = [])
 	{
 		return parent::output(
-			$view,
-			$data
-			+ $this->header_navigation()
-			+ $this->main_navigation()
-			+ $this->footer()
+	  $view,
+	  $data
+	  + $this->header_navigation()
+	  + $this->main_navigation()
+	  + $this->footer()
 		);
 	}
 
@@ -49,60 +49,58 @@ class AdminOutputter extends CoreOutputter
 		$modules_list = Module::getOrdered();
 
 		Menu::create(
-			'navbar',
-			function ($menu) use ($modules_list)
-			{
+	  'navbar',
+	  function ($menu) use ($modules_list) {
+	  
 
-				$menu->url(
-					'/',
-					trans('menus.view_website'),
-					[],
-					[
-						'icon'   => 'fa fa-globe',
-						'target' => '_blank'
-					]
-				);
+	  $menu->url(
+	  '/',
+	  trans('menus.view_website'),
+	  [],
+	  [
+	  'icon'   => 'fa fa-globe',
+	  'target' => '_blank'
+	  ]
+	  );
 
-				$menu->dropdown(
-					trans('global.shortcuts'),
-					function ($submenu) use ($modules_list)
-					{
+	  $menu->dropdown(
+	  trans('global.shortcuts'),
+	  function ($submenu) use ($modules_list) {
+	  
 
-						$i = 0;
+	  $i = 0;
 
-						foreach ($modules_list as $module)
-						{
+	  foreach ($modules_list as $module)
+	  {
+	  $config_base_tag = strtolower($module->name) . '.admin.sidebar.shortcuts.';
+	  $route = Config::get($config_base_tag . 'route');
 
-							$config_base_tag = strtolower($module->name) . '.admin.sidebar.shortcuts.';
-							$route = Config::get($config_base_tag . 'route');
+	  if (!is_null($route))
+	  {
+      if ($i)
+      {
+      $submenu->divider();
+      }
 
-							if (!is_null($route))
-							{
+      $submenu->route(
+	  $route,
+	  $module->name,
+	  [],
+	  [
+	  'icon' => Config::get($config_base_tag . 'icon')
+	  ]
+      );
 
-								if ($i)
-								{
-									$submenu->divider();
-								}
-
-								$submenu->route(
-									$route,
-									$module->name,
-									[],
-									[
-										'icon' => Config::get($config_base_tag . 'icon')
-									]
-								);
-
-								$i++;
-							}
-						}
-					},
-					[],
-					[
-						'icon' => 'fa fa-fast-forward'
-					]
-				);
-			}
+      $i++;
+	  }
+	  }
+	  },
+	  [],
+	  [
+	  'icon' => 'fa fa-fast-forward'
+	  ]
+	  );
+	  }
 		);
 
 		return [
@@ -118,70 +116,68 @@ class AdminOutputter extends CoreOutputter
 		$modules_list = Module::getOrdered();
 
 		Menu::create(
-			'navbar',
-			function ($menu) use ($modules_list)
-			{
+	  'navbar',
+	  function ($menu) use ($modules_list) {
+	  
 
-				$menu->header(trans('menus.main_navigation'));
+	  $menu->header(trans('menus.main_navigation'));
 
-				foreach ($modules_list as $module)
-				{
+	  foreach ($modules_list as $module)
+	  {
+	  $config_base_tag = strtolower($module->name) . '.admin.sidebar.menu.';
+	  $route = Config::get($config_base_tag . 'route');
 
-					$config_base_tag = strtolower($module->name) . '.admin.sidebar.menu.';
-					$route = Config::get($config_base_tag . 'route');
-
-					if (!is_null($route))
-					{
+	  if (!is_null($route))
+	  {
 						$menu->route(
-							$route,
-							$module->name,
-							[],
-							[
-								'icon' => Config::get($config_base_tag . 'icon')
-							]
+	  $route,
+	  $module->name,
+	  [],
+	  [
+	  'icon' => Config::get($config_base_tag . 'icon')
+	  ]
 						);
-					}
-				}
+	  }
+	  }
 
-				$menu->dropdown(
-					trans('global.settings'),
-					function ($submenu) use ($modules_list)
-					{
+	  $menu->dropdown(
+	  trans('global.settings'),
+	  function ($submenu) use ($modules_list) {
+	  
 
-						$submenu->route(
-							'admin.settings.index',
-							trans('global.general'),
-							[],
-							[
-								'icon' => 'fa fa-gear'
-							]
-						);
+	  $submenu->route(
+	  'admin.settings.index',
+	  trans('global.general'),
+	  [],
+	  [
+	  'icon' => 'fa fa-gear'
+	  ]
+	  );
 
-						foreach ($modules_list as $module)
-						{
+	  foreach ($modules_list as $module)
+	  {
+	  $config_base_tag = strtolower($module->name) . '.admin.sidebar.settings.';
+	  $route = Config::get($config_base_tag . 'route');
 
-							$config_base_tag = strtolower($module->name) . '.admin.sidebar.settings.';
-							$route = Config::get($config_base_tag . 'route');
-
-							if (!is_null($route))
-							{
-								$submenu->route(
-									$route,
-									$module->name,
-									[],
-									[
-										'icon' => Config::get($config_base_tag . 'icon')
-									]
-								);
-							}
-						}
-					},
-					[],
-					[
-						'icon' => 'fa fa-gears'
-					]
-				);
-			}
+	  if (!is_null($route))
+	  {
+      $submenu->route(
+	  $route,
+	  $module->name,
+	  [],
+	  [
+	  'icon' => Config::get($config_base_tag . 'icon')
+	  ]
+      );
+	  }
+	  }
+	  },
+	  [],
+	  [
+	  'icon' => 'fa fa-gears'
+	  ]
+	  );
+	  }
 		);
 
 		return [

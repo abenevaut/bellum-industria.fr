@@ -106,7 +106,6 @@ class adminlteSidebarPresenter extends CorePresenter
 
 		foreach ($item->getChilds() as $child)
 		{
-
 			if ($child->hidden())
 			{
 				continue;

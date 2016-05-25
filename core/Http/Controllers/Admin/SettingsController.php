@@ -12,57 +12,57 @@ use Core\Http\Requests\Admin\SettingsStoreFormRequest;
  */
 class SettingsController extends CoreAdminController
 {
-    /**
-     * @var SettingsOutputter|null
-     */
-    protected $outputter = null;
+	/**
+	 * @var SettingsOutputter|null
+	 */
+	protected $outputter = null;
 
 	/**
 	 * SettingsController constructor.
 	 *
 	 * @param SettingsOutputter $outputter
 	 */
-    public function __construct(SettingsOutputter $outputter)
-    {
+	public function __construct(SettingsOutputter $outputter)
+	{
 		parent::__construct();
-        $this->outputter = $outputter;
-    }
+		$this->outputter = $outputter;
+	}
 
-    /**
-     * @return mixed
-     */
-    public function index()
-    {
-        return $this->outputter->index();
-    }
+	/**
+	 * @return mixed
+	 */
+	public function index()
+	{
+		return $this->outputter->index();
+	}
 
-    /**
-     * @return mixed
-     */
-    public function store(SettingsStoreFormRequest $request)
-    {
-        return $this->outputter->store($request);
-    }
+	/**
+	 * @return mixed
+	 */
+	public function store(SettingsStoreFormRequest $request)
+	{
+		return $this->outputter->store($request);
+	}
 
-    /**
-     * Ajax method to get settings
-     *
-     * @param SettingsGetFormRequest $request
-     * @return array
-     */
-    public function get(SettingsGetFormRequest $request)
-    {
-        return $this->outputter->get($request);
-    }
+	/**
+	 * Ajax method to get settings
+	 *
+	 * @param SettingsGetFormRequest $request
+	 * @return array
+	 */
+	public function get(SettingsGetFormRequest $request)
+	{
+		return $this->outputter->get($request);
+	}
 
-    /**
-     * Ajax method to set settings
-     *
-     * @param SettingsSetFormRequest $request
-     * @return array
-     */
-    public function set(SettingsSetFormRequest $request)
-    {
-        return $this->outputter->set($request);
-    }
+	/**
+	 * Ajax method to set settings
+	 *
+	 * @param SettingsSetFormRequest $request
+	 * @return array
+	 */
+	public function set(SettingsSetFormRequest $request)
+	{
+		return $this->outputter->set($request);
+	}
 }

@@ -62,11 +62,11 @@ class CoreOutputter extends AbsLaravelOutputter
 	public function output($view, $data = [])
 	{
 		return cmsview(
-			$view,
-			$data
-			+ $this->data_header(),
-			$this->view_prefix,
-			$this->current_module
+	  $view,
+	  $data
+	  + $this->data_header(),
+	  $this->view_prefix,
+	  $this->current_module
 		);
 	}
 

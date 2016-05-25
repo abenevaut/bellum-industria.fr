@@ -40,10 +40,10 @@ class SettingsOutputter extends AdminOutputter
 	 * @param SettingsRepository $r_settings
 	 */
 	public function __construct(
-		SettingsRepository $r_settings,
-		LogoSettingsRepository $r_logo_settings
-	)
-	{
+	 SettingsRepository $r_settings,
+	 LogoSettingsRepository $r_logo_settings
+	) {
+	
 		parent::__construct($r_settings);
 
 		$this->r_logo_settings = $r_logo_settings;
@@ -58,10 +58,10 @@ class SettingsOutputter extends AdminOutputter
 	public function index()
 	{
 		return $this->output(
-			'core.admin.settings.index',
-			[
-				'settings' => $this->r_settings
-			]
+	  'core.admin.settings.index',
+	  [
+	  'settings' => $this->r_settings
+	  ]
 		);
 	}
 

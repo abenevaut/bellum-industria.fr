@@ -31,7 +31,8 @@ class MailTransportManagerFactory extends TransportManager
 		// for delivering mail such as Sendgrid, Amazon SES, or a custom server
 		// a developer has available. We will just pass this configured host.
 		$transport = SmtpTransport::newInstance(
-			$config['host'], $config['port']
+	  $config['host'],
+	  $config['port']
 		);
 
 		if (isset($config['encryption']))

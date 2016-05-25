@@ -122,11 +122,11 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 		if ($user->roles->contains($role->id) && 1 === $this->r_roles->count_users_by_roles([RoleRepositoryEloquent::ADMIN]))
 		{
 			throw new \Exception(
-				sprintf(
-					trans('users::repository.findanddelete.error:this_is_the_last_user_admin'),
-					$user->full_name
-				),
-				1
+	   sprintf(
+	   trans('users::repository.findanddelete.error:this_is_the_last_user_admin'),
+	   $user->full_name
+	   ),
+	   1
 			);
 		}
 

@@ -76,8 +76,8 @@ class adminlteHeaderMenuPresenter extends CorePresenter
 	public function getMenuWithDropDownWrapper($item)
 	{
 		return '<li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> ' . $item->getIcon() . ' ' . $item->title . '  <span class="caret"></span></a>
-        <ul class="dropdown-menu" role="menu">' . $this->getChildMenuItems($item) . '</ul></li>' . PHP_EOL;
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown"> ' . $item->getIcon() . ' ' . $item->title . '  <span class="caret"></span></a>
+		<ul class="dropdown-menu" role="menu">' . $this->getChildMenuItems($item) . '</ul></li>' . PHP_EOL;
 	}
 
 	/**
@@ -105,7 +105,6 @@ class adminlteHeaderMenuPresenter extends CorePresenter
 
 		foreach ($item->getChilds() as $child)
 		{
-
 			if ($child->hidden())
 			{
 				continue;

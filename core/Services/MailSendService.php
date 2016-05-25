@@ -26,8 +26,8 @@ abstract class MailSendService extends AbsMailService
 	 */
 	public function emailTo($emails, $view, $subject, $data = [])
 	{
-		Mail::send($view, $data, function ($message) use ($emails, $subject)
-		{
+		Mail::send($view, $data, function ($message) use ($emails, $subject) {
+		
 
 			$mailfrom = Settings::get('mail.from.address');
 			$mailname = Settings::get('mail.from.name');

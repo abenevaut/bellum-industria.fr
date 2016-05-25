@@ -59,10 +59,10 @@ class Kernel extends ConsoleKernel
 		 */
 
 		$schedule->call(
-			function ()
-			{
-				Artisan::call('queue:listen', array('--queue' => 'default'));
-			}
+	  function () {
+	  
+	  Artisan::call('queue:listen', array('--queue' => 'default'));
+	  }
 		)
 			->name('[Queue] : run default queue')
 			->withoutOverlapping()

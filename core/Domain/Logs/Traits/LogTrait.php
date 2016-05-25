@@ -27,11 +27,10 @@ trait LogTrait
 		foreach (static::getRecordActivityEvents() as $eventName)
 		{
 			static::$eventName(
-				function (Model $model) use ($eventName)
-				{
+				function (Model $model) use ($eventName) {
+				
 					try
 					{
-
 						$reflect = new ReflectionClass($model);
 
 						return Log::create([
@@ -96,4 +95,4 @@ trait LogTrait
 				return 'unknown';
 		}
 	}
-} 
+}

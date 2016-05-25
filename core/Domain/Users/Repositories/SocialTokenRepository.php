@@ -8,5 +8,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface SocialTokenRepository extends RepositoryInterface
 {
-    
+	
 }

@@ -31,8 +31,8 @@ class UserNameLikeCriteria extends AbsCriteria
 	 */
 	public function apply($model, RepositoryInterface $repository)
 	{
-		return $model->where(function ($query)
-		{
+		return $model->where(function ($query) {
+		
 			$query->where('first_name', 'LIKE', '%' . $this->name . '%')
 				->orwhere('last_name', 'LIKE', '%' . $this->name . '%');
 		});

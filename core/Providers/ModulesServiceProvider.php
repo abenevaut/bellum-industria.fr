@@ -20,8 +20,8 @@ class ModulesServiceProvider extends PingpongModulesServiceProvider
 		$this->setupStubPath();
 		$this->registerProviders();
 
-		$this->app->booting(function ()
-		{
+		$this->app->booting(function () {
+		
 
 			$loader = AliasLoader::getInstance();
 			$loader->alias('Widget', 'Pingpong\Widget\WidgetFacade');
@@ -35,7 +35,6 @@ class ModulesServiceProvider extends PingpongModulesServiceProvider
 
 			foreach (Module::getOrdered() as $module)
 			{
-
 				$file = $module->getPath() . '/widgets.php';
 
 				if (file_exists($file))

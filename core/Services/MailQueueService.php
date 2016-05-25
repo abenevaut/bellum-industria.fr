@@ -26,8 +26,8 @@ abstract class MailQueueService extends AbsMailService
 	 */
 	public function emailTo($emails, $view, $subject, $data = [])
 	{
-		Mail::queue($view, $data, function ($message) use ($emails, $subject)
-		{
+		Mail::queue($view, $data, function ($message) use ($emails, $subject) {
+		
 
 			$mailfrom = Settings::get('mail.from.address');
 			$mailname = Settings::get('mail.from.name');
