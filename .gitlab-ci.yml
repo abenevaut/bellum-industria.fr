@@ -43,8 +43,14 @@ job_tests_linux: # Run tests suites
   - php artisan module:publish-migration
   script:
   - bin/codecept run --env=core -g migration --coverage
-  - bin/codecept run --env=installer --coverage
-  - bin/codecept run --coverage
+  - bin/codecept run --env=installer acceptance
+  - bin/codecept run --env=installer functionnal --coverage
+  - bin/codecept run --env=installer api --coverage
+  - bin/codecept run --env=installer unit --coverage
+  - bin/codecept run acceptance
+  - bin/codecept run functionnal --coverage
+  - bin/codecept run api --coverage
+  - bin/codecept run unit --coverage
   when: on_success
   tags:
   - php7
@@ -55,10 +61,9 @@ job_tests_linux: # Run tests suites
 job_tests_windows: # Run tests suites
   stage: test
   only:
-  - master
   - staging
   - development
-  script:
+  before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
@@ -69,8 +74,9 @@ job_tests_windows: # Run tests suites
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
-  - bin\codecept run --env=core --coverage
+  script:
   - bin\codecept run --env=installer,firefox --env=installer,ie acceptance
+  when: on_success
   tags:
   - php7
   - composer
