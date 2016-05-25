@@ -2,7 +2,7 @@
 
 return [
 
-    /*
+	/*
     |--------------------------------------------------------------------------
     | Default Filesystem Disk
     |--------------------------------------------------------------------------
@@ -15,9 +15,9 @@ return [
     |
     */
 
-    'default' => 'uploads',
+	'default' => 'uploads',
 
-    /*
+	/*
     |--------------------------------------------------------------------------
     | Default Cloud Filesystem Disk
     |--------------------------------------------------------------------------
@@ -28,9 +28,9 @@ return [
     |
     */
 
-    'cloud' => 's3',
+	'cloud' => 's3',
 
-    /*
+	/*
     |--------------------------------------------------------------------------
     | Filesystem Disks
     |--------------------------------------------------------------------------
@@ -41,35 +41,35 @@ return [
     |
     */
 
-    'disks' => [
+	'disks' => [
 
-        'uploads' => [
-            'driver' => 'local',
-            'root' => public_path('uploads'),
-            'visibility' => 'public',
-        ],
+		'uploads' => [
+			'driver' => 'local',
+			'root' => public_path('uploads'),
+			'visibility' => 'public',
+		],
 
-        'backups' => [
-            'driver' => 'local',
-            'root' => storage_path('app/backups'),
-        ],
+		'backups' => [
+			'driver' => 'local',
+			'root' => storage_path('app/backups'),
+		],
 
-        'dropbox' => [
-            'driver' => 'dropbox',
-            'appSecret' => env('DROPBOX_SECRET'),
-            'accessToken' => env('DROPBOX_KEY'),
-        ],
+		'dropbox' => [
+			'driver' => 'dropbox',
+			'appSecret' => env('DROPBOX_SECRET'),
+			'accessToken' => env('DROPBOX_KEY'),
+		],
 
-        's3' => [
-            'driver' => 's3',
-            'key' => env('AWSS3_KEY'),
-            'secret' => env('AWSS3_SECRET'),
-            'region' => env('AWSS3_REGION'),
-            'bucket' => env('AWSS3_BUCKET'),
-            'version' => 'latest',
-            'visibility' => 'public',
-            'ACL' => 'public-read',
-        ],
+		's3' => [
+			'driver' => 's3',
+			'key' => env('AWSS3_KEY'),
+			'secret' => env('AWSS3_SECRET'),
+			'region' => env('AWSS3_REGION'),
+			'bucket' => env('AWSS3_BUCKET'),
+			'version' => 'latest',
+			'visibility' => 'public',
+			'ACL' => 'public-read',
+		],
 
-    ],
+	],
 ];

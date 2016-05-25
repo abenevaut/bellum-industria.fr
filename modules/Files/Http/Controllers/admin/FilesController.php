@@ -14,89 +14,86 @@ use Illuminate\Support\Facades\Request;
  */
 class FilesController extends ElfinderController
 {
-    /**
-     * @var FilesOutputter|null
-     */
-    protected $outputter = null;
+	/**
+	 * @var FilesOutputter|null
+	 */
+	protected $outputter = null;
 
-    /**
-     * @param FilesOutputter $outputter
-     */
-    public function __construct(Application $app, FilesOutputter $outputter)
-    {
-        parent::__construct($app);
-        $this->outputter = $outputter;
-    }
+	/**
+	 * @param FilesOutputter $outputter
+	 */
+	public function __construct(Application $app, FilesOutputter $outputter)
+	{
+		parent::__construct($app);
+		$this->outputter = $outputter;
+	}
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function index()
-    {
-        return $this->outputter->index();
-    }
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function index()
+	{
+		return $this->outputter->index();
+	}
 
-    /**
-     *
-     */
-    public function store()
-    {
-        // add new disk settings
-    }
+	/**
+	 *
+	 */
+	public function store()
+	{
+		// add new disk settings
+	}
 
-    /**
-     *
-     */
-    public function update()
-    {
-        // edit new disk settings
-    }
+	/**
+	 *
+	 */
+	public function update()
+	{
+		// edit new disk settings
+	}
 
-    /**
-     *
-     */
-    public function destroy()
-    {
-        // remove disk settings
-    }
+	/**
+	 *
+	 */
+	public function destroy()
+	{
+		// remove disk settings
+	}
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function showTinyMCE4()
-    {
-        return $this->outputter->showTinyMCE4();
-    }
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function showTinyMCE4()
+	{
+		return $this->outputter->showTinyMCE4();
+	}
 
-    /**
-     * @param $input_id
-     * @return mixed
-     */
-    public function showPopup($input_id)
-    {
-        return $this->outputter->showPopup($input_id);
-    }
+	/**
+	 * @param $input_id
+	 * @return mixed
+	 */
+	public function showPopup($input_id)
+	{
+		return $this->outputter->showPopup($input_id);
+	}
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function showConnector()
-    {
-        $roots = $this->app->config->get('elfinder.roots', []);
+	/**
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
+	public function showConnector()
+	{
+		$roots = $this->app->config->get('elfinder.roots', []);
 
-        if (empty($roots)) {
+		if (empty($roots)) {
+			$dirs = (array) $this->app['config']->get('elfinder.dir', []);
 
-            $dirs = (array) $this->app['config']->get('elfinder.dir', []);
-
-            foreach ($dirs as $dir) {
-
-
-                $roots[] = [
-                    'driver' => 'LocalFileSystem', // driver for accessing file system (REQUIRED)
-                    'path' => public_path($dir), // path to files (REQUIRED)
-                    'URL' => url($dir), // URL to files (REQUIRED)
-                    'accessControl' => $this->app->config->get('elfinder.access'), // filter callback (OPTIONAL)
-                    'attributes' => array(
+			foreach ($dirs as $dir) {
+				$roots[] = [
+					'driver' => 'LocalFileSystem', // driver for accessing file system (REQUIRED)
+					'path' => public_path($dir), // path to files (REQUIRED)
+					'URL' => url($dir), // URL to files (REQUIRED)
+					'accessControl' => $this->app->config->get('elfinder.access'), // filter callback (OPTIONAL)
+					'attributes' => array(
 //                        array( // hide readmes
 //                            'pattern' => '/README/',
 //                            'read' => false,
@@ -111,43 +108,41 @@ class FilesController extends ElfinderController
 //                            'hidden' => false,
 //                            'locked' => false
 //                        )
-                    ),
-                ];
+					),
+				];
 
 
-            }
-
-
-
+			}
 
 
 
 
 
 
-            $disks = (array) $this->app['config']->get('elfinder.disks', []);
 
-            foreach ($disks as $key => $root) {
 
-                if (is_string($root)) {
-                    $key = $root;
-                    $root = [];
-                }
 
-                $disk = app('filesystem')->disk($key);
+			$disks = (array) $this->app['config']->get('elfinder.disks', []);
 
-                if ($disk instanceof FilesystemAdapter) {
+			foreach ($disks as $key => $root) {
+				if (is_string($root)) {
+					$key = $root;
+					$root = [];
+				}
 
+				$disk = app('filesystem')->disk($key);
+
+				if ($disk instanceof FilesystemAdapter) {
 //                    dd( $disk );
 
-                    $defaults = [
-                        'driver' => 'Flysystem',
-                        'filesystem' => $disk->getDriver(),
-                        'alias' => $key,
-                    ];
-                    $roots[] = array_merge($defaults, $root);
-                }
-            }
+					$defaults = [
+						'driver' => 'Flysystem',
+						'filesystem' => $disk->getDriver(),
+						'alias' => $key,
+					];
+					$roots[] = array_merge($defaults, $root);
+				}
+			}
 
 
 
@@ -156,21 +151,21 @@ class FilesController extends ElfinderController
 
 
 
-        }
+		}
 
-        if (app()->bound('session.store')) {
-            $sessionStore = app('session.store');
-            $session = new LaravelSession($sessionStore);
-        } else {
-            $session = null;
-        }
+		if (app()->bound('session.store')) {
+			$sessionStore = app('session.store');
+			$session = new LaravelSession($sessionStore);
+		} else {
+			$session = null;
+		}
 
-        $opts = $this->app->config->get('elfinder.options', array());
-        $opts = array_merge(['roots' => $roots, 'session' => $session], $opts);
+		$opts = $this->app->config->get('elfinder.options', array());
+		$opts = array_merge(['roots' => $roots, 'session' => $session], $opts);
 
-        // run elFinder
-        $connector = new Connector(new \elFinder($opts));
-        $connector->run();
-        return $connector->getResponse();
-    }
+		// run elFinder
+		$connector = new Connector(new \elFinder($opts));
+		$connector->run();
+		return $connector->getResponse();
+	}
 }

@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'meta_title' => 'Files',
-    'meta_description' => 'media manager',
+	'meta_title' => 'Files',
+	'meta_description' => 'media manager',
 
 	'btn.add.disk.dropbox' => 'Dropbox',
 	'btn.add.disk.s3' => 'Amazon s3',

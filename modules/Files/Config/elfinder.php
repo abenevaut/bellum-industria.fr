@@ -2,7 +2,7 @@
 
 return array(
 
-    /*
+	/*
    |--------------------------------------------------------------------------
    | Upload dir
    |--------------------------------------------------------------------------
@@ -10,11 +10,11 @@ return array(
    | The dir where to store the images (relative from public)
    |
    */
-    'dir' => [
-        'uploads'
-    ],
+	'dir' => [
+		'uploads'
+	],
 
-    /*
+	/*
     |--------------------------------------------------------------------------
     | Filesystem disks (Flysytem)
     |--------------------------------------------------------------------------
@@ -27,12 +27,12 @@ return array(
     |        'alias' => 'Local storage',
     |    ]
     */
-    'disks' => [
+	'disks' => [
 
-        'backups' => [
-            'alias' => 'Backups',
-            'URL' => null,
-        ],
+		'backups' => [
+			'alias' => 'Backups',
+			'URL' => null,
+		],
 
 //        'local' => [
 //            'glideUrl' => url('glide'),
@@ -44,13 +44,13 @@ return array(
 //            'URL' => 'https://s3.eu-central-1.amazonaws.com/cvepdb-test/',
 //            'url' => 'https://s3.eu-central-1.amazonaws.com/cvepdb-test/',
 //            'alias' => 'AWS',
-            //'glideUrl' => url('glide'),
-            //'tmbUrl' => url('thumbnails')
+			//'glideUrl' => url('glide'),
+			//'tmbUrl' => url('thumbnails')
 //        ],
 
-    ],
+	],
 
-    /*
+	/*
     |--------------------------------------------------------------------------
     | Options
     |--------------------------------------------------------------------------
@@ -62,16 +62,16 @@ return array(
     |
     */
 
-    'options' => array(
+	'options' => array(
 //        'bind' => [
 //            'mkdir mkfile rename duplicate upload rm paste' => [
 //                $myLogger,
 //                'log'
 //            ],
 //        ]
-    ),
+	),
 
-    /*
+	/*
     |--------------------------------------------------------------------------
     | Routes group config
     |--------------------------------------------------------------------------
@@ -82,12 +82,12 @@ return array(
     |
     */
 
-    'route' => [
-        'prefix' => null,
-        'middleware' => null, //Set to null to disable middleware filter
-    ],
+	'route' => [
+		'prefix' => null,
+		'middleware' => null, //Set to null to disable middleware filter
+	],
 
-    /*
+	/*
     |--------------------------------------------------------------------------
     | Access filter
     |--------------------------------------------------------------------------
@@ -99,9 +99,9 @@ return array(
     |
     */
 
-    'access' => 'Barryvdh\Elfinder\Elfinder::checkAccess',
+	'access' => 'Barryvdh\Elfinder\Elfinder::checkAccess',
 
-    /*
+	/*
     |--------------------------------------------------------------------------
     | Roots
     |--------------------------------------------------------------------------
@@ -115,5 +115,5 @@ return array(
     |
     */
 
-    'roots' => null,
+	'roots' => null,
 );

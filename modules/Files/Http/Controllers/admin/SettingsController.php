@@ -10,34 +10,34 @@ use Modules\Files\Http\Requests\UpdateFilesSettingsFormRequest;
  */
 class SettingsController extends Controller
 {
-    /**
-     * @var SettingsOutputter|null
-     */
-    protected $outputter = null;
+	/**
+	 * @var SettingsOutputter|null
+	 */
+	protected $outputter = null;
 
-    /**
-     * @param SettingsOutputter $outputter
-     */
-    public function __construct(SettingsOutputter $outputter)
-    {
-        parent::__construct();
-        $this->outputter = $outputter;
-    }
+	/**
+	 * @param SettingsOutputter $outputter
+	 */
+	public function __construct(SettingsOutputter $outputter)
+	{
+		parent::__construct();
+		$this->outputter = $outputter;
+	}
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function index()
-    {
-        return $this->outputter->index();
-    }
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function index()
+	{
+		return $this->outputter->index();
+	}
 
-    /**
-     * @param UpdateFilesSettingsFormRequest $request
-     * @return array
-     */
-    public function store(UpdateFilesSettingsFormRequest $request)
-    {
-        return $this->outputter->store($request);
-    }
+	/**
+	 * @param UpdateFilesSettingsFormRequest $request
+	 * @return array
+	 */
+	public function store(UpdateFilesSettingsFormRequest $request)
+	{
+		return $this->outputter->store($request);
+	}
 }
