@@ -39,10 +39,10 @@ class AuthController extends Controller
 	 * @param SocialTokenRepositoryEloquent $r_user
 	 */
 	public function __construct(
-		SteamAuth $steam,
-		SocialTokenRepositoryEloquent $r_socialtoken
-	)
-	{
+     SteamAuth $steam,
+     SocialTokenRepositoryEloquent $r_socialtoken
+	) {
+	
 		parent::__construct();
 
 		$this->steam = $steam;
@@ -61,8 +61,8 @@ class AuthController extends Controller
 			$social_user = $this->steam->getUserInfo();
 
 			$social_token = $this->r_socialtoken->findByField(
-				'token',
-				$social_user->getSteamID64()
+       'token',
+       $social_user->getSteamID64()
 			)->first();
 
 			if (!is_null($social_token))

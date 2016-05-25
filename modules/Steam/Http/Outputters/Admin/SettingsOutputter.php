@@ -28,9 +28,9 @@ class SettingsOutputter extends AdminOutputter
 	 * @param SettingsRepository $r_settings
 	 */
 	public function __construct(
-		SettingsRepository $r_settings
-	)
-	{
+     SettingsRepository $r_settings
+	) {
+	
 		parent::__construct($r_settings);
 		$this->set_current_module('steam');
 		$this->addBreadcrumb(trans('global.settings'), 'admin/steam/settings');
@@ -45,11 +45,11 @@ class SettingsOutputter extends AdminOutputter
 		$login = $this->r_settings->get('steam.login');
 
 		return $this->output(
-			'steam.admin.settings.index',
-			[
-				'api_key' => $api_key,
-				'login'   => $login
-			]
+      'steam.admin.settings.index',
+      [
+      'api_key' => $api_key,
+      'login'   => $login
+      ]
 		);
 	}
 

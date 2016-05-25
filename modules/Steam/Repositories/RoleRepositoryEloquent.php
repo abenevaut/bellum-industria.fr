@@ -9,13 +9,13 @@ use Core\Domain\Roles\Repositories\RoleRepositoryEloquent as RepositoryEloquent;
  */
 class RoleRepositoryEloquent extends RepositoryEloquent
 {
-    /**
-     * Specify Model class name
-     *
-     * @return string
-     */
-    public function model()
-    {
-        return Role::class;
-    }
+	/**
+	 * Specify Model class name
+	 *
+	 * @return string
+	 */
+	public function model()
+	{
+		return Role::class;
+	}
 }

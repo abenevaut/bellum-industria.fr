@@ -36,8 +36,8 @@ class SteamServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
-		$this->app['steamauth'] = $this->app->share(function ()
-		{
+		$this->app['steamauth'] = $this->app->share(function () {
+		
 			return new SteamAuth();
 		});
 	}
@@ -53,7 +53,8 @@ class SteamServiceProvider extends ServiceProvider
 			__DIR__ . '/../Config/config.php' => config_path('steam.php'),
 		]);
 		$this->mergeConfigFrom(
-			__DIR__ . '/../Config/config.php', 'steam'
+      __DIR__ . '/../Config/config.php',
+      'steam'
 		);
 
 		/*
@@ -64,7 +65,8 @@ class SteamServiceProvider extends ServiceProvider
 			__DIR__ . '/../Config/steam-auth.php' => config_path('steam-auth.php'),
 		]);
 		$this->mergeConfigFrom(
-			__DIR__ . '/../Config/steam-auth.php', 'steam-auth'
+      __DIR__ . '/../Config/steam-auth.php',
+      'steam-auth'
 		);
 	}
 
@@ -83,8 +85,8 @@ class SteamServiceProvider extends ServiceProvider
 			$sourcePath => $viewPath
 		]);
 
-		$this->loadViewsFrom(array_merge(array_map(function ($path)
-		{
+		$this->loadViewsFrom(array_merge(array_map(function ($path) {
+		
 			return $path . '/modules/steam';
 		}, \Config::get('view.paths')), [$sourcePath]), 'steam');
 	}

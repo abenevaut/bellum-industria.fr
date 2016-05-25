@@ -32,10 +32,11 @@ class SteamAuth extends InvisnikSteamAuth
 		if (!is_null($this->steamId))
 		{
 			$json = file_get_contents(
-				sprintf(
-					self::STEAM_INFO_URL,
-					Settings::get('steam.api_key'),
-					$this->steamId)
+       sprintf(
+       self::STEAM_INFO_URL,
+       Settings::get('steam.api_key'),
+       $this->steamId
+       )
 			);
 			$json = json_decode($json, true);
 			$this->steamInfo = new InvisnikSteamInfo($json["response"]["players"][0]);

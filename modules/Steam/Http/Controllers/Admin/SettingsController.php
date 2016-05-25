@@ -10,35 +10,35 @@ use Modules\Steam\Http\Requests\SettingsUpdateFormRequest;
  */
 class SettingsController extends Controller
 {
-    /**
-     * @var SettingsOutputter|null
-     */
-    protected $outputter = null;
+	/**
+	 * @var SettingsOutputter|null
+	 */
+	protected $outputter = null;
 
-    /**
-     * @param SettingsOutputter $outputter
-     */
-    public function __construct(SettingsOutputter $outputter)
-    {
-        parent::__construct();
+	/**
+	 * @param SettingsOutputter $outputter
+	 */
+	public function __construct(SettingsOutputter $outputter)
+	{
+		parent::__construct();
 
-        $this->outputter = $outputter;
-    }
+		$this->outputter = $outputter;
+	}
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function index()
-    {
-        return $this->outputter->index();
-    }
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function index()
+	{
+		return $this->outputter->index();
+	}
 
-    /**
-     * @param SettingsUpdateFormRequest $request
-     * @return array
-     */
-    public function store(SettingsUpdateFormRequest $request)
-    {
-        return $this->outputter->store($request);
-    }
+	/**
+	 * @param SettingsUpdateFormRequest $request
+	 * @return array
+	 */
+	public function store(SettingsUpdateFormRequest $request)
+	{
+		return $this->outputter->store($request);
+	}
 }
