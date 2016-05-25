@@ -110,4 +110,4 @@ job_cs: # CodeStyle
   - php7
   - composer
   - mysql
-  - windows
+  - linux
