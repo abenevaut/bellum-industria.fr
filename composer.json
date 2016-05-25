@@ -62,7 +62,6 @@
     "antennaio/laravel-codeception-dbdump": "^0.0.3",
     "squizlabs/php_codesniffer": "*",
     "pragmarx/laravelcs": "^0.1.0",
-    "fabpot/php-cs-fixer": "^1.11",
     "sebastian/phpcpd": "*"
   },
   "autoload": {
