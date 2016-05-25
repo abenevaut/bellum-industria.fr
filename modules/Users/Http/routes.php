@@ -2,8 +2,12 @@
 
 Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Controllers\Auth'], function ()
 {
-	$is_registration_allowed = \CVEPDB\Settings\Facades\Settings::get('users.is_registration_allowed');
+	$is_registration_allowed = false;
 
+	if (cmsinstalled()) {
+		$is_registration_allowed = \CVEPDB\Settings\Facades\Settings::get('users.is_registration_allowed');
+	}
+	
 	if ($is_registration_allowed)
 	{
 		// Registration routes...

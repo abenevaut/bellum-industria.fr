@@ -23,9 +23,12 @@ class SocialiteServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('Laravel\Socialite\Contracts\Factory', function ($app) {
-            return new SocialiteManager($app);
-        });
+        if (cmsinstalled())
+        {
+            $this->app->singleton('Laravel\Socialite\Contracts\Factory', function ($app) {
+                return new SocialiteManager($app);
+            });
+        }
     }
 
     /**
@@ -35,6 +38,8 @@ class SocialiteServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['Laravel\Socialite\Contracts\Factory'];
+        return cmsinstalled()
+            ? ['Laravel\Socialite\Contracts\Factory']
+            : [];
     }
 }
