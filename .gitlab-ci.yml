@@ -22,6 +22,7 @@ job_build:
 #  - php artisan codeception:dbdump testing --dump tests/_data/testing.sql --empty-database --seeder-class TestingSeeder
   tags:
   - php7
+  - nodejs
   - composer
   - linux
 
@@ -54,6 +55,7 @@ job_tests_linux: # Run tests suites
   when: on_success
   tags:
   - php7
+  - nodejs
   - composer
   - mysql
   - linux
@@ -79,6 +81,7 @@ job_tests_windows: # Run tests suites
   when: on_success
   tags:
   - php7
+  - nodejs
   - composer
   - mysql
   - windows
@@ -108,6 +111,7 @@ job_cs: # CodeStyle
   - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Users
   tags:
   - php7
+  - nodejs
   - composer
   - mysql
   - linux
