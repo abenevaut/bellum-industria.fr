@@ -57,13 +57,14 @@ job_tests_windows: # Run tests suites
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
   - composer install
+  - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
+  - cd resources/themes/lumen/assets && npm install && gulp sass && cd -
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
   script:
-  - bin/codecept run --env=core -g migration --coverage
-  - bin/codecept run --env=installer --coverage
-  - bin/codecept run --coverage
+  - bin/codecept run --env=installer,firefox --coverage acceptance
+  - bin/codecept run --env=installer,ie --coverage acceptance
   when: on_success
   tags:
   - php7
