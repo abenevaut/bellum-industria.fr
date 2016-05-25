@@ -63,15 +63,15 @@ job_tests_windows: # Run tests suites
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
   - composer install
-  - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
-  - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
-  - cd resources/themes/flatly/assets && npm install && gulp bower && cd -
+  - cd resources\themes\adminlte\assets && npm install && gulp sass && cd ../../../..
+  - cd resources\themes\lumen\assets && npm install && gulp bower && cd ../../../..
+  - cd resources\themes\flatly\assets && npm install && gulp bower && cd ../../../..
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
   script:
-  - bin/codecept run --env=core --coverage
-  - bin/codecept run --env=installer,firefox --env=installer,ie acceptance
+  - bin\codecept run --env=core --coverage
+  - bin\codecept run --env=installer,firefox --env=installer,ie acceptance
   when: on_success
   tags:
   - php7
