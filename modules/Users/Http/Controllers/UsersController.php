@@ -4,6 +4,7 @@ use Request;
 use Core\Http\Controllers\CorePublicController as Controller;
 use Modules\Users\Http\Outputters\UserOutputter;
 use Modules\Users\Http\Requests\UserFormRequest;
+use Modules\Users\Http\Requests\UserPasswordFormRequest;
 
 /**
  * Class UsersController
@@ -127,6 +128,30 @@ class UsersController extends Controller {
 	{
 		if (\Auth::check()) {
 			return $this->outputter->update(\Auth::user()->id, $request);
+		}
+		abort(404);
+	}
+
+	/**
+	 * @return \Modules\Users\Http\Outputters\Response
+	 */
+	public function editMyPassword()
+	{
+		if (\Auth::check()) {
+			return $this->outputter->edit_password(\Auth::user()->id);
+		}
+		abort(404);
+	}
+
+	/**
+	 * @param UserPasswordFormRequest $request
+	 *
+	 * @return \Modules\Users\Http\Outputters\Response
+	 */
+	public function updateMyPassword(UserPasswordFormRequest $request)
+	{
+		if (\Auth::check()) {
+			return $this->outputter->update_password(\Auth::user()->id, $request);
 		}
 		abort(404);
 	}

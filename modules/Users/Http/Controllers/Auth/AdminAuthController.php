@@ -77,13 +77,12 @@ class AdminAuthController extends Controller
 	public function getLogin()
 	{
 		$social_login = Settings::get('users.social.login');
-		$is_registration_allowed = Settings::get('users.is_registration_allowed');
 
 		return $this->outputter->output(
 	  'users.admin.login',
 	  [
 	  'social_login'            => $social_login,
-	  'is_registration_allowed' => $is_registration_allowed,
+	  'is_registration_allowed' => $this->is_registration_allowed,
 	  ]
 		);
 	}

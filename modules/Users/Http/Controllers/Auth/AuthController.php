@@ -115,13 +115,11 @@ class AuthController extends Controller
 		$this->outputter->setLoginMeta();
 
 		$social_login = Settings::get('users.social.login');
-		$is_registration_allowed = Settings::get('users.is_registration_allowed');
 
 		return $this->outputter->output(
 	  'users.login',
 	  [
-	  'social_login'            => $social_login,
-	  'is_registration_allowed' => $is_registration_allowed
+	  'social_login'            => $social_login
 	  ]
 		);
 	}
@@ -136,13 +134,11 @@ class AuthController extends Controller
 		$this->outputter->setRegisterMeta();
 
 		$social_login = Settings::get('users.social.login');
-		$is_registration_allowed = Settings::get('users.is_registration_allowed');
 
 		return $this->outputter->output(
 	  'users.register',
 	  [
 	  'social_login'            => $social_login,
-	  'is_registration_allowed' => $is_registration_allowed
 	  ]
 		);
 	}
@@ -263,7 +259,7 @@ class AuthController extends Controller
 
 				Session::flash('message-success', trans('auth.message_success_provider_linked'));
 			}
-			else if (Settings::get('users.is_registration_allowed'))
+			else if ($this->is_registration_allowed)
 			{
 				Session::set('register_from_social', [
 					'token' => $social_user->token

@@ -48,6 +48,8 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Contro
 	Route::get('users/my-profile', ['as' => 'users.my-profile', 'uses' => 'UsersController@myProfile']);
 	Route::get('users/edit-my-profile', ['as' => 'users.edit-my-profile', 'uses' => 'UsersController@editMyProfile']);
 	Route::put('users/update-my-profile', ['as' => 'users.update-my-profile', 'uses' => 'UsersController@updateMyProfile']);
+	Route::get('users/edit-my-password', ['as' => 'users.edit-my-password', 'uses' => 'UsersController@editMyPassword']);
+	Route::put('users/update-my-password', ['as' => 'users.update-my-password', 'uses' => 'UsersController@updateMyPassword']);
 });
 
 Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Auth'], function () {
