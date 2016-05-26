@@ -1,7 +1,10 @@
 <?php namespace Core\Domain\Users\Repositories;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Container\Container as Application;
 use CVEPDB\Domain\Users\Repositories\UserRepositoryEloquent as RepositoryEloquent;
+use Core\Criterias\OnlyTrashedCriteria;
+use Core\Criterias\WithTrashedCriteria;
 use Core\Domain\Users\Entities\User;
 use Core\Domain\Roles\Repositories\RoleRepositoryEloquent as RoleRepositoryEloquent;
 use Core\Domain\Users\Criterias\EmailLikeCriteria;
@@ -14,6 +17,9 @@ use Core\Domain\Users\Criterias\RolesCriteria;
  */
 abstract class UserRepositoryEloquent extends RepositoryEloquent
 {
+
+	const FILTER_TRASHED_WITH = 'filterTrashedWith';
+	const FILTER_TRASHED_ONLY = 'filterTrashedOnly';
 
 	/**
 	 * UserRepositoryEloquent constructor.
@@ -61,9 +67,21 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 	 *
 	 * @return int
 	 */
-	public function allCount()
+	public function count($columns = ['*'])
 	{
-		return User::all()->count();
+		$this->applyCriteria();
+		$this->applyScope();
+
+		if ($this->model instanceof Builder) {
+			$results = $this->model->get($columns)->count();
+		} else {
+			$results = $this->model->count($columns);
+		}
+
+		$this->resetModel();
+		$this->resetScope();
+
+		return $results;
 	}
 
 	/**
@@ -104,6 +122,30 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 		if (count($roles))
 		{
 			$this->pushCriteria(new RolesCriteria($roles));
+		}
+	}
+
+	/**
+	 * Allow to search for trashed users.
+	 *
+	 * @param string $trashed UserRepositoryEloquent::FILTER_TRASHED_WITH or UserRepositoryEloquent::FILTER_TRASHED_ONLY, [default: null]
+	 *
+	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 */
+	public function filterTrashed($trashed = null)
+	{
+		switch ($trashed)
+		{
+			case self::FILTER_TRASHED_WITH:
+			{
+				$this->pushCriteria(new WithTrashedCriteria());
+				break;
+			}
+			case self::FILTER_TRASHED_ONLY:
+			{
+				$this->pushCriteria(new OnlyTrashedCriteria());
+				break;
+			}
 		}
 	}
 

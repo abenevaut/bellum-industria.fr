@@ -89,6 +89,10 @@ class UserOutputter extends AdminOutputter
 			? $request->get('roles')
 			: null;
 
+		$trashed = $request->has('trashed')
+			? $request->get('trashed')
+			: null;
+
 		if (!is_null($name))
 		{
 			$this->r_user->filterUserName($name);
@@ -104,6 +108,11 @@ class UserOutputter extends AdminOutputter
 			$this->r_user->filterRoles($roles);
 		}
 
+		if (!is_null($trashed))
+		{
+			$this->r_user->filterTrashed($trashed);
+		}
+
 		$users = $this->r_user->paginate(config('app.pagination'));
 
 		return $this->output(
@@ -112,7 +121,7 @@ class UserOutputter extends AdminOutputter
 				: 'users.admin.users.index',
 			[
 				'users'    => $users,
-				'nb_users' => $this->r_user->allCount(),
+				'nb_users' => $this->r_user->count(),
 				'filters'  => [
 					'name'  => $name,
 					'email' => $email,

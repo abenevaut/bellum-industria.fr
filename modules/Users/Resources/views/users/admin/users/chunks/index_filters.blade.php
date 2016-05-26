@@ -40,6 +40,16 @@
                     </div>
                 </div>
 
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-circle"></i></span>
+                        {!! Form::select('trashed',
+                         ['' => 'Active users', \Core\Domain\Users\Repositories\UserRepositoryEloquent::FILTER_TRASHED_WITH => 'With trashed', \Core\Domain\Users\Repositories\UserRepositoryEloquent::FILTER_TRASHED_ONLY => 'Only trashed'],
+                         '',
+                         ['class' => 'form-control js-call-select2', 'style' => 'border-radius:0px;']) !!}
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="box-footer">

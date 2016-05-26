@@ -44,6 +44,22 @@
 		}
 	};
 
+	$(D).bind('CVEPDB_SELECT2_READY', function () {
+
+		alert('test');
+
+		var select_trashed = $('select[name="trashed"]');
+
+		select_trashed.select2({
+			theme: "bootstrap",
+			width: '100%',
+			minimumResultsForSearch: Infinity
+		});
+		$('.js-cancel-filters').on('click', function() {
+			select_trashed.select2("val", "");
+		});
+	});
+
 	$(D).bind('CVEPDB_READY', function () {
 		_users.setup();
 		// Open filters form

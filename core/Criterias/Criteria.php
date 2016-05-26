@@ -1,6 +1,6 @@
 <?php namespace Core\Criterias;
 
-use CVEPDB\Abstracts\Criterias\Criteria as AbsCriteria;
+use CVEPDB\Abstracts\Criterias\CriteriaInterface as AbsCriteria;
 
 /**
  * Class Criteria
