@@ -1,18 +1,13 @@
 <?php namespace Modules\Users\Http\Outputters;
 
-use Auth;
-use Config;
+use Illuminate\Support\Facades\Request;
 use CVEPDB\Settings\Facades\Settings;
-use Illuminate\Support\Facades\Hash;
-use Session;
-use Request;
 use Core\Http\Outputters\FrontOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
-use Modules\Users\Events\Admin\UserUpdatedEvent;
 use Modules\Users\Events\Admin\UserDeletedEvent;
 
 /**
@@ -154,13 +149,11 @@ class UserOutputter extends FrontOutputter
 
 		dd($request->all());
 
-		$user = $this->r_user->update([
+		$this->r_user->update([
 			'first_name' => $request->get('first_name'),
 			'last_name'  => $request->get('last_name'),
 			'email'      => $request->get('email')
 		], $id);
-
-		event(new UserUpdatedEvent($user));
 
 		return $this->redirectTo('users/my-profile')
 			->with('message-success', 'users::admin.edit.message.success');
@@ -213,22 +206,10 @@ class UserOutputter extends FrontOutputter
 	 */
 	public function update_password($id, IFormRequest $request)
 	{
-		$user = $this->r_user->find($id);
-
 		$old_password = $request->get('old_password');
 		$new_password = $request->get('password');
 
-		if (Hash::check($old_password, $user->password))
-		{
-			$data = [
-				'password' => Hash::make($new_password)
-			];
-
-			$user->fill($data)->save();
-
-			event(new UserUpdatedEvent($user));
-		}
-		else
+		if (!$this->r_user->change_password($id, $old_password, $new_password))
 		{
 			return $this->redirectTo('users/edit-my-password')
 				->with('message-error', 'users::admin.edit.message.error_old_password');

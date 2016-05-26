@@ -1,10 +1,12 @@
 <?php namespace Modules\Users\Repositories;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Container\Container as Application;
 use Core\Domain\Users\Repositories\UserRepositoryEloquent as UserRepositoryEloquentParent;
 use Modules\Users\Entities\User;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
+use Modules\Users\Events\Admin\UserUpdatedEvent;
 
 /**
  * Class UserRepositoryEloquent
@@ -32,6 +34,53 @@ class UserRepositoryEloquent extends UserRepositoryEloquentParent
 	public function model()
 	{
 		return User::class;
+	}
+
+	/**
+	 * Update user and fire event "UserUpdatedEvent".
+	 *
+	 * @param array $attributes
+	 * @param       $user_id
+	 *
+	 * @event Modules\Users\Events\Admin\UserUpdatedEvent
+	 * @return mixed
+	 */
+	public function update(array $attributes, $user_id)
+	{
+		$user = parent::update($attributes, $user_id);
+
+		event(new UserUpdatedEvent($user));
+
+		return $user;
+	}
+
+	/**
+	 * Change user password and fire event "UserUpdatedEvent".
+	 *
+	 * @param $user_id
+	 * @param $old_password
+	 * @param $new_password
+	 *
+	 * @event Modules\Users\Events\Admin\UserUpdatedEvent
+	 * @return bool
+	 */
+	public function change_password($user_id, $old_password, $new_password)
+	{
+		$user = $this->find($user_id);
+
+		if (Hash::check($old_password, $user->password))
+		{
+			$data = [
+				'password' => Hash::make($new_password)
+			];
+
+			$user->fill($data)->save();
+
+			event(new UserUpdatedEvent($user));
+
+			return true;
+		}
+		return false;
 	}
 
 	/**
