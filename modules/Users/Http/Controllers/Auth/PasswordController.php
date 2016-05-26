@@ -2,11 +2,14 @@
 
 namespace Modules\Users\Http\Controllers\Auth;
 
-use Core\Http\Controllers\CoreAuthController as Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Theme;
+use Core\Http\Controllers\CoreAuthController as Controller;
+use Modules\Users\Events\UserUpdatedEvent;
 use Modules\Users\Http\Outputters\PasswordOutputter;
+use Modules\Users\Entities\User;
 
 class PasswordController extends Controller
 {
@@ -92,5 +95,32 @@ class PasswordController extends Controller
 		Session::flash('message-success', trans('passwords.message_success_reset_password'));
 
 		return redirect($this->redirectPath())->with('status', trans($response));
+	}
+
+	/**
+	 * Reset the given user's password.
+	 *
+	 * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
+	 * @param  string  $password
+	 * @return void
+	 */
+	protected function resetPassword($user, $password)
+	{
+		$user->password = bcrypt($password);
+		$user->save();
+
+		/*
+		 * $user is instance of \Core\Domain\Users\Entities\User
+		 * Here we need instance of \Modules\Users\Entities\User
+		 */
+
+		$event_user = User::findOrFail($user->id);
+		event(new UserUpdatedEvent($event_user));
+
+		/*
+		 * Log user in
+		 */
+
+		Auth::guard($this->getGuard())->login($user);
 	}
 }
