@@ -27,7 +27,8 @@ return [
 	'edit.btn.edit_user' => 'Edit user',
 	'edit.message.success' => 'The user was succefully edited.',
 
-	'show.btn.impersonate' => 'Get user session',
+	'show.btn.impersonate' => 'Use user session',
+	'show.btn.reset_password' => 'Send reset password link',
 	'show.message.no_apikey' => 'No API key set for this user.',
 
 	'delete.message.success' => 'The user was succefully deleted.',

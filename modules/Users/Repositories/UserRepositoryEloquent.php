@@ -1,8 +1,9 @@
 <?php namespace Modules\Users\Repositories;
 
-use Modules\Users\Entities\User;
-use Core\Domain\Users\Repositories\UserRepositoryEloquent as UserRepositoryEloquentParent;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Container\Container as Application;
+use Core\Domain\Users\Repositories\UserRepositoryEloquent as UserRepositoryEloquentParent;
+use Modules\Users\Entities\User;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
 
 /**
@@ -33,4 +34,25 @@ class UserRepositoryEloquent extends UserRepositoryEloquentParent
 		return User::class;
 	}
 
+	/**
+	 * Allow to send the reset password link by mail via PasswordBroker.
+	 *
+	 * @param $user_id
+	 */
+	public function send_reset_password_link($user_id)
+	{
+		$broker = null;
+
+		$user = $this->find($user_id);
+
+		return Password::broker($broker)->sendResetLink(
+			[
+				'email' => $user->email
+			],
+			function (Message $message)
+			{
+				$message->subject(trans('passwords.mail_reset_password_title'));
+			}
+		);
+	}
 }

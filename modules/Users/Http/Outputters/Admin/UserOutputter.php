@@ -1,25 +1,22 @@
 <?php namespace Modules\Users\Http\Outputters\Admin;
 
-use Auth;
-use Config;
-use Mockery\CountValidator\Exception;
-use Session;
-use Request;
-use Event;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Password;
+use \Maatwebsite\Excel\Files\NewExcelFile;
+use CVEPDB\Addresses\AddressesFacade as Addresses;
+use CVEPDB\Settings\Facades\Settings;
 use Core\Http\Outputters\AdminOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
-use Modules\Users\Transformers\UsersAdminExcelTransformer;
 use Modules\Users\Presenters\UsersAdminExcelPresenter;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
-use \Maatwebsite\Excel\Files\NewExcelFile;
 use Modules\Users\Events\Admin\UserCreatedEvent;
 use Modules\Users\Events\Admin\UserUpdatedEvent;
 use Modules\Users\Events\Admin\UserDeletedEvent;
-use CVEPDB\Addresses\AddressesFacade as Addresses;
-use CVEPDB\Settings\Facades\Settings;
 
 /**
  * Class UserOutputter
@@ -27,6 +24,7 @@ use CVEPDB\Settings\Facades\Settings;
  */
 class UserOutputter extends AdminOutputter
 {
+
 	/**
 	 * @var string Outputter header title
 	 */
@@ -53,12 +51,13 @@ class UserOutputter extends AdminOutputter
 	private $r_apikey = null;
 
 	public function __construct(
-	 SettingsRepository $_settings,
-	 UserRepositoryEloquent $r_user,
-	 RoleRepositoryEloquent $r_role,
-	 ApiKeyRepositoryEloquent $r_apikey
-	) {
-	
+		SettingsRepository $_settings,
+		UserRepositoryEloquent $r_user,
+		RoleRepositoryEloquent $r_role,
+		ApiKeyRepositoryEloquent $r_apikey
+	)
+	{
+
 		parent::__construct($_settings);
 
 		$this->set_current_module('users');
@@ -72,7 +71,8 @@ class UserOutputter extends AdminOutputter
 
 	/**
 	 * @param IFormRequest $request
-	 * @param bool|false $usePartial
+	 * @param bool|false   $usePartial
+	 *
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function index(IFormRequest $request, $usePartial = false)
@@ -89,33 +89,36 @@ class UserOutputter extends AdminOutputter
 			? $request->get('roles')
 			: null;
 
-		if (!is_null($name)) {
+		if (!is_null($name))
+		{
 			$this->r_user->filterUserName($name);
 		}
 
-		if (!is_null($email)) {
+		if (!is_null($email))
+		{
 			$this->r_user->filterEmail($email);
 		}
 
-		if (!is_null($roles)) {
+		if (!is_null($roles))
+		{
 			$this->r_user->filterRoles($roles);
 		}
 
 		$users = $this->r_user->paginate(config('app.pagination'));
 
 		return $this->output(
-	  $usePartial
-	  ? 'users.admin.users.chunks.index_tables'
-	  : 'users.admin.users.index',
-	  [
-	  'users' => $users,
-	  'nb_users' => $this->r_user->allCount(),
-	  'filters' => [
-	  'name' => $name,
-	  'email' => $email,
-	  'roles' => $roles,
-	  ]
-	  ]
+			$usePartial
+				? 'users.admin.users.chunks.index_tables'
+				: 'users.admin.users.index',
+			[
+				'users'    => $users,
+				'nb_users' => $this->r_user->allCount(),
+				'filters'  => [
+					'name'  => $name,
+					'email' => $email,
+					'roles' => $roles,
+				]
+			]
 		);
 	}
 
@@ -128,10 +131,10 @@ class UserOutputter extends AdminOutputter
 		$roles = $this->r_role->findWhereNotIn('name', ['user']);
 
 		return $this->output(
-	  'users.admin.users.create',
-	  [
-	  'roles' => $roles
-	  ]
+			'users.admin.users.create',
+			[
+				'roles' => $roles
+			]
 		);
 	}
 
@@ -145,16 +148,17 @@ class UserOutputter extends AdminOutputter
 	public function store(IFormRequest $request)
 	{
 		$user = $this->r_user->create_user(
-	  $request->get('first_name'),
-	  $request->get('last_name'),
-	  $request->get('email')
+			$request->get('first_name'),
+			$request->get('last_name'),
+			$request->get('email')
 		);
 
 		$this->r_apikey->generate_api_key($user);
 
 		$roles = $request->only('user_role_id');
 
-		if (count($roles['user_role_id']) > 0) {
+		if (count($roles['user_role_id']) > 0)
+		{
 			$user->roles()->attach($roles['user_role_id']);
 		}
 
@@ -167,12 +171,16 @@ class UserOutputter extends AdminOutputter
 		 *
 		 * If primary address registered and not others, use primary foreach addresses
 		 */
-		foreach ($addresses as $type => $address) {
+		foreach ($addresses as $type => $address)
+		{
 			$validator = Addresses::getValidator($address);
 
-			if (!$validator->fails()) {
+			if (!$validator->fails())
+			{
 				Addresses::createAddress($address, $user->id);
-			} else {
+			}
+			else
+			{
 				return redirect('admin/users/' . $user->id . '/edit')
 					->withErrors($validator)
 					->withInput();
@@ -189,6 +197,7 @@ class UserOutputter extends AdminOutputter
 	 * Display the specified resource.
 	 *
 	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function show($id)
@@ -196,10 +205,10 @@ class UserOutputter extends AdminOutputter
 		$user = $this->r_user->find($id);
 
 		return $this->output(
-	  'users.admin.users.show',
-	  [
-	  'user' => $user
-	  ]
+			'users.admin.users.show',
+			[
+				'user' => $user
+			]
 		);
 	}
 
@@ -207,6 +216,7 @@ class UserOutputter extends AdminOutputter
 	 * Show the form for editing the specified resource.
 	 *
 	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function edit($id)
@@ -217,11 +227,11 @@ class UserOutputter extends AdminOutputter
 		$roles = $this->r_role->findWhereNotIn('name', ['user']);
 
 		return $this->output(
-	  'users.admin.users.edit',
-	  [
-	  'user' => $user,
-	  'roles' => $roles
-	  ]
+			'users.admin.users.edit',
+			[
+				'user'  => $user,
+				'roles' => $roles
+			]
 		);
 	}
 
@@ -229,14 +239,15 @@ class UserOutputter extends AdminOutputter
 	 * Update the specified resource in storage.
 	 *
 	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function update($id, IFormRequest $request)
 	{
 		$user = $this->r_user->update([
 			'first_name' => $request->get('first_name'),
-			'last_name' => $request->get('last_name'),
-			'email' => $request->get('email')
+			'last_name'  => $request->get('last_name'),
+			'email'      => $request->get('email')
 		], $id);
 
 		$roles = $request->only('user_role_id');
@@ -246,7 +257,8 @@ class UserOutputter extends AdminOutputter
 		$role = $this->r_role->role_exists(RoleRepositoryEloquent::USER);
 		$user->attachRole($role);
 
-		if (count($roles['user_role_id']) > 0) {
+		if (count($roles['user_role_id']) > 0)
+		{
 			$user->roles()->attach($roles['user_role_id']);
 		}
 
@@ -259,18 +271,25 @@ class UserOutputter extends AdminOutputter
 		 *
 		 * If primary address registered and not others, use primary foreach addresses
 		 */
-		foreach ($addresses as $type => $address) {
+		foreach ($addresses as $type => $address)
+		{
 			$validator = Addresses::getValidator($address);
 
-			if (!$validator->fails()) {
+			if (!$validator->fails())
+			{
 				$db_address = $user->{$type . 'Address'}();
 
-				if (is_null($db_address)) {
+				if (is_null($db_address))
+				{
 					Addresses::createAddress($address, $user->id);
-				} else {
+				}
+				else
+				{
 					Addresses::updateAddress($db_address, $address, $user->id);
 				}
-			} else {
+			}
+			else
+			{
 				return redirect('admin/users/' . $id . '/edit')
 					->withErrors($validator)
 					->withInput();
@@ -287,28 +306,35 @@ class UserOutputter extends AdminOutputter
 	 * Remove the specified resource from storage.
 	 *
 	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function destroy($id)
 	{
 		$redirectTo = null;
 
-		try {
+		try
+		{
 			$this->r_user->findAndDelete($id);
 
 			event(new UserDeletedEvent($id));
 
 			$redirectTo = $this->redirectTo('admin/users')
 				->with('message-success', 'users::admin.delete.message.success');
-		} catch (\Exception $e) {
-			switch ($e->getCode()) {
-				case 1: {
+		}
+		catch (\Exception $e)
+		{
+			switch ($e->getCode())
+			{
+				case 1:
+				{
 					$redirectTo = $this->redirectTo('admin/users')
 						->with('message-error', $e->getMessage());
 					break;
 				}
 			}
 		}
+
 		return $redirectTo;
 	}
 
@@ -318,13 +344,19 @@ class UserOutputter extends AdminOutputter
 		$redirectTo = $this->redirectTo('admin/users');
 		$users = $request->only('users_multi_destroy');
 
-		foreach ($users['users_multi_destroy'] as $user_id) {
-			try {
+		foreach ($users['users_multi_destroy'] as $user_id)
+		{
+			try
+			{
 				$this->r_user->findAndDelete($user_id);
 				event(new UserDeletedEvent($user_id));
-			} catch (\Exception $e) {
-				switch ($e->getCode()) {
-					case 1: {
+			}
+			catch (\Exception $e)
+			{
+				switch ($e->getCode())
+				{
+					case 1:
+					{
 						$redirectTo = $redirectTo->with('message-error', $e->getMessage());
 						break;
 					}
@@ -332,6 +364,7 @@ class UserOutputter extends AdminOutputter
 				++$errors;
 			}
 		}
+
 		return 0 === $errors
 			? $redirectTo->with('message-success', 'users::admin.delete_multiple.message.success')
 			: $redirectTo;
@@ -339,11 +372,13 @@ class UserOutputter extends AdminOutputter
 
 	/**
 	 * @param $id
+	 *
 	 * @return mixed
 	 */
 	public function impersonate($id)
 	{
 		Session::set('impersonate_member', $id);
+
 		return redirect('/');
 	}
 
@@ -353,6 +388,7 @@ class UserOutputter extends AdminOutputter
 	public function endimpersonate()
 	{
 		Session::forget('impersonate_member');
+
 		return redirect('admin');
 	}
 
@@ -366,64 +402,94 @@ class UserOutputter extends AdminOutputter
 			->setCreator(Auth::user()->full_name)
 			->setDescription(Settings::get('core.site.name') . PHP_EOL . Settings::get('core.site.description'))
 			->sheet(
-	   trans('users::admin.export.users_list.sheet_title') . date('Y-m-d H\hi'),
-	   function ($sheet) use ($users, $nb_users) {
+				trans('users::admin.export.users_list.sheet_title') . date('Y-m-d H\hi'),
+				function ($sheet) use ($users, $nb_users)
+				{
 
-	   $sheet->prependRow([
-	   '#',
-	   trans('global.last_name'),
-	   trans('global.first_name'),
-	   trans('global.email'),
-	   trans('global.role_s'),
-	   trans('global.addresse_s'),
-	   ]);
+					$sheet->prependRow([
+						'#',
+						trans('global.last_name'),
+						trans('global.first_name'),
+						trans('global.email'),
+						trans('global.role_s'),
+						trans('global.addresse_s'),
+					]);
 
-	   // Append row after row 2
-	   $sheet->rows($users['data']);
+					// Append row after row 2
+					$sheet->rows($users['data']);
 
-	   // Append row after row 2
-	   $sheet->appendRow($nb_users + 2, [trans('users::admin.export.total_users') . ' : ' . $nb_users]);
+					// Append row after row 2
+					$sheet->appendRow($nb_users + 2, [trans('users::admin.export.total_users') . ' : ' . $nb_users]);
 
-	   /*
-       * Style
-       */
+					/*
+					* Style
+					*/
 
-	   // Set black background
-	   $sheet->row(1, function ($row) {
-	   // Set font
-	   $row->setFont(array(
+					// Set black background
+					$sheet->row(1, function ($row)
+					{
+						// Set font
+						$row->setFont(array(
 							'size' => '14',
 							'bold' => true,
-	   ))
+						))
 							->setAlignment('center')
 							->setValignment('middle');
-	   });
+					});
 
-	   // Freeze first row
-	   $sheet->freezeFirstRow();
+					// Freeze first row
+					$sheet->freezeFirstRow();
 
-	   $sheet->cells('A2:F' . ($nb_users + 2), function ($cells) {
-	   // Set font
-	   $cells->setFont([
-							'size' => '12',
-							'bold' => false,
+					$sheet->cells('A2:F' . ($nb_users + 2), function ($cells)
+					{
+						// Set font
+						$cells->setFont([
+							'size'      => '12',
+							'bold'      => false,
 							'wrap-text' => true, // Allow PHP_EOL
-	   ])
+						])
 							->setAlignment('center')
 							->setValignment('middle');
-	   });
+					});
 
-	   $sheet->row($nb_users + 2, function ($row) {
-	   // Set font
-	   $row->setFont([
+					$sheet->row($nb_users + 2, function ($row)
+					{
+						// Set font
+						$row->setFont([
 							'size' => '12',
 							'bold' => true,
-	   ])
+						])
 							->setAlignment('center')
 							->setValignment('middle');
-	   });
+					});
 
-          }
-   )->export('xls');
+				}
+			)->export('xls');
+	}
+
+	/**
+	 * @param $id
+	 *
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+	 */
+	public function resetpassword($id)
+	{
+		$response = $this->r_user->send_reset_password_link($id);
+
+		switch ($response)
+		{
+			case Password::RESET_LINK_SENT:
+			{
+				Session::flash('message-success', trans('passwords.message_success_reset_password'));
+				break;
+			}
+			case Password::INVALID_USER:
+			default:
+			{
+				Session::flash('message-success', trans('passwords.message_error_reset_password'));
+			}
+		}
+
+		return redirect('admin/users');
 	}
 }

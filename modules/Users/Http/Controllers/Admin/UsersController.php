@@ -139,4 +139,14 @@ class UsersController extends Controller
 	{
 		return $this->outputter->export($excel);
 	}
+
+	/**
+	 * @param $id
+	 *
+	 * @return mixed
+	 */
+	public function resetpassword($id)
+	{
+		return $this->outputter->resetpassword($id);
+	}
 }

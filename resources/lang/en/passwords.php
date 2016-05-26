@@ -20,5 +20,6 @@ return [
 	'user'                           => "We can't find a user with that e-mail address.",
 	'mail_reset_password_title'      => "Your Password Reset Link",
 	'message_success_reset_password' => 'You have successfully reset your password.',
+	'message_error_reset_password'   => 'Invalid user was choose to send reset password link.',
 
 ];

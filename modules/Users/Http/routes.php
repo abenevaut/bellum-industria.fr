@@ -65,6 +65,7 @@ Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Mo
 	Route::resource('users/settings', 'SettingsController');
 	Route::get('users/impersonate/{id}', ['as' => 'admin.users.impersonate', 'uses' => 'UsersController@impersonate']);
 	Route::get('users/endimpersonate', ['as' => 'admin.users.endimpersonate', 'uses' => 'UsersController@endimpersonate']);
+	Route::get('users/reset-password/{id}', ['as' => 'admin.users.resetpassword', 'uses' => 'UsersController@resetpassword']);
 	Route::get('users/export', ['as' => 'admin.users.export', 'uses' => 'UsersController@export']);
 	Route::delete('users/destroy_multiple', ['as' => 'admin.users.destroy_multiple', 'uses' => 'UsersController@destroy_multiple']);
 	Route::resource('users', 'UsersController');
