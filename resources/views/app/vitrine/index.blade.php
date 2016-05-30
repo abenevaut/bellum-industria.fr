@@ -98,42 +98,42 @@
 
 			<h3 class="colored">{{ trans('cvepdb/vitrine/index.blog_title') }}</h3>
 
-			{{--@if (count($blog_articles) > 0)--}}
-				{{--<div class="layout__body-wrapper__content-wrapper__inner__widget-posts">--}}
-					{{--<div class="grid">--}}
+			@if (count($blog_articles) > 0)
+				<div class="layout__body-wrapper__content-wrapper__inner__widget-posts">
+					<div class="grid">
 
-						{{--@foreach($blog_articles as $item)--}}
+						@foreach($blog_articles as $item)
 
-							{{--<div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">--}}
-								{{--<div class="frame alignleft" style="padding:31px 0 31px 0;">--}}
-									{{--<a href="{!! $item->get_link() !!}">--}}
-										{{--<img src="/assets/images/cvepdb/logo.png" alt="{!! $item->get_title() !!}"--}}
-											 {{--width="142" height="80" class="js-call-lazyload"/>--}}
+							<div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
+								<div class="frame alignleft" style="padding:31px 0 31px 0;">
+									<a href="{!! $item->get_link() !!}">
+										<img src="/assets/images/cvepdb/logo.png" alt="{!! $item->get_title() !!}"
+											 width="142" height="80" class="js-call-lazyload"/>
 
-										{{--<div></div>--}}
-									{{--</a>--}}
-								{{--</div>--}}
-								{{--<div class="post-content">--}}
-									{{--<h5><a href="{!! $item->get_link() !!}">--}}
-											{{--{!! str_limit($item->get_title(), 55, ' ..') !!}--}}
-										{{--</a></h5>--}}
+										<div></div>
+									</a>
+								</div>
+								<div class="post-content">
+									<h5><a href="{!! $item->get_link() !!}">
+											{!! str_limit($item->get_title(), 55, ' ..') !!}
+										</a></h5>
 
-									{{--<div class="meta">--}}
-										{{--<span class="date">{!! $item->get_date() !!}</span>--}}
-									{{--</div>--}}
-									{{--{!! str_limit(strip_tags($item->get_description()), 120, ' ..') !!}--}}
-								{{--</div>--}}
-							{{--</div>--}}
+									<div class="meta">
+										<span class="date">{!! $item->get_date() !!}</span>
+									</div>
+									{!! str_limit(strip_tags($item->get_description()), 120, ' ..') !!}
+								</div>
+							</div>
 
-						{{--@endforeach--}}
+						@endforeach
 
-					{{--</div>--}}
-				{{--</div>--}}
-			{{--@else--}}
-				{{--<div class="info-box">--}}
-					{{--{{ trans('cvepdb/vitrine/index.blog_no_article') }}--}}
-				{{--</div>--}}
-			{{--@endif--}}
+					</div>
+				</div>
+			@else
+				<div class="info-box">
+					{{ trans('cvepdb/vitrine/index.blog_no_article') }}
+				</div>
+			@endif
 			<div class="clear"></div>
 		</div>
 		<!-- Begin Inner -->

@@ -40,7 +40,8 @@
     "toniperic/php-clash-of-clans": "dev-master",
     "invisnik/laravel-steam-auth": "^2.0",
     "xpaw/php-source-query-class": "^1.0",
-    "da-mitchell/steam-api": "^2.1"
+    "da-mitchell/steam-api": "^2.1",
+    "simplepie/simplepie": "^1.4"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

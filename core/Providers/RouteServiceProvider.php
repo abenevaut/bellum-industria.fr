@@ -61,5 +61,18 @@ class RouteServiceProvider extends ServiceProvider
 				require base_path('app/Http/routes.php');
 			});
 		}
+
+		if (file_exists(base_path('app/apps.json')))
+		{
+			$apps = json_decode(file_get_contents(base_path('app/apps.json')));
+
+			foreach ($apps->apps as $app)
+			{
+				$router->group(['namespace' => "App\$app\Http\Controllers"], function ($router) use ($app)
+				{
+					require base_path("app/$app/Http/routes.php");
+				});
+			}
+		}
 	}
 }
