@@ -11,6 +11,8 @@ use Core\Domain\Environments\Entities\Environment;
 class EnvironmentRepositoryEloquent extends BaseRepository implements EnvironmentRepository
 {
 
+	const DEFAULT_ENVIRONMENT_REFERENCE = 'default';
+
 	/**
 	 * Specify Model class name
 	 *
@@ -27,5 +29,17 @@ class EnvironmentRepositoryEloquent extends BaseRepository implements Environmen
 	public function boot()
 	{
 		$this->pushCriteria(app(RequestCriteria::class));
+	}
+
+	/**
+	 * Return complete domain from an URL.
+	 *
+	 * @param string $url
+	 *
+	 * @return string
+	 */
+	public function get_domain_from_url($url)
+	{
+		return parse_url($url, PHP_URL_HOST);
 	}
 }

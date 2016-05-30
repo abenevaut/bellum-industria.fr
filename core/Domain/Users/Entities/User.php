@@ -27,4 +27,13 @@ class User extends Model
 	{
 		return $this->hasMany('Core\Domain\Users\Entities\SocialToken');
 	}
+
+	/**
+	 * Environments that belong to the user.
+	 */
+	public function environments()
+	{
+		return $this->belongsToMany('Core\Domain\Environments\Entities\Environment');
+	}
+
 }

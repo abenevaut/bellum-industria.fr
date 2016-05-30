@@ -26,4 +26,12 @@ class Environment extends Model
 		'domain'
 	];
 
+	/**
+	 * Users that belong to the env.
+	 */
+	public function users()
+	{
+		return $this->belongsToMany('Core\Domain\Users\Entities\User');
+	}
+
 }
