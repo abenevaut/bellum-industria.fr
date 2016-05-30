@@ -1,6 +1,7 @@
 <?php namespace Core\Domain\Users\Entities;
 
 use CVEPDB\Domain\Users\Entities\User as Model;
+use Core\Domain\Logs\Traits\LogTrait;
 
 /**
  * Class User
@@ -8,6 +9,8 @@ use CVEPDB\Domain\Users\Entities\User as Model;
  */
 class User extends Model
 {
+
+	use LogTrait;
 
 	/**
 	 * The apikey that belong to the user.

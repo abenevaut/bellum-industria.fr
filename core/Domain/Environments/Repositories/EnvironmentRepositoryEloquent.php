@@ -1,14 +1,14 @@
-<?php namespace Core\Domain\Logs\Repositories;
+<?php namespace Core\Domain\Environments\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use Core\Domain\Logs\Entities\Log;
+use Core\Domain\Environments\Entities\Environment;
 
 /**
- * Class LogRepositoryEloquent
- * @package namespace App\Repositories;
+ * Class EnvironmentRepositoryEloquent
+ * @package Core\Domain\Environments\Repositories
  */
-class LogRepositoryEloquent extends BaseRepository implements LogRepository
+class EnvironmentRepositoryEloquent extends BaseRepository implements EnvironmentRepository
 {
 
 	/**
@@ -18,7 +18,7 @@ class LogRepositoryEloquent extends BaseRepository implements LogRepository
 	 */
 	public function model()
 	{
-		return Log::class;
+		return Environment::class;
 	}
 
 	/**

@@ -2,6 +2,7 @@
 
 use CVEPDB\Domain\Permissions\Entities\Permission as Model;
 use Phoenix\EloquentMeta\MetaTrait;
+use Core\Domain\Logs\Traits\LogTrait;
 
 /**
  * Class Permission
@@ -11,6 +12,7 @@ class Permission extends Model
 {
 
 	use MetaTrait;
+	use LogTrait;
 
 	/**
 	 * The attributes that are mass assignable.

@@ -1,18 +1,20 @@
-<?php namespace Core\Domain\Logs\Traits;
+<?php namespace Core\Domain\Environments\Traits;
 
 use Illuminate\Database\Eloquent\Model;
+
 use Auth;
 use ReflectionClass;
 use Exception;
-use Core\Domain\Logs\Entities\Log;
+
+use Core\Domain\Environments\Entities\Environment;
 
 /**
- * Automatically Log Add, Update, Delete events of Model.
+ * Automatically attach DB entry to an environment.
  *
- * Class LogTrait
- * @package Modules\Core\Traits
+ * Class EnvironmentTrait
+ * @package Core\Domain\Environments\Traits
  */
-trait LogTrait
+trait EnvironmentTrait
 {
 
 	/**

@@ -1,6 +1,7 @@
 <?php namespace Core\Domain\Users\Entities;
 
 use CVEPDB\Abstracts\Entities\Model;
+use Core\Domain\Logs\Traits\LogTrait;
 
 /**
  * Class SocialToken
@@ -8,6 +9,8 @@ use CVEPDB\Abstracts\Entities\Model;
  */
 class SocialToken extends Model
 {
+
+	use LogTrait;
 
 	/**
 	 * @var string
