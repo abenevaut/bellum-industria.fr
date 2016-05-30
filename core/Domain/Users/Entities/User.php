@@ -2,6 +2,7 @@
 
 use CVEPDB\Domain\Users\Entities\User as Model;
 use Core\Domain\Logs\Traits\LogTrait;
+use Core\Domain\Environments\Traits\EnvironmentTrait;
 
 /**
  * Class User
@@ -11,6 +12,7 @@ class User extends Model
 {
 
 	use LogTrait;
+	use EnvironmentTrait;
 
 	/**
 	 * The apikey that belong to the user.

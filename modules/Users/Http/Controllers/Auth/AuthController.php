@@ -163,20 +163,6 @@ class AuthController extends Controller
 
 		$user = $this->create($request->all());
 
-		/*
-		 * Link user to current environment
-		 */
-
-		$env = $this->r_environment
-			->findWhere(
-				[
-					'reference' => EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
-				]
-			)
-			->first();
-
-		$user->environments()->attach($env->id);
-
 		Auth::guard($this->getGuard())->login($user);
 
 		return redirect($this->redirectPath());
@@ -328,20 +314,6 @@ class AuthController extends Controller
 		}
 
 		$user = $this->create($request->all());
-
-		/*
-		 * Link user to current environment
-		 */
-
-		$env = $this->r_environment
-			->findWhere(
-				[
-					'reference' => EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
-				]
-			)
-			->first();
-
-		$user->environments()->attach($env->id);
 
 		$social_user = Session::get('register_from_social');
 
