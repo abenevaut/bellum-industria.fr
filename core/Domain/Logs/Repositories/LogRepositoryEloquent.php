@@ -3,7 +3,6 @@
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Core\Domain\Logs\Entities\Log;
-use Core\Validators\LogValidator;
 
 /**
  * Class LogRepositoryEloquent

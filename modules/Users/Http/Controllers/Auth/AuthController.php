@@ -2,6 +2,7 @@
 
 namespace Modules\Users\Http\Controllers\Auth;
 
+use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
 use CVEPDB\Settings\Facades\Settings;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -53,29 +54,37 @@ class AuthController extends Controller
 	private $r_socialtoken = null;
 
 	/**
+	 * @var EnvironmentRepositoryEloquent|null
+	 */
+	private $r_environment = null;
+
+	/**
 	 * Create a new authentication controller instance.
 	 *
 	 * @param AuthOutputter $outputter
 	 */
 	public function __construct(
-	 AuthOutputter $outputter,
-	 SocialTokenRepositoryEloquent $r_socialtoken
-	) {
-	
+		AuthOutputter $outputter,
+		SocialTokenRepositoryEloquent $r_socialtoken,
+		EnvironmentRepositoryEloquent $r_environment
+	)
+	{
+
 		parent::__construct();
 		$this->middleware(
-	  'guest',
-	  [
-	  'except' => [
-	  'logout',
-	  'getLogout',
-	  'redirectToProvider',
-	  'handleProviderCallback'
-	  ]
-	  ]
+			'guest',
+			[
+				'except' => [
+					'logout',
+					'getLogout',
+					'redirectToProvider',
+					'handleProviderCallback'
+				]
+			]
 		);
 		$this->outputter = $outputter;
 		$this->r_socialtoken = $r_socialtoken;
+		$this->r_environment = $r_environment;
 	}
 
 	/**
@@ -114,14 +123,7 @@ class AuthController extends Controller
 	{
 		$this->outputter->setLoginMeta();
 
-		$social_login = Settings::get('users.social.login');
-
-		return $this->outputter->output(
-	  'users.login',
-	  [
-	  'social_login'            => $social_login
-	  ]
-		);
+		return $this->outputter->output('users.login');
 	}
 
 	/**
@@ -133,14 +135,7 @@ class AuthController extends Controller
 	{
 		$this->outputter->setRegisterMeta();
 
-		$social_login = Settings::get('users.social.login');
-
-		return $this->outputter->output(
-	  'users.register',
-	  [
-	  'social_login'            => $social_login,
-	  ]
-		);
+		return $this->outputter->output('users.register');
 	}
 
 	/**
@@ -157,8 +152,8 @@ class AuthController extends Controller
 		if ($validator->fails())
 		{
 			$this->throwValidationException(
-	   $request,
-	   $validator
+				$request,
+				$validator
 			);
 		}
 		else
@@ -166,7 +161,9 @@ class AuthController extends Controller
 			Session::flash('message-success', trans('auth.message_success_register'));
 		}
 
-		Auth::guard($this->getGuard())->login($this->create($request->all()));
+		$user = $this->create($request->all());
+
+		Auth::guard($this->getGuard())->login($user);
 
 		return redirect($this->redirectPath());
 	}
@@ -235,8 +232,8 @@ class AuthController extends Controller
 		$social_user = Socialite::driver($provider)->user();
 
 		$social_token = $this->r_socialtoken->findByField(
-	  'token',
-	  $social_user->token
+			'token',
+			$social_user->token
 		)->first();
 
 		if (!is_null($social_token))
@@ -286,11 +283,11 @@ class AuthController extends Controller
 		$this->outputter->setRegisterMeta();
 
 		return $this->outputter->output(
-	  'users.register',
-	  [
-	  'provider' => $provider,
-	  'uri'      => '/register/' . $provider
-	  ]
+			'users.register',
+			[
+				'provider' => $provider,
+				'uri'      => '/register/' . $provider
+			]
 		);
 	}
 
@@ -311,8 +308,8 @@ class AuthController extends Controller
 		if ($validator->fails())
 		{
 			$this->throwValidationException(
-	   $request,
-	   $validator
+				$request,
+				$validator
 			);
 		}
 

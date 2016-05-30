@@ -3,11 +3,17 @@
 use Chrisbjr\ApiGuard\Models\ApiLog as ApiLogApiGuard;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
+use Core\Domain\Logs\Traits\LogTrait;
 
+/**
+ * Class ApiLog
+ * @package Core\Domain\Users\Entities
+ */
 class ApiLog extends ApiLogApiGuard implements Transformable
 {
 
 	use TransformableTrait;
+	use LogTrait;
 
 	protected $fillable = [
 		'api_key_id',

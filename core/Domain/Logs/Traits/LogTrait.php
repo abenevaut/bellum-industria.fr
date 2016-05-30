@@ -1,14 +1,10 @@
-<?php
-
-namespace Modules\Core\Traits;
+<?php namespace Core\Domain\Logs\Traits;
 
 use Illuminate\Database\Eloquent\Model;
-
 use Auth;
 use ReflectionClass;
 use Exception;
-
-use Modules\Core\Entities\Log;
+use Core\Domain\Logs\Entities\Log;
 
 /**
  * Automatically Log Add, Update, Delete events of Model.
@@ -34,7 +30,9 @@ trait LogTrait
 						$reflect = new ReflectionClass($model);
 
 						return Log::create([
-							'user_id'      => Auth::user()->id,
+							'user_id'      => Auth::check()
+								? Auth::user()->id
+								: 0,
 							'content_id'   => $model->id,
 							'content_type' => get_class($model),
 							'action'       => static::getActionName($eventName),
