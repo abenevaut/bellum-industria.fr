@@ -34,4 +34,20 @@ class Environment extends Model
 		return $this->belongsToMany('Core\Domain\Users\Entities\User');
 	}
 
+	/**
+	 * Roles that belong to the env.
+	 */
+	public function roles()
+	{
+		return $this->belongsToMany('Core\Domain\Roles\Entities\Role');
+	}
+
+	/**
+	 * Permissions that belong to the env.
+	 */
+	public function permissions()
+	{
+		return $this->belongsToMany('Core\Domain\Permissions\Entities\Permission');
+	}
+
 }
