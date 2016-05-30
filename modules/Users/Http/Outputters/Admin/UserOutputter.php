@@ -404,8 +404,8 @@ class UserOutputter extends AdminOutputter
 	public function export(NewExcelFile $excel)
 	{
 		$this->r_user->setPresenter(new UsersAdminExcelPresenter());
-		$users = $this->r_user->all();
-		$nb_users = $this->r_user->allCount();
+		$users = $this->r_user->with(['roles', 'addresses'])->all();
+		$nb_users = $this->r_user->count();
 
 		return $excel->setTitle(trans('users::admin.export.users_list.title'))
 			->setCreator(Auth::user()->full_name)
