@@ -5,13 +5,6 @@
 # If you need both WebDriver and PHPBrowser tests - create a separate suite.
 
 class_name: AcceptanceTester
-<<<<<<< HEAD
-modules:
-    enabled:
-        - PhpBrowser:
-            url: http://localhost/myapp
-        - \Helper\Acceptance
-=======
 l5:
     env:
         file: "tests/_data/.env.testing"
@@ -92,4 +85,3 @@ env:
             env:
                 file: "tests/_data/.env.codeship-installer"
                 name: codeship
->>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406

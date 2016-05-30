@@ -13,24 +13,6 @@ settings:
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
-<<<<<<< HEAD
-modules:
-    enabled: [Laravel5, Filesystem, PhpBrowser, REST]
-    config:
-        Laravel5:
-            environment_file: .env.testing
-            cleanup: false
-            bootstrap: bootstrap/app.php
-            root: ''
-            packages: workbench
-            disable_middleware: false
-            disable_events: false
-        PhpBrowser:
-            url: 'http://localhost:8000'
-        REST:
-            url: 'http://localhost:8000'
-            depends: PhpBrowser
-=======
         - Codeception\Extension\Logger
         - Codeception\Extension\Phantoman
 #        - Codeception\Extension\Teststatistics
@@ -61,5 +43,4 @@ coverage:
     enabled: true
     include:
         - core/*
->>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406
 error_level: "E_ALL & ~E_STRICT & ~E_DEPRECATED"

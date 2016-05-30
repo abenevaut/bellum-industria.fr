@@ -38,6 +38,16 @@ class CoreOutputter extends AbsLaravelOutputter
 	protected $r_settings = null;
 
 	/**
+	 * @var bool true to allow users login from social networks
+	 */
+	protected $cfg_users_social_login = false;
+
+	/**
+	 * @var bool true to allow users registration
+	 */
+	protected $cfg_users_is_registration_allowed = false;
+
+	/**
 	 * CoreOutputter constructor.
 	 *
 	 * @param SettingsRepository $r_settings
@@ -51,6 +61,9 @@ class CoreOutputter extends AbsLaravelOutputter
 		$this->setBreadcrumbDivider('');
 		$this->breadcrumbs->setListElement('li');
 		$this->set_view_prefix();
+
+		$this->cfg_users_social_login = $this->r_settings->get('users.social.login');
+		$this->cfg_users_is_registration_allowed = $this->r_settings->get('users.is_registration_allowed');
 	}
 
 	/**
@@ -62,11 +75,12 @@ class CoreOutputter extends AbsLaravelOutputter
 	public function output($view, $data = [])
 	{
 		return cmsview(
-	  $view,
-	  $data
-	  + $this->data_header(),
-	  $this->view_prefix,
-	  $this->current_module
+			$view,
+			$data
+			+ $this->data_header()
+			+ $this->data_config(),
+			$this->view_prefix,
+			$this->current_module
 		);
 	}
 
@@ -113,6 +127,14 @@ class CoreOutputter extends AbsLaravelOutputter
 				'description' => $this->description,
 			],
 			'breadcrumbs' => $this->breadcrumbs
+		];
+	}
+
+	private function data_config()
+	{
+		return [
+			'social_login'            => $this->cfg_users_social_login,
+			'is_registration_allowed' => $this->cfg_users_is_registration_allowed,
 		];
 	}
 }

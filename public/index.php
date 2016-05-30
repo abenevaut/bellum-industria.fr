@@ -19,11 +19,7 @@
 |
 */
 
-<<<<<<< HEAD
-require __DIR__.'/../bootstrap/autoload.php';
-=======
 require __DIR__ . '/../bootstrap/autoload.php';
->>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406
 
 /*
 |--------------------------------------------------------------------------
@@ -37,11 +33,7 @@ require __DIR__ . '/../bootstrap/autoload.php';
 |
 */
 
-<<<<<<< HEAD
-$app = require_once __DIR__.'/../bootstrap/app.php';
-=======
 $app = require_once __DIR__ . '/../bootstrap/app.php';
->>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406
 
 /*
 |--------------------------------------------------------------------------
@@ -58,11 +50,7 @@ $app = require_once __DIR__ . '/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(
-<<<<<<< HEAD
-    $request = Illuminate\Http\Request::capture()
-=======
 	$request = Illuminate\Http\Request::capture()
->>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406
 );
 
 $response->send();

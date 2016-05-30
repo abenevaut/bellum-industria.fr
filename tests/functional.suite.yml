@@ -7,10 +7,6 @@
 class_name: FunctionalTester
 modules:
     enabled:
-<<<<<<< HEAD
-        # add framework module here
-        - \Helper\Functional
-=======
         - \Helper\Functional
         - Laravel5
     config:
@@ -51,4 +47,3 @@ env:
             config:
                 Laravel5:
                     environment_file: "tests/_data/.env.codeship-installer"
->>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 bin
 bin/*
 /vendor
@@ -23,23 +22,14 @@ awsaccess.json
 
 # Deployer
 !deployer/shared/.env.example
-=======
-.idea
-/vendor
-/bin
-/node_modules
 /public/storage
-Homestead.yaml
-Homestead.json
 resources/assets/bower
-public/assets/*
 public/modules/*
 public/themes/*
 public/uploads/*
 resources/views/modules/*
 
 # Dotenv
-.env
 .env.*
 !.env.example
 !.env.installer
@@ -56,7 +46,6 @@ resources/themes
 
 # Tests
 !tests/_data/*
-tests/_output/*
 tests/_support/_generated/*
 
 # Databases
@@ -65,21 +54,16 @@ database/testing.sqlite
 :memory:
 
 # Deployer
-!deployer/shared/.env.example
 !deployer/shared/.env.production.example
->>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406
 deployer/release
 deployer/releases
 deploy.yml
 deployer/current
-<<<<<<< HEAD
 
 # Tests
 tests/_support/_generated
-=======
 database/migrations/2014_01_15_090136_create_states.php
 database/migrations/2014_01_15_090147_create_countries.php
 database/migrations/2014_01_15_105422_create_addresses.php
 database/migrations/2014_08_15_180252_create_meta_table.php
 _ide_helper.php
->>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406

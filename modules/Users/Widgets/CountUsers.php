@@ -86,7 +86,7 @@ class CountUsers implements Widgets
 				return $this->widgetInformation();
 			}
 			default:
-				return $this->output('users.widgets.countusers', ['nb_users' => $this->r_user->allCount()]);
+				return $this->output('users.widgets.countusers', ['nb_users' => $this->r_user->count()]);
 		}
 	}
 }

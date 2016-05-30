@@ -7,9 +7,6 @@ modules:
     enabled:
         - Asserts
         - \Helper\Unit
-<<<<<<< HEAD
-        - \Helper\Factory
-=======
         - \Helper\Factory
         - Laravel5:
             environment_file: "tests/.env.testing"
@@ -60,4 +57,3 @@ env:
             config:
                 Laravel5:
                     environment_file: "tests/_data/.env.codeship-installer"
->>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406

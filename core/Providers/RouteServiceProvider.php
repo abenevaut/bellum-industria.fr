@@ -11,13 +11,22 @@ class RouteServiceProvider extends ServiceProvider
 {
 
 	/**
-	 * This namespace is applied to the controller routes in your routes file.
+	 * This namespace is applied to the controller routes in the core routes file.
 	 *
 	 * In addition, it is set as the URL generator's root namespace.
 	 *
 	 * @var string
 	 */
 	protected $namespace_core = 'Core\Http\Controllers';
+
+	/**
+	 * This namespace is applied to the controller routes in your app routes file.
+	 *
+	 * In addition, it is set as the URL generator's root namespace.
+	 *
+	 * @var string
+	 */
+	protected $namespace_app = 'App\Http\Controllers';
 
 	/**
 	 * Define your route model bindings, pattern filters, etc.
@@ -40,9 +49,17 @@ class RouteServiceProvider extends ServiceProvider
 	 */
 	public function map(Router $router)
 	{
-		$router->group(['namespace' => $this->namespace_core], function ($router) {
-		
+		$router->group(['namespace' => $this->namespace_core], function ($router)
+		{
 			require base_path('core/Http/routes.php');
 		});
+
+		if (file_exists(base_path('app/Http/routes.php')))
+		{
+			$router->group(['namespace' => $this->namespace_app], function ($router)
+			{
+				require base_path('app/Http/routes.php');
+			});
+		}
 	}
 }

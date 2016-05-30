@@ -4,6 +4,7 @@ use CVEPDB\Settings\Facades\Settings;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Core\Http\Controllers\CoreAuthController as Controller;
@@ -76,15 +77,7 @@ class AdminAuthController extends Controller
 	 */
 	public function getLogin()
 	{
-		$social_login = Settings::get('users.social.login');
-
-		return $this->outputter->output(
-	  'users.admin.login',
-	  [
-	  'social_login'            => $social_login,
-	  'is_registration_allowed' => $this->is_registration_allowed,
-	  ]
-		);
+		return $this->outputter->output('users.admin.login');
 	}
 
 	/**
@@ -107,7 +100,7 @@ class AdminAuthController extends Controller
 	 *
 	 * @return \Illuminate\Http\RedirectResponse
 	 */
-	public function authenticated(\Illuminate\Http\Request $request, User $user)
+	public function authenticated(Request $request, User $user)
 	{
 		$route = property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
 
