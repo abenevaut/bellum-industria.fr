@@ -36,7 +36,7 @@ trait EnvironmentTrait
 								$env = Environment::where('domain', $_SERVER['HTTP_HOST'])
 									->firstOrFail();
 
-								$env->users()->attach($model->id);
+								$env->{static::getBelongsToManyEnvironmentName()}()->attach($model->id);
 
 								break;
 							}
@@ -46,6 +46,8 @@ trait EnvironmentTrait
 					{
 						return 1;
 					}
+
+					return 0;
 				}
 			);
 		}
@@ -64,4 +66,13 @@ trait EnvironmentTrait
 		];
 	}
 
+	/**
+	 * Get the default "belongsToMany" link name, present in Environment model.
+	 *
+	 * @return string
+	 */
+	protected static function getBelongsToManyEnvironmentName()
+	{
+		return 'users';
+	}
 }

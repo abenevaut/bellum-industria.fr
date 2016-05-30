@@ -15,6 +15,16 @@ class User extends Model
 	use EnvironmentTrait;
 
 	/**
+	 * Get the default "belongsToMany" link name, present in Environment model.
+	 *
+	 * @return string
+	 */
+	protected static function getBelongsToManyEnvironmentName()
+	{
+		return 'users';
+	}
+
+	/**
 	 * The apikey that belong to the user.
 	 */
 	public function apikey()
