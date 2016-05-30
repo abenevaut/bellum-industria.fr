@@ -6,6 +6,7 @@
 
 @section('content')
 	<div class="box-body no-padding">
+
 		<table class="table table-bordered">
 			<tbody>
 				<tr class="cell-center">
@@ -88,6 +89,34 @@
 								{!! trans($addresse->zip) !!}<br/>
 								{{--{!! trans($addresse->country_a2) !!}--}}
 								{!! trans($addresse->country_name) !!}
+							</td>
+						</tr>
+					@endforeach
+				</tbody>
+			</table>
+		@endif
+
+		@if (
+			 (
+				Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
+			 	|| Auth::user()->hasPermission(\Core\Domain\Permissions\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+			)
+			 && $user->environments->count()
+		)
+			<br>
+			<table class="table table-bordered">
+				<tbody>
+					<tr class="cell-center">
+						<th>
+							<b>Environments</b>
+						</th>
+					</tr>
+					@foreach ($user->environments as $environment)
+						<tr class="cell-center">
+							<td>
+								{!! trans($environment->name) !!}
+								({!! trans($environment->reference) !!}
+								- {{ $environment->domain }})
 							</td>
 						</tr>
 					@endforeach

@@ -11,6 +11,19 @@ use Core\Domain\Permissions\Entities\Permission;
 class PermissionRepositoryEloquent extends BasePermissionRepositoryEloquent
 {
 
+	/*
+	 * Environment relative permission
+	 */
+
+	// Allow to see the environment notion
+	const SEE_ENVIRONMENT = 'see_env';
+
+	// Allow to CRUD evironments
+	const MANAGE_ENVIRONMENT = 'manage_env';
+
+	// Allow to clone items between environments
+	const MANAGE_ENVIRONMENT_ITEMS = 'manage_env_items';
+
 	/**
 	 * Specify Model class name
 	 *
