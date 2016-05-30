@@ -7,5 +7,48 @@
 class_name: FunctionalTester
 modules:
     enabled:
+<<<<<<< HEAD
         # add framework module here
         - \Helper\Functional
+=======
+        - \Helper\Functional
+        - Laravel5
+    config:
+        Laravel5:
+            environment_file: "tests/_data/.env.testing"
+            cleanup: true
+            bootstrap: bootstrap/app.php
+            root: ''
+            packages: workbench
+            disable_middleware: false
+            disable_events: false
+env:
+    installer:
+        modules:
+            enabled:
+                - Laravel5
+            config:
+                Laravel5:
+                    environment_file: "tests/_data/.env.installer"
+                    cleanup: true
+    travis:
+        modules:
+            config:
+                Laravel5:
+                    environment_file: "tests/_data/.env.travis"
+    travis-installer:
+        modules:
+            config:
+                Laravel5:
+                    environment_file: "tests/_data/.env.travis-installer"
+    codeship:
+        modules:
+            config:
+                Laravel5:
+                    environment_file: "tests/_data/.env.codeship"
+    codeship-installer:
+        modules:
+            config:
+                Laravel5:
+                    environment_file: "tests/_data/.env.codeship-installer"
+>>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406

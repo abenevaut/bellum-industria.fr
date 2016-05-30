@@ -22,6 +22,16 @@ class CreateApiKeysTable extends Migration
             $table->nullableTimestamps();
             $table->softDeletes();
 
+<<<<<<< HEAD
+=======
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->primary(['user_id']);
+
+>>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406
             // unique key
             $table->unique('key');
 
@@ -38,6 +48,16 @@ class CreateApiKeysTable extends Migration
             $table->string('ip_address');
             $table->nullableTimestamps();
 
+<<<<<<< HEAD
+=======
+            $table->foreign('api_key_id')
+                ->references('id')->on('api_key')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->primary(['api_key_id']);
+
+>>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406
             $table->index('route');
             $table->index('method');
             $table->foreign('api_key_id')->references('id')->on('api_keys');

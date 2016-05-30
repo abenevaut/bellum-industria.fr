@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
@@ -95,4 +96,124 @@
         },
         "preferred-install": "dist"
     }
+=======
+  "name": "cvepdb/cms",
+  "description": "The #CVEPDB CMS.",
+  "keywords": [
+    "cms",
+    "cvepdb"
+  ],
+  "license": "GPL-3.0",
+  "type": "project",
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.5.9",
+    "beelab/bowerphp": "0.3.*@beta",
+    "composer/composer": "^1.0@beta",
+    "composer/installers": "~1.0",
+    "laravel/framework": "5.2.24",
+    "doctrine/cache": "^1.6",
+    "cvepdb/laravel": "1.0.52.*",
+    "cvepdb/laravel-addresses": "1.0.52.*",
+    "cvepdb/laravel-settings": "1.2.52.*",
+    "cvepdb-cms/module-installer": "1.0.52.*",
+    "cvepdb-cms/module-dashboard": "1.0.52.*",
+    "cvepdb-cms/module-themes": "1.0.52.*",
+    "cvepdb-cms/theme-adminlte": "dev-master",
+    "cvepdb-cms/theme-lumen": "dev-master",
+    "cvepdb-cms/theme-flatly": "dev-master",
+    "league/flysystem": "^1.0",
+    "league/flysystem-aws-s3-v3": "~1.0",
+    "league/flysystem-rackspace": "~1.0",
+    "league/flysystem-dropbox": "^1.0",
+    "spatie/laravel-medialibrary": "^3.16",
+    "barryvdh/laravel-elfinder": "^0.3.6",
+    "aws/aws-php-sns-message-validator": "^1.1",
+    "laravel/socialite": "^2.0",
+    "spatie/laravel-backup": "^3.4",
+    "maknz/slack": "^1.7",
+    "monolog/monolog": "^1.19",
+    "barryvdh/laravel-ide-helper": "^2.1",
+    "spatie/laravel-glide": "^2.3",
+    "toniperic/php-clash-of-clans": "dev-master",
+    "invisnik/laravel-steam-auth": "^2.0",
+    "xpaw/php-source-query-class": "^1.0",
+    "da-mitchell/steam-api": "^2.1"
+  },
+  "require-dev": {
+    "fzaninotto/faker": "~1.4",
+    "mockery/mockery": "0.9.*",
+    "league/factory-muffin": "^3.0",
+    "league/factory-muffin-faker": "^1.0",
+    "codeception/codeception": "2.1.8",
+    "codeception/c3": "2.*",
+    "phpunit/php-code-coverage": "^3",
+    "deployer/deployer": "3.2.*",
+    "deployphp/recipes": "3.1.*",
+    "site5/phantoman": "^1.1",
+    "jonnyw/php-phantomjs": "^4.3",
+    "jakoch/phantomjs-installer": "^2.1",
+    "captbaritone/mailcatcher-codeception-module": "^1.1",
+    "codeception/phpbuiltinserver": "^1.2",
+    "redcomponent/teststatistics": "dev-master",
+    "blackfire/php-sdk": "^1.5",
+    "antennaio/laravel-codeception-dbdump": "^0.0.3",
+    "squizlabs/php_codesniffer": "*",
+    "pragmarx/laravelcs": "^0.1.0",
+    "sebastian/phpcpd": "*"
+  },
+  "autoload": {
+    "classmap": [
+      "database"
+    ],
+    "psr-4": {
+      "App\\": "app/",
+      "Core\\": "core/",
+      "Modules\\": "modules/"
+    },
+    "files": [
+      "core/helpers.php"
+    ]
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"file_put_contents('.env', 'installer');\""
+    ],
+    "post-create-project-cmd": [
+      "php artisan cms:key_generate"
+    ],
+    "post-install-cmd": [
+      "PhantomInstaller\\Installer::installPhantomJS",
+      "php artisan clear-compiled",
+      "php artisan ide-helper:generate",
+      "php artisan optimize"
+    ],
+    "pre-update-cmd": [
+    ],
+    "post-update-cmd": [
+      "PhantomInstaller\\Installer::installPhantomJS",
+      "php artisan clear-compiled",
+      "php artisan ide-helper:generate",
+      "php artisan optimize"
+    ]
+  },
+  "config": {
+    "bin-dir": "bin",
+    "preferred-install": "dist"
+  },
+  "extra": {
+    "installer-paths": {
+      "modules/{$name}": [
+        "cvepdb-cms/module-installer",
+        "cvepdb-cms/module-dashboard",
+        "cvepdb-cms/module-themes"
+      ],
+      "resources/themes/{$name}": [
+        "cvepdb-cms/theme-adminlte",
+        "cvepdb-cms/theme-flatly",
+        "cvepdb-cms/theme-lumen"
+      ]
+    }
+  }
+>>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406
 }

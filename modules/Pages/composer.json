@@ -1,0 +1,19 @@
+{
+  "name": "cvepdb-cms/module-pages",
+  "description": "Page module for #CVEPDB CMS",
+  "authors": [
+    {
+      "name": "Antoine Benevaut",
+      "email": "antoine@cvepdb.fr"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Modules\\Pages\\": ""
+    }
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.5.9"
+  }
+}

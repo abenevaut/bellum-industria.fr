@@ -1,0 +1,45 @@
+class_name: ApiTester
+modules:
+    enabled:
+        - \Helper\Api
+        - PhpBrowser
+        - REST
+        - Laravel5
+    config:
+      PhpBrowser:
+          url: http://localhost:8000/
+      Laravel5:
+          environment_file: "tests/_data/.env.testing"
+          cleanup: true
+      REST:
+          url: http://localhost:8000/api/
+          depends: Laravel5
+env:
+    installer:
+        modules:
+            enabled:
+                - Laravel5
+            config:
+                Laravel5:
+                    environment_file: "tests/_data/.env.installer"
+                    cleanup: true
+    travis:
+        modules:
+            config:
+                Laravel5:
+                    environment_file: "tests/_data/.env.travis"
+    travis-installer:
+        modules:
+            config:
+                Laravel5:
+                    environment_file: "tests/_data/.env.travis-installer"
+    codeship:
+        modules:
+            config:
+                Laravel5:
+                    environment_file: "tests/_data/.env.codeship"
+    codeship-installer:
+        modules:
+            config:
+                Laravel5:
+                    environment_file: "tests/_data/.env.codeship-installer"

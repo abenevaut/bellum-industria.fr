@@ -1,0 +1,25 @@
+language: php
+
+php:
+  - 5.6
+  - 7
+
+#addons:
+#  ssh_known_hosts:
+#  - gitlab.com
+
+before_script:
+  - mysql -e 'CREATE DATABASE cvepdb_cms_testing;'
+  - chmod -R 777 storage
+  - chmod -R 777 public/uploads
+  - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
+  - composer install --prefer-dist --no-interaction --optimize-autoloader
+  - php artisan theme:publish
+  - php artisan module:publish
+  - php artisan module:publish-migration
+  - echo "extension = xdebug.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
+script:
+  - bin/codecept run --env=core,travis -g migration --coverage
+  - bin/codecept run --env=installer,travis-installer --coverage
+  - bin/codecept run --env=travis --coverage

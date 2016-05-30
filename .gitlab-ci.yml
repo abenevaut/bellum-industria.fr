@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Deploy:
   script:
   - chmod -R 777 storage
@@ -7,3 +8,122 @@ Deploy:
   - npm install
   - gulp production
   - bin/codecept run
+=======
+stages:
+  - build
+  - test
+
+job_build:
+  stage: build
+  only:
+  - master
+  - staging
+  - development
+  script:
+  - chmod -R 777 storage
+  - chmod -R 777 public/uploads
+  - composer install
+  - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
+  - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
+  - cd resources/themes/flatly/assets && npm install && gulp bower && cd -
+  - php artisan theme:publish
+  - php artisan module:publish
+  - php artisan module:publish-migration
+#  - php artisan codeception:dbdump testing --dump tests/_data/empty.sql --empty-database --no-seeding
+#  - php artisan codeception:dbdump testing --dump tests/_data/testing.sql --empty-database --seeder-class TestingSeeder
+  tags:
+  - php7
+  - nodejs
+  - composer
+  - linux
+
+job_tests_linux: # Run tests suites
+  stage: test
+  only:
+  - master
+  - staging
+  - development
+  before_script:
+  - chmod -R 777 storage
+  - chmod -R 777 public/uploads
+  - composer install
+  - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
+  - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
+  - cd resources/themes/flatly/assets && npm install && gulp bower && cd -
+  - php artisan theme:publish
+  - php artisan module:publish
+  - php artisan module:publish-migration
+  script:
+  - bin/codecept run --env=core -g migration --coverage
+  - bin/codecept run --env=installer acceptance
+  - bin/codecept run --env=installer functionnal --coverage
+  - bin/codecept run --env=installer api --coverage
+  - bin/codecept run --env=installer unit --coverage
+  - bin/codecept run acceptance
+  - bin/codecept run functionnal --coverage
+  - bin/codecept run api --coverage
+  - bin/codecept run unit --coverage
+  when: on_success
+  tags:
+  - php7
+  - nodejs
+  - composer
+  - mysql
+  - linux
+
+job_tests_windows: # Run tests suites
+  stage: test
+  only:
+  - staging
+  - development
+  before_script:
+  - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
+  - chmod -R 777 storage
+  - chmod -R 777 public/uploads
+  - composer install
+  - cd resources\themes\adminlte\assets && npm install && gulp sass && cd ../../../..
+  - cd resources\themes\lumen\assets && npm install && gulp bower && cd ../../../..
+  - cd resources\themes\flatly\assets && npm install && gulp bower && cd ../../../..
+  - php artisan theme:publish
+  - php artisan module:publish
+  - php artisan module:publish-migration
+  script:
+  - bin\codecept run --env=installer,firefox --env=installer,ie acceptance
+  when: on_success
+  tags:
+  - php7
+  - nodejs
+  - composer
+  - mysql
+  - windows
+
+job_cs: # CodeStyle
+  stage: test
+  only:
+  - development
+  before_script:
+  - composer install
+  script:
+  - bin/phpcpd core
+  - bin/phpcpd modules/Dashboard
+  - bin/phpcpd modules/Files
+  - bin/phpcpd modules/Installer
+  - bin/phpcpd modules/Pages
+  - bin/phpcpd modules/Posts
+  - bin/phpcpd modules/Themes
+  - bin/phpcpd modules/Users
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ core
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Dashboard
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Files
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Installer
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Pages
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Posts
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Themes
+  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Users
+  tags:
+  - php7
+  - nodejs
+  - composer
+  - mysql
+  - linux
+>>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406

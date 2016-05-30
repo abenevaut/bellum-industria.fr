@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+
+/**
+ * Class AlterSettingsTable
+ */
+class AlterSettingsTable extends Migration
+{
+
+	/**
+	 * Run the migrations.
+	 */
+	public function up()
+	{
+		Schema::table('settings', function ($table)
+		{
+			$table->renameColumn('key', 'setting_key');
+			$table->renameColumn('value', 'setting_value');
+		});
+	}
+
+	/**
+	 * Reverse the migrations.
+	 */
+	public function down()
+	{
+		Schema::table('settings', function ($table)
+		{
+			$table->renameColumn('setting_key', 'key');
+			$table->renameColumn('setting_value', 'value');
+		});
+	}
+}

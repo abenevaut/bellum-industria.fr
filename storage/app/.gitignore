@@ -1,2 +1,7 @@
 *
+<<<<<<< HEAD
 !.gitignore
+=======
+!public/
+!.gitignore
+>>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406

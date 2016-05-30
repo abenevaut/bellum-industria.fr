@@ -1,0 +1,15 @@
+{
+  "name": "Teamspeak",
+  "alias": "teamspeak",
+  "description": "",
+  "keywords": [],
+  "active": 0,
+  "order": 1,
+  "providers": [
+    "Modules\\Teamspeak\\Providers\\TeamspeakServiceProvider"
+  ],
+  "aliases": {},
+  "files": [
+    "start.php"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "cvepdb-cms/module-users",
+  "description": "Users module for #CVEPDB CMS",
+  "authors": [
+    {
+      "name": "Antoine Benevaut",
+      "email": "antoine@cvepdb.fr"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Modules\\Users\\": ""
+    }
+  },
+  "require": {
+    "laravel/socialite": "^2.0"
+  }
+}

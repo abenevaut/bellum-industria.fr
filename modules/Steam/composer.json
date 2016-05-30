@@ -1,0 +1,34 @@
+{
+  "name": "cvepdb-cms/module-steam",
+  "description": "Steam module for #CVEPDB CMS",
+  "keywords": [
+    "Steam",
+    "module",
+    "CVEPDB",
+    "CMS"
+  ],
+  "license": "open",
+  "type": "laravel-library",
+  "homepage": "http://cavaencoreparlerdebits.fr",
+  "authors": [
+    {
+      "name": "Antoine Benevaut",
+      "email": "antoine@cvepdb.fr"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Modules\\Steam\\": ""
+    }
+  },
+  "require": {
+    "php": ">=5.5.9",
+    "composer/installers": "~1.0",
+    "invisnik/laravel-steam-auth": "^2.0",
+    "xpaw/php-source-query-class": "^1.0",
+    "da-mitchell/steam-api": "^2.1"
+  },
+  "extra": {
+    "installer-name": "Steam"
+  }
+}

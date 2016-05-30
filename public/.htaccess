@@ -5,9 +5,12 @@
 
     RewriteEngine On
 
+<<<<<<< HEAD
     RewriteCond %{HTTP_HOST} ^www\.cvepdb\.fr [NC]
     RewriteRule ^(.*)$ http://cvepdb.fr/$1 [L,R=301]
 
+=======
+>>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)/$ /$1 [L,R=301]
@@ -16,6 +19,7 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+<<<<<<< HEAD
 </IfModule>
 
 <IfModule mod_expires.c>
@@ -174,3 +178,10 @@ AddType image/x-icon .ico
 </IfModule>
 
 FileETag None
+=======
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+>>>>>>> e3011fbb5aedfa377b00e2740ac2dca3d5e31406
