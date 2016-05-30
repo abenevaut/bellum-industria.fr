@@ -67,3 +67,5 @@ database/migrations/2014_01_15_090147_create_countries.php
 database/migrations/2014_01_15_105422_create_addresses.php
 database/migrations/2014_08_15_180252_create_meta_table.php
 _ide_helper.php
+
+app/*
