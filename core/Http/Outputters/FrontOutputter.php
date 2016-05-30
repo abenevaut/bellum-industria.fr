@@ -11,16 +11,6 @@ class FrontOutputter extends CoreOutputter
 {
 
 	/**
-	 * @var bool true to allow users login from social networks
-	 */
-	protected $cfg_users_social_login = false;
-
-	/**
-	 * @var bool true to allow users registration
-	 */
-	protected $cfg_users_is_registration_allowed = false;
-
-	/**
 	 * FrontOutputter constructor.
 	 *
 	 * @param SettingsRepository $r_settings
@@ -29,9 +19,6 @@ class FrontOutputter extends CoreOutputter
 	{
 		parent::__construct($r_settings);
 		$this->addBreadcrumb('Home', '/');
-
-		$this->cfg_users_social_login = Settings::get('users.social.login');
-		$this->cfg_users_is_registration_allowed = Settings::get('users.is_registration_allowed');
 	}
 
 	/**
@@ -45,10 +32,6 @@ class FrontOutputter extends CoreOutputter
 		return parent::output(
 			$view,
 			$data
-			+ [
-				'social_login'            => $this->cfg_users_social_login,
-				'is_registration_allowed' => $this->cfg_users_is_registration_allowed,
-			]
 		);
 	}
 }
