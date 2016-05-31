@@ -6,7 +6,9 @@ use Illuminate\Container\Container as Application;
 use Core\Domain\Users\Repositories\UserRepositoryEloquent as UserRepositoryEloquentParent;
 use Modules\Users\Entities\User;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
+use Modules\Users\Events\Admin\UserCreatedEvent;
 use Modules\Users\Events\Admin\UserUpdatedEvent;
+use Modules\Users\Events\Admin\UserDeletedEvent;
 
 /**
  * Class UserRepositoryEloquent
@@ -16,14 +18,25 @@ class UserRepositoryEloquent extends UserRepositoryEloquentParent
 {
 
 	/**
+	 * @var ApiKeyRepositoryEloquent|null
+	 */
+	private $r_apikey = null;
+
+	/**
 	 * UserRepositoryEloquent constructor.
 	 *
 	 * @param Application                                        $app
 	 * @param \Modules\Users\Repositories\RoleRepositoryEloquent $r_roles
 	 */
-	public function __construct(Application $app, RoleRepositoryEloquent $r_roles)
+	public function __construct(
+		Application $app,
+		RoleRepositoryEloquent $r_roles,
+		ApiKeyRepositoryEloquent $r_apikey
+	)
 	{
 		parent::__construct($app, $r_roles);
+
+		$this->r_apikey = $r_apikey;
 	}
 
 	/**
@@ -35,6 +48,40 @@ class UserRepositoryEloquent extends UserRepositoryEloquentParent
 	{
 		return User::class;
 	}
+
+	/**
+	 * @param array $attributes [first_name, last_name, email, environments,
+	 *     roles]
+	 *
+	 * @return mixed
+	 */
+	public function create_user(
+		$first_name,
+		$last_name,
+		$email
+	)
+	{
+		/*
+		 * Create user with user role.
+		 */
+
+		$user = parent::create_user($first_name, $last_name, $email);
+
+		/*
+		 * Generate user API key.
+		 */
+
+		$this->r_apikey->generate_api_key($user);
+
+		/*
+		 * Fire created user event.
+		 */
+
+		event(new UserCreatedEvent($user));
+
+		return $user;
+	}
+
 
 	/**
 	 * Update user and fire event "UserUpdatedEvent".
@@ -80,6 +127,7 @@ class UserRepositoryEloquent extends UserRepositoryEloquentParent
 
 			return true;
 		}
+
 		return false;
 	}
 

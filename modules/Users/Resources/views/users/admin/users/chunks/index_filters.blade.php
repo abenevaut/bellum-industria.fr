@@ -57,7 +57,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-circle"></i></span>
 						{!! Form::select('trashed',
-						 ['' => 'Active users', \Core\Domain\Users\Repositories\UserRepositoryEloquent::FILTER_TRASHED_WITH => 'With trashed', \Core\Domain\Users\Repositories\UserRepositoryEloquent::FILTER_TRASHED_ONLY => 'Only trashed'],
+						 ['' => 'Active users', 'with_trashed' => 'With trashed', 'only_trashed' => 'Only trashed'],
 						 '',
 						 ['class' => 'form-control js-call-select2', 'style' => 'border-radius:0px;']) !!}
 					</div>

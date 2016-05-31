@@ -2,25 +2,23 @@
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Container\Container as Application;
-use CVEPDB\Domain\Users\Repositories\UserRepositoryEloquent as RepositoryEloquent;
+use CVEPDB\Domain\Users\Repositories\UserRepositoryEloquent as CVEPDBUserRepositoryEloquent;
+use Core\Domain\Users\Entities\User;
+use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
 use Core\Criterias\OnlyTrashedCriteria;
 use Core\Criterias\WithTrashedCriteria;
-use Core\Domain\Users\Entities\User;
-use Core\Domain\Roles\Repositories\RoleRepositoryEloquent as RoleRepositoryEloquent;
 use Core\Domain\Users\Criterias\EmailLikeCriteria;
 use Core\Domain\Users\Criterias\UserNameLikeCriteria;
 use Core\Domain\Users\Criterias\RolesCriteria;
 use Core\Domain\Users\Criterias\EnvironmentsCriteria;
+use Core\Domain\Users\Events\UserCreatedEvent;
 
 /**
  * Class UserRepositoryEloquent
  * @package Core\Domain\Users\Repositories
  */
-abstract class UserRepositoryEloquent extends RepositoryEloquent
+class UserRepositoryEloquent extends CVEPDBUserRepositoryEloquent
 {
-
-	const FILTER_TRASHED_WITH = 'filterTrashedWith';
-	const FILTER_TRASHED_ONLY = 'filterTrashedOnly';
 
 	/**
 	 * UserRepositoryEloquent constructor.
@@ -130,28 +128,23 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 	}
 
 	/**
-	 * Allow to search for trashed users.
-	 *
-	 * @param string $trashed UserRepositoryEloquent::FILTER_TRASHED_WITH or
-	 *     UserRepositoryEloquent::FILTER_TRASHED_ONLY, [default: null]
+	 * Display all users with trashed users.
 	 *
 	 * @throws \Prettus\Repository\Exceptions\RepositoryException
 	 */
-	public function filterTrashed($trashed = null)
+	public function filterShowWithTrashed()
 	{
-		switch ($trashed)
-		{
-			case self::FILTER_TRASHED_WITH:
-			{
-				$this->pushCriteria(new WithTrashedCriteria());
-				break;
-			}
-			case self::FILTER_TRASHED_ONLY:
-			{
-				$this->pushCriteria(new OnlyTrashedCriteria());
-				break;
-			}
-		}
+		$this->pushCriteria(new WithTrashedCriteria());
+	}
+
+	/**
+	 * Display only trashed user.
+	 *
+	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 */
+	public function filterShowOnlyTrashed()
+	{
+		$this->pushCriteria(new OnlyTrashedCriteria());
 	}
 
 	/**
@@ -169,6 +162,96 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 		{
 			$this->pushCriteria(new EnvironmentsCriteria($envs));
 		}
+	}
+
+	/**
+	 * Create a new user with role RoleRepository::USER.
+	 *
+	 * @param $first_name
+	 * @param $last_name
+	 * @param $email
+	 *
+	 * @return mixed
+	 */
+	public function create_user($first_name, $last_name, $email)
+	{
+		$user = parent::create_user($first_name, $last_name, $email);
+
+		event(new UserCreatedEvent($user));
+
+		return $user;
+	}
+
+	/**
+	 * @param       $user
+	 * @param array $environments
+	 *
+	 * @return mixed
+	 */
+	public function set_user_environments($user, $environments = [])
+	{
+		if (count($environments) > 0)
+		{
+			$user->environments()->detach();
+			$user->environments()->attach($environments);
+		}
+
+		return $user;
+	}
+
+	/**
+	 * @param       $user
+	 * @param array $roles
+	 *
+	 * @return mixed
+	 */
+	public function set_user_roles($user, $roles = [])
+	{
+		if (count($roles) > 0)
+		{
+
+			// xABE Todo : add role(s) for selected environment(s)
+
+			$user->roles()->attach($roles);
+		}
+
+		return $user;
+	}
+
+	/**
+	 * @param $user
+	 * @param $addresses
+	 *
+	 * @return null
+	 */
+	public function set_user_addresses($user, $addresses)
+	{
+		$validator = null;
+
+		$primary_address = array_key_exists('primary', $addresses)
+			? $addresses['primary']
+			: [];
+
+		/**
+		 * Check addresses values
+		 *
+		 * If primary address registered and not others, use primary foreach addresses
+		 */
+		foreach ($addresses as $type => $address)
+		{
+			$validator = Addresses::getValidator($address);
+
+			if (!$validator->fails())
+			{
+				Addresses::createAddress($address, $user->id);
+			}
+			else
+			{
+				break;
+			}
+		}
+
+		return $validator;
 	}
 
 	/**

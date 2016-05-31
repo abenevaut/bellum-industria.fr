@@ -15,7 +15,7 @@ use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
 use Modules\Users\Presenters\UsersAdminExcelPresenter;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
-use Modules\Users\Events\Admin\UserCreatedEvent;
+use Core\Domain\Permissions\Repositories\PermissionRepositoryEloquent;
 use Modules\Users\Events\Admin\UserUpdatedEvent;
 use Modules\Users\Events\Admin\UserDeletedEvent;
 
@@ -46,16 +46,10 @@ class UserOutputter extends AdminOutputter
 	 */
 	private $r_role = null;
 
-	/**
-	 * @var ApiKeyRepositoryEloquent|null
-	 */
-	private $r_apikey = null;
-
 	public function __construct(
 		SettingsRepository $_settings,
 		UserRepositoryEloquent $r_user,
-		RoleRepositoryEloquent $r_role,
-		ApiKeyRepositoryEloquent $r_apikey
+		RoleRepositoryEloquent $r_role
 	)
 	{
 
@@ -65,7 +59,6 @@ class UserOutputter extends AdminOutputter
 
 		$this->r_user = $r_user;
 		$this->r_role = $r_role;
-		$this->r_apikey = $r_apikey;
 
 		$this->addBreadcrumb('Users', 'admin/users');
 	}
@@ -96,7 +89,22 @@ class UserOutputter extends AdminOutputter
 
 		$environments = $request->has('environments')
 			? $request->get('environments')
-			: null;
+			: [];
+
+		if (
+			!Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
+			&& !Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+		)
+		{
+
+			/*
+			 * Not allowed to see environments
+			 */
+
+			$environments = [EnvironmentFacade::currentId()];
+		}
+
+		$this->r_user->filterEnvironments($environments);
 
 		if (!is_null($name))
 		{
@@ -115,30 +123,17 @@ class UserOutputter extends AdminOutputter
 
 		if (!is_null($trashed))
 		{
-			$this->r_user->filterTrashed($trashed);
-		}
-
-		if (
-			!is_null($environments)
-			&& (
-				Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
-				|| Auth::user()->hasPermission(\Core\Domain\Permissions\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
-			)
-		)
-		{
-			$this->r_user->filterEnvironments($environments);
-		}
-		else if (
-			!Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
-			&& !Auth::user()->hasPermission(\Core\Domain\Permissions\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
-		)
-		{
-
-			/*
-			 * Not allowed to see environments
-			 */
-
-			$this->r_user->filterEnvironments([EnvironmentFacade::currentId()]);
+			switch ($trashed)
+			{
+				case 'with_trashed':
+					$this->r_user->filterShowWithTrashed();
+					break;
+				case 'only_trashed':
+					$this->r_user->filterShowOnlyTrashed();
+					break;
+				default:
+					// Display active users only
+			}
 		}
 
 		$users = $this->r_user->paginate(config('app.pagination'));
@@ -165,8 +160,17 @@ class UserOutputter extends AdminOutputter
 	 */
 	public function create()
 	{
-		// Exclude user role because always added to every new user
-		$roles = $this->r_role->findWhereNotIn('name', ['user']);
+		/*
+		 * Exclude user role because always added to every new user
+		 */
+
+		$roles = $this->r_role
+			->findWhereNotIn(
+				'name',
+				[
+					RoleRepositoryEloquent::USER
+				]
+			);
 
 		return $this->output(
 			'users.admin.users.create',
@@ -177,55 +181,39 @@ class UserOutputter extends AdminOutputter
 	}
 
 	/**
-	 * Store a newly created resource in storage.
+	 * Store new user.
 	 *
-	 * @param Request $request
+	 * @param IFormRequest $request
 	 *
-	 * @return Response
+	 * @return mixed
 	 */
 	public function store(IFormRequest $request)
 	{
+		$environments = $request->only('environments');
+		$roles = $request->only('user_role_id');
+		$addresses = $request->only('address');
+
+		/*
+		 * Create user with defaut user role for selected environment(s).
+		 */
+
 		$user = $this->r_user->create_user(
 			$request->get('first_name'),
 			$request->get('last_name'),
 			$request->get('email')
 		);
 
-		$this->r_apikey->generate_api_key($user);
+		$this->r_user->set_user_environments($user, $environments['environments']);
+		$this->r_user->set_user_roles($user, $roles['user_role_id']);
+		$validator = $this->r_user->set_user_addresses($user, $addresses['addresses']);
 
-		$roles = $request->only('user_role_id');
-
-		if (count($roles['user_role_id']) > 0)
+		if ($validator->fails())
 		{
-			$user->roles()->attach($roles['user_role_id']);
+			return $this->redirectTo('admin/users/' . $user->id . '/edit')
+				->with('message-success', 'users::admin.create.message.success')
+				->withErrors($validator)
+				->withInput();
 		}
-
-		$addresses = $request->only('address');
-		$addresses = $addresses['address'];
-		$primary_address = array_key_exists('primary', $addresses) ? $addresses['primary'] : [];
-
-		/**
-		 * Check addresses values
-		 *
-		 * If primary address registered and not others, use primary foreach addresses
-		 */
-		foreach ($addresses as $type => $address)
-		{
-			$validator = Addresses::getValidator($address);
-
-			if (!$validator->fails())
-			{
-				Addresses::createAddress($address, $user->id);
-			}
-			else
-			{
-				return redirect('admin/users/' . $user->id . '/edit')
-					->withErrors($validator)
-					->withInput();
-			}
-		}
-
-		event(new UserCreatedEvent($user));
 
 		return $this->redirectTo('admin/users')
 			->with('message-success', 'users::admin.create.message.success');
@@ -241,6 +229,8 @@ class UserOutputter extends AdminOutputter
 	public function show($id)
 	{
 		$user = $this->r_user->find($id);
+
+
 
 		return $this->output(
 			'users.admin.users.show',

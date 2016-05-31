@@ -13,6 +13,7 @@ use Modules\Users\Repositories\PermissionRepositoryEloquent;
  */
 class RoleOutputter extends AdminOutputter
 {
+
 	/**
 	 * @var string Outputter header title
 	 */
@@ -34,11 +35,12 @@ class RoleOutputter extends AdminOutputter
 	private $r_permission = null;
 
 	public function __construct(
-     SettingsRepository $r_settings,
-     RoleRepositoryEloquent $r_role,
-     PermissionRepositoryEloquent $r_permission
-	) {
-	
+		SettingsRepository $r_settings,
+		RoleRepositoryEloquent $r_role,
+		PermissionRepositoryEloquent $r_permission
+	)
+	{
+
 		parent::__construct($r_settings);
 
 		$this->set_current_module('users');
@@ -58,10 +60,10 @@ class RoleOutputter extends AdminOutputter
 		$roles = $this->r_role->paginate(config('app.pagination'));
 
 		return $this->output(
-      'users.admin.roles.index',
-      [
-      'roles' => $roles
-      ]
+			'users.admin.roles.index',
+			[
+				'roles' => $roles
+			]
 		);
 	}
 
@@ -73,29 +75,31 @@ class RoleOutputter extends AdminOutputter
 		$permissions = $this->r_permission->all();
 
 		return $this->output(
-      'users.admin.roles.create',
-      [
-      'permissions' => $permissions
-      ]
+			'users.admin.roles.create',
+			[
+				'permissions' => $permissions
+			]
 		);
 	}
 
 	/**
 	 * @param IFormRequest $request
+	 *
 	 * @return mixed|\Redirect
 	 */
 	public function store(IFormRequest $request)
 	{
 		$role = $this->r_role->create([
-			'name' => $request->get('name'),
+			'name'         => $request->get('name'),
 			'display_name' => trim($request->get('display_name')),
-			'description' => $request->get('description'),
+			'description'  => $request->get('description'),
 			'unchangeable' => false
 		]);
 
 		$permissions = $request->only('role_permission_id');
 
-		if (count($permissions['role_permission_id']) > 0) {
+		if (count($permissions['role_permission_id']) > 0)
+		{
 			$role->permissions()->attach($permissions['role_permission_id']);
 		}
 
@@ -112,6 +116,7 @@ class RoleOutputter extends AdminOutputter
 
 	/**
 	 * @param $id
+	 *
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function edit($id)
@@ -120,32 +125,34 @@ class RoleOutputter extends AdminOutputter
 		$permissions = $this->r_permission->all();
 
 		return $this->output(
-      'users.admin.roles.edit',
-      [
-      'role' => $role,
-      'permissions' => $permissions
-      ]
+			'users.admin.roles.edit',
+			[
+				'role'        => $role,
+				'permissions' => $permissions
+			]
 		);
 	}
 
 	/**
-	 * @param $id
+	 * @param              $id
 	 * @param IFormRequest $request
+	 *
 	 * @return mixed|\Redirect
 	 */
 	public function update($id, IFormRequest $request)
 	{
 		$role = $this->r_role->update([
-			'name' => $request->get('name'),
+			'name'         => $request->get('name'),
 			'display_name' => trim($request->get('display_name')),
-			'description' => $request->get('description'),
+			'description'  => $request->get('description'),
 			'unchangeable' => false
 		], $id);
 
 		$permissions = $request->only('role_permission_id');
 		$role->permissions()->detach();
 
-		if (count($permissions['role_permission_id']) > 0) {
+		if (count($permissions['role_permission_id']) > 0)
+		{
 			$role->permissions()->attach($permissions['role_permission_id']);
 		}
 
@@ -154,6 +161,7 @@ class RoleOutputter extends AdminOutputter
 
 	/**
 	 * @param $id
+	 *
 	 * @return string
 	 */
 	public function destroy($id)
