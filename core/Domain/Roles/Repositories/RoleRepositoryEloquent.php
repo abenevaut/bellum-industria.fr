@@ -25,9 +25,12 @@ class RoleRepositoryEloquent extends RepositoryEloquent
 	}
 
 	/**
+	 * Create role and fire event "RoleCreatedEvent".
+	 *
 	 * @param array $attributes
 	 *
-	 * @return mixed
+	 * @event Core\Domain\Roles\Events\RoleUpdatedEvent
+	 * @return \Core\Domain\Roles\Entities\Role
 	 */
 	public function create(array $attributes)
 	{
@@ -39,10 +42,13 @@ class RoleRepositoryEloquent extends RepositoryEloquent
 	}
 
 	/**
-	 * @param array $attributes
-	 * @param       $id
+	 * Update role and fire event "RoleUpdatedEvent".
 	 *
-	 * @return mixed
+	 * @param array   $attributes
+	 * @param integer $id
+	 *
+	 * @event Core\Domain\Roles\Events\RoleUpdatedEvent
+	 * @return \Core\Domain\Roles\Entities\Role
 	 */
 	public function update(array $attributes, $id)
 	{
@@ -54,8 +60,11 @@ class RoleRepositoryEloquent extends RepositoryEloquent
 	}
 
 	/**
-	 * @param $id
+	 * Delete role and fire event "RoleDeletedEvent".
 	 *
+	 * @param integer $id
+	 *
+	 * @event Core\Domain\Roles\Events\RoleDeletedEvent
 	 * @return int
 	 */
 	public function delete($id)

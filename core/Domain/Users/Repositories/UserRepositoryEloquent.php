@@ -96,13 +96,13 @@ class UserRepositoryEloquent extends CVEPDBUserRepositoryEloquent
 	}
 
 	/**
-	 * Update user and fire event "UserUpdatedEvent".
+	 * Delete user and fire event "UserDeletedEvent".
 	 *
 	 * @param array   $attributes
 	 * @param integer $user_id
 	 *
 	 * @event Core\Domain\Users\Events\UserDeletedEvent
-	 * @return \Core\Domain\Users\Entities\User
+	 * @return int
 	 */
 	public function delete($id)
 	{
