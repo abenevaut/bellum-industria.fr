@@ -168,4 +168,5 @@ class UserController extends Controller
 	{
 		return $this->show($this->user->id);
 	}
+
 }
