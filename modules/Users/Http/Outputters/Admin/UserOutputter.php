@@ -483,6 +483,10 @@ class UserOutputter extends AdminOutputter
 				function ($sheet) use ($users, $nb_users)
 				{
 
+					/*
+					 * Header
+					 */
+
 					$header = [
 						'#',
 						trans('global.last_name'),
@@ -503,6 +507,10 @@ class UserOutputter extends AdminOutputter
 
 					$sheet->prependRow($header);
 
+					/*
+					 * Data
+					 */
+
 					// Append row after row 2
 					$sheet->rows($users['data']);
 
@@ -518,7 +526,7 @@ class UserOutputter extends AdminOutputter
 					);
 
 					/*
-					 * Style ---------------------------
+					 * Style
 					 */
 
 					// Set black background
