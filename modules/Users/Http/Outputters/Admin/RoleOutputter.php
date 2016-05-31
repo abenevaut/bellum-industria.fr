@@ -1,15 +1,15 @@
 <?php namespace Modules\Users\Http\Outputters\Admin;
 
-use Config;
 use Core\Http\Outputters\AdminOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
 use Core\Domain\Settings\Repositories\SettingsRepository;
+use Core\Domain\Roles\Presenters\RoleListPresenter;
+use Core\Domain\Permissions\Repositories\PermissionRepositoryEloquent;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
-use Modules\Users\Repositories\PermissionRepositoryEloquent;
 
 /**
- * Class RoleAdminOutputter
- * @package Modules\Users\Outputters
+ * Class RoleOutputter
+ * @package Modules\Users\Http\Outputters\Admin
  */
 class RoleOutputter extends AdminOutputter
 {
@@ -57,7 +57,8 @@ class RoleOutputter extends AdminOutputter
 	 */
 	public function index()
 	{
-		$roles = $this->r_role->paginate(config('app.pagination'));
+		$this->r_role->setPresenter(new RoleListPresenter());
+		$roles = $this->r_role->with(['permissions'])->paginate(config('app.pagination'));
 
 		return $this->output(
 			'users.admin.roles.index',
