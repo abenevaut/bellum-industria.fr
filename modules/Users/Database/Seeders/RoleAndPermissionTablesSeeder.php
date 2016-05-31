@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Users\Entities\Role;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
+use Modules\Users\Entities\Permission;
+use Modules\Users\Repositories\PermissionRepositoryEloquent;
 use Core\Domain\Environments\Entities\Environment;
 use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
 
@@ -30,6 +32,10 @@ class RoleAndPermissionTablesSeeder extends Seeder
 		)
 			->firstOrFail();
 
+		/*
+		 * Roles
+		 */
+
 		$role = Role::create([
 			'name'         => RoleRepositoryEloquent::USER,
 			'display_name' => 'roles.' . RoleRepositoryEloquent::USER . ':display_name',
@@ -49,6 +55,37 @@ class RoleAndPermissionTablesSeeder extends Seeder
 
 		$role->environments()->detach();
 		$role->environments()->attach($env->id);
+
+		/*
+		 * Permissions
+		 */
+
+		$permission = Permission::create([
+			'name'         => PermissionRepositoryEloquent::SEE_ENVIRONMENT,
+			'display_name' => 'permissions.' . PermissionRepositoryEloquent::SEE_ENVIRONMENT . ':display_name',
+			'description'  => 'permissions.' . PermissionRepositoryEloquent::SEE_ENVIRONMENT . ':description'
+		]);
+
+		$permission->environments()->detach();
+		$permission->environments()->attach($env->id);
+
+		$permission = Permission::create([
+			'name'         => PermissionRepositoryEloquent::MANAGE_ENVIRONMENT,
+			'display_name' => 'permissions.' . PermissionRepositoryEloquent::MANAGE_ENVIRONMENT . ':display_name',
+			'description'  => 'permissions.' . PermissionRepositoryEloquent::MANAGE_ENVIRONMENT . ':description'
+		]);
+
+		$permission->environments()->detach();
+		$permission->environments()->attach($env->id);
+
+		$permission = Permission::create([
+			'name'         => PermissionRepositoryEloquent::MANAGE_ENVIRONMENT_ITEMS,
+			'display_name' => 'permissions.' . PermissionRepositoryEloquent::MANAGE_ENVIRONMENT_ITEMS . ':display_name',
+			'description'  => 'permissions.' . PermissionRepositoryEloquent::MANAGE_ENVIRONMENT_ITEMS . ':description'
+		]);
+
+		$permission->environments()->detach();
+		$permission->environments()->attach($env->id);
 
 		Model::reguard();
 	}

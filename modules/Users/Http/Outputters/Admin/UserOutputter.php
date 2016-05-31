@@ -1,5 +1,6 @@
 <?php namespace Modules\Users\Http\Outputters\Admin;
 
+use Core\Domain\Environments\Facades\EnvironmentFacade;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Request;
@@ -93,6 +94,10 @@ class UserOutputter extends AdminOutputter
 			? $request->get('trashed')
 			: null;
 
+		$environments = $request->has('environments')
+			? $request->get('environments')
+			: null;
+
 		if (!is_null($name))
 		{
 			$this->r_user->filterUserName($name);
@@ -113,6 +118,29 @@ class UserOutputter extends AdminOutputter
 			$this->r_user->filterTrashed($trashed);
 		}
 
+		if (
+			!is_null($environments)
+			&& (
+				Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
+				|| Auth::user()->hasPermission(\Core\Domain\Permissions\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+			)
+		)
+		{
+			$this->r_user->filterEnvironments($environments);
+		}
+		else if (
+			!Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
+			&& !Auth::user()->hasPermission(\Core\Domain\Permissions\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+		)
+		{
+
+			/*
+			 * Not allowed to see environments
+			 */
+
+			$this->r_user->filterEnvironments([EnvironmentFacade::currentId()]);
+		}
+
 		$users = $this->r_user->paginate(config('app.pagination'));
 
 		return $this->output(
@@ -123,9 +151,10 @@ class UserOutputter extends AdminOutputter
 				'users'    => $users,
 				'nb_users' => $this->r_user->count(),
 				'filters'  => [
-					'name'  => $name,
-					'email' => $email,
-					'roles' => $roles,
+					'name'         => $name,
+					'email'        => $email,
+					'roles'        => $roles,
+					'environments' => $environments,
 				]
 			]
 		);
