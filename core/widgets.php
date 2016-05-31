@@ -33,3 +33,5 @@ Widget::register('site_description', function ()
 {
 	return Settings::get('core.site.description');
 });
+
+Widget::register('environments_fields', 'Core\Domain\Environments\Widgets\EnvironmentsFields');

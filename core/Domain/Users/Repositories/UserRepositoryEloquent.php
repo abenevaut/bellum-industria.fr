@@ -10,6 +10,7 @@ use Core\Domain\Roles\Repositories\RoleRepositoryEloquent as RoleRepositoryEloqu
 use Core\Domain\Users\Criterias\EmailLikeCriteria;
 use Core\Domain\Users\Criterias\UserNameLikeCriteria;
 use Core\Domain\Users\Criterias\RolesCriteria;
+use Core\Domain\Users\Criterias\EnvironmentsCriteria;
 
 /**
  * Class UserRepositoryEloquent
@@ -72,9 +73,12 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 		$this->applyCriteria();
 		$this->applyScope();
 
-		if ($this->model instanceof Builder) {
+		if ($this->model instanceof Builder)
+		{
 			$results = $this->model->get($columns)->count();
-		} else {
+		}
+		else
+		{
 			$results = $this->model->count($columns);
 		}
 
@@ -128,7 +132,8 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 	/**
 	 * Allow to search for trashed users.
 	 *
-	 * @param string $trashed UserRepositoryEloquent::FILTER_TRASHED_WITH or UserRepositoryEloquent::FILTER_TRASHED_ONLY, [default: null]
+	 * @param string $trashed UserRepositoryEloquent::FILTER_TRASHED_WITH or
+	 *     UserRepositoryEloquent::FILTER_TRASHED_ONLY, [default: null]
 	 *
 	 * @throws \Prettus\Repository\Exceptions\RepositoryException
 	 */
@@ -150,6 +155,23 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 	}
 
 	/**
+	 * Filter users by environments.
+	 *
+	 * @param array $envs the list of environment IDs
+	 *
+	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 */
+	public function filterEnvironments($envs = [])
+	{
+		$envs = array_filter($envs);
+
+		if (count($envs))
+		{
+			$this->pushCriteria(new EnvironmentsCriteria($envs));
+		}
+	}
+
+	/**
 	 * Find user by ID and soft delete him.
 	 *
 	 * @param integer $id The user ID
@@ -164,11 +186,11 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 		if ($user->roles->contains($role->id) && 1 === $this->r_roles->count_users_by_roles([RoleRepositoryEloquent::ADMIN]))
 		{
 			throw new \Exception(
-	   sprintf(
-	   trans('users::repository.findanddelete.error:this_is_the_last_user_admin'),
-	   $user->full_name
-	   ),
-	   1
+				sprintf(
+					trans('users::repository.findanddelete.error:this_is_the_last_user_admin'),
+					$user->full_name
+				),
+				1
 			);
 		}
 

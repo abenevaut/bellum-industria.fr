@@ -46,8 +46,6 @@
 
 	$(D).bind('CVEPDB_SELECT2_READY', function () {
 
-		alert('test');
-
 		var select_trashed = $('select[name="trashed"]');
 
 		select_trashed.select2({
@@ -55,7 +53,7 @@
 			width: '100%',
 			minimumResultsForSearch: Infinity
 		});
-		$('.js-cancel-filters').on('click', function() {
+		$('.js-cancel-filters').on('click', function () {
 			select_trashed.select2("val", "");
 		});
 	});

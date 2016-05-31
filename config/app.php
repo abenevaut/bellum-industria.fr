@@ -154,8 +154,8 @@ return [
 		Core\Providers\EventServiceProvider::class,
 		Core\Providers\RouteServiceProvider::class,
 		Core\Providers\ModulesServiceProvider::class,
-		Core\Providers\ModulesServiceProvider::class,
 		Core\Providers\ThemesServiceProvider::class,
+		Core\Domain\Environments\Providers\EnvironmentServiceProvider::class,
 		/*
 		 * Libraries Providers
 		 */
@@ -216,6 +216,7 @@ return [
 		/*
 		 * CMS
 		 */
+		'Environment'  => Core\Domain\Environments\Facades\EnvironmentFacade::class,
 		'Entrust'      => Zizaco\Entrust\EntrustFacade::class,
 		'ApiGuardAuth' => \Chrisbjr\ApiGuard\Facades\ApiGuardAuth::class,
 		'Module'       => 'Pingpong\Modules\Facades\Module',
