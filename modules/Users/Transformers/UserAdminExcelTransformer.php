@@ -1,6 +1,5 @@
 <?php namespace Modules\Users\Transformers;
 
-use Core\Domain\Environments\Facades\EnvironmentFacade;
 use Illuminate\Support\Facades\Auth;
 use League\Fractal\TransformerAbstract;
 use Core\Domain\Users\Entities\User;
