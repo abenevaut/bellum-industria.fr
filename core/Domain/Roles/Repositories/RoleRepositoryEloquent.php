@@ -3,6 +3,9 @@
 use Core\Domain\Environments\Facades\EnvironmentFacade;
 use Core\Domain\Roles\Entities\Role;
 use CVEPDB\Domain\Roles\Repositories\RoleRepositoryEloquent as RepositoryEloquent;
+use Core\Domain\Roles\Events\RoleCreatedEvent;
+use Core\Domain\Roles\Events\RoleUpdatedEvent;
+use Core\Domain\Roles\Events\RoleDeletedEvent;
 
 /**
  * Class RoleRepositoryEloquent
@@ -21,25 +24,47 @@ class RoleRepositoryEloquent extends RepositoryEloquent
 		return Role::class;
 	}
 
+	/**
+	 * @param array $attributes
+	 *
+	 * @return mixed
+	 */
 	public function create(array $attributes)
 	{
-		$user = parent::create($attributes);
+		$role = parent::create($attributes);
 
-		return $user;
+		event(new RoleCreatedEvent($role));
+
+		return $role;
 	}
 
+	/**
+	 * @param array $attributes
+	 * @param       $id
+	 *
+	 * @return mixed
+	 */
 	public function update(array $attributes, $id)
 	{
-		$user = parent::update($attributes, $id);
+		$role = parent::update($attributes, $id);
 
-		return $user;
+		event(new RoleUpdatedEvent($role));
+
+		return $role;
 	}
 
+	/**
+	 * @param $id
+	 *
+	 * @return int
+	 */
 	public function delete($id)
 	{
-		$user = parent::delete($id);
+		$role = parent::delete($id);
 
-		return $user;
+		event(new RoleDeletedEvent($id));
+
+		return $role;
 	}
 
 	/**
