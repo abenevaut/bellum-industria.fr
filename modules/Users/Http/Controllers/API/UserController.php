@@ -1,7 +1,10 @@
 <?php namespace Modules\Users\Http\Controllers\Api;
 
-use Core\Http\Controllers\CoreApiController as Controller;
 use Illuminate\Support\Facades\Auth;
+use Core\Http\Controllers\CoreApiController as Controller;
+use Core\Domain\Environments\Facades\EnvironmentFacade;
+use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
+use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Http\Requests\UsersFilteredFormRequest;
 use Modules\Users\Transformers\UserApiTransformer;
@@ -103,6 +106,15 @@ class UserController extends Controller
 			$email = $request->has('email')
 				? $request->get('email')
 				: null;
+
+			if (
+				!Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
+				&& !Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+			)
+			{
+				// Force filter on current environment
+				$this->r_user->filterEnvironments([EnvironmentFacade::currentId()]);
+			}
 
 			if (!is_null($name))
 			{
