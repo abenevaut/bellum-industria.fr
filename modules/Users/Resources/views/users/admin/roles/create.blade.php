@@ -59,9 +59,6 @@
 							<label>{{ trans('global.environment_s') }}</label>
 							{!! Widget::environments_fields('environments[]', ['all' => true, 'default' => true, 'value' => '', 'placeholder' => trans('global.environment_s'), 'class' => 'form-control']) !!}
 						</div>
-					@else
-						<input type="hidden" class="form-control" name="environments" required="required"
-							   value="{{ old('email') }}" placeholder="{{ trans('global.email') }}">
 					@endif
 
 					<div class="form-group form-group-default">

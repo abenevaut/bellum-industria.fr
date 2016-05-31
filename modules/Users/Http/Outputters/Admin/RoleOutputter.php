@@ -3,7 +3,6 @@
 use Core\Http\Outputters\AdminOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
 use Core\Domain\Settings\Repositories\SettingsRepository;
-use Core\Domain\Environments\Entities\Environment;
 use Core\Domain\Roles\Presenters\RoleListPresenter;
 use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
@@ -107,23 +106,20 @@ class RoleOutputter extends AdminOutputter
 		 */
 
 		$environments = $request->only('environments');
-
-		if (count($environments['environments']) > 0)
-		{
-			$role->environments()->detach();
-			$role->environments()->attach($environments['environments']);
-		}
+		$this->r_role->set_role_environments(
+			$role,
+			$environments['environments']
+		);
 
 		/*
 		 * Set role permissions
 		 */
 
 		$permissions = $request->only('role_permission_id');
-
-		if (count($permissions['role_permission_id']) > 0)
-		{
-			$role->permissions()->attach($permissions['role_permission_id']);
-		}
+		$this->r_role->set_role_permissions(
+			$role,
+			$permissions['role_permission_id']
+		);
 
 		return $this->redirectTo('admin/roles');
 	}
@@ -163,6 +159,10 @@ class RoleOutputter extends AdminOutputter
 	 */
 	public function update($id, IFormRequest $request)
 	{
+		/*
+		 * Update the role
+		 */
+
 		$role = $this->r_role->update([
 			'name'         => $request->get('name'),
 			'display_name' => trim($request->get('display_name')),
@@ -170,13 +170,25 @@ class RoleOutputter extends AdminOutputter
 			'unchangeable' => false
 		], $id);
 
-		$permissions = $request->only('role_permission_id');
-		$role->permissions()->detach();
+		/*
+		 * Set role environments
+		 */
 
-		if (count($permissions['role_permission_id']) > 0)
-		{
-			$role->permissions()->attach($permissions['role_permission_id']);
-		}
+		$environments = $request->only('environments');
+		$this->r_role->set_role_environments(
+			$role,
+			$environments['environments']
+		);
+
+		/*
+		 * Set role permissions
+		 */
+
+		$permissions = $request->only('role_permission_id');
+		$this->r_role->set_role_permissions(
+			$role,
+			$permissions['role_permission_id']
+		);
 
 		return $this->redirectTo('admin/roles');
 	}
