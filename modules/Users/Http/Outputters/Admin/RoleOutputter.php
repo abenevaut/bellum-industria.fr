@@ -106,22 +106,25 @@ class RoleOutputter extends AdminOutputter
 		 */
 
 		$environments = $request->only('environments');
-		$this->r_role->set_role_environments(
-			$role,
-			$environments['environments']
-		);
+		$environments = is_null($environments['environments'])
+			? []
+			: $environments['environments'];
+
+		$this->r_role->set_role_environments($role, $environments);
 
 		/*
 		 * Set role permissions
 		 */
 
 		$permissions = $request->only('role_permission_id');
-		$this->r_role->set_role_permissions(
-			$role,
-			$permissions['role_permission_id']
-		);
+		$permissions = is_null($permissions['role_permission_id'])
+			? []
+			: $permissions['role_permission_id'];
 
-		return $this->redirectTo('admin/roles');
+		$this->r_role->set_role_permissions($role, $permissions);
+
+		return $this->redirectTo('admin/roles')
+			->with('message-success', 'users::roles.create.message.success');
 	}
 
 	/**
@@ -129,7 +132,7 @@ class RoleOutputter extends AdminOutputter
 	 */
 	public function show($id)
 	{
-		//
+		abort(404);
 	}
 
 	/**
@@ -175,22 +178,25 @@ class RoleOutputter extends AdminOutputter
 		 */
 
 		$environments = $request->only('environments');
-		$this->r_role->set_role_environments(
-			$role,
-			$environments['environments']
-		);
+		$environments = is_null($environments['environments'])
+			? []
+			: $environments['environments'];
+
+		$this->r_role->set_role_environments($role, $environments);
 
 		/*
 		 * Set role permissions
 		 */
 
 		$permissions = $request->only('role_permission_id');
-		$this->r_role->set_role_permissions(
-			$role,
-			$permissions['role_permission_id']
-		);
+		$permissions = is_null($permissions['role_permission_id'])
+			? []
+			: $permissions['role_permission_id'];
 
-		return $this->redirectTo('admin/roles');
+		$this->r_role->set_role_permissions($role, $permissions);
+
+		return $this->redirectTo('admin/roles')
+			->with('message-success', 'users::roles.edit.message.success');
 	}
 
 	/**
@@ -200,6 +206,28 @@ class RoleOutputter extends AdminOutputter
 	 */
 	public function destroy($id)
 	{
-		return 'T\'es pas fou! On supprime pas les utilisateurs!';
+		$redirectTo = null;
+
+		try
+		{
+			$this->r_role->findAndDelete($id);
+
+			$redirectTo = $this->redirectTo('admin/roles')
+				->with('message-success', 'users::roles.delete.message.success');
+		}
+		catch (\Exception $e)
+		{
+			switch ($e->getCode())
+			{
+				case 1:
+				{
+					$redirectTo = $this->redirectTo('admin/roles')
+						->with('message-error', $e->getMessage());
+					break;
+				}
+			}
+		}
+
+		return $redirectTo;
 	}
 }

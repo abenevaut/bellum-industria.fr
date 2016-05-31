@@ -22,9 +22,9 @@ class UserDeletedEvent extends Event
 	public $user_id = 0;
 
 	/**
-	 * UserCreatedEvent constructor.
+	 * UserDeletedEvent constructor.
 	 *
-	 * @param User $user
+	 * @param $id
 	 */
 	public function __construct($id)
 	{

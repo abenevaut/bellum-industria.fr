@@ -19,4 +19,8 @@ return [
 
 	'edit.title' => 'Edit role',
 	'edit.btn.edit_role' => 'Edit',
+
+	'create.message.success' => 'The role was succefully added.',
+	'edit.message.success' => 'The role was succefully edited.',
+	'delete.message.success' => 'The role was succefully deleted.',
 ];

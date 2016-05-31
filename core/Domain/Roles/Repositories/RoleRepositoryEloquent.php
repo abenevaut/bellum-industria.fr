@@ -21,6 +21,40 @@ class RoleRepositoryEloquent extends RepositoryEloquent
 		return Role::class;
 	}
 
+	public function create(array $attributes)
+	{
+		$user = parent::create($attributes);
+
+		return $user;
+	}
+
+	public function update(array $attributes, $id)
+	{
+		$user = parent::update($attributes, $id);
+
+		return $user;
+	}
+
+	public function delete($id)
+	{
+		$user = parent::delete($id);
+
+		return $user;
+	}
+
+	/**
+	 * @param integer $id
+	 */
+	public function findAndDelete($id)
+	{
+		$role = $this->find($id);
+
+		$role->permissions()->detach();
+		$role->environments()->detach();
+
+		$this->delete($id);
+	}
+
 	/**
 	 * Set permissions for the current role.
 	 *

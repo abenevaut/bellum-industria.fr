@@ -22,7 +22,7 @@ class NewUserCreatedEvent extends Event
 	public $user = null;
 
 	/**
-	 * UserCreatedEvent constructor.
+	 * NewUserCreatedEvent constructor.
 	 *
 	 * @param User $user
 	 */

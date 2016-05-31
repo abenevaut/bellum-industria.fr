@@ -1,4 +1,4 @@
-<?php namespace Core\Domain\Users\Events;
+<?php namespace Core\Domain\Roles\Events;
 
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
@@ -6,29 +6,29 @@ use Core\Events\Event;
 use Core\Domain\Users\Entities\User;
 
 /**
- * Class NewAdminCreatedEvent
- * @package Core\Domain\Users\Events
+ * Class RoleDeletedEvent
+ * @package Core\Domain\Roles\Events
  */
-class NewAdminCreatedEvent extends Event
+class RoleDeletedEvent extends Event
 {
 
 	use SerializesModels;
 
 	/**
-	 * The current user.
+	 * The current role ID.
 	 *
-	 * @var User|null
+	 * @var int
 	 */
-	public $user = null;
+	public $role_id = 0;
 
 	/**
-	 * NewAdminCreatedEvent constructor.
+	 * RoleDeletedEvent constructor.
 	 *
-	 * @param User $user
+	 * @param $id
 	 */
-	public function __construct(User $user)
+	public function __construct($id)
 	{
-		$this->user = $user;
+		$this->role_id = $id;
 	}
 
 	/**
