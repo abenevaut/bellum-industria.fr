@@ -5,10 +5,10 @@ use Modules\Users\Http\Outputters\Admin\RoleOutputter;
 use Modules\Users\Http\Requests\Admin\RoleFormRequest;
 
 /**
- * Class AdminRolesController
- * @package Modules\Users\Http\Controllers
+ * Class RoleController
+ * @package Modules\Users\Http\Controllers\Admin
  */
-class RolesController extends Controller {
+class RoleController extends Controller {
 
 	/**
 	 * @var RoleOutputter|null

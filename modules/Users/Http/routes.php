@@ -62,15 +62,15 @@ Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Modu
 
 Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Admin'], function () {
 
-	Route::resource('users/settings', 'SettingsController');
-	Route::get('users/impersonate/{id}', ['as' => 'admin.users.impersonate', 'uses' => 'UsersController@impersonate']);
-	Route::get('users/endimpersonate', ['as' => 'admin.users.endimpersonate', 'uses' => 'UsersController@endimpersonate']);
-	Route::get('users/reset-password/{id}', ['as' => 'admin.users.resetpassword', 'uses' => 'UsersController@resetpassword']);
-	Route::get('users/export', ['as' => 'admin.users.export', 'uses' => 'UsersController@export']);
-	Route::delete('users/destroy_multiple', ['as' => 'admin.users.destroy_multiple', 'uses' => 'UsersController@destroy_multiple']);
-	Route::delete('users/reactive/{id}', ['as' => 'admin.users.reactive', 'uses' => 'UsersController@reactive']);
-	Route::resource('users', 'UsersController');
-	Route::resource('roles', 'RolesController');
+	Route::resource('users/settings', 'SettingController');
+	Route::get('users/impersonate/{id}', ['as' => 'admin.users.impersonate', 'uses' => 'UserController@impersonate']);
+	Route::get('users/endimpersonate', ['as' => 'admin.users.endimpersonate', 'uses' => 'UserController@endimpersonate']);
+	Route::get('users/reset-password/{id}', ['as' => 'admin.users.resetpassword', 'uses' => 'UserController@resetpassword']);
+	Route::get('users/export', ['as' => 'admin.users.export', 'uses' => 'UserController@export']);
+	Route::delete('users/destroy_multiple', ['as' => 'admin.users.destroy_multiple', 'uses' => 'UserController@destroy_multiple']);
+	Route::delete('users/reactive/{id}', ['as' => 'admin.users.reactive', 'uses' => 'UserController@reactive']);
+	Route::resource('users', 'UserController');
+	Route::resource('roles', 'RoleController');
 });
 
 //Route::group(['middleware' => ['api'], 'namespace' => 'Modules\Users\Http\Controllers\Api'], function () {

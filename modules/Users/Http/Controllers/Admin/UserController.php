@@ -5,14 +5,14 @@ use Core\Http\Controllers\CoreAdminController as Controller;
 use Modules\Users\Http\Outputters\Admin\UserOutputter;
 use Modules\Users\Http\Requests\Admin\UserFormRequest;
 use Modules\Users\Http\Requests\UsersFilteredFormRequest;
-use Modules\Users\Http\Requests\Admin\UsersMultiDestroyFormRequest;
+use Modules\Users\Http\Requests\Admin\UserMultiDestroyFormRequest;
 use Modules\Users\Exports\UsersListAdminExport;
 
 /**
- * Class AdminUsersController
- * @package Modules\Users\Http\Controllers
+ * Class UserController
+ * @package Modules\Users\Http\Controllers\Admin
  */
-class UsersController extends Controller
+class UserController extends Controller
 {
 
 	/**
@@ -107,10 +107,10 @@ class UsersController extends Controller
 	/**
 	 * Remove multiple users
 	 *
-	 * @param UsersMultiDestroyFormRequest $request
+	 * @param UserMultiDestroyFormRequest $request
 	 * @return mixed
 	 */
-	public function destroy_multiple(UsersMultiDestroyFormRequest $request)
+	public function destroy_multiple(UserMultiDestroyFormRequest $request)
 	{
 		return $this->outputter->destroy_multiple($request);
 	}

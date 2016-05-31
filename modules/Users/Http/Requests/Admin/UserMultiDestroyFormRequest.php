@@ -2,7 +2,7 @@
 
 use Core\Http\Requests\FormRequest;
 
-class UsersMultiDestroyFormRequest extends FormRequest
+class UserMultiDestroyFormRequest extends FormRequest
 {
 	/**
 	 * Determine if the user is authorized to make this request.

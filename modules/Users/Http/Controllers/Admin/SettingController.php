@@ -5,10 +5,10 @@ use Modules\Users\Http\Requests\UpdateUsersSettingsFormRequest;
 use Modules\Users\Http\Outputters\Admin\SettingsOutputter;
 
 /**
- * Class AdminUsersController
- * @package Modules\Users\Http\Controllers
+ * Class SettingController
+ * @package Modules\Users\Http\Controllers\Admin
  */
-class SettingsController extends Controller
+class SettingController extends Controller
 {
 
 	/**
