@@ -11,13 +11,10 @@ use CVEPDB\Settings\Facades\Settings;
 use Core\Http\Outputters\AdminOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
 use Core\Domain\Settings\Repositories\SettingsRepository;
-use Modules\Users\Repositories\UserRepositoryEloquent;
-use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
-use Modules\Users\Presenters\UsersAdminExcelPresenter;
-use Modules\Users\Repositories\RoleRepositoryEloquent;
 use Core\Domain\Permissions\Repositories\PermissionRepositoryEloquent;
-use Modules\Users\Events\Admin\UserUpdatedEvent;
-use Modules\Users\Events\Admin\UserDeletedEvent;
+use Modules\Users\Repositories\UserRepositoryEloquent;
+use Modules\Users\Repositories\RoleRepositoryEloquent;
+use Modules\Users\Presenters\UserAdminExcelPresenter;
 
 /**
  * Class UserOutputter
@@ -164,13 +161,7 @@ class UserOutputter extends AdminOutputter
 		 * Exclude user role because always added to every new user
 		 */
 
-		$roles = $this->r_role
-			->findWhereNotIn(
-				'name',
-				[
-					RoleRepositoryEloquent::USER
-				]
-			);
+		$roles = $this->r_role->listWithoutUser();
 
 		return $this->output(
 			'users.admin.users.create',
@@ -203,9 +194,23 @@ class UserOutputter extends AdminOutputter
 			$request->get('email')
 		);
 
-		$this->r_user->set_user_environments($user, $environments['environments']);
-		$this->r_user->set_user_roles($user, $roles['user_role_id']);
-		$validator = $this->r_user->set_user_addresses($user, $addresses['addresses']);
+		$this->r_user
+			->set_user_environments(
+				$user,
+				$environments['environments']
+			);
+
+		$this->r_user
+			->set_user_roles(
+				$user,
+				$roles['user_role_id']
+			);
+
+		$validator = $this->r_user
+			->set_user_addresses(
+				$user,
+				$addresses['addresses']
+			);
 
 		if ($validator->fails())
 		{
@@ -231,7 +236,6 @@ class UserOutputter extends AdminOutputter
 		$user = $this->r_user->find($id);
 
 
-
 		return $this->output(
 			'users.admin.users.show',
 			[
@@ -251,8 +255,11 @@ class UserOutputter extends AdminOutputter
 	{
 		$user = $this->r_user->find($id);
 
-		// On exclue le role user qui est ajoute par defaut
-		$roles = $this->r_role->findWhereNotIn('name', ['user']);
+		/*
+		 * Exclude user role because always added to every new user
+		 */
+
+		$roles = $this->r_role->listWithoutUser();
 
 		return $this->output(
 			'users.admin.users.edit',
@@ -324,10 +331,34 @@ class UserOutputter extends AdminOutputter
 			}
 		}
 
-		event(new UserUpdatedEvent($user));
-
 		return $this->redirectTo('admin/users')
 			->with('message-success', 'users::admin.edit.message.success');
+	}
+
+	/**
+	 * @param $id
+	 *
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+	 */
+	public function resetpassword($id)
+	{
+		$response = $this->r_user->send_reset_password_link($id);
+
+		switch ($response)
+		{
+			case Password::RESET_LINK_SENT:
+			{
+				Session::flash('message-success', trans('passwords.message_success_reset_password'));
+				break;
+			}
+			case Password::INVALID_USER:
+			default:
+			{
+				Session::flash('message-success', trans('passwords.message_error_reset_password'));
+			}
+		}
+
+		return $this->redirectTo('admin/users');
 	}
 
 	/**
@@ -344,8 +375,6 @@ class UserOutputter extends AdminOutputter
 		try
 		{
 			$this->r_user->findAndDelete($id);
-
-			event(new UserDeletedEvent($id));
 
 			$redirectTo = $this->redirectTo('admin/users')
 				->with('message-success', 'users::admin.delete.message.success');
@@ -366,6 +395,11 @@ class UserOutputter extends AdminOutputter
 		return $redirectTo;
 	}
 
+	/**
+	 * @param IFormRequest $request
+	 *
+	 * @return \Redirect
+	 */
 	public function destroy_multiple(IFormRequest $request)
 	{
 		$errors = 0;
@@ -377,7 +411,6 @@ class UserOutputter extends AdminOutputter
 			try
 			{
 				$this->r_user->findAndDelete($user_id);
-				event(new UserDeletedEvent($user_id));
 			}
 			catch (\Exception $e)
 			{
@@ -407,7 +440,7 @@ class UserOutputter extends AdminOutputter
 	{
 		Session::set('impersonate_member', $id);
 
-		return redirect('/');
+		return $this->redirectTo('/');
 	}
 
 	/**
@@ -417,12 +450,17 @@ class UserOutputter extends AdminOutputter
 	{
 		Session::forget('impersonate_member');
 
-		return redirect('admin');
+		return $this->redirectTo('admin');
 	}
 
+	/**
+	 * @param NewExcelFile $excel
+	 *
+	 * @return mixed
+	 */
 	public function export(NewExcelFile $excel)
 	{
-		$this->r_user->setPresenter(new UsersAdminExcelPresenter());
+		$this->r_user->setPresenter(new UserAdminExcelPresenter());
 		$users = $this->r_user->with(['roles', 'addresses'])->all();
 		$nb_users = $this->r_user->count();
 
@@ -493,31 +531,5 @@ class UserOutputter extends AdminOutputter
 
 				}
 			)->export('xls');
-	}
-
-	/**
-	 * @param $id
-	 *
-	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-	 */
-	public function resetpassword($id)
-	{
-		$response = $this->r_user->send_reset_password_link($id);
-
-		switch ($response)
-		{
-			case Password::RESET_LINK_SENT:
-			{
-				Session::flash('message-success', trans('passwords.message_success_reset_password'));
-				break;
-			}
-			case Password::INVALID_USER:
-			default:
-			{
-				Session::flash('message-success', trans('passwords.message_error_reset_password'));
-			}
-		}
-
-		return redirect('admin/users');
 	}
 }

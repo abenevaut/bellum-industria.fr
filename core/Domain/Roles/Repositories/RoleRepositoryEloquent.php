@@ -7,7 +7,7 @@ use CVEPDB\Domain\Roles\Repositories\RoleRepositoryEloquent as RepositoryEloquen
  * Class RoleRepositoryEloquent
  * @package Modules\Users\Repositories
  */
-abstract class RoleRepositoryEloquent extends RepositoryEloquent
+class RoleRepositoryEloquent extends RepositoryEloquent
 {
 
 	/**

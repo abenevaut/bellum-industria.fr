@@ -1,13 +1,13 @@
 <?php namespace Modules\Users\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use Modules\Users\Entities\User;
+use Core\Domain\Users\Entities\User;
 
 /**
- * Class UsersAdminExcelTransformer
- * @package namespace App\Repositories;
+ * Class UserAdminExcelTransformer
+ * @package Modules\Users\Transformers
  */
-class UsersAdminExcelTransformer extends TransformerAbstract
+class UserAdminExcelTransformer extends TransformerAbstract
 {
 	/**
 	 * Transform the User entity

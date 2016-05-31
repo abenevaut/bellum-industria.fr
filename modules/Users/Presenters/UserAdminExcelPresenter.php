@@ -1,6 +1,6 @@
 <?php namespace Modules\Users\Presenters;
 
-use Modules\Users\Transformers\UsersAdminExcelTransformer;
+use Modules\Users\Transformers\UserAdminExcelTransformer;
 use Prettus\Repository\Presenter\FractalPresenter;
 
 /**
@@ -8,7 +8,7 @@ use Prettus\Repository\Presenter\FractalPresenter;
  *
  * @package namespace App\Repositories;
  */
-class UsersAdminExcelPresenter extends FractalPresenter
+class UserAdminExcelPresenter extends FractalPresenter
 {
 	/**
 	 * Transformer
@@ -17,6 +17,6 @@ class UsersAdminExcelPresenter extends FractalPresenter
 	 */
 	public function getTransformer()
 	{
-		return new UsersAdminExcelTransformer();
+		return new UserAdminExcelTransformer();
 	}
 }

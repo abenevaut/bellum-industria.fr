@@ -1,22 +1,26 @@
 <?php namespace Modules\Users\Repositories;
 
-use Modules\Users\Entities\Role;
-use Core\Domain\Roles\Repositories\RoleRepositoryEloquent as RepositoryEloquent;
+use Core\Domain\Roles\Repositories\RoleRepositoryEloquent as CoreRoleRepositoryEloquent;
 
 /**
  * Class RoleRepositoryEloquent
  * @package Modules\Users\Repositories
  */
-class RoleRepositoryEloquent extends RepositoryEloquent
+class RoleRepositoryEloquent extends CoreRoleRepositoryEloquent
 {
 
 	/**
-	 * Specify Model class name
+	 * Roles list without the default "user" role.
 	 *
-	 * @return string
+	 * @return mixed
 	 */
-	public function model()
+	public function listWithoutUser()
 	{
-		return Role::class;
+		return $this->findWhereNotIn(
+			'name',
+			[
+				RoleRepositoryEloquent::USER
+			]
+		);
 	}
 }

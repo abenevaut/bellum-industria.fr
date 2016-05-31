@@ -1,28 +1,34 @@
-<?php namespace Modules\Users\Events\Admin;
+<?php namespace Core\Domain\Users\Events;
 
-use Core\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Modules\Users\Entities\User;
+use Core\Events\Event;
+use Core\Domain\Users\Entities\User;
 
 /**
  * Class UserDeletedEvent
- * @package Modules\Users\Events\Admin
+ * @package Core\Domain\Users\Events
  */
 class UserDeletedEvent extends Event
 {
+
 	use SerializesModels;
 
+	/**
+	 * The current user ID.
+	 *
+	 * @var int
+	 */
 	public $user_id = 0;
 
 	/**
-	 * Create a new event instance.
+	 * UserCreatedEvent constructor.
 	 *
-	 * @param $user_id
+	 * @param User $user
 	 */
-	public function __construct($user_id)
+	public function __construct($id)
 	{
-		$this->user_id = $user_id;
+		$this->user_id = $id;
 	}
 
 	/**

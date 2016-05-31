@@ -1,24 +1,30 @@
-<?php namespace Modules\Users\Events\Admin;
+<?php namespace Core\Domain\Users\Events;
 
-use Core\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Modules\Users\Entities\User;
+use Core\Events\Event;
+use Core\Domain\Users\Entities\User;
 
 /**
- * Class UserUpdatedEvent
- * @package Modules\Users\Events\Admin
+ * Class NewUserCreatedEvent
+ * @package Core\Domain\Users\Events
  */
-class UserUpdatedEvent extends Event
+class NewUserCreatedEvent extends Event
 {
+
 	use SerializesModels;
 
+	/**
+	 * The current user.
+	 *
+	 * @var User|null
+	 */
 	public $user = null;
 
 	/**
-	 * Create a new event instance.
+	 * UserCreatedEvent constructor.
 	 *
-	 * @return void
+	 * @param User $user
 	 */
 	public function __construct(User $user)
 	{
