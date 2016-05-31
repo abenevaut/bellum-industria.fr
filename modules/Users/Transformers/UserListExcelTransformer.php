@@ -10,7 +10,7 @@ use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
  * Class UserAdminExcelTransformer
  * @package Modules\Users\Transformers
  */
-class UserAdminExcelTransformer extends TransformerAbstract
+class UserListExcelTransformer extends TransformerAbstract
 {
 
 	/**

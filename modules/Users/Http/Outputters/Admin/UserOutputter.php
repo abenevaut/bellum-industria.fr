@@ -3,9 +3,8 @@
 use Core\Domain\Environments\Facades\EnvironmentFacade;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Password;
-use \Maatwebsite\Excel\Files\NewExcelFile;
+use Maatwebsite\Excel\Files\NewExcelFile;
 use CVEPDB\Addresses\AddressesFacade as Addresses;
 use CVEPDB\Settings\Facades\Settings;
 use Core\Http\Outputters\AdminOutputter;
@@ -14,7 +13,7 @@ use Core\Domain\Settings\Repositories\SettingsRepository;
 use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
-use Modules\Users\Presenters\UserAdminExcelPresenter;
+use Modules\Users\Presenters\UserListExcelPresenter;
 
 /**
  * Class UserOutputter
@@ -460,24 +459,16 @@ class UserOutputter extends AdminOutputter
 	 */
 	public function export(NewExcelFile $excel)
 	{
-		$environments = [];
-
-		$this->r_user->setPresenter(new UserAdminExcelPresenter());
+		$this->r_user->setPresenter(new UserListExcelPresenter());
 
 		if (
 			!Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
 			&& !Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)
 		)
 		{
-
-			/*
-			 * Not allowed to see environments
-			 */
-
-			$environments = [EnvironmentFacade::currentId()];
+			// Force filter on current environment
+			$this->r_user->filterEnvironments([EnvironmentFacade::currentId()]);
 		}
-
-		$this->r_user->filterEnvironments($environments);
 
 		$users = $this->r_user->with(['roles', 'addresses'])->all();
 		$nb_users = $this->r_user->count();
