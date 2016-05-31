@@ -39,6 +39,7 @@ class RoleRepositoryEloquent extends RepositoryEloquent
 
 	/**
 	 * Set environments for the current role.
+	 * If no environment is set, we set the current env as default.
 	 *
 	 * @param \Core\Domain\Roles\Entities\Role $role
 	 * @param array                            $environments
