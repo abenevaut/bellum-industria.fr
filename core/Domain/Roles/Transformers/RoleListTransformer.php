@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use League\Fractal\TransformerAbstract;
 use Core\Domain\Roles\Entities\Role;
 use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
-use Core\Domain\Permissions\Repositories\PermissionRepositoryEloquent;
+use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 
 /**
  * Class RoleListTransformer

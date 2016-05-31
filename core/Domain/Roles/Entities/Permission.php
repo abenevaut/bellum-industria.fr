@@ -1,9 +1,8 @@
-<?php namespace Core\Domain\Permissions\Entities;
+<?php namespace Core\Domain\Roles\Entities;
 
 use CVEPDB\Domain\Permissions\Entities\Permission as Model;
 use Phoenix\EloquentMeta\MetaTrait;
 use Core\Domain\Logs\Traits\LogTrait;
-use Core\Domain\Environments\Traits\EnvironmentTrait;
 
 /**
  * Class Permission
@@ -14,7 +13,6 @@ class Permission extends Model
 
 	use MetaTrait;
 	use LogTrait;
-	use EnvironmentTrait;
 
 	/**
 	 * Get the default "belongsToMany" link name, present in Environment model.

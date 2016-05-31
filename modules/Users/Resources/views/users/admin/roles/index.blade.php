@@ -16,7 +16,7 @@
 				@if (count($roles['data']))
 					@if (
 						Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
-						|| Auth::user()->hasPermission(\Core\Domain\Permissions\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+						|| Auth::user()->hasPermission(\Core\Domain\Roles\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
 					)
 
 						@include ('users::users.admin.roles.chunks.index_with_environments', ['roles' => $roles])

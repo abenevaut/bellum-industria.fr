@@ -11,7 +11,7 @@ use CVEPDB\Settings\Facades\Settings;
 use Core\Http\Outputters\AdminOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
 use Core\Domain\Settings\Repositories\SettingsRepository;
-use Core\Domain\Permissions\Repositories\PermissionRepositoryEloquent;
+use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
 use Modules\Users\Presenters\UserAdminExcelPresenter;

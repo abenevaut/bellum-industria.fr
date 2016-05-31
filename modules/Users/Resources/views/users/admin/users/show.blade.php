@@ -99,7 +99,7 @@
 		@if (
 			 (
 				Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
-			 	|| Auth::user()->hasPermission(\Core\Domain\Permissions\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+			 	|| Auth::user()->hasPermission(\Core\Domain\Roles\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
 			)
 			 && $user->environments->count()
 		)

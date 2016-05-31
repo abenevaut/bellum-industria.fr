@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Core\Http\Requests\FormRequest;
 use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
-use Core\Domain\Permissions\Repositories\PermissionRepositoryEloquent;
+use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 
 /**
  * Class UserFormRequest

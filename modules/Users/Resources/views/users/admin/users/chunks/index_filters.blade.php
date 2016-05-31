@@ -43,7 +43,7 @@
 
 				@if (
 					Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
-					|| Auth::user()->hasPermission(\Core\Domain\Permissions\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+					|| Auth::user()->hasPermission(\Core\Domain\Roles\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
 				)
 				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 					<div class="input-group">

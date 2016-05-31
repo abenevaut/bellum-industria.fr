@@ -4,7 +4,7 @@ use Core\Http\Outputters\AdminOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 use Core\Domain\Roles\Presenters\RoleListPresenter;
-use Core\Domain\Permissions\Repositories\PermissionRepositoryEloquent;
+use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
 
 /**

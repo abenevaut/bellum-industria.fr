@@ -155,6 +155,7 @@ return [
 		Core\Providers\RouteServiceProvider::class,
 		Core\Providers\ModulesServiceProvider::class,
 		Core\Providers\ThemesServiceProvider::class,
+		Core\Domain\Users\Providers\PasswordResetServiceProvider::class,
 		Core\Domain\Environments\Providers\EnvironmentServiceProvider::class,
 		/*
 		 * Libraries Providers

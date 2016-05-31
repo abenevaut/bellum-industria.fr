@@ -39,7 +39,7 @@ return [
 	| Update the permission if it is in a different namespace.
 	|
 	*/
-	'permission'            => 'Core\Domain\Permissions\Entities\Permission',
+	'permission'            => 'Core\Domain\Roles\Entities\Permission',
 
 	/*
 	|--------------------------------------------------------------------------
