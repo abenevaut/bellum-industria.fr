@@ -48,7 +48,6 @@ class UserOutputter extends AdminOutputter
 		RoleRepositoryEloquent $r_role
 	)
 	{
-
 		parent::__construct($_settings);
 
 		$this->set_current_module('users');
@@ -335,32 +334,6 @@ class UserOutputter extends AdminOutputter
 	}
 
 	/**
-	 * @param $id
-	 *
-	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-	 */
-	public function resetpassword($id)
-	{
-		$response = $this->r_user->send_reset_password_link($id);
-
-		switch ($response)
-		{
-			case Password::RESET_LINK_SENT:
-			{
-				Session::flash('message-success', trans('passwords.message_success_reset_password'));
-				break;
-			}
-			case Password::INVALID_USER:
-			default:
-			{
-				Session::flash('message-success', trans('passwords.message_error_reset_password'));
-			}
-		}
-
-		return $this->redirectTo('admin/users');
-	}
-
-	/**
 	 * Remove the specified resource from storage.
 	 *
 	 * @param  int $id
@@ -450,6 +423,32 @@ class UserOutputter extends AdminOutputter
 		Session::forget('impersonate_member');
 
 		return $this->redirectTo('admin');
+	}
+
+	/**
+	 * @param $id
+	 *
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+	 */
+	public function resetpassword($id)
+	{
+		$response = $this->r_user->send_reset_password_link($id);
+
+		switch ($response)
+		{
+			case Password::RESET_LINK_SENT:
+			{
+				Session::flash('message-success', trans('passwords.message_success_reset_password'));
+				break;
+			}
+			case Password::INVALID_USER:
+			default:
+			{
+				Session::flash('message-success', trans('passwords.message_error_reset_password'));
+			}
+		}
+
+		return $this->redirectTo('admin/users');
 	}
 
 	/**
