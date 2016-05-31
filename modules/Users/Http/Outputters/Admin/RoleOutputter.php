@@ -3,6 +3,7 @@
 use Core\Http\Outputters\AdminOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
 use Core\Domain\Settings\Repositories\SettingsRepository;
+use Core\Domain\Environments\Entities\Environment;
 use Core\Domain\Roles\Presenters\RoleListPresenter;
 use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
@@ -90,12 +91,32 @@ class RoleOutputter extends AdminOutputter
 	 */
 	public function store(IFormRequest $request)
 	{
+		/*
+		 * Create the new role for the current environment
+		 */
+
 		$role = $this->r_role->create([
 			'name'         => $request->get('name'),
 			'display_name' => trim($request->get('display_name')),
 			'description'  => $request->get('description'),
 			'unchangeable' => false
 		]);
+
+		/*
+		 * Set role environments
+		 */
+
+		$environments = $request->only('environments');
+
+		if (count($environments['environments']) > 0)
+		{
+			$role->environments()->detach();
+			$role->environments()->attach($environments['environments']);
+		}
+
+		/*
+		 * Set role permissions
+		 */
 
 		$permissions = $request->only('role_permission_id');
 

@@ -1,9 +1,6 @@
 <?php namespace Core\Domain\Environments\Traits;
 
 use Illuminate\Database\Eloquent\Model;
-use Auth;
-use ReflectionClass;
-use Exception;
 use Core\Domain\Environments\Entities\Environment;
 
 /**
@@ -42,7 +39,7 @@ trait EnvironmentTrait
 							}
 						}
 					}
-					catch (Exception $e)
+					catch (\Exception $e)
 					{
 						return 1;
 					}

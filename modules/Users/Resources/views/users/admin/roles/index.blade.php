@@ -14,18 +14,68 @@
 				</div>
 
 				@if (count($roles['data']))
-					@if (
-						Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
-						|| Auth::user()->hasPermission(\Core\Domain\Roles\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
-					)
 
-						@include ('users::users.admin.roles.chunks.index_with_environments', ['roles' => $roles])
+					<div class="box-body no-padding">
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<th class="cell-center">{!! trans('users::roles.index.tab.name') !!}</th>
+									<th class="cell-center">{!! trans('users::roles.index.tab.description') !!}</th>
+									@if (
+										Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
+										|| Auth::user()->hasPermission(\Core\Domain\Roles\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+									)
+										<th class="cell-center">{!! trans('global.environment_s') !!}</th>
+									@endif
+									<th class="hidden-xs cell-center" width="20%">{{ trans('global.actions') }}</th>
+								</tr>
+								@foreach ($roles['data'] as $role)
+									<tr>
+										<td class="cell-center">
+											{!! trans($role['display_name']) !!}
+										</td>
+										<td class="">
+											{!! trans($role['description']) !!}
+										</td>
+										@if (
+											Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
+											|| Auth::user()->hasPermission(\Core\Domain\Roles\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+										)
+										<td class="">
+											@foreach ($role['environments'] as $i => $env)
+												@if (0 < $i)
+													,
+												@endif
 
-					@else
+												{!! trans($env['name']) !!}
 
-						@include ('users::users.admin.roles.chunks.index_without_environments', ['roles' => $roles])
+											@endforeach
+										</td>
+										@endif
+										<td class="hidden-xs cell-center">
 
-					@endif
+											@if ($role['unchangeable'])
+												{{ trans('global.unchangeable') }}
+											@else
+												<a href="{{ url('admin/roles/' . $role['id'] . '/edit') }}"
+												   class="btn btn-warning btn-flat btn-mobile">
+													<i class="fa fa-pencil"></i> {{ trans('global.edit') }}
+												</a>
+												<button type="button" class="btn btn-danger btn-flat btn-mobile"
+														data-toggle="modal"
+														data-target="#delete_user_{{ $role['id'] }}">
+													<i
+															class="fa fa-trash"></i>
+													{{ trans('global.remove') }}
+												</button>
+											@endif
+										</td>
+									</tr>
+								@endforeach
+							</tbody>
+						</table>
+					</div>
+
 
 					<div class="box-footer clearfix">
 						<div class="pull-left">
@@ -33,16 +83,16 @@
 								<i class="fa fa-caret-left"></i> {{ trans('users::roles.index.btn.back_user_panel') }}
 							</a>
 						</div>
-							{!! with(
-								new \Modules\Users\Resources\IndexAdminPagination(
-									new \Illuminate\Pagination\LengthAwarePaginator(
-										$roles['meta']['pagination']['total'],
-										$roles['meta']['pagination']['count'],
-										$roles['meta']['pagination']['per_page'],
-										$roles['meta']['pagination']['current_page']
-									)
+						{!! with(
+							new \Modules\Users\Resources\IndexAdminPagination(
+								new \Illuminate\Pagination\LengthAwarePaginator(
+									$roles['meta']['pagination']['total'],
+									$roles['meta']['pagination']['count'],
+									$roles['meta']['pagination']['per_page'],
+									$roles['meta']['pagination']['current_page']
 								)
-							)->render() !!}
+							)
+						)->render() !!}
 					</div>
 
 				@else
