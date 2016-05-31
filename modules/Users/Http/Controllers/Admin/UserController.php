@@ -6,7 +6,7 @@ use Modules\Users\Http\Outputters\Admin\UserOutputter;
 use Modules\Users\Http\Requests\Admin\UserFormRequest;
 use Modules\Users\Http\Requests\UsersFilteredFormRequest;
 use Modules\Users\Http\Requests\Admin\UserMultiDestroyFormRequest;
-use Modules\Users\Exports\UsersListAdminExport;
+use Modules\Users\Exports\UserListExport;
 
 /**
  * Class UserController
@@ -135,7 +135,7 @@ class UserController extends Controller
 	/**
 	 * @return mixed
 	 */
-	public function export(UsersListAdminExport $excel)
+	public function export(UserListExport $excel)
 	{
 		return $this->outputter->export($excel);
 	}

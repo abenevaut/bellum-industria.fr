@@ -36,5 +36,5 @@ return [
 
 	'export.users_list.title' => 'Users export',
 	'export.users_list.sheet_title' => 'Users list ', // follow by current date
-	'export.total_users' => 'Total users',
+	'export.total_users' => 'Total users : %s',
 ];

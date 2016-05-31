@@ -460,45 +460,85 @@ class UserOutputter extends AdminOutputter
 	 */
 	public function export(NewExcelFile $excel)
 	{
+		$environments = [];
+
 		$this->r_user->setPresenter(new UserAdminExcelPresenter());
+
+		if (
+			!Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
+			&& !Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+		)
+		{
+
+			/*
+			 * Not allowed to see environments
+			 */
+
+			$environments = [EnvironmentFacade::currentId()];
+		}
+
+		$this->r_user->filterEnvironments($environments);
+
 		$users = $this->r_user->with(['roles', 'addresses'])->all();
 		$nb_users = $this->r_user->count();
 
 		return $excel->setTitle(trans('users::admin.export.users_list.title'))
 			->setCreator(Auth::user()->full_name)
-			->setDescription(Settings::get('core.site.name') . PHP_EOL . Settings::get('core.site.description'))
+			->setDescription(
+				Settings::get('core.site.name') . PHP_EOL . Settings::get('core.site.description')
+			)
 			->sheet(
 				trans('users::admin.export.users_list.sheet_title') . date('Y-m-d H\hi'),
 				function ($sheet) use ($users, $nb_users)
 				{
 
-					$sheet->prependRow([
+					$header = [
 						'#',
 						trans('global.last_name'),
 						trans('global.first_name'),
 						trans('global.email'),
 						trans('global.role_s'),
-						trans('global.addresse_s'),
-					]);
+					];
+
+					if (
+						Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
+						|| Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+					)
+					{
+						$header[] = trans('global.environment_s');
+					}
+
+					$header[] = trans('global.addresse_s');
+
+					$sheet->prependRow($header);
 
 					// Append row after row 2
 					$sheet->rows($users['data']);
 
 					// Append row after row 2
-					$sheet->appendRow($nb_users + 2, [trans('users::admin.export.total_users') . ' : ' . $nb_users]);
+					$sheet->appendRow(
+						$nb_users + 2,
+						[
+							sprintf(
+								trans('users::admin.export.total_users'),
+								$nb_users
+							)
+						]
+					);
 
 					/*
-					* Style
-					*/
+					 * Style ---------------------------
+					 */
 
 					// Set black background
 					$sheet->row(1, function ($row)
 					{
 						// Set font
-						$row->setFont(array(
-							'size' => '14',
-							'bold' => true,
-						))
+						$row
+							->setFont(array(
+								'size' => '14',
+								'bold' => true,
+							))
 							->setAlignment('center')
 							->setValignment('middle');
 					});
@@ -509,11 +549,12 @@ class UserOutputter extends AdminOutputter
 					$sheet->cells('A2:F' . ($nb_users + 2), function ($cells)
 					{
 						// Set font
-						$cells->setFont([
-							'size'      => '12',
-							'bold'      => false,
-							'wrap-text' => true, // Allow PHP_EOL
-						])
+						$cells
+							->setFont([
+								'size'      => '12',
+								'bold'      => false,
+								'wrap-text' => true, // Allow PHP_EOL
+							])
 							->setAlignment('center')
 							->setValignment('middle');
 					});
@@ -521,14 +562,14 @@ class UserOutputter extends AdminOutputter
 					$sheet->row($nb_users + 2, function ($row)
 					{
 						// Set font
-						$row->setFont([
-							'size' => '12',
-							'bold' => true,
-						])
+						$row
+							->setFont([
+								'size' => '12',
+								'bold' => true,
+							])
 							->setAlignment('center')
 							->setValignment('middle');
 					});
-
 				}
 			)->export('xls');
 	}

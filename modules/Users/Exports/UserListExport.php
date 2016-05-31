@@ -3,10 +3,10 @@
 use \Maatwebsite\Excel\Files\NewExcelFile;
 
 /**
- * Class UsersListAdminExport
+ * Class UserListExport
  * @package Modules\Users\Exports
  */
-class UsersListAdminExport extends NewExcelFile
+class UserListExport extends NewExcelFile
 {
 	/**
 	 * @return string
@@ -21,11 +21,6 @@ class UsersListAdminExport extends NewExcelFile
 	 */
 	public function getModelColumns()
 	{
-		return [
-			'id AS 0',
-			'last_name AS 1',
-			'first_name AS 2',
-			'email AS 3'
-		];
+		return [];
 	}
 }
