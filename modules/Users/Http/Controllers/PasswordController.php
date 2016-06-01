@@ -1,4 +1,4 @@
-<?php namespace Modules\Users\Http\Controllers\Auth;
+<?php namespace Modules\Users\Http\Controllers;
 
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Support\Facades\Auth;
@@ -9,6 +9,10 @@ use Core\Domain\Users\Entities\User;
 use Core\Domain\Users\Events\UserUpdatedEvent;
 use Modules\Users\Http\Outputters\PasswordOutputter;
 
+/**
+ * Class PasswordController
+ * @package Modules\Users\Http\Controllers
+ */
 class PasswordController extends Controller
 {
 

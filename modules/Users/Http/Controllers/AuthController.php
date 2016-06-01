@@ -1,9 +1,5 @@
-<?php
+<?php namespace Modules\Users\Http\Controllers;
 
-namespace Modules\Users\Http\Controllers\Auth;
-
-use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
-use CVEPDB\Settings\Facades\Settings;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -12,13 +8,14 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Laravel\Socialite\Facades\Socialite;
 use Core\Http\Controllers\CoreAuthController as Controller;
+use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
 use Core\Domain\Users\Repositories\SocialTokenRepositoryEloquent;
 use Core\Domain\Users\Entities\User;
 use Modules\Users\Http\Outputters\AuthOutputter;
 
 /**
  * Class AuthController
- * @package Modules\Users\Http\Controllers\Auth
+ * @package Modules\Users\Http\Controllers
  */
 class AuthController extends Controller
 {

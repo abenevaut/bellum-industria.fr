@@ -1,10 +1,9 @@
 <?php namespace Modules\Users\Http\Outputters\Admin;
 
-use Config;
-use Core\Http\Outputters\AdminOutputter;
+use Core\Http\Outputters\FrontOutputter;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 
-class AuthOutputter extends AdminOutputter
+class AuthOutputter extends FrontOutputter
 {
 	/**
 	 * @var string Outputter header title

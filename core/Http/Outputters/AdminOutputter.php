@@ -34,8 +34,11 @@ class AdminOutputter extends CoreOutputter
 		parent::__construct($r_settings);
 		$this->addBreadcrumb(trans('global.dashboard'), config('core.uri.backend'));
 
-		$this->user_can_see_environment = Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
-			|| Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT);
+		$this->user_can_see_environment = Auth::check()
+			&& (
+				Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
+				|| Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+			);
 	}
 
 	/**

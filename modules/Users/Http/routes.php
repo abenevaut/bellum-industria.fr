@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Controllers\Auth'], function ()
+Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Controllers'], function ()
 {
 
 	$is_registration_allowed = false;
@@ -56,13 +56,13 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Contro
 	Route::put('users/update-my-password', ['as' => 'users.update-my-password', 'uses' => 'UsersController@updateMyPassword']);
 });
 
-Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Auth'], function ()
+Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Admin'], function ()
 {
 
 	// Authentication routes...
-	Route::get('login', 'AdminAuthController@getLogin');
-	Route::post('login', 'AdminAuthController@postLogin');
-	Route::get('logout', 'AdminAuthController@getLogout');
+	Route::get('login', 'AuthController@getLogin');
+	Route::post('login', 'AuthController@postLogin');
+	Route::get('logout', 'AuthController@getLogout');
 });
 
 Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Admin'], function ()

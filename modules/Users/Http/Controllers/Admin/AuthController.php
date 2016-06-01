@@ -1,4 +1,4 @@
-<?php namespace Modules\Users\Http\Controllers\Auth;
+<?php namespace Modules\Users\Http\Controllers\Admin;
 
 use CVEPDB\Settings\Facades\Settings;
 use Illuminate\Support\Facades\Validator;
@@ -12,10 +12,10 @@ use Modules\Users\Http\Outputters\Admin\AuthOutputter;
 use Core\Domain\Users\Entities\User;
 
 /**
- * Class AdminAuthController
- * @package Modules\Users\Http\Controllers\Auth
+ * Class AuthController
+ * @package Modules\Users\Http\Controllers\Admin
  */
-class AdminAuthController extends Controller
+class AuthController extends Controller
 {
 
 	/*
