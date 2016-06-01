@@ -32,7 +32,7 @@
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <a href="{{ URL::previous() }}" class="btn btn-default btn-flat btn-xs">
+                    <a href="{{ url('admin/users') }}" class="btn btn-default btn-flat btn-xs">
                         <i class="fa fa-caret-left"></i> {{ trans('global.back') }}
                     </a>
                     <h3 class="box-title">{{ trans('users::admin.edit.title') }}</h3>
@@ -153,7 +153,7 @@
                 </div>
                 <div class="box-footer clearfix">
                     <div class="pull-left">
-                        <a href="{{ URL::previous() }}" class="btn btn-default btn-flat">
+                        <a href="{{ url('admin/users') }}" class="btn btn-default btn-flat">
                             <i class="fa fa-caret-left"></i> {{ trans('global.back') }}
                         </a>
                     </div>

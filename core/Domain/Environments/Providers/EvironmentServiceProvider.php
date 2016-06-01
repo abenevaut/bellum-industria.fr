@@ -16,13 +16,16 @@ class EnvironmentServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
-		$this->app->singleton(
-			'environment',
-			function ($app)
-			{
-				return new Environment($app);
-			}
-		);
+		$this->app['environment'] = $this->app->share(function ($app)
+		{
+
+//			$config = $app->config->get('settings', [
+//				'cache_file' => storage_path('settings.json'),
+//				'db_table'   => 'settings'
+//			]);
+
+			return new Environment($app['db'], []);
+		});
 	}
 
 	/**

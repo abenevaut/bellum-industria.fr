@@ -155,6 +155,7 @@ return [
 		Core\Providers\RouteServiceProvider::class,
 		Core\Providers\ModulesServiceProvider::class,
 		Core\Providers\ThemesServiceProvider::class,
+		Core\Domain\Settings\Providers\SettingsServiceProvider::class,
 		Core\Domain\Users\Providers\PasswordResetServiceProvider::class,
 		Core\Domain\Environments\Providers\EnvironmentServiceProvider::class,
 		/*
@@ -168,7 +169,6 @@ return [
 		Pingpong\Menus\MenusServiceProvider::class,
 		Pingpong\Widget\WidgetServiceProvider::class,
 		CVEPDB\Addresses\AddressesServiceProvider::class,
-		CVEPDB\Settings\SettingsServiceProvider::class,
 		Spatie\Glide\GlideServiceProvider::class,
 	],
 
