@@ -2,9 +2,9 @@
 
 use Core\Http\Outputters\FrontOutputter;
 use Core\Domain\Settings\Repositories\SettingsRepository;
+use Core\Domain\Users\Repositories\ApiKeyRepositoryEloquent;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
 use Modules\Users\Repositories\UserRepositoryEloquent;
-use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
 use Modules\Users\Events\UserCreatedEvent;
 
 /**

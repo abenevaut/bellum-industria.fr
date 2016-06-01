@@ -1,26 +1,37 @@
 <?php namespace Core\Domain\Users\Repositories;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Container\Container as Application;
-use CVEPDB\Domain\Users\Repositories\UserRepositoryEloquent as RepositoryEloquent;
+use CVEPDB\Domain\Users\Repositories\UserRepositoryEloquent as CVEPDBUserRepositoryEloquent;
+use CVEPDB\Addresses\AddressesFacade;
 use Core\Criterias\OnlyTrashedCriteria;
 use Core\Criterias\WithTrashedCriteria;
 use Core\Domain\Users\Entities\User;
-use Core\Domain\Roles\Repositories\RoleRepositoryEloquent as RoleRepositoryEloquent;
+use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
 use Core\Domain\Users\Criterias\EmailLikeCriteria;
 use Core\Domain\Users\Criterias\UserNameLikeCriteria;
 use Core\Domain\Users\Criterias\RolesCriteria;
 use Core\Domain\Users\Criterias\EnvironmentsCriteria;
+use Core\Domain\Users\Events\UserCreatedEvent;
+use Core\Domain\Users\Events\UserUpdatedEvent;
+use Core\Domain\Users\Events\UserDeletedEvent;
+use Core\Domain\Users\Events\NewUserCreatedEvent;
+use Core\Domain\Users\Events\NewAdminCreatedEvent;
 
 /**
  * Class UserRepositoryEloquent
  * @package Core\Domain\Users\Repositories
  */
-abstract class UserRepositoryEloquent extends RepositoryEloquent
+class UserRepositoryEloquent extends CVEPDBUserRepositoryEloquent
 {
 
-	const FILTER_TRASHED_WITH = 'filterTrashedWith';
-	const FILTER_TRASHED_ONLY = 'filterTrashedOnly';
+	/**
+	 * @var ApiKeyRepositoryEloquent|null
+	 */
+	protected $r_apikey = null;
 
 	/**
 	 * UserRepositoryEloquent constructor.
@@ -28,9 +39,15 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 	 * @param Application            $app
 	 * @param RoleRepositoryEloquent $r_roles
 	 */
-	public function __construct(Application $app, RoleRepositoryEloquent $r_roles)
+	public function __construct(
+		Application $app,
+		RoleRepositoryEloquent $r_roles,
+		ApiKeyRepositoryEloquent $r_apikey
+	)
 	{
 		parent::__construct($app, $r_roles);
+
+		$this->r_apikey = $r_apikey;
 	}
 
 	/**
@@ -41,6 +58,59 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 	public function model()
 	{
 		return User::class;
+	}
+
+	/**
+	 * Create user and fire event "UserCreatedEvent".
+	 *
+	 * @param array $attributes
+	 *
+	 * @event Core\Domain\Users\Events\UserUpdatedEvent
+	 * @return \Core\Domain\Users\Entities\User
+	 */
+	public function create(array $attributes)
+	{
+		$user = parent::create($attributes);
+
+		event(new UserCreatedEvent($user));
+
+		return $user;
+	}
+
+	/**
+	 * Update user and fire event "UserUpdatedEvent".
+	 *
+	 * @param array   $attributes
+	 * @param integer $user_id
+	 *
+	 * @event Core\Domain\Users\Events\UserUpdatedEvent
+	 * @return \Core\Domain\Users\Entities\User
+	 */
+	public function update(array $attributes, $user_id)
+	{
+		$user = parent::update($attributes, $user_id);
+
+		event(new UserUpdatedEvent($user));
+
+		return $user;
+	}
+
+	/**
+	 * Delete user and fire event "UserDeletedEvent".
+	 *
+	 * @param array   $attributes
+	 * @param integer $user_id
+	 *
+	 * @event Core\Domain\Users\Events\UserDeletedEvent
+	 * @return int
+	 */
+	public function delete($id)
+	{
+		$user = parent::delete($id);
+
+		event(new UserDeletedEvent($id));
+
+		return $user;
 	}
 
 	/**
@@ -64,7 +134,9 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 	}
 
 	/**
-	 * Count all user.
+	 * Count all user, based on active criterias.
+	 *
+	 * @param array $columns
 	 *
 	 * @return int
 	 */
@@ -130,28 +202,23 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 	}
 
 	/**
-	 * Allow to search for trashed users.
-	 *
-	 * @param string $trashed UserRepositoryEloquent::FILTER_TRASHED_WITH or
-	 *     UserRepositoryEloquent::FILTER_TRASHED_ONLY, [default: null]
+	 * Display all users with trashed users.
 	 *
 	 * @throws \Prettus\Repository\Exceptions\RepositoryException
 	 */
-	public function filterTrashed($trashed = null)
+	public function filterShowWithTrashed()
 	{
-		switch ($trashed)
-		{
-			case self::FILTER_TRASHED_WITH:
-			{
-				$this->pushCriteria(new WithTrashedCriteria());
-				break;
-			}
-			case self::FILTER_TRASHED_ONLY:
-			{
-				$this->pushCriteria(new OnlyTrashedCriteria());
-				break;
-			}
-		}
+		$this->pushCriteria(new WithTrashedCriteria());
+	}
+
+	/**
+	 * Display only trashed user.
+	 *
+	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 */
+	public function filterShowOnlyTrashed()
+	{
+		$this->pushCriteria(new OnlyTrashedCriteria());
 	}
 
 	/**
@@ -172,22 +239,76 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 	}
 
 	/**
+	 * Create a new user with role RoleRepository::USER.
+	 *
+	 * @param string $first_name
+	 * @param string $last_name
+	 * @param string $email
+	 *
+	 * @return mixed
+	 */
+	public function create_user($first_name, $last_name, $email)
+	{
+		$user = parent::create_user($first_name, $last_name, $email);
+
+		$this->r_apikey->generate_api_key($user);
+
+		event(new NewUserCreatedEvent($user));
+
+		return $user;
+	}
+
+	/**
+	 * Create a new user with role RoleRepository::ADMIN.
+	 *
+	 * @param string $first_name
+	 * @param string $last_name
+	 * @param string $email
+	 *
+	 * @return mixed
+	 */
+	public function create_admin($first_name, $last_name, $email)
+	{
+		$user = $this->create_user($first_name, $last_name, $email);
+
+		$this->attach_user_to_role($user, RoleRepositoryEloquent::ADMIN);
+
+		event(new NewAdminCreatedEvent($user));
+
+		return $user;
+	}
+
+	/**
 	 * Find user by ID and soft delete him.
 	 *
-	 * @param integer $id The user ID
+	 * @param integer $user_id The user ID
 	 *
 	 * @throws \Exception
 	 */
-	public function findAndDelete($id)
+	public function findAndDelete($user_id)
 	{
-		$user = $this->find($id);
+		if ($user_id == Auth::user()->id)
+		{
+			throw new \Exception(
+				trans('repositories.users.findanddelete:you_can_not_delete_your_account'),
+				1
+			);
+		}
 
-		$role = $this->r_roles->role_exists(RoleRepositoryEloquent::ADMIN);
-		if ($user->roles->contains($role->id) && 1 === $this->r_roles->count_users_by_roles([RoleRepositoryEloquent::ADMIN]))
+		$user = $this->find($user_id);
+		$role_admin = $this->r_roles->role_exists(RoleRepositoryEloquent::ADMIN);
+		$role_user = $this->r_roles->role_exists(RoleRepositoryEloquent::USER);
+
+		if (
+			$user->roles->contains($role_admin->id)
+			&& 1 === $this->r_roles->count_users_by_roles([
+				RoleRepositoryEloquent::ADMIN
+			])
+		)
 		{
 			throw new \Exception(
 				sprintf(
-					trans('users::repository.findanddelete.error:this_is_the_last_user_admin'),
+					trans('repositories.users.findanddelete:this_is_the_last_user_admin'),
 					$user->full_name
 				),
 				1
@@ -199,9 +320,7 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 		 */
 
 		$user->roles()->detach();
-		// Always attach client role
-		$role = $this->r_roles->role_exists(RoleRepositoryEloquent::USER);
-		$user->attachRole($role);
+		$user->roles()->attach($role_user);
 
 		/*
 		 * delete api key
@@ -213,6 +332,132 @@ abstract class UserRepositoryEloquent extends RepositoryEloquent
 		 * delete user
 		 */
 
-		$user->delete();
+		$this->delete($user_id);
+	}
+
+	/**
+	 * @param \Core\Domain\Users\Entities\User $user
+	 * @param array                            $environments
+	 *
+	 * @return mixed
+	 */
+	public function set_user_environments(User $user, array $environments = [])
+	{
+		if (count($environments) > 0)
+		{
+			$user->environments()->detach();
+			$user->environments()->attach($environments);
+		}
+
+		return $user;
+	}
+
+	/**
+	 * @param \Core\Domain\Users\Entities\User $user
+	 * @param array                            $roles
+	 *
+	 * @return mixed
+	 */
+	public function set_user_roles(User $user, array $roles = [])
+	{
+		if (count($roles) > 0)
+		{
+
+			// xABE Todo : add role(s) for selected environment(s)
+
+			$user->roles()->attach($roles);
+		}
+
+		return $user;
+	}
+
+	/**
+	 * @param \Core\Domain\Users\Entities\User $user
+	 * @param  array                           $addresses
+	 *
+	 * @return null
+	 */
+	public function set_user_addresses(User $user, array $addresses)
+	{
+		$validator = null;
+
+		$primary_address = array_key_exists('primary', $addresses)
+			? $addresses['primary']
+			: [];
+
+		/**
+		 * Check addresses values
+		 *
+		 * If primary address registered and not others, use primary foreach addresses
+		 */
+		foreach ($addresses as $type => $address)
+		{
+			$validator = AddressesFacade::getValidator($address);
+
+			if (!$validator->fails())
+			{
+				AddressesFacade::createAddress($address, $user->id);
+			}
+			else
+			{
+				break;
+			}
+		}
+
+		return $validator;
+	}
+
+	/**
+	 * Change user password and fire event "UserUpdatedEvent".
+	 *
+	 * @param integer $user_id The user ID
+	 * @param string  $old_password
+	 * @param string  $new_password
+	 *
+	 * @event Core\Domain\Users\Events\UserUpdatedEvent
+	 * @return bool
+	 */
+	public function set_user_password($user_id, $old_password, $new_password)
+	{
+		$user = $this->find($user_id);
+
+		if (Hash::check($old_password, $user->password))
+		{
+			$data = [
+				'password' => Hash::make($new_password)
+			];
+
+			$user->fill($data)->save();
+
+			event(new UserUpdatedEvent($user));
+
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Allow to send the reset password link by mail via PasswordBroker.
+	 *
+	 * @param integer $user_id The user ID
+	 *
+	 * @return mixed
+	 */
+	public function send_reset_password_link($user_id)
+	{
+		$broker = null;
+
+		$user = $this->find($user_id);
+
+		return Password::broker($broker)->sendResetLink(
+			[
+				'email' => $user->email
+			],
+			function (Message $message)
+			{
+				$message->subject(trans('passwords.mail_reset_password_title'));
+			}
+		);
 	}
 }

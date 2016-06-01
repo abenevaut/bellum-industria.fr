@@ -1,6 +1,6 @@
 <?php namespace Core\Domain\Environments;
 
-use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
+use Illuminate\Database\DatabaseManager;
 
 /**
  * Class Environment
@@ -10,32 +10,18 @@ class Environment
 {
 
 	/**
-	 * The Laravel application instance.
+	 * Registry config
 	 *
-	 * @var \Illuminate\Foundation\Application
+	 * @var array
 	 */
-	protected $app;
+	protected $config;
 
 	/**
-	 * Normalized Laravel Version
+	 * Database manager instance
 	 *
-	 * @var string
+	 * @var \Illuminate\Database\DatabaseManager
 	 */
-	protected $version;
-
-	/**
-	 * True when this is a Lumen application
-	 *
-	 * @var bool
-	 */
-	protected $is_lumen = false;
-
-	/**
-	 * Environment Repository.
-	 *
-	 * @var EnvironmentRepositoryEloquent|null
-	 */
-	protected $r_environment = null;
+	protected $database;
 
 	/**
 	 * The current environment.
@@ -45,26 +31,29 @@ class Environment
 	protected $environment = null;
 
 	/**
-	 * Environment constructor.
+	 * Constructor
+	 *
+	 * @param DatabaseManager $database
 	 */
-	public function __construct($app = null)
+	public function __construct(DatabaseManager $database, $config = array())
 	{
-		if (!$app)
-		{
-			$app = app(); // Fallback when $app is not given
-		}
-		$this->app = $app;
-		$this->version = $app->version();
-		$this->is_lumen = str_contains($this->version, 'Lumen');
-		$this->r_environment = $this->app->make(
-			EnvironmentRepositoryEloquent::class
-		);
-		$this->environment = $this->r_environment->findWhere(
-			[
-				'domain' => $_SERVER['HTTP_HOST']
-			]
-		)
-			->first();
+		$this->database = $database;
+		$this->config = $config;
+
+		$this->loadEnvironment();
+	}
+
+	/**
+	 * Load information about current environment.
+	 */
+	protected function loadEnvironment()
+	{
+		$current_domain = $_SERVER['HTTP_HOST'];
+
+		$this->environment = $this->database
+			->table('environments')
+			->where('domain', $current_domain)
+			->first(['id', 'name', 'reference', 'domain']);
 	}
 
 	/**

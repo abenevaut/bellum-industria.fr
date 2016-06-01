@@ -1,13 +1,15 @@
 <?php
 
-Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Controllers\Auth'], function () {
+Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Controllers'], function ()
+{
 
 	$is_registration_allowed = false;
 
-	if (cmsinstalled()) {
+	if (cmsinstalled())
+	{
 		$is_registration_allowed = \CVEPDB\Settings\Facades\Settings::get('users.is_registration_allowed');
 	}
-	
+
 	if ($is_registration_allowed)
 	{
 		// Registration routes...
@@ -19,8 +21,9 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Contro
 	Route::get('login', 'AuthController@getLogin');
 	Route::post('login', 'AuthController@postLogin');
 	Route::get('logout', 'AuthController@getLogout');
-	Route::group(['prefix' => 'password'], function () {
-	
+	Route::group(['prefix' => 'password'], function ()
+	{
+
 		// Password reset link request routes...
 		Route::get('reset', 'PasswordController@getEmail');
 		Route::post('email', 'PasswordController@postEmail');
@@ -41,7 +44,8 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Contro
 	}
 });
 
-Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Controllers'], function () {
+Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Controllers'], function ()
+{
 
 	//Route::resource('users', 'UsersController');
 	Route::get('users', ['as' => 'users.index', 'uses' => 'UsersController@index']);
@@ -52,30 +56,34 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Contro
 	Route::put('users/update-my-password', ['as' => 'users.update-my-password', 'uses' => 'UsersController@updateMyPassword']);
 });
 
-Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Auth'], function () {
+Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Admin'], function ()
+{
 
 	// Authentication routes...
-	Route::get('login', 'AdminAuthController@getLogin');
-	Route::post('login', 'AdminAuthController@postLogin');
-	Route::get('logout', 'AdminAuthController@getLogout');
+	Route::get('login', 'AuthController@getLogin');
+	Route::post('login', 'AuthController@postLogin');
+	Route::get('logout', 'AuthController@getLogout');
 });
 
-Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Admin'], function () {
+Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Admin'], function ()
+{
 
-	Route::resource('users/settings', 'SettingsController');
-	Route::get('users/impersonate/{id}', ['as' => 'admin.users.impersonate', 'uses' => 'UsersController@impersonate']);
-	Route::get('users/endimpersonate', ['as' => 'admin.users.endimpersonate', 'uses' => 'UsersController@endimpersonate']);
-	Route::get('users/reset-password/{id}', ['as' => 'admin.users.resetpassword', 'uses' => 'UsersController@resetpassword']);
-	Route::get('users/export', ['as' => 'admin.users.export', 'uses' => 'UsersController@export']);
-	Route::delete('users/destroy_multiple', ['as' => 'admin.users.destroy_multiple', 'uses' => 'UsersController@destroy_multiple']);
-	Route::delete('users/reactive/{id}', ['as' => 'admin.users.reactive', 'uses' => 'UsersController@reactive']);
-	Route::resource('users', 'UsersController');
-	Route::resource('roles', 'RolesController');
+	Route::resource('users/settings', 'SettingController');
+	Route::get('users/impersonate/{id}', ['as' => 'admin.users.impersonate', 'uses' => 'UserController@impersonate']);
+	Route::get('users/endimpersonate', ['as' => 'admin.users.endimpersonate', 'uses' => 'UserController@endimpersonate']);
+	Route::get('users/reset-password/{id}', ['as' => 'admin.users.resetpassword', 'uses' => 'UserController@resetpassword']);
+	Route::get('users/export', ['as' => 'admin.users.export', 'uses' => 'UserController@export']);
+	Route::delete('users/destroy_multiple', ['as' => 'admin.users.destroy_multiple', 'uses' => 'UserController@destroy_multiple']);
+	Route::delete('users/reactive/{id}', ['as' => 'admin.users.reactive', 'uses' => 'UserController@reactive']);
+	Route::resource('users', 'UserController');
+	Route::resource('roles', 'RoleController');
 });
 
-//Route::group(['middleware' => ['api'], 'namespace' => 'Modules\Users\Http\Controllers\Api'], function () {
-//	Route::group(['prefix' => 'v1'], function () {
-//		Route::get('users/profile', 'UsersController@userProfile');
-//		Route::resource('users', 'UsersController');
-//	});
-//});
+Route::group(['middleware' => ['api'], 'prefix' => 'api', 'namespace' => 'Modules\Users\Http\Controllers\Api'], function ()
+{
+	Route::group(['prefix' => 'v1'], function ()
+	{
+		Route::get('users/profile', 'UserController@userProfile');
+		Route::resource('users', 'UserController');
+	});
+});

@@ -40,4 +40,5 @@ return [
 	'password'         => 'Password',
 	'confirm_password' => 'Confirm password',
 	'remember_me'      => 'Remember me',
+	'environment_s'    => 'Environment(s)',
 ];

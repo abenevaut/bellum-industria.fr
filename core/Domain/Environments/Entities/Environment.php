@@ -47,7 +47,7 @@ class Environment extends Model
 	 */
 	public function permissions()
 	{
-		return $this->belongsToMany('Core\Domain\Permissions\Entities\Permission');
+		return $this->belongsToMany('Core\Domain\Roles\Entities\Permission');
 	}
 
 }

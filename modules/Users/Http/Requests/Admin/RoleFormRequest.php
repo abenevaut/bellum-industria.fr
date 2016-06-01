@@ -8,6 +8,7 @@ use Core\Http\Requests\FormRequest;
  */
 class RoleFormRequest extends FormRequest
 {
+
 	/**
 	 * Determine if the user is authorized to make this request.
 	 *
@@ -30,9 +31,10 @@ class RoleFormRequest extends FormRequest
 			: 0;
 
 		return [
-			'name' => 'required|unique:roles,name' . ((($this->method() === 'PUT') && ($id > 0)) ? ',' . $id : ''),
+			'name'         => 'required|unique:roles,name' . ((($this->method() === 'PUT') && ($id > 0)) ? ',' . $id : ''),
 			'display_name' => 'required',
-			'description' => 'required'
+			'description'  => 'required',
+			'environments' => 'array'
 		];
 	}
 }
