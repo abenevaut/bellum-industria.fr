@@ -21,10 +21,7 @@
 								<tr>
 									<th class="cell-center">{!! trans('users::roles.index.tab.name') !!}</th>
 									<th class="cell-center">{!! trans('users::roles.index.tab.description') !!}</th>
-									@if (
-										Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
-										|| Auth::user()->hasPermission(\Core\Domain\Roles\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
-									)
+									@if ($user_can_see_env)
 										<th class="cell-center">{!! trans('global.environment_s') !!}</th>
 									@endif
 									<th class="hidden-xs cell-center" width="20%">{{ trans('global.actions') }}</th>
@@ -37,10 +34,7 @@
 										<td class="">
 											{!! trans($role['description']) !!}
 										</td>
-										@if (
-											Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
-											|| Auth::user()->hasPermission(\Core\Domain\Roles\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
-										)
+										@if ($user_can_see_env)
 										<td class="">
 											@foreach ($role['environments'] as $i => $env)
 												@if (0 < $i)

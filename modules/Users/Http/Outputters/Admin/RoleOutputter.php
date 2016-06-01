@@ -1,10 +1,12 @@
 <?php namespace Modules\Users\Http\Outputters\Admin;
 
+use Core\Domain\Environments\Facades\EnvironmentFacade;
 use Core\Http\Outputters\AdminOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 use Core\Domain\Roles\Presenters\RoleListPresenter;
 use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
+use Illuminate\Support\Facades\Auth;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
 
 /**
@@ -58,12 +60,21 @@ class RoleOutputter extends AdminOutputter
 	public function index()
 	{
 		$this->r_role->setPresenter(new RoleListPresenter());
-		$roles = $this->r_role->with(['permissions'])->paginate(config('app.pagination'));
+
+		if (!$this->user_can_see_environment)
+		{
+			$this->r_role->filterEnvironments([EnvironmentFacade::currentId()]);
+		}
+
+		$roles = $this->r_role
+			->with(['environments', 'permissions'])
+			->paginate(config('app.pagination'), $this->r_role->fields);
 
 		return $this->output(
 			'users.admin.roles.index',
 			[
-				'roles' => $roles
+				'roles' => $roles,
+				'user_can_see_env' => $this->user_can_see_environment
 			]
 		);
 	}

@@ -15,6 +15,14 @@ use Core\Domain\Roles\Events\RoleDeletedEvent;
 class RoleRepositoryEloquent extends RepositoryEloquent
 {
 
+	public $fields = [
+		'roles.id',
+		'roles.name',
+		'roles.display_name',
+		'roles.description',
+		'roles.unchangeable'
+	];
+
 	/**
 	 * Specify Model class name
 	 *

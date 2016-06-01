@@ -1,10 +1,13 @@
 <?php namespace Core\Http\Outputters;
 
-use App;
-use Config;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Auth;
 use Menu;
 use Module;
 use Core\Domain\Settings\Repositories\SettingsRepository;
+use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
+use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 
 /**
  * Class AdminOutputter
@@ -12,6 +15,14 @@ use Core\Domain\Settings\Repositories\SettingsRepository;
  */
 class AdminOutputter extends CoreOutputter
 {
+
+	/**
+	 * User capabilities.
+	 * Is the user allowed to see environments information.
+	 *
+	 * @var bool
+	 */
+	protected $user_can_see_environment = false;
 
 	/**
 	 * AdminOutputter constructor.
@@ -22,6 +33,9 @@ class AdminOutputter extends CoreOutputter
 	{
 		parent::__construct($r_settings);
 		$this->addBreadcrumb(trans('global.dashboard'), config('core.uri.backend'));
+
+		$this->user_can_see_environment = Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
+			|| Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT);
 	}
 
 	/**
