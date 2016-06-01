@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Auth;
 use Menu;
 use Module;
+use Core\Domain\Environments\Facades\EnvironmentFacade;
+use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
 use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
@@ -35,6 +37,7 @@ class AdminOutputter extends CoreOutputter
 		$this->addBreadcrumb(trans('global.dashboard'), config('core.uri.backend'));
 
 		$this->user_can_see_environment = Auth::check()
+			&& (EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === EnvironmentFacade::current())
 			&& (
 				Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
 				|| Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)

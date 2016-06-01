@@ -237,7 +237,8 @@ class UserOutputter extends AdminOutputter
 		return $this->output(
 			'users.admin.users.show',
 			[
-				'user' => $user
+				'user' => $user,
+				'user_can_see_env' => $this->user_can_see_environment
 			]
 		);
 	}
