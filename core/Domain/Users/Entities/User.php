@@ -1,6 +1,7 @@
 <?php namespace Core\Domain\Users\Entities;
 
 use CVEPDB\Domain\Users\Entities\User as Model;
+use Core\Domain\Environments\Facades\EnvironmentFacade;
 use Core\Domain\Logs\Traits\LogTrait;
 use Core\Domain\Environments\Traits\EnvironmentTrait;
 
@@ -46,6 +47,26 @@ class User extends Model
 	public function environments()
 	{
 		return $this->belongsToMany('Core\Domain\Environments\Entities\Environment');
+	}
+
+	/**
+	 * The roles that belong to the user.
+	 */
+	public function roles()
+	{
+		return $this->belongsToMany('CVEPDB\Domain\Roles\Entities\Role')
+			->join('environment_user', 'role_user.user_id', '=', 'environment_user.user_id')
+			->where('environment_user.environment_id', '=', EnvironmentFacade::currentId())
+			->join('environment_role', 'role_user.role_id', '=', 'environment_role.role_id')
+			->where('environment_role.environment_id', '=', EnvironmentFacade::currentId());
+	}
+
+	/**
+	 * The roles that belong to the user for every environments.
+	 */
+	public function _roles()
+	{
+		return $this->belongsToMany('CVEPDB\Domain\Roles\Entities\Role');
 	}
 
 }
