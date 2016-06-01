@@ -34,18 +34,14 @@ class EnvironmentsCriteria extends AbsCriteria
 		if (count($this->envs))
 		{
 			return $model
-
-				->join('environment_user', 'users.id', '=', 'environment_user.user_id')
-				->join('environments AS ENV1', 'ENV1.id', '=', 'environment_user.environment_id')
-				->whereIn('ENV1.id', $this->envs)
-
-				->join('role_user', 'users.id', '=', 'role_user.user_id')
-				->join('roles', 'roles.id', '=', 'role_user.role_id')
-
-				->join('environment_role', 'roles.id', '=', 'environment_role.role_id')
-				->join('environments AS ENV2', 'ENV2.id', '=', 'environment_role.environment_id')
-				->whereIn('ENV2.id', $this->envs)
-
+				->join('environment_user AS uc_environments_eu', 'users.id', '=', 'uc_environments_eu.user_id')
+				->join('environments AS uc_environments_e1', 'uc_environments_e1.id', '=', 'uc_environments_eu.environment_id')
+				->whereIn('uc_environments_e1.id', $this->envs)
+				->join('role_user AS uc_environments_ru', 'users.id', '=', 'uc_environments_ru.user_id')
+				->join('roles AS uc_environments_r', 'uc_environments_r.id', '=', 'uc_environments_ru.role_id')
+				->join('environment_role AS uc_environments_er', 'uc_environments_r.id', '=', 'uc_environments_er.role_id')
+				->join('environments AS uc_environments_e2', 'uc_environments_e2.id', '=', 'uc_environments_er.environment_id')
+				->whereIn('uc_environments_e2.id', $this->envs)
 				->groupBy('users.id');
 		}
 
