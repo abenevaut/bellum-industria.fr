@@ -1,12 +1,13 @@
 <?php namespace Modules\Users\Http\Outputters\Admin;
 
-use Core\Domain\Environments\Facades\EnvironmentFacade;
+use Illuminate\Support\Facades\Auth;
+use CVEPDB\Settings\Facades\Settings;
 use Core\Http\Outputters\AdminOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
+use Core\Domain\Environments\Facades\EnvironmentFacade;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 use Core\Domain\Roles\Presenters\RoleListPresenter;
 use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
-use Illuminate\Support\Facades\Auth;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
 
 /**
@@ -68,12 +69,12 @@ class RoleOutputter extends AdminOutputter
 
 		$roles = $this->r_role
 			->with(['environments', 'permissions'])
-			->paginate(config('app.pagination'), $this->r_role->fields);
+			->paginate(Settings::get('app.pagination'), $this->r_role->fields);
 
 		return $this->output(
 			'users.admin.roles.index',
 			[
-				'roles' => $roles,
+				'roles'            => $roles,
 				'user_can_see_env' => $this->user_can_see_environment
 			]
 		);
@@ -89,7 +90,7 @@ class RoleOutputter extends AdminOutputter
 		return $this->output(
 			'users.admin.roles.create',
 			[
-				'permissions' => $permissions,
+				'permissions'      => $permissions,
 				'user_can_see_env' => $this->user_can_see_environment
 			]
 		);
@@ -160,8 +161,8 @@ class RoleOutputter extends AdminOutputter
 		return $this->output(
 			'users.admin.roles.edit',
 			[
-				'role'        => $role,
-				'permissions' => $permissions,
+				'role'             => $role,
+				'permissions'      => $permissions,
 				'user_can_see_env' => $this->user_can_see_environment
 			]
 		);

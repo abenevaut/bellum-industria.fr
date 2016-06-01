@@ -131,7 +131,7 @@ class UserOutputter extends AdminOutputter
 			}
 		}
 
-		$users = $this->r_user->paginate(config('app.pagination'));
+		$users = $this->r_user->paginate(Settings::get('app.pagination'));
 
 		return $this->output(
 			$usePartial

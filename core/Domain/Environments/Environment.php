@@ -56,14 +56,17 @@ class Environment
 		$this->app = $app;
 		$this->version = $app->version();
 		$this->is_lumen = str_contains($this->version, 'Lumen');
+
 		$this->r_environment = $this->app->make(
 			EnvironmentRepositoryEloquent::class
 		);
-		$this->environment = $this->r_environment->findWhere(
-			[
-				'domain' => $_SERVER['HTTP_HOST']
-			]
-		)
+
+		$this->environment = $this->r_environment
+			->findWhere(
+				[
+					'domain' => $_SERVER['HTTP_HOST']
+				]
+			)
 			->first();
 	}
 
