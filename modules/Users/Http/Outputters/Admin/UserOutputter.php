@@ -125,6 +125,8 @@ class UserOutputter extends AdminOutputter
 
 		$users = $this->r_user->paginate(Settings::get('app.pagination'));
 
+		dd( $users );
+
 		return $this->output(
 			$usePartial
 				? 'users.admin.users.chunks.index_tables'

@@ -1,4 +1,4 @@
-<?php namespace Modules\Users\Widgets;
+<?php namespace Core\Domain\Roles\Widgets;
 
 use Core\Domain\Environments\Facades\EnvironmentFacade;
 use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
@@ -25,12 +25,12 @@ class RolesFields implements Widgets
 	/**
 	 * @var string View namespace ('dashboard::'|null)
 	 */
-	protected $view_prefix = 'users::';
+	protected $view_prefix = '';
 
 	/**
 	 * @var string
 	 */
-	protected $module = 'users::';
+	protected $module = '';
 
 	/**
 	 * @var SettingsRepository|null
@@ -108,7 +108,7 @@ class RolesFields implements Widgets
 		}
 
 		return $this->output(
-			'users.widgets.rolesfields',
+			'core.widgets.rolesfields',
 			[
 				'roles'       => $roles_list,
 				'name'        => $name,
