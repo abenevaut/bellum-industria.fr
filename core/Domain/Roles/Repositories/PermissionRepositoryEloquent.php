@@ -15,6 +15,9 @@ class PermissionRepositoryEloquent extends BasePermissionRepositoryEloquent
 	 * Environment relative permission
 	 */
 
+	// Allow to access admin panel
+	const ACCESS_ADMIN_PANEL = 'access_admin_panel';
+
 	// Allow to see the environment notion
 	const SEE_ENVIRONMENT = 'see_env';
 

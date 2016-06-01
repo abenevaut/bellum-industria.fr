@@ -11,7 +11,9 @@ use Core\Http\Controllers\CoreAuthController as Controller;
 use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
 use Core\Domain\Users\Repositories\SocialTokenRepositoryEloquent;
 use Core\Domain\Users\Entities\User;
+use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 use Modules\Users\Http\Outputters\AuthOutputter;
+use Modules\Users\Repositories\RoleRepositoryEloquent;
 
 /**
  * Class AuthController
@@ -189,11 +191,17 @@ class AuthController extends Controller
 
 		$request->session()->flash('message-success', trans('auth.message_success_loggedin'));
 
-		if (Auth::check() && Auth::user()->hasRole('admin'))
+		if (
+			Auth::check()
+			&& (
+				Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
+				|| Auth::user()->hasPermission(PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL)
+			)
+		)
 		{
 			$route = 'admin';
 		}
-		else if (Auth::check() && Auth::user()->hasRole('user'))
+		else if (Auth::check() && Auth::user()->hasRole(RoleRepositoryEloquent::USER))
 		{
 			$route = $route;
 		}

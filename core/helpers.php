@@ -141,10 +141,31 @@ if (!function_exists('cmsuser_can_see_env'))
 	function cmsuser_can_see_env()
 	{
 		return Auth::check()
-			&& (EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === EnvironmentFacade::current())
-			&& (
+		&& (EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === EnvironmentFacade::current())
+		&& (
+			(
 				Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
-				|| Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)
-			);
+				|| Auth::user()->hasPermission(PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL)
+			)
+			|| Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+		);
+	}
+}
+
+if (!function_exists('cmsuser_is_admin'))
+{
+	/**
+	 * Is the current user able to access administration?
+	 *
+	 * @return bool
+	 */
+	function cmsuser_is_admin()
+	{
+		return Auth::check()
+		&& (EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === EnvironmentFacade::current())
+		&& (
+			Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
+			|| Auth::user()->hasPermission(PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL)
+		);
 	}
 }

@@ -2,12 +2,12 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Users\Entities\Role;
-use Modules\Users\Repositories\RoleRepositoryEloquent;
-use Modules\Users\Entities\Permission;
-use Modules\Users\Repositories\PermissionRepositoryEloquent;
+use Core\Domain\Roles\Entities\Role;
+use Core\Domain\Roles\Entities\Permission;
+use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 use Core\Domain\Environments\Entities\Environment;
 use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
+use Modules\Users\Repositories\RoleRepositoryEloquent;
 
 /**
  * Class RoleAndPermissionTablesSeeder
@@ -59,6 +59,15 @@ class RoleAndPermissionTablesSeeder extends Seeder
 		/*
 		 * Permissions
 		 */
+
+		$permission = Permission::create([
+			'name'         => PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL,
+			'display_name' => 'permissions.' . PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL . ':display_name',
+			'description'  => 'permissions.' . PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL . ':description'
+		]);
+
+		$permission->environments()->detach();
+		$permission->environments()->attach($env->id);
 
 		$permission = Permission::create([
 			'name'         => PermissionRepositoryEloquent::SEE_ENVIRONMENT,
