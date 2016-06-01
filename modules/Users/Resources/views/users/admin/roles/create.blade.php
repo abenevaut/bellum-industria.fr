@@ -51,10 +51,7 @@
 						<input type="hidden" class="form-control" name="name" value="{{ old('name') }}">
 					</div>
 
-					@if (
-						Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
-						|| Auth::user()->hasPermission(\Core\Domain\Roles\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
-					)
+					@if ($user_can_see_env)
 						<div class="form-group form-group-default">
 							<label>{{ trans('global.environment_s') }}</label>
 							{!! Widget::environments_fields('environments[]', ['all' => true, 'default' => true, 'value' => '', 'placeholder' => trans('global.environment_s'), 'class' => 'form-control']) !!}

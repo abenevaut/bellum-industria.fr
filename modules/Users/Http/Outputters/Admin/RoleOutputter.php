@@ -89,7 +89,8 @@ class RoleOutputter extends AdminOutputter
 		return $this->output(
 			'users.admin.roles.create',
 			[
-				'permissions' => $permissions
+				'permissions' => $permissions,
+				'user_can_see_env' => $this->user_can_see_environment
 			]
 		);
 	}
@@ -160,7 +161,8 @@ class RoleOutputter extends AdminOutputter
 			'users.admin.roles.edit',
 			[
 				'role'        => $role,
-				'permissions' => $permissions
+				'permissions' => $permissions,
+				'user_can_see_env' => $this->user_can_see_environment
 			]
 		);
 	}
