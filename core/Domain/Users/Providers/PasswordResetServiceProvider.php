@@ -1,8 +1,7 @@
 <?php namespace Core\Domain\Users\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Users\Brokers\PasswordBrokerManager;
-use Core\Domain\Users\Brokers\PasswordBroker;
+use Core\Domain\Users\Brokers\PasswordBrokerManager;
 
 class PasswordResetServiceProvider extends ServiceProvider
 {

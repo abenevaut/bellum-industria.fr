@@ -3,6 +3,7 @@
 use Core\Domain\Environments\Facades\EnvironmentFacade;
 use Core\Domain\Roles\Entities\Role;
 use CVEPDB\Domain\Roles\Repositories\RoleRepositoryEloquent as RepositoryEloquent;
+use Core\Domain\Roles\Criterias\EnvironmentsCriteria;
 use Core\Domain\Roles\Events\RoleCreatedEvent;
 use Core\Domain\Roles\Events\RoleUpdatedEvent;
 use Core\Domain\Roles\Events\RoleDeletedEvent;
@@ -87,6 +88,23 @@ class RoleRepositoryEloquent extends RepositoryEloquent
 		$role->environments()->detach();
 
 		$this->delete($id);
+	}
+
+	/**
+	 * Filter roles by environments.
+	 *
+	 * @param array $envs the list of environment IDs
+	 *
+	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 */
+	public function filterEnvironments($envs = [])
+	{
+		$envs = array_filter($envs);
+
+		if (count($envs))
+		{
+			$this->pushCriteria(new EnvironmentsCriteria($envs));
+		}
 	}
 
 	/**

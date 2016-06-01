@@ -20,11 +20,18 @@ class RoleListTransformer extends TransformerAbstract
 	 */
 	public function transform(Role $role)
 	{
+		$data = [
+			'id'           => (int)$role->id,
+			'name'         => $role->name,
+			'display_name' => $role->display_name,
+			'description' => $role->description,
+			'unchangeable' => $role->unchangeable,
+			'environments' => []
+		];
+
 		/*
 		 * List environment(s) linked to the role.
 		 */
-
-		$environments = [];
 
 		if (
 			Auth::check()
@@ -36,21 +43,18 @@ class RoleListTransformer extends TransformerAbstract
 		{
 			foreach ($role->environments as $env)
 			{
-				$environments[] = [
+				$data['environments'][] = [
 					'id'     => $env->id,
 					'name'   => $env->name,
 					'domain' => $env->domain,
 				];
 			}
 		}
+		else
+		{
+			unset($data['environments']);
+		}
 
-		return [
-			'id'           => (int)$role->id,
-			'name'         => $role->name,
-			'display_name' => $role->display_name,
-			'description' => $role->description,
-			'unchangeable' => $role->unchangeable,
-			'environments' => $environments
-		];
+		return $data;
 	}
 }
