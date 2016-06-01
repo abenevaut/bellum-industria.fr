@@ -187,12 +187,22 @@ class AuthController extends Controller
 	{
 		$route = property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
 
-		if (\Auth::check() && \Auth::user()->hasRole('admin'))
+		$request->session()->flash('message-success', trans('auth.message_success_loggedin'));
+
+		if (Auth::check() && Auth::user()->hasRole('admin'))
 		{
 			$route = 'admin';
 		}
-
-		$request->session()->flash('message-success', trans('auth.message_success_loggedin'));
+		else if (Auth::check() && Auth::user()->hasRole('user'))
+		{
+			$route = $route;
+		}
+		else
+		{
+			// xABE Todo : An account non-linked to an env have to be activated
+			// xABE Todo : shared session between envs
+			$route = $route;
+		}
 
 		return redirect()->intended($route);
 	}
