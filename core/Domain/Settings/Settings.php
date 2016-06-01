@@ -1,9 +1,8 @@
 <?php namespace Core\Domain\Settings;
 
-use Illuminate\Database\DatabaseManager;
 use Illuminate\Support\Facades\Config;
 use CVEPDB\Settings\Settings as CVEPDBSettings;
-use CVEPDB\Settings\Cache;
+use Core\Domain\Environments\Facades\EnvironmentFacade;
 
 /**
  * Class Settings
@@ -23,6 +22,11 @@ class Settings extends CVEPDBSettings
 	public function get($key, $default = null)
 	{
 		$value = $this->fetch($key);
+
+		if (!is_null($value))
+		{
+			$value = $value->get(EnvironmentFacade::current());
+		}
 
 		if (!is_null($value))
 		{
@@ -49,15 +53,22 @@ class Settings extends CVEPDBSettings
 	 */
 	private function fetch($key)
 	{
+		$row = null;
 
 		if ($this->cache->hasKey($key))
 		{
-			return $this->cache->get($key);
+			$row = $this->cache->get($key);
+		}
+		else
+		{
+			$row = $this->database->table($this->config['db_table'])->where('setting_key', $key)->first(['setting_value']);
+
+			$row = (!is_null($row))
+				? $this->cache->set($key, unserialize($row->setting_value))
+				: null;
 		}
 
-		$row = $this->database->table($this->config['db_table'])->where('setting_key', $key)->first(['setting_value']);
-
-		return (!is_null($row)) ? $this->cache->set($key, unserialize($row->setting_value)) : null;
+		return $row;
 	}
 
 
@@ -89,7 +100,16 @@ class Settings extends CVEPDBSettings
 	 */
 	public function set($key, $value)
 	{
-		$value = serialize($value);
+		$db_value = $this->fetch($key);
+
+		if (is_null($db_value))
+		{
+			$db_value = collect([]);
+		}
+
+		$db_value->put(EnvironmentFacade::current(), $value);
+
+		$value = serialize($db_value);
 
 		$setting = $this->database->table($this->config['db_table'])->where('setting_key', $key)->first();
 
@@ -109,42 +129,5 @@ class Settings extends CVEPDBSettings
 
 		return $value;
 	}
-
-
-	/**
-	 * Remove a setting
-	 *
-	 * @param  string $key
-	 *
-	 * @return void
-	 */
-	public function forget($key)
-	{
-		$this->database->table($this->config['db_table'])->where('setting_key', $key)->delete();
-		$this->cache->forget($key);
-	}
-
-	/**
-	 * Remove all settings
-	 *
-	 * @return bool
-	 */
-	public function flush()
-	{
-		$this->cache->flush();
-
-		return $this->database->table($this->config['db_table'])->delete();
-	}
-
-	/**
-	 * Fetch all values
-	 *
-	 * @return mixed
-	 */
-	public function getAll()
-	{
-		return $this->cache->getAll();
-	}
-
 
 }

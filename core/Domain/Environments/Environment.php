@@ -43,6 +43,9 @@ class Environment
 		$this->loadEnvironment();
 	}
 
+	/**
+	 * Load information about current environment.
+	 */
 	protected function loadEnvironment()
 	{
 		$current_domain = $_SERVER['HTTP_HOST'];
