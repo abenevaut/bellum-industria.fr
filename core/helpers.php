@@ -1,5 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Core\Domain\Environments\Facades\EnvironmentFacade;
+use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
+use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
+use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
+
 if (!function_exists('slugify'))
 {
 	/**
@@ -122,5 +128,23 @@ if (!function_exists('cmsinstalled'))
 	function cmsinstalled()
 	{
 		return env('CORE_INSTALLED');
+	}
+}
+
+if (!function_exists('cmsuser_can_see_env'))
+{
+	/**
+	 * Is the current user able to see environments?
+	 *
+	 * @return bool
+	 */
+	function cmsuser_can_see_env()
+	{
+		return Auth::check()
+			&& (EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === EnvironmentFacade::current())
+			&& (
+				Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
+				|| Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+			);
 	}
 }

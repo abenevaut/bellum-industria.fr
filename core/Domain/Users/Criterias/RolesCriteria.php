@@ -33,7 +33,7 @@ class RolesCriteria extends AbsCriteria
 	{
 		if (count($this->roles))
 		{
-			$model->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
+			return $model->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
 				->leftJoin('roles', 'roles.id', '=', 'role_user.role_id')
 				->whereIn('roles.id', $this->roles)
 				->groupBy('users.id');

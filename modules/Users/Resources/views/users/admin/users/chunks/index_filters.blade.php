@@ -41,10 +41,7 @@
 					</div>
 				</div>
 
-				@if (
-					Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
-					|| Auth::user()->hasPermission(\Core\Domain\Roles\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
-				)
+				@if ($user_can_see_env)
 				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-circle"></i></span>

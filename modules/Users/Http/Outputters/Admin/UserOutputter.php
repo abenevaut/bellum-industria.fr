@@ -86,16 +86,8 @@ class UserOutputter extends AdminOutputter
 			? $request->get('environments')
 			: [];
 
-		if (
-			!Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
-			&& !Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)
-		)
+		if (!$this->user_can_see_environment)
 		{
-
-			/*
-			 * Not allowed to see environments
-			 */
-
 			$environments = [EnvironmentFacade::currentId()];
 		}
 
@@ -140,6 +132,7 @@ class UserOutputter extends AdminOutputter
 			[
 				'users'    => $users,
 				'nb_users' => $this->r_user->count(),
+				'user_can_see_env' => $this->user_can_see_environment,
 				'filters'  => [
 					'name'         => $name,
 					'email'        => $email,
@@ -237,7 +230,7 @@ class UserOutputter extends AdminOutputter
 		return $this->output(
 			'users.admin.users.show',
 			[
-				'user' => $user,
+				'user'             => $user,
 				'user_can_see_env' => $this->user_can_see_environment
 			]
 		);

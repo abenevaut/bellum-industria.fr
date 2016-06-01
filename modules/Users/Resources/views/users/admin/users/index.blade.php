@@ -39,11 +39,11 @@
                     </div>
                 </div>
                 <div class="box-body no-padding">
-                    @include('users::users.admin.users.chunks.index_filters', ['filters' => $filters])
+                    @include('users::users.admin.users.chunks.index_filters', ['filters' => $filters, 'user_can_see_env' => $user_can_see_env])
                 </div>
                 <div class="js-call-filters">
                     <div id="filter-stage" style="display: block;">
-                        @include('users::users.admin.users.chunks.index_tables', ['users' => $users])
+                        @include('users::users.admin.users.chunks.index_tables', ['users' => $users, 'user_can_see_env' => $user_can_see_env])
                     </div>
                 </div>
             </div>

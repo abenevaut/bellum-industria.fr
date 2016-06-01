@@ -65,7 +65,7 @@ class Role extends Model
 	public function permissions()
 	{
 		return $this->belongsToMany('CVEPDB\Domain\Permissions\Entities\Permission')
-			->join('environment_role', 'roles.id', '=', 'environment_role.role_id')
+			->join('environment_role', 'permission_role.role_id', '=', 'environment_role.role_id')
 			->where('environment_role.environment_id', '=', EnvironmentFacade::currentId());
 	}
 

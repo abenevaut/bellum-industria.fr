@@ -33,7 +33,7 @@ class EnvironmentsCriteria extends AbsCriteria
 	{
 		if (count($this->envs))
 		{
-			$model
+			return $model
 
 				->join('environment_user', 'users.id', '=', 'environment_user.user_id')
 				->join('environments AS ENV1', 'ENV1.id', '=', 'environment_user.environment_id')
