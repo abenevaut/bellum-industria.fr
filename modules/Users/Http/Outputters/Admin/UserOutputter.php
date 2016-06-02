@@ -135,10 +135,10 @@ class UserOutputter extends AdminOutputter
 				? 'users.admin.users.chunks.index_tables'
 				: 'users.admin.users.index',
 			[
-				'users'    => $users,
-				'nb_users' => $this->r_user->count(),
+				'users'            => $users,
+				'nb_users'         => $this->r_user->count(),
 				'user_can_see_env' => $this->user_can_see_environment,
-				'filters'  => [
+				'filters'          => [
 					'name'         => $name,
 					'email'        => $email,
 					'roles'        => $roles,
@@ -162,7 +162,7 @@ class UserOutputter extends AdminOutputter
 		return $this->output(
 			'users.admin.users.create',
 			[
-				'roles' => $roles,
+				'roles'            => $roles,
 				'user_can_see_env' => $this->user_can_see_environment
 			]
 		);
@@ -262,8 +262,8 @@ class UserOutputter extends AdminOutputter
 		return $this->output(
 			'users.admin.users.edit',
 			[
-				'user'  => $user,
-				'roles' => $roles,
+				'user'             => $user,
+				'roles'            => $roles,
 				'user_can_see_env' => $this->user_can_see_environment
 			]
 		);
@@ -459,19 +459,22 @@ class UserOutputter extends AdminOutputter
 	 */
 	public function export(NewExcelFile $excel)
 	{
+		$user_can_see_env = $this->user_can_see_environment;
+
 		$this->r_user->setPresenter(new UserListExcelPresenter());
 
-		if (
-			!Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
-			&& !Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)
-		)
+		if (!$user_can_see_env)
 		{
 			// Force filter on current environment
 			$this->r_user->filterEnvironments([EnvironmentFacade::currentId()]);
 		}
 
-		$users = $this->r_user->with(['roles', 'addresses'])->all();
-		$nb_users = $this->r_user->count();
+		$users = $this->r_user
+			->with(['roles', 'addresses'])
+			->all($this->r_user->fields);
+
+		$nb_users = $this->r_user
+			->count();
 
 		return $excel->setTitle(trans('users::admin.export.users_list.title'))
 			->setCreator(Auth::user()->full_name)
@@ -480,7 +483,7 @@ class UserOutputter extends AdminOutputter
 			)
 			->sheet(
 				trans('users::admin.export.users_list.sheet_title') . date('Y-m-d H\hi'),
-				function ($sheet) use ($users, $nb_users)
+				function ($sheet) use ($users, $nb_users, $user_can_see_env)
 				{
 
 					/*
@@ -495,10 +498,7 @@ class UserOutputter extends AdminOutputter
 						trans('global.role_s'),
 					];
 
-					if (
-						Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
-						|| Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)
-					)
+					if ($user_can_see_env)
 					{
 						$header[] = trans('global.environment_s');
 					}
