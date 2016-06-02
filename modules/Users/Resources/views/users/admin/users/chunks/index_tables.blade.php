@@ -1,4 +1,4 @@
-@if ($users->count())
+@if (count($users))
 	<div class="box-body no-padding">
 
 		<div class="overlay hidden">
@@ -20,38 +20,38 @@
 					<th class="cell-center">{{ trans('global.email') }}</th>
 					<th class="hidden-xs cell-center" width="20%">{{ trans('global.actions') }}</th>
 				</tr>
-				@foreach ($users as $user)
-					<tr @if (!is_null($user->deleted_at))style="background-color:#f39c12;"@endif>
+				@foreach ($users['data'] as $user)
+					<tr @if (!is_null($user['deleted_at']))style="background-color:#f39c12;"@endif>
 						<td class="hidden-xs cell-center" width="5%">
 							<input type="checkbox" class="js-users_multi_delete"
-								   value="{{ $user->id }}">
+								   value="{{ $user['id'] }}">
 						</td>
 						<td class="cell-center">
-							@if (is_null($user->deleted_at))
-								<a data-toggle="modal" href="{{ url('admin/users/'.$user->id) }}"
-								   data-target="#user_show_{{ $user->id }}">
-									{{ $user->full_name }}
+							@if (is_null($user['deleted_at']))
+								<a data-toggle="modal" href="{{ url('admin/users/'.$user['id']) }}"
+								   data-target="#user_show_{{ $user['id'] }}">
+									{{ $user['full_name'] }}
 								</a>
 							@else
-								{{ $user->full_name }}
+								{{ $user['full_name'] }}
 							@endif
 						</td>
 						<td class="cell-center">
-							@if (is_null($user->deleted_at))
-								<a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
+							@if (is_null($user['deleted_at']))
+								<a href="mailto:{{ $user['email'] }}">{{ $user['email'] }}</a>
 							@else
-								{{ $user->email }}
+								{{ $user['email'] }}
 							@endif
 						</td>
 						<td class="hidden-xs cell-center">
-							@if (is_null($user->deleted_at))
-								<a href="{{ url('admin/users/' . $user->id . '/edit') }}"
+							@if (is_null($user['deleted_at']))
+								<a href="{{ url('admin/users/' . $user['id'] . '/edit') }}"
 								   class="btn btn-warning btn-flat btn-mobile">
 									<i class="fa fa-pencil"></i> {{ trans('global.edit') }}
 								</a>
 								<button type="button" class="btn btn-danger btn-flat btn-mobile"
 										data-toggle="modal"
-										data-target="#delete_user_{{ $user->id }}">
+										data-target="#delete_user_{{ $user['id'] }}">
 									<i
 											class="fa fa-trash"></i>
 									{{ trans('global.remove') }}
@@ -59,9 +59,8 @@
 							@else
 								<button type="button" class="btn btn-warning btn-flat btn-mobile"
 										data-toggle="modal"
-										data-target="#re-active_user_{{ $user->id }}">
-									<i
-											class="fa fa-play-circle-o"></i>
+										data-target="#re-active_user_{{ $user['id'] }}">
+									<i class="fa fa-play-circle-o"></i>
 									{{ trans('global.re-active') }}
 								</button>
 							@endif
@@ -75,7 +74,16 @@
 		<div class="pull-left">
 			{{ trans('users::admin.index.total_users') }} {{ $nb_users }}
 		</div>
-		{!! with(new \Modules\Users\Resources\IndexAdminPagination($users))->render() !!}
+		{!! with(
+			new \Modules\Users\Resources\IndexAdminPagination(
+				new \Illuminate\Pagination\LengthAwarePaginator(
+					$users['meta']['pagination']['total'],
+					$users['meta']['pagination']['count'],
+					$users['meta']['pagination']['per_page'],
+					$users['meta']['pagination']['current_page']
+				)
+			)
+		)->render() !!}
 	</div>
 @else
 	<div class="box-body">
@@ -94,9 +102,9 @@
 	</div>
 @endif
 
-@foreach ($users as $user)
-	@if (is_null($user->deleted_at))
-		<div class="modal modal-danger" id="delete_user_{{ $user->id }}">
+@foreach ($users['data'] as $user)
+	@if (is_null($user['deleted_at']))
+		<div class="modal modal-danger" id="delete_user_{{ $user['id'] }}">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -106,14 +114,14 @@
 						<h4 class="modal-title">{{ trans('global.attention') }}</h4>
 					</div>
 					<div class="modal-body">
-						<p>{{ trans('users::admin.index.delete.question') }} {{ $user->full_name }}
+						<p>{{ trans('users::admin.index.delete.question') }} {{ $user['full_name'] }}
 							?</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default pull-left" data-dismiss="modal">
 							{{ trans('users::admin.index.btn.cancel_delete') }}
 						</button>
-						{!! Form::open(['route' => ['admin.users.destroy', $user->id], 'method' => 'delete']) !!}
+						{!! Form::open(['route' => ['admin.users.destroy', $user['id']], 'method' => 'delete']) !!}
 						<button type="submit" class="btn btn-danger">
 							<i class="fa fa-trash"></i> {{ trans('users::admin.index.btn.valid_delete') }}
 						</button>
@@ -122,14 +130,14 @@
 				</div>
 			</div>
 		</div>
-		<div class="modal modal-default" id="user_show_{{ $user->id }}">
+		<div class="modal modal-default" id="user_show_{{ $user['id'] }}">
 			<div class="modal-dialog">
 				<div class="modal-content">
 				</div>
 			</div>
 		</div>
 	@else
-		<div class="modal modal-warning" id="re-active_user_{{ $user->id }}">
+		<div class="modal modal-warning" id="re-active_user_{{ $user['id'] }}">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -139,13 +147,14 @@
 						<h4 class="modal-title">{{ trans('global.attention') }}</h4>
 					</div>
 					<div class="modal-body">
-						<p>{{ trans('users::admin.index.re-active.question') }} {{ $user->full_name }} ?</p>
+						<p>{{ trans('users::admin.index.re-active.question') }} {{ $user['full_name'] }}
+							?</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default pull-left" data-dismiss="modal">
 							{{ trans('users::admin.index.btn.cancel_re-active') }}
 						</button>
-						{!! Form::open(['route' => ['admin.users.reactive', $user->id], 'method' => 'PUT']) !!}
+						{!! Form::open(['route' => ['admin.users.reactive', $user['id']], 'method' => 'PUT']) !!}
 						<button type="submit" class="btn btn-warning">
 							<i class="fa fa-play-circle-o"></i> {{ trans('users::admin.index.btn.valid_re-active') }}
 						</button>
@@ -154,7 +163,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="modal modal-default" id="user_show_{{ $user->id }}">
+		<div class="modal modal-default" id="user_show_{{ $user['id'] }}">
 			<div class="modal-dialog">
 				<div class="modal-content">
 				</div>

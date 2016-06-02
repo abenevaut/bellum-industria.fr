@@ -28,6 +28,14 @@ use Core\Domain\Users\Events\NewAdminCreatedEvent;
 class UserRepositoryEloquent extends CVEPDBUserRepositoryEloquent
 {
 
+	public $fields = [
+		'users.id',
+		'users.first_name',
+		'users.last_name',
+		'users.email',
+		'users.deleted_at'
+	];
+
 	/**
 	 * @var ApiKeyRepositoryEloquent|null
 	 */

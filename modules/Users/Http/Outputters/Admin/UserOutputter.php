@@ -1,6 +1,7 @@
 <?php namespace Modules\Users\Http\Outputters\Admin;
 
 use Core\Domain\Environments\Facades\EnvironmentFacade;
+use Core\Domain\Users\Presenters\UserListPresenter;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Password;
@@ -86,6 +87,8 @@ class UserOutputter extends AdminOutputter
 			? $request->get('environments')
 			: [];
 
+		$this->r_user->setPresenter(new UserListPresenter());
+
 		if (!$this->user_can_see_environment)
 		{
 			$environments = [EnvironmentFacade::currentId()];
@@ -123,7 +126,9 @@ class UserOutputter extends AdminOutputter
 			}
 		}
 
-		$users = $this->r_user->paginate(Settings::get('app.pagination'));
+		$users = $this->r_user
+			->with(['environments', 'roles'])
+			->paginate(Settings::get('app.pagination'), $this->r_user->fields);
 
 		return $this->output(
 			$usePartial
