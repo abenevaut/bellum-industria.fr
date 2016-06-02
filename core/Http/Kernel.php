@@ -62,7 +62,7 @@ class Kernel extends HttpKernel
 			\Illuminate\View\Middleware\ShareErrorsFromSession::class,
 			\Core\Http\Middleware\VerifyCsrfToken::class,
 			'auth',
-			'ability:' . RoleRepositoryEloquent::ADMIN . ',' . PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL . ',true',
+			'ability:' . RoleRepositoryEloquent::ADMIN . ',' . PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL,
 			// CVEPDB
 			\CVEPDB\Http\Middlewares\SetLocaleMiddleware::class,
 			'CMSInstalled'

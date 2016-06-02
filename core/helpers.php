@@ -162,7 +162,6 @@ if (!function_exists('cmsuser_is_admin'))
 	function cmsuser_is_admin()
 	{
 		return Auth::check()
-		&& (EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === EnvironmentFacade::current())
 		&& (
 			Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
 			|| Auth::user()->hasPermission(PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL)

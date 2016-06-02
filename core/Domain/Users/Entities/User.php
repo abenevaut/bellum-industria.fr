@@ -1,5 +1,7 @@
 <?php namespace Core\Domain\Users\Entities;
 
+use Illuminate\Foundation\Auth\Access\Authorizable;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 use CVEPDB\Domain\Users\Entities\User as Model;
 use Core\Domain\Environments\Facades\EnvironmentFacade;
 use Core\Domain\Logs\Traits\LogTrait;
@@ -14,6 +16,12 @@ class User extends Model
 
 	use LogTrait;
 	use EnvironmentTrait;
+	use EntrustUserTrait;
+
+	use Authorizable {
+		EntrustUserTrait::can insteadof Authorizable;
+		Authorizable::can as authCan;
+	}
 
 	/**
 	 * Get the default "belongsToMany" link name, present in Environment model.
