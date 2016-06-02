@@ -1,4 +1,4 @@
-<?php namespace Core\Http\Controllers\Admin;
+<?php namespace Core\Http\Controllers\Ajax;
 
 use Core\Http\Controllers\CoreAjaxController;
 use Core\Http\Requests\Admin\SettingsGetFormRequest;
