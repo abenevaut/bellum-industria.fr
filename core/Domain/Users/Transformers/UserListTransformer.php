@@ -1,10 +1,7 @@
 <?php namespace Core\Domain\Users\Transformers;
 
-use Illuminate\Support\Facades\Auth;
 use League\Fractal\TransformerAbstract;
 use Core\Domain\Users\Entities\User;
-use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
-use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 
 /**
  * Class UserListTransformer
