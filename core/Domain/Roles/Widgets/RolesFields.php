@@ -107,6 +107,11 @@ class RolesFields implements Widgets
 			$roles_list[$role->id] = trans($role->display_name);
 		}
 
+		if (array_key_exists('all', $attributes) && $attributes['all'])
+		{
+			$roles_list = [0 => trans('global.all')] + $roles_list;
+		}
+
 		return $this->output(
 			'core.widgets.rolesfields',
 			[
