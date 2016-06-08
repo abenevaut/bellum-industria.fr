@@ -1,5 +1,4 @@
 @push('widget-scripts')
-{{--<script src="{{ asset('modules/users/js/fields/select_roles.js') }}"></script>--}}
 <script>
 	(function ($, W, D) {
 		$(D).bind('CVEPDB_SELECT2_READY', function () {

@@ -152,6 +152,27 @@ if (!function_exists('cmsuser_can_see_env'))
 	}
 }
 
+if (!function_exists('cmsuser_can_manage_env_items'))
+{
+	/**
+	 * Is the current user able to manage environments items?
+	 *
+	 * @return bool
+	 */
+	function cmsuser_can_manage_env_items()
+	{
+		return Auth::check()
+		&& (EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === EnvironmentFacade::current())
+		&& (
+			(
+				Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
+				|| Auth::user()->hasPermission(PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL)
+			)
+			|| Auth::user()->hasPermission(PermissionRepositoryEloquent::MANAGE_ENVIRONMENT_ITEMS)
+		);
+	}
+}
+
 if (!function_exists('cmsuser_is_admin'))
 {
 	/**

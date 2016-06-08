@@ -8,6 +8,8 @@
 			select_env.select2({
 				theme: "bootstrap",
 				width: '100%',
+				minimumInputLength: 0,
+
 				placeholder: "{{ $placeholder }}"
 			})
 					.on("select2:select", function (e) {
@@ -33,11 +35,7 @@
 
 <?php $attributes = ['class' => $class, 'multiple' => 'multiple']; ?>
 
-@if (
-	Auth::check()
-    && !Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
-    && !Auth::user()->hasPermission(\Core\Domain\Roles\Repositories\PermissionRepositoryEloquent::MANAGE_ENVIRONMENT_ITEMS)
-)
+@if (cmsuser_can_manage_env_items())
 
 	<?php $attributes = ['class' => $class, 'multiple' => 'multiple', 'disabled' => 'disabled']; ?>
 

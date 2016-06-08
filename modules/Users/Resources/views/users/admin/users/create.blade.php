@@ -96,34 +96,18 @@
 								@endif
 
 								<div class="form-group form-group-default">
-									<label>{{ trans('global.roles') }}</label>
-									<br>
-									@foreach ($roles as $role)
-										<div class="box box-primary box-widget collapsed-box">
-											<div class="box-header with-border">
-												<div class="user-block">
-													<button type="button" class="btn btn-box-tool"
-															data-widget="collapse">
-														<i class="fa fa-plus"></i>
-													</button>
-													<span class="username">{!! trans($role->display_name) !!}</span>
-												</div>
-												<div class="box-tools">
-													<div class="material-switch pull-right" style="padding-top: 10px;">
-														<input type="checkbox" name="user_role_id[]"
-															   id="someSwitchOptionDefault{{ $role->id }}"
-															   data-init-plugin="switchery" value="{{ $role->id }}"/>
-														<label for="someSwitchOptionDefault{{ $role->id }}"
-															   class="label-success"></label>
-													</div>
-												</div>
-											</div>
-											<div class="box-body">
-												{!! trans($role->description) !!}
-											</div>
-										</div>
-									@endforeach
+									<label>{{ trans('global.role_s') }}</label>
+									{!! Widget::roles_fields(
+										'roles[]',
+										[
+											'all' => true,
+											'value' => [],
+											'placeholder' => trans('global.role_s'),
+											'class' => 'form-control'
+										]
+									) !!}
 								</div>
+
 							</div>
 							<div class="tab-pane" id="tab_2">
 
