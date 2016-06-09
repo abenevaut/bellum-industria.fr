@@ -96,13 +96,7 @@
 			</table>
 		@endif
 
-		@if (
-			 (
-				Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
-			 	|| Auth::user()->hasPermission(\Core\Domain\Roles\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
-			)
-			 && $user->environments->count()
-		)
+		@if ($user_can_see_env && $user->environments->count())
 			<br>
 			<table class="table table-bordered">
 				<tbody>

@@ -11,7 +11,9 @@ use Core\Http\Controllers\CoreAuthController as Controller;
 use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
 use Core\Domain\Users\Repositories\SocialTokenRepositoryEloquent;
 use Core\Domain\Users\Entities\User;
+use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 use Modules\Users\Http\Outputters\AuthOutputter;
+use Modules\Users\Repositories\RoleRepositoryEloquent;
 
 /**
  * Class AuthController
@@ -187,12 +189,28 @@ class AuthController extends Controller
 	{
 		$route = property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
 
-		if (\Auth::check() && \Auth::user()->hasRole('admin'))
+		$request->session()->flash('message-success', trans('auth.message_success_loggedin'));
+
+		if (
+			Auth::check()
+			&& (
+				Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
+				|| Auth::user()->hasPermission(PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL)
+			)
+		)
 		{
 			$route = 'admin';
 		}
-
-		$request->session()->flash('message-success', trans('auth.message_success_loggedin'));
+		else if (Auth::check() && Auth::user()->hasRole(RoleRepositoryEloquent::USER))
+		{
+			$route = $route;
+		}
+		else
+		{
+			// xABE Todo : An account non-linked to an env have to be activated
+			// xABE Todo : shared session between envs
+			$route = $route;
+		}
 
 		return redirect()->intended($route);
 	}

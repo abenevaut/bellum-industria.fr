@@ -7,8 +7,8 @@ Route::group(['middleware' => ['admin'], 'prefix' => 'admin'], function ()
 
 Route::group(['middleware' => ['ajax'], 'prefix' => 'ajax'], function ()
 {
-	Route::post('settings/set', '\Core\Http\Controllers\Admin\SettingsController@set');
-	Route::get('settings/get', '\Core\Http\Controllers\Admin\SettingsController@get');
+	Route::post('settings/set', '\Core\Http\Controllers\Ajax\SettingsController@set');
+	Route::get('settings/get', '\Core\Http\Controllers\Ajax\SettingsController@get');
 });
 
 Route::group(['middleware' => ['api'], 'prefix' => 'api'], function ()

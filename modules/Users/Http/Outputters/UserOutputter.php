@@ -5,10 +5,9 @@ use CVEPDB\Settings\Facades\Settings;
 use Core\Http\Outputters\FrontOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
 use Core\Domain\Settings\Repositories\SettingsRepository;
+use Core\Domain\Users\Repositories\ApiKeyRepositoryEloquent;
 use Modules\Users\Repositories\UserRepositoryEloquent;
-use Modules\Users\Repositories\ApiKeyRepositoryEloquent;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
-use Modules\Users\Events\Admin\UserDeletedEvent;
 
 /**
  * Class UserOutputter
@@ -171,8 +170,6 @@ class UserOutputter extends FrontOutputter
 		return null;
 
 //        $this->r_user->findAndDelete($id);
-//
-//        event(new UserDeletedEvent($id));
 //
 //        return $this->redirectTo('admin/users')
 //            ->with('message-success', 'users::admin.delete.message.success');

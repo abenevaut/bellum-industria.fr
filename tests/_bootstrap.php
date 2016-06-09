@@ -5,6 +5,9 @@ include 'c3.php';
 
 define('MY_APP_STARTED', true);
 
+define('CODECEPT_RUN_TRUE', true);
+define('CODECEPT_SERVER_NAME', 'localhost');
+
 // Could not be integrated in project because of event function conflict between HOA lib and Laravel
 //exec(base_path("bin/phpmetrics --report-html=tests/_output/phpmetrics-core.html core"));
 //exec(base_path("bin/phpmetrics --report-html=tests/_output/phpmetrics-modules.html modules"));

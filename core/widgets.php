@@ -35,3 +35,4 @@ Widget::register('site_description', function ()
 });
 
 Widget::register('environments_fields', 'Core\Domain\Environments\Widgets\EnvironmentsFields');
+Widget::register('roles_fields', 'Core\Domain\Roles\Widgets\RolesFields');

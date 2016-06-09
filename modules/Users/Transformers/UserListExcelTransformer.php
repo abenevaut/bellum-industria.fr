@@ -41,7 +41,6 @@ class UserListExcelTransformer extends TransformerAbstract
 			$roles[] = trans($role->display_name);
 		}
 		sort($roles);
-
 		$data['roles'] = implode(',' . PHP_EOL, $roles);
 
 		/**
@@ -50,10 +49,7 @@ class UserListExcelTransformer extends TransformerAbstract
 
 		$environments = [];
 
-		if (
-			Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
-			|| Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)
-		)
+		if (cmsuser_can_see_env())
 		{
 			foreach ($model->environments as $environment)
 			{

@@ -1,10 +1,7 @@
 <?php namespace Core\Domain\Roles\Transformers;
 
-use Illuminate\Support\Facades\Auth;
 use League\Fractal\TransformerAbstract;
 use Core\Domain\Roles\Entities\Role;
-use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
-use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 
 /**
  * Class RoleListTransformer
@@ -33,13 +30,7 @@ class RoleListTransformer extends TransformerAbstract
 		 * List environment(s) linked to the role.
 		 */
 
-		if (
-			Auth::check()
-			&& (
-				Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
-				|| Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)
-			)
-		)
+		if (cmsuser_can_see_env())
 		{
 			foreach ($role->environments as $env)
 			{

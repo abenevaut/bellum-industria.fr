@@ -44,7 +44,16 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Contro
 	}
 });
 
-Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Controllers'], function ()
+Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Admin'], function ()
+{
+
+	// Authentication routes...
+	Route::get('login', 'AuthController@getLogin');
+	Route::post('login', 'AuthController@postLogin');
+	Route::get('logout', 'AuthController@getLogout');
+});
+
+Route::group(['middleware' => ['user'], 'namespace' => 'Modules\Users\Http\Controllers'], function ()
 {
 
 	//Route::resource('users', 'UsersController');
@@ -54,15 +63,6 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Users\Http\Contro
 	Route::put('users/update-my-profile', ['as' => 'users.update-my-profile', 'uses' => 'UsersController@updateMyProfile']);
 	Route::get('users/edit-my-password', ['as' => 'users.edit-my-password', 'uses' => 'UsersController@editMyPassword']);
 	Route::put('users/update-my-password', ['as' => 'users.update-my-password', 'uses' => 'UsersController@updateMyPassword']);
-});
-
-Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Admin'], function ()
-{
-
-	// Authentication routes...
-	Route::get('login', 'AuthController@getLogin');
-	Route::post('login', 'AuthController@postLogin');
-	Route::get('logout', 'AuthController@getLogout');
 });
 
 Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'namespace' => 'Modules\Users\Http\Controllers\Admin'], function ()

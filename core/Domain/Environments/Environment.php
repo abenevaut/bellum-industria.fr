@@ -48,7 +48,9 @@ class Environment
 	 */
 	protected function loadEnvironment()
 	{
-		$current_domain = $_SERVER['HTTP_HOST'];
+		$current_domain = defined('CODECEPT_RUN_TRUE') && CODECEPT_RUN_TRUE
+			? CODECEPT_SERVER_NAME
+			: $_SERVER['SERVER_NAME'];
 
 		$this->environment = $this->database
 			->table('environments')

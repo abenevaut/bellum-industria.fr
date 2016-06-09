@@ -2,8 +2,14 @@
 
 namespace Core\Http;
 
+use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 
+/**
+ * Class Kernel
+ * @package Core\Http
+ */
 class Kernel extends HttpKernel
 {
 
@@ -36,6 +42,19 @@ class Kernel extends HttpKernel
 			'CMSInstalled',
 			'UserImpersonate',
 		],
+		'user'      => [
+			\Core\Http\Middleware\EncryptCookies::class,
+			\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+			\Illuminate\Session\Middleware\StartSession::class,
+			\Illuminate\View\Middleware\ShareErrorsFromSession::class,
+			\Core\Http\Middleware\VerifyCsrfToken::class,
+			// CVEPDB
+			\CVEPDB\Http\Middlewares\SetLocaleMiddleware::class,
+			'auth',
+			'role:' . RoleRepositoryEloquent::USER,
+			'CMSInstalled',
+			'UserImpersonate',
+		],
 		'admin'     => [
 			\Core\Http\Middleware\EncryptCookies::class,
 			\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
@@ -43,7 +62,7 @@ class Kernel extends HttpKernel
 			\Illuminate\View\Middleware\ShareErrorsFromSession::class,
 			\Core\Http\Middleware\VerifyCsrfToken::class,
 			'auth',
-			'role:admin',
+			'ability:' . RoleRepositoryEloquent::ADMIN . ',' . PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL,
 			// CVEPDB
 			\CVEPDB\Http\Middlewares\SetLocaleMiddleware::class,
 			'CMSInstalled'
@@ -53,7 +72,7 @@ class Kernel extends HttpKernel
 			'APIResponseHeaderJsMiddleware',
 			'apiguard'
 		],
-		'ajax' => [
+		'ajax'      => [
 			'throttle:60,1',
 			'APIResponseHeaderJsMiddleware',
 		],

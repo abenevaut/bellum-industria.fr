@@ -5,7 +5,6 @@ use Core\Domain\Settings\Repositories\SettingsRepository;
 use Core\Domain\Users\Repositories\ApiKeyRepositoryEloquent;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
 use Modules\Users\Repositories\UserRepositoryEloquent;
-use Modules\Users\Events\UserCreatedEvent;
 
 /**
  * Class AuthOutputter
@@ -82,8 +81,6 @@ class AuthOutputter extends FrontOutputter
 		// Always attach client role
 		$role = $this->r_role->role_exists(RoleRepositoryEloquent::USER);
 		$user->attachRole($role);
-
-		event(new UserCreatedEvent($user));
 
 		return $user;
 	}

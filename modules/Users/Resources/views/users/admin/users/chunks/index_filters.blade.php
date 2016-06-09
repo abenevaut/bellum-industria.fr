@@ -17,7 +17,7 @@
 
 			<div class="row">
 
-				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 form-group form-group-default">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-circle"></i></span>
 						<input type="text" name="name" class="form-control"
@@ -26,7 +26,7 @@
 					</div>
 				</div>
 
-				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 form-group form-group-default">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 						<input type="text" name="email" class="form-control" placeholder="{{ trans('global.email') }}"
@@ -34,26 +34,39 @@
 					</div>
 				</div>
 
-				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 form-group form-group-default">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-user-md"></i></span>
-						{!! Widget::roles_fields('roles[]', ['value' => $filters['roles'], 'placeholder' => trans('global.role_s'), 'class' => 'form-control']) !!}
+						{!! Widget::roles_fields(
+							'roles[]',
+							[
+								'all' => true,
+								'value' => $filters['roles'],
+								'placeholder' => trans('global.role_s'),
+								'class' => 'form-control'
+							]
+						) !!}
 					</div>
 				</div>
 
-				@if (
-					Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
-					|| Auth::user()->hasPermission(\Core\Domain\Roles\Repositories\PermissionRepositoryEloquent::SEE_ENVIRONMENT)
-				)
-				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+				@if ($user_can_see_env)
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 form-group form-group-default">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-circle"></i></span>
-						{!! Widget::environments_fields('environments[]', ['value' => $filters['environments'], 'placeholder' => trans('global.environment_s'), 'class' => 'form-control']) !!}
+						{!! Widget::environments_fields(
+							'environments[]',
+							[
+								'all' => true,
+								'value' => $filters['environments'],
+								'placeholder' => trans('global.environment_s'),
+								'class' => 'form-control'
+							]
+						) !!}
 					</div>
 				</div>
 				@endif
 
-				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 form-group form-group-default">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-circle"></i></span>
 						{!! Form::select('trashed',

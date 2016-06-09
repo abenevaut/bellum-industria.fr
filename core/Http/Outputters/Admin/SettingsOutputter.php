@@ -1,7 +1,5 @@
 <?php namespace Core\Http\Outputters\Admin;
 
-use Request;
-use Response;
 use Core\Http\Outputters\AdminOutputter;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 use Core\Domain\Settings\Repositories\LogoSettingsRepository;
@@ -40,10 +38,11 @@ class SettingsOutputter extends AdminOutputter
 	 * @param SettingsRepository $r_settings
 	 */
 	public function __construct(
-	 SettingsRepository $r_settings,
-	 LogoSettingsRepository $r_logo_settings
-	) {
-	
+		SettingsRepository $r_settings,
+		LogoSettingsRepository $r_logo_settings
+	)
+	{
+
 		parent::__construct($r_settings);
 
 		$this->r_logo_settings = $r_logo_settings;
@@ -58,10 +57,10 @@ class SettingsOutputter extends AdminOutputter
 	public function index()
 	{
 		return $this->output(
-	  'core.admin.settings.index',
-	  [
-	  'settings' => $this->r_settings
-	  ]
+			'core.admin.settings.index',
+			[
+				'settings' => $this->r_settings
+			]
 		);
 	}
 
@@ -90,44 +89,6 @@ class SettingsOutputter extends AdminOutputter
 		$this->r_logo_settings->generateFavIco();
 
 		return $this->redirectTo('admin/settings');
-	}
-
-	/**
-	 * @param AbsFormRequest $request
-	 *
-	 * @return mixed
-	 */
-	public function get(AbsFormRequest $request)
-	{
-		$data = [];
-
-		if (Request::ajax())
-		{
-			$setting_key = $request->get('setting_key');
-			$data[$setting_key] = $this->r_settings->get($setting_key);
-		}
-
-		return Response::json($data);
-	}
-
-	/**
-	 * @param AbsFormRequest $request
-	 *
-	 * @return mixed
-	 */
-	public function set(AbsFormRequest $request)
-	{
-		$data = [];
-		
-		if (Request::ajax())
-		{
-			$setting_key = $request->get('setting_key');
-			$setting_value = $request->get('setting_value');
-			$this->r_settings->set($setting_key, $setting_value);
-			$data[$setting_key] = $setting_value;
-		}
-
-		return Response::json($data);
 	}
 
 	/**

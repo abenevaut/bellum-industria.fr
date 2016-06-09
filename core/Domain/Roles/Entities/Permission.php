@@ -35,12 +35,4 @@ class Permission extends Model
 		'description',
 	];
 
-	/**
-	 * Environments that belong to the permission.
-	 */
-	public function environments()
-	{
-		return $this->belongsToMany('Core\Domain\Environments\Entities\Environment');
-	}
-
 }

@@ -1,11 +1,11 @@
 @push('widget-scripts')
-{{--<script src="{{ asset('modules/users/js/fields/select_roles.js') }}"></script>--}}
+{{--<script src="{{ asset('modules/users/js/fields/select_envs.js') }}"></script>--}}
 <script>
 	(function ($, W, D) {
 		$(D).bind('CVEPDB_SELECT2_READY', function () {
-			var select_role = $('select[name="{{ $name }}"]');
+			var select_env = $('select[name="{{ $name }}"]');
 
-			select_role.select2({
+			select_env.select2({
 				theme: "bootstrap",
 				width: '100%',
 				placeholder: "{{ $placeholder }}"
@@ -20,11 +20,11 @@
 					});
 
 			$('.js-cancel-filters').on('click', function () {
-				select_role.select2("val", "{{ $default_env }}");
+				select_env.select2("val", "{{ $default_env }}");
 			});
 
-			if (select_role.val() == null) {
-				select_role.select2("val", "{{ $default_env }}");
+			if (select_env.val() == null) {
+				select_env.select2("val", "{{ $default_env }}");
 			}
 		});
 	})(jQuery, window, document);
@@ -34,7 +34,8 @@
 <?php $attributes = ['class' => $class, 'multiple' => 'multiple']; ?>
 
 @if (
-    !Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
+	Auth::check()
+    && !Auth::user()->hasRole(\Core\Domain\Roles\Repositories\RoleRepositoryEloquent::ADMIN)
     && !Auth::user()->hasPermission(\Core\Domain\Roles\Repositories\PermissionRepositoryEloquent::MANAGE_ENVIRONMENT_ITEMS)
 )
 
