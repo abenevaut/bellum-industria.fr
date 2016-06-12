@@ -27,5 +27,15 @@ return [
 	'is_registration_allowed' => true,
 	'social'                  => [
 		'login' => []
-	]
+	],
+	'front'                   => [
+		'users' => [
+			'dashboard' => [
+				'widgets' => [
+					'profile_users',
+					'social_buttons'
+				]
+			]
+		]
+	],
 ];

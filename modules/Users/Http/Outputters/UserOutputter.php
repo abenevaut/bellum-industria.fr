@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Request;
 use CVEPDB\Settings\Facades\Settings;
 use Core\Http\Outputters\FrontOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
-use Core\Domain\Settings\Repositories\SettingsRepository;
+use Core\Domain\Dashboard\Repositories\SettingsRepository;
+use Core\Domain\Dashboard\Repositories\SettingsRepository as DashboardSettingsRepository;
 use Core\Domain\Users\Repositories\ApiKeyRepositoryEloquent;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
@@ -42,18 +43,25 @@ class UserOutputter extends FrontOutputter
 	private $r_apikey = null;
 
 	/**
+	 * @var DashboardSettingsRepository|null
+	 */
+	protected $r_dashboard = null;
+
+	/**
 	 * UserOutputter constructor.
 	 *
-	 * @param SettingsRepository       $_settings
-	 * @param UserRepositoryEloquent   $r_user
-	 * @param RoleRepositoryEloquent   $r_role
-	 * @param ApiKeyRepositoryEloquent $r_apikey
+	 * @param SettingsRepository          $_settings
+	 * @param UserRepositoryEloquent      $r_user
+	 * @param RoleRepositoryEloquent      $r_role
+	 * @param ApiKeyRepositoryEloquent    $r_apikey
+	 * @param DashboardSettingsRepository $r_dashboard
 	 */
 	public function __construct(
 		SettingsRepository $_settings,
 		UserRepositoryEloquent $r_user,
 		RoleRepositoryEloquent $r_role,
-		ApiKeyRepositoryEloquent $r_apikey
+		ApiKeyRepositoryEloquent $r_apikey,
+		DashboardSettingsRepository $r_dashboard
 	)
 	{
 
@@ -64,8 +72,11 @@ class UserOutputter extends FrontOutputter
 		$this->r_user = $r_user;
 		$this->r_role = $r_role;
 		$this->r_apikey = $r_apikey;
+		$this->r_dashboard = $r_dashboard;
 
 		$this->addBreadcrumb('Users', 'admin/users');
+		$this->r_dashboard->setSettingKey('users.dashboard.widgets');
+		$this->r_dashboard->setModuleSettingKey('.front.users.dashboard.widgets');
 	}
 
 	/**
@@ -107,12 +118,14 @@ class UserOutputter extends FrontOutputter
 	{
 		$user = $this->r_user->find($id);
 
-		$social_login = Settings::get('users.social.login');
+		$social_login = $this->r_settings->get('users.social.login');
+		$widgets = $this->r_dashboard->activeWidgets();
 
 		return $this->output(
 			'users.users.show',
 			[
-				'user' => $user
+				'user'    => $user,
+				'widgets' => $widgets
 			]
 		);
 	}

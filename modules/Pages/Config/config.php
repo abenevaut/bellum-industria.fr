@@ -1,21 +1,29 @@
 <?php
 
 return [
-	'name' => 'Pages',
+	'name'  => 'Pages',
 	'admin' => [
 		'sidebar' => [
 			'shortcuts' => [
 				'route' => 'admin.pages.create',
-				'icon' => 'fa fa-newspaper-o',
+				'icon'  => 'fa fa-newspaper-o',
 			],
-			'menu' => [
+			'menu'      => [
 				'route' => 'admin.pages.index',
-				'icon' => 'fa fa-file-text-o'
+				'icon'  => 'fa fa-file-text-o'
 			],
-			'settings' => [
+			'settings'  => [
 				'route' => null,
-				'icon' => null,
+				'icon'  => null,
 			]
 		]
-	]
+	],
+	'front' => [
+		'users' => [
+			'dashboard' => [
+				'widgets' => [
+				]
+			]
+		]
+	],
 ];

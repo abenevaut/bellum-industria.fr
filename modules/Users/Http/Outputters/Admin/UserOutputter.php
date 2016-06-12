@@ -153,16 +153,9 @@ class UserOutputter extends AdminOutputter
 	 */
 	public function create()
 	{
-		/*
-		 * Exclude user role because always added to every new user
-		 */
-
-		$roles = $this->r_role->listWithoutUser();
-
 		return $this->output(
 			'users.admin.users.create',
 			[
-				'roles'            => $roles,
 				'user_can_see_env' => $this->user_can_see_environment
 			]
 		);
