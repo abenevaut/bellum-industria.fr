@@ -14,7 +14,7 @@ class SettingsOutputter extends AdminOutputter
     /**
      * @var string Outputter header title
      */
-    protected $title = 'clashofclan::admin.dashboard.meta_title';
+    protected $title = 'clashofclan::admin.clashofclan.meta_title';
 
     /**
      * @var string Outputter header description
@@ -32,7 +32,7 @@ class SettingsOutputter extends AdminOutputter
     {
         parent::__construct($r_settings);
         $this->set_current_module('clashofclan');
-        $this->addBreadcrumb(trans('global.settings'), 'admin/clashofclan/settings');
+        $this->addBreadcrumb(trans('clashofclan::admin.settings.title'), 'admin/clashofclan/settings');
     }
 
     /**

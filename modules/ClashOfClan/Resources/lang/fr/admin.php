@@ -1,11 +1,9 @@
 <?php
 
 return [
-    'dashboard.meta_title' => 'Tableau de bord',
-    'dashboard.meta_description' => 'panneau de contrôle',
-    'dashboard.nodata_title' => 'Aucun widget',
-    'dashboard.nodata_description' => "Aucun widget n'a été paramétré.",
+	'clashofclan.meta_title' => 'Clash of Clan',
 
-    'settings.title' => 'Listes des widgets',
-    'settings.btn.edit' => 'Editer les paramètre du tableau de bord',
+	'settings.title' => 'Paramètres',
+	'settings.btn.edit' => 'Editer les paramètres Clash of Clan',
+	'settings.api_key' => 'Clef d\'API',
 ];

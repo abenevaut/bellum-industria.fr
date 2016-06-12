@@ -1,11 +1,9 @@
 <?php
 
 return [
-    'dashboard.meta_title' => 'Dashboard',
-    'dashboard.meta_description' => 'control panel',
-    'dashboard.nodata_title' => 'No widget',
-    'dashboard.nodata_description' => 'No widget was set to be displayed.',
+    'clashofclan.meta_title' => 'Clash of Clan',
 
-    'settings.title' => 'Widgets list',
-    'settings.btn.edit' => 'Edit dashboard settings',
+    'settings.title' => 'Settings',
+    'settings.btn.edit' => 'Edit Clash of Clan settings',
+	'settings.api_key' => 'API key',
 ];
