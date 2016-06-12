@@ -32,7 +32,8 @@ return [
 		'users' => [
 			'dashboard' => [
 				'widgets' => [
-					'count_users'
+					'profile_users',
+					'social_buttons'
 				]
 			]
 		]

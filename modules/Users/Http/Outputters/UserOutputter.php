@@ -50,10 +50,10 @@ class UserOutputter extends FrontOutputter
 	/**
 	 * UserOutputter constructor.
 	 *
-	 * @param SettingsRepository       $_settings
-	 * @param UserRepositoryEloquent   $r_user
-	 * @param RoleRepositoryEloquent   $r_role
-	 * @param ApiKeyRepositoryEloquent $r_apikey
+	 * @param SettingsRepository          $_settings
+	 * @param UserRepositoryEloquent      $r_user
+	 * @param RoleRepositoryEloquent      $r_role
+	 * @param ApiKeyRepositoryEloquent    $r_apikey
 	 * @param DashboardSettingsRepository $r_dashboard
 	 */
 	public function __construct(
@@ -124,7 +124,7 @@ class UserOutputter extends FrontOutputter
 		return $this->output(
 			'users.users.show',
 			[
-				'user' => $user,
+				'user'    => $user,
 				'widgets' => $widgets
 			]
 		);
