@@ -30,6 +30,11 @@
 							<i class="fa fa-share-square-o"></i> {{ trans('settings.socials') }}
 						</a>
 					</li>
+					<li>
+						<a href="#control-sidebar-dashboard-tab" data-toggle="tab">
+							<i class="fa fa-share-square-o"></i> {{ trans('settings.dashboard') }}
+						</a>
+					</li>
 				</ul>
 				<div class="tab-content">
 					<div class="tab-pane active" id="control-sidebar-general-tab">
@@ -135,6 +140,51 @@
 								<label for="someSwitchOptionDefaultTwitter" class="label-success"></label>
 							</div>
 						</div>
+
+					</div>
+					<div class="tab-pane" id="control-sidebar-dashboard-tab">
+
+
+						<div class="row">
+
+							@foreach ($widgets as $widget)
+								<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+									<div class="box box-primary box-widget collapsed-box">
+										<div class="box-header with-border">
+											<div class="user-block">
+												<button type="button" class="btn btn-box-tool"
+														data-widget="collapse">
+													<i class="fa fa-plus"></i>
+												</button>
+                                        <span class="username">
+                                            {!! Widget::get($widget['name'], ['info'])['title'] !!}
+                                        </span>
+											</div>
+											<div class="box-tools">
+												<div class="material-switch pull-right" style="padding-top: 10px;">
+													<input type="checkbox" name="widgets[]"
+														   id="someSwitchOptionDefault{{ $widget['name'] }}"
+														   data-init-plugin="switchery" value="{{ $widget['name'] }}"
+														   @if (\Core\Domain\Dashboard\Repositories\SettingsRepository::DASHBOARD_WIDGET_STATUS_ACTIVE === $widget['status'])
+														   checked="checked"
+															@endif
+													/>
+													<label for="someSwitchOptionDefault{{ $widget['name'] }}" class="label-success"></label>
+												</div>
+											</div>
+										</div>
+										<div class="box-body">
+											{{ trans('global.module') }}
+											: {{ $widget['module'] }}<br/>
+											{{ trans('global.description') }}
+											: {!! Widget::get($widget['name'], ['info'])['description'] !!}
+										</div>
+									</div>
+								</div>
+							@endforeach
+
+						</div>
+
 
 					</div>
 				</div>

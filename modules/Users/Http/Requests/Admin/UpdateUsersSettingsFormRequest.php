@@ -27,6 +27,7 @@ class UpdateUsersSettingsFormRequest extends FormRequest
 	public function rules()
 	{
 		return [
+			'widgets'      => 'array',
 			'social_login' => 'array'
 			//. '|in:' . \Modules\Dashboard\Repositories\SettingsRepository::DASHBOARD_WIDGET_STATUS_ACTIVE
 		];

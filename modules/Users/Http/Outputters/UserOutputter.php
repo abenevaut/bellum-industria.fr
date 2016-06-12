@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Request;
 use CVEPDB\Settings\Facades\Settings;
 use Core\Http\Outputters\FrontOutputter;
 use Core\Http\Requests\FormRequest as IFormRequest;
-use Core\Domain\Settings\Repositories\SettingsRepository;
+use Core\Domain\Dashboard\Repositories\SettingsRepository;
 use Core\Domain\Users\Repositories\ApiKeyRepositoryEloquent;
 use Modules\Users\Repositories\UserRepositoryEloquent;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
@@ -66,6 +66,8 @@ class UserOutputter extends FrontOutputter
 		$this->r_apikey = $r_apikey;
 
 		$this->addBreadcrumb('Users', 'admin/users');
+		$this->r_settings
+			->setSettingWidgetKey('users::users.front.users.dashboard');
 	}
 
 	/**
@@ -107,12 +109,14 @@ class UserOutputter extends FrontOutputter
 	{
 		$user = $this->r_user->find($id);
 
-		$social_login = Settings::get('users.social.login');
+		$social_login = $this->r_settings->get('users.social.login');
+		$widgets = $this->r_settings->activeWidgets();
 
 		return $this->output(
 			'users.users.show',
 			[
-				'user' => $user
+				'user' => $user,
+				'widgets' => $widgets
 			]
 		);
 	}
