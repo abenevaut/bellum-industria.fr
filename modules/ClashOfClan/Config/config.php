@@ -14,5 +14,13 @@ return [
 			]
 		]
 	],
-	'api_key' => null
+	'api_key' => null,
+	'front'   => [
+		'users' => [
+			'dashboard' => [
+				'widgets' => [
+				]
+			]
+		]
+	],
 ];

@@ -16,14 +16,27 @@ class SettingsRepository extends BaseSettingsRepository
 	/**
 	 * @var string
 	 */
-	protected $widget_key = 'dashboard.widgets';
+	protected $setting_key = 'dashboard.widgets';
 
 	/**
-	 * @param $key
+	 * @var string
 	 */
-	public function setSettingWidgetKey($key)
+	protected $module_setting_key = '.admin.dashboard.widgets';
+
+	/**
+	 * @param $setting_key
+	 */
+	public function setSettingKey($setting_key)
 	{
-		$this->widget_key = $key;
+		$this->setting_key = $setting_key;
+	}
+
+	/**
+	 * @param $module_setting_key
+	 */
+	public function setModuleSettingKey($module_setting_key)
+	{
+		$this->module_setting_key = $module_setting_key;
 	}
 
 	/**
@@ -33,7 +46,7 @@ class SettingsRepository extends BaseSettingsRepository
 	 */
 	public function allWidgets()
 	{
-		return $this->get($this->widget_key);
+		return $this->get($this->setting_key);
 	}
 
 	/**
@@ -44,7 +57,7 @@ class SettingsRepository extends BaseSettingsRepository
 	public function activeWidgets()
 	{
 		$widgets = [];
-		$widgets_collection = $this->get($this->widget_key);
+		$widgets_collection = $this->get($this->setting_key);
 		if (!is_null($widgets_collection))
 		{
 			$widgets = $widgets_collection->where('status', self::DASHBOARD_WIDGET_STATUS_ACTIVE);
@@ -61,7 +74,7 @@ class SettingsRepository extends BaseSettingsRepository
 	public function inactiveWidgets()
 	{
 		$widgets = [];
-		$widgets_collection = $this->get($this->widget_key);
+		$widgets_collection = $this->get($this->setting_key);
 		if (!is_null($widgets_collection))
 		{
 			$widgets = $widgets_collection->where('status', self::DASHBOARD_WIDGET_STATUS_INACTIVE);
@@ -82,7 +95,7 @@ class SettingsRepository extends BaseSettingsRepository
 			$widgets = [];
 		}
 
-		$widgets_collection = $this->get($this->widget_key);
+		$widgets_collection = $this->get($this->setting_key);
 		if (!is_null($widgets_collection))
 		{
 			$widgets_collection = $widgets_collection->map(function ($item, $key) use ($widgets)
@@ -98,7 +111,7 @@ class SettingsRepository extends BaseSettingsRepository
 
 				return $item;
 			});
-			$this->set($this->widget_key, $widgets_collection);
+			$this->set($this->setting_key, $widgets_collection);
 		}
 	}
 
@@ -116,7 +129,7 @@ class SettingsRepository extends BaseSettingsRepository
 		 * Current available widgets list
 		 */
 
-		$widgets_collection = $this->get($this->widget_key);
+		$widgets_collection = $this->get($this->setting_key);
 		if (is_null($widgets_collection))
 		{
 			$widgets_collection = new Collection;
@@ -129,7 +142,7 @@ class SettingsRepository extends BaseSettingsRepository
 		{
 
 			$module_name = $module->name;
-			$module_widgets_list = config(strtolower($module_name) . '.admin.dashboard.widgets');
+			$module_widgets_list = config(strtolower($module_name) . $this->module_setting_key);
 
 			/*
 			 * Save new widgets
@@ -170,6 +183,6 @@ class SettingsRepository extends BaseSettingsRepository
 				}
 			}
 		}
-		$this->set($this->widget_key, $widgets_collection);
+		$this->set($this->setting_key, $widgets_collection);
 	}
 }

@@ -16,5 +16,13 @@ return [
 	],
 	'api_key' => null,
 	'login'   => false,
-	'route'   => 'steam.login'
+	'route'   => 'steam.login',
+	'front'   => [
+		'users' => [
+			'dashboard' => [
+				'widgets' => [
+				]
+			]
+		]
+	],
 ];

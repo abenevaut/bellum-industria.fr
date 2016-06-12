@@ -32,8 +32,7 @@ return [
 		'users' => [
 			'dashboard' => [
 				'widgets' => [
-					'count_users',
-					'export_users',
+					'count_users'
 				]
 			]
 		]
