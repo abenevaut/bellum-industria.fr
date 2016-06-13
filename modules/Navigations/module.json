@@ -1,0 +1,15 @@
+{
+    "name": "Navigations",
+    "alias": "navigations",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 6,
+    "providers": [
+        "Modules\\Navigations\\Providers\\NavigationsServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}
