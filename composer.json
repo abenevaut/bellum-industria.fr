@@ -27,6 +27,7 @@
     "cvepdb-cms/module-installer": "1.0.52.*",
     "cvepdb-cms/module-dashboard": "1.0.52.*",
     "cvepdb-cms/module-themes": "1.0.52.*",
+    "cvepdb-cms/module-navigations": "1.0.52.*",
     "cvepdb-cms/theme-adminlte": "dev-master",
     "cvepdb-cms/theme-lumen": "dev-master",
     "cvepdb-cms/theme-flatly": "dev-master",
@@ -46,12 +47,7 @@
     "maknz/slack": "^1.7",
     "monolog/monolog": "^1.19",
     "barryvdh/laravel-ide-helper": "^2.1",
-    "spatie/laravel-glide": "^2.3",
-    "toniperic/php-clash-of-clans": "dev-master",
-    "invisnik/laravel-steam-auth": "^2.0",
-    "xpaw/php-source-query-class": "^1.0",
-    "da-mitchell/steam-api": "^2.1",
-    "simplepie/simplepie": "^1.4"
+    "spatie/laravel-glide": "^2.3"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
@@ -119,8 +115,9 @@
       "modules/{$name}": [
         "cvepdb-cms/module-installer",
         "cvepdb-cms/module-dashboard",
-        "cvepdb-cms/module-clashofclan",
         "cvepdb-cms/module-themes",
+        "cvepdb-cms/module-navigations",
+        "cvepdb-cms/module-clashofclan",
         "cvepdb-cms/module-steam"
       ],
       "resources/themes/{$name}": [

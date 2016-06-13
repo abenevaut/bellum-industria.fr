@@ -35,7 +35,7 @@ class EnvironmentServiceProvider extends ServiceProvider
 	 */
 	public function provides()
 	{
-		return array('environment');
+		return ['environment'];
 	}
 
 }

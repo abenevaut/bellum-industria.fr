@@ -66,8 +66,8 @@ class RoleAndPermissionTablesSeeder extends Seeder
 			'description'  => 'permissions.' . PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL . ':description'
 		]);
 
-		$permission->environments()->detach();
-		$permission->environments()->attach($env->id);
+//		$permission->environments()->detach();
+//		$permission->environments()->attach($env->id);
 
 		$permission = Permission::create([
 			'name'         => PermissionRepositoryEloquent::SEE_ENVIRONMENT,
@@ -75,8 +75,8 @@ class RoleAndPermissionTablesSeeder extends Seeder
 			'description'  => 'permissions.' . PermissionRepositoryEloquent::SEE_ENVIRONMENT . ':description'
 		]);
 
-		$permission->environments()->detach();
-		$permission->environments()->attach($env->id);
+//		$permission->environments()->detach();
+//		$permission->environments()->attach($env->id);
 
 		$permission = Permission::create([
 			'name'         => PermissionRepositoryEloquent::MANAGE_ENVIRONMENT,
@@ -84,8 +84,8 @@ class RoleAndPermissionTablesSeeder extends Seeder
 			'description'  => 'permissions.' . PermissionRepositoryEloquent::MANAGE_ENVIRONMENT . ':description'
 		]);
 
-		$permission->environments()->detach();
-		$permission->environments()->attach($env->id);
+//		$permission->environments()->detach();
+//		$permission->environments()->attach($env->id);
 
 		$permission = Permission::create([
 			'name'         => PermissionRepositoryEloquent::MANAGE_ENVIRONMENT_ITEMS,
@@ -93,8 +93,8 @@ class RoleAndPermissionTablesSeeder extends Seeder
 			'description'  => 'permissions.' . PermissionRepositoryEloquent::MANAGE_ENVIRONMENT_ITEMS . ':description'
 		]);
 
-		$permission->environments()->detach();
-		$permission->environments()->attach($env->id);
+//		$permission->environments()->detach();
+//		$permission->environments()->attach($env->id);
 
 		Model::reguard();
 	}
