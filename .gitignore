@@ -26,6 +26,11 @@ resources/views/modules/*
 modules/Themes
 modules/Dashboard
 modules/Installer
+modules/Files
+modules/Navigations
+modules/Pages
+modules/Posts
+modules/Users
 resources/themes
 
 # Tests

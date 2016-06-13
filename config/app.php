@@ -229,7 +229,7 @@ return [
 		'Input'        => Illuminate\Support\Facades\Input::class,
 		'Debugbar'     => Barryvdh\Debugbar\Facade::class,
 		'Excel'        => 'Maatwebsite\Excel\Facades\Excel',
-		'GlideImage' => Spatie\Glide\GlideImageFacade::class,
+		'GlideImage'   => Spatie\Glide\GlideImageFacade::class,
 	],
 
 ];
