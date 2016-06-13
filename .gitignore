@@ -42,6 +42,8 @@ resources/views/modules/*
 modules/Themes
 modules/Dashboard
 modules/Installer
+modules/Steam
+modules/ClashOfClan
 resources/themes
 
 # Tests

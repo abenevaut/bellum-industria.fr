@@ -8,6 +8,12 @@
   "license": "GPL-3.0",
   "type": "project",
   "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://packages.cvepdb.fr"
+    }
+  ],
   "require": {
     "php": ">=5.5.9",
     "beelab/bowerphp": "0.3.*@beta",
@@ -24,6 +30,10 @@
     "cvepdb-cms/theme-adminlte": "dev-master",
     "cvepdb-cms/theme-lumen": "dev-master",
     "cvepdb-cms/theme-flatly": "dev-master",
+    "cvepdb-cms/module-clashofclan": "dev-master",
+    "cvepdb-cms/module-steam": "dev-master",
+    "cvepdb-cms/theme-longwave": "dev-master",
+    "cvepdb-cms/theme-pages": "dev-master",
     "league/flysystem": "^1.0",
     "league/flysystem-aws-s3-v3": "~1.0",
     "league/flysystem-rackspace": "~1.0",
@@ -109,12 +119,16 @@
       "modules/{$name}": [
         "cvepdb-cms/module-installer",
         "cvepdb-cms/module-dashboard",
-        "cvepdb-cms/module-themes"
+        "cvepdb-cms/module-clashofclan",
+        "cvepdb-cms/module-themes",
+        "cvepdb-cms/module-steam"
       ],
       "resources/themes/{$name}": [
         "cvepdb-cms/theme-adminlte",
         "cvepdb-cms/theme-flatly",
-        "cvepdb-cms/theme-lumen"
+        "cvepdb-cms/theme-lumen",
+        "cvepdb-cms/theme-longwave",
+        "cvepdb-cms/theme-pages"
       ]
     }
   }
