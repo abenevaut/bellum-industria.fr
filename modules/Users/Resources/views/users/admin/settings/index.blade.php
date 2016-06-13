@@ -22,7 +22,7 @@
 				<ul class="nav nav-tabs">
 					<li class="active">
 						<a href="#control-sidebar-general-tab" data-toggle="tab">
-							<i class="fa fa-gear"></i> {{ trans('settings.general') }}
+							<i class="fa fa-gear"></i> {{ trans('global.general') }}
 						</a>
 					</li>
 					<li>
@@ -32,7 +32,7 @@
 					</li>
 					<li>
 						<a href="#control-sidebar-dashboard-tab" data-toggle="tab">
-							<i class="fa fa-share-square-o"></i> {{ trans('settings.dashboard') }}
+							<i class="fa fa-dashboard"></i> {{ trans('global.dashboard') }}
 						</a>
 					</li>
 				</ul>
