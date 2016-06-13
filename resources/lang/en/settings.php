@@ -3,6 +3,8 @@
 return [
 	'core_site_name'          => 'Web site name',
 	'core_site_description'   => 'Web site description',
+	'core_site_logo'          => 'Web site logo',
+	'core_site_favico'        => 'Web site favico',
 	'mail_from_address'       => 'Web site contact mail',
 	'mail_from_name'          => 'Web site contact mail display name',
 	'core_mail_mailwatch'     => 'Web site copy mailbox',

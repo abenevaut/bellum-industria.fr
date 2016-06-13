@@ -1,1 +1,0 @@
-http://clashofclans.wikia.com/wiki/File:Supercell-magic-webfont.ttf
