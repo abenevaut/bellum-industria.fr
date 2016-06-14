@@ -133,7 +133,7 @@ return [
 		Illuminate\Cookie\CookieServiceProvider::class,
 		Illuminate\Database\DatabaseServiceProvider::class,
 		Illuminate\Encryption\EncryptionServiceProvider::class,
-		Illuminate\Filesystem\FilesystemServiceProvider::class,
+//		Illuminate\Filesystem\FilesystemServiceProvider::class,
 		Illuminate\Foundation\Providers\FoundationServiceProvider::class,
 		Illuminate\Hashing\HashServiceProvider::class,
 		Illuminate\Pagination\PaginationServiceProvider::class,
@@ -147,6 +147,7 @@ return [
 		/*
 		 * Core Service Providers...
 		 */
+		Core\Providers\FilesystemServiceProvider::class,
 		Core\Providers\MailServiceProvider::class,
 		Core\Providers\EntrustServiceProvider::class,
 		Core\Providers\ApiGuardServiceProvider::class,
