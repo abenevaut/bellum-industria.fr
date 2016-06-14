@@ -3,6 +3,7 @@
 Route::group(['middleware' => ['admin'], 'prefix' => 'admin'], function ()
 {
 	Route::resource('settings', '\Core\Http\Controllers\Admin\SettingsController');
+	Route::resource('environments', '\Core\Http\Controllers\Admin\EnvironmentsController');
 });
 
 Route::group(['middleware' => ['ajax'], 'prefix' => 'ajax'], function ()
