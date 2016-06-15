@@ -170,6 +170,7 @@ return [
 		Pingpong\Widget\WidgetServiceProvider::class,
 		CVEPDB\Addresses\AddressesServiceProvider::class,
 		Spatie\Glide\GlideServiceProvider::class,
+		Phoenix\EloquentMeta\ServiceProvider::class,
 	],
 
 	/*

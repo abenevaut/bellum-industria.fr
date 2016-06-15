@@ -7,6 +7,9 @@
       "email": "antoine@cvepdb.fr"
     }
   ],
+  "require": {
+    "phoenix/eloquent-meta": "1.4.*"
+  },
   "autoload": {
     "psr-4": {
       "Modules\\Posts\\": ""
