@@ -163,6 +163,20 @@ class AdminOutputter extends CoreOutputter
 					}
 				}
 
+				$menu->header(trans('global.settings'));
+
+				if (cmsuser_can_see_env())
+				{
+					$menu->route(
+						'admin.environments.index',
+						trans('global.environment_s'),
+						[],
+						[
+							'icon' => 'glyphicon glyphicon-king'
+						]
+					);
+				}
+
 				$menu->dropdown(
 					trans('global.settings'),
 					function ($submenu) use ($modules_list)
