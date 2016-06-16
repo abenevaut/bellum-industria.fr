@@ -24,7 +24,6 @@
     "cvepdb-cms/module-navigations": "1.0.52.*",
     "cvepdb-cms/theme-adminlte": "dev-master",
     "cvepdb-cms/theme-lumen": "dev-master",
-    "cvepdb-cms/theme-flatly": "dev-master",
     "league/flysystem": "^1.0",
     "league/flysystem-aws-s3-v3": "~1.0",
     "league/flysystem-rackspace": "~1.0",
@@ -111,7 +110,6 @@
       ],
       "resources/themes/{$name}": [
         "cvepdb-cms/theme-adminlte",
-        "cvepdb-cms/theme-flatly",
         "cvepdb-cms/theme-lumen"
       ]
     }

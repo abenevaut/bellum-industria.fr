@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "79b1f002255f5dc41abe385416120f6f",
-    "content-hash": "3c76512f5a4a623485ac41b62639729c",
+    "hash": "598bad10cbf84d7a92406e2f20636db9",
+    "content-hash": "9675d1e786de782ba6afdf02c67fd7cb",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -10820,7 +10820,6 @@
         "composer/composer": 10,
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,
-        "cvepdb-cms/theme-flatly": 20,
         "redcomponent/teststatistics": 20
     },
     "prefer-stable": false,
