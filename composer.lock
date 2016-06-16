@@ -1248,16 +1248,16 @@
         },
         {
             "name": "cvepdb-cms/module-installer",
-            "version": "1.0.52.12",
+            "version": "1.0.52.13",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-installer.git",
-                "reference": "9b06fa64e5d5fb83e9215b825fcd5a10f97a912a"
+                "reference": "9e31711ca4ed04e0ad958b36d563f602b0d31797"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=9b06fa64e5d5fb83e9215b825fcd5a10f97a912a",
-                "reference": "9b06fa64e5d5fb83e9215b825fcd5a10f97a912a",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=9e31711ca4ed04e0ad958b36d563f602b0d31797",
+                "reference": "9e31711ca4ed04e0ad958b36d563f602b0d31797",
                 "shasum": ""
             },
             "require": {
@@ -1291,7 +1291,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-06-09 14:26:35"
+            "time": "2016-06-16 15:43:28"
         },
         {
             "name": "cvepdb-cms/module-navigations",
@@ -1493,16 +1493,16 @@
         },
         {
             "name": "cvepdb-cms/module-users",
-            "version": "1.0.52.6",
+            "version": "1.0.52.7",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-users.git",
-                "reference": "5c1a6159c576b3923fa1cea62ccb2c01f6439138"
+                "reference": "b91819603d30544f649f0e283fa90752e5691a77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=5c1a6159c576b3923fa1cea62ccb2c01f6439138",
-                "reference": "5c1a6159c576b3923fa1cea62ccb2c01f6439138",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=b91819603d30544f649f0e283fa90752e5691a77",
+                "reference": "b91819603d30544f649f0e283fa90752e5691a77",
                 "shasum": ""
             },
             "require": {
@@ -1512,7 +1512,7 @@
             },
             "type": "laravel-library",
             "extra": {
-                "installer-name": "Posts"
+                "installer-name": "Users"
             },
             "autoload": {
                 "psr-4": {
@@ -1536,7 +1536,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2016-06-16 14:59:53"
+            "time": "2016-06-16 15:28:28"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -3607,7 +3607,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem-rackspace/zipball/4274bd6eb810e2378e469aa2c9d03f3bb78f00ba",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-rackspace/zipball/29b3b63fccb927f34b37ae0198c95a1afa8e86a8",
                 "reference": "ba877e837f5dce60e78a0555de37eb9bfc7dd6b9",
                 "shasum": ""
             },
