@@ -172,7 +172,7 @@ class AdminOutputter extends CoreOutputter
 						trans('global.environment_s'),
 						[],
 						[
-							'icon' => 'glyphicon glyphicon-king'
+							'icon' => 'fa fa-cubes'
 						]
 					);
 				}
@@ -191,18 +191,6 @@ class AdminOutputter extends CoreOutputter
 								'icon' => 'fa fa-gear'
 							]
 						);
-
-						if (cmsuser_can_see_env())
-						{
-							$submenu->route(
-								'admin.environments.index',
-								trans('global.environment_s'),
-								[],
-								[
-									'icon' => 'glyphicon glyphicon-king'
-								]
-							);
-						}
 
 						foreach ($modules_list as $module)
 						{
