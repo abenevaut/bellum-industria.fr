@@ -60,16 +60,16 @@ return [
 //			'accessToken' => env('DROPBOX_KEY'),
 //		],
 
-		's3' => [
-			'driver'     => 's3',
-			'key'        => env('AWSS3_KEY'),
-			'secret'     => env('AWSS3_SECRET'),
-			'region'     => env('AWSS3_REGION'),
-			'bucket'     => env('AWSS3_BUCKET'),
-			'version'    => 'latest',
-			'visibility' => 'public',
-			'ACL'        => 'public-read',
-		],
+//		's3' => [
+//			'driver'     => 's3',
+//			'key'        => env('AWSS3_KEY'),
+//			'secret'     => env('AWSS3_SECRET'),
+//			'region'     => env('AWSS3_REGION'),
+//			'bucket'     => env('AWSS3_BUCKET'),
+//			'version'    => 'latest',
+//			'visibility' => 'public',
+//			'ACL'        => 'public-read',
+//		],
 
 	],
 ];
