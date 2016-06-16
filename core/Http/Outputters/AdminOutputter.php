@@ -192,6 +192,18 @@ class AdminOutputter extends CoreOutputter
 							]
 						);
 
+						if (cmsuser_can_see_env())
+						{
+							$submenu->route(
+								'admin.environments.index',
+								trans('global.environment_s'),
+								[],
+								[
+									'icon' => 'glyphicon glyphicon-king'
+								]
+							);
+						}
+
 						foreach ($modules_list as $module)
 						{
 							$config_base_tag = strtolower($module->name) . '.admin.sidebar.settings.';

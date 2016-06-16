@@ -57,3 +57,7 @@ database/migrations/2014_08_15_180252_create_meta_table.php
 _ide_helper.php
 
 app/*
+database/migrations/2016_03_16_102646_create_dashboard_tables.php
+public/.tmb/
+public/modules/
+public/themes/

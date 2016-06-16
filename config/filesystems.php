@@ -43,22 +43,22 @@ return [
 
 	'disks' => [
 
-		'uploads' => [
-			'driver'     => 'local',
-			'root'       => public_path('uploads'),
-			'visibility' => 'public',
-		],
+//		'uploads' => [
+//			'driver'     => 'local',
+//			'root'       => public_path('uploads/' . 'default'),
+//			'visibility' => 'public',
+//		],
 
-		'backups' => [
-			'driver' => 'local',
-			'root'   => storage_path('app/backups'),
-		],
+//		'backups' => [
+//			'driver' => 'local',
+//			'root'   => storage_path('apps/' . 'default' . '/backups'),
+//		],
 
-		'dropbox' => [
-			'driver'      => 'dropbox',
-			'appSecret'   => env('DROPBOX_SECRET'),
-			'accessToken' => env('DROPBOX_KEY'),
-		],
+//		'dropbox' => [
+//			'driver'      => 'dropbox',
+//			'appSecret'   => env('DROPBOX_SECRET'),
+//			'accessToken' => env('DROPBOX_KEY'),
+//		],
 
 		's3' => [
 			'driver'     => 's3',
