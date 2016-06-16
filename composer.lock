@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0f82953a0bd9531b1290e0b23b678721",
+    "hash": "79b1f002255f5dc41abe385416120f6f",
     "content-hash": "3c76512f5a4a623485ac41b62639729c",
     "packages": [
         {
@@ -1973,12 +1973,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "7dd848b7afdf065966daebcac3c134f90ba2bcdd"
+                "reference": "7d01ce70a1f8b7cbaa181c0ccb1a4225bbcf3000"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/7dd848b7afdf065966daebcac3c134f90ba2bcdd",
-                "reference": "7dd848b7afdf065966daebcac3c134f90ba2bcdd",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/7d01ce70a1f8b7cbaa181c0ccb1a4225bbcf3000",
+                "reference": "7d01ce70a1f8b7cbaa181c0ccb1a4225bbcf3000",
                 "shasum": ""
             },
             "require": {
@@ -2036,7 +2036,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2016-06-03 01:22:47"
+            "time": "2016-06-15 15:29:18"
         },
         {
             "name": "doctrine/inflector",
@@ -2343,22 +2343,22 @@
         },
         {
             "name": "guzzle/guzzle",
-            "version": "dev-master",
+            "version": "v3.8.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/guzzle3.git",
-                "reference": "b3f5050cb6270c7a728a0b74ac2de50a262b3e02"
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "4de0618a01b34aa1c8c33a3f13f396dcd3882eba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/b3f5050cb6270c7a728a0b74ac2de50a262b3e02",
-                "reference": "b3f5050cb6270c7a728a0b74ac2de50a262b3e02",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/4de0618a01b34aa1c8c33a3f13f396dcd3882eba",
+                "reference": "4de0618a01b34aa1c8c33a3f13f396dcd3882eba",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "php": ">=5.3.3",
-                "symfony/event-dispatcher": "~2.1"
+                "symfony/event-dispatcher": ">=2.1"
             },
             "replace": {
                 "guzzle/batch": "self.version",
@@ -2385,21 +2385,18 @@
                 "guzzle/stream": "self.version"
             },
             "require-dev": {
-                "doctrine/cache": "~1.3",
-                "monolog/monolog": "~1.0",
+                "doctrine/cache": "*",
+                "monolog/monolog": "1.*",
                 "phpunit/phpunit": "3.7.*",
-                "psr/log": "~1.0",
-                "symfony/class-loader": "~2.1",
-                "zendframework/zend-cache": "2.*,<2.3",
-                "zendframework/zend-log": "2.*,<2.3"
-            },
-            "suggest": {
-                "guzzlehttp/guzzle": "Guzzle 5 has moved to a new package name. The package you have installed, Guzzle 3, is deprecated."
+                "psr/log": "1.0.*",
+                "symfony/class-loader": "*",
+                "zendframework/zend-cache": "<2.3",
+                "zendframework/zend-log": "<2.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.9-dev"
+                    "dev-master": "3.8-dev"
                 }
             },
             "autoload": {
@@ -2423,7 +2420,7 @@
                     "homepage": "https://github.com/guzzle/guzzle/contributors"
                 }
             ],
-            "description": "PHP HTTP client. This library is deprecated in favor of https://packagist.org/packages/guzzlehttp/guzzle",
+            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
             "homepage": "http://guzzlephp.org/",
             "keywords": [
                 "client",
@@ -2434,7 +2431,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2015-04-29 17:06:53"
+            "time": "2014-01-28 22:29:15"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -5366,12 +5363,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
-                "reference": "d205b8930704972f3b596f66869dcabbe4e2d11e"
+                "reference": "91ba8c19ffab61a398d61c4f75fe5532ec11168d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/d205b8930704972f3b596f66869dcabbe4e2d11e",
-                "reference": "d205b8930704972f3b596f66869dcabbe4e2d11e",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/91ba8c19ffab61a398d61c4f75fe5532ec11168d",
+                "reference": "91ba8c19ffab61a398d61c4f75fe5532ec11168d",
                 "shasum": ""
             },
             "require": {
@@ -5383,7 +5380,7 @@
                 "raven/raven": "*"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "^1.8.0",
+                "friendsofphp/php-cs-fixer": "^1.8.0",
                 "phpunit/phpunit": "^4.6.6"
             },
             "bin": [
@@ -5416,7 +5413,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2016-06-10 18:15:46"
+            "time": "2016-06-15 16:36:34"
         },
         {
             "name": "spatie/db-dumper",
@@ -5470,16 +5467,16 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "3.7.2",
+            "version": "3.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "561ac788686071c5f4d267b2f83be0557dca8d3a"
+                "reference": "ff922a830d3dc73c353d93cb735db62d1239b7e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/561ac788686071c5f4d267b2f83be0557dca8d3a",
-                "reference": "561ac788686071c5f4d267b2f83be0557dca8d3a",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/ff922a830d3dc73c353d93cb735db62d1239b7e6",
+                "reference": "ff922a830d3dc73c353d93cb735db62d1239b7e6",
                 "shasum": ""
             },
             "require": {
@@ -5528,7 +5525,7 @@
                 "laravel-backup",
                 "spatie"
             ],
-            "time": "2016-05-28 20:59:00"
+            "time": "2016-06-15 23:42:49"
         },
         {
             "name": "spatie/laravel-glide",
@@ -5742,12 +5739,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "2267550fa08ea0f8f70bec6084ff7376eac73865"
+                "reference": "744efc46ffc6c3cde3753a963da930343dcd98c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/2267550fa08ea0f8f70bec6084ff7376eac73865",
-                "reference": "2267550fa08ea0f8f70bec6084ff7376eac73865",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/744efc46ffc6c3cde3753a963da930343dcd98c9",
+                "reference": "744efc46ffc6c3cde3753a963da930343dcd98c9",
                 "shasum": ""
             },
             "require": {
@@ -5792,7 +5789,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-06-13 13:15:56"
+            "time": "2016-06-15 11:23:51"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6075,27 +6072,27 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "2.8.x-dev",
+            "version": "3.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "2a6b8713f8bdb582058cfda463527f195b066110"
+                "reference": "2bd63cc8b94882084565d2ec3fae5b8d6878398b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/2a6b8713f8bdb582058cfda463527f195b066110",
-                "reference": "2a6b8713f8bdb582058cfda463527f195b066110",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/2bd63cc8b94882084565d2ec3fae5b8d6878398b",
+                "reference": "2bd63cc8b94882084565d2ec3fae5b8d6878398b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": ">=5.5.9"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/config": "~2.0,>=2.0.5|~3.0.0",
-                "symfony/dependency-injection": "~2.6|~3.0.0",
-                "symfony/expression-language": "~2.6|~3.0.0",
-                "symfony/stopwatch": "~2.3|~3.0.0"
+                "symfony/config": "~2.8|~3.0",
+                "symfony/dependency-injection": "~2.8|~3.0",
+                "symfony/expression-language": "~2.8|~3.0",
+                "symfony/stopwatch": "~2.8|~3.0"
             },
             "suggest": {
                 "symfony/dependency-injection": "",
@@ -6104,7 +6101,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -6131,7 +6128,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-06 11:11:27"
+            "time": "2016-06-06 11:33:26"
         },
         {
             "name": "symfony/filesystem",
@@ -6237,12 +6234,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "1f77a42264499dfc27e25d1ff2e9783980486ef9"
+                "reference": "a3d14ffa57652686bd61288a95a4b8f204c95268"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/1f77a42264499dfc27e25d1ff2e9783980486ef9",
-                "reference": "1f77a42264499dfc27e25d1ff2e9783980486ef9",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/a3d14ffa57652686bd61288a95a4b8f204c95268",
+                "reference": "a3d14ffa57652686bd61288a95a4b8f204c95268",
                 "shasum": ""
             },
             "require": {
@@ -6282,7 +6279,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-14 11:04:19"
+            "time": "2016-06-16 05:18:30"
         },
         {
             "name": "symfony/http-kernel",
@@ -9775,28 +9772,28 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "dev-master",
+            "version": "1.3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "a13903bf5fd0239748fe322dfbdd5f5720ab20e6"
+                "reference": "622c5dc0a8036cfc4ccd73c7b1b668a431e69d96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/a13903bf5fd0239748fe322dfbdd5f5720ab20e6",
-                "reference": "a13903bf5fd0239748fe322dfbdd5f5720ab20e6",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/622c5dc0a8036cfc4ccd73c7b1b668a431e69d96",
+                "reference": "622c5dc0a8036cfc4ccd73c7b1b668a431e69d96",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.6 || ^7.0"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.0"
+                "phpunit/phpunit": "^4.8 || ^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.3.x-dev"
                 }
             },
             "autoload": {
@@ -9821,7 +9818,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2016-06-11 08:54:23"
+            "time": "2016-06-11 08:21:19"
         },
         {
             "name": "sebastian/exporter",
@@ -10456,12 +10453,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "c241a02fe6c86747866a7101341e2ddb5daf8338"
+                "reference": "66a9d1f3b3e54446de8dcd48db25e11d5d9bd755"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/c241a02fe6c86747866a7101341e2ddb5daf8338",
-                "reference": "c241a02fe6c86747866a7101341e2ddb5daf8338",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/66a9d1f3b3e54446de8dcd48db25e11d5d9bd755",
+                "reference": "66a9d1f3b3e54446de8dcd48db25e11d5d9bd755",
                 "shasum": ""
             },
             "require": {
@@ -10508,7 +10505,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-14 11:29:55"
+            "time": "2016-06-16 08:32:17"
         },
         {
             "name": "symfony/dom-crawler",
@@ -10572,12 +10569,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/expression-language.git",
-                "reference": "b47d808f6901462ee5dbc94ecd07114393839964"
+                "reference": "7055fe1b23d3288a22bde0da47b126f58181b019"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/expression-language/zipball/b47d808f6901462ee5dbc94ecd07114393839964",
-                "reference": "b47d808f6901462ee5dbc94ecd07114393839964",
+                "url": "https://api.github.com/repos/symfony/expression-language/zipball/7055fe1b23d3288a22bde0da47b126f58181b019",
+                "reference": "7055fe1b23d3288a22bde0da47b126f58181b019",
                 "shasum": ""
             },
             "require": {
@@ -10613,7 +10610,7 @@
             ],
             "description": "Symfony ExpressionLanguage Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-13 09:15:31"
+            "time": "2016-06-15 10:45:31"
         },
         {
             "name": "symfony/yaml",
@@ -10621,12 +10618,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "18bba0c56ff452e3708fcaf3961684998bbab688"
+                "reference": "90ce58f949595578032eab7208238e99ca5dc2d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/18bba0c56ff452e3708fcaf3961684998bbab688",
-                "reference": "18bba0c56ff452e3708fcaf3961684998bbab688",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/90ce58f949595578032eab7208238e99ca5dc2d2",
+                "reference": "90ce58f949595578032eab7208238e99ca5dc2d2",
                 "shasum": ""
             },
             "require": {
@@ -10662,7 +10659,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-14 11:04:19"
+            "time": "2016-06-16 08:33:40"
         },
         {
             "name": "theseer/fdomdocument",

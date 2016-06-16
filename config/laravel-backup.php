@@ -8,7 +8,7 @@ return [
 		 * The name of this application. You can use this name to monitor
 		 * the backups.
 		 */
-		'name' => env('APP_URL'),
+		'name' => env('CORE_URL'),
 
 		'source' => [
 
@@ -27,8 +27,11 @@ return [
 				 * You can specify individual files as well.
 				 */
 				'exclude' => [
+					base_path('bin'),
+					base_path('deployer'),
 					base_path('vendor'),
 					base_path('node_modules'),
+					base_path('tests'),
 					storage_path(),
 				],
 			],
@@ -48,7 +51,7 @@ return [
 			 * The disk names on which the backups will be stored.
 			 */
 			'disks' => [
-				'backups',
+				'default/backups',
 			],
 		],
 	],
@@ -103,7 +106,7 @@ return [
 	 */
 	'monitorBackups' => [
 		[
-			'name'                                   => env('APP_URL'),
+			'name'                                   => env('CORE_URL'),
 			'disks'                                  => ['backups'],
 			'newestBackupsShouldNotBeOlderThanDays'  => 1,
 			'storageUsedMayNotBeHigherThanMegabytes' => 5000,
