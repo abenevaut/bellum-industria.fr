@@ -1144,16 +1144,16 @@
         },
         {
             "name": "cvepdb-cms/module-dashboard",
-            "version": "1.0.52.4",
+            "version": "1.0.52.5",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-dashboard.git",
-                "reference": "d5d2904c69501e0de676e5f54098ff80f9dfcdbf"
+                "reference": "864498f9fa797d96e2d96994c71a6ad3346e780c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-dashboard/repository/archive.zip?sha=d5d2904c69501e0de676e5f54098ff80f9dfcdbf",
-                "reference": "d5d2904c69501e0de676e5f54098ff80f9dfcdbf",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-dashboard/repository/archive.zip?sha=864498f9fa797d96e2d96994c71a6ad3346e780c",
+                "reference": "864498f9fa797d96e2d96994c71a6ad3346e780c",
                 "shasum": ""
             },
             "require": {
@@ -1187,20 +1187,20 @@
                 "dashboard",
                 "module"
             ],
-            "time": "2016-05-03 13:10:36"
+            "time": "2016-06-16 15:37:23"
         },
         {
             "name": "cvepdb-cms/module-files",
-            "version": "1.0.52.2",
+            "version": "1.0.52.3",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-files.git",
-                "reference": "4541a26735b37cf83ecb6f39ecee97620092ec89"
+                "reference": "251a56c7341c3b1485f6a2a5f9cab55aa55d48c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-files/repository/archive.zip?sha=4541a26735b37cf83ecb6f39ecee97620092ec89",
-                "reference": "4541a26735b37cf83ecb6f39ecee97620092ec89",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-files/repository/archive.zip?sha=251a56c7341c3b1485f6a2a5f9cab55aa55d48c5",
+                "reference": "251a56c7341c3b1485f6a2a5f9cab55aa55d48c5",
                 "shasum": ""
             },
             "require": {
@@ -1244,20 +1244,20 @@
                 "files",
                 "module"
             ],
-            "time": "2016-05-04 11:36:39"
+            "time": "2016-06-16 15:37:31"
         },
         {
             "name": "cvepdb-cms/module-installer",
-            "version": "1.0.52.13",
+            "version": "1.0.52.14",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-installer.git",
-                "reference": "9e31711ca4ed04e0ad958b36d563f602b0d31797"
+                "reference": "a7e60149127533f47a5ba419abfc6d063b9e6d7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=9e31711ca4ed04e0ad958b36d563f602b0d31797",
-                "reference": "9e31711ca4ed04e0ad958b36d563f602b0d31797",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=a7e60149127533f47a5ba419abfc6d063b9e6d7b",
+                "reference": "a7e60149127533f47a5ba419abfc6d063b9e6d7b",
                 "shasum": ""
             },
             "require": {
@@ -1291,7 +1291,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-06-16 15:43:28"
+            "time": "2016-06-16 16:04:02"
         },
         {
             "name": "cvepdb-cms/module-navigations",
@@ -1980,16 +1980,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "46a476a6ac1f614442c7e4b1a6dca44f0b34f892"
+                "reference": "315485ae4bc22affb75be25709740949460b851a"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/collections/zipball/315485ae4bc22affb75be25709740949460b851a",
-                "reference": "46a476a6ac1f614442c7e4b1a6dca44f0b34f892",
+                "reference": "315485ae4bc22affb75be25709740949460b851a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": "^5.3.2 || ^7.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0"
@@ -2038,7 +2038,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2016-05-27 12:51:06"
+            "time": "2016-06-16 12:51:43"
         },
         {
             "name": "doctrine/common",
@@ -3603,12 +3603,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem-rackspace.git",
-                "reference": "ba877e837f5dce60e78a0555de37eb9bfc7dd6b9"
+                "reference": "29b3b63fccb927f34b37ae0198c95a1afa8e86a8"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/flysystem-rackspace/zipball/29b3b63fccb927f34b37ae0198c95a1afa8e86a8",
-                "reference": "ba877e837f5dce60e78a0555de37eb9bfc7dd6b9",
+                "reference": "29b3b63fccb927f34b37ae0198c95a1afa8e86a8",
                 "shasum": ""
             },
             "require": {
@@ -3642,7 +3642,7 @@
                 }
             ],
             "description": "Flysystem adapter for Rackspace",
-            "time": "2016-03-11 12:13:42"
+            "time": "2016-06-16 13:42:28"
         },
         {
             "name": "league/fractal",
@@ -5880,12 +5880,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "744efc46ffc6c3cde3753a963da930343dcd98c9"
+                "reference": "bb45881a17770c898c0299cac6f08838dbbe1c46"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/bb45881a17770c898c0299cac6f08838dbbe1c46",
-                "reference": "744efc46ffc6c3cde3753a963da930343dcd98c9",
+                "reference": "bb45881a17770c898c0299cac6f08838dbbe1c46",
                 "shasum": ""
             },
             "require": {
@@ -5930,7 +5930,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-06-15 11:23:51"
+            "time": "2016-06-16 12:49:46"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7316,12 +7316,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/blackfireio/php-sdk.git",
-                "reference": "ace7dd0030332f5c5c7aeecd324efcc6cae9f109"
+                "reference": "7ec46d0200d16033884a552c7612fa9ed4dc80d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blackfireio/php-sdk/zipball/ace7dd0030332f5c5c7aeecd324efcc6cae9f109",
-                "reference": "ace7dd0030332f5c5c7aeecd324efcc6cae9f109",
+                "url": "https://api.github.com/repos/blackfireio/php-sdk/zipball/7ec46d0200d16033884a552c7612fa9ed4dc80d3",
+                "reference": "7ec46d0200d16033884a552c7612fa9ed4dc80d3",
                 "shasum": ""
             },
             "require": {
@@ -7363,7 +7363,7 @@
                 "uprofiler",
                 "xhprof"
             ],
-            "time": "2016-05-30 14:34:04"
+            "time": "2016-06-16 13:26:27"
         },
         {
             "name": "captbaritone/mailcatcher-codeception-module",
