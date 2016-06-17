@@ -108,7 +108,7 @@ class Kernel extends HttpKernel
 		// CMS specific
 		'CMSAllowInstallation'          => \Modules\Installer\Http\Middleware\CMSAllowInstallation::class,
 		'CMSInstalled'                  => \Modules\Installer\Http\Middleware\CMSInstalled::class,
-		'APIResponseHeaderJsMiddleware' => \CVEPDB\Http\Middlewares\APIResponseHeaderJsMiddleware::class,
+		'APIResponseHeaderJsMiddleware' => \CVEPDB\Http\Middlewares\ApiResponseHeaderJsMiddleware::class,
 		'apiguard'                      => \Chrisbjr\ApiGuard\Http\Middleware\ApiGuard::class,
 	];
 }
