@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "701d3179751ffad223ad2d792a7066f9",
-    "content-hash": "f719f65ed47bf739c4cc10c16dd24619",
+    "hash": "bd4a28bc8e2642c4bf73a99b9a62d920",
+    "content-hash": "fa4e2dc63e86308621e0df14e1199d76",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2486,6 +2486,63 @@
                 "parser"
             ],
             "time": "2015-11-01 10:19:22"
+        },
+        {
+            "name": "facebook/php-sdk-v4",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/facebook-php-sdk-v4.git",
+                "reference": "c57935ae1230f30bfbf097d88adcff8b8b9b2246"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/c57935ae1230f30bfbf097d88adcff8b8b9b2246",
+                "reference": "c57935ae1230f30bfbf097d88adcff8b8b9b2246",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4|^7.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "~5.0",
+                "mockery/mockery": "~0.8",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Allows for implementation of the Guzzle HTTP client"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Facebook\\": "src/Facebook/"
+                },
+                "files": [
+                    "src/Facebook/polyfills.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Facebook Platform"
+            ],
+            "authors": [
+                {
+                    "name": "Facebook",
+                    "homepage": "https://github.com/facebook/facebook-php-sdk-v4/contributors"
+                }
+            ],
+            "description": "Facebook SDK for PHP",
+            "homepage": "https://github.com/facebook/facebook-php-sdk-v4",
+            "keywords": [
+                "facebook",
+                "sdk"
+            ],
+            "time": "2016-05-26 14:13:12"
         },
         {
             "name": "guzzle/guzzle",
@@ -5364,6 +5421,65 @@
             "time": "2016-04-27 17:02:46"
         },
         {
+            "name": "sammyk/laravel-facebook-sdk",
+            "version": "3.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SammyK/LaravelFacebookSdk.git",
+                "reference": "631a8870be7bd56d7bf4fde56175b9b1b7e1166b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SammyK/LaravelFacebookSdk/zipball/631a8870be7bd56d7bf4fde56175b9b1b7e1166b",
+                "reference": "631a8870be7bd56d7bf4fde56175b9b1b7e1166b",
+                "shasum": ""
+            },
+            "require": {
+                "facebook/php-sdk-v4": "~5.0|~5.1|~5.2",
+                "illuminate/auth": "~5.0|~5.1|~5.2",
+                "illuminate/config": "~5.0|~5.1|~5.2",
+                "illuminate/database": "~5.0|~5.1|~5.2",
+                "illuminate/routing": "~5.0|~5.1|~5.2",
+                "illuminate/session": "~5.0|~5.1|~5.2",
+                "illuminate/support": "~5.0|~5.1|~5.2",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SammyK\\LaravelFacebookSdk\\": "src/LaravelFacebookSdk"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sammy Kaye Powers",
+                    "email": "me@sammyk.me",
+                    "homepage": "http://sammyk.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Fully unit tested Facebook SDK v5 integration for Laravel & Lumen 5.x",
+            "homepage": "https://github.com/SammyK/LaravelFacebookSdk",
+            "keywords": [
+                "facebook",
+                "facebook sdk v4",
+                "facebook sdk v5",
+                "laravel",
+                "lumen",
+                "sdk"
+            ],
+            "time": "2016-04-12 21:53:15"
+        },
+        {
             "name": "seld/cli-prompt",
             "version": "dev-master",
             "source": {
@@ -5883,12 +5999,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "bb45881a17770c898c0299cac6f08838dbbe1c46"
+                "reference": "7616eee17008ab0071ae4188cd2dde0f34ba5420"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/bb45881a17770c898c0299cac6f08838dbbe1c46",
-                "reference": "bb45881a17770c898c0299cac6f08838dbbe1c46",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/7616eee17008ab0071ae4188cd2dde0f34ba5420",
+                "reference": "7616eee17008ab0071ae4188cd2dde0f34ba5420",
                 "shasum": ""
             },
             "require": {
@@ -5933,7 +6049,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-06-16 12:49:46"
+            "time": "2016-06-17 11:42:23"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -10057,12 +10173,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "6e6a2a0b9aa7be83acb7ba4936f59abea20b6cd0"
+                "reference": "42c4c2eec485ee3e159ec9884f95b431287edde4"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/42c4c2eec485ee3e159ec9884f95b431287edde4",
-                "reference": "6e6a2a0b9aa7be83acb7ba4936f59abea20b6cd0",
+                "reference": "42c4c2eec485ee3e159ec9884f95b431287edde4",
                 "shasum": ""
             },
             "require": {
@@ -10116,7 +10232,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2016-06-17 08:12:15"
+            "time": "2016-06-17 09:04:28"
         },
         {
             "name": "sebastian/finder-facade",
