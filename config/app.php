@@ -39,7 +39,7 @@ return [
 	|
 	*/
 
-	'url' => env('CORE_URL', 'http://localhost/'),
+	'url' => env('CORE_URL', 'http://localhost'),
 
 	/*
 	|--------------------------------------------------------------------------

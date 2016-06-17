@@ -135,7 +135,7 @@ return [
 	|
 	*/
 
-	'domain' => null,
+	'domain' => parse_url(env('CORE_URL', null), PHP_URL_HOST),
 
 	/*
 	|--------------------------------------------------------------------------
