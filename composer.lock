@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5ad0cd3bf4a14fcacd094c4515f9f44c",
-    "content-hash": "0f474a37272288e90ca4fb2a16f92fec",
+    "hash": "a93d2cd2355fcaed62e37e38b0984e52",
+    "content-hash": "f20637ff27192fcf395b8abc3ed61ecd",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -5609,6 +5609,60 @@
             "time": "2016-06-10 18:15:46"
         },
         {
+            "name": "simplepie/simplepie",
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/simplepie/simplepie.git",
+                "reference": "2f272a0ded122594923baa7d7612fe0d915b2b8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/simplepie/simplepie/zipball/2f272a0ded122594923baa7d7612fe0d915b2b8a",
+                "reference": "2f272a0ded122594923baa7d7612fe0d915b2b8a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SimplePie": "library"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Parman",
+                    "homepage": "http://ryanparman.com/",
+                    "role": "Creator, alumnus developer"
+                },
+                {
+                    "name": "Geoffrey Sneddon",
+                    "homepage": "http://gsnedders.com/",
+                    "role": "Alumnus developer"
+                },
+                {
+                    "name": "Ryan McCue",
+                    "email": "me@ryanmccue.info",
+                    "homepage": "http://ryanmccue.info/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple Atom/RSS parsing library for PHP",
+            "homepage": "http://simplepie.org/",
+            "keywords": [
+                "atom",
+                "feeds",
+                "rss"
+            ],
+            "time": "2016-06-02 07:01:12"
+        },
+        {
             "name": "spatie/db-dumper",
             "version": "1.5.0",
             "source": {
@@ -10904,6 +10958,7 @@
         "cvepdb-cms/theme-flatly": 20,
         "cvepdb-cms/module-clashofclan": 20,
         "cvepdb-cms/module-steam": 20,
+        "toniperic/php-clash-of-clans": 20,
         "redcomponent/teststatistics": 20
     },
     "prefer-stable": false,
