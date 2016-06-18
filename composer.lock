@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bd4a28bc8e2642c4bf73a99b9a62d920",
-    "content-hash": "fa4e2dc63e86308621e0df14e1199d76",
+    "hash": "7091989306811e7ef4764725db975bd5",
+    "content-hash": "27f38e627da957ac5c7bde4a141932f8",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -56,6 +56,61 @@
                 "toolkit"
             ],
             "time": "2015-05-16 19:24:58"
+        },
+        {
+            "name": "artesaos/laravel-linkedin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/artesaos/laravel-linkedin.git",
+                "reference": "2d2a6b83b566ac4958fd56a32178df8f36fdc7a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/artesaos/laravel-linkedin/zipball/2d2a6b83b566ac4958fd56a32178df8f36fdc7a7",
+                "reference": "2d2a6b83b566ac4958fd56a32178df8f36fdc7a7",
+                "shasum": ""
+            },
+            "require": {
+                "happyr/linkedin-api-client": "0.7.*",
+                "illuminate/contracts": "~5.1 || ~5.2",
+                "illuminate/database": "~5.1 || ~5.2",
+                "illuminate/http": "~5.1 || ~5.2",
+                "illuminate/support": "~5.1 || ~5.2",
+                "php": ">=5.5.9",
+                "php-http/guzzle6-adapter": "^1.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Artesaos\\LinkedIn\\": "src/Artesaos/LinkedIn/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mauri de Souza Nunes",
+                    "email": "mauri870@gmail.com"
+                }
+            ],
+            "description": "Linkedin API integration for Laravel and Lumen 5",
+            "keywords": [
+                "Laravel Framework",
+                "api",
+                "client",
+                "integration",
+                "linkedin",
+                "lumen",
+                "rest",
+                "sdk"
+            ],
+            "time": "2016-06-18 16:33:29"
         },
         {
             "name": "aws/aws-php-sns-message-validator",
@@ -690,6 +745,55 @@
                 "preload"
             ],
             "time": "2016-01-24 12:28:38"
+        },
+        {
+            "name": "clue/stream-filter",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/clue/php-stream-filter.git",
+                "reference": "e3bf9415da163d9ad6701dccb407ed501ae69785"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/clue/php-stream-filter/zipball/e3bf9415da163d9ad6701dccb407ed501ae69785",
+                "reference": "e3bf9415da163d9ad6701dccb407ed501ae69785",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Clue\\StreamFilter\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Lück",
+                    "email": "christian@lueck.tv"
+                }
+            ],
+            "description": "A simple and modern approach to stream filtering in PHP",
+            "homepage": "https://github.com/clue/php-stream-filter",
+            "keywords": [
+                "bucket brigade",
+                "callback",
+                "filter",
+                "php_user_filter",
+                "stream",
+                "stream_filter_append",
+                "stream_filter_register"
+            ],
+            "time": "2015-11-08 23:41:30"
         },
         {
             "name": "composer/ca-bundle",
@@ -1396,16 +1500,16 @@
         },
         {
             "name": "cvepdb-cms/module-posts",
-            "version": "1.0.52.1",
+            "version": "1.0.52.2",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-posts.git",
-                "reference": "0a71b60a22aa471950a5e27df1d36225b592a638"
+                "reference": "f3fd064365e4f13295abac099bd00af6c44c2314"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-posts/repository/archive.zip?sha=0a71b60a22aa471950a5e27df1d36225b592a638",
-                "reference": "0a71b60a22aa471950a5e27df1d36225b592a638",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-posts/repository/archive.zip?sha=f3fd064365e4f13295abac099bd00af6c44c2314",
+                "reference": "f3fd064365e4f13295abac099bd00af6c44c2314",
                 "shasum": ""
             },
             "type": "laravel-library",
@@ -1434,7 +1538,7 @@
                 "module",
                 "posts"
             ],
-            "time": "2016-06-16 14:49:57"
+            "time": "2016-06-17 18:29:40"
         },
         {
             "name": "cvepdb-cms/module-themes",
@@ -1493,16 +1597,16 @@
         },
         {
             "name": "cvepdb-cms/module-users",
-            "version": "1.0.52.7",
+            "version": "1.0.52.8",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-users.git",
-                "reference": "b91819603d30544f649f0e283fa90752e5691a77"
+                "reference": "06d9e202181c52cb4661e3791bd42bcda6296916"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=b91819603d30544f649f0e283fa90752e5691a77",
-                "reference": "b91819603d30544f649f0e283fa90752e5691a77",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=06d9e202181c52cb4661e3791bd42bcda6296916",
+                "reference": "06d9e202181c52cb4661e3791bd42bcda6296916",
                 "shasum": ""
             },
             "require": {
@@ -1536,7 +1640,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2016-06-16 15:28:28"
+            "time": "2016-06-16 15:39:39"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -2046,12 +2150,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "faf7d81273eeffb84d524006daf85d37a14ac42a"
+                "reference": "3e04e229ef7a39fdeef1aaec1f6a0230897f02a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/faf7d81273eeffb84d524006daf85d37a14ac42a",
-                "reference": "faf7d81273eeffb84d524006daf85d37a14ac42a",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/3e04e229ef7a39fdeef1aaec1f6a0230897f02a9",
+                "reference": "3e04e229ef7a39fdeef1aaec1f6a0230897f02a9",
                 "shasum": ""
             },
             "require": {
@@ -2060,10 +2164,10 @@
                 "doctrine/collections": "1.*",
                 "doctrine/inflector": "1.*",
                 "doctrine/lexer": "1.*",
-                "php": "~5.5|~7.0"
+                "php": "~5.6|~7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.8|~5.0"
+                "phpunit/phpunit": "^5.4.6"
             },
             "type": "library",
             "extra": {
@@ -2111,7 +2215,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2016-05-25 16:10:02"
+            "time": "2016-06-18 16:54:00"
         },
         {
             "name": "doctrine/dbal",
@@ -2645,12 +2749,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "eeff956f2c60d3283869d0874353794dedb26865"
+                "reference": "61b1d4986f0aeb9ce9fe133a7e089a361b864854"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/eeff956f2c60d3283869d0874353794dedb26865",
-                "reference": "eeff956f2c60d3283869d0874353794dedb26865",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/61b1d4986f0aeb9ce9fe133a7e089a361b864854",
+                "reference": "61b1d4986f0aeb9ce9fe133a7e089a361b864854",
                 "shasum": ""
             },
             "require": {
@@ -2699,7 +2803,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-06-12 23:58:31"
+            "time": "2016-06-17 17:47:21"
         },
         {
             "name": "guzzlehttp/promises",
@@ -2809,6 +2913,66 @@
                 "uri"
             ],
             "time": "2016-06-07 17:55:54"
+        },
+        {
+            "name": "happyr/linkedin-api-client",
+            "version": "0.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Happyr/LinkedIn-API-client.git",
+                "reference": "dcb4801bc54911e81dab87caf57ee54832b9a027"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Happyr/LinkedIn-API-client/zipball/dcb4801bc54911e81dab87caf57ee54832b9a027",
+                "reference": "dcb4801bc54911e81dab87caf57ee54832b9a027",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4|^7.0",
+                "php-http/client-implementation": "^1.0",
+                "php-http/discovery": "^0.8",
+                "php-http/httplug": "^1.0",
+                "php-http/message": "^1.0",
+                "php-http/message-factory": "^1.0"
+            },
+            "require-dev": {
+                "guzzlehttp/psr7": "^1.2",
+                "illuminate/support": "^5.0",
+                "mockery/mockery": "^0.9",
+                "php-http/guzzle5-adapter": "^0.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Happyr\\LinkedIn\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias@happyr.com"
+                }
+            ],
+            "description": "LinkedIn API client. Handles OAuth, CSRF protection. Easy to implement and extend. This is a standalone library for any composer project.",
+            "homepage": "http://developer.happyr.com/libraries/linkedin-php-client",
+            "keywords": [
+                "api",
+                "client",
+                "linkedin",
+                "oauth",
+                "sdk"
+            ],
+            "time": "2016-03-06 07:59:05"
         },
         {
             "name": "intervention/image",
@@ -4539,6 +4703,352 @@
             "time": "2015-09-29 14:47:49"
         },
         {
+            "name": "php-http/discovery",
+            "version": "v0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/discovery.git",
+                "reference": "fac1240e8a070b3e2f0e38606941de80c849fa53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/fac1240e8a070b3e2f0e38606941de80c849fa53",
+                "reference": "fac1240e8a070b3e2f0e38606941de80c849fa53",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4|7.*"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "^1.0",
+                "php-http/httplug": "^1.0",
+                "php-http/message-factory": "^1.0",
+                "phpspec/phpspec": "^2.4",
+                "puli/composer-plugin": "1.0.0-beta9"
+            },
+            "suggest": {
+                "php-http/message": "Allow to use Guzzle or Diactoros factories",
+                "puli/composer-plugin": "Sets up Puli which is required for Discovery to work. Check http://docs.php-http.org/en/latest/discovery.html for more details."
+            },
+            "bin": [
+                "bin/puli.phar"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Discovery\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Finds installed HTTPlug implementations and PSR-7 message factories",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "adapter",
+                "client",
+                "discovery",
+                "factory",
+                "http",
+                "message"
+            ],
+            "time": "2016-02-11 09:53:37"
+        },
+        {
+            "name": "php-http/guzzle6-adapter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/guzzle6-adapter.git",
+                "reference": "a56941f9dc6110409cfcddc91546ee97039277ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/guzzle6-adapter/zipball/a56941f9dc6110409cfcddc91546ee97039277ab",
+                "reference": "a56941f9dc6110409cfcddc91546ee97039277ab",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0",
+                "php": ">=5.5.0",
+                "php-http/httplug": "^1.0"
+            },
+            "provide": {
+                "php-http/async-client-implementation": "1.0",
+                "php-http/client-implementation": "1.0"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "php-http/adapter-integration-tests": "^0.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Adapter\\Guzzle6\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                },
+                {
+                    "name": "David de Boer",
+                    "email": "david@ddeboer.nl"
+                }
+            ],
+            "description": "Guzzle 6 HTTP Adapter",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "Guzzle",
+                "http"
+            ],
+            "time": "2016-05-10 06:13:32"
+        },
+        {
+            "name": "php-http/httplug",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/httplug.git",
+                "reference": "19deb66509fa3d5a828892a05c9e572c48a5c7ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/httplug/zipball/19deb66509fa3d5a828892a05c9e572c48a5c7ad",
+                "reference": "19deb66509fa3d5a828892a05c9e572c48a5c7ad",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "php-http/promise": "^1.0",
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "^1.0",
+                "phpspec/phpspec": "^2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eric GELOEN",
+                    "email": "geloen.eric@gmail.com"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "HTTPlug, the HTTP client abstraction for PHP",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "client",
+                "http"
+            ],
+            "time": "2016-01-28 07:53:22"
+        },
+        {
+            "name": "php-http/message",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/message.git",
+                "reference": "c8fadec9533f5e34a8a730a947fa76363f3aa620"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/message/zipball/c8fadec9533f5e34a8a730a947fa76363f3aa620",
+                "reference": "c8fadec9533f5e34a8a730a947fa76363f3aa620",
+                "shasum": ""
+            },
+            "require": {
+                "clue/stream-filter": "^1.3",
+                "php": ">=5.4",
+                "php-http/message-factory": "^1.0.2",
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "coduo/phpspec-data-provider-extension": "^1.0",
+                "ext-zlib": "*",
+                "guzzlehttp/psr7": "^1.0",
+                "henrikbjorn/phpspec-code-coverage": "^1.0",
+                "phpspec/phpspec": "^2.4",
+                "zendframework/zend-diactoros": "^1.0"
+            },
+            "suggest": {
+                "ext-zlib": "Used with compressor/decompressor streams",
+                "guzzlehttp/psr7": "Used with Guzzle PSR-7 Factories",
+                "zendframework/zend-diactoros": "Used with Diactoros Factories"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Message\\": "src/"
+                },
+                "files": [
+                    "src/filters.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "HTTP Message related tools",
+            "homepage": "http://php-http.org",
+            "keywords": [
+                "http",
+                "message",
+                "psr-7"
+            ],
+            "time": "2016-03-29 20:44:24"
+        },
+        {
+            "name": "php-http/message-factory",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/message-factory.git",
+                "reference": "a2809d4fe294ebe8879aec8d4d5bf21faa029344"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/message-factory/zipball/a2809d4fe294ebe8879aec8d4d5bf21faa029344",
+                "reference": "a2809d4fe294ebe8879aec8d4d5bf21faa029344",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Factory interfaces for PSR-7 HTTP Message",
+            "homepage": "http://php-http.org",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "stream",
+                "uri"
+            ],
+            "time": "2016-02-03 08:16:31"
+        },
+        {
+            "name": "php-http/promise",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/promise.git",
+                "reference": "810b30da8bcf69e4b82c4b9bc6b31518234293ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/promise/zipball/810b30da8bcf69e4b82c4b9bc6b31518234293ab",
+                "reference": "810b30da8bcf69e4b82c4b9bc6b31518234293ab",
+                "shasum": ""
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "^1.0",
+                "phpspec/phpspec": "^2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Promise\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                },
+                {
+                    "name": "Joel Wurtz",
+                    "email": "joel.wurtz@gmail.com"
+                }
+            ],
+            "description": "Promise used for asynchronous HTTP requests",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2016-01-28 07:54:12"
+        },
+        {
             "name": "phpoffice/phpexcel",
             "version": "1.8.x-dev",
             "source": {
@@ -5999,12 +6509,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "7616eee17008ab0071ae4188cd2dde0f34ba5420"
+                "reference": "e50b54cd149af3016f8a1a2cde2c0da9b355e1e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/7616eee17008ab0071ae4188cd2dde0f34ba5420",
-                "reference": "7616eee17008ab0071ae4188cd2dde0f34ba5420",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/e50b54cd149af3016f8a1a2cde2c0da9b355e1e3",
+                "reference": "e50b54cd149af3016f8a1a2cde2c0da9b355e1e3",
                 "shasum": ""
             },
             "require": {
@@ -6049,7 +6559,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-06-17 11:42:23"
+            "time": "2016-06-18 15:02:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -11165,6 +11675,7 @@
     "stability-flags": {
         "beelab/bowerphp": 10,
         "composer/composer": 10,
+        "artesaos/laravel-linkedin": 20,
         "redcomponent/teststatistics": 20
     },
     "prefer-stable": false,
