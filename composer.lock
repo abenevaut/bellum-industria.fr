@@ -63,12 +63,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/artesaos/laravel-linkedin.git",
-                "reference": "2d2a6b83b566ac4958fd56a32178df8f36fdc7a7"
+                "reference": "311d345b766a6009f669399ffb63c10436baa73a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/artesaos/laravel-linkedin/zipball/2d2a6b83b566ac4958fd56a32178df8f36fdc7a7",
-                "reference": "2d2a6b83b566ac4958fd56a32178df8f36fdc7a7",
+                "url": "https://api.github.com/repos/artesaos/laravel-linkedin/zipball/311d345b766a6009f669399ffb63c10436baa73a",
+                "reference": "311d345b766a6009f669399ffb63c10436baa73a",
                 "shasum": ""
             },
             "require": {
@@ -110,7 +110,7 @@
                 "rest",
                 "sdk"
             ],
-            "time": "2016-06-18 16:33:29"
+            "time": "2016-06-18 22:11:20"
         },
         {
             "name": "aws/aws-php-sns-message-validator",
@@ -2223,12 +2223,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "7d01ce70a1f8b7cbaa181c0ccb1a4225bbcf3000"
+                "reference": "caec26728251bcf205ac3aaa69c637912d9b9796"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/7d01ce70a1f8b7cbaa181c0ccb1a4225bbcf3000",
-                "reference": "7d01ce70a1f8b7cbaa181c0ccb1a4225bbcf3000",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/caec26728251bcf205ac3aaa69c637912d9b9796",
+                "reference": "caec26728251bcf205ac3aaa69c637912d9b9796",
                 "shasum": ""
             },
             "require": {
@@ -2286,7 +2286,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2016-06-15 15:29:18"
+            "time": "2016-06-19 09:45:35"
         },
         {
             "name": "doctrine/inflector",
@@ -3549,12 +3549,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "d79805ade4b1dd82bddcb6873b9a99f7421032f3"
+                "reference": "bcf0697d7dc70989cdfbfeb3270ecece3a80eae5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/d79805ade4b1dd82bddcb6873b9a99f7421032f3",
-                "reference": "d79805ade4b1dd82bddcb6873b9a99f7421032f3",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/bcf0697d7dc70989cdfbfeb3270ecece3a80eae5",
+                "reference": "bcf0697d7dc70989cdfbfeb3270ecece3a80eae5",
                 "shasum": ""
             },
             "require": {
@@ -3595,7 +3595,7 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
-            "time": "2016-06-10 19:16:34"
+            "time": "2016-06-19 05:01:55"
         },
         {
             "name": "league/flysystem",
@@ -5410,12 +5410,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
+                "reference": "6ab10b2b705ea5121f2c1ea87a290f6871c32ebd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/f0210e38881631afeafb56ab43405a92cafd9fd1",
-                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/6ab10b2b705ea5121f2c1ea87a290f6871c32ebd",
+                "reference": "6ab10b2b705ea5121f2c1ea87a290f6871c32ebd",
                 "shasum": ""
             },
             "require": {
@@ -5452,7 +5452,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2016-06-16 16:22:20"
+            "time": "2016-06-18 19:51:10"
         },
         {
             "name": "prettus/l5-repository",
@@ -6509,12 +6509,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "e50b54cd149af3016f8a1a2cde2c0da9b355e1e3"
+                "reference": "a1d6606f6a4e4b5f243d2f52717f87cbabced016"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/e50b54cd149af3016f8a1a2cde2c0da9b355e1e3",
-                "reference": "e50b54cd149af3016f8a1a2cde2c0da9b355e1e3",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/a1d6606f6a4e4b5f243d2f52717f87cbabced016",
+                "reference": "a1d6606f6a4e4b5f243d2f52717f87cbabced016",
                 "shasum": ""
             },
             "require": {
@@ -6559,7 +6559,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-06-18 15:02:00"
+            "time": "2016-06-19 06:15:46"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -9383,12 +9383,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "97c8d9eff3d82bb2ebf334457599c94c758ab483"
+                "reference": "7bdb09c4bd586e9530f3471130d3cc17ac1034f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/97c8d9eff3d82bb2ebf334457599c94c758ab483",
-                "reference": "97c8d9eff3d82bb2ebf334457599c94c758ab483",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/7bdb09c4bd586e9530f3471130d3cc17ac1034f5",
+                "reference": "7bdb09c4bd586e9530f3471130d3cc17ac1034f5",
                 "shasum": ""
             },
             "require": {
@@ -9467,7 +9467,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2016-06-12 19:19:42"
+            "time": "2016-06-19 04:29:33"
         },
         {
             "name": "phpspec/prophecy",
