@@ -87,6 +87,8 @@ class EnvironmentsOutputter extends AdminOutputter
 			'domain'    => $request->get('domain'),
 		]);
 
+		$this->r_environment->link_default_roles_with($environment);
+
 		$this->r_environment->link_users_with(
 			$environment,
 			[

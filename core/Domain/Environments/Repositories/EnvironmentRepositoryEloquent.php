@@ -66,20 +66,6 @@ class EnvironmentRepositoryEloquent extends BaseRepository implements Environmen
 	{
 		$environment = parent::create($attributes);
 
-		$this->link_roles_with(
-			$environment,
-			[
-				$this->r_roles
-					->findByField('name', RoleRepositoryEloquent::ADMIN)
-					->first()
-					->id,
-				$this->r_roles
-					->findByField('name', RoleRepositoryEloquent::USER)
-					->first()
-					->id,
-			]
-		);
-
 		event(new EnvironmentCreatedEvent($environment));
 
 		return $environment;
@@ -157,5 +143,27 @@ class EnvironmentRepositoryEloquent extends BaseRepository implements Environmen
 		{
 			$env->users()->attach($user);
 		}
+	}
+
+	/**
+	 * Allow to link default roles Admin and User to an environment.
+	 *
+	 * @param Environment $env
+	 */
+	public function link_default_roles_with(Environment $env)
+	{
+		$this->link_roles_with(
+			$env,
+			[
+				$this->r_roles
+					->findByField('name', RoleRepositoryEloquent::ADMIN)
+					->first()
+					->id,
+				$this->r_roles
+					->findByField('name', RoleRepositoryEloquent::USER)
+					->first()
+					->id,
+			]
+		);
 	}
 }

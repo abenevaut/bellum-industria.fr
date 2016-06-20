@@ -1496,16 +1496,16 @@
         },
         {
             "name": "cvepdb-cms/module-users",
-            "version": "1.0.52.8",
+            "version": "1.0.52.9",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-users.git",
-                "reference": "06d9e202181c52cb4661e3791bd42bcda6296916"
+                "reference": "cbe16280a623469fb693de2f6d53b24f33ef75f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=06d9e202181c52cb4661e3791bd42bcda6296916",
-                "reference": "06d9e202181c52cb4661e3791bd42bcda6296916",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=cbe16280a623469fb693de2f6d53b24f33ef75f7",
+                "reference": "cbe16280a623469fb693de2f6d53b24f33ef75f7",
                 "shasum": ""
             },
             "require": {
@@ -1539,7 +1539,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2016-06-16 15:39:39"
+            "time": "2016-06-19 13:48:39"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -1627,16 +1627,16 @@
         },
         {
             "name": "cvepdb/laravel",
-            "version": "1.0.52.15",
+            "version": "1.0.52.16",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb/laravel.git",
-                "reference": "1b9ead1d0868f7da5cafbd5974ef84603e5b9f88"
+                "reference": "4e5d68e135013bc2f90ac0c220bd4bf9df8051d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb%2Flaravel/repository/archive.zip?sha=1b9ead1d0868f7da5cafbd5974ef84603e5b9f88",
-                "reference": "1b9ead1d0868f7da5cafbd5974ef84603e5b9f88",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb%2Flaravel/repository/archive.zip?sha=4e5d68e135013bc2f90ac0c220bd4bf9df8051d7",
+                "reference": "4e5d68e135013bc2f90ac0c220bd4bf9df8051d7",
                 "shasum": ""
             },
             "require": {
@@ -1699,7 +1699,7 @@
                 "laravel",
                 "middlewares"
             ],
-            "time": "2016-05-26 16:05:14"
+            "time": "2016-06-16 23:51:08"
         },
         {
             "name": "cvepdb/laravel-addresses",
@@ -6408,12 +6408,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "a1d6606f6a4e4b5f243d2f52717f87cbabced016"
+                "reference": "e26984965f8f0bd4f093e2262c0ba38436e84865"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/a1d6606f6a4e4b5f243d2f52717f87cbabced016",
-                "reference": "a1d6606f6a4e4b5f243d2f52717f87cbabced016",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/e26984965f8f0bd4f093e2262c0ba38436e84865",
+                "reference": "e26984965f8f0bd4f093e2262c0ba38436e84865",
                 "shasum": ""
             },
             "require": {
@@ -6458,7 +6458,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-06-19 06:15:46"
+            "time": "2016-06-20 11:34:32"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7930,12 +7930,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/blackfireio/php-sdk.git",
-                "reference": "7ec46d0200d16033884a552c7612fa9ed4dc80d3"
+                "reference": "824b822f26da4c4d7377f0aa13f2520a853b4253"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blackfireio/php-sdk/zipball/7ec46d0200d16033884a552c7612fa9ed4dc80d3",
-                "reference": "7ec46d0200d16033884a552c7612fa9ed4dc80d3",
+                "url": "https://api.github.com/repos/blackfireio/php-sdk/zipball/824b822f26da4c4d7377f0aa13f2520a853b4253",
+                "reference": "824b822f26da4c4d7377f0aa13f2520a853b4253",
                 "shasum": ""
             },
             "require": {
@@ -7977,7 +7977,7 @@
                 "uprofiler",
                 "xhprof"
             ],
-            "time": "2016-06-16 13:26:27"
+            "time": "2016-06-20 11:41:11"
         },
         {
             "name": "captbaritone/mailcatcher-codeception-module",
