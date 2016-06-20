@@ -98,4 +98,22 @@ class EnvironmentRepositoryEloquent extends BaseRepository implements Environmen
 	{
 		return parse_url($url, PHP_URL_HOST);
 	}
+
+	/**
+	 * @param Environment $env
+	 * @param array       $roles Roles IDs to link to env
+	 */
+	public function link_roles_with(Environment $env, $roles = [])
+	{
+		$env->roles->attach($roles);
+	}
+
+	/**
+	 * @param Environment $env
+	 * @param array       $users Users IDs to link to env
+	 */
+	public function link_users_with(Environment $env, $users = [])
+	{
+		$env->users->attach($users);
+	}
 }

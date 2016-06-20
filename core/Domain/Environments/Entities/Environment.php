@@ -42,12 +42,4 @@ class Environment extends Model
 		return $this->belongsToMany('Core\Domain\Roles\Entities\Role');
 	}
 
-	/**
-	 * Permissions that belong to the env.
-	 */
-	public function permissions()
-	{
-		return $this->belongsToMany('Core\Domain\Roles\Entities\Permission');
-	}
-
 }

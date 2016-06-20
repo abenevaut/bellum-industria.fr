@@ -26,12 +26,21 @@ class EnvironmentEventListener
 
 	/**
 	 * Handle EnvironmentCreatedEvent events.
+	 *
+	 * Set directories access for default and new environment.
+	 *
+	 * @param EnvironmentCreatedEvent $event
 	 */
 	public function environmentCreatedEvent(EnvironmentCreatedEvent $event)
 	{
+
 		$env_uploads_directory = public_path(
 			'uploads/' . $event->environment->reference . '/uploads'
 		);
+
+		/*
+		 * Create environment uploads directory
+		 */
 
 		if (!File::exists($env_uploads_directory))
 		{
@@ -53,7 +62,6 @@ class EnvironmentEventListener
 			'uploads',
 			$event->environment->reference
 		);
-
 		Settings::set(
 			'filesystems.disks',
 			[
@@ -65,7 +73,6 @@ class EnvironmentEventListener
 			],
 			$event->environment->reference
 		);
-
 		Settings::set(
 			'elfinder.dir',
 			'uploads/' . $event->environment->reference . '/uploads',
@@ -77,27 +84,25 @@ class EnvironmentEventListener
 		 */
 
 		Settings::set(
-			'elfinder.disks',
-			[
-
-				'backups' => [
-					'alias' => 'Backups',
-					'URL'   => null,
-				],
-
-			]
-		);
-
-		Settings::set(
 			'filesystems.disks',
-			Settings::get('filesystems.disks') + [
-				$env_uploads_directory . '_uploads' => [
-					'driver'     => 'local',
-					'root'       => $env_uploads_directory,
-					'visibility' => 'public',
-					'Alias'      => $env_uploads_directory . ' uploads'
-				],
-			]
+			Settings::get('filesystems.disks')
+				+ [
+					$event->environment->reference . '_uploads' => [
+						'driver'     => 'local',
+						'root'       => $env_uploads_directory,
+						'visibility' => 'public',
+					],
+				]
+		);
+		Settings::set(
+			'elfinder.disks',
+			Settings::get('elfinder.disks')
+				+ [
+					$event->environment->reference . '_uploads' => [
+						'alias' => $event->environment->name . ' uploads',
+						'URL'   => null,
+					],
+				]
 		);
 
 	}

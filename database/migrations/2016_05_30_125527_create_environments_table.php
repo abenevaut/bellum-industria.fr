@@ -26,7 +26,8 @@ class CreateEnvironmentsTable extends Migration
 				->unique('reference');
 
 			$table->string('domain')
-				->index();
+				->index()
+				->unique('domain');
 		});
 	}
 
