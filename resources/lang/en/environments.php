@@ -1,0 +1,20 @@
+<?php
+
+return [
+
+	'meta_title'       => 'Environments',
+	'meta_description' => 'environments panel',
+
+	'index.title'               => 'Environments list',
+	'index.no_data.title'       => 'There is no environment',
+	'index.no_data.description' => 'Currently no environment was register in website',
+	'index.btn.add'             => 'Add environment',
+
+	'index.modal.add.title' => 'Add environment',
+
+	'index.modal.delete.title' => 'Delete environment',
+
+	'index.modal.update.title'    => 'Update environment',
+	'index.modal.update.btn.edit' => 'Edit',
+
+];

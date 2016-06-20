@@ -21,8 +21,6 @@
     "cvepdb-cms/module-dashboard": "1.0.52.*",
     "cvepdb-cms/module-files": "1.0.52.*",
     "cvepdb-cms/module-installer": "1.0.52.*",
-    "cvepdb-cms/module-navigations": "1.0.52.*",
-    "cvepdb-cms/module-pages": "1.0.52.*",
     "cvepdb-cms/module-posts": "1.0.52.*",
     "cvepdb-cms/module-themes": "1.0.52.*",
     "cvepdb-cms/module-users": "1.0.52.*",
@@ -113,10 +111,8 @@
         "cvepdb-cms/module-installer",
         "cvepdb-cms/module-dashboard",
         "cvepdb-cms/module-themes",
-        "cvepdb-cms/module-navigations",
         "cvepdb-cms/module-files",
         "cvepdb-cms/module-users",
-        "cvepdb-cms/module-pages",
         "cvepdb-cms/module-posts"
       ],
       "resources/themes/{$name}": [

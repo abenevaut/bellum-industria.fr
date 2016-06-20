@@ -41,5 +41,8 @@ return [
 	'confirm_password' => 'Confirm password',
 	'remember_me'      => 'Remember me',
 	'environment_s'    => 'Environment(s)',
-	'all'              => 'All'
+	'all'              => 'All',
+	'reference'        => 'Reference',
+	'domain'           => 'Domain',
+	'add'              => 'Add',
 ];

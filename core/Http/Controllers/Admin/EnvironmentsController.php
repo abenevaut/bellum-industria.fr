@@ -4,6 +4,7 @@ use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
 use Core\Http\Controllers\CoreAdminController;
 use Core\Http\Outputters\Admin\EnvironmentsOutputter;
+use Core\Http\Requests\Admin\EnvironmentFormRequest;
 use Core\Http\Requests\Admin\SettingsStoreFormRequest;
 
 /**
@@ -37,7 +38,7 @@ class EnvironmentsController extends CoreAdminController
 	}
 
 	/**
-	 * @return mixed
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function index()
 	{
@@ -45,10 +46,43 @@ class EnvironmentsController extends CoreAdminController
 	}
 
 	/**
-	 * @return mixed
+	 * @param EnvironmentFormRequest $request
+	 *
+	 * @return mixed|\Redirect
 	 */
-	public function store(SettingsStoreFormRequest $request)
+	public function store(EnvironmentFormRequest $request)
 	{
 		return $this->outputter->store($request);
+	}
+
+	/**
+	 * @param $id
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function show($id)
+	{
+		return $this->outputter->show($id);
+	}
+
+	/**
+	 * @param EnvironmentFormRequest $request
+	 * @param                        $id
+	 *
+	 * @return mixed|\Redirect
+	 */
+	public function update(EnvironmentFormRequest $request, $id)
+	{
+		return $this->outputter->update($request, $id);
+	}
+
+	/**
+	 * @param $id
+	 *
+	 * @return mixed
+	 */
+	public function destroy($id)
+	{
+		return $this->outputter->destroy($id);
 	}
 }

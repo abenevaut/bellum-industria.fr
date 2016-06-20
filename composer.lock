@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7091989306811e7ef4764725db975bd5",
-    "content-hash": "27f38e627da957ac5c7bde4a141932f8",
+    "hash": "8efb3f077e5d1380d160b9cb357b5bb6",
+    "content-hash": "0fa99cf1c71ce83cde9f69c6be9b165e",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1398,107 +1398,6 @@
             "time": "2016-06-16 16:04:02"
         },
         {
-            "name": "cvepdb-cms/module-navigations",
-            "version": "1.0.52.2",
-            "source": {
-                "type": "git",
-                "url": "git@gitlab.com:cvepdb-cms/module-navigations.git",
-                "reference": "685c3605b8b967c93aed01edf7b160160256aea5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-navigations/repository/archive.zip?sha=685c3605b8b967c93aed01edf7b160160256aea5",
-                "reference": "685c3605b8b967c93aed01edf7b160160256aea5",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "~1.0",
-                "cvepdb-cms/theme-adminlte": "1.0.52.*",
-                "cvepdb-cms/theme-lumen": "1.0.52.*",
-                "php": ">=5.5.9"
-            },
-            "type": "laravel-library",
-            "extra": {
-                "installer-name": "Navigations",
-                "installer-paths": {
-                    "resources/themes/{$name}": [
-                        "cvepdb-cms/theme-adminlte",
-                        "cvepdb-cms/theme-lumen"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Modules\\Navigations\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "open"
-            ],
-            "authors": [
-                {
-                    "name": "Antoine Benevaut",
-                    "email": "antoine@cvepdb.fr"
-                }
-            ],
-            "description": "Navigations manager for cvepdb-cms",
-            "homepage": "http://cavaencoreparlerdebits.fr",
-            "keywords": [
-                "CVEPDB",
-                "Navigations",
-                "cms",
-                "module"
-            ],
-            "time": "2016-06-16 14:11:45"
-        },
-        {
-            "name": "cvepdb-cms/module-pages",
-            "version": "1.0.52.4",
-            "source": {
-                "type": "git",
-                "url": "git@gitlab.com:cvepdb-cms/module-pages.git",
-                "reference": "a098b6a49506c99ff56fd01b44367e91598228c7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-pages/repository/archive.zip?sha=a098b6a49506c99ff56fd01b44367e91598228c7",
-                "reference": "a098b6a49506c99ff56fd01b44367e91598228c7",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "~1.0",
-                "php": ">=5.5.9"
-            },
-            "type": "laravel-library",
-            "extra": {
-                "installer-name": "Pages"
-            },
-            "autoload": {
-                "psr-4": {
-                    "Modules\\Pages\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "open"
-            ],
-            "authors": [
-                {
-                    "name": "Antoine Benevaut",
-                    "email": "antoine@cvepdb.fr"
-                }
-            ],
-            "description": "Pages module for #CVEPDB CMS",
-            "keywords": [
-                "CVEPDB",
-                "cms",
-                "module",
-                "pages"
-            ],
-            "time": "2016-06-16 15:00:00"
-        },
-        {
             "name": "cvepdb-cms/module-posts",
             "version": "1.0.52.2",
             "source": {
@@ -2150,12 +2049,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "3e04e229ef7a39fdeef1aaec1f6a0230897f02a9"
+                "reference": "c16f1f8063fed82aa4e495fed19f84cca3263254"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/3e04e229ef7a39fdeef1aaec1f6a0230897f02a9",
-                "reference": "3e04e229ef7a39fdeef1aaec1f6a0230897f02a9",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/c16f1f8063fed82aa4e495fed19f84cca3263254",
+                "reference": "c16f1f8063fed82aa4e495fed19f84cca3263254",
                 "shasum": ""
             },
             "require": {
@@ -2215,7 +2114,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2016-06-18 16:54:00"
+            "time": "2016-06-19 16:38:36"
         },
         {
             "name": "doctrine/dbal",
@@ -2749,12 +2648,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "61b1d4986f0aeb9ce9fe133a7e089a361b864854"
+                "reference": "79c6fbef131eed51ab82bf813e9694419931bc8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/61b1d4986f0aeb9ce9fe133a7e089a361b864854",
-                "reference": "61b1d4986f0aeb9ce9fe133a7e089a361b864854",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/79c6fbef131eed51ab82bf813e9694419931bc8b",
+                "reference": "79c6fbef131eed51ab82bf813e9694419931bc8b",
                 "shasum": ""
             },
             "require": {
@@ -2803,7 +2702,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-06-17 17:47:21"
+            "time": "2016-06-20 07:37:14"
         },
         {
             "name": "guzzlehttp/promises",
@@ -9383,12 +9282,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "7bdb09c4bd586e9530f3471130d3cc17ac1034f5"
+                "reference": "eeb65b234159f90c40b6f5b587ee017a1138c865"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/7bdb09c4bd586e9530f3471130d3cc17ac1034f5",
-                "reference": "7bdb09c4bd586e9530f3471130d3cc17ac1034f5",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/eeb65b234159f90c40b6f5b587ee017a1138c865",
+                "reference": "eeb65b234159f90c40b6f5b587ee017a1138c865",
                 "shasum": ""
             },
             "require": {
@@ -9467,7 +9366,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2016-06-19 04:29:33"
+            "time": "2016-06-20 00:45:00"
         },
         {
             "name": "phpspec/prophecy",

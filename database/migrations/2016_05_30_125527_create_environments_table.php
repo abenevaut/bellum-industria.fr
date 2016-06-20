@@ -17,9 +17,16 @@ class CreateEnvironmentsTable extends Migration
 		{
 			$table->increments('id');
 			$table->timestamps();
-			$table->string('name')->index();
-			$table->string('reference')->index();
-			$table->string('domain')->index();
+
+			$table->string('name')
+				->index();
+
+			$table->string('reference')
+				->index()
+				->unique('reference');
+
+			$table->string('domain')
+				->index();
 		});
 	}
 
