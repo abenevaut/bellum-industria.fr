@@ -10,7 +10,7 @@ use Core\Domain\Roles\Events\RoleDeletedEvent;
 
 /**
  * Class RoleRepositoryEloquent
- * @package Modules\Users\Repositories
+ * @package Core\Domain\Roles\Repositories
  */
 class RoleRepositoryEloquent extends RepositoryEloquent
 {
