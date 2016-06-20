@@ -1,11 +1,13 @@
 <?php namespace Core\Domain\Environments\Repositories;
 
+use Illuminate\Container\Container as Application;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Core\Domain\Environments\Entities\Environment;
 use Core\Domain\Environments\Events\EnvironmentCreatedEvent;
 use Core\Domain\Environments\Events\EnvironmentDeletedEvent;
 use Core\Domain\Environments\Events\EnvironmentUpdatedEvent;
+use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
 
 /**
  * Class EnvironmentRepositoryEloquent
@@ -15,6 +17,24 @@ class EnvironmentRepositoryEloquent extends BaseRepository implements Environmen
 {
 
 	const DEFAULT_ENVIRONMENT_REFERENCE = 'default';
+
+	protected $r_roles = null;
+
+	/**
+	 * UserRepositoryEloquent constructor.
+	 *
+	 * @param Application            $app
+	 * @param RoleRepositoryEloquent $r_roles
+	 */
+	public function __construct(
+		Application $app,
+		RoleRepositoryEloquent $r_roles
+	)
+	{
+		parent::__construct($app);
+
+		$this->r_roles = $r_roles;
+	}
 
 	/**
 	 * Specify Model class name
@@ -45,6 +65,20 @@ class EnvironmentRepositoryEloquent extends BaseRepository implements Environmen
 	public function create(array $attributes)
 	{
 		$environment = parent::create($attributes);
+
+		$this->link_roles_with(
+			$environment,
+			[
+				$this->r_roles
+					->findByField('name', RoleRepositoryEloquent::ADMIN)
+					->first()
+					->id,
+				$this->r_roles
+					->findByField('name', RoleRepositoryEloquent::USER)
+					->first()
+					->id,
+			]
+		);
 
 		event(new EnvironmentCreatedEvent($environment));
 
@@ -105,7 +139,10 @@ class EnvironmentRepositoryEloquent extends BaseRepository implements Environmen
 	 */
 	public function link_roles_with(Environment $env, $roles = [])
 	{
-		$env->roles->attach($roles);
+		foreach ($roles as $role)
+		{
+			$env->roles()->attach($role);
+		}
 	}
 
 	/**
@@ -114,6 +151,9 @@ class EnvironmentRepositoryEloquent extends BaseRepository implements Environmen
 	 */
 	public function link_users_with(Environment $env, $users = [])
 	{
-		$env->users->attach($users);
+		foreach ($users as $user)
+		{
+			$env->users()->attach($user);
+		}
 	}
 }

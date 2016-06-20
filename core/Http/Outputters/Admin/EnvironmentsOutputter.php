@@ -1,13 +1,13 @@
 <?php namespace Core\Http\Outputters\Admin;
 
-use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
+use Illuminate\Support\Facades\Auth;
 use CVEPDB\Abstracts\Http\Requests\FormRequest as AbsFormRequest;
 use CVEPDB\Settings\Facades\Settings;
 use Core\Http\Outputters\AdminOutputter;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
 use Core\Domain\Environments\Presenters\EnvironmentListPresenter;
-use Illuminate\Support\Facades\Auth;
+use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
 
 /**
  * Class EnvironmentsOutputter
@@ -86,14 +86,6 @@ class EnvironmentsOutputter extends AdminOutputter
 			'reference' => $request->get('reference'),
 			'domain'    => $request->get('domain'),
 		]);
-
-		$this->r_environment->link_roles_with(
-			$environment,
-			[
-				RoleRepositoryEloquent::ADMIN,
-				RoleRepositoryEloquent::USER,
-			]
-		);
 
 		$this->r_environment->link_users_with(
 			$environment,
