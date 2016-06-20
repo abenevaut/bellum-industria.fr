@@ -1,6 +1,7 @@
 <?php namespace Core\Domain\Environments\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Core\Domain\Logs\Traits\LogTrait;
 
 /**
@@ -10,6 +11,7 @@ use Core\Domain\Logs\Traits\LogTrait;
 class Environment extends Model
 {
 
+	use SoftDeletes;
 	use LogTrait;
 
 	/**

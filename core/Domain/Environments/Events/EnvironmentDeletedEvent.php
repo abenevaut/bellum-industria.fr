@@ -15,20 +15,20 @@ class EnvironmentDeletedEvent extends Event
 	use SerializesModels;
 
 	/**
-	 * The current user ID.
+	 * The current environment.
 	 *
-	 * @var int
+	 * @var Environment|null
 	 */
-	public $environment_id = 0;
+	public $environment = null;
 
 	/**
-	 * EnvironmentDeletedEvent constructor.
+	 * EnvironmentUpdatedEvent constructor.
 	 *
-	 * @param int $id
+	 * @param Environment $environment
 	 */
-	public function __construct($id)
+	public function __construct(Environment $environment)
 	{
-		$this->environment_id = $id;
+		$this->environment = $environment;
 	}
 
 	/**

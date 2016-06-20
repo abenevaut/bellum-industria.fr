@@ -28,6 +28,8 @@ class CreateEnvironmentsTable extends Migration
 			$table->string('domain')
 				->index()
 				->unique('domain');
+
+			$table->softDeletes();
 		});
 	}
 

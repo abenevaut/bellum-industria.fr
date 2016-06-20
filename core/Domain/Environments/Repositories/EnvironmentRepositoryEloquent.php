@@ -114,9 +114,11 @@ class EnvironmentRepositoryEloquent extends BaseRepository implements Environmen
 	 */
 	public function delete($id)
 	{
+		$env = $this->find($id);
+
 		$environment = parent::delete($id);
 
-		event(new EnvironmentDeletedEvent($id));
+		event(new EnvironmentDeletedEvent($env));
 
 		return $environment;
 	}

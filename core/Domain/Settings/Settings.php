@@ -154,4 +154,41 @@ class Settings extends CVEPDBSettings
 		return $value;
 	}
 
+	/**
+	 * Remove a setting
+	 *
+	 * @param  string $key
+	 *
+	 * @return void
+	 */
+	public function forget($key, $environment_reference = null)
+	{
+		$value = $this->fetch($key);
+
+		$value->forget($environment_reference);
+
+		$value = serialize($value);
+
+		$setting = $this->database
+			->table($this->config['db_table'])
+			->where('setting_key', $key)
+			->first();
+
+		if (is_null($setting))
+		{
+			$this->database
+				->table($this->config['db_table'])
+				->insert(['setting_key' => $key, 'setting_value' => $value]);
+		}
+		else
+		{
+			$this->database
+				->table($this->config['db_table'])
+				->where('setting_key', $key)
+				->update(['setting_value' => $value]);
+		}
+
+		$this->cache->set($key, unserialize($value));
+	}
+
 }
