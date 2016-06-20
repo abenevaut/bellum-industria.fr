@@ -95,7 +95,7 @@ class EnvironmentsOutputter extends AdminOutputter
 		);
 
 		return $this->redirectTo('admin/environments')
-			->with('message-success', 'environments::environments.index.modal.add.message.success');
+			->with('message-success', 'environments.index.modal.add.message.success');
 	}
 
 	/**
@@ -132,7 +132,7 @@ class EnvironmentsOutputter extends AdminOutputter
 		);
 
 		return $this->redirectTo('admin/environments')
-			->with('message-success', 'environments::environments.index.modal.update.message.success');
+			->with('message-success', 'environments.index.modal.update.message.success');
 	}
 
 	/**
@@ -149,7 +149,7 @@ class EnvironmentsOutputter extends AdminOutputter
 			$this->r_environment->delete($id);
 
 			$redirectTo = $this->redirectTo('admin/environments')
-				->with('message-success', 'environments::environments.index.modal.delete.message.success');
+				->with('message-success', 'environments.index.modal.delete.message.success');
 		}
 		catch (\Exception $e)
 		{
@@ -159,6 +159,11 @@ class EnvironmentsOutputter extends AdminOutputter
 				{
 					$redirectTo = $this->redirectTo('admin/environments')
 						->with('message-error', $e->getMessage());
+					break;
+				}
+				default: {
+					$redirectTo = $this->redirectTo('admin/environments')
+						->with('message-error', 'An error occured');
 					break;
 				}
 			}
