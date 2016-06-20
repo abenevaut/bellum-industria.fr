@@ -19,6 +19,15 @@ class EventServiceProvider extends ServiceProvider
 	];
 
 	/**
+	 * The subscriber classes to register.
+	 *
+	 * @var array
+	 */
+	protected $subscribe = [
+		'Core\Domain\Environments\Listeners\EnvironmentEventListener',
+	];
+
+	/**
 	 * Register any other events for your application.
 	 *
 	 * @param  \Illuminate\Contracts\Events\Dispatcher $events

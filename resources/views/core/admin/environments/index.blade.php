@@ -40,7 +40,7 @@
 											{{ $environment['domain'] }}
 										</td>
 										<td class="hidden-xs cell-center">
-											<a href="{{ url('admin/environments/' . $environment['id']) }}"
+											<a href="{{ url('admin/environments/' . $environment['id'] . '/edit') }}"
 											   class="btn btn-warning btn-flat btn-mobile"
 											   data-toggle="modal"
 											   data-target="#environment_show_{{ $environment['id'] }}">
@@ -109,7 +109,7 @@
 						<button type="button" class="btn btn-default pull-left" data-dismiss="modal">
 							{{ trans('users::admin.index.btn.cancel_delete') }}
 						</button>
-						{!! Form::open(['route' => ['admin.users.destroy', $environment['id']], 'method' => 'delete']) !!}
+						{!! Form::open(['route' => ['admin.environments.destroy', $environment['id']], 'method' => 'delete']) !!}
 						<button type="submit" class="btn btn-danger">
 							<i class="fa fa-trash"></i> {{ trans('users::admin.index.btn.valid_delete') }}
 						</button>

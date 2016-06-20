@@ -73,8 +73,7 @@ class EnvironmentsOutputter extends AdminOutputter
 	}
 
 	/**
-	 * @param AbsFormRequest         $request
-	 * @param LogoSettingsRepository $r_logo_settings
+	 * @param AbsFormRequest $request
 	 *
 	 * @return mixed|\Redirect
 	 */
@@ -86,7 +85,8 @@ class EnvironmentsOutputter extends AdminOutputter
 			'domain'    => $request->get('domain'),
 		]);
 
-		return $this->redirectTo('admin/environments');
+		return $this->redirectTo('admin/environments')
+			->with('message-success', 'environments::environments.index.modal.add.message.success');
 	}
 
 	/**
@@ -94,7 +94,7 @@ class EnvironmentsOutputter extends AdminOutputter
 	 *
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function show($id)
+	public function edit($id)
 	{
 		$env = $this->r_environment->find($id);
 
@@ -122,7 +122,8 @@ class EnvironmentsOutputter extends AdminOutputter
 			$id
 		);
 
-		return $this->redirectTo('admin/environments');
+		return $this->redirectTo('admin/environments')
+			->with('message-success', 'environments::environments.index.modal.update.message.success');
 	}
 
 	/**
@@ -132,8 +133,28 @@ class EnvironmentsOutputter extends AdminOutputter
 	 */
 	public function destroy($id)
 	{
-		$this->r_environment->delete($id);
+		$redirectTo = null;
 
-		return $this->redirectTo('admin/environments');
+		try
+		{
+			$this->r_environment->delete($id);
+
+			$redirectTo = $this->redirectTo('admin/environments')
+				->with('message-success', 'environments::environments.index.modal.delete.message.success');
+		}
+		catch (\Exception $e)
+		{
+			switch ($e->getCode())
+			{
+				case 1:
+				{
+					$redirectTo = $this->redirectTo('admin/environments')
+						->with('message-error', $e->getMessage());
+					break;
+				}
+			}
+		}
+
+		return $redirectTo;
 	}
 }

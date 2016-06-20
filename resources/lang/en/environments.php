@@ -11,10 +11,13 @@ return [
 	'index.btn.add'             => 'Add environment',
 
 	'index.modal.add.title' => 'Add environment',
+	'index.modal.add.message.success' => '',
 
 	'index.modal.delete.title' => 'Delete environment',
+	'index.modal.delete.message.success' => '',
 
 	'index.modal.update.title'    => 'Update environment',
 	'index.modal.update.btn.edit' => 'Edit',
+	'index.modal.update.message.success' => '',
 
 ];

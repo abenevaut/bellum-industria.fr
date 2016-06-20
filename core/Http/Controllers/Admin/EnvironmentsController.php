@@ -60,9 +60,9 @@ class EnvironmentsController extends CoreAdminController
 	 *
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function show($id)
+	public function edit($id)
 	{
-		return $this->outputter->show($id);
+		return $this->outputter->edit($id);
 	}
 
 	/**
