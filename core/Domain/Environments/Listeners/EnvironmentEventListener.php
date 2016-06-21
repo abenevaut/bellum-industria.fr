@@ -1,11 +1,12 @@
 <?php namespace Core\Domain\Environments\Listeners;
 
-use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
-use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
 use Illuminate\Support\Facades\File;
-use CVEPDB\Settings\Facades\Settings;
 use Core\Domain\Environments\Events\EnvironmentCreatedEvent;
 use Core\Domain\Environments\Events\EnvironmentDeletedEvent;
+use Core\Domain\Files\Repositories\DiskRepository;
+use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
+use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
+use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 
 /**
  * Class EnvironmentEventListener
@@ -13,6 +14,21 @@ use Core\Domain\Environments\Events\EnvironmentDeletedEvent;
  */
 class EnvironmentEventListener
 {
+
+	/**
+	 * @var DiskRepository|null
+	 */
+	private $r_disk = null;
+
+	/**
+	 * EnvironmentEventListener constructor.
+	 *
+	 * @param DiskRepository $r_disk
+	 */
+	public function __construct(DiskRepository $r_disk)
+	{
+		$this->r_disk = $r_disk;
+	}
 
 	/**
 	 * Register the listeners for the subscriber.
@@ -40,42 +56,31 @@ class EnvironmentEventListener
 	 */
 	public function environmentDeletedEvent(EnvironmentDeletedEvent $event)
 	{
-
-		/*
-		 * Detach environment uploads directory to the env. settings
-		 */
-
-		Settings::forget('filesystems.default', $event->environment->reference);
-		Settings::forget('filesystems.disks', $event->environment->reference);
-		Settings::forget('elfinder.dir', $event->environment->reference);
-
 		/**
-		 * Detach environment uploads directory to the default env. settings
+		 * Set all environment disks in readonly on the default environment
 		 */
 
-		$disk_key = $event->environment->reference . '_uploads';
+		$env_disks = $this->r_disk->getElFinderDisks($event->environment->reference);
+		$default_disks = $this->r_disk->getElFinderDisks(EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE);
 
-		$disks = Settings::get(
-			'filesystems.disks',
-			EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
-		);
-		unset($disks[$disk_key]);
-		Settings::set(
-			'filesystems.disks',
-			$disks,
-			EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
-		);
+		foreach ($env_disks as $disk_key => $options)
+		{
+			$options['access']['readonly'] = true;
 
-		$disks = Settings::get(
-			'elfinder.disks',
-			EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
-		);
-		unset($disks[$disk_key]);
-		Settings::set(
-			'elfinder.disks',
-			$disks,
-			EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
-		);
+			if (array_key_exists($disk_key, $default_disks))
+			{
+				$this->r_disk->unmountElFinderDisk(
+					$disk_key,
+					EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
+				);
+				$this->r_disk->mountElFinderDisk(
+					$disk_key,
+					$options,
+					EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
+				);
+			}
+
+		}
 	}
 
 	/**
@@ -87,6 +92,8 @@ class EnvironmentEventListener
 	 */
 	public function environmentCreatedEvent(EnvironmentCreatedEvent $event)
 	{
+
+		$disk_key = $event->environment->reference . '_uploads';
 
 		$env_uploads_directory = public_path(
 			'uploads/' . $event->environment->reference . '/uploads'
@@ -111,25 +118,25 @@ class EnvironmentEventListener
 		 * Attach new environment uploads directory to the new env
 		 */
 
-		Settings::set(
-			'filesystems.default',
-			'uploads',
+		$this->r_disk->setDefaultFileSystemDisk(
+			$disk_key,
 			$event->environment->reference
 		);
-		Settings::set(
-			'filesystems.disks',
+		$this->r_disk->addFileSystemDisk(
+			$disk_key,
 			[
-				'uploads' => [
-					'driver'     => 'local',
-					'root'       => $env_uploads_directory,
-					'visibility' => 'public',
-				],
+				'driver'     => 'local',
+				'root'       => $env_uploads_directory,
+				'visibility' => 'public',
 			],
 			$event->environment->reference
 		);
-		Settings::set(
-			'elfinder.dir',
-			'uploads/' . $event->environment->reference . '/uploads',
+		$this->r_disk->mountElFinderDisk(
+			$disk_key,
+			[
+				'alias'  => $event->environment->name . ' uploads',
+				'URL'    => null,
+			],
 			$event->environment->reference
 		);
 
@@ -137,31 +144,33 @@ class EnvironmentEventListener
 		 * Attach new environment uploads directory to the default env
 		 */
 
-		$disk_key = $event->environment->reference . '_uploads';
-
-		Settings::set(
-			'filesystems.disks',
-			Settings::get('filesystems.disks')
-				+ [
-				$disk_key => [
-						'driver'     => 'local',
-						'root'       => $env_uploads_directory,
-						'visibility' => 'public',
-					],
+		if ($event->environment->reference !== EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE)
+		{
+			$this->r_disk->addFileSystemDisk(
+				$disk_key,
+				[
+					'driver'     => 'local',
+					'root'       => $env_uploads_directory,
+					'visibility' => 'public',
 				],
-			EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
-		);
-		Settings::set(
-			'elfinder.disks',
-			Settings::get('elfinder.disks')
-				+ [
-				$disk_key => [
-						'alias' => $event->environment->name . ' uploads',
-						'URL'   => null,
-					],
-				],
-			EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
-		);
+				EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
+			);
+			$this->r_disk->mountElFinderDisk(
+				$disk_key,
+				[
+					'alias'  => $event->environment->name . ' uploads',
+					'URL'    => null,
+					'access' => [
+						'roles'       => [
+							RoleRepositoryEloquent::ADMIN
+						],
+						'permissions' => [
+							PermissionRepositoryEloquent::SEE_ENVIRONMENT
+						]
+					]
+				]
+			);
+		}
 
 	}
 }
