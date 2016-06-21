@@ -30,9 +30,31 @@ class DiskRepository
 	}
 
 	/**
-	 * @param      $disk_reference
-	 * @param      $options
-	 * @param null $environment_reference
+	 * Set a cloud system as the default cloud system.
+	 *
+	 * @param string $disk_name
+	 * @param string $environment_reference Default: the current environment
+	 */
+	public function setDefaultCloudSystemDisk(
+		$disk_name,
+		$environment_reference = null
+	)
+	{
+		Settings::set(
+			'filesystems.cloud',
+			$disk_name,
+			$environment_reference
+		);
+	}
+
+	/**
+	 * Add a new file system.
+	 *
+	 *
+	 * @param string $disk_reference The disk name
+	 * @param array  $options Based on Laravel file system
+	 *     https://laravel.com/docs/master/filesystem
+	 * @param string $environment_reference
 	 */
 	public function addFileSystemDisk($disk_reference, $options, $environment_reference = null)
 	{
@@ -45,7 +67,12 @@ class DiskRepository
 	}
 
 	/**
-	 * @return array
+	 * Get elfinder.roots settings.
+	 * https://github.com/Studio-42/elFinder/wiki/Multiple-Roots
+	 *
+	 * @param string $environment_reference
+	 *
+	 * @return mixed
 	 */
 	public function getElFinderRoots($environment_reference = null)
 	{
@@ -53,7 +80,9 @@ class DiskRepository
 	}
 
 	/**
-	 * @param string $new_directory
+	 * Allow to mount an elFinder disk based on a directory path.
+	 *
+	 * @param string $new_directory The directory path
 	 * @param string $environment_reference
 	 */
 	public function mountElFinderDirectory(
@@ -80,8 +109,10 @@ class DiskRepository
 	}
 
 	/**
-	 * @param      $directory
-	 * @param null $environment_reference
+	 * Allow to unmount an elFinder disk based on a directory path.
+	 *
+	 * @param string $directory The directory path
+	 * @param string $environment_reference
 	 */
 	public function unmountElFinderDirectory($directory, $environment_reference = null)
 	{
@@ -93,6 +124,8 @@ class DiskRepository
 	}
 
 	/**
+	 * Get the list of all directories path based disks.
+	 *
 	 * @param null $environment_reference
 	 *
 	 * @return array
@@ -104,6 +137,7 @@ class DiskRepository
 
 	/**
 	 * Return the list of mountable directories available for elFinder.
+	 * The list is required by the elFinder connector.
 	 *
 	 * @param null $environment_reference
 	 *
@@ -128,9 +162,11 @@ class DiskRepository
 	}
 
 	/**
-	 * @param      $disk_reference
-	 * @param      $options
-	 * @param null $environment_reference
+	 * Allow to mount an elFinder disk based on file system disk configuration.
+	 *
+	 * @param string $disk_reference
+	 * @param array  $options
+	 * @param string $environment_reference
 	 */
 	public function mountElFinderDisk($disk_reference, $options, $environment_reference = null)
 	{
@@ -144,8 +180,10 @@ class DiskRepository
 	}
 
 	/**
-	 * @param      $disk_reference
-	 * @param null $environment_reference
+	 * Allow to unmount an elFinder disk based on file system disk configuration.
+	 *
+	 * @param string $disk_reference
+	 * @param string $environment_reference
 	 */
 	public function unmountElFinderDisk($disk_reference, $environment_reference = null)
 	{
@@ -157,7 +195,9 @@ class DiskRepository
 	}
 
 	/**
-	 * @param null $environment_reference
+	 * Get the list of all disks based on file system disk configuration.
+	 *
+	 * @param string $environment_reference
 	 *
 	 * @return array
 	 */
@@ -168,6 +208,7 @@ class DiskRepository
 
 	/**
 	 * Return the list of mountable disks available for elFinder.
+	 * The list is required by the elFinder connector.
 	 *
 	 * @param null $environment_reference
 	 *
@@ -180,11 +221,11 @@ class DiskRepository
 
 		foreach ($disks as $key => $root)
 		{
-			if ($this->is_disk_restricted($root))
+			if ($this->isElFinderDiskRestricted($root))
 			{
-				if ($this->is_disk_could_be_mount($root))
+				if ($this->isElFinderDiskCouldBeMount($root))
 				{
-					$roots[] = $this->mount_disk(
+					$roots[] = $this->elFinderMountDisk(
 						$key,
 						$root
 					);
@@ -198,7 +239,7 @@ class DiskRepository
 					$root = [];
 				}
 
-				$roots[] = $this->mount_disk($key, $root);
+				$roots[] = $this->elFinderMountDisk($key, $root);
 			}
 		}
 
@@ -213,7 +254,7 @@ class DiskRepository
 	 *
 	 * @return bool
 	 */
-	protected function is_disk_restricted($root)
+	protected function isElFinderDiskRestricted($root)
 	{
 		return is_array($root)
 		&& array_key_exists('access', $root)
@@ -231,7 +272,7 @@ class DiskRepository
 	 *
 	 * @return bool
 	 */
-	protected function is_disk_could_be_mount($root)
+	protected function isElFinderDiskCouldBeMount($root)
 	{
 		return Auth::user()->hasRole($root['access']['roles'])
 		|| Auth::user()->hasRole($root['access']['permissions']);
@@ -241,7 +282,7 @@ class DiskRepository
 	 * @param $key
 	 * @param $root
 	 */
-	protected function mount_disk($disk_name, $options)
+	protected function elFinderMountDisk($disk_name, $options)
 	{
 		$access = 'Core\Domain\Files\Access\DontShowFilesStartingWithDot::checkAccess';
 
@@ -269,7 +310,7 @@ class DiskRepository
 			return array_merge($defaults, $options);
 		}
 
-		throw new \Exception('Disk : ' . $disk_name . ' unountable!');
+		throw new \Exception('Disk : ' . $disk_name . ' unmountable!');
 	}
 
 }
