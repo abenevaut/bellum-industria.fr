@@ -17,6 +17,11 @@ class ReadOnly
 	 */
 	public static function checkAccess($attr, $path, $data, $volume)
 	{
+		if ($attr == 'write')
+		{
+			return false;
+		}
+
 		return !strpos(basename($path), '.')
 			? !($attr == 'read' || $attr == 'write')
 			: null;

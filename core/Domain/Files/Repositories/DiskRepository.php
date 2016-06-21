@@ -201,7 +201,7 @@ class DiskRepository
 				$roots[] = $this->mount_disk($key, $root);
 			}
 		}
-
+		
 		return $roots;
 	}
 
