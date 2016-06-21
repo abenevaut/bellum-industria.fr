@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8efb3f077e5d1380d160b9cb357b5bb6",
-    "content-hash": "0fa99cf1c71ce83cde9f69c6be9b165e",
+    "hash": "af7002c287abebf0203ba9fc6116f4d0",
+    "content-hash": "49e3a3c84eaa88ac3fb68ad455c9c898",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -7874,22 +7874,27 @@
     "packages-dev": [
         {
             "name": "antennaio/laravel-codeception-dbdump",
-            "version": "v0.0.3",
+            "version": "v0.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/antennaio/laravel-codeception-dbdump.git",
-                "reference": "bcd23e5810b3910e25115c9481fc3813e25ff52a"
+                "reference": "a4b95dd5ab188a08b49ca8510f077063bc18caa8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/antennaio/laravel-codeception-dbdump/zipball/bcd23e5810b3910e25115c9481fc3813e25ff52a",
-                "reference": "bcd23e5810b3910e25115c9481fc3813e25ff52a",
+                "url": "https://api.github.com/repos/antennaio/laravel-codeception-dbdump/zipball/a4b95dd5ab188a08b49ca8510f077063bc18caa8",
+                "reference": "a4b95dd5ab188a08b49ca8510f077063bc18caa8",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "~2.3",
                 "illuminate/console": "^5.1",
                 "illuminate/support": "^5.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.4",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "5.*"
             },
             "type": "library",
             "autoload": {
@@ -7919,7 +7924,7 @@
                 "sqlite",
                 "testing"
             ],
-            "time": "2016-04-29 18:13:23"
+            "time": "2016-05-02 09:44:10"
         },
         {
             "name": "blackfire/php-sdk",

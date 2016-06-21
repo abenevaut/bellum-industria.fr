@@ -61,7 +61,7 @@
     "codeception/phpbuiltinserver": "^1.2",
     "redcomponent/teststatistics": "dev-master",
     "blackfire/php-sdk": "^1.5",
-    "antennaio/laravel-codeception-dbdump": "^0.0.3",
+    "antennaio/laravel-codeception-dbdump": "^0.0.5",
     "squizlabs/php_codesniffer": "*",
     "pragmarx/laravelcs": "^0.1.0",
     "sebastian/phpcpd": "*"
