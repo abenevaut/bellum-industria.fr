@@ -70,7 +70,7 @@ job_tests_windows: # Run tests suites
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
-  - composer install
+  - call composer install
   - cd resources\themes\adminlte\assets && npm install && gulp sass && cd -
   - cd resources\themes\lumen\assets && npm install && gulp bower && cd -
   - php artisan theme:publish
