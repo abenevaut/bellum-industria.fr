@@ -1496,16 +1496,16 @@
         },
         {
             "name": "cvepdb-cms/module-users",
-            "version": "1.0.52.9",
+            "version": "1.0.52.10",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-users.git",
-                "reference": "cbe16280a623469fb693de2f6d53b24f33ef75f7"
+                "reference": "a000656c875e40673e4f46d161ac4c882153fd1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=cbe16280a623469fb693de2f6d53b24f33ef75f7",
-                "reference": "cbe16280a623469fb693de2f6d53b24f33ef75f7",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=a000656c875e40673e4f46d161ac4c882153fd1e",
+                "reference": "a000656c875e40673e4f46d161ac4c882153fd1e",
                 "shasum": ""
             },
             "require": {
@@ -1539,7 +1539,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2016-06-19 13:48:39"
+            "time": "2016-06-22 16:49:09"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -9289,12 +9289,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "eeb65b234159f90c40b6f5b587ee017a1138c865"
+                "reference": "0e235a13312ae821b46e9c356cf34b3b1c764c18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/eeb65b234159f90c40b6f5b587ee017a1138c865",
-                "reference": "eeb65b234159f90c40b6f5b587ee017a1138c865",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/0e235a13312ae821b46e9c356cf34b3b1c764c18",
+                "reference": "0e235a13312ae821b46e9c356cf34b3b1c764c18",
                 "shasum": ""
             },
             "require": {
@@ -9373,7 +9373,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2016-06-20 00:45:00"
+            "time": "2016-06-22 14:57:24"
         },
         {
             "name": "phpspec/prophecy",
