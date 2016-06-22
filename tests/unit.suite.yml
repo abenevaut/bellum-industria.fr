@@ -26,7 +26,7 @@ env:
             enabled:
                 - Laravel5:
                     environment_file: "tests/_data/.env.installer"
-                    cleanup: false
+                    cleanup: true
                 - Db:
                     cleanup: true
                     dump: 'tests/_data/empty.sql'

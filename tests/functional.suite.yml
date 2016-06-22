@@ -9,6 +9,7 @@ modules:
     enabled:
         - \Helper\Functional
         - Laravel5
+        - Db
     config:
         Laravel5:
             environment_file: "tests/_data/.env.testing"
@@ -18,15 +19,26 @@ modules:
             packages: workbench
             disable_middleware: false
             disable_events: false
+        Db:
+            dsn: 'mysql:host=127.0.0.1;dbname=cvepdb_cms_testing'
+            user: 'cvepdb_testing'
+            password: ''
+            cleanup: true
+            populate: true
+            dump: 'tests/_data/testing.sql'
 env:
     installer:
         modules:
             enabled:
                 - Laravel5
+                - Db
             config:
                 Laravel5:
                     environment_file: "tests/_data/.env.installer"
                     cleanup: true
+                Db:
+                    cleanup: true
+                    dump: 'tests/_data/empty.sql'
     travis:
         modules:
             config:
