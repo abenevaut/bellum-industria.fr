@@ -118,3 +118,17 @@ job_cs_duplicated: # CodeStyle - Looking for duplicated code
   - php7
   - composer
   - linux
+
+job_ci_dump: # ContinuousIntegration - try to dump Db
+  stage: test
+  only:
+  - development
+  script:
+  - composer install
+  - php artisan codeception:dbdump testing --dump tests/_data/empty.sql --empty-database --no-seeding
+  - php artisan codeception:dbdump testing --dump tests/_data/testing.sql --empty-database --seeder-class TestingSeeder
+  when: always
+  tags:
+  - php7
+  - composer
+  - linux
