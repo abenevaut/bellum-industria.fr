@@ -69,8 +69,14 @@ job_tests_windows: # Run tests suites
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
   - call composer install
-  - cd resources\themes\adminlte\assets && npm install && gulp sass && cd -
-  - cd resources\themes\lumen\assets && npm install && gulp bower && cd -
+  - cd resources\themes\adminlte\assets
+  - call npm install
+  - call gulp sass
+  - cd -
+  - cd resources\themes\lumen\assets
+  - call npm install
+  - call gulp bower
+  - cd -
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
