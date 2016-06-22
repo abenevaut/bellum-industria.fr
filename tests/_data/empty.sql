@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.42, for osx10.6 (i386)
+-- MySQL dump 10.16  Distrib 10.1.10-MariaDB, for Win32 (AMD64)
 --
--- Host: 127.0.0.1    Database: cvepdb_cms
+-- Host: 127.0.0.1    Database: cvepdb_cms_testing
 -- ------------------------------------------------------
--- Server version	5.5.42
+-- Server version	10.1.10-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -596,4 +596,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-21 17:05:10
+-- Dump completed on 2016-06-22 12:15:11
