@@ -44,9 +44,9 @@ job_tests_linux: # Run tests suites
   - bin/codecept run -g core api
   - bin/codecept run --env=installer -g installer api
   - bin/codecept run -g installed api
-  - bin/codecept run -g core functional --coverage #
+  - bin/codecept run -g core functional --coverage
   - bin/codecept run --env=installer -g installer functional --coverage
-  - bin/codecept run -g installed functional --coverage #
+  - bin/codecept run -g installed functional --coverage
   - bin/codecept run -g core unit --coverage
   - bin/codecept run --env=installer -g installer unit --coverage #
   - bin/codecept run -g installed unit --coverage
