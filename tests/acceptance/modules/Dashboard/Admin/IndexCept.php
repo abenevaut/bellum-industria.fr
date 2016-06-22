@@ -1,4 +1,5 @@
 <?php
+// @env module
 // @group dashboard
 // @group admin
 $I = new DashboardAcceptanceTester($scenario);

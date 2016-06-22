@@ -1,4 +1,5 @@
 <?php
+// @env module
 // @group posts
 // @group admin
 $I = new PostsAcceptanceTester($scenario);

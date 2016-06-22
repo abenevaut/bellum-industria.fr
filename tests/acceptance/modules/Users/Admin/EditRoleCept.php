@@ -1,4 +1,5 @@
 <?php
+// @env module
 // @group users
 // @group admin
 $I = new UsersAcceptanceTester($scenario);

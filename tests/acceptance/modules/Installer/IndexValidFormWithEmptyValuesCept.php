@@ -1,4 +1,5 @@
 <?php
+// @env module
 // @env installer
 $I = new InstallerAcceptanceTester($scenario);
 $I->wantTo('Test Installer form with empty value');

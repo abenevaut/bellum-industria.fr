@@ -1,4 +1,5 @@
 <?php
+// @env module
 // @group files
 // @group admin
 $I = new FilesAcceptanceTester($scenario);

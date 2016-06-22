@@ -1,4 +1,5 @@
 <?php
+// @env module
 // @group pages
 // @group admin
 $I = new PagesAcceptanceTester($scenario);

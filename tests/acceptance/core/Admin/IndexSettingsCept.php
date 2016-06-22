@@ -1,4 +1,5 @@
 <?php
+// @env core
 // @group core
 // @group admin
 $I = new CoreAcceptanceTester($scenario);

@@ -43,7 +43,7 @@ job_tests_linux: # Run tests suites
   script:
   - bin/codecept run --env=core -g migration --coverage
   - bin/codecept run --env=installer acceptance
-  - bin/codecept run --env=installer functionnal --coverage
+  - bin/codecept run --env=installer functional --coverage
   - bin/codecept run --env=installer api --coverage
   - bin/codecept run --env=installer unit --coverage
   - bin/codecept run acceptance

@@ -1,4 +1,5 @@
 <?php
+// @env module
 // @group themes
 // @group admin
 $I = new FunctionalTester($scenario);
