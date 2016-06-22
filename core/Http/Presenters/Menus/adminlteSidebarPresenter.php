@@ -6,7 +6,7 @@ use Pingpong\Menus\MenuItem;
  * Class adminlteSidebarPresenter
  * @package Core\Http\Presenters\Menus
  */
-class adminlteSidebarPresenter extends CorePresenter
+class adminlteSidebarPresenter extends adminlteMenuPresenter
 {
 
 	/**
@@ -15,59 +15,6 @@ class adminlteSidebarPresenter extends CorePresenter
 	public function getOpenTagWrapper()
 	{
 		return PHP_EOL . '<ul class="sidebar-menu">' . PHP_EOL;
-	}
-
-	/**
-	 * {@inheritdoc }.
-	 */
-	public function getCloseTagWrapper()
-	{
-		return PHP_EOL . '</ul>' . PHP_EOL;
-	}
-
-	/**
-	 * {@inheritdoc }.
-	 */
-	public function getMenuWithoutDropdownWrapper($item)
-	{
-		return '<li class="' . $this->getActiveState($item) . '"><a href="' . $item->getUrl() . '" ' . $item->getAttributes() . '>' . $item->getIcon() . ' <span>' . $item->title . '</span></a></li>' . PHP_EOL;
-	}
-
-	/**
-	 * {@inheritdoc }.
-	 */
-	public function getActiveState($item, $state = 'active')
-	{
-		return $item->isActive() ? $state : null;
-	}
-
-	/**
-	 * Get active state on child items.
-	 *
-	 * @param        $item
-	 * @param string $state
-	 *
-	 * @return null|string
-	 */
-	public function getActiveStateOnChild($item, $state = 'active')
-	{
-		return $item->hasActiveOnChild() ? $state : null;
-	}
-
-	/**
-	 * {@inheritdoc }.
-	 */
-	public function getDividerWrapper()
-	{
-		return '<li class="divider"></li>';
-	}
-
-	/**
-	 * {@inheritdoc }.
-	 */
-	public function getHeaderWrapper($item)
-	{
-		return '<li class="header">' . $item->title . '</li>';
 	}
 
 	/**
