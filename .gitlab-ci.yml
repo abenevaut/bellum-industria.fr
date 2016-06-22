@@ -65,28 +65,28 @@ job_tests_windows: # Run tests suites
   - staging
   - development
   before_script:
-  - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
-  - chmod -R 777 storage
-  - chmod -R 777 public/uploads
+  - call git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
+  - call chmod -R 777 storage
+  - call chmod -R 777 public/uploads
   - call composer install
-  - cd resources\themes\adminlte\assets
+  - call cd resources\themes\adminlte\assets
   - call npm install
   - call gulp sass
-  - cd -
-  - cd resources\themes\lumen\assets
+  - call cd -
+  - call cd resources\themes\lumen\assets
   - call npm install
   - call gulp bower
-  - cd -
-  - php artisan theme:publish
-  - php artisan module:publish
-  - php artisan module:publish-migration
+  - call cd -
+  - call php artisan theme:publish
+  - call php artisan module:publish
+  - call php artisan module:publish-migration
   script:
-  - bin\codecept run --env=firefox -g core acceptance #
-  - bin\codecept run --env=installer,firefox -g installer acceptance #
-  - bin\codecept run --env=firefox -g installed acceptance #
-  #- bin\codecept run --env=ie -g core acceptance #
-  #- bin\codecept run --env=installer,ie -g installer acceptance #
-  #- bin\codecept run --env=ie -g installed acceptance #
+  - call bin\codecept run --env=firefox -g core acceptance #
+  - call bin\codecept run --env=installer,firefox -g installer acceptance #
+  - call bin\codecept run --env=firefox -g installed acceptance #
+  #- call bin\codecept run --env=ie -g core acceptance #
+  #- call bin\codecept run --env=installer,ie -g installer acceptance #
+  #- call bin\codecept run --env=ie -g installed acceptance #
   when: on_success
   tags:
   - php7
