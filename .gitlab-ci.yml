@@ -98,26 +98,23 @@ job_cs: # CodeStyle
   before_script:
   - composer install
   script:
-  - bin/phpcpd core
-  - bin/phpcpd modules/Dashboard
-  - bin/phpcpd modules/Files
-  - bin/phpcpd modules/Installer
-  - bin/phpcpd modules/Pages
-  - bin/phpcpd modules/Posts
-  - bin/phpcpd modules/Themes
-  - bin/phpcpd modules/Users
   - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ core
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Dashboard
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Files
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Installer
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Pages
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Posts
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Themes
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Users
   when: always
   tags:
   - php7
-  - nodejs
   - composer
-  - mysql
+  - linux
+
+job_cs_duplicated: # CodeStyle - Looking for duplicated code
+  stage: test
+  only:
+  - development
+  before_script:
+  - composer install
+  script:
+  - bin/phpcpd core
+  when: always
+  tags:
+  - php7
+  - composer
   - linux
