@@ -67,19 +67,20 @@ job_tests_windows: # Run tests suites
   - staging
   - development
   before_script:
+  - bash
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
   - composer install
-  - cd resources\themes\adminlte\assets && npm install && gulp sass && cd -
-  - cd resources\themes\lumen\assets && npm install && gulp bower && cd -
+  - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
+  - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
   script:
-  - bin\codecept run --env=firefox -g core acceptance #
-  - bin\codecept run --env=installer,firefox -g installer acceptance #
-  - bin\codecept run --env=firefox -g installed acceptance #
+  - bin/codecept run --env=firefox -g core acceptance #
+  - bin/codecept run --env=installer,firefox -g installer acceptance #
+  - bin/codecept run --env=firefox -g installed acceptance #
   #- bin\codecept run --env=ie -g core acceptance #
   #- bin\codecept run --env=installer,ie -g installer acceptance #
   #- bin\codecept run --env=ie -g installed acceptance #
