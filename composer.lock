@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "af7002c287abebf0203ba9fc6116f4d0",
+    "hash": "abd0ba0571fd85fcaaeacdc1cdc3bb51",
     "content-hash": "49e3a3c84eaa88ac3fb68ad455c9c898",
     "packages": [
         {
@@ -165,16 +165,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.18.18",
+            "version": "3.18.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "68b9d0b7e007782bc0f2633cdf5a4a6bf08aaafc"
+                "reference": "2ffb032afe91b143293f75b48ec7593659c66ddb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/68b9d0b7e007782bc0f2633cdf5a4a6bf08aaafc",
-                "reference": "68b9d0b7e007782bc0f2633cdf5a4a6bf08aaafc",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2ffb032afe91b143293f75b48ec7593659c66ddb",
+                "reference": "2ffb032afe91b143293f75b48ec7593659c66ddb",
                 "shasum": ""
             },
             "require": {
@@ -241,7 +241,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-06-14 20:35:03"
+            "time": "2016-06-21 21:41:45"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -249,12 +249,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/elfinder-flysystem-driver.git",
-                "reference": "7fabc783b2e1c6d5c7e5b5cf996d96e92cc2d29f"
+                "reference": "fc1b893469db03295f439c615c34fa35e964dd07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/elfinder-flysystem-driver/zipball/7fabc783b2e1c6d5c7e5b5cf996d96e92cc2d29f",
-                "reference": "7fabc783b2e1c6d5c7e5b5cf996d96e92cc2d29f",
+                "url": "https://api.github.com/repos/barryvdh/elfinder-flysystem-driver/zipball/fc1b893469db03295f439c615c34fa35e964dd07",
+                "reference": "fc1b893469db03295f439c615c34fa35e964dd07",
                 "shasum": ""
             },
             "require": {
@@ -297,7 +297,7 @@
                 "elfinder",
                 "filesystem"
             ],
-            "time": "2016-04-17 19:33:38"
+            "time": "2016-06-22 12:54:36"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -935,12 +935,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "2db1f3ce7bcf0d294811f5f0214e24d2878a57da"
+                "reference": "2cbf678f985bdf0f6034f4b2542187fff81c1533"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/2db1f3ce7bcf0d294811f5f0214e24d2878a57da",
-                "reference": "2db1f3ce7bcf0d294811f5f0214e24d2878a57da",
+                "url": "https://api.github.com/repos/composer/installers/zipball/2cbf678f985bdf0f6034f4b2542187fff81c1533",
+                "reference": "2cbf678f985bdf0f6034f4b2542187fff81c1533",
                 "shasum": ""
             },
             "require": {
@@ -1028,7 +1028,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-05-19 16:58:29"
+            "time": "2016-06-22 11:17:44"
         },
         {
             "name": "composer/semver",
@@ -1295,16 +1295,16 @@
         },
         {
             "name": "cvepdb-cms/module-files",
-            "version": "1.0.52.3",
+            "version": "1.0.52.4",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-files.git",
-                "reference": "251a56c7341c3b1485f6a2a5f9cab55aa55d48c5"
+                "reference": "48094d90d97f75335485d6d76d48a1bccb49e62c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-files/repository/archive.zip?sha=251a56c7341c3b1485f6a2a5f9cab55aa55d48c5",
-                "reference": "251a56c7341c3b1485f6a2a5f9cab55aa55d48c5",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-files/repository/archive.zip?sha=48094d90d97f75335485d6d76d48a1bccb49e62c",
+                "reference": "48094d90d97f75335485d6d76d48a1bccb49e62c",
                 "shasum": ""
             },
             "require": {
@@ -1348,20 +1348,20 @@
                 "files",
                 "module"
             ],
-            "time": "2016-06-16 15:37:31"
+            "time": "2016-06-21 16:58:50"
         },
         {
             "name": "cvepdb-cms/module-installer",
-            "version": "1.0.52.15",
+            "version": "1.0.52.16",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-installer.git",
-                "reference": "da1d1d3c37fa54ac264440b121218e91190d86f9"
+                "reference": "a1724577bd88a0eee784cc87aca4857926e93f2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=da1d1d3c37fa54ac264440b121218e91190d86f9",
-                "reference": "da1d1d3c37fa54ac264440b121218e91190d86f9",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=a1724577bd88a0eee784cc87aca4857926e93f2e",
+                "reference": "a1724577bd88a0eee784cc87aca4857926e93f2e",
                 "shasum": ""
             },
             "require": {
@@ -1395,7 +1395,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-06-17 18:27:44"
+            "time": "2016-06-21 15:25:53"
         },
         {
             "name": "cvepdb-cms/module-posts",
@@ -2876,12 +2876,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "22088b04728a039bd1fc32f7e79a89a118b78698"
+                "reference": "6886d43f5babe6900c29c59640ca81401fe71c80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/22088b04728a039bd1fc32f7e79a89a118b78698",
-                "reference": "22088b04728a039bd1fc32f7e79a89a118b78698",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/6886d43f5babe6900c29c59640ca81401fe71c80",
+                "reference": "6886d43f5babe6900c29c59640ca81401fe71c80",
                 "shasum": ""
             },
             "require": {
@@ -2930,7 +2930,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2016-04-26 14:08:40"
+            "time": "2016-06-22 08:03:11"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -3391,12 +3391,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "a38ed4f6fc51e62697aeb97ae31568a412f7e019"
+                "reference": "76ee5397fcdea5a062361392abca4eb397e519a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/a38ed4f6fc51e62697aeb97ae31568a412f7e019",
-                "reference": "a38ed4f6fc51e62697aeb97ae31568a412f7e019",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/76ee5397fcdea5a062361392abca4eb397e519a3",
+                "reference": "76ee5397fcdea5a062361392abca4eb397e519a3",
                 "shasum": ""
             },
             "require": {
@@ -3437,7 +3437,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2016-06-07 15:16:34"
+            "time": "2016-06-22 12:40:16"
         },
         {
             "name": "laravelcollective/html",
@@ -3582,12 +3582,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem-aws-s3-v3.git",
-                "reference": "29318502de425f46e763f789a2b423f902325950"
+                "reference": "dc56a8faf3aff0841f9eae04b6af94a50657896c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/29318502de425f46e763f789a2b423f902325950",
-                "reference": "29318502de425f46e763f789a2b423f902325950",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/dc56a8faf3aff0841f9eae04b6af94a50657896c",
+                "reference": "dc56a8faf3aff0841f9eae04b6af94a50657896c",
                 "shasum": ""
             },
             "require": {
@@ -3621,7 +3621,7 @@
                 }
             ],
             "description": "Flysystem adapter for the AWS S3 SDK v3.x",
-            "time": "2016-06-20 19:23:22"
+            "time": "2016-06-21 21:34:35"
         },
         {
             "name": "league/flysystem-cached-adapter",
@@ -5302,16 +5302,16 @@
         },
         {
             "name": "predis/predis",
-            "version": "v1.1.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "6ab10b2b705ea5121f2c1ea87a290f6871c32ebd"
+                "reference": "75a8253ee465a59006aae6d3c32ab694043d557a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/6ab10b2b705ea5121f2c1ea87a290f6871c32ebd",
-                "reference": "6ab10b2b705ea5121f2c1ea87a290f6871c32ebd",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/75a8253ee465a59006aae6d3c32ab694043d557a",
+                "reference": "75a8253ee465a59006aae6d3c32ab694043d557a",
                 "shasum": ""
             },
             "require": {
@@ -5325,6 +5325,11 @@
                 "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Predis\\": "src/"
@@ -5348,7 +5353,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2016-06-18 19:51:10"
+            "time": "2016-05-23 10:09:43"
         },
         {
             "name": "prettus/l5-repository",
@@ -7932,12 +7937,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/blackfireio/php-sdk.git",
-                "reference": "824b822f26da4c4d7377f0aa13f2520a853b4253"
+                "reference": "8e75d2f6e1f1817d745c0068e8cf54c385e485ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blackfireio/php-sdk/zipball/824b822f26da4c4d7377f0aa13f2520a853b4253",
-                "reference": "824b822f26da4c4d7377f0aa13f2520a853b4253",
+                "url": "https://api.github.com/repos/blackfireio/php-sdk/zipball/8e75d2f6e1f1817d745c0068e8cf54c385e485ce",
+                "reference": "8e75d2f6e1f1817d745c0068e8cf54c385e485ce",
                 "shasum": ""
             },
             "require": {
@@ -7979,7 +7984,7 @@
                 "uprofiler",
                 "xhprof"
             ],
-            "time": "2016-06-20 11:41:11"
+            "time": "2016-06-22 11:53:07"
         },
         {
             "name": "captbaritone/mailcatcher-codeception-module",
@@ -11023,12 +11028,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "00b22c705e694d4165728383673d7307112519a4"
+                "reference": "ed73bd3bc8228e9fd07d8b933ef97fdbacec9430"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/00b22c705e694d4165728383673d7307112519a4",
-                "reference": "00b22c705e694d4165728383673d7307112519a4",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/ed73bd3bc8228e9fd07d8b933ef97fdbacec9430",
+                "reference": "ed73bd3bc8228e9fd07d8b933ef97fdbacec9430",
                 "shasum": ""
             },
             "require": {
@@ -11093,7 +11098,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-06-14 22:46:27"
+            "time": "2016-06-22 06:05:02"
         },
         {
             "name": "symfony/browser-kit",
@@ -11211,12 +11216,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "4e9597ed67619c25e362d8617e353f5026e3c6ba"
+                "reference": "1ecb72626ce86223e953bb94f855706cdde7a50d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/4e9597ed67619c25e362d8617e353f5026e3c6ba",
-                "reference": "4e9597ed67619c25e362d8617e353f5026e3c6ba",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/1ecb72626ce86223e953bb94f855706cdde7a50d",
+                "reference": "1ecb72626ce86223e953bb94f855706cdde7a50d",
                 "shasum": ""
             },
             "require": {
@@ -11263,7 +11268,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-21 06:41:01"
+            "time": "2016-06-21 19:44:32"
         },
         {
             "name": "symfony/dom-crawler",
