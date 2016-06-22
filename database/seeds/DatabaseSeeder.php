@@ -9,15 +9,15 @@ use Illuminate\Database\Eloquent\Model;
 class DatabaseSeeder extends Seeder
 {
 
-	/**
-	 * Run the database seeds.
-	 */
-	public function run()
-	{
-		Model::unguard();
-		$this->call('Modules\Users\Database\Seeders\CountryTableSeeder');
-		$this->call('Modules\Users\Database\Seeders\StateTableSeeder');
-		$this->call('Modules\Users\Database\Seeders\RoleAndPermissionTablesSeeder');
-		Model::reguard();
-	}
+    /**
+     * Run the database seeds.
+     */
+    public function run()
+    {
+        Model::unguard();
+        $this->call('CountryTableSeeder');
+        $this->call('StateTableSeeder');
+        $this->call('Modules\Users\Database\Seeders\DatabaseSeeder');
+        Model::reguard();
+    }
 }
