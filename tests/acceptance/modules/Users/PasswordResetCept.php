@@ -1,7 +1,5 @@
 <?php
-// @env module
-// @group users
-// @group front
+// @group installed
 $I = new UsersAcceptanceTester($scenario);
 $I->wantTo('Test Users reset password page');
 $I->amOnPage('/password/reset');

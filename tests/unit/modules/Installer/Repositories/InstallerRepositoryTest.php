@@ -9,6 +9,7 @@ use Illuminate\Filesystem\FileNotFoundException;
  * @package modules\Installer\Repositories
  *
  * @env installer
+ * @group installer
  */
 class InstallerRepositoryTest extends \Codeception\TestCase\Test
 {

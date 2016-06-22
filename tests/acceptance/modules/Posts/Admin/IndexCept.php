@@ -1,7 +1,5 @@
 <?php
-// @env module
-// @group posts
-// @group admin
+// @group installed
 $I = new PostsAcceptanceTester($scenario);
 $I->wantTo('Test Posts index');
 $I->login();

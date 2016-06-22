@@ -1,7 +1,5 @@
 <?php
-// @env module
-// @group dashboard
-// @group admin
+// @group installed
 $I = new FunctionalTester($scenario);
 $I->wantTo('Test Dashboard index');
 $I->amLoggedAs(['email' => 'antoine@cvepdb.fr', 'password'=> 'secret']);

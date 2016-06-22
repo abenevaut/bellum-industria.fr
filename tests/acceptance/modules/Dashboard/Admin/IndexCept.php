@@ -1,7 +1,5 @@
 <?php
-// @env module
-// @group dashboard
-// @group admin
+// @group installed
 $I = new DashboardAcceptanceTester($scenario);
 $I->wantTo('Test Dashboard index');
 $I->login();

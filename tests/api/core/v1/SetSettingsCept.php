@@ -1,6 +1,5 @@
 <?php
 // @group api
-// @group admin
 // @group core
 $I = new AdminApiTester($scenario);
 $I->wantTo('Set settings by API (api/v1/settings/set)');

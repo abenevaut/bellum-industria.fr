@@ -1,7 +1,5 @@
 <?php
-// @env module
-// @group posts
-// @group admin
+// @group installed
 $I = new FunctionalTester($scenario);
 $I->wantTo('Test Posts index');
 $I->amLoggedAs(['email' => 'antoine@cvepdb.fr', 'password'=> 'secret']);

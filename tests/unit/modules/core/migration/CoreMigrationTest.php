@@ -4,8 +4,7 @@
  * Class CoreMigrationTest
  * @package core\migration
  *
- * @env core
- * @group migration
+ * @group core
  */
 class CoreMigrationTest extends \Codeception\TestCase\Test
 {

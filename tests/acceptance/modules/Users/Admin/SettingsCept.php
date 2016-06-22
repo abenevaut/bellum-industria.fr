@@ -1,7 +1,5 @@
 <?php
-// @env module
-// @group users
-// @group admin
+// @group installed
 $I = new UsersAcceptanceTester($scenario);
 $I->wantTo('Test Users settings page');
 $I->login();

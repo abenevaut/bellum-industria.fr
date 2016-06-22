@@ -1,6 +1,6 @@
 <?php
-// @env module
 // @env installer
+// @group installer
 $I = new InstallerAcceptanceTester($scenario);
 $I->wantTo('Test Installer form without formated values');
 $I->amOnPage('/installer');

@@ -1,6 +1,6 @@
 <?php
-// @env module
 // @env installer
+// @group installer
 $I = new InstallerFunctionalTester($scenario);
 $I->wantTo('Test Installer form with formated values but bad DB credentials');
 $I->amOnPage('/installer');

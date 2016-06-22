@@ -1,8 +1,5 @@
 <?php
-// @env module
-// @group users
-// @group front
-// @group loggedin
+// @group installed
 $I = new UsersAcceptanceTester($scenario);
 $I->wantTo('Test Users edit profile page');
 $I->amLoggedAs(['email' => 'antoine@cvepdb.fr', 'password'=> 'secret']);

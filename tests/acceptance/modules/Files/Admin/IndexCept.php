@@ -1,7 +1,5 @@
 <?php
-// @env module
-// @group files
-// @group admin
+// @group installed
 $I = new FilesAcceptanceTester($scenario);
 $I->wantTo('Test Files index');
 $I->login();

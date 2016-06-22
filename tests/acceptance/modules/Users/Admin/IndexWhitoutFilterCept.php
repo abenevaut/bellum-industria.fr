@@ -1,7 +1,5 @@
 <?php
-// @env module
-// @group users
-// @group admin
+// @group installed
 $I = new UsersAcceptanceTester($scenario);
 $I->wantTo('Test Users index without filter');
 $I->login();

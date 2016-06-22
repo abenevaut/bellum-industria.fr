@@ -3,6 +3,11 @@
 use Blackfire\Bridge\PhpUnit\TestCaseTrait;
 use Blackfire\Profile;
 
+/**
+ * Class BlackFireExampleTest
+ *
+ * @group tests
+ */
 class BlackFireExampleTest extends \PHPUnit_Framework_TestCase
 {
     use TestCaseTrait;

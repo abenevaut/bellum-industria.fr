@@ -27,10 +27,6 @@ env:
                 Laravel5:
                     environment_file: "tests/_data/.env.installer"
                     cleanup: true
-    module:
-      #
-    core:
-      #
     travis:
         modules:
             config:
