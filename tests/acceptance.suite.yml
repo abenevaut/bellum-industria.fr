@@ -17,6 +17,7 @@ extensions:
             delete_successful: false
 modules:
     enabled:
+        - Db
         - WebDriver
         - \Helper\Acceptance
     config:
@@ -24,6 +25,13 @@ modules:
              url: 'http://localhost:8000/'
              port: 4480
              browser: phantomjs
+        Db:
+            dsn: 'mysql:host=127.0.0.1;dbname=cvepdb_cms_testing'
+            user: 'cvepdb_testing'
+            password: ''
+            cleanup: true
+            populate: true
+            dump: 'tests/_data/testing.sql'
 env:
     installer:
         l5:
@@ -35,6 +43,9 @@ env:
                  url: 'http://localhost:8000/'
                  port: 4480
                  browser: phantomjs
+            Db:
+                cleanup: true
+                dump: 'tests/_data/empty.sql'
     chrome:
         # Selenium 2 + webBrowser
         # http://www.seleniumhq.org/
