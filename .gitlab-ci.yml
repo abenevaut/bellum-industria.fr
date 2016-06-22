@@ -44,11 +44,11 @@ job_tests_linux: # Run tests suites
   - bin/codecept run --env=core -g migration --coverage
   - bin/codecept run --env=installer acceptance
   - bin/codecept run --env=installer functional --coverage
-  - bin/codecept run --env=installer api --coverage
+  - bin/codecept run --env=installer api
   - bin/codecept run --env=installer unit --coverage
   - bin/codecept run acceptance
-  - bin/codecept run functionnal --coverage
-  - bin/codecept run api --coverage
+  - bin/codecept run functional --coverage
+  - bin/codecept run api
   - bin/codecept run unit --coverage
   when: on_success
   tags:

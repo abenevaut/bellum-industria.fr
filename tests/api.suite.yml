@@ -7,7 +7,7 @@ modules:
         - Laravel5
     config:
       PhpBrowser:
-          url: http://localhost:8000/
+          url: http://localhost:8000
       Laravel5:
           environment_file: "tests/_data/.env.testing"
           cleanup: true
