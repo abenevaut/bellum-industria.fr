@@ -14,6 +14,8 @@ before_script:
   - chmod -R 777 public/uploads
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - composer install --prefer-dist --no-interaction --optimize-autoloader
+  - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
+  - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
