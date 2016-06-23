@@ -85,8 +85,8 @@ job_tests_windows: # Run tests suites
   #- bin\codecept run --env=ie -g core acceptance #
   - bin\codecept run --env=firefox -g installed acceptance #
   #- bin\codecept run --env=ie -g installed acceptance #
-  #- bin\codecept run --env=installer,ie -g installer acceptance #
   - bin\codecept run --env=installer,firefox -g installer acceptance #
+  #- bin\codecept run --env=installer,ie -g installer acceptance #
   when: on_success
   tags:
   - php7
