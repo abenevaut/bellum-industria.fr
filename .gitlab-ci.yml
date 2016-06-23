@@ -135,42 +135,42 @@ job_tests_windows_ie: # Run tests suites
   - selenium
   - ie11
 
-job_tests_windows_chrome: # Run tests suites
-  stage: test
-  only:
-  - staging
-  - development
-  before_script:
-  - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
-  - chmod -R 777 storage
-  - chmod -R 777 public/uploads
-  - call composer install
-  - cd resources\themes\adminlte\assets
-  - call npm install
-  - call gulp sass
-  - cd ../../../..
-  - cd resources\themes\lumen\assets
-  - call npm install
-  - call gulp bower
-  - cd ../../../..
-  - php artisan theme:publish
-  - php artisan module:publish
-  - php artisan module:publish-migration
-  script:
-  - call bin\codecept run --env=installer,chrome -g installer acceptance
-  - echo 'testing' > .env
-  - cp tests/_data/.env.testing .
-  - call bin\codecept run --env=chrome -g core acceptance
-  - call bin\codecept run --env=chrome -g installed acceptance
-  when: on_success
-  tags:
-  - php7
-  - nodejs
-  - composer
-  - mysql
-  - windows
-  - selenium
-  - chrome51
+#job_tests_windows_chrome: # Run tests suites
+#  stage: test
+#  only:
+#  - staging
+#  - development
+#  before_script:
+#  - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
+#  - chmod -R 777 storage
+#  - chmod -R 777 public/uploads
+#  - call composer install
+#  - cd resources\themes\adminlte\assets
+#  - call npm install
+#  - call gulp sass
+#  - cd ../../../..
+#  - cd resources\themes\lumen\assets
+#  - call npm install
+#  - call gulp bower
+#  - cd ../../../..
+#  - php artisan theme:publish
+#  - php artisan module:publish
+#  - php artisan module:publish-migration
+#  script:
+#  - call bin\codecept run --env=installer,chrome -g installer acceptance
+#  - echo 'testing' > .env
+#  - cp tests/_data/.env.testing .
+#  - call bin\codecept run --env=chrome -g core acceptance
+#  - call bin\codecept run --env=chrome -g installed acceptance
+#  when: on_success
+#  tags:
+#  - php7
+#  - nodejs
+#  - composer
+#  - mysql
+#  - windows
+#  - selenium
+#  - chrome51
 
 job_cs: # CodeStyle
   stage: test
