@@ -1399,16 +1399,16 @@
         },
         {
             "name": "cvepdb-cms/module-pages",
-            "version": "1.0.52.4",
+            "version": "1.0.52.5",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-pages.git",
-                "reference": "a098b6a49506c99ff56fd01b44367e91598228c7"
+                "reference": "bbcf9bfda842b19950a8b5b0592c05588f2de863"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-pages/repository/archive.zip?sha=a098b6a49506c99ff56fd01b44367e91598228c7",
-                "reference": "a098b6a49506c99ff56fd01b44367e91598228c7",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-pages/repository/archive.zip?sha=bbcf9bfda842b19950a8b5b0592c05588f2de863",
+                "reference": "bbcf9bfda842b19950a8b5b0592c05588f2de863",
                 "shasum": ""
             },
             "require": {
@@ -1441,7 +1441,7 @@
                 "module",
                 "pages"
             ],
-            "time": "2016-06-16 15:00:00"
+            "time": "2016-06-23 15:41:38"
         },
         {
             "name": "cvepdb-cms/module-posts",
@@ -6456,12 +6456,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "586bbe1f8ba9a1eeef447614834fdb241bb6b688"
+                "reference": "d3e9882327102a227fdbe1f5b6c2d0e3edc68658"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/586bbe1f8ba9a1eeef447614834fdb241bb6b688",
-                "reference": "586bbe1f8ba9a1eeef447614834fdb241bb6b688",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/d3e9882327102a227fdbe1f5b6c2d0e3edc68658",
+                "reference": "d3e9882327102a227fdbe1f5b6c2d0e3edc68658",
                 "shasum": ""
             },
             "require": {
@@ -6506,7 +6506,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-06-21 12:00:43"
+            "time": "2016-06-23 13:37:15"
         },
         {
             "name": "swiftmailer/swiftmailer",

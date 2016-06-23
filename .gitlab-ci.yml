@@ -91,6 +91,8 @@ job_tests_windows_firefox: # Run tests suites
   - composer
   - mysql
   - windows
+  - selenium
+  - firefox47
 
 job_tests_windows_ie: # Run tests suites
   stage: test
@@ -124,6 +126,8 @@ job_tests_windows_ie: # Run tests suites
   - composer
   - mysql
   - windows
+  - selenium
+  - ie11
 
 job_tests_windows_chrome: # Run tests suites
   stage: test
@@ -157,6 +161,8 @@ job_tests_windows_chrome: # Run tests suites
   - composer
   - mysql
   - windows
+  - selenium
+  - chrome51
 
 job_cs: # CodeStyle
   stage: test
