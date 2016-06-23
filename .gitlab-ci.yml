@@ -177,6 +177,7 @@ job_cs: # CodeStyle
   script:
   - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ core
   when: always
+  allow_failure: true
   tags:
   - php7
   - composer
@@ -191,6 +192,7 @@ job_cs_duplicated: # CodeStyle - Looking for duplicated code
   script:
   - bin/phpcpd core
   when: always
+  allow_failure: true
   tags:
   - php7
   - composer
@@ -205,6 +207,7 @@ job_ci_dump: # ContinuousIntegration - try to dump Db
   - php artisan codeception:dbdump testing --dump tests/_data/empty.sql --empty-database --no-seeding
   - php artisan codeception:dbdump testing --dump tests/_data/testing.sql --empty-database --seeder-class TestingSeeder
   when: always
+  allow_failure: true
   tags:
   - php7
   - composer
