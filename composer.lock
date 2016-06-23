@@ -1445,16 +1445,16 @@
         },
         {
             "name": "cvepdb-cms/module-posts",
-            "version": "1.0.52.2",
+            "version": "1.0.52.3",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-posts.git",
-                "reference": "f3fd064365e4f13295abac099bd00af6c44c2314"
+                "reference": "a0c92cd52032540ac4d48fe4805b1d05af158657"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-posts/repository/archive.zip?sha=f3fd064365e4f13295abac099bd00af6c44c2314",
-                "reference": "f3fd064365e4f13295abac099bd00af6c44c2314",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-posts/repository/archive.zip?sha=a0c92cd52032540ac4d48fe4805b1d05af158657",
+                "reference": "a0c92cd52032540ac4d48fe4805b1d05af158657",
                 "shasum": ""
             },
             "type": "laravel-library",
@@ -1483,7 +1483,7 @@
                 "module",
                 "posts"
             ],
-            "time": "2016-06-17 18:29:40"
+            "time": "2016-06-19 13:48:13"
         },
         {
             "name": "cvepdb-cms/module-themes",
