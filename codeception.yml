@@ -34,9 +34,9 @@ extensions:
             router: public/index.php
             directoryIndex: index.php
 modules:
-    enabled: [Filesystem, MailCatcher]
-    config:
-        MailCatcher:
+    enabled:
+        - Filesystem
+        - MailCatcher:
             url: 'http://localhost'
             port: '1080'
 coverage:

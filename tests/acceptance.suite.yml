@@ -11,9 +11,7 @@ l5:
         name: default
 extensions:
     enabled:
-        - Codeception\Extension\Recorder
-    config:
-        Codeception\Extension\Recorder:
+        - Codeception\Extension\Recorder:
             delete_successful: true
 modules:
     enabled:
