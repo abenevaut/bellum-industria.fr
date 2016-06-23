@@ -6456,12 +6456,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "d3e9882327102a227fdbe1f5b6c2d0e3edc68658"
+                "reference": "2105f84fc651b9e1797d03e810a3b78dbbce42de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/d3e9882327102a227fdbe1f5b6c2d0e3edc68658",
-                "reference": "d3e9882327102a227fdbe1f5b6c2d0e3edc68658",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/2105f84fc651b9e1797d03e810a3b78dbbce42de",
+                "reference": "2105f84fc651b9e1797d03e810a3b78dbbce42de",
                 "shasum": ""
             },
             "require": {
@@ -6506,7 +6506,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-06-23 13:37:15"
+            "time": "2016-06-23 14:21:41"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -11258,16 +11258,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "dev-master",
+            "version": "3.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "1ecb72626ce86223e953bb94f855706cdde7a50d"
+                "reference": "b974f25e856f2ed483287d0b1f8e3e47fa8225dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/1ecb72626ce86223e953bb94f855706cdde7a50d",
-                "reference": "1ecb72626ce86223e953bb94f855706cdde7a50d",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/b974f25e856f2ed483287d0b1f8e3e47fa8225dd",
+                "reference": "b974f25e856f2ed483287d0b1f8e3e47fa8225dd",
                 "shasum": ""
             },
             "require": {
@@ -11287,7 +11287,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2-dev"
+                    "dev-master": "3.1-dev"
                 }
             },
             "autoload": {
@@ -11314,7 +11314,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-21 19:44:32"
+            "time": "2016-06-21 06:06:14"
         },
         {
             "name": "symfony/dom-crawler",

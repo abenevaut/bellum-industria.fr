@@ -17,22 +17,19 @@ extensions:
             delete_successful: true
 modules:
     enabled:
-        - Db
-        - WebDriver
-        - \Helper\Acceptance
-    config:
-        WebDriver:
-             url: 'http://localhost:8000/'
-             port: 4480
-             browser: phantomjs
-             window_size: 1024x768
-        Db:
-            dsn: 'mysql:host=127.0.0.1;dbname=cvepdb_cms_testing'
-            user: 'cvepdb_testing'
-            password: ''
-            cleanup: true
-            populate: true
-            dump: 'tests/_data/testing.sql'
+      - \Helper\Acceptance
+      - WebDriver:
+           url: 'http://localhost:8000/'
+           port: 4480
+           browser: phantomjs
+           window_size: 1024x768
+      - Db:
+          dsn: 'mysql:host=127.0.0.1;dbname=cvepdb_cms_testing'
+          user: 'cvepdb_testing'
+          password: ''
+          cleanup: true
+          populate: true
+          dump: 'tests/_data/testing.sql'
 env:
     installer:
         l5:
@@ -40,44 +37,36 @@ env:
                 file: "tests/_data/.env.installer"
                 name: installer
         modules:
-            WebDriver:
-                 url: 'http://localhost:8000/'
-                 port: 4480
-                 browser: phantomjs
-                 window_size: 1024x768
-            Db:
-                cleanup: true
-                dump: 'tests/_data/empty.sql'
+            enabled:
+                - Db:
+                    dump: 'tests/_data/empty.sql'
     chrome:
         # Selenium 2 + webBrowser
         # http://www.seleniumhq.org/
         # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
         modules:
-            config:
-                WebDriver:
+            enabled:
+                - WebDriver:
                     port: 4444
                     browser: chrome
-                    window_size: 1024x768
     firefox:
         # Selenium 2 + webBrowser
         # http://www.seleniumhq.org/
         # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
         modules:
-            config:
-                WebDriver:
+            enabled:
+                - WebDriver:
                     port: 4444
                     browser: firefox
-                    window_size: 1024x768
     ie:
         # Selenium 2 + webBrowser
         # http://www.seleniumhq.org/
         # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
          modules:
-            config:
-                WebDriver:
+            enabled:
+                - WebDriver:
                     browser: 'internet explorer'
                     port: 4444
-                    window_size: 1024x768
     travis:
         l5:
             env:
