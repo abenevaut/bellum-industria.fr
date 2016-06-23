@@ -25,6 +25,7 @@ modules:
              url: 'http://localhost:8000/'
              port: 4480
              browser: phantomjs
+             window_size: 1024x768
         Db:
             dsn: 'mysql:host=127.0.0.1;dbname=cvepdb_cms_testing'
             user: 'cvepdb_testing'
@@ -43,6 +44,7 @@ env:
                  url: 'http://localhost:8000/'
                  port: 4480
                  browser: phantomjs
+                 window_size: 1024x768
             Db:
                 cleanup: true
                 dump: 'tests/_data/empty.sql'
