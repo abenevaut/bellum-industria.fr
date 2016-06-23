@@ -44,7 +44,7 @@ job_tests_linux: # Run tests suites
   - bin/codecept run --env=installer -g installer unit --coverage #
   - bin/codecept run --env=installer -g installer acceptance #
   - echo 'testing' > .env
-  - cp text/_data/.env.testing .
+  - cp tests/_data/.env.testing .
   - bin/codecept run -g core api
   - bin/codecept run -g core functional --coverage
   - bin/codecept run -g core unit --coverage
@@ -85,7 +85,7 @@ job_tests_windows_firefox: # Run tests suites
   script:
   - call bin\codecept run --env=installer,firefox -g installer acceptance #
   - echo 'testing' > .env
-  - cp text/_data/.env.testing .
+  - cp tests/_data/.env.testing .
   - call bin\codecept run --env=firefox -g core acceptance
   - call bin\codecept run --env=firefox -g installed acceptance
   when: on_success
@@ -122,7 +122,7 @@ job_tests_windows_ie: # Run tests suites
   script:
   - call bin\codecept run --env=installer,ie -g installer acceptance
   - echo 'testing' > .env
-  - cp text/_data/.env.testing .
+  - cp tests/_data/.env.testing .
   - call bin\codecept run --env=ie -g core acceptance
   - call bin\codecept run --env=ie -g installed acceptance
   when: on_success
@@ -159,7 +159,7 @@ job_tests_windows_chrome: # Run tests suites
   script:
   - call bin\codecept run --env=installer,chrome -g installer acceptance
   - echo 'testing' > .env
-  - cp text/_data/.env.testing .
+  - cp tests/_data/.env.testing .
   - call bin\codecept run --env=chrome -g core acceptance
   - call bin\codecept run --env=chrome -g installed acceptance
   when: on_success
