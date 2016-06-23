@@ -26,6 +26,16 @@ Get website package from ~~[this link (currently not available)](https://gitlab.
 
 If you discover a security vulnerability within #CVEPDB CMS, please send an e-mail to our contact mailbox at [Contact#CVEPDB](mailto:contact@cvepdb.fr).
 
+## We test!
+
+### Travis-ci (development branch)
+
+[![Build Status](https://travis-ci.org/CavaENCOREparlerdebits/cms.svg?branch=development)](https://travis-ci.org/CavaENCOREparlerdebits/cms)
+
+### Gitlab-ci (development branch)
+
+[![build status](https://gitlab.com/cvepdb/cms/badges/master/build.svg)](https://gitlab.com/cvepdb/cms/commits/development)
+
 # Who i am
 
 [Antoine Benevaut](mailto:antoine@cvepdb.fr), Consultant freelance & Web developer.
