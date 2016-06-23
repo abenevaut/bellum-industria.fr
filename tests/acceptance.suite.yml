@@ -5,10 +5,6 @@
 # If you need both WebDriver and PHPBrowser tests - create a separate suite.
 
 class_name: AcceptanceTester
-l5:
-    env:
-        file: "tests/_data/.env.testing"
-        name: default
 extensions:
     enabled:
         - Codeception\Extension\Recorder:
@@ -30,58 +26,35 @@ modules:
           dump: 'tests/_data/testing.sql'
 env:
     installer:
-        l5:
-            env:
-                file: "tests/_data/.env.installer"
-                name: installer
         modules:
             enabled:
+                - WebDriver:
+                     url: 'http://localhost:8000/'
+                     port: 4480
+                     browser: phantomjs
+                     window_size: 1024x768
                 - Db:
+                    cleanup: true
                     dump: 'tests/_data/empty.sql'
     chrome:
-        # Selenium 2 + webBrowser
-        # http://www.seleniumhq.org/
-        # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
         modules:
             enabled:
                 - WebDriver:
                     port: 4444
                     browser: chrome
     firefox:
-        # Selenium 2 + webBrowser
-        # http://www.seleniumhq.org/
-        # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
         modules:
             enabled:
                 - WebDriver:
                     port: 4444
                     browser: firefox
     ie:
-        # Selenium 2 + webBrowser
-        # http://www.seleniumhq.org/
-        # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
          modules:
             enabled:
                 - WebDriver:
                     browser: 'internet explorer'
                     port: 4444
     travis:
-        l5:
-            env:
-                file: "tests/_data/.env.travis"
-                name: travis
     travis-installer:
-        l5:
-            env:
-                file: "tests/_data/.env.travis-installer"
-                name: travis
     codeship:
-        l5:
-            env:
-                file: "tests/_data/.env.codeship"
-                name: codeship
     codeship-installer:
-        l5:
-            env:
-                file: "tests/_data/.env.codeship-installer"
-                name: codeship
