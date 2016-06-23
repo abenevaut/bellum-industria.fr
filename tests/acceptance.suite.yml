@@ -14,7 +14,7 @@ extensions:
         - Codeception\Extension\Recorder
     config:
         Codeception\Extension\Recorder:
-            delete_successful: false
+            delete_successful: true
 modules:
     enabled:
         - Db

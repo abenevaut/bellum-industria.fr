@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "abd0ba0571fd85fcaaeacdc1cdc3bb51",
-    "content-hash": "49e3a3c84eaa88ac3fb68ad455c9c898",
+    "hash": "bb4397afbba1fe98d1d1779887a56b3f",
+    "content-hash": "d1cd3c42c81e55bc75368b8a463b9418",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -935,12 +935,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "2cbf678f985bdf0f6034f4b2542187fff81c1533"
+                "reference": "5bf0335072c90b0387857bc64dc4c0b9503fa53a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/2cbf678f985bdf0f6034f4b2542187fff81c1533",
-                "reference": "2cbf678f985bdf0f6034f4b2542187fff81c1533",
+                "url": "https://api.github.com/repos/composer/installers/zipball/5bf0335072c90b0387857bc64dc4c0b9503fa53a",
+                "reference": "5bf0335072c90b0387857bc64dc4c0b9503fa53a",
                 "shasum": ""
             },
             "require": {
@@ -1028,7 +1028,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-06-22 11:17:44"
+            "time": "2016-06-22 15:59:10"
         },
         {
             "name": "composer/semver",
@@ -1396,6 +1396,52 @@
                 "module"
             ],
             "time": "2016-06-21 15:25:53"
+        },
+        {
+            "name": "cvepdb-cms/module-pages",
+            "version": "1.0.52.4",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/module-pages.git",
+                "reference": "a098b6a49506c99ff56fd01b44367e91598228c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-pages/repository/archive.zip?sha=a098b6a49506c99ff56fd01b44367e91598228c7",
+                "reference": "a098b6a49506c99ff56fd01b44367e91598228c7",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "Pages"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Modules\\Pages\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "open"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Pages module for #CVEPDB CMS",
+            "keywords": [
+                "CVEPDB",
+                "cms",
+                "module",
+                "pages"
+            ],
+            "time": "2016-06-16 15:00:00"
         },
         {
             "name": "cvepdb-cms/module-posts",
@@ -9289,12 +9335,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "0e235a13312ae821b46e9c356cf34b3b1c764c18"
+                "reference": "b4c750514894c994340a8aec2abda0b2dbc0d9cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/0e235a13312ae821b46e9c356cf34b3b1c764c18",
-                "reference": "0e235a13312ae821b46e9c356cf34b3b1c764c18",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/b4c750514894c994340a8aec2abda0b2dbc0d9cc",
+                "reference": "b4c750514894c994340a8aec2abda0b2dbc0d9cc",
                 "shasum": ""
             },
             "require": {
@@ -9373,7 +9419,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2016-06-22 14:57:24"
+            "time": "2016-06-22 17:36:35"
         },
         {
             "name": "phpspec/prophecy",
