@@ -48,7 +48,7 @@ class Environment
 	/**
 	 * Load information about current environment.
 	 */
-	protected function loadEnvironment()
+	public function loadEnvironment()
 	{
 		$current_domain = null;
 

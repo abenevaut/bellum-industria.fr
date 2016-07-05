@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\File;
 use Core\Domain\Environments\Events\EnvironmentCreatedEvent;
 use Core\Domain\Environments\Events\EnvironmentDeletedEvent;
-use Core\Domain\Files\Repositories\DiskRepository;
+use Core\Domain\Files\Repositories\ElFinderDiskRepository;
 use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
 use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
 use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
@@ -16,16 +16,16 @@ class EnvironmentEventListener
 {
 
 	/**
-	 * @var DiskRepository|null
+	 * @var ElFinderDiskRepository|null
 	 */
 	private $r_disk = null;
 
 	/**
 	 * EnvironmentEventListener constructor.
 	 *
-	 * @param DiskRepository $r_disk
+	 * @param ElFinderDiskRepository $r_disk
 	 */
-	public function __construct(DiskRepository $r_disk)
+	public function __construct(ElFinderDiskRepository $r_disk)
 	{
 		$this->r_disk = $r_disk;
 	}
