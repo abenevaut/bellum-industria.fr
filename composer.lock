@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9bf94b62bd2febcb3f36da00ed4dde90",
-    "content-hash": "f40c8e6bb8f7c0084275df64393e0976",
+    "hash": "90b86b9377ac2fba1080c8f0d0765705",
+    "content-hash": "7f0a7412215e5373e3bc30baa8bc831d",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -3439,12 +3439,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "76ee5397fcdea5a062361392abca4eb397e519a3"
+                "reference": "f0cb028053fbfb6c7da5ccf0e9c0a6bbc53c45fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/76ee5397fcdea5a062361392abca4eb397e519a3",
-                "reference": "76ee5397fcdea5a062361392abca4eb397e519a3",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/f0cb028053fbfb6c7da5ccf0e9c0a6bbc53c45fa",
+                "reference": "f0cb028053fbfb6c7da5ccf0e9c0a6bbc53c45fa",
                 "shasum": ""
             },
             "require": {
@@ -3485,7 +3485,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2016-06-22 12:40:16"
+            "time": "2016-07-05 13:54:33"
         },
         {
             "name": "laravelcollective/html",
