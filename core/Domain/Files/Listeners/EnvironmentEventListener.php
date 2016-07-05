@@ -1,4 +1,4 @@
-<?php namespace Core\Domain\Environments\Listeners;
+<?php namespace Core\Domain\Files\Listeners;
 
 use Illuminate\Support\Facades\File;
 use Core\Domain\Environments\Events\EnvironmentCreatedEvent;
@@ -10,7 +10,7 @@ use Core\Domain\Roles\Repositories\PermissionRepositoryEloquent;
 
 /**
  * Class EnvironmentEventListener
- * @package Core\Domain\Environments\Listeners
+ * @package Core\Domain\Files\Listeners
  */
 class EnvironmentEventListener
 {
@@ -39,11 +39,11 @@ class EnvironmentEventListener
 	{
 		$events->listen(
 			'Core\Domain\Environments\Events\EnvironmentCreatedEvent',
-			'Core\Domain\Environments\Listeners\EnvironmentEventListener@environmentCreatedEvent'
+			'Core\Domain\Files\Listeners\EnvironmentEventListener@environmentCreatedEvent'
 		);
 		$events->listen(
 			'Core\Domain\Environments\Events\EnvironmentDeletedEvent',
-			'Core\Domain\Environments\Listeners\EnvironmentEventListener@environmentDeletedEvent'
+			'Core\Domain\Files\Listeners\EnvironmentEventListener@environmentDeletedEvent'
 		);
 	}
 
