@@ -6453,12 +6453,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "4f92e87e3dbecb9b54661316155c94fb708fcd06"
+                "reference": "b407f50081bd0ddf022d4b157e6575590c99d1bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/4f92e87e3dbecb9b54661316155c94fb708fcd06",
-                "reference": "4f92e87e3dbecb9b54661316155c94fb708fcd06",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/b407f50081bd0ddf022d4b157e6575590c99d1bc",
+                "reference": "b407f50081bd0ddf022d4b157e6575590c99d1bc",
                 "shasum": ""
             },
             "require": {
@@ -6503,7 +6503,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-07-04 09:07:28"
+            "time": "2016-07-05 08:37:13"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7438,12 +7438,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "2f046e9a9d571f22cc8b26783564876713b06579"
+                "reference": "65972dbdc5528a83efb8588d3efdd6893e1b9fdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/2f046e9a9d571f22cc8b26783564876713b06579",
-                "reference": "2f046e9a9d571f22cc8b26783564876713b06579",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/65972dbdc5528a83efb8588d3efdd6893e1b9fdf",
+                "reference": "65972dbdc5528a83efb8588d3efdd6893e1b9fdf",
                 "shasum": ""
             },
             "require": {
@@ -7493,7 +7493,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2016-06-29 05:40:00"
+            "time": "2016-07-05 11:09:15"
         },
         {
             "name": "themattharris/tmhoauth",
