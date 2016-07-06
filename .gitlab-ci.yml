@@ -253,3 +253,18 @@ job_ci_dump: # ContinuousIntegration - try to dump Db
   - php7
   - composer
   - linux
+
+job_ci_backup: # ContinuousIntegration - try to backup website
+  stage: test
+  only:
+  - development
+  script:
+  - composer install
+  - mkdir -p storage/apps/default/backups
+  - php artisan backup:run
+  when: always
+  allow_failure: true
+  tags:
+  - php7
+  - composer
+  - linux
