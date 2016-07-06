@@ -1,5 +1,24 @@
 @extends('adminlte::layouts.default')
 
+@section('head')
+	<script>
+		cvepdb_config.libraries.push(
+				{
+					script: {
+						CVEPDB_FORM_VALIDATION_LOADED: (cvepdb_config.url_theme + cvepdb_config.script_path + 'scripts/form_validation.js')
+					},
+					trigger: '.js-call-form_validation',
+					mobile: true,
+					browser: true
+				}
+		);
+	</script>
+@endsection
+
+@section('js')
+	<script src="{{ asset('assets/js/environments.js') }}"></script>
+@endsection
+
 @section('content')
 	<div class="row">
 		<div class="col-md-12">
@@ -7,8 +26,7 @@
 				<div class="box-header with-border">
 					<h3 class="box-title">{{ trans('environments.index.title') }}</h3>
 					<div class="box-tools hidden-xs pull-right">
-						<a href="javascript:void(0);"
-						   class="btn btn-box-tool btn-box-tool-primary"
+						<a class="btn btn-box-tool btn-box-tool-primary"
 						   data-toggle="modal"
 						   data-target="#add_environment">
 							<i class="fa fa-plus"></i> {{ trans('environments.index.btn.add') }}
@@ -148,7 +166,7 @@
 						<input type="text" class="form-control"
 							   name="reference"
 							   required="required"
-							   {{--readonly="readonly"--}}
+							   readonly="readonly"
 							   value="" placeholder="{{ trans('global.reference') }}">
 					</div>
 

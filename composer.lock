@@ -165,16 +165,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.18.24",
+            "version": "3.18.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "c74f6f316282b0ac6a3cd8a681171343c0e07ec3"
+                "reference": "37a8ce927a69de3d821c21b64674a2b3b9d1d247"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c74f6f316282b0ac6a3cd8a681171343c0e07ec3",
-                "reference": "c74f6f316282b0ac6a3cd8a681171343c0e07ec3",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/37a8ce927a69de3d821c21b64674a2b3b9d1d247",
+                "reference": "37a8ce927a69de3d821c21b64674a2b3b9d1d247",
                 "shasum": ""
             },
             "require": {
@@ -241,7 +241,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-07-01 21:27:27"
+            "time": "2016-07-05 19:25:06"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -1296,21 +1296,21 @@
         },
         {
             "name": "cvepdb-cms/module-files",
-            "version": "1.0.52.4",
+            "version": "1.0.52.5",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-files.git",
-                "reference": "48094d90d97f75335485d6d76d48a1bccb49e62c"
+                "reference": "e6ff30fa6a6af9005b6c3e5cbc48d30cfdd1d09a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-files/repository/archive.zip?sha=48094d90d97f75335485d6d76d48a1bccb49e62c",
-                "reference": "48094d90d97f75335485d6d76d48a1bccb49e62c",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-files/repository/archive.zip?sha=e6ff30fa6a6af9005b6c3e5cbc48d30cfdd1d09a",
+                "reference": "e6ff30fa6a6af9005b6c3e5cbc48d30cfdd1d09a",
                 "shasum": ""
             },
             "require": {
                 "aws/aws-php-sns-message-validator": "^1.1",
-                "barryvdh/laravel-elfinder": "^0.3.6",
+                "barryvdh/laravel-elfinder": "^0.3.7",
                 "composer/installers": "~1.0",
                 "doctrine/cache": "^1.6",
                 "league/flysystem": "^1.0",
@@ -1349,7 +1349,7 @@
                 "files",
                 "module"
             ],
-            "time": "2016-06-21 16:58:50"
+            "time": "2016-07-05 16:32:17"
         },
         {
             "name": "cvepdb-cms/module-installer",
@@ -2096,12 +2096,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "c16f1f8063fed82aa4e495fed19f84cca3263254"
+                "reference": "b445028c84ee40a662c8d59fe95b2ef0c11ed1c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/c16f1f8063fed82aa4e495fed19f84cca3263254",
-                "reference": "c16f1f8063fed82aa4e495fed19f84cca3263254",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/b445028c84ee40a662c8d59fe95b2ef0c11ed1c0",
+                "reference": "b445028c84ee40a662c8d59fe95b2ef0c11ed1c0",
                 "shasum": ""
             },
             "require": {
@@ -2161,7 +2161,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2016-06-19 16:38:36"
+            "time": "2016-07-05 16:47:17"
         },
         {
             "name": "doctrine/dbal",
@@ -2169,12 +2169,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "0348953fdffb2a9d709ef98168873b7f24fe7050"
+                "reference": "97f423a42c100c0ea9a8ff78f17a9ed020b8b6bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/0348953fdffb2a9d709ef98168873b7f24fe7050",
-                "reference": "0348953fdffb2a9d709ef98168873b7f24fe7050",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/97f423a42c100c0ea9a8ff78f17a9ed020b8b6bf",
+                "reference": "97f423a42c100c0ea9a8ff78f17a9ed020b8b6bf",
                 "shasum": ""
             },
             "require": {
@@ -2232,7 +2232,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2016-06-30 07:45:43"
+            "time": "2016-07-05 15:53:41"
         },
         {
             "name": "doctrine/inflector",
@@ -4430,16 +4430,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "dev-master",
+            "version": "2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "96cbd48df6d1c6dae38ab2437bee71508947d5c8"
+                "reference": "81f7da3b2365fe0a99d5a6d35c82a2e258d3838d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/96cbd48df6d1c6dae38ab2437bee71508947d5c8",
-                "reference": "96cbd48df6d1c6dae38ab2437bee71508947d5c8",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/81f7da3b2365fe0a99d5a6d35c82a2e258d3838d",
+                "reference": "81f7da3b2365fe0a99d5a6d35c82a2e258d3838d",
                 "shasum": ""
             },
             "require": {
@@ -4477,7 +4477,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2016-04-20 14:47:50"
+            "time": "2016-07-06 00:21:48"
         },
         {
             "name": "paragonie/random_compat",
