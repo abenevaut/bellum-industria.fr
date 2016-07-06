@@ -72,23 +72,27 @@
 											{{ $environment['domain'] }}
 										</td>
 										<td class="hidden-xs cell-center">
-											<a href="{{ url('admin/environments/' . $environment['id'] . '/edit') }}"
-											   class="btn btn-warning btn-flat btn-mobile"
-											   data-toggle="modal"
-											   data-target="#environment_show_{{ $environment['id'] }}">
-												<i class="fa fa-pencil"></i> {{ trans('global.edit') }}
-											</a>
-											<button type="button" class="btn btn-danger btn-flat btn-mobile"
-													@if (\Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === $environment['reference'])
-													disabled="disabled"
-													@else
-													data-toggle="modal"
-													data-target="#delete_environments_{{ $environment['id'] }}"
-													@endif
-											>
-												<i class="fa fa-trash"></i>
-												{{ trans('global.remove') }}
-											</button>
+											@if (empty($environment['deleted_at']))
+												<a href="{{ url('admin/environments/' . $environment['id'] . '/edit') }}"
+												   class="btn btn-warning btn-flat btn-mobile"
+												   data-toggle="modal"
+												   data-target="#environment_show_{{ $environment['id'] }}">
+													<i class="fa fa-pencil"></i> {{ trans('global.edit') }}
+												</a>
+												<button type="button" class="btn btn-danger btn-flat btn-mobile"
+														@if (\Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === $environment['reference'])
+														disabled="disabled"
+														@else
+														data-toggle="modal"
+														data-target="#delete_environments_{{ $environment['id'] }}"
+														@endif
+												>
+													<i class="fa fa-trash"></i>
+													{{ trans('global.remove') }}
+												</button>
+											@else
+												This environement was removed
+											@endif
 										</td>
 									</tr>
 								@endforeach

@@ -63,6 +63,8 @@ class EnvironmentsOutputter extends AdminOutputter
 	{
 		$this->r_environment->setPresenter(new EnvironmentListPresenter());
 
+		$this->r_environment->filterShowWithTrashed();
+
 		$envs = $this->r_environment
 			->paginate(Settings::get('app.pagination'));
 
@@ -163,7 +165,8 @@ class EnvironmentsOutputter extends AdminOutputter
 						->with('message-error', $e->getMessage());
 					break;
 				}
-				default: {
+				default:
+				{
 					$redirectTo = $this->redirectTo('admin/environments')
 						->with('message-error', 'An error occured');
 					break;

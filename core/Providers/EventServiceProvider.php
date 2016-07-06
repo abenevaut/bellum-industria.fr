@@ -25,6 +25,7 @@ class EventServiceProvider extends ServiceProvider
 	 */
 	protected $subscribe = [
 		'Core\Domain\Environments\Listeners\EnvironmentEventListener',
+		'Core\Domain\Files\Listeners\EnvironmentEventListener',
 	];
 
 	/**

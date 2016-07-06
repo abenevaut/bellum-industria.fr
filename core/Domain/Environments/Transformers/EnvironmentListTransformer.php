@@ -18,10 +18,11 @@ class EnvironmentListTransformer extends TransformerAbstract
 	public function transform(Environment $env)
 	{
 		return [
-			'id'      => (int)$env->id,
-			'name'      => $env->name,
-			'reference' => $env->reference,
-			'domain'    => $env->domain,
+			'id'         => (int)$env->id,
+			'name'       => $env->name,
+			'reference'  => $env->reference,
+			'domain'     => $env->domain,
+			'deleted_at' => $env->deleted_at,
 		];
 	}
 }

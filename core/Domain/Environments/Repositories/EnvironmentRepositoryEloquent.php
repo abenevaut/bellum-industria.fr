@@ -3,6 +3,8 @@
 use Illuminate\Container\Container as Application;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
+use Core\Criterias\OnlyTrashedCriteria;
+use Core\Criterias\WithTrashedCriteria;
 use Core\Domain\Environments\Entities\Environment;
 use Core\Domain\Environments\Events\EnvironmentCreatedEvent;
 use Core\Domain\Environments\Events\EnvironmentDeletedEvent;
@@ -52,6 +54,26 @@ class EnvironmentRepositoryEloquent extends BaseRepository implements Environmen
 	public function boot()
 	{
 		$this->pushCriteria(app(RequestCriteria::class));
+	}
+
+	/**
+	 * Display all users with trashed users.
+	 *
+	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 */
+	public function filterShowWithTrashed()
+	{
+		$this->pushCriteria(new WithTrashedCriteria());
+	}
+
+	/**
+	 * Display only trashed user.
+	 *
+	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 */
+	public function filterShowOnlyTrashed()
+	{
+		$this->pushCriteria(new OnlyTrashedCriteria());
 	}
 
 	/**

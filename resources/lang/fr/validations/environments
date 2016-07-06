@@ -2,6 +2,7 @@
 
 return [
 
-	'reference:unique' => 'Un domaine existe avec cette reference',
+	'reference:unique' => 'Un environnement existe deja avec cette reference',
+	'domain:unique' => 'Un environnement existe deja avec ce domaine',
 
 ];

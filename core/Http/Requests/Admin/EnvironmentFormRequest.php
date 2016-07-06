@@ -34,7 +34,8 @@ class EnvironmentFormRequest extends AbsFormRequest
 			'name'      => 'required',
 			'reference' => 'alpha_dash|required|unique:environments,reference'
 				. ((($this->method() === 'PUT') && ($id > 0)) ? ',' . $id : ''),
-			'domain'    => 'required',
+			'domain'    => 'required|unique:environments,domain'
+				. ((($this->method() === 'PUT') && ($id > 0)) ? ',' . $id : ''),
 		];
 	}
 
@@ -47,6 +48,7 @@ class EnvironmentFormRequest extends AbsFormRequest
 	{
 		return [
 			'reference.unique' => 'validations.environments.reference:unique',
+			'domain.unique' => 'validations.environments.domain:unique',
 		];
 	}
 }
