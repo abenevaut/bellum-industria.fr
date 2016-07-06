@@ -35,7 +35,7 @@
     "barryvdh/laravel-elfinder": "^0.3.7",
     "aws/aws-php-sns-message-validator": "^1.1",
     "laravel/socialite": "^2.0",
-    "spatie/laravel-backup": "^3.4",
+    "spatie/laravel-backup": "3.8.*",
     "maknz/slack": "^1.7",
     "monolog/monolog": "^1.19",
     "barryvdh/laravel-ide-helper": "^2.1",

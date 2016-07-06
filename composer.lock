@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "90b86b9377ac2fba1080c8f0d0765705",
-    "content-hash": "7f0a7412215e5373e3bc30baa8bc831d",
+    "hash": "5c9634fe603820967f30376f97e93ab1",
+    "content-hash": "6dd4ec344139c9bfeb9b71c75c7ec571",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -6181,16 +6181,16 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "3.8.0",
+            "version": "3.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "ff922a830d3dc73c353d93cb735db62d1239b7e6"
+                "reference": "08b7b8c778d5aeb0179cc49da4f64415bab9f81f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/ff922a830d3dc73c353d93cb735db62d1239b7e6",
-                "reference": "ff922a830d3dc73c353d93cb735db62d1239b7e6",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/08b7b8c778d5aeb0179cc49da4f64415bab9f81f",
+                "reference": "08b7b8c778d5aeb0179cc49da4f64415bab9f81f",
                 "shasum": ""
             },
             "require": {
@@ -6239,7 +6239,7 @@
                 "laravel-backup",
                 "spatie"
             ],
-            "time": "2016-06-15 23:42:49"
+            "time": "2016-07-06 15:30:58"
         },
         {
             "name": "spatie/laravel-glide",
@@ -6453,12 +6453,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "b407f50081bd0ddf022d4b157e6575590c99d1bc"
+                "reference": "660a718061db88c3562588684375a3db99e860fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/b407f50081bd0ddf022d4b157e6575590c99d1bc",
-                "reference": "b407f50081bd0ddf022d4b157e6575590c99d1bc",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/660a718061db88c3562588684375a3db99e860fa",
+                "reference": "660a718061db88c3562588684375a3db99e860fa",
                 "shasum": ""
             },
             "require": {
@@ -6503,7 +6503,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-07-05 08:37:13"
+            "time": "2016-07-06 12:11:25"
         },
         {
             "name": "swiftmailer/swiftmailer",
