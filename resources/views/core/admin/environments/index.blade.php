@@ -135,15 +135,15 @@
 						<h4 class="modal-title">{{ trans('environments.index.modal.delete.title') }}</h4>
 					</div>
 					<div class="modal-body">
-						<p>{{ trans('users::admin.index.delete.question') }} {{ $environment['name'] }} <small>({{ $environment['reference'] }})</small> ?</p>
+						<p>{{ trans('environments.index.modal.delete.question') }} {{ $environment['name'] }} <small>({{ $environment['reference'] }})</small> ?</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default pull-left" data-dismiss="modal">
-							{{ trans('users::admin.index.btn.cancel_delete') }}
+							{{ trans('environments.index.modal.delete.btn.cancel_delete') }}
 						</button>
 						{!! Form::open(['route' => ['admin.environments.destroy', $environment['id']], 'method' => 'delete']) !!}
 						<button type="submit" class="btn btn-danger">
-							<i class="fa fa-trash"></i> {{ trans('users::admin.index.btn.valid_delete') }}
+							<i class="fa fa-trash"></i> {{ trans('environments.index.modal.delete.btn.valid_delete') }}
 						</button>
 						{!! Form::close() !!}
 					</div>

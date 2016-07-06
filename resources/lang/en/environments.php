@@ -15,6 +15,9 @@ return [
 
 	'index.modal.delete.title' => 'Delete environment',
 	'index.modal.delete.message.success' => 'The environment was successfully deleted',
+	'index.modal.delete.question' => 'Would you really remove the environment : ',
+	'index.modal.delete.btn.cancel_delete' => 'No, cancel',
+	'index.modal.delete.btn.valid_delete' => 'Yes, remove',
 
 	'index.modal.update.title'    => 'Update environment',
 	'index.modal.update.btn.edit' => 'Edit',
