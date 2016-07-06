@@ -37,4 +37,16 @@ class EnvironmentFormRequest extends AbsFormRequest
 			'domain'    => 'required',
 		];
 	}
+
+	/**
+	 * Get the error messages for the defined validation rules.
+	 *
+	 * @return array
+	 */
+	public function messages()
+	{
+		return [
+			'reference.unique' => 'validations.environments.reference:unique',
+		];
+	}
 }

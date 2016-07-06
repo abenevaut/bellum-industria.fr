@@ -1,17 +1,7 @@
 (function ($, W, D) {
 
-	$(D).bind('CVEPDB_READY', function () {
-		var input_name = $('input[name="name"]');
-		var input_reference = $('input[name="reference"]');
-
-		input_name.keyup(function () {
-			var slug = cvepdb.string.slugify($(this).val());
-			input_reference.val(slug);
-		});
-	});
-
 	$(D).bind('CVEPDB_FORM_VALIDATION_READY', function () {
-		cvepdb.debug('admin.roles.form.js > CVEPDB_FORM_VALIDATION_READY : success : Start');
+		cvepdb.debug('show.js > CVEPDB_FORM_VALIDATION_READY : success : Start');
 
 		cvepdb.fv.on_submit(function () {
 			return true;
@@ -40,10 +30,6 @@
 					required: true,
 					maxlength: 254
 				},
-				reference: {
-					required: true,
-					maxlength: 254
-				},
 				domain: {
 					domain: true,
 					required: true,
@@ -52,10 +38,6 @@
 			},
 			messages: {
 				name: {
-					required: cvepdb.globalize.translate('FIELD_REQUIRED'),
-					maxlength: cvepdb.globalize.translate('FIELD_MAXLENGTH').replace('%text%', '{0}')
-				},
-				reference: {
 					required: cvepdb.globalize.translate('FIELD_REQUIRED'),
 					maxlength: cvepdb.globalize.translate('FIELD_MAXLENGTH').replace('%text%', '{0}')
 				},
@@ -93,6 +75,6 @@
 				current_form_group.addClass("has-success");
 			}
 		});
-		cvepdb.debug('admin.roles.form.js > CVEPDB_FORM_VALIDATION_READY : success : End');
+		cvepdb.debug('show.js > CVEPDB_FORM_VALIDATION_READY : success : End');
 	});
 })(jQuery, window, document);

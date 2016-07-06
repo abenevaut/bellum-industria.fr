@@ -1,0 +1,7 @@
+<?php
+
+return [
+
+	'reference:unique' => 'A domain already exists with this reference',
+
+];

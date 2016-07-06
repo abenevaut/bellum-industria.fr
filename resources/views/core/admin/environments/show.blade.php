@@ -8,6 +8,25 @@
 	{!! Form::open(['route' => ['admin.environments.update', $environment['id']], 'class' => 'forms js-call-form_validation', 'method' => 'PUT']) !!}
 @endsection
 
+@section('head')
+	<script>
+		cvepdb_config.libraries.push(
+				{
+					script: {
+						CVEPDB_FORM_VALIDATION_LOADED: (cvepdb_config.url_theme + cvepdb_config.script_path + 'scripts/form_validation.js')
+					},
+					trigger: '.js-call-form_validation',
+					mobile: true,
+					browser: true
+				}
+		);
+	</script>
+@endsection
+
+@section('js')
+	<script src="{{ asset('assets/js/environments/show.js') }}"></script>
+@endsection
+
 @section('content')
 	<div class="box-body no-padding">
 

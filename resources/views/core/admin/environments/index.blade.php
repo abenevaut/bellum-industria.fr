@@ -16,12 +16,26 @@
 @endsection
 
 @section('js')
-	<script src="{{ asset('assets/js/environments.js') }}"></script>
+	<script src="{{ asset('assets/js/environments/index.js') }}"></script>
 @endsection
 
 @section('content')
 	<div class="row">
 		<div class="col-md-12">
+
+			@if (count($errors) > 0)
+				<div class="alert alert-danger" role="alert">
+					<p class="pull-left">
+						{{ count($errors) > 1 ? trans('global.errors') : trans('global.error') }}
+					</p>
+					<div class="clearfix"></div>
+					@foreach ($errors->all() as $error)
+						<br>
+						<p>{{ trans($error) }}</p>
+					@endforeach
+				</div>
+			@endif
+
 			<div class="box box-primary">
 				<div class="box-header with-border">
 					<h3 class="box-title">{{ trans('environments.index.title') }}</h3>
