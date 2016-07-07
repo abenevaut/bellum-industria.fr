@@ -1,6 +1,5 @@
 <?php namespace Core\Console\Commands;
 
-use Illuminate\Console\Command;
 use Prettus\Repository\Generators\FileAlreadyExistsException;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
@@ -10,7 +9,7 @@ use Core\Console\Generators\TransformerGenerator;
  * Class TransformerCommand
  * @package Core\Console\Commands
  */
-class TransformerCommand extends Command
+class TransformerCommand extends CoreCommand
 {
 
 	/**
@@ -41,6 +40,8 @@ class TransformerCommand extends Command
 	 */
 	public function fire()
 	{
+		parent::fire();
+
 		try
 		{
 			$opts = [
