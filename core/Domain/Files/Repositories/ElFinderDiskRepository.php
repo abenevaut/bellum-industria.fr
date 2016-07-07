@@ -22,7 +22,7 @@ class ElFinderDiskRepository extends CoreDiskRepository
 	 */
 	public function getElFinderRoots($environment_reference = null)
 	{
-		return Settings::get('elfinder.roots', [], $environment_reference);
+		return (array)Settings::get('elfinder.roots', [], $environment_reference);
 	}
 
 	/**
@@ -159,33 +159,31 @@ class ElFinderDiskRepository extends CoreDiskRepository
 	 * @param null $environment_reference
 	 *
 	 * @return array
+	 * @throws \Exception
 	 */
 	public function getMountableElFinderDisksList($environment_reference = null)
 	{
 		$roots = [];
 		$disks = $this->getElFinderDisks($environment_reference);
 
-		foreach ($disks as $key => $root)
+		foreach ($disks as $disk_name => $options)
 		{
-			if (is_string($root))
+			if (is_string($options))
 			{
-				$key = $root;
-				$root = [];
+				$disk_name = $options;
+				$options = [];
 			}
 
-			if ($this->isElFinderDiskRestricted($root))
+			if ($this->isElFinderDiskRestricted($options))
 			{
-				if ($this->isElFinderDiskCouldBeMount($root))
+				if ($this->isElFinderDiskCouldBeMount($options))
 				{
-					$roots[] = $this->elFinderMountDisk(
-						$key,
-						$root
-					);
+					$roots[] = $this->elFinderMountDisk($disk_name, $options);
 				}
 			}
 			else
 			{
-				$roots[] = $this->elFinderMountDisk($key, $root);
+				$roots[] = $this->elFinderMountDisk($disk_name, $options);
 			}
 		}
 
@@ -225,8 +223,11 @@ class ElFinderDiskRepository extends CoreDiskRepository
 	}
 
 	/**
-	 * @param $key
-	 * @param $root
+	 * @param $disk_name
+	 * @param $options
+	 *
+	 * @return array
+	 * @throws \Exception
 	 */
 	protected function elFinderMountDisk($disk_name, $options)
 	{
