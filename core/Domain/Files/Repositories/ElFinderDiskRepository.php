@@ -100,7 +100,7 @@ class ElFinderDiskRepository extends CoreDiskRepository
 				'driver'        => 'LocalFileSystem',
 				'path'          => public_path($dir),
 				'URL'           => url($dir),
-				'accessControl' => 'Module\Files\Access\DontShowFilesStartingWithDot::checkAccess'
+				'accessControl' => 'Core\Domain\Files\Access\DontShowFilesStartingWithDot::checkAccess'
 			];
 		}
 
@@ -149,7 +149,7 @@ class ElFinderDiskRepository extends CoreDiskRepository
 	 */
 	public function getElFinderDisks($environment_reference = null)
 	{
-		return Settings::get('elfinder.disks', [], $environment_reference);
+		return (array)Settings::get('elfinder.disks', [], $environment_reference);
 	}
 
 	/**
@@ -167,6 +167,12 @@ class ElFinderDiskRepository extends CoreDiskRepository
 
 		foreach ($disks as $key => $root)
 		{
+			if (is_string($root))
+			{
+				$key = $root;
+				$root = [];
+			}
+
 			if ($this->isElFinderDiskRestricted($root))
 			{
 				if ($this->isElFinderDiskCouldBeMount($root))
@@ -179,12 +185,6 @@ class ElFinderDiskRepository extends CoreDiskRepository
 			}
 			else
 			{
-				if (is_string($root))
-				{
-					$key = $root;
-					$root = [];
-				}
-
 				$roots[] = $this->elFinderMountDisk($key, $root);
 			}
 		}
@@ -240,6 +240,11 @@ class ElFinderDiskRepository extends CoreDiskRepository
 		)
 		{
 			$access = 'Core\Domain\Files\Access\ReadOnly::checkAccess';
+		}
+
+		if (array_key_exists('access', $options))
+		{
+			unset($options['access']);
 		}
 
 		$disk = app('filesystem')->disk($disk_name);

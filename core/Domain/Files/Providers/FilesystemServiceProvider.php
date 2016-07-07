@@ -1,9 +1,13 @@
-<?php namespace Core\Providers;
+<?php namespace Core\Domain\Files\Providers;
 
 use Illuminate\Filesystem\FilesystemServiceProvider as IlluminateFilesystemServiceProvider;
 use CVEPDB\Settings\Facades\Settings;
 use Core\Factories\FilesystemManagerFactory as FilesystemManagerFactory;
 
+/**
+ * Class FilesystemServiceProvider
+ * @package Core\Domain\Files\Providers
+ */
 class FilesystemServiceProvider extends IlluminateFilesystemServiceProvider
 {
 

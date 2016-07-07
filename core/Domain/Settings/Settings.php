@@ -34,6 +34,9 @@ class Settings extends CVEPDBSettings
 			$value = $value->get($environment_reference);
 		}
 
+		debug("Settings :: $key (env : $environment_reference)");
+		debug($value);
+
 		if (!is_null($value))
 		{
 			return $value;

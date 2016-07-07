@@ -147,7 +147,7 @@ return [
 		/*
 		 * Core Service Providers...
 		 */
-		Core\Providers\FilesystemServiceProvider::class,
+		Core\Domain\Files\Providers\FilesystemServiceProvider::class,
 		Core\Providers\MailServiceProvider::class,
 		Core\Providers\EntrustServiceProvider::class,
 		Core\Providers\ApiGuardServiceProvider::class,
@@ -172,6 +172,8 @@ return [
 		CVEPDB\Addresses\AddressesServiceProvider::class,
 		Spatie\Glide\GlideServiceProvider::class,
 		Phoenix\EloquentMeta\ServiceProvider::class,
+		Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+		Spatie\Backup\BackupServiceProvider::class,
 	],
 
 	/*
