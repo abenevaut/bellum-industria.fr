@@ -9,6 +9,7 @@ use $TRANSFORMER$;
  */
 class $CLASS$Presenter extends PresenterAbstract
 {
+
     /**
      * Transformer.
      *
