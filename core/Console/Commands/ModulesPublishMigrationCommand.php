@@ -8,7 +8,7 @@ use Symfony\Component\Console\Input\InputArgument;
  * Class ModulesPublishMigrationCommand
  * @package Core\Console\Commands
  */
-class ModulesPublishMigrationCommand extends Command
+class ModulesPublishMigrationCommand extends CoreCommand
 {
 
 	/**
@@ -32,6 +32,8 @@ class ModulesPublishMigrationCommand extends Command
 	 */
 	public function fire()
 	{
+		parent::fire();
+
 		if ($name = $this->argument('module'))
 		{
 			$module = $this->laravel['modules']->findOrFail($name);

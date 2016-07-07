@@ -11,7 +11,7 @@ use Symfony\Component\Console\Input\InputOption;
  * Class ModulesPublishCommand
  * @package Core\Console\Commands
  */
-class ModulesPublishCommand extends Command
+class ModulesPublishCommand extends CoreCommand
 {
 
 	/**
@@ -35,6 +35,8 @@ class ModulesPublishCommand extends Command
 	 */
 	public function fire()
 	{
+		parent::fire();
+		
 		if ($name = $this->argument('module'))
 		{
 			return $this->publish($name);

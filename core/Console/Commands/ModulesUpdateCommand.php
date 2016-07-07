@@ -8,7 +8,7 @@ use Symfony\Component\Console\Input\InputArgument;
  * Class ModulesUpdateCommand
  * @package Core\Console\Commands
  */
-class ModulesUpdateCommand extends Command
+class ModulesUpdateCommand extends CoreCommand
 {
 
 	use ModuleCommandTrait;
@@ -34,6 +34,8 @@ class ModulesUpdateCommand extends Command
 	 */
 	public function fire()
 	{
+		parent::fire();
+
 		$this->laravel['modules']->update($name = $this->getModuleName());
 
 		$this->info("Module [{$name}] updated successfully.");

@@ -8,7 +8,7 @@ use Symfony\Component\Console\Input\InputArgument;
  * Class ThemesPublishCommand
  * @package Core\Console\Commands
  */
-class ThemesPublishCommand extends Command
+class ThemesPublishCommand extends CoreCommand
 {
 
 	/**
@@ -16,7 +16,7 @@ class ThemesPublishCommand extends Command
 	 *
 	 * @var string
 	 */
-	protected $name = 'theme:publish';
+	protected $name = 'cms:theme:publish';
 
 	/**
 	 * Command description.
@@ -32,6 +32,8 @@ class ThemesPublishCommand extends Command
 	 */
 	public function fire()
 	{
+		parent::fire();
+
 		if ($theme = $this->argument('name'))
 		{
 			$this->publish($theme);
