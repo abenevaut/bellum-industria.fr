@@ -40,14 +40,16 @@ class Kernel extends ConsoleKernel
 		 * Automated backups
 		 */
 
-		$schedule->command('backup:clean')
+		$schedule
+			->command('backup:clean')
 			->name('[Backups] : clean')
 			->withoutOverlapping()
 			->sendOutputTo(storage_path('logs/cron_backups_clean_' . date('Y-m-d_H-i') . '.log'))
 			->daily()
 			->at('00:00');
 
-		$schedule->command('backup:run')
+		$schedule
+			->command('backup:run')
 			->name('[Backups] : run backup')
 			->withoutOverlapping()
 			->sendOutputTo(storage_path('logs/cron_backups_run_' . date('Y-m-d_H-i') . '.log'))
@@ -58,12 +60,14 @@ class Kernel extends ConsoleKernel
 		 * Queue
 		 */
 
-		$schedule->call(
-	  function () {
-	  
-	  Artisan::call('queue:listen', array('--queue' => 'default'));
-	  }
-		)
+		$schedule
+			->call(
+				function ()
+				{
+
+					Artisan::call('queue:listen', array('--queue' => 'default'));
+				}
+			)
 			->name('[Queue] : run default queue')
 			->withoutOverlapping()
 			->everyMinute();
