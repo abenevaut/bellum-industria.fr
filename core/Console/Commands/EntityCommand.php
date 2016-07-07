@@ -1,11 +1,14 @@
 <?php namespace Core\Console\Commands;
 
-use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class EntityCommand extends Command
+/**
+ * Class EntityCommand
+ * @package Core\Console\Commands
+ */
+class EntityCommand extends CoreCommand
 {
 
 	/**
@@ -27,7 +30,6 @@ class EntityCommand extends Command
 	 */
 	protected $generators = null;
 
-
 	/**
 	 * Execute the command.
 	 *
@@ -35,6 +37,7 @@ class EntityCommand extends Command
 	 */
 	public function fire()
 	{
+		parent::fire();
 
 		if ($this->confirm('Would you like to create a Presenter? [y|N]'))
 		{
@@ -81,8 +84,7 @@ class EntityCommand extends Command
 			'--force' => $this->option('force')
 		]);
 	}
-
-
+	
 	/**
 	 * The array of command arguments.
 	 *
@@ -94,7 +96,6 @@ class EntityCommand extends Command
 			['name', InputArgument::REQUIRED, 'The name of class being generated.', null],
 		];
 	}
-
 
 	/**
 	 * The array of command options.
@@ -110,4 +111,5 @@ class EntityCommand extends Command
 			['force', 'f', InputOption::VALUE_NONE, 'Force the creation if file already exists.', null]
 		];
 	}
+
 }

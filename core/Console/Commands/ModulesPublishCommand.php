@@ -1,6 +1,5 @@
 <?php namespace Core\Console\Commands;
 
-use Illuminate\Console\Command;
 use Pingpong\Modules\Module;
 use Pingpong\Modules\Publishing\AssetPublisher;
 use Pingpong\Modules\Publishing\LangPublisher;
@@ -36,7 +35,7 @@ class ModulesPublishCommand extends CoreCommand
 	public function fire()
 	{
 		parent::fire();
-		
+
 		if ($name = $this->argument('module'))
 		{
 			return $this->publish($name);
@@ -91,4 +90,5 @@ class ModulesPublishCommand extends CoreCommand
 			['module', InputArgument::OPTIONAL, 'The name of module will be used.'],
 		];
 	}
+
 }

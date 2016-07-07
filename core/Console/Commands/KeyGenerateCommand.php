@@ -89,4 +89,5 @@ class KeyGenerateCommand extends CoreCommand
 			['show', null, InputOption::VALUE_NONE, 'Simply display the key instead of modifying files.'],
 		];
 	}
+
 }

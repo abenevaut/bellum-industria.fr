@@ -1,6 +1,5 @@
 <?php namespace Core\Console\Commands;
 
-use Illuminate\Console\Command;
 use Pingpong\Modules\Traits\ModuleCommandTrait;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -52,4 +51,5 @@ class ModulesUpdateCommand extends CoreCommand
 			array('module', InputArgument::OPTIONAL, 'The name of module will be updated.'),
 		);
 	}
+
 }

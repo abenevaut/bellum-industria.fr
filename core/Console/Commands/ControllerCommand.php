@@ -1,13 +1,15 @@
 <?php namespace Core\Console\Commands;
 
-use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
 use Prettus\Repository\Generators\ControllerGenerator;
 use Prettus\Repository\Generators\FileAlreadyExistsException;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class ControllerCommand extends Command
+/**
+ * Class ControllerCommand
+ * @package Core\Console\Commands
+ */
+class ControllerCommand extends CoreCommand
 {
 
 	/**
@@ -31,7 +33,6 @@ class ControllerCommand extends Command
 	 */
 	protected $type = 'Controller';
 
-
 	/**
 	 * Execute the command.
 	 *
@@ -39,12 +40,15 @@ class ControllerCommand extends Command
 	 */
 	public function fire()
 	{
+		parent::fire();
+		
 		try
 		{
 			// Generate create request for controller
 			$this->call('make:request', [
 				'name' => $this->argument('name') . 'CreateRequest'
 			]);
+
 			// Generate update request for controller
 			$this->call('make:request', [
 				'name' => $this->argument('name') . 'UpdateRequest'
@@ -54,16 +58,14 @@ class ControllerCommand extends Command
 				'name'  => $this->argument('name'),
 				'force' => $this->option('force'),
 			]))->run();
+
 			$this->info($this->type . ' created successfully.');
 		}
 		catch (FileAlreadyExistsException $e)
 		{
 			$this->error($this->type . ' already exists!');
-
-			return false;
 		}
 	}
-
 
 	/**
 	 * The array of command arguments.
@@ -77,7 +79,6 @@ class ControllerCommand extends Command
 		];
 	}
 
-
 	/**
 	 * The array of command options.
 	 *
@@ -89,4 +90,5 @@ class ControllerCommand extends Command
 			['force', 'f', InputOption::VALUE_NONE, 'Force the creation if file already exists.', null],
 		];
 	}
+
 }

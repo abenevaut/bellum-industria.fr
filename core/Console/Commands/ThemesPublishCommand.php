@@ -1,6 +1,5 @@
 <?php namespace Core\Console\Commands;
 
-use Illuminate\Console\Command;
 use Pingpong\Themes\Theme;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -25,6 +24,9 @@ class ThemesPublishCommand extends CoreCommand
 	 */
 	protected $description = 'Publish theme\'s assets';
 
+	/**
+	 * @var
+	 */
 	protected $progressbar;
 
 	/**
@@ -121,4 +123,5 @@ class ThemesPublishCommand extends CoreCommand
 			['name', InputArgument::OPTIONAL, 'The name of the theme being used.'],
 		];
 	}
+
 }

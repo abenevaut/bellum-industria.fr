@@ -1,13 +1,15 @@
 <?php namespace Core\Console\Commands;
 
-use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
 use Prettus\Repository\Generators\FileAlreadyExistsException;
 use Prettus\Repository\Generators\ValidatorGenerator;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class ValidatorCommand extends Command
+/**
+ * Class ValidatorCommand
+ * @package Core\Console\Commands
+ */
+class ValidatorCommand extends CoreCommand
 {
 
 	/**
@@ -31,7 +33,6 @@ class ValidatorCommand extends Command
 	 */
 	protected $type = 'Validator';
 
-
 	/**
 	 * Execute the command.
 	 *
@@ -39,6 +40,8 @@ class ValidatorCommand extends Command
 	 */
 	public function fire()
 	{
+		parent::fire();
+
 		try
 		{
 			(new ValidatorGenerator([
@@ -51,11 +54,8 @@ class ValidatorCommand extends Command
 		catch (FileAlreadyExistsException $e)
 		{
 			$this->error($this->type . ' already exists!');
-
-			return false;
 		}
 	}
-
 
 	/**
 	 * The array of command arguments.
@@ -69,7 +69,6 @@ class ValidatorCommand extends Command
 		];
 	}
 
-
 	/**
 	 * The array of command options.
 	 *
@@ -82,4 +81,5 @@ class ValidatorCommand extends Command
 			['force', 'f', InputOption::VALUE_NONE, 'Force the creation if file already exists.', null],
 		];
 	}
+
 }

@@ -1,6 +1,5 @@
 <?php namespace Core\Console\Commands;
 
-use Illuminate\Console\Command;
 use Pingpong\Modules\Publishing\MigrationPublisher;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -73,4 +72,5 @@ class ModulesPublishMigrationCommand extends CoreCommand
 			array('module', InputArgument::OPTIONAL, 'The name of module being used.'),
 		);
 	}
+
 }

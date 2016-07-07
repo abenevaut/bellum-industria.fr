@@ -9,8 +9,12 @@ use Illuminate\Console\Command;
 abstract class CoreCommand extends Command
 {
 
+	/**
+	 * Write license in console
+	 */
 	public function fire()
 	{
 		$this->line("<comment>" . config('core.licenses.phpcli') . "</comment>\n");
 	}
+
 }
