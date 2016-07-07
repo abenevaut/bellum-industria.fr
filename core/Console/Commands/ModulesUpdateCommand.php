@@ -18,7 +18,7 @@ class ModulesUpdateCommand extends Command
 	 *
 	 * @var string
 	 */
-	protected $name = 'module:update';
+	protected $name = 'cms:module:update';
 
 	/**
 	 * The console command description.

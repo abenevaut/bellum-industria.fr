@@ -13,7 +13,7 @@ class EntityCommand extends Command
 	 *
 	 * @var string
 	 */
-	protected $name = 'cms:entity';
+	protected $name = 'cms:make:entity';
 
 	/**
 	 * The description of command.
@@ -38,7 +38,7 @@ class EntityCommand extends Command
 
 		if ($this->confirm('Would you like to create a Presenter? [y|N]'))
 		{
-			$this->call('make:presenter', [
+			$this->call('cms:make:presenter', [
 				'name'    => $this->argument('name'),
 				'--force' => $this->option('force'),
 			]);

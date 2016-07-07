@@ -168,7 +168,8 @@ return [
 		|
 		*/
 		'acceptedConditions' => [
-			'=', 'like',
+			'=',
+			'like',
 		],
 		/*
 		|--------------------------------------------------------------------------
@@ -218,14 +219,15 @@ return [
 	|
 	*/
 	'generator'  => [
-		'basePath'      => app_path(),
-		'rootNamespace' => 'App\\',
-		'paths'         => [
-			'models'       => 'Repositories',
+		'rootNamespace'     => 'App\\',
+		'basePath'          => app_path(),
+		'stubsOverridePath' => base_path('core/Console'),
+		'paths'             => [
+			'models'       => 'Entites',
 			'repositories' => 'Repositories',
 			'interfaces'   => 'Repositories',
-			'transformers' => 'Repositories',
-			'presenters'   => 'Repositories',
+			'transformers' => 'Transformers',
+			'presenters'   => 'Presenters',
 		],
 	],
 ];

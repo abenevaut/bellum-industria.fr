@@ -1,6 +1,4 @@
-<?php
-
-$NAMESPACE$
+<?php $NAMESPACE$
 
 use $TRANSFORMER$;
 use Prettus\Repository\Presenter\FractalPresenter;

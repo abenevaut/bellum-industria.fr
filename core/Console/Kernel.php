@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
 		\Core\Console\Commands\PresenterCommand::class,
 		\Core\Console\Commands\RepositoryCommand::class,
 		\Core\Console\Commands\TransformerCommand::class,
-		\Core\Console\Commands\ValidatorCommand::class,
+//		\Core\Console\Commands\ValidatorCommand::class,
 	];
 
 	/**

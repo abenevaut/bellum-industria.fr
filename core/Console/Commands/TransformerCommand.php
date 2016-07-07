@@ -1,12 +1,15 @@
 <?php namespace Core\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
 use Prettus\Repository\Generators\FileAlreadyExistsException;
-use Prettus\Repository\Generators\TransformerGenerator;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
+use Core\Console\Generators\TransformerGenerator;
 
+/**
+ * Class TransformerCommand
+ * @package Core\Console\Commands
+ */
 class TransformerCommand extends Command
 {
 
@@ -15,7 +18,7 @@ class TransformerCommand extends Command
 	 *
 	 * @var string
 	 */
-	protected $name = 'cms:transformer';
+	protected $name = 'cms:make:transformer';
 
 	/**
 	 * The description of command.
@@ -40,20 +43,26 @@ class TransformerCommand extends Command
 	{
 		try
 		{
-			(new TransformerGenerator([
-				'name'  => $this->argument('name'),
-				'force' => $this->option('force'),
-			]))->run();
+			$opts = [
+				'name'   => $this->argument('name'),
+				'module' => $this->argument('module'),
+				'force'  => $this->option('force'),
+			];
+
+			$generator = new TransformerGenerator($opts);
+			$generator->run();
+
 			$this->info("Transformer created successfully.");
 		}
 		catch (FileAlreadyExistsException $e)
 		{
 			$this->error($this->type . ' already exists!');
-
-			return false;
+		}
+		catch (\Exception $e)
+		{
+			$this->error($e->getMessage());
 		}
 	}
-
 
 	/**
 	 * The array of command arguments.
@@ -64,6 +73,7 @@ class TransformerCommand extends Command
 	{
 		return [
 			['name', InputArgument::REQUIRED, 'The name of model for which the transformer is being generated.', null],
+			['module', InputArgument::OPTIONAL, 'The module for which the transformer is being generated.', null],
 		];
 	}
 
@@ -78,4 +88,5 @@ class TransformerCommand extends Command
 			['force', 'f', InputOption::VALUE_NONE, 'Force the creation if file already exists.', null]
 		];
 	}
+
 }

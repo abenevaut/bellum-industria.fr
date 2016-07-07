@@ -15,7 +15,7 @@ class ValidatorCommand extends Command
 	 *
 	 * @var string
 	 */
-	protected $name = 'cms:validator';
+	protected $name = 'cms:make:validator';
 
 	/**
 	 * The description of command.
