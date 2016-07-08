@@ -24,6 +24,8 @@
     "cvepdb/laravel": "1.0.52.*",
     "cvepdb/laravel-addresses": "1.0.52.*",
     "cvepdb/laravel-settings": "1.2.52.*",
+    "cvepdb/theme-longwave": "1.0.52.*",
+    "cvepdb/theme-pages": "1.0.52.*",
     "cvepdb-cms/module-dashboard": "1.0.52.*",
     "cvepdb-cms/module-files": "1.0.52.*",
     "cvepdb-cms/module-installer": "1.0.52.*",
@@ -136,7 +138,9 @@
       ],
       "resources/themes/{$name}": [
         "cvepdb-cms/theme-adminlte",
-        "cvepdb-cms/theme-lumen"
+        "cvepdb-cms/theme-lumen",
+        "cvepdb/theme-longwave",
+        "cvepdb/theme-pages"
       ]
     }
   }

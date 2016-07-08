@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "334688adcb361d00d82fd817773358dc",
-    "content-hash": "4b32e6455b85c2502e7c62bfb0687a76",
+    "hash": "9d2108929753f7c66207f5031b1ea502",
+    "content-hash": "817176540200fb533fe4585851c93286",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2050,6 +2050,88 @@
                 "persistent"
             ],
             "time": "2016-05-09 15:10:32"
+        },
+        {
+            "name": "cvepdb/theme-longwave",
+            "version": "1.0.52.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/theme-longwave.git",
+                "reference": "bc357e335a68c8ff58273c5e6f10f5b960d3bbb0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=bc357e335a68c8ff58273c5e6f10f5b960d3bbb0",
+                "reference": "bc357e335a68c8ff58273c5e6f10f5b960d3bbb0",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "longwave"
+            },
+            "license": [
+                "copyright"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Theme longwave for #CVEPDB CMS",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "CMS",
+                "CVEPDB",
+                "Theme",
+                "longwave"
+            ],
+            "time": "2016-07-09 00:08:43"
+        },
+        {
+            "name": "cvepdb/theme-pages",
+            "version": "1.0.52.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/theme-pages.git",
+                "reference": "2c8f672ae4b0cdaa69875ad0ee4d71c7a40c74b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-pages/repository/archive.zip?sha=2c8f672ae4b0cdaa69875ad0ee4d71c7a40c74b6",
+                "reference": "2c8f672ae4b0cdaa69875ad0ee4d71c7a40c74b6",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "pages"
+            },
+            "license": [
+                "copyright"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Theme pages for #CVEPDB CMS",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "CMS",
+                "CVEPDB",
+                "Theme",
+                "pages"
+            ],
+            "time": "2016-06-13 13:30:26"
         },
         {
             "name": "da-mitchell/steam-api",
