@@ -1,6 +1,7 @@
 <?php namespace App\Vitrine\Services;
 
 use Core\Services\MailSendService;
+use App\Admin\Repositories\Users\LogContact;
 
 /**
  * Class MailPasswordResetService
@@ -14,13 +15,17 @@ class MailContactService extends MailSendService
 	 * @param string $view
 	 * @param array  $data
 	 */
-	public function send($email, $view, $data)
+	public function send(LogContact $contact)
 	{
-//		$this->emailTo(
-//			$email,
-//			$view,
-//			trans('passwords.mail_reset_password_title'),
-//			$data
-//		);
+		$this->emailTo(
+			$contact->email,
+			'app.vitrine.emails.contact',
+			trans('cvepdb/vitrine/emails.contact_title') . $contact->subject,
+			[
+				'name'         => $contact->last_name . ' ' . $contact->first_name,
+				'user_subject' => $contact->subject,
+				'user_message' => $contact->subject,
+			]
+		);
 	}
 }

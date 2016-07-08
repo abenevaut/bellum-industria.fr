@@ -129,7 +129,7 @@
 									<div class="meta">
 										<span class="date">{!! $item->get_date() !!}</span>
 									</div>
-									{!! str_limit(strip_tags($item->get_description()), 120, ' ..') !!}
+									{!! str_limit(strip_tags($item->get_description()), 100, ' ..') !!}
 								</div>
 							</div>
 
