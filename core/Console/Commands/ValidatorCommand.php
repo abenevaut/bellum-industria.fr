@@ -1,7 +1,7 @@
 <?php namespace Core\Console\Commands;
 
 use Prettus\Repository\Generators\FileAlreadyExistsException;
-use Prettus\Repository\Generators\ValidatorGenerator;
+use Core\Console\Generators\ValidatorGenerator;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -44,16 +44,25 @@ class ValidatorCommand extends CoreCommand
 
 		try
 		{
-			(new ValidatorGenerator([
-				'name'  => $this->argument('name'),
-				'rules' => $this->option('rules'),
-				'force' => $this->option('force'),
-			]))->run();
+			$opts = [
+				'name'   => $this->argument('name'),
+				'module' => $this->argument('module'),
+				'rules'  => $this->option('rules'),
+				'force'  => $this->option('force'),
+			];
+
+			$validatorGenerator = new ValidatorGenerator($opts);
+			$validatorGenerator->run();
+
 			$this->info("Validator created successfully.");
 		}
 		catch (FileAlreadyExistsException $e)
 		{
 			$this->error($this->type . ' already exists!');
+		}
+		catch (\Exception $e)
+		{
+			$this->error($e->getMessage());
 		}
 	}
 
@@ -66,6 +75,7 @@ class ValidatorCommand extends CoreCommand
 	{
 		return [
 			['name', InputArgument::REQUIRED, 'The name of model for which the validator is being generated.', null],
+			['module', InputArgument::OPTIONAL, 'The module for which the validator is being generated.', null],
 		];
 	}
 

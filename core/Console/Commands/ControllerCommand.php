@@ -17,14 +17,14 @@ class ControllerCommand extends CoreCommand
 	 *
 	 * @var string
 	 */
-	protected $name = 'cms:resource';
+	protected $name = 'cms:make:controller';
 
 	/**
 	 * The description of command.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Create a new RESTfull controller.';
+	protected $description = '[NOT WORKING!] Create a new RESTfull controller.';
 
 	/**
 	 * The type of class being generated.
@@ -41,29 +41,37 @@ class ControllerCommand extends CoreCommand
 	public function fire()
 	{
 		parent::fire();
-		
+
+		$this->error('This command is currently not implemented!');
+		exit;
+
 		try
 		{
 			// Generate create request for controller
-			$this->call('make:request', [
-				'name' => $this->argument('name') . 'CreateRequest'
-			]);
+			$this->call(
+				'make:request',
+				[
+					'name' => $this->argument('name') . 'Request'
+				]
+			);
 
-			// Generate update request for controller
-			$this->call('make:request', [
-				'name' => $this->argument('name') . 'UpdateRequest'
-			]);
-
-			(new ControllerGenerator([
+			$opts = [
 				'name'  => $this->argument('name'),
 				'force' => $this->option('force'),
-			]))->run();
+			];
+
+			$controllerGenerator = new ControllerGenerator($opts);
+			$controllerGenerator->run();
 
 			$this->info($this->type . ' created successfully.');
 		}
 		catch (FileAlreadyExistsException $e)
 		{
 			$this->error($this->type . ' already exists!');
+		}
+		catch (\Exception $e)
+		{
+			$this->error($e->getMessage());
 		}
 	}
 

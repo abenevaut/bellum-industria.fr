@@ -23,7 +23,7 @@ class EntityCommand extends CoreCommand
 	 *
 	 * @var string
 	 */
-	protected $description = 'Create a new entity.';
+	protected $description = '[NOT WORKING!] Create a new entity.';
 
 	/**
 	 * @var Collection
@@ -38,6 +38,9 @@ class EntityCommand extends CoreCommand
 	public function fire()
 	{
 		parent::fire();
+
+		$this->error('This command is currently not implemented!');
+		exit;
 
 		if ($this->confirm('Would you like to create a Presenter? [y|N]'))
 		{

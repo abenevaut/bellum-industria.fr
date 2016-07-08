@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
 		\Core\Console\Commands\PresenterCommand::class,
 		\Core\Console\Commands\RepositoryCommand::class,
 		\Core\Console\Commands\TransformerCommand::class,
-//		\Core\Console\Commands\ValidatorCommand::class,
+		\Core\Console\Commands\ValidatorCommand::class,
 	];
 
 	/**
@@ -36,6 +36,18 @@ class Kernel extends ConsoleKernel
 	 */
 	protected function schedule(Schedule $schedule)
 	{
+		/*
+		 * Flush expired password reset tokens
+		 */
+
+		$schedule
+			->command('auth:clear-resets')
+			->name('Flush expired password reset tokens')
+			->withoutOverlapping()
+			->sendOutputTo(storage_path('logs/cron_auth_clear-resets_' . date('Y-m-d_H-i') . '.log'))
+			->daily()
+			->at('23:59');
+
 		/*
 		 * Automated backups
 		 */

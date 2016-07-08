@@ -21,14 +21,14 @@ class RepositoryCommand extends CoreCommand
 	 *
 	 * @var string
 	 */
-	protected $name = 'cms:repository';
+	protected $name = 'cms:make:repository';
 
 	/**
 	 * The description of command.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Create a new repository.';
+	protected $description = '[NOT WORKING!] Create a new repository.';
 
 	/**
 	 * The type of class being generated.
@@ -50,6 +50,9 @@ class RepositoryCommand extends CoreCommand
 	public function fire()
 	{
 		parent::fire();
+
+		$this->error('This command is currently not implemented!');
+		exit;
 
 		$this->generators = new Collection();
 

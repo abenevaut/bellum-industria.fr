@@ -129,7 +129,7 @@ return [
 		Illuminate\Broadcasting\BroadcastServiceProvider::class,
 		Illuminate\Bus\BusServiceProvider::class,
 		Illuminate\Cache\CacheServiceProvider::class,
-		Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
+//		Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
 		Illuminate\Cookie\CookieServiceProvider::class,
 		Illuminate\Database\DatabaseServiceProvider::class,
 		Illuminate\Encryption\EncryptionServiceProvider::class,
@@ -147,6 +147,7 @@ return [
 		/*
 		 * Core Service Providers...
 		 */
+		Core\Providers\ConsoleSupportServiceProvider::class,
 		Core\Domain\Files\Providers\FilesystemServiceProvider::class,
 		Core\Providers\MailServiceProvider::class,
 		Core\Providers\EntrustServiceProvider::class,
@@ -156,6 +157,7 @@ return [
 		Core\Providers\RouteServiceProvider::class,
 		Core\Providers\ModulesServiceProvider::class,
 		Core\Providers\ThemesServiceProvider::class,
+		Core\Providers\PhoenixServiceProvider::class,
 		Core\Domain\Settings\Providers\SettingsServiceProvider::class,
 		Core\Domain\Users\Providers\PasswordResetServiceProvider::class,
 		Core\Domain\Environments\Providers\EnvironmentServiceProvider::class,
@@ -171,7 +173,6 @@ return [
 		Pingpong\Widget\WidgetServiceProvider::class,
 		CVEPDB\Addresses\AddressesServiceProvider::class,
 		Spatie\Glide\GlideServiceProvider::class,
-		Phoenix\EloquentMeta\ServiceProvider::class,
 		Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 		Spatie\Backup\BackupServiceProvider::class,
 	],
