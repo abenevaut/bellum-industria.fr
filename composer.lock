@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b0974fa41305b6b351d6475c6b533e8b",
-    "content-hash": "e6deba229f9e59d39ab945b26c784587",
+    "hash": "334688adcb361d00d82fd817773358dc",
+    "content-hash": "4b32e6455b85c2502e7c62bfb0687a76",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -12142,7 +12142,6 @@
         "composer/composer": 10,
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,
-        "cvepdb-cms/theme-flatly": 20,
         "cvepdb-cms/module-clashofclan": 20,
         "cvepdb-cms/module-steam": 20,
         "toniperic/php-clash-of-clans": 20,

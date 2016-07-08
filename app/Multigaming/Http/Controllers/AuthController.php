@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Multigaming\Controllers;
+namespace App\Multigaming\Http\Controllers;
 
 use CVEPDB\Controllers\AbsController as Controller;
 use App\Multigaming\Repositories\UserRepository as UserRepository;

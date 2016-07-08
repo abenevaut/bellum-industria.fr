@@ -63,7 +63,6 @@ database/migrations/2016_03_30_203434_alter_roles_table_add_unchangeable_bool.ph
 
 _ide_helper.php
 
-app/*
 public/.tmb/
 public/modules/
 public/themes/

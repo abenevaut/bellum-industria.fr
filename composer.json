@@ -33,7 +33,6 @@
     "cvepdb-cms/module-navigations": "1.0.52.*",
     "cvepdb-cms/theme-adminlte": "dev-master",
     "cvepdb-cms/theme-lumen": "dev-master",
-    "cvepdb-cms/theme-flatly": "dev-master",
     "cvepdb-cms/module-clashofclan": "dev-master",
     "cvepdb-cms/module-steam": "dev-master",
     "cvepdb-cms/module-users": "1.0.52.*",
