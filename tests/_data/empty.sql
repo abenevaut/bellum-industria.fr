@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.42, for osx10.6 (i386)
+-- MySQL dump 10.16  Distrib 10.1.10-MariaDB, for Win32 (AMD64)
 --
 -- Host: 127.0.0.1    Database: cvepdb_cms_testing
 -- ------------------------------------------------------
--- Server version	5.5.42
+-- Server version	10.1.10-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -73,7 +73,9 @@ CREATE TABLE `api_keys` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `api_keys_key_unique` (`key`)
+  UNIQUE KEY `api_keys_key_unique` (`key`),
+  KEY `api_keys_user_id_index` (`user_id`),
+  CONSTRAINT `api_keys_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -103,10 +105,10 @@ CREATE TABLE `api_logs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
+  KEY `api_logs_api_key_id_index` (`api_key_id`),
   KEY `api_logs_route_index` (`route`),
   KEY `api_logs_method_index` (`method`),
-  KEY `api_logs_api_key_id_foreign` (`api_key_id`),
-  CONSTRAINT `api_logs_api_key_id_foreign` FOREIGN KEY (`api_key_id`) REFERENCES `api_keys` (`id`)
+  CONSTRAINT `api_logs_api_key_id_foreign` FOREIGN KEY (`api_key_id`) REFERENCES `api_keys` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -145,31 +147,86 @@ LOCK TABLES `countries` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `dashboard`
+-- Table structure for table `environment_role`
 --
 
-DROP TABLE IF EXISTS `dashboard`;
+DROP TABLE IF EXISTS `environment_role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `dashboard` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `module` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `status` enum('active','disabled') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'disabled',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `dashboard_name_unique` (`name`)
+CREATE TABLE `environment_role` (
+  `role_id` int(10) unsigned NOT NULL,
+  `environment_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`role_id`,`environment_id`),
+  KEY `environment_role_environment_id_foreign` (`environment_id`),
+  CONSTRAINT `environment_role_environment_id_foreign` FOREIGN KEY (`environment_id`) REFERENCES `environments` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `environment_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `dashboard`
+-- Dumping data for table `environment_role`
 --
 
-LOCK TABLES `dashboard` WRITE;
-/*!40000 ALTER TABLE `dashboard` DISABLE KEYS */;
-/*!40000 ALTER TABLE `dashboard` ENABLE KEYS */;
+LOCK TABLES `environment_role` WRITE;
+/*!40000 ALTER TABLE `environment_role` DISABLE KEYS */;
+/*!40000 ALTER TABLE `environment_role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `environment_user`
+--
+
+DROP TABLE IF EXISTS `environment_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `environment_user` (
+  `user_id` int(10) unsigned NOT NULL,
+  `environment_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`user_id`,`environment_id`),
+  KEY `environment_user_environment_id_foreign` (`environment_id`),
+  CONSTRAINT `environment_user_environment_id_foreign` FOREIGN KEY (`environment_id`) REFERENCES `environments` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `environment_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `environment_user`
+--
+
+LOCK TABLES `environment_user` WRITE;
+/*!40000 ALTER TABLE `environment_user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `environment_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `environments`
+--
+
+DROP TABLE IF EXISTS `environments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `environments` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `reference` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `domain` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `reference` (`reference`),
+  UNIQUE KEY `domain` (`domain`),
+  KEY `environments_name_index` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `environments`
+--
+
+LOCK TABLES `environments` WRITE;
+/*!40000 ALTER TABLE `environments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `environments` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -284,38 +341,8 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` (`migration`, `batch`) VALUES ('2014_01_15_090136_create_states',1),('2014_01_15_090147_create_countries',1),('2014_01_15_105422_create_addresses',1),('2014_08_15_180252_create_meta_table',1),('2014_10_12_000000_create_users_table',1),('2014_10_12_100000_create_password_resets_table',1),('2015_03_02_031822_create_api_keys_table',1),('2015_04_13_020453_create_settings_table',1),('2015_12_15_020453_alter_settings_table',1),('2016_03_10_153304_entrust_setup_tables',1),('2016_03_14_122839_alter_users_table_remove_name_add_first_name_and_last_name',1),('2016_03_16_102646_create_dashboard_tables',1),('2016_03_22_122054_create_media_table',1),('2016_03_23_150432_alter_users_table_to_add_soft_delete',1),('2016_03_30_203434_alter_roles_table_add_unchangeable_bool',1),('2016_04_04_174738_create_table_pages',1),('2016_04_09_132047_create_logs_table',1);
+INSERT INTO `migrations` (`migration`, `batch`) VALUES ('2014_01_15_090136_create_states',1),('2014_01_15_090147_create_countries',1),('2014_01_15_105422_create_addresses',1),('2014_08_15_180252_create_meta_table',1),('2014_10_12_000000_create_users_table',1),('2014_10_12_100000_create_password_resets_table',1),('2015_03_02_031822_create_api_keys_table',1),('2015_04_13_020453_create_settings_table',1),('2015_12_15_020453_alter_settings_table',1),('2016_03_10_153304_entrust_setup_tables',1),('2016_03_14_122839_alter_users_table_remove_name_add_first_name_and_last_name',1),('2016_03_23_150432_alter_users_table_to_add_soft_delete',1),('2016_03_30_203434_alter_roles_table_add_unchangeable_bool',1),('2016_04_09_132047_create_logs_table',1),('2016_05_18_095620_create_social_tokens_table',1),('2016_05_30_125527_create_environments_table',1),('2016_05_30_140242_create_environment_user_table',1),('2016_05_30_154147_create_environment_role_table',1),('2016_06_16_133458_create_media_table',1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pages`
---
-
-DROP TABLE IF EXISTS `pages`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pages` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `page_id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `content` text COLLATE utf8_unicode_ci NOT NULL,
-  `uri` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `is_home` tinyint(1) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pages`
---
-
-LOCK TABLES `pages` WRITE;
-/*!40000 ALTER TABLE `pages` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -476,6 +503,35 @@ LOCK TABLES `settings` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `social_tokens`
+--
+
+DROP TABLE IF EXISTS `social_tokens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `social_tokens` (
+  `provider` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`user_id`,`token`),
+  KEY `social_tokens_token_index` (`token`),
+  KEY `social_tokens_user_id_index` (`user_id`),
+  CONSTRAINT `social_tokens_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `social_tokens`
+--
+
+LOCK TABLES `social_tokens` WRITE;
+/*!40000 ALTER TABLE `social_tokens` DISABLE KEYS */;
+/*!40000 ALTER TABLE `social_tokens` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `states`
 --
 
@@ -540,4 +596,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-01 16:53:52
+-- Dump completed on 2016-06-22 12:15:11

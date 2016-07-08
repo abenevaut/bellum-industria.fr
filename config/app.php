@@ -39,7 +39,7 @@ return [
 	|
 	*/
 
-	'url' => env('CORE_URL', 'http://localhost/'),
+	'url' => env('CORE_URL', 'http://localhost'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -129,11 +129,11 @@ return [
 		Illuminate\Broadcasting\BroadcastServiceProvider::class,
 		Illuminate\Bus\BusServiceProvider::class,
 		Illuminate\Cache\CacheServiceProvider::class,
-		Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
+//		Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
 		Illuminate\Cookie\CookieServiceProvider::class,
 		Illuminate\Database\DatabaseServiceProvider::class,
 		Illuminate\Encryption\EncryptionServiceProvider::class,
-		Illuminate\Filesystem\FilesystemServiceProvider::class,
+//		Illuminate\Filesystem\FilesystemServiceProvider::class,
 		Illuminate\Foundation\Providers\FoundationServiceProvider::class,
 		Illuminate\Hashing\HashServiceProvider::class,
 		Illuminate\Pagination\PaginationServiceProvider::class,
@@ -147,6 +147,8 @@ return [
 		/*
 		 * Core Service Providers...
 		 */
+		Core\Providers\ConsoleSupportServiceProvider::class,
+		Core\Domain\Files\Providers\FilesystemServiceProvider::class,
 		Core\Providers\MailServiceProvider::class,
 		Core\Providers\EntrustServiceProvider::class,
 		Core\Providers\ApiGuardServiceProvider::class,
@@ -155,6 +157,7 @@ return [
 		Core\Providers\RouteServiceProvider::class,
 		Core\Providers\ModulesServiceProvider::class,
 		Core\Providers\ThemesServiceProvider::class,
+		Core\Providers\PhoenixServiceProvider::class,
 		Core\Domain\Settings\Providers\SettingsServiceProvider::class,
 		Core\Domain\Users\Providers\PasswordResetServiceProvider::class,
 		Core\Domain\Environments\Providers\EnvironmentServiceProvider::class,
@@ -170,6 +173,8 @@ return [
 		Pingpong\Widget\WidgetServiceProvider::class,
 		CVEPDB\Addresses\AddressesServiceProvider::class,
 		Spatie\Glide\GlideServiceProvider::class,
+		Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+		Spatie\Backup\BackupServiceProvider::class,
 	],
 
 	/*

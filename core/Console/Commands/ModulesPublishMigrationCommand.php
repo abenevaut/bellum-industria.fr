@@ -1,6 +1,5 @@
 <?php namespace Core\Console\Commands;
 
-use Illuminate\Console\Command;
 use Pingpong\Modules\Publishing\MigrationPublisher;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -8,7 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
  * Class ModulesPublishMigrationCommand
  * @package Core\Console\Commands
  */
-class ModulesPublishMigrationCommand extends Command
+class ModulesPublishMigrationCommand extends CoreCommand
 {
 
 	/**
@@ -16,7 +15,7 @@ class ModulesPublishMigrationCommand extends Command
 	 *
 	 * @var string
 	 */
-	protected $name = 'module:publish-migration';
+	protected $name = 'cms:module:publish-migration';
 
 	/**
 	 * The console command description.
@@ -32,6 +31,8 @@ class ModulesPublishMigrationCommand extends Command
 	 */
 	public function fire()
 	{
+		parent::fire();
+
 		if ($name = $this->argument('module'))
 		{
 			$module = $this->laravel['modules']->findOrFail($name);
@@ -71,4 +72,5 @@ class ModulesPublishMigrationCommand extends Command
 			array('module', InputArgument::OPTIONAL, 'The name of module being used.'),
 		);
 	}
+
 }

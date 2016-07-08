@@ -1,6 +1,5 @@
 <?php namespace Core\Console\Commands;
 
-use Illuminate\Console\Command;
 use Pingpong\Modules\Traits\ModuleCommandTrait;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -8,7 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
  * Class ModulesUpdateCommand
  * @package Core\Console\Commands
  */
-class ModulesUpdateCommand extends Command
+class ModulesUpdateCommand extends CoreCommand
 {
 
 	use ModuleCommandTrait;
@@ -18,7 +17,7 @@ class ModulesUpdateCommand extends Command
 	 *
 	 * @var string
 	 */
-	protected $name = 'module:update';
+	protected $name = 'cms:module:update';
 
 	/**
 	 * The console command description.
@@ -34,6 +33,8 @@ class ModulesUpdateCommand extends Command
 	 */
 	public function fire()
 	{
+		parent::fire();
+
 		$this->laravel['modules']->update($name = $this->getModuleName());
 
 		$this->info("Module [{$name}] updated successfully.");
@@ -50,4 +51,5 @@ class ModulesUpdateCommand extends Command
 			array('module', InputArgument::OPTIONAL, 'The name of module will be updated.'),
 		);
 	}
+
 }

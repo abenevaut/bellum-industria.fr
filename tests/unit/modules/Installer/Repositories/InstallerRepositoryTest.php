@@ -9,6 +9,7 @@ use Illuminate\Filesystem\FileNotFoundException;
  * @package modules\Installer\Repositories
  *
  * @env installer
+ * @group installer
  */
 class InstallerRepositoryTest extends \Codeception\TestCase\Test
 {
@@ -140,6 +141,10 @@ class InstallerRepositoryTest extends \Codeception\TestCase\Test
 
         try {
             $r_installer->migrate(
+                [
+                    'CORE_URL' => 'localhost:8000',
+                    'CORE_SITE_NAME' => '#CVEPDB'
+                ],
                 ['--force' => true, '--database' => 'testing'],
                 ['--force' => true, '--database' => 'testing']
             );

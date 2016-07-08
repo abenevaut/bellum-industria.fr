@@ -26,7 +26,7 @@ env:
             enabled:
                 - Laravel5:
                     environment_file: "tests/_data/.env.installer"
-                    cleanup: false
+                    cleanup: true
                 - Db:
                     cleanup: true
                     dump: 'tests/_data/empty.sql'
@@ -39,21 +39,21 @@ env:
                     disable_middleware: true
     travis:
         modules:
-            config:
-                Laravel5:
+            enabled:
+                - Laravel5:
                     environment_file: "tests/_data/.env.travis"
     travis-installer:
         modules:
-            config:
-                Laravel5:
+            enabled:
+                - Laravel5:
                     environment_file: "tests/_data/.env.travis-installer"
     codeship:
         modules:
-            config:
-                Laravel5:
+            enabled:
+                - Laravel5:
                     environment_file: "tests/_data/.env.codeship"
     codeship-installer:
         modules:
-            config:
-                Laravel5:
+            enabled:
+                - Laravel5:
                     environment_file: "tests/_data/.env.codeship-installer"

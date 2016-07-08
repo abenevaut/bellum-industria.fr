@@ -1,6 +1,8 @@
 <?php namespace Core\Domain\Environments;
 
+use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
 use Illuminate\Database\DatabaseManager;
+use Illuminate\Support\Facades\App;
 
 /**
  * Class Environment
@@ -46,11 +48,29 @@ class Environment
 	/**
 	 * Load information about current environment.
 	 */
-	protected function loadEnvironment()
+	public function loadEnvironment()
 	{
-		$current_domain = defined('CODECEPT_RUN_TRUE') && CODECEPT_RUN_TRUE
-			? CODECEPT_SERVER_NAME
-			: $_SERVER['SERVER_NAME'];
+		$current_domain = null;
+
+		if (!App::runningInConsole())
+		{
+			$current_domain = defined('CODECEPT_RUN_TRUE') && CODECEPT_RUN_TRUE
+				? CODECEPT_SERVER_NAME
+				: $_SERVER['SERVER_NAME'];
+		}
+		else
+		{
+			$current_reference = defined('CMS_PHP_CLI_RUN_AS_REFERENCE')
+				? CMS_PHP_CLI_RUN_AS_REFERENCE
+				: EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE;
+
+			$current_domain = $this->database
+				->table('environments')
+				->where('reference', $current_reference)
+				->first(['domain']);
+
+			$current_domain = $current_domain->domain;
+		}
 
 		$this->environment = $this->database
 			->table('environments')

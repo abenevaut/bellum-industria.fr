@@ -1,6 +1,5 @@
 <?php
-// @group themes
-// @group admin
+// @group installed
 $I = new FunctionalTester($scenario);
 $I->wantTo('Test Themes index');
 $I->amLoggedAs(['email' => 'antoine@cvepdb.fr', 'password'=> 'secret']);

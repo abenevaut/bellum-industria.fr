@@ -15,14 +15,14 @@ class KeyGenerateCommand extends CoreCommand
 	 *
 	 * @var string
 	 */
-	protected $name = 'cms:key_generate';
+	protected $name = 'cms:key-generate';
 
 	/**
 	 * The console command description.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Set the core key';
+	protected $description = 'Set the core key in current .env file';
 
 	/**
 	 * Execute the console command.
@@ -89,4 +89,5 @@ class KeyGenerateCommand extends CoreCommand
 			['show', null, InputOption::VALUE_NONE, 'Simply display the key instead of modifying files.'],
 		];
 	}
+
 }

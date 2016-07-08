@@ -16,17 +16,26 @@ class Settings extends CVEPDBSettings
 	 *
 	 * @param  string $key
 	 * @param  string $default
+	 * @param  string $environment_reference
 	 *
 	 * @return mixed
 	 */
-	public function get($key, $default = null)
+	public function get($key, $default = null, $environment_reference = null)
 	{
 		$value = $this->fetch($key);
 
+		if (is_null($environment_reference))
+		{
+			$environment_reference = EnvironmentFacade::current();
+		}
+
 		if (!is_null($value))
 		{
-			$value = $value->get(EnvironmentFacade::current());
+			$value = $value->get($environment_reference);
 		}
+
+		debug("Settings :: $key (env : $environment_reference)");
+		debug($value);
 
 		if (!is_null($value))
 		{
@@ -61,7 +70,10 @@ class Settings extends CVEPDBSettings
 		}
 		else
 		{
-			$row = $this->database->table($this->config['db_table'])->where('setting_key', $key)->first(['setting_value']);
+			$row = $this->database
+				->table($this->config['db_table'])
+				->where('setting_key', $key)
+				->first(['setting_value']);
 
 			$row = (!is_null($row))
 				? $this->cache->set($key, unserialize($row->setting_value))
@@ -85,7 +97,11 @@ class Settings extends CVEPDBSettings
 		{
 			return true;
 		}
-		$row = $this->database->table($this->config['db_table'])->where('setting_key', $key)->first(['setting_value']);
+
+		$row = $this->database
+			->table($this->config['db_table'])
+			->where('setting_key', $key)
+			->first(['setting_value']);
 
 		return (count($row) > 0);
 	}
@@ -95,32 +111,43 @@ class Settings extends CVEPDBSettings
 	 *
 	 * @param  string $key
 	 * @param  mixed  $value
+	 * @param  string $environment_reference
 	 *
 	 * @return mixed
 	 */
-	public function set($key, $value)
+	public function set($key, $value, $environment_reference = null)
 	{
 		$db_value = $this->fetch($key);
+
+		if (is_null($environment_reference))
+		{
+			$environment_reference = EnvironmentFacade::current();
+		}
 
 		if (is_null($db_value))
 		{
 			$db_value = collect([]);
 		}
 
-		$db_value->put(EnvironmentFacade::current(), $value);
+		$db_value->put($environment_reference, $value);
 
 		$value = serialize($db_value);
 
-		$setting = $this->database->table($this->config['db_table'])->where('setting_key', $key)->first();
+		$setting = $this->database
+			->table($this->config['db_table'])
+			->where('setting_key', $key)
+			->first();
 
 		if (is_null($setting))
 		{
-			$this->database->table($this->config['db_table'])
+			$this->database
+				->table($this->config['db_table'])
 				->insert(['setting_key' => $key, 'setting_value' => $value]);
 		}
 		else
 		{
-			$this->database->table($this->config['db_table'])
+			$this->database
+				->table($this->config['db_table'])
 				->where('setting_key', $key)
 				->update(['setting_value' => $value]);
 		}
@@ -128,6 +155,43 @@ class Settings extends CVEPDBSettings
 		$this->cache->set($key, unserialize($value));
 
 		return $value;
+	}
+
+	/**
+	 * Remove a setting
+	 *
+	 * @param  string $key
+	 *
+	 * @return void
+	 */
+	public function forget($key, $environment_reference = null)
+	{
+		$value = $this->fetch($key);
+
+		$value->forget($environment_reference);
+
+		$value = serialize($value);
+
+		$setting = $this->database
+			->table($this->config['db_table'])
+			->where('setting_key', $key)
+			->first();
+
+		if (is_null($setting))
+		{
+			$this->database
+				->table($this->config['db_table'])
+				->insert(['setting_key' => $key, 'setting_value' => $value]);
+		}
+		else
+		{
+			$this->database
+				->table($this->config['db_table'])
+				->where('setting_key', $key)
+				->update(['setting_value' => $value]);
+		}
+
+		$this->cache->set($key, unserialize($value));
 	}
 
 }

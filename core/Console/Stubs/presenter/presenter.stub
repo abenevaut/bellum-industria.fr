@@ -1,19 +1,17 @@
-<?php
+<?php $NAMESPACE$
 
-$NAMESPACE$
-
+use Core\Presenters\PresenterAbstract;
 use $TRANSFORMER$;
-use Prettus\Repository\Presenter\FractalPresenter;
 
 /**
  * Class $CLASS$Presenter
- *
  * @package $NAMESPACE$
  */
-class $CLASS$Presenter extends FractalPresenter
+class $CLASS$Presenter extends PresenterAbstract
 {
+
     /**
-     * Transformer
+     * Transformer.
      *
      * @return \League\Fractal\TransformerAbstract
      */
@@ -21,4 +19,5 @@ class $CLASS$Presenter extends FractalPresenter
     {
         return new $CLASS$Transformer();
     }
+
 }

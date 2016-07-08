@@ -1,6 +1,5 @@
 <?php namespace Core\Console\Commands;
 
-use Illuminate\Console\Command;
 use Pingpong\Themes\Theme;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -8,7 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
  * Class ThemesPublishCommand
  * @package Core\Console\Commands
  */
-class ThemesPublishCommand extends Command
+class ThemesPublishCommand extends CoreCommand
 {
 
 	/**
@@ -16,7 +15,7 @@ class ThemesPublishCommand extends Command
 	 *
 	 * @var string
 	 */
-	protected $name = 'theme:publish';
+	protected $name = 'cms:theme:publish';
 
 	/**
 	 * Command description.
@@ -25,6 +24,9 @@ class ThemesPublishCommand extends Command
 	 */
 	protected $description = 'Publish theme\'s assets';
 
+	/**
+	 * @var
+	 */
 	protected $progressbar;
 
 	/**
@@ -32,6 +34,8 @@ class ThemesPublishCommand extends Command
 	 */
 	public function fire()
 	{
+		parent::fire();
+
 		if ($theme = $this->argument('name'))
 		{
 			$this->publish($theme);
@@ -119,4 +123,5 @@ class ThemesPublishCommand extends Command
 			['name', InputArgument::OPTIONAL, 'The name of the theme being used.'],
 		];
 	}
+
 }

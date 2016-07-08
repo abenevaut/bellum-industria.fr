@@ -6,7 +6,7 @@ use Core\Domain\Roles\Entities\Permission;
 
 /**
  * Class PermissionRepositoryEloquent
- * @package Modules\Users\Repositories
+ * @package Core\Domain\Roles\Repositories
  */
 class PermissionRepositoryEloquent extends BasePermissionRepositoryEloquent
 {
@@ -26,6 +26,9 @@ class PermissionRepositoryEloquent extends BasePermissionRepositoryEloquent
 
 	// Allow to clone items between environments
 	const MANAGE_ENVIRONMENT_ITEMS = 'manage_env_items';
+
+	// Allow to access backups directory
+	const CAN_READ_BACKUPS_DIRECTORY = 'can_read_backups_directory';
 
 	/**
 	 * Specify Model class name

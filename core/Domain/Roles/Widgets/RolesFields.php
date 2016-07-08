@@ -8,8 +8,13 @@ use Widget;
 use CVEPDB\Contracts\Widgets;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 use Modules\Users\Repositories\RoleRepositoryEloquent;
+use Core\Domain\Widgets\AbstractWidgets;
 
-class RolesFields implements Widgets
+/**
+ * Class RolesFields
+ * @package Core\Domain\Roles\Widgets
+ */
+class RolesFields extends AbstractWidgets implements Widgets
 {
 
 	/**
@@ -47,50 +52,7 @@ class RolesFields implements Widgets
 		$this->r_settings = $r_settings;
 		$this->r_role = $r_role;
 	}
-
-	public function setTitle($title)
-	{
-		$this->title = $title;
-	}
-
-	public function getTitlte()
-	{
-		return $this->title;
-	}
-
-	public function setDescription($description)
-	{
-		$this->description = $description;
-	}
-
-	public function getDescription()
-	{
-		return $this->description;
-	}
-
-	public function setModuleName($module_name)
-	{
-		$this->module = $module_name . '::';
-	}
-
-	public function getModuleName()
-	{
-		return $this->module;
-	}
-
-	public function output($view, $data = [])
-	{
-		return cmsview($view, $data, $this->view_prefix, $this->module);
-	}
-
-	public function widgetInformation()
-	{
-		return [
-			'title'       => $this->getTitlte(),
-			'description' => $this->getDescription(),
-		];
-	}
-
+	
 	public function register($name = 'roles[]', $attributes = [])
 	{
 		$user_can_see_environment = cmsuser_can_see_env();

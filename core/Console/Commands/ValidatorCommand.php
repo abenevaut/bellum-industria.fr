@@ -1,13 +1,15 @@
 <?php namespace Core\Console\Commands;
 
-use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
 use Prettus\Repository\Generators\FileAlreadyExistsException;
-use Prettus\Repository\Generators\ValidatorGenerator;
+use Core\Console\Generators\ValidatorGenerator;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class ValidatorCommand extends Command
+/**
+ * Class ValidatorCommand
+ * @package Core\Console\Commands
+ */
+class ValidatorCommand extends CoreCommand
 {
 
 	/**
@@ -15,7 +17,7 @@ class ValidatorCommand extends Command
 	 *
 	 * @var string
 	 */
-	protected $name = 'cms:validator';
+	protected $name = 'cms:make:validator';
 
 	/**
 	 * The description of command.
@@ -31,7 +33,6 @@ class ValidatorCommand extends Command
 	 */
 	protected $type = 'Validator';
 
-
 	/**
 	 * Execute the command.
 	 *
@@ -39,23 +40,31 @@ class ValidatorCommand extends Command
 	 */
 	public function fire()
 	{
+		parent::fire();
+
 		try
 		{
-			(new ValidatorGenerator([
-				'name'  => $this->argument('name'),
-				'rules' => $this->option('rules'),
-				'force' => $this->option('force'),
-			]))->run();
+			$opts = [
+				'name'   => $this->argument('name'),
+				'module' => $this->argument('module'),
+				'rules'  => $this->option('rules'),
+				'force'  => $this->option('force'),
+			];
+
+			$validatorGenerator = new ValidatorGenerator($opts);
+			$validatorGenerator->run();
+
 			$this->info("Validator created successfully.");
 		}
 		catch (FileAlreadyExistsException $e)
 		{
 			$this->error($this->type . ' already exists!');
-
-			return false;
+		}
+		catch (\Exception $e)
+		{
+			$this->error($e->getMessage());
 		}
 	}
-
 
 	/**
 	 * The array of command arguments.
@@ -66,9 +75,9 @@ class ValidatorCommand extends Command
 	{
 		return [
 			['name', InputArgument::REQUIRED, 'The name of model for which the validator is being generated.', null],
+			['module', InputArgument::OPTIONAL, 'The module for which the validator is being generated.', null],
 		];
 	}
-
 
 	/**
 	 * The array of command options.
@@ -82,4 +91,5 @@ class ValidatorCommand extends Command
 			['force', 'f', InputOption::VALUE_NONE, 'Force the creation if file already exists.', null],
 		];
 	}
+
 }

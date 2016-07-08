@@ -37,7 +37,7 @@ abstract class MailQueueService extends AbsMailService
 				->from($mailfrom, $mailname)
 				->subject($subject);
 
-			if (!is_null($mailwatch))
+			if (!is_null($mailwatch) && !empty($mailwatch))
 			{
 				$message->bcc($mailwatch);
 			}

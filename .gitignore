@@ -1,35 +1,19 @@
-bin
-bin/*
+.idea
 /vendor
+/bin
 /node_modules
+/public/storage
 Homestead.yaml
 Homestead.json
-.env
-
-tests/_output/*
-
-.idea
-.idea/*
-
-public/assets
-public/assets/*
-public/*.xml
-public/*.pdf
-
-storage/databases/testing.sqlite
-awsaccess.json
-
-
-# Deployer
-!deployer/shared/.env.example
-/public/storage
 resources/assets/bower
+public/assets/*
 public/modules/*
 public/themes/*
 public/uploads/*
 resources/views/modules/*
 
 # Dotenv
+.env
 .env.*
 !.env.example
 !.env.installer
@@ -47,12 +31,11 @@ modules/Navigations
 modules/Pages
 modules/Posts
 modules/Users
-modules/Steam
-modules/ClashOfClan
 resources/themes
 
 # Tests
 !tests/_data/*
+tests/_output/*
 tests/_support/_generated/*
 
 # Databases
@@ -61,18 +44,28 @@ database/testing.sqlite
 :memory:
 
 # Deployer
+!deployer/shared/.env.example
 !deployer/shared/.env.production.example
 deployer/release
 deployer/releases
 deploy.yml
 deployer/current
+# Files
+database/migrations/2016_06_16_110839_create_media_table.php
+# Pages
+database/migrations/2016_04_04_174738_create_table_pages.php
+# Posts
+# Themes
+# Users
+database/migrations/2016_03_14_122839_alter_users_table_remove_name_add_first_name_and_last_name.php
+database/migrations/2016_03_23_150432_alter_users_table_to_add_soft_delete.php
+database/migrations/2016_03_30_203434_alter_roles_table_add_unchangeable_bool.php
 
-# Tests
-tests/_support/_generated
-database/migrations/2014_01_15_090136_create_states.php
-database/migrations/2014_01_15_090147_create_countries.php
-database/migrations/2014_01_15_105422_create_addresses.php
-database/migrations/2014_08_15_180252_create_meta_table.php
 _ide_helper.php
 
 app/*
+public/.tmb/
+public/modules/
+public/themes/
+modules/
+storage/laravel-backups/

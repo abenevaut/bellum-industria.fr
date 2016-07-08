@@ -4,7 +4,7 @@ use CVEPDB\Domain\Roles\Repositories\RoleRepository as Repository;
 
 /**
  * Interface RoleRepository
- * @package Modules\Users\Repositories
+ * @package Core\Domain\Roles\Repositories
  */
 interface RoleRepository extends Repository
 {

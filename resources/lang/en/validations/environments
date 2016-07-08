@@ -1,0 +1,8 @@
+<?php
+
+return [
+
+	'reference:unique' => 'An environment already exists with this reference',
+	'domain:unique' => 'An environment already exists with this domain',
+
+];

@@ -30,9 +30,9 @@ return [
 	'licenses'   => [
 		'phpcli' => '#CVEPDB CMS  Copyright (C) 2016  Antoine Benevaut
 
-This program comes with ABSOLUTELY NO WARRANTY; for details type `show w\'.
+This program comes with ABSOLUTELY NO WARRANTY;
 This is free software, and you are welcome to redistribute it
-under certain conditions; type `show c\' for details.',
+under certain conditions; visit https://gitlab.com/cvepdb/cms/wikis/license for details.',
 		'web'    => '#CVEPDB CMS is a content manager system build for final user, so you don\'t need to be developper to use it.
 
 Copyright (C) 2016  Antoine Benevaut

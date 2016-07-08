@@ -1,5 +1,6 @@
 <?php
 // @env installer
+// @group installer
 $I = new InstallerAcceptanceTester($scenario);
 $I->wantTo('Test Installer form with too long values');
 $I->amOnPage('/installer');

@@ -1,6 +1,5 @@
 <?php
 // @group ajax
-// @group admin
 // @group core
 $I = new AdminApiTester($scenario);
 $I->wantTo('Set settings by Ajax (ajax/settings/set)');

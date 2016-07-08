@@ -1,6 +1,5 @@
 <?php
-// @group users
-// @group admin
+// @group installed
 $I = new FunctionalTester($scenario);
 $I->wantTo('Test Users edit page');
 $I->amLoggedAs(['email' => 'antoine@cvepdb.fr', 'password'=> 'secret']);

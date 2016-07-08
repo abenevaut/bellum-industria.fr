@@ -37,17 +37,31 @@ class Kernel extends ConsoleKernel
 	protected function schedule(Schedule $schedule)
 	{
 		/*
+		 * Flush expired password reset tokens
+		 */
+
+		$schedule
+			->command('auth:clear-resets')
+			->name('Flush expired password reset tokens')
+			->withoutOverlapping()
+			->sendOutputTo(storage_path('logs/cron_auth_clear-resets_' . date('Y-m-d_H-i') . '.log'))
+			->daily()
+			->at('23:59');
+
+		/*
 		 * Automated backups
 		 */
 
-		$schedule->command('backup:clean')
+		$schedule
+			->command('backup:clean')
 			->name('[Backups] : clean')
 			->withoutOverlapping()
 			->sendOutputTo(storage_path('logs/cron_backups_clean_' . date('Y-m-d_H-i') . '.log'))
 			->daily()
 			->at('00:00');
 
-		$schedule->command('backup:run')
+		$schedule
+			->command('backup:run')
 			->name('[Backups] : run backup')
 			->withoutOverlapping()
 			->sendOutputTo(storage_path('logs/cron_backups_run_' . date('Y-m-d_H-i') . '.log'))
@@ -58,12 +72,14 @@ class Kernel extends ConsoleKernel
 		 * Queue
 		 */
 
-		$schedule->call(
-	  function () {
-	  
-	  Artisan::call('queue:listen', array('--queue' => 'default'));
-	  }
-		)
+		$schedule
+			->call(
+				function ()
+				{
+
+					Artisan::call('queue:listen', array('--queue' => 'default'));
+				}
+			)
 			->name('[Queue] : run default queue')
 			->withoutOverlapping()
 			->everyMinute();

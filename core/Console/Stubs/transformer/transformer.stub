@@ -1,8 +1,6 @@
-<?php
+<?php $NAMESPACE$
 
-$NAMESPACE$
-
-use League\Fractal\TransformerAbstract;
+use Core\Transformers\TransformerAbstract;
 use $MODEL$;
 
 /**
@@ -13,20 +11,25 @@ class $CLASS$Transformer extends TransformerAbstract
 {
 
     /**
-     * Transform the \$CLASS$ entity
-     * @param \$CLASS$ $model
+     * Transform the \$CLASS$ entity.
+     *
+     * @param \$MODEL$ $model
      *
      * @return array
      */
     public function transform($CLASS$ $model)
     {
         return [
-            'id'         => (int) $model->id,
 
-            /* place your other model properties here */
-
+            'id'         => (int)$model->id,
             'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            'updated_at' => $model->updated_at,
+
+            /*
+             * place your other model properties here
+             */
+
         ];
     }
+
 }

@@ -1,2 +1,0 @@
-# \#CVEPDB CMS Users module
-

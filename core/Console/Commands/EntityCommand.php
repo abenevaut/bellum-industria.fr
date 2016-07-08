@@ -1,11 +1,14 @@
 <?php namespace Core\Console\Commands;
 
-use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class EntityCommand extends Command
+/**
+ * Class EntityCommand
+ * @package Core\Console\Commands
+ */
+class EntityCommand extends CoreCommand
 {
 
 	/**
@@ -13,20 +16,19 @@ class EntityCommand extends Command
 	 *
 	 * @var string
 	 */
-	protected $name = 'cms:entity';
+	protected $name = 'cms:make:entity';
 
 	/**
 	 * The description of command.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Create a new entity.';
+	protected $description = '[NOT WORKING!] Create a new entity.';
 
 	/**
 	 * @var Collection
 	 */
 	protected $generators = null;
-
 
 	/**
 	 * Execute the command.
@@ -35,10 +37,14 @@ class EntityCommand extends Command
 	 */
 	public function fire()
 	{
+		parent::fire();
+
+		$this->error('This command is currently not implemented!');
+		exit;
 
 		if ($this->confirm('Would you like to create a Presenter? [y|N]'))
 		{
-			$this->call('make:presenter', [
+			$this->call('cms:make:presenter', [
 				'name'    => $this->argument('name'),
 				'--force' => $this->option('force'),
 			]);
@@ -81,8 +87,7 @@ class EntityCommand extends Command
 			'--force' => $this->option('force')
 		]);
 	}
-
-
+	
 	/**
 	 * The array of command arguments.
 	 *
@@ -94,7 +99,6 @@ class EntityCommand extends Command
 			['name', InputArgument::REQUIRED, 'The name of class being generated.', null],
 		];
 	}
-
 
 	/**
 	 * The array of command options.
@@ -110,4 +114,5 @@ class EntityCommand extends Command
 			['force', 'f', InputOption::VALUE_NONE, 'Force the creation if file already exists.', null]
 		];
 	}
+
 }

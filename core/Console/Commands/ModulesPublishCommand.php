@@ -1,6 +1,5 @@
 <?php namespace Core\Console\Commands;
 
-use Illuminate\Console\Command;
 use Pingpong\Modules\Module;
 use Pingpong\Modules\Publishing\AssetPublisher;
 use Pingpong\Modules\Publishing\LangPublisher;
@@ -11,7 +10,7 @@ use Symfony\Component\Console\Input\InputOption;
  * Class ModulesPublishCommand
  * @package Core\Console\Commands
  */
-class ModulesPublishCommand extends Command
+class ModulesPublishCommand extends CoreCommand
 {
 
 	/**
@@ -19,7 +18,7 @@ class ModulesPublishCommand extends Command
 	 *
 	 * @var string
 	 */
-	protected $name = 'module:publish';
+	protected $name = 'cms:module:publish';
 
 	/**
 	 * The console command description.
@@ -35,6 +34,8 @@ class ModulesPublishCommand extends Command
 	 */
 	public function fire()
 	{
+		parent::fire();
+
 		if ($name = $this->argument('module'))
 		{
 			return $this->publish($name);
@@ -89,4 +90,5 @@ class ModulesPublishCommand extends Command
 			['module', InputArgument::OPTIONAL, 'The name of module will be used.'],
 		];
 	}
+
 }

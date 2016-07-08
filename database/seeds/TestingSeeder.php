@@ -15,11 +15,10 @@ class TestingSeeder extends Seeder
 	public function run()
 	{
 		Model::unguard();
-		$this->call('Modules\Users\Database\Seeders\CountryTableSeeder');
-		$this->call('Modules\Users\Database\Seeders\StateTableSeeder');
-		$this->call('Modules\Users\Database\Seeders\RoleAndPermissionTablesSeeder');
-		$this->call('Modules\Users\Database\Seeders\AdminForUserTableSeeder');
-		$this->call('Modules\Users\Database\Seeders\UserTableSeeder');
+		$this->call('CountryTableSeeder');
+		$this->call('StateTableSeeder');
+        $this->call('EnvironmentsTableSeeder');
+		$this->call('Modules\Users\Database\Seeders\TestingSeeder');
 		Model::reguard();
 	}
 }

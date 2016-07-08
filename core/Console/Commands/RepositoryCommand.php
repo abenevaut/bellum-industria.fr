@@ -1,6 +1,5 @@
 <?php namespace Core\Console\Commands;
 
-use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use Prettus\Repository\Generators\FileAlreadyExistsException;
 use Prettus\Repository\Generators\MigrationGenerator;
@@ -10,7 +9,11 @@ use Prettus\Repository\Generators\RepositoryInterfaceGenerator;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class RepositoryCommand extends Command
+/**
+ * Class RepositoryCommand
+ * @package Core\Console\Commands
+ */
+class RepositoryCommand extends CoreCommand
 {
 
 	/**
@@ -18,14 +21,14 @@ class RepositoryCommand extends Command
 	 *
 	 * @var string
 	 */
-	protected $name = 'cms:repository';
+	protected $name = 'cms:make:repository';
 
 	/**
 	 * The description of command.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Create a new repository.';
+	protected $description = '[NOT WORKING!] Create a new repository.';
 
 	/**
 	 * The type of class being generated.
@@ -39,7 +42,6 @@ class RepositoryCommand extends Command
 	 */
 	protected $generators = null;
 
-
 	/**
 	 * Execute the command.
 	 *
@@ -47,6 +49,11 @@ class RepositoryCommand extends Command
 	 */
 	public function fire()
 	{
+		parent::fire();
+
+		$this->error('This command is currently not implemented!');
+		exit;
+
 		$this->generators = new Collection();
 
 		$this->generators->push(new MigrationGenerator([
@@ -94,8 +101,7 @@ class RepositoryCommand extends Command
 			return false;
 		}
 	}
-
-
+	
 	/**
 	 * The array of command arguments.
 	 *
@@ -107,7 +113,6 @@ class RepositoryCommand extends Command
 			['name', InputArgument::REQUIRED, 'The name of class being generated.', null],
 		];
 	}
-
 
 	/**
 	 * The array of command options.
@@ -123,4 +128,5 @@ class RepositoryCommand extends Command
 			['force', 'f', InputOption::VALUE_NONE, 'Force the creation if file already exists.', null]
 		];
 	}
+
 }

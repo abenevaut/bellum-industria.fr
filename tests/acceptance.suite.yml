@@ -5,83 +5,56 @@
 # If you need both WebDriver and PHPBrowser tests - create a separate suite.
 
 class_name: AcceptanceTester
-l5:
-    env:
-        file: "tests/_data/.env.testing"
-        name: default
 extensions:
     enabled:
-        - Codeception\Extension\Recorder
-    config:
-        Codeception\Extension\Recorder:
-            delete_successful: false
+        - Codeception\Extension\Recorder:
+            delete_successful: true
 modules:
     enabled:
-        - WebDriver
-        - \Helper\Acceptance
-    config:
-        WebDriver:
-             url: 'http://localhost:8000/'
-             port: 4480
-             browser: phantomjs
+      - \Helper\Acceptance
+      - WebDriver:
+           url: 'http://localhost:8000/'
+           port: 4480
+           browser: phantomjs
+           window_size: 1024x768
+      - Db:
+          dsn: 'mysql:host=127.0.0.1;dbname=cvepdb_cms_testing'
+          user: 'cvepdb_testing'
+          password: ''
+          cleanup: true
+          populate: true
+          dump: 'tests/_data/testing.sql'
 env:
     installer:
-        l5:
-            env:
-                file: "tests/_data/.env.installer"
-                name: installer
         modules:
-            WebDriver:
-                 url: 'http://localhost:8000/'
-                 port: 4480
-                 browser: phantomjs
+            enabled:
+                - WebDriver:
+                     url: 'http://localhost:8000/'
+                     port: 4480
+                     browser: phantomjs
+                     window_size: 1024x768
+                - Db:
+                    cleanup: true
+                    dump: 'tests/_data/empty.sql'
     chrome:
-        # Selenium 2 + webBrowser
-        # http://www.seleniumhq.org/
-        # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
         modules:
-            config:
-                WebDriver:
+            enabled:
+                - WebDriver:
                     port: 4444
                     browser: chrome
-                    window_size: 1024x768
     firefox:
-        # Selenium 2 + webBrowser
-        # http://www.seleniumhq.org/
-        # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
         modules:
-            config:
-                WebDriver:
+            enabled:
+                - WebDriver:
                     port: 4444
                     browser: firefox
-                    window_size: 1024x768
     ie:
-        # Selenium 2 + webBrowser
-        # http://www.seleniumhq.org/
-        # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
          modules:
-            config:
-                WebDriver:
+            enabled:
+                - WebDriver:
                     browser: 'internet explorer'
                     port: 4444
-                    window_size: 1024x768
     travis:
-        l5:
-            env:
-                file: "tests/_data/.env.travis"
-                name: travis
     travis-installer:
-        l5:
-            env:
-                file: "tests/_data/.env.travis-installer"
-                name: travis
     codeship:
-        l5:
-            env:
-                file: "tests/_data/.env.codeship"
-                name: codeship
     codeship-installer:
-        l5:
-            env:
-                file: "tests/_data/.env.codeship-installer"
-                name: codeship

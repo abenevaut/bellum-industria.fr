@@ -14,12 +14,9 @@ job_build:
   - composer install
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
   - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
-  - cd resources/themes/flatly/assets && npm install && gulp bower && cd -
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
-#  - php artisan codeception:dbdump testing --dump tests/_data/empty.sql --empty-database --no-seeding
-#  - php artisan codeception:dbdump testing --dump tests/_data/testing.sql --empty-database --seeder-class TestingSeeder
   tags:
   - php7
   - nodejs
@@ -38,20 +35,24 @@ job_tests_linux: # Run tests suites
   - composer install
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
   - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
-  - cd resources/themes/flatly/assets && npm install && gulp bower && cd -
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
   script:
-  - bin/codecept run --env=core -g migration --coverage
-  - bin/codecept run --env=installer acceptance
-  - bin/codecept run --env=installer functionnal --coverage
-  - bin/codecept run --env=installer api --coverage
-  - bin/codecept run --env=installer unit --coverage
-  - bin/codecept run acceptance
-  - bin/codecept run functionnal --coverage
-  - bin/codecept run api --coverage
-  - bin/codecept run unit --coverage
+  - bin/codecept run --env=installer -g installer api
+  - bin/codecept run --env=installer -g installer functional --coverage
+  - bin/codecept run --env=installer -g installer unit --coverage #
+  - bin/codecept run --env=installer -g installer acceptance #
+  - echo 'testing' > .env
+  - cp tests/_data/.env.testing .
+  - bin/codecept run -g core api
+  - bin/codecept run -g core functional --coverage
+  - bin/codecept run -g core unit --coverage
+  - bin/codecept run -g core acceptance #
+  - bin/codecept run -g installed api
+  - bin/codecept run -g installed functional --coverage
+  - bin/codecept run -g installed unit --coverage
+  - bin/codecept run -g installed acceptance #
   when: on_success
   tags:
   - php7
@@ -60,7 +61,7 @@ job_tests_linux: # Run tests suites
   - mysql
   - linux
 
-job_tests_windows: # Run tests suites
+job_tests_windows_firefox: # Run tests suites
   stage: test
   only:
   - staging
@@ -69,15 +70,24 @@ job_tests_windows: # Run tests suites
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - chmod -R 777 storage
   - chmod -R 777 public/uploads
-  - composer install
-  - cd resources\themes\adminlte\assets && npm install && gulp sass && cd ../../../..
-  - cd resources\themes\lumen\assets && npm install && gulp bower && cd ../../../..
-  - cd resources\themes\flatly\assets && npm install && gulp bower && cd ../../../..
+  - call composer install
+  - cd resources\themes\adminlte\assets
+  - call npm install
+  - call gulp sass
+  - cd ../../../..
+  - cd resources\themes\lumen\assets
+  - call npm install
+  - call gulp bower
+  - cd ../../../..
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
   script:
-  - bin\codecept run --env=installer,firefox --env=installer,ie acceptance
+  - call bin\codecept run --env=installer,firefox -g installer acceptance #
+  - echo 'testing' > .env
+  - cp tests/_data/.env.testing .
+  - call bin\codecept run --env=firefox -g core acceptance
+  - call bin\codecept run --env=firefox -g installed acceptance
   when: on_success
   tags:
   - php7
@@ -85,6 +95,119 @@ job_tests_windows: # Run tests suites
   - composer
   - mysql
   - windows
+  - selenium
+  - firefox
+
+job_tests_windows_ie9: # Run tests suites
+  stage: test
+  only:
+  - staging
+  - development
+  before_script:
+  - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
+  - chmod -R 777 storage
+  - chmod -R 777 public/uploads
+  - call composer install
+  - cd resources\themes\adminlte\assets
+  - call npm install
+  - call gulp sass
+  - cd ../../../..
+  - cd resources\themes\lumen\assets
+  - call npm install
+  - call gulp bower
+  - cd ../../../..
+  - php artisan theme:publish
+  - php artisan module:publish
+  - php artisan module:publish-migration
+  script:
+  - call bin\codecept run --env=installer,ie -g installer acceptance
+  - echo 'testing' > .env
+  - cp tests/_data/.env.testing .
+  - call bin\codecept run --env=ie -g core acceptance
+  - call bin\codecept run --env=ie -g installed acceptance
+  when: on_success
+  tags:
+  - php7
+  - nodejs
+  - composer
+  - mysql
+  - windows
+  - selenium
+  - ie9
+
+job_tests_windows_ie11: # Run tests suites
+  stage: test
+  only:
+  - staging
+  - development
+  before_script:
+  - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
+  - chmod -R 777 storage
+  - chmod -R 777 public/uploads
+  - call composer install
+  - cd resources\themes\adminlte\assets
+  - call npm install
+  - call gulp sass
+  - cd ../../../..
+  - cd resources\themes\lumen\assets
+  - call npm install
+  - call gulp bower
+  - cd ../../../..
+  - php artisan theme:publish
+  - php artisan module:publish
+  - php artisan module:publish-migration
+  script:
+  - call bin\codecept run --env=installer,ie -g installer acceptance
+  - echo 'testing' > .env
+  - cp tests/_data/.env.testing .
+  - call bin\codecept run --env=ie -g core acceptance
+  - call bin\codecept run --env=ie -g installed acceptance
+  when: on_success
+  tags:
+  - php7
+  - nodejs
+  - composer
+  - mysql
+  - windows
+  - selenium
+  - ie11
+
+job_tests_windows_chrome: # Run tests suites
+  stage: test
+  only:
+  - staging
+  - development
+  before_script:
+  - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
+  - chmod -R 777 storage
+  - chmod -R 777 public/uploads
+  - call composer install
+  - cd resources\themes\adminlte\assets
+  - call npm install
+  - call gulp sass
+  - cd ../../../..
+  - cd resources\themes\lumen\assets
+  - call npm install
+  - call gulp bower
+  - cd ../../../..
+  - php artisan theme:publish
+  - php artisan module:publish
+  - php artisan module:publish-migration
+  script:
+  - call bin\codecept run --env=installer,chrome -g installer acceptance
+  - echo 'testing' > .env
+  - cp tests/_data/.env.testing .
+  - call bin\codecept run --env=chrome -g core acceptance
+  - call bin\codecept run --env=chrome -g installed acceptance
+  when: on_success
+  tags:
+  - php7
+  - nodejs
+  - composer
+  - mysql
+  - windows
+  - selenium
+  - chrome
 
 job_cs: # CodeStyle
   stage: test
@@ -93,25 +216,55 @@ job_cs: # CodeStyle
   before_script:
   - composer install
   script:
-  - bin/phpcpd core
-  - bin/phpcpd modules/Dashboard
-  - bin/phpcpd modules/Files
-  - bin/phpcpd modules/Installer
-  - bin/phpcpd modules/Pages
-  - bin/phpcpd modules/Posts
-  - bin/phpcpd modules/Themes
-  - bin/phpcpd modules/Users
   - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ core
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Dashboard
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Files
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Installer
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Pages
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Posts
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Themes
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ module/Users
+  when: always
+  allow_failure: true
   tags:
   - php7
-  - nodejs
   - composer
-  - mysql
+  - linux
+
+job_cs_duplicated: # CodeStyle - Looking for duplicated code
+  stage: test
+  only:
+  - development
+  before_script:
+  - composer install
+  script:
+  - bin/phpcpd core
+  when: always
+  allow_failure: true
+  tags:
+  - php7
+  - composer
+  - linux
+
+job_ci_dump: # ContinuousIntegration - try to dump Db
+  stage: test
+  only:
+  - development
+  script:
+  - composer install
+  - php artisan codeception:dbdump testing --dump tests/_data/empty.sql --empty-database --no-seeding
+  - php artisan codeception:dbdump testing --dump tests/_data/testing.sql --empty-database --seeder-class TestingSeeder
+  when: always
+  allow_failure: true
+  tags:
+  - php7
+  - composer
+  - linux
+
+job_ci_backup: # ContinuousIntegration - try to backup website
+  stage: test
+  only:
+  - development
+  script:
+  - composer install
+  - mkdir -p storage/apps/default/backups
+  - php artisan backup:run
+  when: always
+  allow_failure: true
+  tags:
+  - php7
+  - composer
   - linux
