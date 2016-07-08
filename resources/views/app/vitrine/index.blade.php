@@ -17,19 +17,21 @@
 			<h4 class="aligncenter">{!! trans('cvepdb/vitrine/index.web_crafter') !!}</h4>
 			<hr/>
 			<div class="layout__body-wrapper__content-wrapper__inner__widget-services">
-				<div class="one-fourth"> <i class="icon-lamp special blue"></i>
+				<div class="one-fourth"><i class="icon-lamp special blue"></i>
 					<h5>{!! trans('cvepdb/vitrine/index.services_your_idea') !!}</h5>
 					<p>{!! trans('cvepdb/vitrine/index.services_your_idea_desc') !!}</p>
 				</div>
-				<div class="one-fourth"> <i class="icon-chat-1 special red"></i>
+				<div class="one-fourth"><i class="icon-chat-1 special red"></i>
 					<h5>{!! trans('cvepdb/vitrine/index.services_talk_define') !!}</h5>
 					<p>{!! trans('cvepdb/vitrine/index.services_talk_define_desc') !!}</p>
 				</div>
-				<div class="one-fourth"> <i class="icon-wrench special orange"></i>
+				<div class="one-fourth">
+					<i class="icon-wrench special orange"></i>
 					<h5>{!! trans('cvepdb/vitrine/index.services_work_together') !!}</h5>
 					<p>{!! trans('cvepdb/vitrine/index.services_work_together_desc') !!}</p>
 				</div>
-				<div class="one-fourth last"> <i class="icon-key special purple"></i>
+				<div class="one-fourth last">
+					<i class="icon-key special purple"></i>
 					<h5>{!! trans('cvepdb/vitrine/index.services_gain_control') !!}</h5>
 					<p>{!! trans('cvepdb/vitrine/index.services_gain_control_desc') !!}</p>
 				</div>
@@ -51,15 +53,21 @@
 				</div>
 				<div class="one-fourth">
 					<i class="icon-window special"></i>
-					<h5><a href="{{  url('/about') }}" class="button">{!! trans('cvepdb/vitrine/index.pages_my_activity') !!}</a></h5>
+					<h5>
+						<a href="{{  url('/about') }}" class="button">{!! trans('cvepdb/vitrine/index.pages_my_activity') !!}</a>
+					</h5>
 				</div>
 				<div class="one-fourth">
 					<i class="icon-doc-text special"></i>
-					<h5><a href="{{  url('/services') }}" class="button">{!! trans('cvepdb/vitrine/index.pages_my_services') !!}</a></h5>
+					<h5>
+						<a href="{{  url('/services') }}" class="button">{!! trans('cvepdb/vitrine/index.pages_my_services') !!}</a>
+					</h5>
 				</div>
 				<div class="one-fourth last">
 					<i class="icon-mail-1 special"></i>
-					<h5><a href="{{  url('/contact') }}" class="button">{!! trans('cvepdb/vitrine/index.pages_contact_me') !!}</a></h5>
+					<h5>
+						<a href="{{  url('/contact') }}" class="button">{!! trans('cvepdb/vitrine/index.pages_contact_me') !!}</a>
+					</h5>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -68,15 +76,15 @@
 	</div>
 	<!-- End Gray Wrapper -->
 
-	<!-- Begin White Wrapper -->
-	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
-		<!-- Begin Inner -->
-		<div class="layout__body-wrapper__content-wrapper__inner">
-			<h3 class="colored">{{ trans('cvepdb/vitrine/portfolio.title') }}</h3>
+	{{--<!-- Begin White Wrapper -->--}}
+	{{--<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">--}}
+		{{--<!-- Begin Inner -->--}}
+		{{--<div class="layout__body-wrapper__content-wrapper__inner">--}}
+			{{--<h3 class="colored">{{ trans('cvepdb/vitrine/portfolio.title') }}</h3>--}}
 
-			<div class="info-box">
-				{{ trans('cvepdb/vitrine/portfolio.maintenance') }}
-			</div>
+			{{--<div class="info-box">--}}
+				{{--{{ trans('cvepdb/vitrine/portfolio.maintenance') }}--}}
+			{{--</div>--}}
 
 			{{--<hr>--}}
 			{{----}}
@@ -86,10 +94,10 @@
 			{{--{{ trans('cvepdb/vitrine/blog.maintenance') }}--}}
 			{{--</div>--}}
 
-		</div>
-		<!-- Begin Inner -->
-	</div>
-	<!-- End White Wrapper -->
+		{{--</div>--}}
+		{{--<!-- Begin Inner -->--}}
+	{{--</div>--}}
+	{{--<!-- End White Wrapper -->--}}
 
 	<!-- Begin White Wrapper -->
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
@@ -107,7 +115,7 @@
 							<div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
 								<div class="frame alignleft" style="padding:31px 0 31px 0;">
 									<a href="{!! $item->get_link() !!}">
-										<img src="/assets/images/cvepdb/logo.png" alt="{!! $item->get_title() !!}"
+										<img src="/themes/longwave/images/cvepdb/logo.png" alt="{!! $item->get_title() !!}"
 											 width="142" height="80" class="js-call-lazyload"/>
 
 										<div></div>
@@ -146,7 +154,7 @@
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
 		<!-- Begin Inner -->
 		<div class="layout__body-wrapper__content-wrapper__inner">
-{{--			@include('cvepdb.vitrine.partials.longwave_share_inline')--}}
+						@include('longwave::partials.share_inline')
 		</div>
 		<!-- Begin Inner -->
 	</div>

@@ -1,9 +1,11 @@
-<?php
-
-namespace App\Vitrine\Requests;
+<?php namespace App\Vitrine\Http\Requests;
 
 use CVEPDB\Requests\Request;
 
+/**
+ * Class ContactFormRequest
+ * @package App\Vitrine\Http\Requests
+ */
 class ContactFormRequest extends Request
 {
     /**

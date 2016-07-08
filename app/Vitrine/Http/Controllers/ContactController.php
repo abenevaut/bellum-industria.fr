@@ -1,52 +1,75 @@
-<?php
+<?php namespace App\Vitrine\Http\Controllers;
 
-namespace App\Vitrine\Controllers;
-
-use CVEPDB\Controllers\AbsBaseController as BaseController;
-
-use App\Vitrine\Requests\ContactFormRequest;
+use Core\Http\Controllers\CorePublicController;
+use App\Vitrine\Http\Requests\ContactFormRequest;
+use App\Vitrine\Http\Outputters\ContactOutputter;
 use App\Admin\Repositories\Users\LogContact;
-use App\CVEPDB\Services\Mails\ContactMailService;
+use App\Vitrine\Services\MailContactService;
 
-class ContactController extends BaseController
+/**
+ * Class ContactController
+ * @package App\Vitrine\Controllers
+ */
+class ContactController extends CorePublicController
 {
-    private $mailer = null;
 
-    public function __construct(ContactMailService $cmailer)
-    {
-        $this->mailer = $cmailer;
-    }
+	/**
+	 * @var ContactOutputter|null
+	 */
+	protected $outputter = null;
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        return view('cvepdb.vitrine.contact');
-    }
+	/**
+	 * @var null
+	 */
+	private $mailer = null;
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     *
-     * @return Response
-     */
-    public function store(ContactFormRequest $request)
-    {
-        $m_contacts = new LogContact();
-        $m_contacts->first_name = $request->get('first_name');
-        $m_contacts->last_name = $request->get('last_name');
-        $m_contacts->email = $request->get('email');
-        $m_contacts->subject = $request->get('subject');
-        $m_contacts->message = $request->get('message');
-        $m_contacts->save();
+	/**
+	 * PageController constructor.
+	 *
+	 * @param ContactOutputter   $outputter
+	 * @param MailContactService $cmailer
+	 */
+	public function __construct(
+		ContactOutputter $outputter,
+		MailContactService $cmailer
+	)
+	{
+		parent::__construct();
 
-        $this->mailer->contact_form($m_contacts);
+		$this->outputter = $outputter;
+		$this->mailer = $cmailer;
+	}
 
-        return \Redirect::route('contact.index')
-            ->with('message', 'Thanks for contacting us!');
-    }
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+		return $this->outputter->output('app/vitrine/contact');
+	}
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param Request $request
+	 *
+	 * @return Response
+	 */
+	public function store(ContactFormRequest $request)
+	{
+//        $m_contacts = new LogContact();
+//        $m_contacts->first_name = $request->get('first_name');
+//        $m_contacts->last_name = $request->get('last_name');
+//        $m_contacts->email = $request->get('email');
+//        $m_contacts->subject = $request->get('subject');
+//        $m_contacts->message = $request->get('message');
+//        $m_contacts->save();
+//
+//        $this->mailer->contact_form($m_contacts);
+
+		return \Redirect::route('contact.index')
+			->with('message', 'Thanks for contacting us!');
+	}
 }

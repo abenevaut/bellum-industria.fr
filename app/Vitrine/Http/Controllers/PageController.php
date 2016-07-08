@@ -50,4 +50,13 @@ class PageController extends CorePublicController
 	{
 		return $this->outputter->about();
 	}
+
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function boutique()
+	{
+		return $this->outputter->boutique();
+	}
+
 }

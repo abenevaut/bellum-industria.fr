@@ -5,16 +5,16 @@ use Core\Http\Outputters\FrontOutputter;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 
 /**
- * Class PageOutputter
+ * Class ContactOutputter
  * @package App\Vitrine\Http\Outputters
  */
-class PageOutputter extends FrontOutputter
+class ContactOutputter extends FrontOutputter
 {
 
 	/**
 	 * @var string Outputter header title
 	 */
-	protected $title = 'global.pages';
+	protected $title = 'Contact';
 
 	/**
 	 * @var string Outputter header description
@@ -40,7 +40,7 @@ class PageOutputter extends FrontOutputter
 
 		$this->r_rss = $r_rss;
 
-		$this->addBreadcrumb(trans('global.pages'), 'pages');
+		$this->addBreadcrumb(trans('global.contact'), 'contact');
 	}
 
 	/**
@@ -48,33 +48,7 @@ class PageOutputter extends FrontOutputter
 	 */
 	public function index()
 	{
-		return $this->output('app/vitrine/index', [
-			'blog_articles' => $this->r_rss->get_cvepdb_blog_items()
-		]);
-	}
-
-	/**
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-	 */
-	public function services()
-	{
-		return $this->output('app/vitrine/services');
-	}
-
-	/**
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-	 */
-	public function about()
-	{
-		return $this->output('app/vitrine/about');
-	}
-
-	/**
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-	 */
-	public function boutique()
-	{
-		return $this->output('app/vitrine/boutique');
+		return $this->output('app/vitrine/contact');
 	}
 
 }
