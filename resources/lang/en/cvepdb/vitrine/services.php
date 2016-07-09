@@ -12,7 +12,7 @@ return [
     */
 
     'title' => 'Services',
-    'intro' => 'WE CARRY OUT FOR YOU YOUR WEBSITES, PORTABLE APPLICATIONS AND DESKTOP SOFTWARES.',
+    'intro' => 'We carry out for you your websites, portable applications and desktop softwares.',
 
     'idea_title' => 'YOUR IDEA',
     'idea_intro' => '<p>Do you want <i>to surf on the Internet wave</i> with your Web or mobile project ?</p>

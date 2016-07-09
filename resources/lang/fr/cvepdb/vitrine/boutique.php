@@ -12,5 +12,6 @@ return [
     */
 
     'title' => 'Boutique',
+	'intro' => 'Supportez nous! Acheter T-Shirts, Tasses, Tapis de souris et bien plus.',
 
 ];

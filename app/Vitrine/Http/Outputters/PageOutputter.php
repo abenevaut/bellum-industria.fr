@@ -48,8 +48,8 @@ class PageOutputter extends FrontOutputter
 	 */
 	public function index()
 	{
-		$this->title = 'Home';
-		$this->description = 'Home';
+		$this->title = trans('cvepdb/vitrine/index.title');
+		$this->description = trans('cvepdb/vitrine/index.intro');
 
 		return $this->output('app/vitrine/index', [
 			'blog_articles' => $this->r_rss->get_cvepdb_blog_items()
@@ -61,8 +61,8 @@ class PageOutputter extends FrontOutputter
 	 */
 	public function services()
 	{
-		$this->title = 'Services';
-		$this->description = 'Services';
+		$this->title = trans('cvepdb/vitrine/services.title');
+		$this->description = trans('cvepdb/vitrine/services.intro');
 
 		return $this->output('app/vitrine/services');
 	}
@@ -72,8 +72,8 @@ class PageOutputter extends FrontOutputter
 	 */
 	public function about()
 	{
-		$this->title = 'About';
-		$this->description = 'About';
+		$this->title = trans('cvepdb/vitrine/about.title');
+		$this->description = trans('cvepdb/vitrine/about.intro');
 
 		return $this->output('app/vitrine/about');
 	}
@@ -83,8 +83,8 @@ class PageOutputter extends FrontOutputter
 	 */
 	public function boutique()
 	{
-		$this->title = 'Boutique';
-		$this->description = 'Boutique';
+		$this->title = trans('cvepdb/vitrine/boutique.title');
+		$this->description = trans('cvepdb/vitrine/boutique.intro');
 
 		return $this->output('app/vitrine/boutique');
 	}

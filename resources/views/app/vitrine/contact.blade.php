@@ -1,5 +1,9 @@
 @extends('longwave::layouts.default')
 
+@section('js')
+	<script type="text/javascript" src="{{ asset('themes/longwave/js/vitrine/contact.js') }}"></script>
+@endsection
+
 @section('content')
 
 	<!-- Begin Gray Wrapper -->
@@ -12,7 +16,6 @@
 	</div>
 	<!-- End Gray Wrapper -->
 
-
 	<div style="max-width:100%;overflow:hidden;height:250px;color:red;">
 		<div id="canvas-for-google-map" style="height:100%; width:100%;max-width:100%;">
 			<iframe style="height:100%;width:100%;border:0;"
@@ -21,7 +24,6 @@
 			</iframe>
 		</div>
 	</div>
-
 
 	<!-- Begin White Wrapper -->
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">

@@ -11,6 +11,9 @@ return [
     |
     */
 
+	'title' => 'Home',
+	'intro' => 'Consultant freelance & Web developer. #CVEPDB',
+
     'slogan' => 'Consultant freelance & <strong>Web developer</strong>.',
     'web_crafter' => 'Web crafter',
 

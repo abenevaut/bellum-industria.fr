@@ -12,7 +12,7 @@ return [
     */
 
     'title' => 'Services',
-    'intro' => 'NOUS RÉALISONS POUR VOUS VOS SITES INTERNET, APPLICATIONS MOBILES ET LOGICIELS DE BUREAU.',
+    'intro' => 'Nous réalisons pour vous vos sites internet, applications mobiles et logiciels de bureau.',
 
     'idea_title' => 'VOTRE IDÉE',
     'idea_intro' => '<p>Vous voulez <i>surfer sur la vague internet</i> grâce à votre projet web ou mobile ?</p>

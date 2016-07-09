@@ -51,6 +51,9 @@ class ContactOutputter extends FrontOutputter
 		$this->r_rss = $r_rss;
 		$this->mailer = $cmailer;
 
+		$this->title = trans('cvepdb/vitrine/contact.title');
+		$this->description = trans('cvepdb/vitrine/contact.intro');
+
 		$this->addBreadcrumb(trans('global.contact'), 'contact');
 	}
 
