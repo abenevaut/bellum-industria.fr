@@ -84,6 +84,10 @@ class IndexOutputter extends FrontOutputter
 	 */
 	public function index()
 	{
+		$this->title = 'Multigaming#CVEPDB.fr';
+		$this->description = 'Multigaming#CVEPDB.fr';
+
+
 		$coc_clan = [];
 		$game_servers = [];
 		$trades = [];
