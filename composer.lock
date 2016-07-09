@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0a006d1c53378402b8792352a4a91e8c",
-    "content-hash": "65a10f51ecad958e8a8b8aa76dae2160",
+    "hash": "5d68bd0da08bdfb20100b59926d8d153",
+    "content-hash": "f3b5180ccb41898138249b1e7120f250",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1295,6 +1295,53 @@
             "time": "2016-07-09 15:09:23"
         },
         {
+            "name": "cvepdb-cms/module-csgolounge",
+            "version": "1.0.52.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/module-csgolounge.git",
+                "reference": "f62eed4edb58af1628ee6240e512037897a22dc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-csgolounge/repository/archive.zip?sha=f62eed4edb58af1628ee6240e512037897a22dc1",
+                "reference": "f62eed4edb58af1628ee6240e512037897a22dc1",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "CsgoLounge"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Modules\\CsgoLounge\\": ""
+                }
+            },
+            "license": [
+                "copyright"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "CSGO Lounge module for #CVEPDB CMS",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "CMS",
+                "CSGO",
+                "CSGO Lounge",
+                "CVEPDB",
+                "module"
+            ],
+            "time": "2016-07-09 23:49:48"
+        },
+        {
             "name": "cvepdb-cms/module-dashboard",
             "version": "1.0.52.5",
             "source": {
@@ -1592,16 +1639,16 @@
         },
         {
             "name": "cvepdb-cms/module-steam",
-            "version": "1.0.52.0",
+            "version": "1.0.52.1",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-steam.git",
-                "reference": "b99894cd65f3d1c00778303ff27997c14d002c6b"
+                "reference": "46acc9f379c3adfb1dd74eeb08fbd5d3ca7660f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-steam/repository/archive.zip?sha=b99894cd65f3d1c00778303ff27997c14d002c6b",
-                "reference": "b99894cd65f3d1c00778303ff27997c14d002c6b",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-steam/repository/archive.zip?sha=46acc9f379c3adfb1dd74eeb08fbd5d3ca7660f6",
+                "reference": "46acc9f379c3adfb1dd74eeb08fbd5d3ca7660f6",
                 "shasum": ""
             },
             "require": {
@@ -1637,7 +1684,7 @@
                 "Steam",
                 "module"
             ],
-            "time": "2016-07-09 15:09:38"
+            "time": "2016-07-09 21:54:03"
         },
         {
             "name": "cvepdb-cms/module-themes",
@@ -12224,6 +12271,7 @@
         "composer/composer": 10,
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,
+        "cvepdb-cms/theme-flatly": 20,
         "toniperic/php-clash-of-clans": 20,
         "artesaos/laravel-linkedin": 20,
         "redcomponent/teststatistics": 20
