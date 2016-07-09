@@ -4006,12 +4006,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "48a4434719fbe87c5ddf8f4c2737a0a8d6e60f03"
+                "reference": "c6ab521e8a5f2a4acc83cb575c4a09733a5e17c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/48a4434719fbe87c5ddf8f4c2737a0a8d6e60f03",
-                "reference": "48a4434719fbe87c5ddf8f4c2737a0a8d6e60f03",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/c6ab521e8a5f2a4acc83cb575c4a09733a5e17c9",
+                "reference": "c6ab521e8a5f2a4acc83cb575c4a09733a5e17c9",
                 "shasum": ""
             },
             "require": {
@@ -4065,7 +4065,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2016-06-28 13:37:34"
+            "time": "2016-07-09 09:40:10"
         },
         {
             "name": "maknz/slack",
@@ -6453,12 +6453,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "660a718061db88c3562588684375a3db99e860fa"
+                "reference": "734a9b6128474c39c61f72551d927e9269e1f54b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/660a718061db88c3562588684375a3db99e860fa",
-                "reference": "660a718061db88c3562588684375a3db99e860fa",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/734a9b6128474c39c61f72551d927e9269e1f54b",
+                "reference": "734a9b6128474c39c61f72551d927e9269e1f54b",
                 "shasum": ""
             },
             "require": {
@@ -6503,7 +6503,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-07-06 12:11:25"
+            "time": "2016-07-09 02:07:42"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6511,12 +6511,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "1ffdfdbbfb2b4dc133507b5a03989408d298779e"
+                "reference": "17ba8f8fc03074f90771e52b226698e37bc2c115"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/1ffdfdbbfb2b4dc133507b5a03989408d298779e",
-                "reference": "1ffdfdbbfb2b4dc133507b5a03989408d298779e",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/17ba8f8fc03074f90771e52b226698e37bc2c115",
+                "reference": "17ba8f8fc03074f90771e52b226698e37bc2c115",
                 "shasum": ""
             },
             "require": {
@@ -6556,7 +6556,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2016-07-08 11:52:16"
+            "time": "2016-07-09 18:06:48"
         },
         {
             "name": "symfony/class-loader",
