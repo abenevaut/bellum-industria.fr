@@ -64,7 +64,7 @@ class PasswordBroker extends IlluminatePasswordBroker
 	 */
 	public function emailResetLink(CanResetPasswordContract $user, $token, Closure $callback = null)
 	{
-		$this->emailView = cmsview_prefix('users.emails.password', $view_prefix = null, 'users') . '::users.emails.password';
+		$this->emailView = cmsview_prefix('users.emails.password', $view_prefix = null, 'users::') . 'users.emails.password';
 
 		return $this->s_mailer->send(
 			$user->getEmailForPasswordReset(),
