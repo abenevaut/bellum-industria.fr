@@ -1,66 +1,69 @@
-<?php
+<?php namespace App\Multigaming\Http\Controllers;
 
-namespace App\Multigaming\Http\Controllers;
-
-use CVEPDB\Controllers\AbsController as Controller;
+use Core\Http\Controllers\CorePublicController;
 use App\Multigaming\Repositories\UserRepository as UserRepository;
 use Invisnik\LaravelSteamAuth\SteamAuth;
 use CVEPDB\Repositories\Users\User;
 
-class AuthController extends Controller
+class AuthController extends CorePublicController
 {
-    /**
-     * @var SteamAuth
-     */
-    private $steam;
 
-    /**
-     * @var UserRepository|null
-     */
-    private $users = null;
+	/**
+	 * @var SteamAuth
+	 */
+	private $steam;
 
-    public function __construct(SteamAuth $steam, UserRepository $r_user)
-    {
-        parent::__construct();
+	/**
+	 * @var UserRepository|null
+	 */
+	private $users = null;
 
-        $this->steam = $steam;
-        $this->users = $r_user;
-    }
+	public function __construct(SteamAuth $steam, UserRepository $r_user)
+	{
+		parent::__construct();
 
-    public function login()
-    {
-        if ($this->steam->validate()) {
+		$this->steam = $steam;
+		$this->users = $r_user;
+	}
 
-            $info = $this->steam->getUserInfo();
+	public function login()
+	{
+		if ($this->steam->validate())
+		{
 
-            if (!is_null($info)) {
+			$info = $this->steam->getUserInfo();
 
-                $user = $this->users->findByField('steam_token', $info->getSteamID64())->first();
+			if (!is_null($info))
+			{
 
-                if (is_null($user)) {
-                    $user = $this->users->create_gamer([
-                        'first_name' => $info->getNick(),
-                        'last_name' => '',
-                        'steam_token' => $info->getSteamID64()
-                    ]);
-                }
+				$user = $this->users->findByField('steam_token', $info->getSteamID64())->first();
 
-                \Auth::login($user, true);
+				if (is_null($user))
+				{
+					$user = $this->users->create_gamer([
+						'first_name'  => $info->getNick(),
+						'last_name'   => '',
+						'steam_token' => $info->getSteamID64()
+					]);
+				}
 
-                return redirect('/');
-            }
-        }
-        return $this->steam->redirect('/');
-    }
+				\Auth::login($user, true);
 
-    public function login_battlenet()
-    {
-        $provider = new \Depotwarehouse\OAuth2\Client\Provider\SC2Provider([
-            'clientId' => "5rv68cspvcdj8xke3pkvsfu3j3yjwfae",
-            'clientSecret' => "JrmXPnVep9bBdvyuCTmV6uPCmzFTZ4s9",
-            'redirectUri' => "http://multigaming.cvepdb.fr/auth/login_battlenet",
-            'region' => 'eu'
-        ]);
+				return redirect('/');
+			}
+		}
+
+		return $this->steam->redirect('/');
+	}
+
+	public function login_battlenet()
+	{
+		$provider = new \Depotwarehouse\OAuth2\Client\Provider\SC2Provider([
+			'clientId'     => "5rv68cspvcdj8xke3pkvsfu3j3yjwfae",
+			'clientSecret' => "JrmXPnVep9bBdvyuCTmV6uPCmzFTZ4s9",
+			'redirectUri'  => "http://multigaming.cvepdb.fr/auth/login_battlenet",
+			'region'       => 'eu'
+		]);
 
 //        $provider = new \Depotwarehouse\OAuth2\Client\Provider\WowProvider([
 //            'clientId' => "5rv68cspvcdj8xke3pkvsfu3j3yjwfae",
@@ -69,28 +72,28 @@ class AuthController extends Controller
 //            'region' => 'eu'
 //        ]);
 
-        if (isset($_GET['code']) && $_GET['code']) {
-            $token = $provider->getAccessToken("authorization_code", [
-                'code' => $_GET['code']
-            ]);
-            $user = $provider->getResourceOwner($token);
+		if (isset($_GET['code']) && $_GET['code'])
+		{
+			$token = $provider->getAccessToken("authorization_code", [
+				'code' => $_GET['code']
+			]);
+			$user = $provider->getResourceOwner($token);
 
 
+			echo '<pre>' . var_export($user, true) . '</pre>';
 
 
-            echo '<pre>' . var_export($user, true) . '</pre>';
+		}
+		else
+		{
+			header('Location: ' . $provider->getAuthorizationUrl());
+		}
+	}
 
+	public function logout()
+	{
+		\Auth::logout();
 
-
-
-        } else {
-            header('Location: ' . $provider->getAuthorizationUrl());
-        }
-    }
-
-    public function logout()
-    {
-        \Auth::logout();
-        return redirect('/');
-    }
+		return redirect('/');
+	}
 }

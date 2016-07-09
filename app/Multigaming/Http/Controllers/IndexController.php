@@ -1,53 +1,54 @@
-<?php
+<?php namespace App\Multigaming\Http\Controllers;
 
-namespace App\Multigaming\Controllers;
-
-use CVEPDB\Controllers\AbsBaseController as BaseController;
-use App\Multigaming\Outputters\IndexOutputter;
+use Core\Http\Controllers\CorePublicController;
+use App\Multigaming\Http\Outputters\IndexOutputter;
 
 /**
  * Class IndexController
- * @package App\Multigaming\Controllers
+ * @package App\Multigaming\Http\Controllers
  */
-class IndexController extends BaseController
+class IndexController extends CorePublicController
 {
-    /**
-     * @var IndexOutputter|null
-     */
-    private $outputter = null;
 
-    public function __construct(IndexOutputter $outputter)
-    {
-        parent::__construct();
-        $this->outputter = $outputter;
-    }
+	/**
+	 * @var IndexOutputter|null
+	 */
+	private $outputter = null;
 
-    public function index()
-    {
-        return $this->outputter->index();
-    }
+	public function __construct(IndexOutputter $outputter)
+	{
+		parent::__construct();
+		$this->outputter = $outputter;
+	}
 
-    public function boutique()
-    {
-        return $this->outputter->boutique();
-    }
+	public function index()
+	{
+		return $this->outputter->index();
+	}
 
-    public function challenge()
-    {
-        return $this->outputter->challenge();
-    }
+	public function boutique()
+	{
+		return $this->outputter->boutique();
+	}
 
-    public function ranks()
-    {
-        return $this->outputter->ranks();
-    }
+	public function challenge()
+	{
+		return $this->outputter->challenge();
+	}
 
-    public function messageoftheday() {
-        return $this->outputter->messageoftheday();
-    }
+	public function ranks()
+	{
+		return $this->outputter->ranks();
+	}
 
-    public function sitemap()
-    {
-        return $this->outputter->sitemap();
-    }
+	public function messageoftheday()
+	{
+		return $this->outputter->messageoftheday();
+	}
+
+	public function sitemap()
+	{
+		return $this->outputter->sitemap();
+	}
+
 }

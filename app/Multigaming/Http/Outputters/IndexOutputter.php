@@ -1,103 +1,110 @@
-<?php
+<?php namespace App\Multigaming\Http\Outputters;
 
-namespace App\Multigaming\Outputters;
-
-use CVEPDB\Services\Outputters\AbsLaravelOutputter;
+use SimplePie;
+use ClashOfClans\Api\Clan as COCClan;
+use ClashOfClans\Client as COCClient;
+use Core\Http\Outputters\FrontOutputter;
+use Core\Domain\Settings\Repositories\SettingsRepository;
 use App\Multigaming\Repositories\GameServerRepository;
 use App\Multigaming\Repositories\SteamRepository;
 use App\Multigaming\Repositories\TeamRepository;
 use App\Multigaming\Repositories\SMWA\StammRepository;
 use App\Multigaming\Repositories\SMWA\SteamBotRepository;
 
-use ClashOfClans\Api\Clan as COCClan;
-use ClashOfClans\Client as COCClient;
-
-use SimplePie;
-
-class IndexOutputter extends AbsLaravelOutputter
+/**
+ * Class IndexOutputter
+ * @package App\Multigaming\Http\Outputters
+ */
+class IndexOutputter extends FrontOutputter
 {
-    /**
-     * @var GameServerRepository|null
-     */
-    protected $game_servers = null;
 
-    /**
-     * @var SteamRepository|null
-     */
-    protected $steam = null;
+	/**
+	 * @var GameServerRepository|null
+	 */
+	protected $game_servers = null;
 
-    /**
-     * @var StammRepository|null
-     */
-    protected $stamm = null;
+	/**
+	 * @var SteamRepository|null
+	 */
+	protected $steam = null;
 
-    /**
-     * @var TeamRepository|null
-     */
-    protected $teams = null;
+	/**
+	 * @var StammRepository|null
+	 */
+	protected $stamm = null;
 
-    /**
-     * @var COCClient|null
-     */
-    protected $api_coc = null;
+	/**
+	 * @var TeamRepository|null
+	 */
+	protected $teams = null;
 
-    /**
-     * @var SteamBotRepository|null
-     */
-    protected $r_steambot = null;
+	/**
+	 * @var COCClient|null
+	 */
+	protected $api_coc = null;
 
-    public function __construct(
-        GameServerRepository $r_gs,
-        SteamRepository $r_steam,
-        StammRepository $r_stamm,
-        TeamRepository $r_team,
-        SteamBotRepository $r_steambot
-    )
-    {
-        parent::__construct();
+	/**
+	 * @var SteamBotRepository|null
+	 */
+	protected $r_steambot = null;
 
-        $this->game_servers = $r_gs;
-        $this->steam = $r_steam;
-        $this->teams = $r_team;
-        $this->stamm = $r_stamm;
-        $this->r_steambot = $r_steambot;
+	public function __construct(
+		SettingsRepository $r_settings,
+		GameServerRepository $r_gs,
+		SteamRepository $r_steam,
+		StammRepository $r_stamm,
+		TeamRepository $r_team,
+		SteamBotRepository $r_steambot
+	)
+	{
+		parent::__construct($r_settings);
+
+		$this->game_servers = $r_gs;
+		$this->steam = $r_steam;
+		$this->teams = $r_team;
+		$this->stamm = $r_stamm;
+		$this->r_steambot = $r_steambot;
 
 //        $this->api_coc = new COCClient(env('COC_API_KEY'));
 
-        $this->stamm->init();
+		$this->stamm->init();
 
-        $this->addBreadcrumb('Home', '/');
-        $this->setBreadcrumbDivider('<i class="icon-right-dir"></i>');
-    }
+		$this->addBreadcrumb('Home', '/');
+		$this->setBreadcrumbDivider('<i class="icon-right-dir"></i>');
+	}
 
-    /**
-     * @param $data
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function index()
-    {
-        $feed = new SimplePie();
-        $feed->set_feed_url("https://steamcommunity.com/groups/Bellum-Industria/rss");
-        $feed->enable_cache(true);
-        $feed->set_cache_location(storage_path() . '/app/cache');
-        $feed->set_cache_duration(60 * 60 * 12);
-        $feed->set_output_encoding('utf-8');
-        $feed->init();
+	/**
+	 * @param $data
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function index()
+	{
+		$feed = new SimplePie();
+		$feed->set_feed_url("https://steamcommunity.com/groups/Bellum-Industria/rss");
+		$feed->enable_cache(true);
+		$feed->set_cache_location(storage_path() . '/apps/multigaming/simplepie/cache');
+		$feed->set_cache_duration(60 * 60 * 12);
+		$feed->set_output_encoding('utf-8');
+		$feed->init();
 
-        $trades = $this->r_steambot->twoLastTrades();
-        foreach ($trades as $key => $trade) {
-            if (is_null($trade->json)) {
-                unset($trades[$key]);
-            }
-            else {
-                $trade->json = json_decode(stripslashes($trade->json));
-            }
+		$trades = $this->r_steambot->twoLastTrades();
+		foreach ($trades as $key => $trade)
+		{
+			if (is_null($trade->json))
+			{
+				unset($trades[$key]);
+			}
+			else
+			{
+				$trade->json = json_decode(stripslashes($trade->json));
+			}
 
-            $trade->trader = $this->steam->playerSummaries(
-                $trade->steam_id_trader
-            );
-        }
-        //dd( $trades );
+			$trade->trader = $this->steam->playerSummaries(
+				$trade->steam_id_trader
+			);
+		}
+		//dd( $trades );
 
 //        try {
 //            $coc_clan = $this->api_coc->getClan('#PY2UJ8C0');
@@ -106,113 +113,124 @@ class IndexOutputter extends AbsLaravelOutputter
 //            $coc_clan = [];
 //        }
 
-        $team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
-        $team_bellumindustria = $this->teams->findBy('name', 'Bellum Industria')->toArray();
+		$team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
+		$team_bellumindustria = $this->teams->findBy('name', 'Bellum Industria')->toArray();
 
-        foreach ($team_bot as $tkey => $team) {
-            foreach ($team['users'] as $ukey => $user) {
-                $team_bot[$tkey]['users'][$ukey]['steam_token'] = $this->steam->playerSummaries($user['steam_token']);
-            }
-        }
+		foreach ($team_bot as $tkey => $team)
+		{
+			foreach ($team['users'] as $ukey => $user)
+			{
+				$team_bot[$tkey]['users'][$ukey]['steam_token'] = $this->steam->playerSummaries($user['steam_token']);
+			}
+		}
 
-        foreach ($team_bellumindustria as $tkey => $team) {
-            foreach ($team['users'] as $ukey => $user) {
-                $team_bellumindustria[$tkey]['users'][$ukey]['steam_token'] = $this->steam->playerSummaries($user['steam_token']);
-            }
-        }
+		foreach ($team_bellumindustria as $tkey => $team)
+		{
+			foreach ($team['users'] as $ukey => $user)
+			{
+				$team_bellumindustria[$tkey]['users'][$ukey]['steam_token'] = $this->steam->playerSummaries($user['steam_token']);
+			}
+		}
 
-        $game_servers[] = $this->game_servers->find('cvepdb.fr', 27015);
-        $game_servers[] = $this->game_servers->find('cvepdb.fr', 27017);
+		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27015);
+		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27017);
 
-        //$this->test();
+		//$this->test();
 
-        return $this->output(
-            'cvepdb.multigaming.index',
-            [
-                'team_bot' => $team_bot,
-                'team_bellumindustria' => $team_bellumindustria,
-                'announcements' => $feed->get_items(0, 2),
-                'threads' => $this->steam->paginate('Bellum-Industria', 4),
-                'game_servers' => $game_servers,
+		return $this->output(
+			'cvepdb.multigaming.index',
+			[
+				'team_bot'             => $team_bot,
+				'team_bellumindustria' => $team_bellumindustria,
+				'announcements'        => $feed->get_items(0, 2),
+				'threads'              => $this->steam->paginate('Bellum-Industria', 4),
+				'game_servers'         => $game_servers,
 //                'coc_clan' => $coc_clan,
-                'trades' => $trades,
-            ]
-        );
-    }
+				'trades'               => $trades,
+			]
+		);
+	}
 
-    /**
-     * @param $data
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function boutique()
-    {
-        $this->addBreadcrumb('Boutique', '/multigaming/boutique');
-        return $this->output('cvepdb.multigaming.boutique', []);
-    }
+	/**
+	 * @param $data
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function boutique()
+	{
+		$this->addBreadcrumb('Boutique', '/multigaming/boutique');
 
-    /**
-     * @param $data
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function challenge()
-    {
-        $this->addBreadcrumb('Challenge', '/multigaming/challenge');
-        return $this->output('cvepdb.multigaming.challenge', []);
-    }
+		return $this->output('cvepdb.multigaming.boutique', []);
+	}
 
-    public function messageoftheday()
-    {
+	/**
+	 * @param $data
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function challenge()
+	{
+		$this->addBreadcrumb('Challenge', '/multigaming/challenge');
 
-        $team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
+		return $this->output('cvepdb.multigaming.challenge', []);
+	}
 
-        foreach ($team_bot as $tkey => $team) {
-            foreach ($team['users'] as $ukey => $user) {
-                $team_bot[$tkey]['users'][$ukey]['steam_token'] = $this->steam->playerSummaries($user['steam_token']);
-            }
-        }
+	public function messageoftheday()
+	{
 
-        $this->addBreadcrumb('Message of the day', '/multigaming/message-of-the-day');
-        return $this->output(
-            'cvepdb.multigaming.messageoftheday',
-            [
-                'team_bot' => $team_bot,
-                'threads' => $this->steam->paginate('Bellum-Industria', 4)
-            ]
-        );
-    }
+		$team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
 
-    public function sitemap()
-    {
-        return $this->generateSitemapIndex(
-            [
-                'sitemap-multigaming-teams.xml',
-                'sitemap-multigaming-coc.xml'
-            ],
-            'sitemap-multigaming-index',
-            3600
-        );
-    }
+		foreach ($team_bot as $tkey => $team)
+		{
+			foreach ($team['users'] as $ukey => $user)
+			{
+				$team_bot[$tkey]['users'][$ukey]['steam_token'] = $this->steam->playerSummaries($user['steam_token']);
+			}
+		}
 
-    public function ranks()
-    {
+		$this->addBreadcrumb('Message of the day', '/multigaming/message-of-the-day');
+
+		return $this->output(
+			'cvepdb.multigaming.messageoftheday',
+			[
+				'team_bot' => $team_bot,
+				'threads'  => $this->steam->paginate('Bellum-Industria', 4)
+			]
+		);
+	}
+
+	public function sitemap()
+	{
+		return $this->generateSitemapIndex(
+			[
+				'sitemap-multigaming-teams.xml',
+				'sitemap-multigaming-coc.xml'
+			],
+			'sitemap-multigaming-index',
+			3600
+		);
+	}
+
+	public function ranks()
+	{
 //        dd( $this->stamm->getPlayer('STEAM_0:0:13482029') );
 
 //        dd( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_1') );
 
 
-        # ADD POINTS
+		# ADD POINTS
 
 //        var_dump( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_2') );
 //        $this->stamm->addStammPointsToPlayer('STEAM_0:0:13482029', 100);
 //        var_dump( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_2') );
 
 
-        # SUB POINTS
+		# SUB POINTS
 
 //        var_dump( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_2') );
 //        $this->stamm->delStammPointsToPlayer('STEAM_0:0:13482029', 100);
 //        var_dump( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_2') );
 
 
-    }
+	}
 }
