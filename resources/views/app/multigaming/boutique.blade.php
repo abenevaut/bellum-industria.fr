@@ -1,4 +1,4 @@
-@extends('cvepdb.multigaming.layouts.boutique')
+@extends('longwave::layouts.boutique')
 
 @section('content')
     <div id="myShop"><a href="//shop.spreadshirt.de/cvepdb">cvepdb</a></div>
@@ -15,7 +15,7 @@
     <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
         <!-- Begin Inner -->
         <div class="layout__body-wrapper__content-wrapper__inner">
-            @include('cvepdb.vitrine.partials.longwave_share_inline')
+            @include('longwave::partials.share_inline')
             <div class="clear"></div>
         </div>
         <!-- Begin Inner -->

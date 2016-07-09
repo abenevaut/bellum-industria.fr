@@ -1,15 +1,16 @@
 <?php namespace App\Multigaming\Http\Outputters;
 
 use SimplePie;
-use ClashOfClans\Api\Clan as COCClan;
-use ClashOfClans\Client as COCClient;
 use Core\Http\Outputters\FrontOutputter;
 use Core\Domain\Settings\Repositories\SettingsRepository;
-use App\Multigaming\Repositories\GameServerRepository;
-use App\Multigaming\Repositories\SteamRepository;
+use Modules\Steam\Repositories\SteamGameServerRepository;
+use Modules\Steam\Repositories\SteamRepository;
+use Modules\ClashOfClan\Repositories\CocRepository;
+
 use App\Multigaming\Repositories\TeamRepository;
 use App\Multigaming\Repositories\SMWA\StammRepository;
 use App\Multigaming\Repositories\SMWA\SteamBotRepository;
+
 
 /**
  * Class IndexOutputter
@@ -19,7 +20,7 @@ class IndexOutputter extends FrontOutputter
 {
 
 	/**
-	 * @var GameServerRepository|null
+	 * @var SteamGameServerRepository|null
 	 */
 	protected $game_servers = null;
 
@@ -39,9 +40,9 @@ class IndexOutputter extends FrontOutputter
 	protected $teams = null;
 
 	/**
-	 * @var COCClient|null
+	 * @var CocRepository|null
 	 */
-	protected $api_coc = null;
+	protected $r_coc = null;
 
 	/**
 	 * @var SteamBotRepository|null
@@ -50,11 +51,15 @@ class IndexOutputter extends FrontOutputter
 
 	public function __construct(
 		SettingsRepository $r_settings,
-		GameServerRepository $r_gs,
+
+		SteamGameServerRepository $r_gs,
 		SteamRepository $r_steam,
+	
 		StammRepository $r_stamm,
 		TeamRepository $r_team,
-		SteamBotRepository $r_steambot
+		SteamBotRepository $r_steambot,
+	
+		CocRepository $r_coc
 	)
 	{
 		parent::__construct($r_settings);
@@ -64,8 +69,7 @@ class IndexOutputter extends FrontOutputter
 		$this->teams = $r_team;
 		$this->stamm = $r_stamm;
 		$this->r_steambot = $r_steambot;
-
-//        $this->api_coc = new COCClient(env('COC_API_KEY'));
+		$this->r_coc = $r_coc;
 
 		$this->stamm->init();
 
@@ -80,6 +84,12 @@ class IndexOutputter extends FrontOutputter
 	 */
 	public function index()
 	{
+		$coc_clan = [];
+		$game_servers = [];
+		$trades = [];
+		$team_bot = [];
+		$team_bellumindustria = [];
+
 		$feed = new SimplePie();
 		$feed->set_feed_url("https://steamcommunity.com/groups/Bellum-Industria/rss");
 		$feed->enable_cache(true);
@@ -88,7 +98,10 @@ class IndexOutputter extends FrontOutputter
 		$feed->set_output_encoding('utf-8');
 		$feed->init();
 
-		$trades = $this->r_steambot->twoLastTrades();
+		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27015);
+		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27017);
+
+//		$trades = $this->r_steambot->twoLastTrades();
 		foreach ($trades as $key => $trade)
 		{
 			if (is_null($trade->json))
@@ -104,18 +117,9 @@ class IndexOutputter extends FrontOutputter
 				$trade->steam_id_trader
 			);
 		}
-		//dd( $trades );
+//		dd( $trades );
 
-//        try {
-//            $coc_clan = $this->api_coc->getClan('#PY2UJ8C0');
-//        }
-//        catch (\Exception $e) {
-//            $coc_clan = [];
-//        }
-
-		$team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
-		$team_bellumindustria = $this->teams->findBy('name', 'Bellum Industria')->toArray();
-
+//		$team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
 		foreach ($team_bot as $tkey => $team)
 		{
 			foreach ($team['users'] as $ukey => $user)
@@ -124,6 +128,7 @@ class IndexOutputter extends FrontOutputter
 			}
 		}
 
+//		$team_bellumindustria = $this->teams->findBy('name', 'Bellum Industria')->toArray();
 		foreach ($team_bellumindustria as $tkey => $team)
 		{
 			foreach ($team['users'] as $ukey => $user)
@@ -132,20 +137,17 @@ class IndexOutputter extends FrontOutputter
 			}
 		}
 
-		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27015);
-		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27017);
-
 		//$this->test();
 
 		return $this->output(
-			'cvepdb.multigaming.index',
+			'app.multigaming.index',
 			[
 				'team_bot'             => $team_bot,
 				'team_bellumindustria' => $team_bellumindustria,
 				'announcements'        => $feed->get_items(0, 2),
 				'threads'              => $this->steam->paginate('Bellum-Industria', 4),
 				'game_servers'         => $game_servers,
-//                'coc_clan' => $coc_clan,
+				'coc_clan'             => $this->r_coc->getClan('#PY2UJ8C0'),
 				'trades'               => $trades,
 			]
 		);
@@ -160,7 +162,7 @@ class IndexOutputter extends FrontOutputter
 	{
 		$this->addBreadcrumb('Boutique', '/multigaming/boutique');
 
-		return $this->output('cvepdb.multigaming.boutique', []);
+		return $this->output('app.multigaming.boutique', []);
 	}
 
 	/**
