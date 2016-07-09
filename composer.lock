@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9d2108929753f7c66207f5031b1ea502",
-    "content-hash": "817176540200fb533fe4585851c93286",
+    "hash": "0a006d1c53378402b8792352a4a91e8c",
+    "content-hash": "65a10f51ecad958e8a8b8aa76dae2160",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1249,16 +1249,16 @@
         },
         {
             "name": "cvepdb-cms/module-clashofclan",
-            "version": "dev-master",
+            "version": "1.0.52.0",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-clashofclan.git",
-                "reference": "5a27928dcd429358082f263e1371746bb048f1f6"
+                "reference": "8d13e0e7452d0a6fb9c181db7bc8831b3297cd69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-clashofclan/repository/archive.zip?sha=5a27928dcd429358082f263e1371746bb048f1f6",
-                "reference": "5a27928dcd429358082f263e1371746bb048f1f6",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-clashofclan/repository/archive.zip?sha=8d13e0e7452d0a6fb9c181db7bc8831b3297cd69",
+                "reference": "8d13e0e7452d0a6fb9c181db7bc8831b3297cd69",
                 "shasum": ""
             },
             "require": {
@@ -1292,7 +1292,7 @@
                 "Clash of Clan",
                 "module"
             ],
-            "time": "2016-06-13 11:45:23"
+            "time": "2016-07-09 15:09:23"
         },
         {
             "name": "cvepdb-cms/module-dashboard",
@@ -1592,16 +1592,16 @@
         },
         {
             "name": "cvepdb-cms/module-steam",
-            "version": "dev-master",
+            "version": "1.0.52.0",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-steam.git",
-                "reference": "2401a7a826d0761d094884dfcee4514057f9f0ac"
+                "reference": "b99894cd65f3d1c00778303ff27997c14d002c6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-steam/repository/archive.zip?sha=2401a7a826d0761d094884dfcee4514057f9f0ac",
-                "reference": "2401a7a826d0761d094884dfcee4514057f9f0ac",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-steam/repository/archive.zip?sha=b99894cd65f3d1c00778303ff27997c14d002c6b",
+                "reference": "b99894cd65f3d1c00778303ff27997c14d002c6b",
                 "shasum": ""
             },
             "require": {
@@ -1637,7 +1637,7 @@
                 "Steam",
                 "module"
             ],
-            "time": "2016-06-13 11:44:44"
+            "time": "2016-07-09 15:09:38"
         },
         {
             "name": "cvepdb-cms/module-themes",
@@ -2053,16 +2053,16 @@
         },
         {
             "name": "cvepdb/theme-longwave",
-            "version": "1.0.52.0",
+            "version": "1.0.52.1",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-longwave.git",
-                "reference": "bc357e335a68c8ff58273c5e6f10f5b960d3bbb0"
+                "reference": "ed445409dad1dc0bd7d289d24825850606c0fd6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=bc357e335a68c8ff58273c5e6f10f5b960d3bbb0",
-                "reference": "bc357e335a68c8ff58273c5e6f10f5b960d3bbb0",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=ed445409dad1dc0bd7d289d24825850606c0fd6e",
+                "reference": "ed445409dad1dc0bd7d289d24825850606c0fd6e",
                 "shasum": ""
             },
             "require": {
@@ -2090,7 +2090,7 @@
                 "Theme",
                 "longwave"
             ],
-            "time": "2016-07-09 00:08:43"
+            "time": "2016-07-09 14:57:28"
         },
         {
             "name": "cvepdb/theme-pages",
@@ -4385,12 +4385,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "48a4434719fbe87c5ddf8f4c2737a0a8d6e60f03"
+                "reference": "c6ab521e8a5f2a4acc83cb575c4a09733a5e17c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/48a4434719fbe87c5ddf8f4c2737a0a8d6e60f03",
-                "reference": "48a4434719fbe87c5ddf8f4c2737a0a8d6e60f03",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/c6ab521e8a5f2a4acc83cb575c4a09733a5e17c9",
+                "reference": "c6ab521e8a5f2a4acc83cb575c4a09733a5e17c9",
                 "shasum": ""
             },
             "require": {
@@ -4444,7 +4444,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2016-06-28 13:37:34"
+            "time": "2016-07-09 09:40:10"
         },
         {
             "name": "maknz/slack",
@@ -6891,12 +6891,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "660a718061db88c3562588684375a3db99e860fa"
+                "reference": "734a9b6128474c39c61f72551d927e9269e1f54b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/660a718061db88c3562588684375a3db99e860fa",
-                "reference": "660a718061db88c3562588684375a3db99e860fa",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/734a9b6128474c39c61f72551d927e9269e1f54b",
+                "reference": "734a9b6128474c39c61f72551d927e9269e1f54b",
                 "shasum": ""
             },
             "require": {
@@ -6941,7 +6941,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-07-06 12:11:25"
+            "time": "2016-07-09 02:07:42"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -12224,8 +12224,6 @@
         "composer/composer": 10,
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,
-        "cvepdb-cms/module-clashofclan": 20,
-        "cvepdb-cms/module-steam": 20,
         "toniperic/php-clash-of-clans": 20,
         "artesaos/laravel-linkedin": 20,
         "redcomponent/teststatistics": 20

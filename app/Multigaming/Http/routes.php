@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['domain' => env('CVEPDB_MULTIGAMING_DOMAIN')], function ()
+Route::group(['middleware' => ['web'], 'domain' => env('CVEPDB_MULTIGAMING_DOMAIN')], function ()
 {
 
 	Route::resource('index', '\App\Multigaming\Http\Controllers\IndexController');
