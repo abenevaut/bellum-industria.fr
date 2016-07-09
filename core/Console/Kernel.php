@@ -84,5 +84,16 @@ class Kernel extends ConsoleKernel
 			->withoutOverlapping()
 			->everyMinute();
 
+		/*
+		 * CS:GO Lounge
+		 */
+
+		$schedule
+			->command('csgo:lounge:stats')
+			->name('[CSGO] : lounge stats')
+			->withoutOverlapping()
+			->sendOutputTo(storage_path('logs/cron_csgo_lounge_stats_' . date('Y-m-d_H-i') . '.log'))
+			->hourly();
+
 	}
 }
