@@ -429,8 +429,8 @@
 									<strong>{{ $member->name() }}</strong>
 									({{ $member->role() }})<br>
 									Trophies : {{ $member->trophies() }}<br>
-									Don : {{ $member->donations() }}
-									/ {{ $member->donationsReceived() }}
+									Don : {{ $member->donations() ? $member->donations() : '0' }}
+									/ {{ $member->donationsReceived() ? $member->donationsReceived() : '0' }}
 
 								</div>
 
