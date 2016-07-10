@@ -7049,12 +7049,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/class-loader.git",
-                "reference": "a155e9640c16d7d7282e5be8676546abe2747983"
+                "reference": "2a7d07c88ebbb5d92088c1bfd23deaebe40bbff6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/class-loader/zipball/a155e9640c16d7d7282e5be8676546abe2747983",
-                "reference": "a155e9640c16d7d7282e5be8676546abe2747983",
+                "url": "https://api.github.com/repos/symfony/class-loader/zipball/2a7d07c88ebbb5d92088c1bfd23deaebe40bbff6",
+                "reference": "2a7d07c88ebbb5d92088c1bfd23deaebe40bbff6",
                 "shasum": ""
             },
             "require": {
@@ -7097,7 +7097,7 @@
             ],
             "description": "Symfony ClassLoader Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-29 05:43:10"
+            "time": "2016-07-10 08:06:43"
         },
         {
             "name": "symfony/console",
@@ -7486,12 +7486,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "b62aba1b58daf5b878507d1dda47cacdcdbeb18d"
+                "reference": "e306e61df01fe053abff4990a8c5f7315a0fbb70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/b62aba1b58daf5b878507d1dda47cacdcdbeb18d",
-                "reference": "b62aba1b58daf5b878507d1dda47cacdcdbeb18d",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/e306e61df01fe053abff4990a8c5f7315a0fbb70",
+                "reference": "e306e61df01fe053abff4990a8c5f7315a0fbb70",
                 "shasum": ""
             },
             "require": {
@@ -7560,7 +7560,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-30 17:14:44"
+            "time": "2016-07-10 08:04:44"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -7923,12 +7923,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "65972dbdc5528a83efb8588d3efdd6893e1b9fdf"
+                "reference": "fd1f5839175ed29dc10787b3e23e023a6766a0fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/65972dbdc5528a83efb8588d3efdd6893e1b9fdf",
-                "reference": "65972dbdc5528a83efb8588d3efdd6893e1b9fdf",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/fd1f5839175ed29dc10787b3e23e023a6766a0fa",
+                "reference": "fd1f5839175ed29dc10787b3e23e023a6766a0fa",
                 "shasum": ""
             },
             "require": {
@@ -7978,7 +7978,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2016-07-05 11:09:15"
+            "time": "2016-07-10 08:04:44"
         },
         {
             "name": "themattharris/tmhoauth",
