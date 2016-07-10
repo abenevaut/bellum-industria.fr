@@ -1,7 +1,8 @@
 <?php namespace Core\Http\Controllers\Api;
 
 use Core\Http\Controllers\CoreApiController;
-use Geocoder;
+use Toin0u\Geocoder\Facade\Geocoder;
+use Geocoder\Exception\ChainNoResultException;
 
 /**
  * Class MapController
@@ -55,19 +56,29 @@ class MapController extends CoreApiController
 		$latitude = urldecode($latitude);
 		$longitude = urldecode($longitude);
 
-//		try
-//		{
+		try
+		{
 			$geocode = Geocoder::geocode('json', ["latlng" => "$latitude,$longitude"]);
 			$geocode = json_decode($geocode);
-//		}
-//		catch (\Exception $e)
-//		{
-//
-//			// Todo : send to sentry
-//
-//			// echo $e->getMessage(); exit;
-//
-//		}
+		}
+		catch (ChainNoResultException $e)
+		{
+
+			// Todo : send to sentry
+
+			// echo $e->getMessage(); exit;
+
+			$geocode = ['error' => $e->getMessage()];
+		}
+		catch (\Exception $e)
+		{
+
+			// Todo : send to sentry
+
+			// echo $e->getMessage(); exit;
+
+			$geocode = ['error' => $e->getMessage()];
+		}
 
 		return [$geocode];
 	}

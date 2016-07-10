@@ -175,6 +175,7 @@ return [
 		Spatie\Glide\GlideServiceProvider::class,
 		Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 		Spatie\Backup\BackupServiceProvider::class,
+		Toin0u\Geocoder\GeocoderServiceProvider::class,
 	],
 
 	/*
@@ -235,6 +236,7 @@ return [
 		'Debugbar'     => Barryvdh\Debugbar\Facade::class,
 		'Excel'        => 'Maatwebsite\Excel\Facades\Excel',
 		'GlideImage'   => Spatie\Glide\GlideImageFacade::class,
+		'Geocoder'     => Toin0u\Geocoder\Facade\Geocoder::class,
 	],
 
 ];
