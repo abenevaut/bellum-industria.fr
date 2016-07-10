@@ -102,13 +102,23 @@ class MapController extends CoreApiController
 			$geocode = Geocoder::geocode('json', ["address" => $address]);
 			$geocode = json_decode($geocode);
 		}
+		catch (ChainNoResultException $e)
+		{
+
+			// Todo : send to sentry
+
+			// echo $e->getMessage(); exit;
+
+			$geocode = ['error' => $e->getMessage()];
+		}
 		catch (\Exception $e)
 		{
 
 			// Todo : send to sentry
 
-			//echo $e->getMessage(); exit;
+			// echo $e->getMessage(); exit;
 
+			$geocode = ['error' => $e->getMessage()];
 		}
 
 		return [$geocode];
