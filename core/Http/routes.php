@@ -16,6 +16,11 @@ Route::group(['middleware' => ['api'], 'prefix' => 'api'], function ()
 {
 	Route::post('v1/settings/set', '\Core\Http\Controllers\Api\SettingsController@set');
 	Route::get('v1/settings/get', '\Core\Http\Controllers\Api\SettingsController@get');
+
+	Route::get('v1/dates/french_hollidays', '\Core\Http\Controllers\Api\DateController@french_hollidays');
+
+	Route::get('v1/maps/geolocalisation/{latitude}/{longitude}', '\Core\Http\Controllers\Api\MapController@geolocalisation');
+	Route::get('v1/maps/address/{address}', '\Core\Http\Controllers\Api\MapController@address');
 });
 //
 //Route::group(['middleware' => ['web']], function()
