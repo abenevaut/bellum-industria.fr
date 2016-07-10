@@ -89,10 +89,10 @@ class Kernel extends ConsoleKernel
 		 */
 
 		$schedule
-			->command('csgo:lounge:stats')
-			->name('[CSGO] : lounge stats')
+			->command('csgo:lounge:matches')
+			->name('[CSGO] : lounge matches')
 			->withoutOverlapping()
-			->sendOutputTo(storage_path('logs/cron_csgo_lounge_stats_' . date('Y-m-d_H-i') . '.log'))
+			->sendOutputTo(storage_path('logs/cron_csgo_lounge_matches_' . date('Y-m-d_H-i') . '.log'))
 			->hourly();
 
 	}
