@@ -1296,16 +1296,16 @@
         },
         {
             "name": "cvepdb-cms/module-csgolounge",
-            "version": "1.0.52.0",
+            "version": "1.0.52.1",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-csgolounge.git",
-                "reference": "f62eed4edb58af1628ee6240e512037897a22dc1"
+                "reference": "39752b7bfc7fbd51e909b3cd302d0f7e217c4390"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-csgolounge/repository/archive.zip?sha=f62eed4edb58af1628ee6240e512037897a22dc1",
-                "reference": "f62eed4edb58af1628ee6240e512037897a22dc1",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-csgolounge/repository/archive.zip?sha=39752b7bfc7fbd51e909b3cd302d0f7e217c4390",
+                "reference": "39752b7bfc7fbd51e909b3cd302d0f7e217c4390",
                 "shasum": ""
             },
             "require": {
@@ -1339,7 +1339,7 @@
                 "CVEPDB",
                 "module"
             ],
-            "time": "2016-07-09 23:49:48"
+            "time": "2016-07-10 12:38:45"
         },
         {
             "name": "cvepdb-cms/module-dashboard",
@@ -2100,16 +2100,16 @@
         },
         {
             "name": "cvepdb/theme-longwave",
-            "version": "1.0.52.1",
+            "version": "1.0.52.2",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-longwave.git",
-                "reference": "ed445409dad1dc0bd7d289d24825850606c0fd6e"
+                "reference": "744b35f0ec030dc079f50b8f9a5e4938519409f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=ed445409dad1dc0bd7d289d24825850606c0fd6e",
-                "reference": "ed445409dad1dc0bd7d289d24825850606c0fd6e",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=744b35f0ec030dc079f50b8f9a5e4938519409f5",
+                "reference": "744b35f0ec030dc079f50b8f9a5e4938519409f5",
                 "shasum": ""
             },
             "require": {
@@ -2137,7 +2137,7 @@
                 "Theme",
                 "longwave"
             ],
-            "time": "2016-07-09 14:57:28"
+            "time": "2016-07-09 21:52:58"
         },
         {
             "name": "cvepdb/theme-pages",
