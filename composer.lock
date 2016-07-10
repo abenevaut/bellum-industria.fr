@@ -2100,16 +2100,16 @@
         },
         {
             "name": "cvepdb/theme-longwave",
-            "version": "1.0.52.2",
+            "version": "1.0.52.3",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-longwave.git",
-                "reference": "744b35f0ec030dc079f50b8f9a5e4938519409f5"
+                "reference": "e2d3b480b3312636dd37b2522dcbeddc11fdba91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=744b35f0ec030dc079f50b8f9a5e4938519409f5",
-                "reference": "744b35f0ec030dc079f50b8f9a5e4938519409f5",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=e2d3b480b3312636dd37b2522dcbeddc11fdba91",
+                "reference": "e2d3b480b3312636dd37b2522dcbeddc11fdba91",
                 "shasum": ""
             },
             "require": {
@@ -2137,7 +2137,7 @@
                 "Theme",
                 "longwave"
             ],
-            "time": "2016-07-09 21:52:58"
+            "time": "2016-07-10 15:29:11"
         },
         {
             "name": "cvepdb/theme-pages",
