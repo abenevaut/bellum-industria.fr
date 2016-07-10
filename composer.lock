@@ -1353,16 +1353,16 @@
         },
         {
             "name": "cvepdb-cms/module-installer",
-            "version": "1.0.52.16",
+            "version": "1.0.52.17",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-installer.git",
-                "reference": "a1724577bd88a0eee784cc87aca4857926e93f2e"
+                "reference": "79f424473d48a1136d0fef3191ceb74728286224"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=a1724577bd88a0eee784cc87aca4857926e93f2e",
-                "reference": "a1724577bd88a0eee784cc87aca4857926e93f2e",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=79f424473d48a1136d0fef3191ceb74728286224",
+                "reference": "79f424473d48a1136d0fef3191ceb74728286224",
                 "shasum": ""
             },
             "require": {
@@ -1396,7 +1396,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-06-21 15:25:53"
+            "time": "2016-07-09 21:56:02"
         },
         {
             "name": "cvepdb-cms/module-pages",
@@ -6564,12 +6564,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/class-loader.git",
-                "reference": "a155e9640c16d7d7282e5be8676546abe2747983"
+                "reference": "2a7d07c88ebbb5d92088c1bfd23deaebe40bbff6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/class-loader/zipball/a155e9640c16d7d7282e5be8676546abe2747983",
-                "reference": "a155e9640c16d7d7282e5be8676546abe2747983",
+                "url": "https://api.github.com/repos/symfony/class-loader/zipball/2a7d07c88ebbb5d92088c1bfd23deaebe40bbff6",
+                "reference": "2a7d07c88ebbb5d92088c1bfd23deaebe40bbff6",
                 "shasum": ""
             },
             "require": {
@@ -6612,7 +6612,7 @@
             ],
             "description": "Symfony ClassLoader Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-29 05:43:10"
+            "time": "2016-07-10 08:06:43"
         },
         {
             "name": "symfony/console",
@@ -7001,12 +7001,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "b62aba1b58daf5b878507d1dda47cacdcdbeb18d"
+                "reference": "e306e61df01fe053abff4990a8c5f7315a0fbb70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/b62aba1b58daf5b878507d1dda47cacdcdbeb18d",
-                "reference": "b62aba1b58daf5b878507d1dda47cacdcdbeb18d",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/e306e61df01fe053abff4990a8c5f7315a0fbb70",
+                "reference": "e306e61df01fe053abff4990a8c5f7315a0fbb70",
                 "shasum": ""
             },
             "require": {
@@ -7075,7 +7075,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-30 17:14:44"
+            "time": "2016-07-10 08:04:44"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -7438,12 +7438,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "65972dbdc5528a83efb8588d3efdd6893e1b9fdf"
+                "reference": "fd1f5839175ed29dc10787b3e23e023a6766a0fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/65972dbdc5528a83efb8588d3efdd6893e1b9fdf",
-                "reference": "65972dbdc5528a83efb8588d3efdd6893e1b9fdf",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/fd1f5839175ed29dc10787b3e23e023a6766a0fa",
+                "reference": "fd1f5839175ed29dc10787b3e23e023a6766a0fa",
                 "shasum": ""
             },
             "require": {
@@ -7493,7 +7493,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2016-07-05 11:09:15"
+            "time": "2016-07-10 08:04:44"
         },
         {
             "name": "themattharris/tmhoauth",
@@ -11589,12 +11589,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "cdccdbbdf35f38a70eb6931667a76fc68012a999"
+                "reference": "c535bc0b56aa93ead7a75b6841f28645153b0539"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/cdccdbbdf35f38a70eb6931667a76fc68012a999",
-                "reference": "cdccdbbdf35f38a70eb6931667a76fc68012a999",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/c535bc0b56aa93ead7a75b6841f28645153b0539",
+                "reference": "c535bc0b56aa93ead7a75b6841f28645153b0539",
                 "shasum": ""
             },
             "require": {
@@ -11642,7 +11642,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-06-24 05:05:43"
+            "time": "2016-07-10 07:48:21"
         },
         {
             "name": "webmozart/assert",
