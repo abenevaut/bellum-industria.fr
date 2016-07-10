@@ -8,7 +8,6 @@
   "license": "GPL-3.0",
   "type": "project",
   "minimum-stability": "dev",
-  "secure-http": false,
   "repositories": [
     {
       "type": "composer",
