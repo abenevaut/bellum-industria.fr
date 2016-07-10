@@ -68,3 +68,6 @@ public/modules/
 public/themes/
 modules/
 storage/laravel-backups/
+database/migrations/2016_07_10_084330_CreateCsgoLoungTeams.php
+database/migrations/2016_07_10_084334_CreateCsgoLoungMatches.php
+database/migrations/2016_07_10_084343_CreateCsgoLoungVictories.php
