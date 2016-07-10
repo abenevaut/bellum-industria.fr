@@ -61,4 +61,5 @@ class DateController extends CoreApiController
 
 		return ['data' => $holidays];
 	}
+
 }

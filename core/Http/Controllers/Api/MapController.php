@@ -40,7 +40,8 @@ class MapController extends CoreApiController
 	];
 
 	/**
-	 * curl "http://api.cvepdb.fr/v1/maps/geolocalisation/48.780426/2.266257"
+	 * curl --header "X-Authorization: API_KEY"
+	 * http://localhost/api/v1/maps/geolocalisation/48.780426/2.266257
 	 *
 	 * @param $latitude
 	 * @param $longitude
@@ -54,25 +55,26 @@ class MapController extends CoreApiController
 		$latitude = urldecode($latitude);
 		$longitude = urldecode($longitude);
 
-		try
-		{
+//		try
+//		{
 			$geocode = Geocoder::geocode('json', ["latlng" => "$latitude,$longitude"]);
 			$geocode = json_decode($geocode);
-		}
-		catch (\Exception $e)
-		{
-
-			// Todo : send to sentry
-
-			// echo $e->getMessage(); exit;
-
-		}
+//		}
+//		catch (\Exception $e)
+//		{
+//
+//			// Todo : send to sentry
+//
+//			// echo $e->getMessage(); exit;
+//
+//		}
 
 		return [$geocode];
 	}
 
 	/**
-	 * curl "http://api.cvepdb.fr/v1/maps/address/plessis%20robinson"
+	 * curl --header "X-Authorization: API_KEY"
+	 * http://api.cvepdb.fr/v1/maps/address/plessis%20robinson
 	 *
 	 * @param $address
 	 *
@@ -100,4 +102,5 @@ class MapController extends CoreApiController
 
 		return [$geocode];
 	}
+
 }
