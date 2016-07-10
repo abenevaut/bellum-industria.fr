@@ -1447,16 +1447,16 @@
         },
         {
             "name": "cvepdb-cms/module-installer",
-            "version": "1.0.52.16",
+            "version": "1.0.52.17",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-installer.git",
-                "reference": "a1724577bd88a0eee784cc87aca4857926e93f2e"
+                "reference": "79f424473d48a1136d0fef3191ceb74728286224"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=a1724577bd88a0eee784cc87aca4857926e93f2e",
-                "reference": "a1724577bd88a0eee784cc87aca4857926e93f2e",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=79f424473d48a1136d0fef3191ceb74728286224",
+                "reference": "79f424473d48a1136d0fef3191ceb74728286224",
                 "shasum": ""
             },
             "require": {
@@ -1490,7 +1490,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-06-21 15:25:53"
+            "time": "2016-07-09 21:56:02"
         },
         {
             "name": "cvepdb-cms/module-navigations",
