@@ -73,3 +73,4 @@ database/migrations/2016_07_10_084334_CreateCsgoLoungMatches.php
 database/migrations/2016_07_10_084343_CreateCsgoLoungVictories.php
 2016_07_11_134758_CreateTeamsTable.php
 2016_07_11_141157_CreateEnvironmentTeamTable.php
+2016_07_11_144934_CreateTeamUserTable.php
