@@ -46,40 +46,6 @@ return [
 
 	'connections' => [
 
-		'sqlite' => [
-			'driver'   => 'sqlite',
-			'database' => env('CORE_DB_PATH', database_path('database.sqlite')),
-			'prefix'   => '',
-		],
-
-		'testing' => [
-			'driver'      => 'mysql',
-			'host'        => env('CORE_DB_HOST', '127.0.0.1'),
-			'database'    => env('CORE_DB_DATABASE', 'cvepdb_cms_testing'),
-			'username'    => env('CORE_DB_USERNAME', 'cvepdb_testing'),
-			'password'    => env('CORE_DB_PASSWORD', ''),
-			'charset'     => 'utf8',
-			'collation'   => 'utf8_unicode_ci',
-			'prefix'      => '',
-			'strict'      => false,
-			'engine'      => null,
-			'unix_socket' => env('CORE_DB_SOCKET', '/Applications/MAMP/tmp/mysql/mysql.sock'),
-		],
-
-		'codeship' => [
-			'driver'      => 'mysql',
-			'host'        => 'localhost',
-			'database'    => 'test',
-			'username'    => env('MYSQL_USER'),
-			'password'    => env('MYSQL_PASSWORD'),
-			'charset'     => 'utf8',
-			'collation'   => 'utf8_unicode_ci',
-			'prefix'      => '',
-			'strict'      => false,
-			'engine'      => null,
-			'unix_socket' => '',
-		],
-
 		'mysql' => [
 			'driver'                        => 'mysql',
 			'host'                          => env('CORE_DB_HOST', '127.0.0.1'),
@@ -93,9 +59,23 @@ return [
 			'engine'                        => null,
 			'unix_socket'                   => env('CORE_DB_SOCKET', ''),
 			// laravel-backups
-			'dump_command_path'             => '/Applications/MAMP/Library/bin', // only the path, so without 'mysqldump' or 'pg_dump'
+			'dump_command_path'             => env('CORE_DB_COMMAND_PATH', '/usr/bin'), // only the path, so without 'mysqldump' or 'pg_dump'
 			'dump_command_timeout'          => 60 * 5, // 5 minute timeout
 			'dump_using_single_transaction' => true, // perform dump using a single transaction
+		],
+
+		'testing' => [
+			'driver'      => 'mysql',
+			'host'        => env('CORE_DB_HOST', '127.0.0.1'),
+			'database'    => env('CORE_DB_DATABASE', 'cvepdb_cms_testing'),
+			'username'    => env('CORE_DB_USERNAME', 'cvepdb_testing'),
+			'password'    => env('CORE_DB_PASSWORD', ''),
+			'charset'     => 'utf8',
+			'collation'   => 'utf8_unicode_ci',
+			'prefix'      => '',
+			'strict'      => false,
+			'engine'      => null,
+			'unix_socket' => env('CORE_DB_SOCKET', ''),
 		],
 
 		'mysql_multigaming' => [
@@ -111,23 +91,23 @@ return [
 			'engine'                        => null,
 			'unix_socket'                   => env('CVEPDB_MMG_DB_UNIX_SOCKET_MMG', ''),
 			// laravel-backups
-			'dump_command_path'             => '/Applications/MAMP/Library/bin', // only the path, so without 'mysqldump' or 'pg_dump'
+			'dump_command_path'             => env('CORE_DB_COMMAND_PATH', '/usr/bin'), // only the path, so without 'mysqldump' or 'pg_dump'
 			'dump_command_timeout'          => 60 * 5, // 5 minute timeout
 			'dump_using_single_transaction' => true, // perform dump using a single transaction
 		],
 
 		'testing_multigaming' => [
 			'driver'      => 'mysql',
-			'host'        => env('CORE_DB_HOST', '127.0.0.1'),
-			'database'    => env('CORE_DB_DATABASE', 'cvepdb_smwa_testing'),
-			'username'    => env('CORE_DB_USERNAME', 'cvepdb_testing'),
-			'password'    => env('CORE_DB_PASSWORD', ''),
+			'host'        => env('CVEPDB_MMG_DB_HOST', '127.0.0.1'),
+			'database'    => env('CVEPDB_MMG_DB_DATABASE', 'cvepdb_smwa_testing'),
+			'username'    => env('CVEPDB_MMG_DB_USERNAME', 'cvepdb_testing'),
+			'password'    => env('CVEPDB_MMG_DB_PASSWORD', ''),
 			'charset'     => 'utf8',
 			'collation'   => 'utf8_unicode_ci',
 			'prefix'      => '',
 			'strict'      => false,
 			'engine'      => null,
-			'unix_socket' => env('CORE_DB_SOCKET', '/Applications/MAMP/tmp/mysql/mysql.sock'),
+			'unix_socket' => env('CVEPDB_MMG_DB_UNIX_SOCKET_MMG', ''),
 		],
 
 		'pgsql' => [
@@ -139,16 +119,10 @@ return [
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
-		],
-
-		'sqlsrv' => [
-			'driver'   => 'sqlsrv',
-			'host'     => env('CORE_DB_HOST', '127.0.0.1'),
-			'database' => env('CORE_DB_DATABASE', 'forge'),
-			'username' => env('CORE_DB_USERNAME', 'forge'),
-			'password' => env('CORE_DB_PASSWORD', ''),
-			'charset'  => 'utf8',
-			'prefix'   => '',
+			// laravel-backups
+			'dump_command_path'             => env('CORE_DB_COMMAND_PATH', '/usr/bin'), // only the path, so without 'mysqldump' or 'pg_dump'
+			'dump_command_timeout'          => 60 * 5, // 5 minute timeout
+			'dump_using_single_transaction' => true, // perform dump using a single transaction
 		],
 
 	],
@@ -182,9 +156,9 @@ return [
 		'cluster' => false,
 
 		'default' => [
-			'host'     => env('REDIS_HOST', 'localhost'),
-			'password' => env('REDIS_PASSWORD', null),
-			'port'     => env('REDIS_PORT', 6379),
+			'host'     => env('CORE_REDIS_HOST', 'localhost'),
+			'password' => env('CORE_REDIS_PASSWORD', null),
+			'port'     => env('CORE_REDIS_PORT', 6379),
 			'database' => 0,
 		],
 

@@ -1037,12 +1037,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "03c9de5aa25e7672c4ad251eeaba0c47a06c8b98"
+                "reference": "ff4141fbf39ae5cc2cde89b79f9bf4f1566e8294"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/03c9de5aa25e7672c4ad251eeaba0c47a06c8b98",
-                "reference": "03c9de5aa25e7672c4ad251eeaba0c47a06c8b98",
+                "url": "https://api.github.com/repos/composer/semver/zipball/ff4141fbf39ae5cc2cde89b79f9bf4f1566e8294",
+                "reference": "ff4141fbf39ae5cc2cde89b79f9bf4f1566e8294",
                 "shasum": ""
             },
             "require": {
@@ -1091,7 +1091,7 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2016-06-02 09:04:51"
+            "time": "2016-07-11 07:07:44"
         },
         {
             "name": "composer/spdx-licenses",
@@ -2550,12 +2550,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "69b57859c8674f2c8ba3798a2541ac18128a0bdb"
+                "reference": "17f50b86ef2b78d4331e60b2caead3829505c350"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/69b57859c8674f2c8ba3798a2541ac18128a0bdb",
-                "reference": "69b57859c8674f2c8ba3798a2541ac18128a0bdb",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/17f50b86ef2b78d4331e60b2caead3829505c350",
+                "reference": "17f50b86ef2b78d4331e60b2caead3829505c350",
                 "shasum": ""
             },
             "require": {
@@ -2613,7 +2613,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2016-07-07 07:42:47"
+            "time": "2016-07-11 12:36:11"
         },
         {
             "name": "doctrine/inflector",
@@ -3973,12 +3973,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "b75910a746d1f3ae4b347bd95e86553b4d2e81cc"
+                "reference": "354023f2cb0eb6a4ca62dfe89959be7c78ab9f3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/b75910a746d1f3ae4b347bd95e86553b4d2e81cc",
-                "reference": "b75910a746d1f3ae4b347bd95e86553b4d2e81cc",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/354023f2cb0eb6a4ca62dfe89959be7c78ab9f3e",
+                "reference": "354023f2cb0eb6a4ca62dfe89959be7c78ab9f3e",
                 "shasum": ""
             },
             "require": {
@@ -4048,7 +4048,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-06-09 08:23:13"
+            "time": "2016-07-11 07:44:22"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -6938,12 +6938,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "734a9b6128474c39c61f72551d927e9269e1f54b"
+                "reference": "be1f1baf830413351b2a36ada9e59703f08870b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/734a9b6128474c39c61f72551d927e9269e1f54b",
-                "reference": "734a9b6128474c39c61f72551d927e9269e1f54b",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/be1f1baf830413351b2a36ada9e59703f08870b1",
+                "reference": "be1f1baf830413351b2a36ada9e59703f08870b1",
                 "shasum": ""
             },
             "require": {
@@ -6988,7 +6988,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-07-09 02:07:42"
+            "time": "2016-07-11 12:37:35"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -9968,12 +9968,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "17a14eceb25fdce0c4a39fa68c478e5337cd6fc9"
+                "reference": "a21f3e513210dd57a2b4b639a29233226d91b7e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/17a14eceb25fdce0c4a39fa68c478e5337cd6fc9",
-                "reference": "17a14eceb25fdce0c4a39fa68c478e5337cd6fc9",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/a21f3e513210dd57a2b4b639a29233226d91b7e5",
+                "reference": "a21f3e513210dd57a2b4b639a29233226d91b7e5",
                 "shasum": ""
             },
             "require": {
@@ -10052,7 +10052,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2016-06-27 01:34:15"
+            "time": "2016-07-10 18:22:03"
         },
         {
             "name": "phpspec/prophecy",
