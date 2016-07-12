@@ -1,6 +1,7 @@
 @extends('longwave::layouts.default')
 
 @section('head')
+	<link rel="stylesheet" href="{{ asset('assets/app/css/index_csgotrades.css') }}">
 @endsection
 
 @section('content')
@@ -78,6 +79,133 @@
 
 		<!-- Begin Inner -->
 		<div class="layout__body-wrapper__content-wrapper__inner">
+
+			<div class="row">
+
+				{{--<div class="one-third ">--}}
+				{{--<h2 class="colored">Teamspeak</h2>--}}
+				{{--<iframe allowtransparency="true"--}}
+				{{--src="http://ts.cvepdb.fr/tsviewpub.php?skey=0&sid=1&showicons=right&bgcolor=ffffff&fontcolor=000000"--}}
+				{{--style="height:100%;width:100%"--}}
+				{{--scrolling="auto"--}}
+				{{--frameborder="0">Your Browser will not show Iframes--}}
+				{{--</iframe>--}}
+				{{--</div>--}}
+
+				<div class="one-third">
+					<div class="layout__body-wrapper__content-wrapper__inner__widget-clients-list">
+						<ul class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list">
+
+							@foreach ($team_bot->users as $teammate)
+								<li class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame
+                                 layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame--tradebot">
+
+									{!! $teammate->steam_summaries['personaname'] !!}
+
+									<a href="{!! $teammate->steam_summaries['profileurl'] !!}" target="_blank">
+										<img src="{!! $teammate->steam_summaries['avatarfull'] !!}"
+											 alt="{!! $teammate->steam_summaries['personaname'] !!}">
+									</a>
+
+
+									<ul style="list-style-type: none;">
+										<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
+											<a href="javascript:void(0);" class="gwi-thumbs" original-title="En ligne sur Steam ?">
+												@if ($teammate->steam_summaries['personastateflags'] == 1)
+													<i class="icon-light-up"></i>
+												@else
+													<i class="icon-light-up"></i>
+												@endif
+											</a>
+										</li>
+										<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
+											<a href="steam://friends/add/{!! $teammate->steam_summaries['steamid'] !!}"
+											   class="gwi-thumbs"
+											   original-title="Ajouté comme Steam ami" target="_blank">
+												<i class="icon-user-add"></i>
+											</a>
+										</li>
+
+									</ul>
+
+								</li>
+							@endforeach
+
+						</ul>
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="two-third last">
+
+					<h3>Latest trade <a href="http://steamcommunity.com/profiles/{!! $trades[0]->trader['steamid'] !!}" target="_blank">with {{ $trades[0]->trader['personaname'] }}</a></h3>
+
+					<div id="DIV_1">
+						<form id="FORM_2">
+							@if (!count($trades[0]->json->itemsToReceive))
+								<div class="info-box">
+									This is a gift for <a href="http://steamcommunity.com/profiles/{!! $trades[0]->trader['steamid'] !!}" target="_blank">{{ $trades[0]->trader['personaname'] }}</a>
+								</div>
+							@else
+								@foreach (array_slice($trades[0]->json->itemsToReceive, 0, 9) as $item)
+									<div id="DIV_128">
+										<div id="DIV_132">
+											<img src="https://steamcommunity-a.akamaihd.net/economy/image/{{ $item->icon_url }}/99fx66f" alt="{{ $item->market_name }}" id="IMG_133" />
+											<div id="DIV_134"></div>
+										</div>
+									</div>
+									<div id="DIV_128">
+										<div id="DIV_132">
+											<img src="https://steamcommunity-a.akamaihd.net/economy/image/{{ $item->icon_url }}/99fx66f" alt="{{ $item->market_name }}" id="IMG_133" />
+											<div id="DIV_134"></div>
+										</div>
+									</div>
+								@endforeach
+							@endif
+						</form>
+						<form id="FORM_127">
+							@if (!count($trades[0]->json->itemsToGive))
+								<div class="info-box">
+									This is a gift for our trade bot
+								</div>
+							@else
+								@foreach (array_slice($trades[0]->json->itemsToGive, 0, 9) as $item)
+									<div id="DIV_128">
+										<div id="DIV_129">
+											<b id="B_130">{{ $item->name }}</b><br id="BR_131" />
+										</div>
+										<div id="DIV_132">
+											<img src="https://steamcommunity-a.akamaihd.net/economy/image/{{ $item->icon_url }}/99fx66f" alt="{{ $item->market_name }}" id="IMG_133" />
+											<div id="DIV_134"></div>
+										</div>
+									</div>
+								@endforeach
+							@endif
+						</form>
+					</div>
+
+
+
+				</div>
+
+			</div>
+			<div class="clear"></div>
+
+			<div class="info-box">
+				Trade with the bot is very simple, visit his profile and make a trade offer!
+			</div>
+
+		</div>
+		<!-- Begin Inner -->
+	</div>
+	<!-- End White Wrapper -->
+
+	<!-- Begin Gray Wrapper -->
+	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
+		<!-- Begin Inner -->
+		<div class="layout__body-wrapper__content-wrapper__inner">
+
+
 
 			<h2 class="colored">Annonces</h2>
 
@@ -157,7 +285,7 @@
 		</div>
 		<!-- Begin Inner -->
 	</div>
-	<!-- End White Wrapper -->
+	<!-- End Gray Wrapper -->
 
 	<!-- Begin Evil Wrapper -->
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even-evil">
@@ -281,122 +409,6 @@
 		<!-- Begin Inner -->
 	</div>
 	<!-- End Gray Wrapper -->
-
-	<!-- Begin White Wrapper -->
-	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
-		<!-- Begin Inner -->
-		<div class="layout__body-wrapper__content-wrapper__inner">
-
-			<div class="row">
-
-				{{--<div class="one-third ">--}}
-					{{--<h2 class="colored">Teamspeak</h2>--}}
-					{{--<iframe allowtransparency="true"--}}
-							{{--src="http://ts.cvepdb.fr/tsviewpub.php?skey=0&sid=1&showicons=right&bgcolor=ffffff&fontcolor=000000"--}}
-							{{--style="height:100%;width:100%"--}}
-							{{--scrolling="auto"--}}
-							{{--frameborder="0">Your Browser will not show Iframes--}}
-					{{--</iframe>--}}
-				{{--</div>--}}
-
-				<div class="one-third">
-					<div class="layout__body-wrapper__content-wrapper__inner__widget-clients-list">
-						<ul class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list">
-
-								@foreach ($team_bot->users as $teammate)
-									<li class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame
-                                 layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame--tradebot">
-
-										{!! $teammate->steam_summaries['personaname'] !!}
-
-										<a href="{!! $teammate->steam_summaries['profileurl'] !!}" target="_blank">
-											<img src="{!! $teammate->steam_summaries['avatarfull'] !!}"
-												 alt="{!! $teammate->steam_summaries['personaname'] !!}">
-										</a>
-
-
-										<ul style="list-style-type: none;">
-											<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-											<a href="javascript:void(0);" class="gwi-thumbs" original-title="En ligne sur Steam ?">
-											@if ($teammate->steam_summaries['personastateflags'] == 1)
-											<i class="icon-light-up"></i>
-											@else
-											<i class="icon-light-up"></i>
-											@endif
-											</a>
-											</li>
-											<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-												<a href="steam://friends/add/{!! $teammate->steam_summaries['steamid'] !!}"
-												   class="gwi-thumbs"
-												   original-title="Ajouté comme Steam ami" target="_blank">
-													<i class="icon-user-add"></i>
-												</a>
-											</li>
-											<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7; font-size:10px;">
-												<a href="steam://friends/add/{!! $teammate->steam_summaries['steamid'] !!}"
-												   class="gwi-thumbs"
-												   original-title="Profile Steam" target="_blank" style="opacity: 1;">
-													Add me & send me
-													<span style="font-size:12px;">!help</span>
-												</a>
-											</li>
-										</ul>
-
-									</li>
-								@endforeach
-
-						</ul>
-					</div>
-					<div class="clear"></div>
-				</div>
-
-				<div class="two-third last">
-
-							<h3>Latest trade <a href="http://steamcommunity.com/profiles/{!! $trades[0]->trader['steamid'] !!}" target="_blank">with {{ $trades[0]->trader['personaname'] }}</a></h3>
-
-							<div id="DIV_1">
-								<form id="FORM_2">
-									@foreach ($trades[0]->json->itemsToGive as $item)
-										<div id="DIV_128">
-											<div id="DIV_129">
-												<b id="B_130">{{ $item->name }}</b><br id="BR_131" />
-											</div>
-											<div id="DIV_132">
-												<img src="https://steamcommunity-a.akamaihd.net/economy/image/{{ $item->icon_url }}/99fx66f" alt="{{ $item->market_name }}" id="IMG_133" />
-												<div id="DIV_134">
-												</div>
-											</div>
-										</div>
-									@endforeach
-								</form>
-								<form id="FORM_127">
-									@foreach ($trades[0]->json->itemsToReceive as $item)
-										<div id="DIV_128">
-											<div id="DIV_129">
-												<b id="B_130">{{ $item->name }}</b><br id="BR_131" />
-											</div>
-											<div id="DIV_132">
-												<img src="https://steamcommunity-a.akamaihd.net/economy/image/{{ $item->icon_url }}/99fx66f" alt="{{ $item->market_name }}" id="IMG_133" />
-												<div id="DIV_134">
-												</div>
-											</div>
-										</div>
-									@endforeach
-								</form>
-							</div>
-
-
-
-						</div>
-
-			</div>
-			<div class="clear"></div>
-
-
-		</div>
-		<!-- Begin Inner -->
-	</div>
-	<!-- End White Wrapper -->
 
 	<!-- Begin Evil Wrapper -->
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--cocsushido">

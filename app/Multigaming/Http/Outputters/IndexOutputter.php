@@ -106,8 +106,7 @@ class IndexOutputter extends FrontOutputter
 		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27015);
 		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27017);
 
-		$trades = $this->r_steambot->twoLastTrades();
-
+		$trades = $this->r_steambot->lastTrades();
 		foreach ($trades as $key => $trade)
 		{
 			if (is_null($trade->json))
