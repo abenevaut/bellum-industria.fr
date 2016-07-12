@@ -1,4 +1,4 @@
-@extends('cvepdb.multigaming.layouts.default')
+@extends('longwave::layouts.default')
 
 @section('content')
 
@@ -248,7 +248,7 @@
 
 
 
-        @include('cvepdb.multigaming.partials.share_inline')
+        @include('longwave::partials.share_inline')
 
 
     </div>

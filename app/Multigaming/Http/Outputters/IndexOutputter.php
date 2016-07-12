@@ -55,11 +55,11 @@ class IndexOutputter extends FrontOutputter
 
 		SteamGameServerRepository $r_gs,
 		SteamRepository $r_steam,
-	
+
 		StammRepository $r_stamm,
 		TeamRepositoryEloquent $r_team,
 		SteamBotRepository $r_steambot,
-	
+
 		CocRepository $r_coc
 	)
 	{
@@ -175,29 +175,44 @@ class IndexOutputter extends FrontOutputter
 	{
 		$this->addBreadcrumb('Challenge', '/multigaming/challenge');
 
-		return $this->output('cvepdb.multigaming.challenge', []);
+		return $this->output('app.multigaming.challenge', []);
 	}
 
 	public function messageoftheday()
 	{
 
-		$team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
-
-		foreach ($team_bot as $tkey => $team)
+		$team_bot = $this->teams->findByField('reference', 'bots')->first();
+		foreach ($team_bot->users as $user)
 		{
-			foreach ($team['users'] as $ukey => $user)
+			$user->steam_summaries = $this->steam->playerSummaries(
+				$user->tokens->where('provider', 'steam')->first()->token
+			);
+		}
+
+		$trades = $this->r_steambot->lastTrades();
+		foreach ($trades as $key => $trade)
+		{
+			if (is_null($trade->json))
 			{
-				$team_bot[$tkey]['users'][$ukey]['steam_token'] = $this->steam->playerSummaries($user['steam_token']);
+				unset($trades[$key]);
+			}
+			else
+			{
+				$trades[$key]->json = json_decode($trade->json);
+				$trades[$key]->trader = $this->steam->playerSummaries(
+					$trade->steam_id_trader
+				);
 			}
 		}
 
 		$this->addBreadcrumb('Message of the day', '/multigaming/message-of-the-day');
 
 		return $this->output(
-			'cvepdb.multigaming.messageoftheday',
+			'app.multigaming.messageoftheday',
 			[
 				'team_bot' => $team_bot,
-				'threads'  => $this->steam->paginate('Bellum-Industria', 4)
+				'threads'  => $this->steam->paginate('Bellum-Industria', 4),
+				'trades'   => $trades
 			]
 		);
 	}

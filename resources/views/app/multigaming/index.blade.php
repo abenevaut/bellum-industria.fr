@@ -2,6 +2,17 @@
 
 @section('head')
 	<link rel="stylesheet" href="{{ asset('assets/app/css/index_csgotrades.css') }}">
+	<style>
+		.layout__body-wrapper__content-wrapper__inner__widget-challenge li a {
+			width: 80px;
+			display: inline-block;
+			text-align: center;
+			text-transform: uppercase;
+			font-weight: 900;
+			font-size: 12px;
+			margin-bottom: 4px;
+		}
+	</style>
 @endsection
 
 @section('content')
@@ -191,9 +202,17 @@
 			</div>
 			<div class="clear"></div>
 
-			<div class="info-box">
-				Trade with the bot is very simple, visit his profile and make a trade offer!
+
+			<div class="toggle">
+				<h4 class="title">How to trade with the bot ?</h4>
+				<div class="togglebox">
+					<div>
+						<p>Trade with the bot is very simple, visit his profile and make a trade offer!</p>
+					</div>
+				</div>
 			</div>
+
+			<div class="clear"></div>
 
 		</div>
 		<!-- Begin Inner -->
@@ -404,6 +423,22 @@
 			</div>
 			<div class="clear"></div>
 
+			<hr>
+
+			<div>
+				<h4 class="alignleft">Défiez notre communautée :</h4>
+
+				<ul class="layout__body-wrapper__content-wrapper__inner__widget-challenge alignright">
+
+					<li>
+						<a href="{{  url('challenge') }}"  style="width: auto;" class="button green">
+							challenges
+						</a>
+					</li>
+
+				</ul>
+				<div class="clear"></div>
+			</div>
 
 		</div>
 		<!-- Begin Inner -->
