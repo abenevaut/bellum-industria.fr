@@ -18,7 +18,7 @@ class SteamBotRepository
             ->table($this->steambot_tables_prefix . 'offers')
             ->orderBy('created_at', 'desc')
             ->where('state', 3)
-            ->take(3)
+            ->take(2)
             ->get();
     }
 }

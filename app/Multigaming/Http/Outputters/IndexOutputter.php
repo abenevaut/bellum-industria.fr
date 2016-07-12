@@ -7,9 +7,10 @@ use Modules\Steam\Repositories\SteamGameServerRepository;
 use Modules\Steam\Repositories\SteamRepository;
 use Modules\ClashOfClan\Repositories\CocRepository;
 
-use App\Multigaming\Repositories\TeamRepository;
 use App\Multigaming\Repositories\SMWA\StammRepository;
 use App\Multigaming\Repositories\SMWA\SteamBotRepository;
+
+use Modules\Teams\Repositories\TeamRepositoryEloquent;
 
 
 /**
@@ -56,7 +57,7 @@ class IndexOutputter extends FrontOutputter
 		SteamRepository $r_steam,
 	
 		StammRepository $r_stamm,
-		TeamRepository $r_team,
+		TeamRepositoryEloquent $r_team,
 		SteamBotRepository $r_steambot,
 	
 		CocRepository $r_coc
@@ -105,7 +106,8 @@ class IndexOutputter extends FrontOutputter
 		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27015);
 		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27017);
 
-//		$trades = $this->r_steambot->twoLastTrades();
+		$trades = $this->r_steambot->twoLastTrades();
+
 		foreach ($trades as $key => $trade)
 		{
 			if (is_null($trade->json))
@@ -114,31 +116,27 @@ class IndexOutputter extends FrontOutputter
 			}
 			else
 			{
-				$trade->json = json_decode(stripslashes($trade->json));
+				$trades[$key]->json = json_decode($trade->json);
+				$trades[$key]->trader = $this->steam->playerSummaries(
+					$trade->steam_id_trader
+				);
 			}
+		}
 
-			$trade->trader = $this->steam->playerSummaries(
-				$trade->steam_id_trader
+		$team_bot = $this->teams->findByField('reference', 'bots')->first();
+		foreach ($team_bot->users as $user)
+		{
+			$user->steam_summaries = $this->steam->playerSummaries(
+				$user->tokens->where('provider', 'steam')->first()->token
 			);
 		}
-//		dd( $trades );
 
-//		$team_bot = $this->teams->findBy('name', 'bot#CVEPDB')->toArray();
-		foreach ($team_bot as $tkey => $team)
+		$team_bellumindustria = $this->teams->findByField('reference', 'bellum-industria')->first();
+		foreach ($team_bellumindustria->users as $user)
 		{
-			foreach ($team['users'] as $ukey => $user)
-			{
-				$team_bot[$tkey]['users'][$ukey]['steam_token'] = $this->steam->playerSummaries($user['steam_token']);
-			}
-		}
-
-//		$team_bellumindustria = $this->teams->findBy('name', 'Bellum Industria')->toArray();
-		foreach ($team_bellumindustria as $tkey => $team)
-		{
-			foreach ($team['users'] as $ukey => $user)
-			{
-				$team_bellumindustria[$tkey]['users'][$ukey]['steam_token'] = $this->steam->playerSummaries($user['steam_token']);
-			}
+			$user->steam_summaries = $this->steam->playerSummaries(
+				$user->tokens->where('provider', 'steam')->first()->token
+			);
 		}
 
 		//$this->test();

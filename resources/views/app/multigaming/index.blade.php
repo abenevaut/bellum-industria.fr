@@ -1,5 +1,8 @@
 @extends('longwave::layouts.default')
 
+@section('head')
+@endsection
+
 @section('content')
 
 	<!-- Begin Gray Wrapper -->
@@ -161,9 +164,8 @@
 		<!-- Begin Inner -->
 		<div class="layout__body-wrapper__content-wrapper__inner">
 
-			@foreach ($team_bellumindustria as $team)
 
-				<h4 class="colored">{!! $team['name'] !!}</h4>
+				<h4 class="colored">{!! $team_bellumindustria->name !!}</h4>
 
 
 				<div class="row">
@@ -171,37 +173,37 @@
 						<ul class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list">
 
 
-							@foreach ($team['users'] as $teammate)
+							@foreach ($team_bellumindustria->users as $teammate)
 								<li class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame"
 									style="opacity: 0.7;">
 
-									{!! str_limit($teammate['steam_token']['personaname'], 18, ' ..') !!}
+									{!! str_limit($teammate->steam_summaries['personaname'], 18, ' ..') !!}
 
-									<a href="{!! $teammate['steam_token']['profileurl'] !!}" target="_blank">
-										<img src="{!! $teammate['steam_token']['avatarfull'] !!}"
-											 alt="{!! $teammate['steam_token']['personaname'] !!}">
+									<a href="{!! $teammate->steam_summaries['profileurl'] !!}" target="_blank">
+										<img src="{!! $teammate->steam_summaries['avatarfull'] !!}"
+											 alt="{!! $teammate->steam_summaries['personaname'] !!}">
 									</a>
 
 									<ul style="list-style-type: none;">
-										{{--<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">--}}
-										{{--<a href="javascript:void(0);" class="gwi-thumbs"--}}
-										{{--original-title="En ligne sur Steam ?">--}}
-										{{--@if ($teammate['steam_token']['profilestate'] == 1)--}}
-										{{--<i class="icon-light-up"></i>--}}
-										{{--@else--}}
-										{{--<i class="icon-moon"></i>--}}
-										{{--@endif--}}
-										{{--</a>--}}
-										{{--</li>--}}
 										<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-											<a href="http://steamcommunity.com/profiles/{!! $teammate['steam_token']['steamid'] !!}/"
+										<a href="javascript:void(0);" class="gwi-thumbs"
+										original-title="En ligne sur Steam ?">
+										@if ($teammate->steam_summaries['profilestate'] == 1)
+										<i class="icon-light-up"></i>
+										@else
+										<i class="icon-moon"></i>
+										@endif
+										</a>
+										</li>
+										<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
+											<a href="http://steamcommunity.com/profiles/{!! $teammate->steam_summaries['steamid'] !!}/"
 											   class="gwi-thumbs"
 											   original-title="Profile Steam" target="_blank">
 												<i class="icon-user"></i>
 											</a>
 										</li>
 										<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-											<a href="steam://friends/add/{!! $teammate['steam_token']['steamid'] !!}"
+											<a href="steam://friends/add/{!! $teammate->steam_summaries['steamid'] !!}"
 											   class="gwi-thumbs"
 											   original-title="Ajouté comme Steam ami" target="_blank">
 												<i class="icon-user-add"></i>
@@ -218,7 +220,6 @@
 				</div>
 
 				<div class="clear"></div>
-			@endforeach
 
 
 		</div>
@@ -288,52 +289,51 @@
 
 			<div class="row">
 
-				<div class="one-third ">
-					<h2 class="colored">Teamspeak</h2>
-					<iframe allowtransparency="true"
-							src="http://ts.cvepdb.fr/tsviewpub.php?skey=0&sid=1&showicons=right&bgcolor=ffffff&fontcolor=000000"
-							style="height:100%;width:100%"
-							scrolling="auto"
-							frameborder="0">Your Browser will not show Iframes
-					</iframe>
-				</div>
+				{{--<div class="one-third ">--}}
+					{{--<h2 class="colored">Teamspeak</h2>--}}
+					{{--<iframe allowtransparency="true"--}}
+							{{--src="http://ts.cvepdb.fr/tsviewpub.php?skey=0&sid=1&showicons=right&bgcolor=ffffff&fontcolor=000000"--}}
+							{{--style="height:100%;width:100%"--}}
+							{{--scrolling="auto"--}}
+							{{--frameborder="0">Your Browser will not show Iframes--}}
+					{{--</iframe>--}}
+				{{--</div>--}}
 
 				<div class="one-third">
 					<div class="layout__body-wrapper__content-wrapper__inner__widget-clients-list">
 						<ul class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list">
-							@foreach ($team_bot as $team)
 
-								@foreach ($team['users'] as $teammate)
+								@foreach ($team_bot->users as $teammate)
 									<li class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame
                                  layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame--tradebot">
 
-										{!! $teammate['steam_token']['personaname'] !!}
+										{!! $teammate->steam_summaries['personaname'] !!}
 
-										<a href="{!! $teammate['steam_token']['profileurl'] !!}" target="_blank">
-											<img src="{!! $teammate['steam_token']['avatarfull'] !!}"
-												 alt="{!! $teammate['steam_token']['personaname'] !!}">
+										<a href="{!! $teammate->steam_summaries['profileurl'] !!}" target="_blank">
+											<img src="{!! $teammate->steam_summaries['avatarfull'] !!}"
+												 alt="{!! $teammate->steam_summaries['personaname'] !!}">
 										</a>
 
 
 										<ul style="list-style-type: none;">
-											{{--<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">--}}
-											{{--<a href="javascript:void(0);" class="gwi-thumbs" original-title="En ligne sur Steam ?">--}}
-											{{--@if ($teammate['steam_token']['personastateflags'] == 1)--}}
-											{{--<i class="icon-light-up"></i>--}}
-											{{--@else--}}
-											{{--<i class="icon-light-up"></i>--}}
-											{{--@endif--}}
-											{{--</a>--}}
-											{{--</li>--}}
 											<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-												<a href="steam://friends/add/{!! $teammate['steam_token']['steamid'] !!}"
+											<a href="javascript:void(0);" class="gwi-thumbs" original-title="En ligne sur Steam ?">
+											@if ($teammate->steam_summaries['personastateflags'] == 1)
+											<i class="icon-light-up"></i>
+											@else
+											<i class="icon-light-up"></i>
+											@endif
+											</a>
+											</li>
+											<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
+												<a href="steam://friends/add/{!! $teammate->steam_summaries['steamid'] !!}"
 												   class="gwi-thumbs"
 												   original-title="Ajouté comme Steam ami" target="_blank">
 													<i class="icon-user-add"></i>
 												</a>
 											</li>
 											<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7; font-size:10px;">
-												<a href="steam://friends/add/{!! $teammate['steam_token']['steamid'] !!}"
+												<a href="steam://friends/add/{!! $teammate->steam_summaries['steamid'] !!}"
 												   class="gwi-thumbs"
 												   original-title="Profile Steam" target="_blank" style="opacity: 1;">
 													Add me & send me
@@ -345,45 +345,49 @@
 									</li>
 								@endforeach
 
-							@endforeach
 						</ul>
 					</div>
 					<div class="clear"></div>
 				</div>
 
-				<div class="one-third last">
-					<div class="layout__body-wrapper__content-wrapper__inner__sidebar">
-						<div class="layout__body-wrapper__content-wrapper__inner__sidebar__sidebox">
-							<h3>Latest trade</h3>
-							<ul class="post-list">
+				<div class="two-third last">
 
+							<h3>Latest trade <a href="http://steamcommunity.com/profiles/{!! $trades[0]->trader['steamid'] !!}" target="_blank">with {{ $trades[0]->trader['personaname'] }}</a></h3>
 
-								@foreach ($trades as $trade)
-									<li>
-										<div class="frame">
-											<a href="http://steamcommunity.com/profiles/{!! $trade->trader['steamid'] !!}" target="_blank">
-												<img src="https://steamcommunity-a.akamaihd.net/economy/image/{{ $trade->json->itemsToGive[0]->icon_url }}" alt="" width="70" height="70">
-												<div class="da-animate da-slideFromLeft" style="display: block; overflow: hidden;"></div>
-											</a>
+							<div id="DIV_1">
+								<form id="FORM_2">
+									@foreach ($trades[0]->json->itemsToGive as $item)
+										<div id="DIV_128">
+											<div id="DIV_129">
+												<b id="B_130">{{ $item->name }}</b><br id="BR_131" />
+											</div>
+											<div id="DIV_132">
+												<img src="https://steamcommunity-a.akamaihd.net/economy/image/{{ $item->icon_url }}/99fx66f" alt="{{ $item->market_name }}" id="IMG_133" />
+												<div id="DIV_134">
+												</div>
+											</div>
 										</div>
-										<div class="meta">
-											<h6>
-												<a href="http://steamcommunity.com/profiles/{!! $trade->trader['steamid'] !!}" target="_blank">
-													With {{ $trade->trader['personaname'] }}
-												</a>
-											</h6>
+									@endforeach
+								</form>
+								<form id="FORM_127">
+									@foreach ($trades[0]->json->itemsToReceive as $item)
+										<div id="DIV_128">
+											<div id="DIV_129">
+												<b id="B_130">{{ $item->name }}</b><br id="BR_131" />
+											</div>
+											<div id="DIV_132">
+												<img src="https://steamcommunity-a.akamaihd.net/economy/image/{{ $item->icon_url }}/99fx66f" alt="{{ $item->market_name }}" id="IMG_133" />
+												<div id="DIV_134">
+												</div>
+											</div>
 										</div>
-									</li>
-								@endforeach
+									@endforeach
+								</form>
+							</div>
 
 
-							</ul>
+
 						</div>
-					</div>
-
-
-					<div class="clear"></div>
-				</div>
 
 			</div>
 			<div class="clear"></div>
