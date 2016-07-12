@@ -2145,16 +2145,16 @@
         },
         {
             "name": "cvepdb/theme-longwave",
-            "version": "1.0.52.3",
+            "version": "1.0.52.4",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-longwave.git",
-                "reference": "e2d3b480b3312636dd37b2522dcbeddc11fdba91"
+                "reference": "15d61dcf4a767caca74fb29389e7eaf949bd6263"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=e2d3b480b3312636dd37b2522dcbeddc11fdba91",
-                "reference": "e2d3b480b3312636dd37b2522dcbeddc11fdba91",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=15d61dcf4a767caca74fb29389e7eaf949bd6263",
+                "reference": "15d61dcf4a767caca74fb29389e7eaf949bd6263",
                 "shasum": ""
             },
             "require": {
@@ -2182,7 +2182,7 @@
                 "Theme",
                 "longwave"
             ],
-            "time": "2016-07-10 15:29:11"
+            "time": "2016-07-12 17:34:34"
         },
         {
             "name": "cvepdb/theme-pages",
@@ -3964,12 +3964,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "9f534cb45b2b49204051d7b4db5408062f3f3170"
+                "reference": "abec449ed8208b0b335cfc5b0f1237134477e27f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/9f534cb45b2b49204051d7b4db5408062f3f3170",
-                "reference": "9f534cb45b2b49204051d7b4db5408062f3f3170",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/abec449ed8208b0b335cfc5b0f1237134477e27f",
+                "reference": "abec449ed8208b0b335cfc5b0f1237134477e27f",
                 "shasum": ""
             },
             "require": {
@@ -4010,7 +4010,7 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
-            "time": "2016-07-01 15:45:31"
+            "time": "2016-07-12 14:16:43"
         },
         {
             "name": "league/flysystem",
