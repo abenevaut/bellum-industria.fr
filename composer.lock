@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5d68bd0da08bdfb20100b59926d8d153",
-    "content-hash": "f3b5180ccb41898138249b1e7120f250",
+    "hash": "45450c16bc38eb14827536e99578836d",
+    "content-hash": "24d63333f10227588d308abf7ff444ee",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1687,6 +1687,51 @@
             "time": "2016-07-09 21:54:03"
         },
         {
+            "name": "cvepdb-cms/module-teams",
+            "version": "1.0.52.1",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/module-teams.git",
+                "reference": "a52d9023c777c62a1487bd69be4e4e1376e56ac8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-teams/repository/archive.zip?sha=a52d9023c777c62a1487bd69be4e4e1376e56ac8",
+                "reference": "a52d9023c777c62a1487bd69be4e4e1376e56ac8",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "Teams"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Modules\\Teams\\": ""
+                }
+            },
+            "license": [
+                "copyright"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Teams on #CVEPDB CMS",
+            "keywords": [
+                "CMS",
+                "CVEPDB",
+                "Teams",
+                "module"
+            ],
+            "time": "2016-07-12 16:05:53"
+        },
+        {
             "name": "cvepdb-cms/module-themes",
             "version": "1.0.52.10",
             "source": {
@@ -1745,16 +1790,16 @@
         },
         {
             "name": "cvepdb-cms/module-users",
-            "version": "1.0.52.10",
+            "version": "1.0.52.11",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-users.git",
-                "reference": "a000656c875e40673e4f46d161ac4c882153fd1e"
+                "reference": "03dbb1f568193f4c58a183619c1cf0251e115dea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=a000656c875e40673e4f46d161ac4c882153fd1e",
-                "reference": "a000656c875e40673e4f46d161ac4c882153fd1e",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=03dbb1f568193f4c58a183619c1cf0251e115dea",
+                "reference": "03dbb1f568193f4c58a183619c1cf0251e115dea",
                 "shasum": ""
             },
             "require": {
@@ -1788,7 +1833,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2016-06-22 16:49:09"
+            "time": "2016-07-09 21:56:15"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -4809,16 +4854,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.21.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "7b08ec6f75791e130012f206e3f7b0e76e18e3d7"
+                "reference": "36c134b53c21a137d450c86a27046022d98574fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/7b08ec6f75791e130012f206e3f7b0e76e18e3d7",
-                "reference": "7b08ec6f75791e130012f206e3f7b0e76e18e3d7",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/36c134b53c21a137d450c86a27046022d98574fd",
+                "reference": "36c134b53c21a137d450c86a27046022d98574fd",
                 "shasum": ""
             },
             "require": {
@@ -4829,6 +4874,11 @@
                 "phpunit/phpunit": "~4.0|~5.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.22-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Carbon\\": "src/Carbon/"
@@ -4852,7 +4902,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2015-11-04 20:07:17"
+            "time": "2016-06-27 17:44:29"
         },
         {
             "name": "nikic/php-parser",

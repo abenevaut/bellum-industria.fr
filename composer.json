@@ -40,6 +40,7 @@
     "cvepdb-cms/module-steam": "1.0.52.*",
     "cvepdb-cms/module-csgolounge": "1.0.52.*",
     "cvepdb-cms/module-users": "1.0.52.*",
+    "cvepdb-cms/module-teams": "1.0.52.*",
     "league/flysystem": "^1.0",
     "league/flysystem-aws-s3-v3": "~1.0",
     "league/flysystem-rackspace": "~1.0",
@@ -137,6 +138,7 @@
         "cvepdb-cms/module-files",
         "cvepdb-cms/module-users",
         "cvepdb-cms/module-posts",
+        "cvepdb-cms/module-teams",
         "cvepdb-cms/module-pages"
       ],
       "resources/themes/{$name}": [
