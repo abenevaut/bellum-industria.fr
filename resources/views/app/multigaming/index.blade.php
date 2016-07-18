@@ -22,7 +22,7 @@
 		<!-- Begin Inner -->
 		<div class="layout__body-wrapper__content-wrapper__inner layout__body-wrapper__content-wrapper__inner--intro">
 			<p>
-				In position, <em>storms my go</em>. <strong>Go! Go! Go!</strong>
+				Si vis <em>pacem</em>, <strong>para bellum</strong>
 			</p>
 		</div>
 		<!-- End Inner -->
