@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "582612674a34f48c09bf6ac17293c11d",
+    "hash": "ccaa00f4dd817a2156dfc495ba2f1262",
     "content-hash": "6b27d85f8249c4847320cc3c6bfccf7f",
     "packages": [
         {
@@ -165,16 +165,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.18.31",
+            "version": "3.18.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "dad0b7db5fa8f3c7a3805efb2a1e86a50f11fe8b"
+                "reference": "84b9927ee116b30babf90a9fc723764672543e29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/dad0b7db5fa8f3c7a3805efb2a1e86a50f11fe8b",
-                "reference": "dad0b7db5fa8f3c7a3805efb2a1e86a50f11fe8b",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/84b9927ee116b30babf90a9fc723764672543e29",
+                "reference": "84b9927ee116b30babf90a9fc723764672543e29",
                 "shasum": ""
             },
             "require": {
@@ -241,7 +241,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-07-19 17:25:45"
+            "time": "2016-07-21 22:30:58"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -3236,12 +3236,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "9d853b9b2db24849b68ce219d80fc68165807810"
+                "reference": "ceccdf75ddbcb4c0e9bcfd01f5c4b3e5587ad411"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/9d853b9b2db24849b68ce219d80fc68165807810",
-                "reference": "9d853b9b2db24849b68ce219d80fc68165807810",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ceccdf75ddbcb4c0e9bcfd01f5c4b3e5587ad411",
+                "reference": "ceccdf75ddbcb4c0e9bcfd01f5c4b3e5587ad411",
                 "shasum": ""
             },
             "require": {
@@ -3358,7 +3358,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-07-21 15:40:02"
+            "time": "2016-07-22 13:28:55"
         },
         {
             "name": "laravel/socialite",
@@ -6006,12 +6006,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
-                "reference": "6061e3850dea2d77b8f5a684db6eaf5950e6cc7b"
+                "reference": "dcc7b15be91cce87195cdf7e5d42244da611b05b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/6061e3850dea2d77b8f5a684db6eaf5950e6cc7b",
-                "reference": "6061e3850dea2d77b8f5a684db6eaf5950e6cc7b",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/dcc7b15be91cce87195cdf7e5d42244da611b05b",
+                "reference": "dcc7b15be91cce87195cdf7e5d42244da611b05b",
                 "shasum": ""
             },
             "require": {
@@ -6056,7 +6056,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2016-07-21 19:41:19"
+            "time": "2016-07-22 17:20:52"
         },
         {
             "name": "spatie/db-dumper",
@@ -6382,12 +6382,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "1eb216e701a974c3a68fb11bb737e4d9f48cb70b"
+                "reference": "1f78c0637d7b2231113cdbf434183d0e3c2dd2df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/1eb216e701a974c3a68fb11bb737e4d9f48cb70b",
-                "reference": "1eb216e701a974c3a68fb11bb737e4d9f48cb70b",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/1f78c0637d7b2231113cdbf434183d0e3c2dd2df",
+                "reference": "1f78c0637d7b2231113cdbf434183d0e3c2dd2df",
                 "shasum": ""
             },
             "require": {
@@ -6432,7 +6432,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-07-21 07:23:47"
+            "time": "2016-07-22 14:33:01"
         },
         {
             "name": "swiftmailer/swiftmailer",

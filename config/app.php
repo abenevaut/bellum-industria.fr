@@ -262,7 +262,7 @@ return [
 //		'Flysystem' => GrahamCampbell\Flysystem\Facades\Flysystem::class,
 		'Menu'        => Pingpong\Menus\MenuFacade::class,
 
-		'Environment'  => Core\Domain\Environments\Facades\EnvironmentFacade::class,
+		'Environment'  => cms\App\Facades\Environments::class,
 		'ApiGuardAuth' => \Chrisbjr\ApiGuard\Facades\ApiGuardAuth::class,
 		'Module'       => 'Pingpong\Modules\Facades\Module',
 		'Widget'       => 'Pingpong\Widget\WidgetFacade',

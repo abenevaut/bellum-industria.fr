@@ -1,4 +1,4 @@
-<?php namespace Core\Domain\Files\Repositories;
+<?php namespace cms\Domain\Files\Files\Repositories;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Filesystem\FilesystemAdapter;
@@ -6,7 +6,7 @@ use CVEPDB\Settings\Facades\Settings;
 
 /**
  * Class DiskRepository
- * @package Core\Domain\Files\Repositories
+ * @package cms\Domain\Files\Files\Repositories
  */
 class DiskRepository
 {
