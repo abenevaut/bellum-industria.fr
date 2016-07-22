@@ -1,8 +1,0 @@
-<?php
-
-return [
-
-	'reference:unique' => 'Un environnement existe deja avec cette reference',
-	'domain:unique' => 'Un environnement existe deja avec ce domaine',
-
-];

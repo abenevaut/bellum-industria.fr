@@ -14,14 +14,7 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
-$composer_autoload = __DIR__ . '/../vendor/autoload.php';
-
-if (!file_exists($composer_autoload))
-{
-	echo 'Missing vendor files, try running "composer install" or use the Wizard installer.' . PHP_EOL;
-	exit(1);
-}
-require $composer_autoload;
+require __DIR__.'/../vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +27,8 @@ require $composer_autoload;
 |
 */
 
-$compiledPath = __DIR__ . '/cache/compiled.php';
+$compiledPath = __DIR__.'/cache/compiled.php';
 
-if (file_exists($compiledPath))
-{
-	require $compiledPath;
+if (file_exists($compiledPath)) {
+    require $compiledPath;
 }

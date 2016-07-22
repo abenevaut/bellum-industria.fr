@@ -1,126 +1,146 @@
 {
-  "name": "cvepdb/cms",
-  "description": "The #CVEPDB CMS.",
-  "keywords": [
-    "cms",
-    "cvepdb"
-  ],
-  "license": "GPL-3.0",
-  "type": "project",
-  "minimum-stability": "dev",
-  "require": {
-    "php": ">=5.5.9",
-    "beelab/bowerphp": "0.3.*@beta",
-    "composer/composer": "^1.0@beta",
-    "composer/installers": "~1.0",
-    "laravel/framework": "5.2.24",
-    "doctrine/cache": "^1.6",
-    "cvepdb/laravel": "1.0.52.*",
-    "cvepdb/laravel-addresses": "1.0.52.*",
-    "cvepdb/laravel-settings": "1.2.52.*",
-    "cvepdb-cms/module-dashboard": "1.0.52.*",
-    "cvepdb-cms/module-files": "1.0.52.*",
-    "cvepdb-cms/module-installer": "1.0.52.*",
-    "cvepdb-cms/module-pages": "1.0.52.*",
-    "cvepdb-cms/module-posts": "1.0.52.*",
-    "cvepdb-cms/module-themes": "1.0.52.*",
-    "cvepdb-cms/module-users": "1.0.52.*",
-    "cvepdb-cms/theme-adminlte": "1.0.52.*",
-    "cvepdb-cms/theme-lumen": "1.0.52.*",
-    "league/flysystem": "^1.0",
-    "league/flysystem-aws-s3-v3": "~1.0",
-    "league/flysystem-rackspace": "~1.0",
-    "league/flysystem-dropbox": "^1.0",
-    "spatie/laravel-medialibrary": "^3.16",
-    "barryvdh/laravel-elfinder": "^0.3.7",
-    "aws/aws-php-sns-message-validator": "^1.1",
-    "laravel/socialite": "^2.0",
-    "spatie/laravel-backup": "3.8.*",
-    "maknz/slack": "^1.7",
-    "monolog/monolog": "^1.19",
-    "barryvdh/laravel-ide-helper": "^2.1",
-    "spatie/laravel-glide": "^2.3",
-    "phoenix/eloquent-meta": "1.4.*",
-    "thujohn/twitter": "^2.2",
-    "sammyk/laravel-facebook-sdk": "^3.0",
-    "artesaos/laravel-linkedin": "dev-master"
-  },
-  "require-dev": {
-    "fzaninotto/faker": "~1.4",
-    "mockery/mockery": "0.9.*",
-    "league/factory-muffin": "^3.0",
-    "league/factory-muffin-faker": "^1.0",
-    "codeception/codeception": "2.2.1",
-    "codeception/c3": "2.*",
-    "phpunit/php-code-coverage": "^3",
-    "deployer/deployer": "3.2.*",
-    "deployphp/recipes": "3.1.*",
-    "site5/phantoman": "^1.1",
-    "jonnyw/php-phantomjs": "^4.3",
-    "jakoch/phantomjs-installer": "^2.1",
-    "captbaritone/mailcatcher-codeception-module": "^1.1",
-    "codeception/phpbuiltinserver": "^1.2",
-    "redcomponent/teststatistics": "dev-master",
-    "blackfire/php-sdk": "^1.5",
-    "antennaio/laravel-codeception-dbdump": "^0.0.5",
-    "squizlabs/php_codesniffer": "*",
-    "pragmarx/laravelcs": "^0.1.0",
-    "sebastian/phpcpd": "*"
-  },
-  "autoload": {
-    "classmap": [
-      "database"
-    ],
-    "psr-4": {
-      "App\\": "app/",
-      "Core\\": "core/",
-      "Modules\\": "modules/"
+    "name": "cvepdb/cms",
+    "description": "A Laravel Framework based CMS.",
+    "keywords": ["framework", "laravel", "cms"],
+    "license": "GPL-3.0",
+    "type": "project",
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "cms\\Domain\\": "app/Domain",
+            "cms\\App\\": "app/App",
+            "cms\\Infrastructure\\": "app/Infrastructure",
+            "cms\\Console\\": "app/Console",
+            "cms\\Http\\": "app/Http",
+            "cms\\Exceptions\\": "app/Exceptions",
+            "cms\\Modules\\": "modules/"
+        },
+        "files": [
+            "app/App/helpers.php"
+        ]
     },
-    "files": [
-      "core/helpers.php"
-    ]
-  },
-  "scripts": {
-    "post-root-package-install": [
-      "php -r \"file_put_contents('.env', 'installer');\""
-    ],
-    "post-create-project-cmd": [
-      "php artisan cms:key_generate"
-    ],
-    "post-install-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS",
-      "php artisan clear-compiled",
-      "php artisan ide-helper:generate",
-      "php artisan optimize"
-    ],
-    "pre-update-cmd": [
-    ],
-    "post-update-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS",
-      "php artisan clear-compiled",
-      "php artisan ide-helper:generate",
-      "php artisan optimize"
-    ]
-  },
-  "config": {
-    "bin-dir": "bin",
-    "preferred-install": "dist"
-  },
-  "extra": {
-    "installer-paths": {
-      "modules/{$name}": [
-        "cvepdb-cms/module-installer",
-        "cvepdb-cms/module-dashboard",
-        "cvepdb-cms/module-themes",
-        "cvepdb-cms/module-files",
-        "cvepdb-cms/module-users",
-        "cvepdb-cms/module-posts",
-        "cvepdb-cms/module-pages"
-      ],
-      "resources/themes/{$name}": [
-        "cvepdb-cms/theme-adminlte",
-        "cvepdb-cms/theme-lumen"
-      ]
+    "autoload-dev": {
+        "classmap": [
+        ]
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ],
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan clear-compiled",
+            "php artisan ide-helper:generate",
+            "php artisan ide-helper:meta",
+            "php artisan optimize"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "5.2.*",
+        "beelab/bowerphp": "0.3.*@beta",
+        "composer/composer": "^1.0@beta",
+        "composer/installers": "~1.0",
+        "doctrine/cache": "^1.6",
+        "zizaco/entrust": "5.2.x-dev",
+        "chrisbjr/api-guard": "^3.1",
+        "predis/predis": "^1.0",
+        "creitive/laravel5-breadcrumbs": "^1.0",
+        "laravel/socialite": "^2.0",
+        "jenssegers/raven": "^1.4",
+        "roumen/sitemap": "^2.5",
+        "roumen/feed": "^2.9",
+        "toin0u/geocoder-laravel": "@stable",
+        "nesbot/carbon": "^1.21",
+        "prettus/l5-repository": "^2.1",
+        "doctrine/dbal": "~2.3",
+        "pingpong/modules": "~2.2",
+        "pingpong/widget": "~2.2",
+        "pingpong/menus": "^2.2",
+        "pingpong/themes": "~2.2",
+        "laravelcollective/html": "5.2.*",
+        "barryvdh/laravel-debugbar": "^2.2",
+        "phoenix/eloquent-meta": "1.4.*",
+        "maatwebsite/excel": "~2.1.0",
+        "cvepdb/laravel-addresses": "1.0.52.*",
+        "cvepdb/laravel-settings": "1.2.52.*",
+        "cvepdb-cms/module-dashboard": "1.0.52.*",
+        "cvepdb-cms/module-files": "1.0.52.*",
+        "cvepdb-cms/module-installer": "1.0.52.*",
+        "cvepdb-cms/module-pages": "1.0.52.*",
+        "cvepdb-cms/module-posts": "1.0.52.*",
+        "cvepdb-cms/module-themes": "1.0.52.*",
+        "cvepdb-cms/module-users": "1.0.52.*",
+        "cvepdb-cms/theme-adminlte": "1.0.52.*",
+        "cvepdb-cms/theme-lumen": "1.0.52.*",
+        "league/flysystem": "^1.0",
+        "league/flysystem-aws-s3-v3": "~1.0",
+        "league/flysystem-rackspace": "~1.0",
+        "league/flysystem-dropbox": "^1.0",
+        "spatie/laravel-medialibrary": "^3.16",
+        "barryvdh/laravel-elfinder": "^0.3.7",
+        "aws/aws-php-sns-message-validator": "^1.1",
+        "laravel/socialite": "^2.0",
+        "spatie/laravel-backup": "3.8.*",
+        "maknz/slack": "^1.7",
+        "monolog/monolog": "^1.19",
+        "barryvdh/laravel-ide-helper": "^2.1",
+        "spatie/laravel-glide": "^2.3",
+        "phoenix/eloquent-meta": "1.4.*",
+        "thujohn/twitter": "^2.2",
+        "sammyk/laravel-facebook-sdk": "^3.0",
+        "artesaos/laravel-linkedin": "dev-master"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "league/factory-muffin": "^3.0",
+        "league/factory-muffin-faker": "^1.0",
+        "codeception/codeception": "2.2.1",
+        "codeception/c3": "2.*",
+        "phpunit/php-code-coverage": "^3",
+        "deployer/deployer": "3.2.*",
+        "deployphp/recipes": "3.1.*",
+        "site5/phantoman": "^1.1",
+        "jonnyw/php-phantomjs": "^4.3",
+        "jakoch/phantomjs-installer": "^2.1",
+        "captbaritone/mailcatcher-codeception-module": "^1.1",
+        "codeception/phpbuiltinserver": "^1.2",
+        "redcomponent/teststatistics": "dev-master",
+        "blackfire/php-sdk": "^1.5",
+        "antennaio/laravel-codeception-dbdump": "^0.0.5",
+        "squizlabs/php_codesniffer": "*",
+        "pragmarx/laravelcs": "^0.1.0",
+        "sebastian/phpcpd": "*"
+    },
+    "extra": {
+        "installer-paths": {
+            "modules/{$name}": [
+                "cvepdb-cms/module-installer",
+                "cvepdb-cms/module-dashboard",
+                "cvepdb-cms/module-themes",
+                "cvepdb-cms/module-files",
+                "cvepdb-cms/module-users",
+                "cvepdb-cms/module-posts",
+                "cvepdb-cms/module-pages"
+            ],
+            "resources/themes/{$name}": [
+                "cvepdb-cms/theme-adminlte",
+                "cvepdb-cms/theme-lumen"
+            ]
+        }
     }
-  }
 }
