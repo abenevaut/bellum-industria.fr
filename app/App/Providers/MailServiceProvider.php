@@ -1,7 +1,7 @@
 <?php namespace cms\App\Providers;
 
 use Illuminate\Mail\MailServiceProvider as IlluminateMailServiceProvider;
-use Core\Factories\MailTransportManagerFactory;
+use cms\App\Factories\MailTransportManagerFactory;
 
 /**
  * Class MailServiceProvider

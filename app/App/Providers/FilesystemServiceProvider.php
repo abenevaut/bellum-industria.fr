@@ -2,7 +2,7 @@
 
 use Illuminate\Filesystem\FilesystemServiceProvider as IlluminateFilesystemServiceProvider;
 use CVEPDB\Settings\Facades\Settings;
-use Core\Factories\FilesystemManagerFactory as FilesystemManagerFactory;
+use cms\App\Factories\FilesystemManagerFactory as FilesystemManagerFactory;
 
 /**
  * Class FilesystemServiceProvider

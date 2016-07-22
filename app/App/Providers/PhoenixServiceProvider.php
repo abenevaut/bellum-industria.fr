@@ -23,7 +23,7 @@ class PhoenixServiceProvider extends BaseService
     {
         $this->app->bind(
             'phoenix.metable',
-            'Core\Console\Commands\CreateMetaTableCommand'
+            'cms\Console\Commands\CreateMetaTableCommand'
         );
 
         $this->commands('phoenix.metable');
