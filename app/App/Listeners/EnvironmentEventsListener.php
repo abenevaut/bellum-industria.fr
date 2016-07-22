@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\File;
 use cms\Domain\Environments\Environments\Events\EnvironmentCreatedEvent;
 use cms\Domain\Environments\Environments\Events\EnvironmentDeletedEvent;
-use cms\Domain\Files\Repositories\ElFinderDiskRepository;
-use cms\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
-use cms\Domain\Roles\Repositories\RoleRepositoryEloquent;
-use cms\Domain\Roles\Repositories\PermissionRepositoryEloquent;
+use cms\Domain\Files\Files\Repositories\ElFinderDiskRepository;
+use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
+use cms\Domain\Roles\Roles\Repositories\RolesRepositoryEloquent;
+use cms\Domain\Roles\Permissions\Repositories\PermissionsRepositoryEloquent;
 
 /**
  * Class EnvironmentEventListener
@@ -38,12 +38,12 @@ class EnvironmentEventsListener
 	public function subscribe($events)
 	{
 		$events->listen(
-			'Core\Domain\Environments\Events\EnvironmentCreatedEvent',
-			'Core\Domain\Files\Listeners\EnvironmentEventListener@environmentCreatedEvent'
+			'cms\Domain\Environments\Environments\Events\EnvironmentCreatedEvent',
+			'cms\App\Listeners\EnvironmentEventListener@environmentCreatedEvent'
 		);
 		$events->listen(
-			'Core\Domain\Environments\Events\EnvironmentDeletedEvent',
-			'Core\Domain\Files\Listeners\EnvironmentEventListener@environmentDeletedEvent'
+			'cms\Domain\Environments\Environments\Events\EnvironmentDeletedEvent',
+			'cms\App\Listeners\EnvironmentEventListener@environmentDeletedEvent'
 		);
 	}
 

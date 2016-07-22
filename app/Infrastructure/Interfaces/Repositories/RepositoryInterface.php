@@ -1,12 +1,12 @@
-<?php namespace CVEPDB\Contracts\Repositories;
+<?php namespace cms\Infrastructure\Interfaces\Repositories;
 
-use Prettus\Repository\Contracts\PrettusRepositoryInterface;
+use Prettus\Repository\Contracts\RepositoryInterface as PrettusRepositoryInterface;
 
 /**
- * Interface Repository
- * @package CVEPDB\Contracts\Repositories
+ * Interface RepositoryInterface
+ * @package cms\Infrastructure\Interfaces\Repositories
  */
 interface RepositoryInterface extends PrettusRepositoryInterface
 {
-
+	//
 }

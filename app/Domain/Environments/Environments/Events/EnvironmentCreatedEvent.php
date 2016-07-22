@@ -1,15 +1,15 @@
-<?php namespace Core\Domain\Environments\Events;
+<?php namespace cms\Domain\Environments\Environments\Events;
 
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Core\Events\Event;
+use cms\Infrastructure\Abstractions\Events\EventAbstract;
 use Core\Domain\Environments\Entities\Environment;
 
 /**
  * Class EnvironmentCreatedEvent
- * @package Core\Domain\Environments\Events
+ * @package cms\Domain\Environments\Environments\Events
  */
-class EnvironmentCreatedEvent extends Event
+class EnvironmentCreatedEvent extends EventAbstract
 {
 
 	use SerializesModels;

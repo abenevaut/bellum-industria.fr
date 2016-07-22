@@ -1,14 +1,15 @@
 <?php namespace cms\Core\Domain\Roles\Permissions\Repositories;
 
 use Prettus\Repository\Criteria\RequestCriteria;
-use CVEPDB\Domain\Permissions\Repositories\PermissionRepositoryEloquent as BasePermissionRepositoryEloquent;
+use cms\Domain\Roles\Permissions\Repositories\PermissionsRepository;
+use cms\Infrastructure\Contracts\Repositories\RepositoryEloquentAbstract;
 use cms\Core\Domain\Roles\Permissions\Permission;
 
 /**
  * Class PermissionsRepositoryEloquent
  * @package cms\Core\Domain\Roles\Permissions\Repositories
  */
-class PermissionsRepositoryEloquent extends BasePermissionRepositoryEloquent
+class PermissionsRepositoryEloquent extends RepositoryEloquentAbstract implements PermissionsRepository
 {
 
 	/*
