@@ -96,7 +96,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-//        'UserImpersonate'               => \Modules\Users\Http\Middleware\UserImpersonate::class,
+        'UserImpersonate'               => \Modules\Users\Http\Middleware\UserImpersonate::class,
         'auth'                          => \cms\Http\Middleware\Authenticate::class,
         'auth.basic'                    => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest'                         => \cms\Http\Middleware\RedirectIfAuthenticated::class,
@@ -106,8 +106,8 @@ class Kernel extends HttpKernel
         'permission'                    => \Zizaco\Entrust\Middleware\EntrustPermission::class,
         'ability'                       => \Zizaco\Entrust\Middleware\EntrustAbility::class,
         // CMS specific
-//        'CMSAllowInstallation'          => \Modules\Installer\Http\Middleware\CMSAllowInstallation::class,
-//        'CMSInstalled'                  => \Modules\Installer\Http\Middleware\CMSInstalled::class,
+        'CMSAllowInstallation'          => \Modules\Installer\Http\Middleware\CMSAllowInstallation::class,
+        'CMSInstalled'                  => \Modules\Installer\Http\Middleware\CMSInstalled::class,
         'APIResponseHeaderJsMiddleware' => \cms\Http\Middlewares\ApiResponseHeaderJsMiddleware::class,
         'apiguard'                      => \Chrisbjr\ApiGuard\Http\Middleware\ApiGuard::class,
     ];
