@@ -2,7 +2,7 @@
 
 use CVEPDB\Settings\SettingsServiceProvider as CVEPDBSettingsServiceProvider;
 use CVEPDB\Settings\Cache;
-use cms\App\Services\Settings\Settings;
+use cms\App\Services\Settings\Settings\Settings;
 
 /**
  * Class SettingsServiceProvider
