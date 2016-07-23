@@ -5,8 +5,8 @@ use cms\Domain\Environments\Environments\Events\EnvironmentCreatedEvent;
 use cms\Domain\Environments\Environments\Events\EnvironmentDeletedEvent;
 use cms\Domain\Files\Files\Repositories\ElFinderDiskRepository;
 use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
-use cms\Domain\Roles\Roles\Repositories\RolesRepositoryEloquent;
-use cms\Domain\Roles\Permissions\Repositories\PermissionsRepositoryEloquent;
+use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
+use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
 
 /**
  * Class EnvironmentEventListener
@@ -61,7 +61,7 @@ class EnvironmentEventsListener
 		 */
 
 		$env_disks = $this->r_disk->getElFinderDisks($event->environment->reference);
-		$default_disks = $this->r_disk->getElFinderDisks(EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE);
+		$default_disks = $this->r_disk->getElFinderDisks(EnvironmentsRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE);
 
 		foreach ($env_disks as $disk_key => $options)
 		{
@@ -71,12 +71,12 @@ class EnvironmentEventsListener
 			{
 				$this->r_disk->unmountElFinderDisk(
 					$disk_key,
-					EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
+					EnvironmentsRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
 				);
 				$this->r_disk->mountElFinderDisk(
 					$disk_key,
 					$options,
-					EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
+					EnvironmentsRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
 				);
 			}
 
@@ -144,7 +144,7 @@ class EnvironmentEventsListener
 		 * Attach new environment uploads directory to the default env
 		 */
 
-		if ($event->environment->reference !== EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE)
+		if ($event->environment->reference !== EnvironmentsRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE)
 		{
 			$this->r_disk->addFileSystemDisk(
 				$disk_key,
@@ -153,7 +153,7 @@ class EnvironmentEventsListener
 					'root'       => $env_uploads_directory,
 					'visibility' => 'public',
 				],
-				EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
+				EnvironmentsRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
 			);
 			$this->r_disk->mountElFinderDisk(
 				$disk_key,
@@ -162,10 +162,10 @@ class EnvironmentEventsListener
 					'URL'    => null,
 					'access' => [
 						'roles'       => [
-							RoleRepositoryEloquent::ADMIN
+							RolesRepositoryEloquent::ADMIN
 						],
 						'permissions' => [
-							PermissionRepositoryEloquent::SEE_ENVIRONMENT
+							PermissionsRepositoryEloquent::SEE_ENVIRONMENT
 						]
 					]
 				]

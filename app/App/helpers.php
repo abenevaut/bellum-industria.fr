@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-use cms\Domain\Environments\Environments\Facades\EnvironmentFacade;
-use cms\Domain\Environments\Environments\Repositories\EnvironmentRepositoryEloquent;
-use cms\Domain\Roles\Roles\Repositories\RolesRepositoryEloquent;
-use cms\Domain\Roles\Permissions\Repositories\PermissionsRepositoryEloquent;
+use cms\App\Facades\Environments;
+use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
+use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
+use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
 
 if (!function_exists('slugify'))
 {
@@ -141,13 +141,13 @@ if (!function_exists('cmsuser_can_see_env'))
 	function cmsuser_can_see_env()
 	{
 		return Auth::check()
-		&& (EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === EnvironmentFacade::current())
+		&& (EnvironmentsRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === Environments::current())
 		&& (
 			(
-				Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
-				|| Auth::user()->hasPermission(PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL)
+				Auth::user()->hasRole(RolesRepositoryEloquent::ADMIN)
+				|| Auth::user()->hasPermission(PermissionsRepositoryEloquent::ACCESS_ADMIN_PANEL)
 			)
-			|| Auth::user()->hasPermission(PermissionRepositoryEloquent::SEE_ENVIRONMENT)
+			|| Auth::user()->hasPermission(PermissionsRepositoryEloquent::SEE_ENVIRONMENT)
 		);
 	}
 }
@@ -162,13 +162,13 @@ if (!function_exists('cmsuser_can_manage_env_items'))
 	function cmsuser_can_manage_env_items()
 	{
 		return Auth::check()
-		&& (EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === EnvironmentFacade::current())
+		&& (EnvironmentsRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === Environments::current())
 		&& (
 			(
-				Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
-				|| Auth::user()->hasPermission(PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL)
+				Auth::user()->hasRole(RolesRepositoryEloquent::ADMIN)
+				|| Auth::user()->hasPermission(PermissionsRepositoryEloquent::ACCESS_ADMIN_PANEL)
 			)
-			|| Auth::user()->hasPermission(PermissionRepositoryEloquent::MANAGE_ENVIRONMENT_ITEMS)
+			|| Auth::user()->hasPermission(PermissionsRepositoryEloquent::MANAGE_ENVIRONMENT_ITEMS)
 		);
 	}
 }
@@ -184,8 +184,8 @@ if (!function_exists('cmsuser_is_admin'))
 	{
 		return Auth::check()
 		&& (
-			Auth::user()->hasRole(RoleRepositoryEloquent::ADMIN)
-			|| Auth::user()->hasPermission(PermissionRepositoryEloquent::ACCESS_ADMIN_PANEL)
+			Auth::user()->hasRole(RolesRepositoryEloquent::ADMIN)
+			|| Auth::user()->hasPermission(PermissionsRepositoryEloquent::ACCESS_ADMIN_PANEL)
 		);
 	}
 }
