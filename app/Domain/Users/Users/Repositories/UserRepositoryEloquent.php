@@ -25,7 +25,7 @@ use cms\Domain\Users\Users\Events\NewAdminCreatedEvent;
 
 /**
  * Class UserRepositoryEloquent
- * @package Core\Domain\Users\Repositories
+ * @package cms\Domain\Users\Users\Repositories
  */
 class UserRepositoryEloquent extends RepositoryEloquentAbstract implements RepositoryInterface
 {
@@ -44,6 +44,11 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	protected $r_apikey = null;
 
 	/**
+	 * @var RolesRepositoryEloquent|null
+	 */
+	protected $r_roles = null;
+
+	/**
 	 * UserRepositoryEloquent constructor.
 	 *
 	 * @param Application              $app
@@ -56,8 +61,9 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 		ApiKeyRepositoryEloquent $r_apikey
 	)
 	{
-		parent::__construct($app, $r_roles);
+		parent::__construct($app);
 
+		$this->r_roles = $r_roles;
 		$this->r_apikey = $r_apikey;
 	}
 
@@ -76,8 +82,8 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	 *
 	 * @param array $attributes
 	 *
-	 * @event Core\Domain\Users\Events\UserUpdatedEvent
-	 * @return \Core\Domain\Users\Entities\User
+	 * @event cms\Domain\Users\Users\Events\UserUpdatedEvent
+	 * @return \cms\Domain\Users\Users\User
 	 */
 	public function create(array $attributes)
 	{
@@ -94,8 +100,8 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	 * @param array   $attributes
 	 * @param integer $user_id
 	 *
-	 * @event Core\Domain\Users\Events\UserUpdatedEvent
-	 * @return \Core\Domain\Users\Entities\User
+	 * @event cms\Domain\Users\Users\Events\UserUpdatedEvent
+	 * @return \cms\Domain\Users\Users\User
 	 */
 	public function update(array $attributes, $user_id)
 	{
@@ -112,7 +118,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	 * @param array   $attributes
 	 * @param integer $user_id
 	 *
-	 * @event Core\Domain\Users\Events\UserDeletedEvent
+	 * @event cms\Domain\Users\Users\Events\UserDeletedEvent
 	 * @return int
 	 */
 	public function delete($id)
@@ -347,7 +353,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	}
 
 	/**
-	 * @param \Core\Domain\Users\Entities\User $user
+	 * @param \cms\Domain\Users\Users\User $user
 	 * @param array                            $environments
 	 *
 	 * @return mixed
@@ -364,7 +370,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	}
 
 	/**
-	 * @param \Core\Domain\Users\Entities\User $user
+	 * @param \cms\Domain\Users\Users\User $user
 	 * @param array                            $roles
 	 *
 	 * @return mixed
@@ -383,7 +389,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	}
 
 	/**
-	 * @param \Core\Domain\Users\Entities\User $user
+	 * @param \cms\Domain\Users\Users\User $user
 	 * @param  array                           $addresses
 	 *
 	 * @return null
@@ -425,7 +431,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	 * @param string  $old_password
 	 * @param string  $new_password
 	 *
-	 * @event Core\Domain\Users\Events\UserUpdatedEvent
+	 * @event cms\Domain\Users\Users\Events\UserUpdatedEvent
 	 * @return bool
 	 */
 	public function set_user_password($user_id, $old_password, $new_password)

@@ -3,7 +3,7 @@
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Core\Events\Event;
-use cms\Core\Domain\Roles\Roles\Role;
+use cms\Core\Domain\Users\Roles\Role;
 
 /**
  * Class RoleUpdatedEvent
