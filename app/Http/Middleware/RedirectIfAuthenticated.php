@@ -1,12 +1,15 @@
-<?php
-
-namespace cms\Http\Middleware;
+<?php namespace cms\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class RedirectIfAuthenticated
+ * @package cms\Http\Middleware
+ */
 class RedirectIfAuthenticated
 {
+
     /**
      * Handle an incoming request.
      *
@@ -23,4 +26,5 @@ class RedirectIfAuthenticated
 
         return $next($request);
     }
+    
 }

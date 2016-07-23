@@ -15,6 +15,9 @@ use cms\Domain\Users\Roles\Events\RoleDeletedEvent;
 class RolesRepositoryEloquent extends RepositoryEloquentAbstract
 {
 
+	const ADMIN = 'admin';
+	const USER = 'user';
+
 	public $fields = [
 		'roles.id',
 		'roles.name',

@@ -10,6 +10,10 @@ return [
 		'backend'   => env('CMS_URI_BACKEND', 'admin'),
 		'installer' => env('CMS_URI_INSTALLER', 'installer'),
 	],
+	'languages' => [
+		'fr',
+		'en'
+	],
 	'backend'    => [
 		'uri'   => 'admin',
 		'menus' => [

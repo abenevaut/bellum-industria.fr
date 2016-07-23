@@ -1,14 +1,15 @@
-<?php namespace CVEPDB\Http\Middlewares;
+<?php namespace cms\Http\Middlewares;
 
 use Closure;
 use Illuminate\Contracts\Routing\ResponseFactory;
 
 /**
  * Class ApiResponseHeaderJsMiddleware
- * @package CVEPDB\Middlewares
+ * @package cms\Http\Middlewares
  */
 class ApiResponseHeaderJsMiddleware
 {
+    
     /**
      * Handle an incoming request.
      *
@@ -40,4 +41,5 @@ class ApiResponseHeaderJsMiddleware
 
         return $response;
     }
+
 }

@@ -1,12 +1,15 @@
-<?php
-
-namespace cms\Http\Middleware;
+<?php namespace cms\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class Authenticate
+ * @package cms\Http\Middleware
+ */
 class Authenticate
 {
+
     /**
      * Handle an incoming request.
      *
@@ -27,4 +30,5 @@ class Authenticate
 
         return $next($request);
     }
+    
 }

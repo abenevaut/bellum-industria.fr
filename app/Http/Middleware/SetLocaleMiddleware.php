@@ -1,4 +1,4 @@
-<?php namespace CVEPDB\Http\Middlewares;
+<?php namespace cms\Http\Middlewares;
 
 use Closure;
 use Illuminate\Support\Facades\Session;
@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Lang;
 
 /**
  * Class SetLocaleMiddleware
- * @package CVEPDB\Http\Middlewares
+ * @package cms\Http\Middlewares
  */
 class SetLocaleMiddleware
 {
@@ -24,7 +24,7 @@ class SetLocaleMiddleware
 	 */
 	public function __construct()
 	{
-		$languages = config('cvepdb.languages');
+		$languages = config('cms.languages');
 
 		if (is_array($languages) && !empty($languages))
 		{
@@ -76,4 +76,5 @@ class SetLocaleMiddleware
 
 		return $next($request);
 	}
+	
 }
