@@ -9,7 +9,7 @@ use cms\Domain\Logs\Logs\Traits\LogTrait;
  * Class ModelAbstract
  * @package cms\Infrastructure\Abstractions
  */
-class ModelAbstract extends IlluminateModel implements PrettusTransformable
+abstract class ModelAbstract extends IlluminateModel implements PrettusTransformable
 {
 
 	use PrettusTransformableTrait;

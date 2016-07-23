@@ -106,8 +106,8 @@ class Kernel extends HttpKernel
         'permission'                    => \Zizaco\Entrust\Middleware\EntrustPermission::class,
         'ability'                       => \Zizaco\Entrust\Middleware\EntrustAbility::class,
         // CMS specific
-        'CMSAllowInstallation'          => \Modules\Installer\Http\Middleware\CMSAllowInstallation::class,
-        'CMSInstalled'                  => \Modules\Installer\Http\Middleware\CMSInstalled::class,
+        'CMSAllowInstallation'          => \cms\Modules\Installer\Http\Middleware\CMSAllowInstallation::class,
+        'CMSInstalled'                  => \cms\Modules\Installer\Http\Middleware\CMSInstalled::class,
         'APIResponseHeaderJsMiddleware' => \cms\Http\Middleware\ApiResponseHeaderJsMiddleware::class,
         'apiguard'                      => \Chrisbjr\ApiGuard\Http\Middleware\ApiGuard::class,
     ];
