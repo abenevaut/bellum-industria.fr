@@ -4,8 +4,8 @@ use CVEPDB\Settings\Facades\Settings as SettingsFacade;
 use cms\Infrastructure\Abstractions\Requests\FormRequestAbstract;
 
 /**
- * Class Settings
- * @package Core\Domain\Settings\Repositories
+ * Class SettingsRepository
+ * @package cms\Domain\Settings\Settings\Repositories
  */
 class SettingsRepository
 {

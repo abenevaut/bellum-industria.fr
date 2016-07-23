@@ -1,10 +1,10 @@
-<?php namespace Core\Domain\Logs\Repositories;
+<?php namespace cms\Domain\Logs\Logs\Repositories;
 
-use Prettus\Repository\Contracts\RepositoryInterface;
+use cms\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 
 /**
  * Interface LogRepository
- * @package namespace App\Repositories;
+ * @package cms\Domain\Logs\Logs\Repositories
  */
 interface LogRepository extends RepositoryInterface
 {

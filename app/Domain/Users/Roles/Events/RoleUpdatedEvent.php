@@ -1,4 +1,4 @@
-<?php namespace cms\Core\Domain\Roles\Roles\Events;
+<?php namespace cms\Core\Domain\Users\Roles\Events;
 
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;

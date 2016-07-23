@@ -1,14 +1,14 @@
-<?php namespace Core\Domain\Logs\Repositories;
+<?php namespace cms\Domain\Logs\Logs\Repositories;
 
-use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use Core\Domain\Logs\Entities\Log;
+use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
+use cms\Domain\Logs\Logs\Log;
 
 /**
  * Class LogRepositoryEloquent
  * @package namespace App\Repositories;
  */
-class LogRepositoryEloquent extends BaseRepository implements LogRepository
+class LogRepositoryEloquent extends RepositoryEloquentAbstract implements LogRepository
 {
 
 	/**

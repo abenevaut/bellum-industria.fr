@@ -1,13 +1,13 @@
-<?php namespace CVEPDB\Abstracts\Criterias;
+<?php namespace cms\Infrastructure\Abstractions\Criterias;
 
 use Prettus\Repository\Contracts\RepositoryInterface as PrettusRepositoryInterface;
 use Prettus\Repository\Contracts\CriteriaInterface as PrettusCriteriaInterface;
 
 /**
- * Class Criteria
- * @package CVEPDB\Abstracts\CriteriaInterface
+ * Class CriteriaAbstract
+ * @package cms\Infrastructure\Abstractions\Criterias
  */
-abstract class CriteriaInterface implements PrettusCriteriaInterface
+abstract class CriteriaAbstract implements PrettusCriteriaInterface
 {
 
 	/**

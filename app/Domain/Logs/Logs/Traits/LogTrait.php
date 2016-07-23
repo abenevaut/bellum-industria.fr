@@ -1,16 +1,14 @@
-<?php namespace Core\Domain\Logs\Traits;
+<?php namespace cms\Domain\Logs\Logs\Traits;
 
-use Illuminate\Database\Eloquent\Model;
-use Auth;
-use ReflectionClass;
 use Exception;
-use Core\Domain\Logs\Entities\Log;
+use ReflectionClass;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use cms\Domain\Logs\Logs\Log;
 
 /**
- * Automatically Log Add, Update, Delete events of Model.
- *
  * Class LogTrait
- * @package Modules\Core\Traits
+ * @package cms\Domain\Logs\Logs\Traits
  */
 trait LogTrait
 {

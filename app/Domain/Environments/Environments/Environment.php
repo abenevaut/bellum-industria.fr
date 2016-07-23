@@ -1,8 +1,8 @@
-<?php namespace Core\Domain\Environments\Entities;
+<?php namespace cms\Domain\Environments\Environments\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Core\Domain\Logs\Traits\LogTrait;
+use cms\Domain\Logs\Logs\Traits\LogTrait;
 
 /**
  * Class Environment

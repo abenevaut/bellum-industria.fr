@@ -1,4 +1,4 @@
-<?php namespace cms\Core\Domain\Roles\Permissions;
+<?php namespace cms\Domain\Users\Permissions;
 
 use CVEPDB\Domain\Permissions\Entities\Permission as Model;
 use Phoenix\EloquentMeta\MetaTrait;

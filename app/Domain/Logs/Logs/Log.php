@@ -1,4 +1,4 @@
-<?php namespace Core\Domain\Logs\Entities;
+<?php namespace cms\Domain\Logs\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 

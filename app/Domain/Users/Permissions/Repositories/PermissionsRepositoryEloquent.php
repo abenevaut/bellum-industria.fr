@@ -1,4 +1,4 @@
-<?php namespace cms\Core\Domain\Roles\Permissions\Repositories;
+<?php namespace cms\Domain\Users\Permissions\Repositories;
 
 use Prettus\Repository\Criteria\RequestCriteria;
 use cms\Domain\Roles\Permissions\Repositories\PermissionsRepository;

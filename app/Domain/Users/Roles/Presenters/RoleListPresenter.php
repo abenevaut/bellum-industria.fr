@@ -1,4 +1,4 @@
-<?php namespace cms\Core\Domain\Roles\Roles\Presenters;
+<?php namespace cms\Core\Domain\Users\Roles\Presenters;
 
 use Core\Domain\Roles\Transformers\RoleListTransformer;
 use Prettus\Repository\Presenter\FractalPresenter;

@@ -1,13 +1,14 @@
-<?php namespace Core\Domain\Dashboard\Repositories;
+<?php namespace cms\Domain\Dashboard\Settings\Repositories;
 
-use Core\Domain\Settings\Repositories\SettingsRepository as BaseSettingsRepository;
 use Illuminate\Support\Collection;
+use Pingpong\Modules\Module;
+use cms\Domain\Settings\Settings\Repositories\SettingsRepository as ParentSettingsRepository;
 
 /**
  * Class SettingsRepository
- * @package Core\Domain\Dashboard\Repositories
+ * @package cms\Domain\Dashboard\Settings\Repositories
  */
-class SettingsRepository extends BaseSettingsRepository
+class SettingsRepository extends ParentSettingsRepository
 {
 
 	const DASHBOARD_WIDGET_STATUS_ACTIVE = 'active';
@@ -60,7 +61,10 @@ class SettingsRepository extends BaseSettingsRepository
 		$widgets_collection = $this->get($this->setting_key);
 		if (!is_null($widgets_collection))
 		{
-			$widgets = $widgets_collection->where('status', self::DASHBOARD_WIDGET_STATUS_ACTIVE);
+			$widgets = $widgets_collection->where(
+				'status',
+				self::DASHBOARD_WIDGET_STATUS_ACTIVE
+			);
 		}
 
 		return $widgets;
@@ -77,7 +81,10 @@ class SettingsRepository extends BaseSettingsRepository
 		$widgets_collection = $this->get($this->setting_key);
 		if (!is_null($widgets_collection))
 		{
-			$widgets = $widgets_collection->where('status', self::DASHBOARD_WIDGET_STATUS_INACTIVE);
+			$widgets = $widgets_collection->where(
+				'status',
+				self::DASHBOARD_WIDGET_STATUS_INACTIVE
+			);
 		}
 
 		return $widgets;
@@ -98,19 +105,20 @@ class SettingsRepository extends BaseSettingsRepository
 		$widgets_collection = $this->get($this->setting_key);
 		if (!is_null($widgets_collection))
 		{
-			$widgets_collection = $widgets_collection->map(function ($item, $key) use ($widgets)
-			{
-				if (in_array($item['name'], $widgets))
+			$widgets_collection = $widgets_collection
+				->map(function ($item, $key) use ($widgets)
 				{
-					$item['status'] = self::DASHBOARD_WIDGET_STATUS_ACTIVE;
-				}
-				else
-				{
-					$item['status'] = self::DASHBOARD_WIDGET_STATUS_INACTIVE;
-				}
+					if (in_array($item['name'], $widgets))
+					{
+						$item['status'] = self::DASHBOARD_WIDGET_STATUS_ACTIVE;
+					}
+					else
+					{
+						$item['status'] = self::DASHBOARD_WIDGET_STATUS_INACTIVE;
+					}
 
-				return $item;
-			});
+					return $item;
+				});
 			$this->set($this->setting_key, $widgets_collection);
 		}
 	}
@@ -138,11 +146,13 @@ class SettingsRepository extends BaseSettingsRepository
 		// List used to remove widget
 		$listed_widgets = [];
 
-		foreach (\Module::getOrdered() as $module)
+		foreach (Module::getOrdered() as $module)
 		{
 
 			$module_name = $module->name;
-			$module_widgets_list = config(strtolower($module_name) . $this->module_setting_key);
+			$module_widgets_list = config(
+				strtolower($module_name) . $this->module_setting_key
+			);
 
 			/*
 			 * Save new widgets
@@ -170,10 +180,14 @@ class SettingsRepository extends BaseSettingsRepository
 			 * Remove deleted widgets
 			 */
 
-			$deleted_widgets = $widgets_collection->map(function ($item, $key) use ($listed_widgets, $module_name)
-			{
-				return !in_array($item['name'], $listed_widgets) && $module_name === $item['module'] ? $key : null;
-			});
+			$deleted_widgets = $widgets_collection
+				->map(function ($item, $key) use ($listed_widgets, $module_name)
+				{
+					return !in_array($item['name'], $listed_widgets)
+						&& $module_name === $item['module']
+							? $key
+							: null;
+				});
 
 			if ($deleted_widgets->count())
 			{

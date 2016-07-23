@@ -1,4 +1,4 @@
-<?php namespace cms\Domain\Roles\Permissions\Repositories;
+<?php namespace cms\Domain\Users\Permissions\Repositories;
 
 use cms\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 

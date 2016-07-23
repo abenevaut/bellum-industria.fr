@@ -1,11 +1,11 @@
-<?php namespace cms\Core\Domain\Roles\Roles\Transformers;
+<?php namespace cms\Core\Domain\Users\Roles\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use cms\Core\Domain\Roles\Roles\Role;
+use cms\Core\Domain\Users\Roles\Role;
 
 /**
  * Class RoleListTransformer
- * @package cms\Core\Domain\Roles\Roles\Transformers
+ * @package cms\Core\Domain\Users\Roles\Transformers
  */
 class RoleListTransformer extends TransformerAbstract
 {

@@ -1,4 +1,4 @@
-<?php namespace cms\Core\Domain\Roles\Roles;
+<?php namespace cms\Core\Domain\Users\Roles;
 
 use CVEPDB\Domain\Roles\Entities\Role as Model;
 use Phoenix\EloquentMeta\MetaTrait;
