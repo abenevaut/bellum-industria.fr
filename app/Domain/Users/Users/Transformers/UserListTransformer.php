@@ -1,11 +1,11 @@
-<?php namespace Core\Domain\Users\Transformers;
+<?php namespace cms\Domain\Users\Users\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use Core\Domain\Users\Entities\User;
+use cms\Domain\Users\Users\User;
 
 /**
  * Class UserListTransformer
- * @package Core\Domain\Users\Transformers
+ * @package cms\Domain\Users\Users\Transformers
  */
 class UserListTransformer extends TransformerAbstract
 {

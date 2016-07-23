@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\AliasLoader;
 use Pingpong\Modules\ModulesServiceProvider as PingpongModulesServiceProvider;
-use Module;
+use Pingpong\Modules\Facades\Module;
 
 /**
  * Class ModulesServiceProvider

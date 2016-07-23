@@ -1,10 +1,10 @@
-<?php namespace Core\Domain\Users\Repositories;
+<?php namespace cms\Domain\Users\Users\Repositories;
 
 use CVEPDB\Domain\Users\Repositories\UserRepositoryInterface as RepositoryInterface;
 
 /**
  * Interface UserRepository
- * @package Core\Domain\Users\Repositories
+ * @package cms\Domain\Users\Users\Repositories
  */
 interface UserRepository extends RepositoryInterface
 {

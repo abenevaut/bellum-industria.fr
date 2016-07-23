@@ -1,8 +1,8 @@
-<?php namespace Core\Domain\Settings;
+<?php namespace cms\App\Services\Settings\Settings;
 
 use Illuminate\Support\Facades\Config;
 use CVEPDB\Settings\Settings as CVEPDBSettings;
-use Core\Domain\Environments\Facades\EnvironmentFacade;
+use cms\App\Facades\Environments;
 
 /**
  * Class Settings
@@ -26,7 +26,7 @@ class Settings extends CVEPDBSettings
 
 		if (is_null($environment_reference))
 		{
-			$environment_reference = EnvironmentFacade::current();
+			$environment_reference = Environments::current();
 		}
 
 		if (!is_null($value))
@@ -121,7 +121,7 @@ class Settings extends CVEPDBSettings
 
 		if (is_null($environment_reference))
 		{
-			$environment_reference = EnvironmentFacade::current();
+			$environment_reference = Environments::current();
 		}
 
 		if (is_null($db_value))

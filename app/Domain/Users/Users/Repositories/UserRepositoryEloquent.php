@@ -1,4 +1,4 @@
-<?php namespace Core\Domain\Users\Repositories;
+<?php namespace cms\Domain\Users\Users\Repositories;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -7,19 +7,20 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Container\Container as Application;
 use CVEPDB\Domain\Users\Repositories\UserRepositoryEloquent as CVEPDBUserRepositoryEloquent;
 use CVEPDB\Addresses\AddressesFacade;
-use Core\Criterias\OnlyTrashedCriteria;
-use Core\Criterias\WithTrashedCriteria;
-use Core\Domain\Users\Entities\User;
-use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
-use Core\Domain\Users\Criterias\EmailLikeCriteria;
-use Core\Domain\Users\Criterias\UserNameLikeCriteria;
-use Core\Domain\Users\Criterias\RolesCriteria;
-use Core\Domain\Users\Criterias\EnvironmentsCriteria;
-use Core\Domain\Users\Events\UserCreatedEvent;
-use Core\Domain\Users\Events\UserUpdatedEvent;
-use Core\Domain\Users\Events\UserDeletedEvent;
-use Core\Domain\Users\Events\NewUserCreatedEvent;
-use Core\Domain\Users\Events\NewAdminCreatedEvent;
+//use Core\Criterias\OnlyTrashedCriteria;
+//use Core\Criterias\WithTrashedCriteria;
+use cms\Domain\Users\Users\User;
+use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
+use cms\Domain\Users\ApiKeys\Repositories\ApiKeyRepositoryEloquent;
+use cms\Domain\Users\Users\Criterias\EmailLikeCriteria;
+use cms\Domain\Users\Users\Criterias\UserNameLikeCriteria;
+use cms\Domain\Users\Users\Criterias\RolesCriteria;
+use cms\Domain\Users\Users\Criterias\EnvironmentsCriteria;
+use cms\Domain\Users\Users\Events\UserCreatedEvent;
+use cms\Domain\Users\Users\Events\UserUpdatedEvent;
+use cms\Domain\Users\Users\Events\UserDeletedEvent;
+use cms\Domain\Users\Users\Events\NewUserCreatedEvent;
+use cms\Domain\Users\Users\Events\NewAdminCreatedEvent;
 
 /**
  * Class UserRepositoryEloquent
@@ -44,12 +45,13 @@ class UserRepositoryEloquent extends CVEPDBUserRepositoryEloquent
 	/**
 	 * UserRepositoryEloquent constructor.
 	 *
-	 * @param Application            $app
-	 * @param RoleRepositoryEloquent $r_roles
+	 * @param Application              $app
+	 * @param RolesRepositoryEloquent  $r_roles
+	 * @param ApiKeyRepositoryEloquent $r_apikey
 	 */
 	public function __construct(
 		Application $app,
-		RoleRepositoryEloquent $r_roles,
+		RolesRepositoryEloquent $r_roles,
 		ApiKeyRepositoryEloquent $r_apikey
 	)
 	{

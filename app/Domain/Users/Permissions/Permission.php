@@ -1,18 +1,16 @@
 <?php namespace cms\Domain\Users\Permissions;
 
-use CVEPDB\Domain\Permissions\Entities\Permission as Model;
+use cms\Infrastructure\Abstractions\ModelAbstract;
 use Phoenix\EloquentMeta\MetaTrait;
-use Core\Domain\Logs\Traits\LogTrait;
 
 /**
  * Class Permission
- * @package cms\Core\Domain\Roles\Permissions
+ * @package cms\Domain\Users\Permissions
  */
-class Permission extends Model
+class Permission extends ModelAbstract
 {
 
 	use MetaTrait;
-	use LogTrait;
 
 	/**
 	 * Get the default "belongsToMany" link name, present in Environment model.

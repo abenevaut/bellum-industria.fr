@@ -1,4 +1,4 @@
-<?php namespace Core\Domain\Users\Criterias;
+<?php namespace cms\Domain\Users\Users\Criterias;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
 use Core\Criterias\Criteria as AbsCriteria;

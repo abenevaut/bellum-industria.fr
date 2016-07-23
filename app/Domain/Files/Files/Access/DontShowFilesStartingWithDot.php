@@ -1,8 +1,8 @@
-<?php namespace Core\Domain\Files\Access;
+<?php namespace cms\Domain\Files\Files\Access;
 
 /**
  * Class DontShowFilesStartingWithDot
- * @package Module\Files\Access
+ * @package cms\Domain\Files\Files\Access
  */
 class DontShowFilesStartingWithDot
 {
@@ -21,4 +21,5 @@ class DontShowFilesStartingWithDot
 			? !($attr == 'read' || $attr == 'write')
 			: null;
 	}
+
 }

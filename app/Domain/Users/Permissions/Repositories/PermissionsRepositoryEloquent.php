@@ -1,13 +1,13 @@
 <?php namespace cms\Domain\Users\Permissions\Repositories;
 
 use Prettus\Repository\Criteria\RequestCriteria;
-use cms\Domain\Roles\Permissions\Repositories\PermissionsRepository;
-use cms\Infrastructure\Contracts\Repositories\RepositoryEloquentAbstract;
-use cms\Core\Domain\Roles\Permissions\Permission;
+use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
+use cms\Domain\Users\Permissions\Repositories\PermissionsRepository;
+use cms\Domain\Users\Permissions\Permission;
 
 /**
  * Class PermissionsRepositoryEloquent
- * @package cms\Core\Domain\Roles\Permissions\Repositories
+ * @package cms\Domain\Users\Permissions\Repositories
  */
 class PermissionsRepositoryEloquent extends RepositoryEloquentAbstract implements PermissionsRepository
 {
@@ -48,4 +48,5 @@ class PermissionsRepositoryEloquent extends RepositoryEloquentAbstract implement
 	{
 		$this->pushCriteria(app(RequestCriteria::class));
 	}
+
 }

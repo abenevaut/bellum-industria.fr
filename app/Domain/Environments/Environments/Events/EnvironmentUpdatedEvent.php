@@ -3,7 +3,7 @@
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use cms\Infrastructure\Abstractions\Events\EventAbstract;
-use Core\Domain\Environments\Entities\Environment;
+use cms\Domain\Environments\Environments\Environment;
 
 /**
  * Class EnvironmentUpdatedEvent

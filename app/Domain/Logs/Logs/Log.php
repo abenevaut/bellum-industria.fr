@@ -1,8 +1,12 @@
 <?php namespace cms\Domain\Logs\Logs;
 
-use Illuminate\Database\Eloquent\Model;
+use cms\Infrastructure\Abstractions\ModelAbstract;
 
-class Log extends Model
+/**
+ * Class Log
+ * @package cms\Domain\Logs\Logs
+ */
+class Log extends ModelAbstract
 {
 
 	/**
@@ -28,4 +32,5 @@ class Log extends Model
 	{
 		return $this->hasOne('CVEPDB\Models\User');
 	}
+
 }

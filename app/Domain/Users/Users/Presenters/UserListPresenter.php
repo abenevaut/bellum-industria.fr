@@ -1,6 +1,6 @@
-<?php namespace Core\Domain\Users\Presenters;
+<?php namespace cms\Domain\Users\Users\Presenters;
 
-use Core\Domain\Users\Transformers\UserListTransformer;
+use cms\Domain\Users\Users\Transformers\UserListTransformer;
 use Prettus\Repository\Presenter\FractalPresenter;
 
 /**

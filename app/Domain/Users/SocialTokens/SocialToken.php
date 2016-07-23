@@ -1,13 +1,13 @@
-<?php namespace Core\Domain\Users\Entities;
+<?php namespace cms\Domain\Users\SocialTokens;
 
-use CVEPDB\Abstracts\Entities\Model;
+use cms\Infrastructure\Abstractions\ModelAbstract;
 use Core\Domain\Logs\Traits\LogTrait;
 
 /**
  * Class SocialToken
- * @package Core\Domain\Users\Entities
+ * @package cms\Domain\Users\SocialTokens
  */
-class SocialToken extends Model
+class SocialToken extends ModelAbstract
 {
 
 	use LogTrait;

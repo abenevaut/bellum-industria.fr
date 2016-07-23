@@ -1,8 +1,8 @@
-<?php namespace Core\Domain\Files\Access;
+<?php namespace cms\Domain\Files\Files\Access;
 
 /**
  * Class ReadOnly
- * @package Module\Files\Access
+ * @package cms\Domain\Files\Files\Access
  */
 class ReadOnly
 {
@@ -26,4 +26,5 @@ class ReadOnly
 			? !($attr == 'read' || $attr == 'write')
 			: null;
 	}
+	
 }

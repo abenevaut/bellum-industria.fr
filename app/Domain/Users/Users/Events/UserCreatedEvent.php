@@ -1,9 +1,9 @@
-<?php namespace Core\Domain\Users\Events;
+<?php namespace cms\Domain\Users\Users\Events;
 
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Core\Events\Event;
-use Core\Domain\Users\Entities\User;
+use cms\Domain\Users\Users\User;
 
 /**
  * Class UserCreatedEvent

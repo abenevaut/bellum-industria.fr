@@ -1,4 +1,4 @@
-<?php namespace Core\Domain\Users\Brokers;
+<?php namespace cms\App\Services\Users\Users;
 
 use Closure;
 use Illuminate\Auth\Passwords\PasswordBroker as IlluminatePasswordBroker;
@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Contracts\Mail\Mailer as MailerContract;
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Auth\Passwords\TokenRepositoryInterface;
-use Core\Domain\Users\Services\MailPasswordResetService;
+use cms\Domain\Services\MailPasswordResetService;
 
 /**
  * Class PasswordBroker

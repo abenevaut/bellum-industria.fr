@@ -1,19 +1,17 @@
-<?php namespace Core\Domain\Users\Entities;
+<?php namespace cms\Domain\Users\ApiKeys;
 
 use Chrisbjr\ApiGuard\Models\ApiKey as ApiKeyApiGuard;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
-use Core\Domain\Logs\Traits\LogTrait;
 
 /**
  * Class ApiKey
- * @package Core\Domain\Users\Entities
+ * @package cms\Domain\Users\ApiKeys
  */
 class ApiKey extends ApiKeyApiGuard implements Transformable
 {
 
 	use TransformableTrait;
-	use LogTrait;
 
 	protected $fillable = [
 		'user_id',

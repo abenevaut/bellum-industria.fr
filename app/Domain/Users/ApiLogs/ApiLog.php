@@ -1,13 +1,13 @@
-<?php namespace Core\Domain\Users\Entities;
+<?php namespace cms\Domain\Users\ApiLogs;
 
 use Chrisbjr\ApiGuard\Models\ApiLog as ApiLogApiGuard;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
-use Core\Domain\Logs\Traits\LogTrait;
+use cms\Domain\Logs\Logs\Traits\LogTrait;
 
 /**
  * Class ApiLog
- * @package Core\Domain\Users\Entities
+ * @package cms\Domain\Users\Permissions\ApiLogs
  */
 class ApiLog extends ApiLogApiGuard implements Transformable
 {

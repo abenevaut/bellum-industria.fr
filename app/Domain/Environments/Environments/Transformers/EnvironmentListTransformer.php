@@ -1,11 +1,11 @@
-<?php namespace Core\Domain\Environments\Transformers;
+<?php namespace cms\Domain\Users\Permissions\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use Core\Domain\Environments\Entities\Environment;
+use cms\Domain\Environments\Environments\Environment;
 
 /**
  * Class EnvironmentListTransformer
- * @package Core\Domain\Environments\Transformers
+ * @package cms\Domain\Users\Permissions\Transformers
  */
 class EnvironmentListTransformer extends TransformerAbstract
 {
@@ -25,4 +25,5 @@ class EnvironmentListTransformer extends TransformerAbstract
 			'deleted_at' => $env->deleted_at,
 		];
 	}
+
 }

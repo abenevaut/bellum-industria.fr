@@ -1,13 +1,11 @@
-<?php namespace Core\Domain\Environments\Traits;
+<?php namespace cms\Domain\Environments\Environments\Traits;
 
 use Illuminate\Database\Eloquent\Model;
-use Core\Domain\Environments\Entities\Environment;
+use cms\Domain\Environments\Environments\Environment;
 
 /**
- * Automatically attach DB entry to an environment.
- *
  * Class EnvironmentTrait
- * @package Core\Domain\Environments\Traits
+ * @package cms\Domain\Environments\Environments\Traits
  */
 trait EnvironmentTrait
 {

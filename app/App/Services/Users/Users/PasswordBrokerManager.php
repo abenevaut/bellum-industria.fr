@@ -1,13 +1,13 @@
-<?php namespace Core\Domain\Users\Brokers;
+<?php namespace cms\App\Services\Users\Users;
 
 use InvalidArgumentException;
 use Illuminate\Contracts\Auth\PasswordBrokerFactory as FactoryContract;
 use Illuminate\Auth\Passwords\DatabaseTokenRepository;
-use Core\Domain\Users\Services\MailPasswordResetService;
+use cms\Domain\Services\MailPasswordResetService;
 
 /**
  * Class PasswordBrokerManager
- * @package Modules\Users\Brokers
+ * @package cms\App\Services\Users\Users
  */
 class PasswordBrokerManager implements FactoryContract
 {

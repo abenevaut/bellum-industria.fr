@@ -3,19 +3,19 @@
 use Illuminate\Container\Container as Application;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use Core\Criterias\OnlyTrashedCriteria;
-use Core\Criterias\WithTrashedCriteria;
-use Core\Domain\Environments\Entities\Environment;
-use Core\Domain\Environments\Events\EnvironmentCreatedEvent;
-use Core\Domain\Environments\Events\EnvironmentDeletedEvent;
-use Core\Domain\Environments\Events\EnvironmentUpdatedEvent;
-use Core\Domain\Roles\Repositories\RoleRepositoryEloquent;
+//use Core\Criterias\OnlyTrashedCriteria;
+//use Core\Criterias\WithTrashedCriteria;
+use cms\Domain\Environments\Environments\Environment;
+use cms\Domain\Environments\Environments\Events\EnvironmentCreatedEvent;
+use cms\Domain\Environments\Environments\Events\EnvironmentDeletedEvent;
+use cms\Domain\Environments\Environments\Events\EnvironmentUpdatedEvent;
+use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
 
 /**
  * Class EnvironmentsRepositoryEloquent
  * @package cms\Domain\Environments\Environments\Repositories
  */
-class EnvironmentsRepositoryEloquent extends BaseRepository implements EnvironmentRepository
+class EnvironmentsRepositoryEloquent extends BaseRepository implements EnvironmentsRepository
 {
 
 	const DEFAULT_ENVIRONMENT_REFERENCE = 'default';
@@ -26,11 +26,11 @@ class EnvironmentsRepositoryEloquent extends BaseRepository implements Environme
 	 * UserRepositoryEloquent constructor.
 	 *
 	 * @param Application            $app
-	 * @param RoleRepositoryEloquent $r_roles
+	 * @param RolesRepositoryEloquent $r_roles
 	 */
 	public function __construct(
 		Application $app,
-		RoleRepositoryEloquent $r_roles
+		RolesRepositoryEloquent $r_roles
 	)
 	{
 		parent::__construct($app);
@@ -63,7 +63,7 @@ class EnvironmentsRepositoryEloquent extends BaseRepository implements Environme
 	 */
 	public function filterShowWithTrashed()
 	{
-		$this->pushCriteria(new WithTrashedCriteria());
+//		$this->pushCriteria(new WithTrashedCriteria());
 	}
 
 	/**
@@ -73,7 +73,7 @@ class EnvironmentsRepositoryEloquent extends BaseRepository implements Environme
 	 */
 	public function filterShowOnlyTrashed()
 	{
-		$this->pushCriteria(new OnlyTrashedCriteria());
+//		$this->pushCriteria(new OnlyTrashedCriteria());
 	}
 
 	/**
@@ -178,11 +178,11 @@ class EnvironmentsRepositoryEloquent extends BaseRepository implements Environme
 			$env,
 			[
 				$this->r_roles
-					->findByField('name', RoleRepositoryEloquent::ADMIN)
+					->findByField('name', RolesRepositoryEloquent::ADMIN)
 					->first()
 					->id,
 				$this->r_roles
-					->findByField('name', RoleRepositoryEloquent::USER)
+					->findByField('name', RolesRepositoryEloquent::USER)
 					->first()
 					->id,
 			]

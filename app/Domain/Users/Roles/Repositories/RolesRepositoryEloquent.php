@@ -1,4 +1,4 @@
-<?php namespace cms\Core\Domain\Users\Roles\Repositories;
+<?php namespace cms\Domain\Users\Roles\Repositories;
 
 use Core\Domain\Environments\Facades\EnvironmentFacade;
 use Core\Domain\Roles\Entities\Role;

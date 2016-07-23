@@ -1,4 +1,4 @@
-<?php namespace cms\Core\Domain\Users\Roles\Repositories;
+<?php namespace cms\Domain\Users\Roles\Repositories;
 
 use CVEPDB\Domain\Roles\Repositories\RoleRepository as Repository;
 

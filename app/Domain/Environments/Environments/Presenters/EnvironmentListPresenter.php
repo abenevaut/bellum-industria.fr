@@ -1,11 +1,11 @@
-<?php namespace Core\Domain\Environments\Presenters;
+<?php namespace cms\Domain\Environments\Environments\Presenters;
 
 use Core\Domain\Environments\Transformers\EnvironmentListTransformer;
 use Prettus\Repository\Presenter\FractalPresenter;
 
 /**
  * Class EnvironmentListPresenter
- * @package Core\Domain\Environments\Presenters
+ * @package cms\Domain\Environments\Environments\Presenters
  */
 class EnvironmentListPresenter extends FractalPresenter
 {

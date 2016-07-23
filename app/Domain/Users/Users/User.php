@@ -1,20 +1,18 @@
-<?php namespace Core\Domain\Users\Entities;
+<?php namespace cms\Domain\Users\Users;
 
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
-use CVEPDB\Domain\Users\Entities\User as Model;
-use Core\Domain\Environments\Facades\EnvironmentFacade;
-use Core\Domain\Logs\Traits\LogTrait;
-use Core\Domain\Environments\Traits\EnvironmentTrait;
+use cms\Infrastructure\Abstractions\ModelAbstract;
+use cms\App\Facades\Environments;
+use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
 
 /**
  * Class User
- * @package Core\Domain\Users\Entities
+ * @package cms\Domain\Users\Users
  */
-class User extends Model
+class User extends ModelAbstract
 {
 
-	use LogTrait;
 	use EnvironmentTrait;
 	use EntrustUserTrait;
 
@@ -64,9 +62,9 @@ class User extends Model
 	{
 		return $this->belongsToMany('CVEPDB\Domain\Roles\Entities\Role')
 			->join('environment_user', 'role_user.user_id', '=', 'environment_user.user_id')
-			->where('environment_user.environment_id', '=', EnvironmentFacade::currentId())
+			->where('environment_user.environment_id', '=', Environments::currentId())
 			->join('environment_role', 'role_user.role_id', '=', 'environment_role.role_id')
-			->where('environment_role.environment_id', '=', EnvironmentFacade::currentId());
+			->where('environment_role.environment_id', '=', Environments::currentId());
 	}
 
 	/**

@@ -1,6 +1,6 @@
 <?php namespace cms\Core\Domain\Users\Roles;
 
-use CVEPDB\Domain\Roles\Entities\Role as Model;
+use cms\Infrastructure\Abstractions\ModelAbstract;
 use Phoenix\EloquentMeta\MetaTrait;
 use Core\Domain\Environments\Facades\EnvironmentFacade;
 use Core\Domain\Logs\Traits\LogTrait;
@@ -8,9 +8,9 @@ use Core\Domain\Environments\Traits\EnvironmentTrait;
 
 /**
  * Class Role
- * @package Core\Domain\Roles\Entities
+ * @package cms\Core\Domain\Users\Roles
  */
-class Role extends Model
+class Role extends ModelAbstract
 {
 
 	use MetaTrait;

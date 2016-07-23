@@ -1,4 +1,4 @@
-<?php namespace cms\Domain\Environments\Environments\Entities;
+<?php namespace cms\Domain\Environments\Environments;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -6,7 +6,7 @@ use cms\Domain\Logs\Logs\Traits\LogTrait;
 
 /**
  * Class Environment
- * @package Core\Domain\Environments\Entities
+ * @package cms\Domain\Environments\Environments
  */
 class Environment extends Model
 {
