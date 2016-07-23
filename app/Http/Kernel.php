@@ -37,7 +37,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \cms\Http\Middleware\VerifyCsrfToken::class,
             // CVEPDB
-            \cms\Http\Middlewares\SetLocaleMiddleware::class,
+            \cms\Http\Middleware\SetLocaleMiddleware::class,
             'CMSInstalled',
             'UserImpersonate',
         ],
@@ -48,7 +48,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \cms\Http\Middleware\VerifyCsrfToken::class,
             // CVEPDB
-            \cms\Http\Middlewares\SetLocaleMiddleware::class,
+            \cms\Http\Middleware\SetLocaleMiddleware::class,
             'auth',
             'role:' . RolesRepositoryEloquent::USER,
             'CMSInstalled',
@@ -63,7 +63,7 @@ class Kernel extends HttpKernel
             'auth',
             'ability:' . RolesRepositoryEloquent::ADMIN . ',' . PermissionsRepositoryEloquent::ACCESS_ADMIN_PANEL,
             // CVEPDB
-            \cms\Http\Middlewares\SetLocaleMiddleware::class,
+            \cms\Http\Middleware\SetLocaleMiddleware::class,
             'CMSInstalled'
         ],
         'api'       => [
@@ -82,7 +82,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \cms\Http\Middleware\VerifyCsrfToken::class,
             // CVEPDB
-            \cms\Http\Middlewares\SetLocaleMiddleware::class,
+            \cms\Http\Middleware\SetLocaleMiddleware::class,
             'CMSAllowInstallation'
         ]
 
@@ -108,7 +108,7 @@ class Kernel extends HttpKernel
         // CMS specific
         'CMSAllowInstallation'          => \Modules\Installer\Http\Middleware\CMSAllowInstallation::class,
         'CMSInstalled'                  => \Modules\Installer\Http\Middleware\CMSInstalled::class,
-        'APIResponseHeaderJsMiddleware' => \cms\Http\Middlewares\ApiResponseHeaderJsMiddleware::class,
+        'APIResponseHeaderJsMiddleware' => \cms\Http\Middleware\ApiResponseHeaderJsMiddleware::class,
         'apiguard'                      => \Chrisbjr\ApiGuard\Http\Middleware\ApiGuard::class,
     ];
 

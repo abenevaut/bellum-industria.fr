@@ -1,4 +1,4 @@
-<?php namespace cms\Http\Middlewares;
+<?php namespace cms\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Routing\ResponseFactory;
