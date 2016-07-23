@@ -1,6 +1,6 @@
 <?php namespace cms\Domain\Users\ApiLogs\Repositories;
 
-use Prettus\Repository\Contracts\RepositoryInterface;
+use cms\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 
 /**
  * Interface ApiLogRepository

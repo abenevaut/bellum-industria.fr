@@ -1,18 +1,18 @@
 <?php namespace cms\Domain\Users\Roles\Repositories;
 
-use Core\Domain\Environments\Facades\EnvironmentFacade;
-use Core\Domain\Roles\Entities\Role;
-use CVEPDB\Domain\Roles\Repositories\RoleRepositoryEloquent as RepositoryEloquent;
-use Core\Domain\Roles\Criterias\EnvironmentsCriteria;
-use Core\Domain\Roles\Events\RoleCreatedEvent;
-use Core\Domain\Roles\Events\RoleUpdatedEvent;
-use Core\Domain\Roles\Events\RoleDeletedEvent;
+use cms\App\Facades\Environments;
+use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
+use cms\Domain\Users\Roles\Role;
+use cms\Domain\Users\Roles\Criterias\EnvironmentsCriteria;
+use cms\Domain\Users\Roles\Events\RoleCreatedEvent;
+use cms\Domain\Users\Roles\Events\RoleUpdatedEvent;
+use cms\Domain\Users\Roles\Events\RoleDeletedEvent;
 
 /**
  * Class RolesRepositoryEloquent
- * @package cms\Core\Domain\Roles\Roles\Repositories
+ * @package cms\Domain\Users\Roles\Repositories
  */
-class RolesRepositoryEloquent extends RepositoryEloquent
+class RolesRepositoryEloquent extends RepositoryEloquentAbstract
 {
 
 	public $fields = [
@@ -38,8 +38,8 @@ class RolesRepositoryEloquent extends RepositoryEloquent
 	 *
 	 * @param array $attributes
 	 *
-	 * @event Core\Domain\Roles\Events\RoleUpdatedEvent
-	 * @return \Core\Domain\Roles\Entities\Role
+	 * @event cms\Domain\Users\Roles\Events\RoleUpdatedEvent
+	 * @return \cms\Domain\Users\Roles\Role
 	 */
 	public function create(array $attributes)
 	{
@@ -56,8 +56,8 @@ class RolesRepositoryEloquent extends RepositoryEloquent
 	 * @param array   $attributes
 	 * @param integer $id
 	 *
-	 * @event Core\Domain\Roles\Events\RoleUpdatedEvent
-	 * @return \Core\Domain\Roles\Entities\Role
+	 * @event cms\Domain\Users\Roles\Events\RoleUpdatedEvent
+	 * @return \cms\Domain\Users\Roles\Role
 	 */
 	public function update(array $attributes, $id)
 	{
@@ -73,7 +73,7 @@ class RolesRepositoryEloquent extends RepositoryEloquent
 	 *
 	 * @param integer $id
 	 *
-	 * @event Core\Domain\Roles\Events\RoleDeletedEvent
+	 * @event cms\Domain\Users\Roles\Events\RoleDeletedEvent
 	 * @return int
 	 */
 	public function delete($id)
@@ -118,7 +118,7 @@ class RolesRepositoryEloquent extends RepositoryEloquent
 	/**
 	 * Set permissions for the current role.
 	 *
-	 * @param \Core\Domain\Roles\Entities\Role $role
+	 * @param \cms\Domain\Users\Roles\Role $role
 	 * @param array                            $permissions
 	 */
 	public function set_role_permissions(Role $role, array $permissions = [])
@@ -135,7 +135,7 @@ class RolesRepositoryEloquent extends RepositoryEloquent
 	 * Set environments for the current role.
 	 * If no environment is set, we set the current env as default.
 	 *
-	 * @param \Core\Domain\Roles\Entities\Role $role
+	 * @param \cms\Domain\Users\Roles\Role $role
 	 * @param array                            $environments
 	 */
 	public function set_role_environments(Role $role, array $environments = [])
@@ -148,7 +148,7 @@ class RolesRepositoryEloquent extends RepositoryEloquent
 		}
 		else
 		{
-			$role->environments()->attach([EnvironmentFacade::currentId()]);
+			$role->environments()->attach([Environments::currentId()]);
 		}
 	}
 }

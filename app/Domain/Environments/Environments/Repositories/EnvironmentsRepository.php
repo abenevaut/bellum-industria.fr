@@ -1,6 +1,6 @@
 <?php namespace cms\Domain\Environments\Environments\Repositories;
 
-use Prettus\Repository\Contracts\RepositoryInterface;
+use cms\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 
 /**
  * Interface EnvironmentsRepository

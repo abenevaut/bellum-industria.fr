@@ -1,6 +1,6 @@
-<?php namespace Core\Domain\Users\Repositories;
+<?php namespace cms\Domain\Users\SocialTokens\Repositories;
 
-use Prettus\Repository\Contracts\RepositoryInterface;
+use cms\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 
 /**
  * Interface SocialTokenRepository

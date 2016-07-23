@@ -1,6 +1,6 @@
 <?php namespace cms\Domain\Users\Users\Repositories;
 
-use CVEPDB\Domain\Users\Repositories\UserRepositoryInterface as RepositoryInterface;
+use cms\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 
 /**
  * Interface UserRepository

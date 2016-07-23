@@ -1,14 +1,15 @@
-<?php namespace Core\Domain\Users\Repositories;
+<?php namespace cms\Domain\Users\SocialTokens\Repositories;
 
-use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use Core\Domain\Users\Entities\SocialToken;
+use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
+use cms\Domain\Users\SocialTokens\Repositories\SocialTokenRepository;
+use cms\Domain\Users\SocialTokens\SocialToken;
 
 /**
  * Class SocialTokenRepositoryEloquent
  * @package Core\Domain\Users\Repositories
  */
-class SocialTokenRepositoryEloquent extends BaseRepository
+class SocialTokenRepositoryEloquent extends RepositoryEloquentAbstract implements SocialTokenRepository
 {
 
 	/**

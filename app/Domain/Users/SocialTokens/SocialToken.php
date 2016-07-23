@@ -1,7 +1,6 @@
 <?php namespace cms\Domain\Users\SocialTokens;
 
 use cms\Infrastructure\Abstractions\ModelAbstract;
-use Core\Domain\Logs\Traits\LogTrait;
 
 /**
  * Class SocialToken
@@ -9,8 +8,6 @@ use Core\Domain\Logs\Traits\LogTrait;
  */
 class SocialToken extends ModelAbstract
 {
-
-	use LogTrait;
 
 	/**
 	 * @var string

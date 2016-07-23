@@ -5,8 +5,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Container\Container as Application;
-use CVEPDB\Domain\Users\Repositories\UserRepositoryEloquent as CVEPDBUserRepositoryEloquent;
 use CVEPDB\Addresses\AddressesFacade;
+use cms\Infrastructure\Interfaces\Repositories\RepositoryInterface;
+use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
 //use Core\Criterias\OnlyTrashedCriteria;
 //use Core\Criterias\WithTrashedCriteria;
 use cms\Domain\Users\Users\User;
@@ -26,7 +27,7 @@ use cms\Domain\Users\Users\Events\NewAdminCreatedEvent;
  * Class UserRepositoryEloquent
  * @package Core\Domain\Users\Repositories
  */
-class UserRepositoryEloquent extends CVEPDBUserRepositoryEloquent
+class UserRepositoryEloquent extends RepositoryEloquentAbstract implements RepositoryInterface
 {
 
 	public $fields = [
