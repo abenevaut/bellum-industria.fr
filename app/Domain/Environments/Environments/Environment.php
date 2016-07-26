@@ -33,7 +33,7 @@ class Environment extends Model
 	 */
 	public function users()
 	{
-		return $this->belongsToMany('Core\Domain\Users\Entities\User');
+		return $this->belongsToMany('cms\Domain\Users\Users\User');
 	}
 
 	/**
@@ -41,7 +41,7 @@ class Environment extends Model
 	 */
 	public function roles()
 	{
-		return $this->belongsToMany('Core\Domain\Roles\Entities\Role');
+		return $this->belongsToMany('cms\Domain\Users\Roles\Role');
 	}
 
 }

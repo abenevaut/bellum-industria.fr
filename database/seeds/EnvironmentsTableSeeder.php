@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
-use Core\Domain\Environments\Entities\Environment;
+use cms\Domain\Environments\Environments\Environment;
 
 /**
  * Class EnvironmentsTableSeeder

@@ -18,7 +18,7 @@ class TestingSeeder extends Seeder
 		$this->call('CountryTableSeeder');
 		$this->call('StateTableSeeder');
         $this->call('EnvironmentsTableSeeder');
-		$this->call('Modules\Users\Database\Seeders\TestingSeeder');
+		$this->call('cms\Modules\Users\Database\Seeders\TestingSeeder');
 		Model::reguard();
 	}
 }
