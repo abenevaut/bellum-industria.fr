@@ -202,6 +202,8 @@ return [
 		Spatie\Backup\BackupServiceProvider::class,
 		Toin0u\Geocoder\GeocoderServiceProvider::class,
 
+//		"Modules\\Files\\Providers\\ElfinderServiceProvider"
+
 	],
 
 	/*

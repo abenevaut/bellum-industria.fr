@@ -3,6 +3,7 @@
 use Illuminate\Database\Eloquent\Model as IlluminateModel;
 use Prettus\Repository\Contracts\Transformable as PrettusTransformable;
 use Prettus\Repository\Traits\TransformableTrait as PrettusTransformableTrait;
+use cms\Domain\Logs\Logs\Traits\LogTrait;
 
 /**
  * Class ModelAbstract
@@ -12,5 +13,6 @@ abstract class ModelAbstract extends IlluminateModel implements PrettusTransform
 {
 
 	use PrettusTransformableTrait;
+	use LogTrait;
 
 }

@@ -127,7 +127,7 @@ if (!function_exists('cmsinstalled'))
 	 */
 	function cmsinstalled()
 	{
-		return env('CORE_INSTALLED');
+		return env('APP_INSTALLED', false);
 	}
 }
 

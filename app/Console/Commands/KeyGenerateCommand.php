@@ -43,15 +43,15 @@ class KeyGenerateCommand extends CommandAbstract
 			return $this->line('<comment>' . $key . '</comment>');
 		}
 
-		$path = $app->environmentPath() . '/' . $app->environmentFile() . '.' . env('CORE_ENV');
+		$path = $app->environmentPath() . '/' . $app->environmentFile() . '.' . env('APP_ENV');
 
 		if (file_exists($path))
 		{
-			$content = str_replace('CORE_KEY=' . $app['config']['app.key'], 'CORE_KEY=' . $key, file_get_contents($path));
+			$content = str_replace('APP_KEY=' . $app['config']['app.key'], 'APP_KEY=' . $key, file_get_contents($path));
 
-			if (!Str::contains($content, 'CORE_KEY'))
+			if (!Str::contains($content, 'APP_KEY'))
 			{
-				$content = sprintf("%s\nCORE_KEY=%s\n", $content, $key);
+				$content = sprintf("%s\APP_KEY=%s\n", $content, $key);
 			}
 
 			file_put_contents($path, $content);

@@ -31,6 +31,10 @@ return [
 		'mailwatch' => '',
 	],
 	'licenses'   => [
+		'cvepdb' => [
+			'name' => '#CVEPDB',
+			'url' => 'http://cvepdb.fr',
+		],
 		'phpcli' => '#CVEPDB CMS  Copyright (C) 2016  Antoine Benevaut
 
 This program comes with ABSOLUTELY NO WARRANTY;

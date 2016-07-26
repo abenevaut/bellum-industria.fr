@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-		'address' => env('CORE_CONTACT_MAIL'),
-		'name'    => env('CORE_CONTACT_DISPLAY_NAME'),
+		'address' => env('APP_CONTACT_MAIL'),
+		'name'    => env('APP_CONTACT_DISPLAY_NAME'),
 	],
 
     /*

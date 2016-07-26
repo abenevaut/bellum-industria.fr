@@ -231,7 +231,7 @@ class ElFinderDiskRepository extends DiskRepository
 	 */
 	protected function elFinderMountDisk($disk_name, $options)
 	{
-		$access = 'Core\Domain\Files\Access\DontShowFilesStartingWithDot::checkAccess';
+		$access = 'cms\Domain\Files\Files\Access\DontShowFilesStartingWithDot::checkAccess';
 
 		if (
 			is_array($options)
@@ -240,7 +240,7 @@ class ElFinderDiskRepository extends DiskRepository
 			&& $options['access']['readonly']
 		)
 		{
-			$access = 'Core\Domain\Files\Access\ReadOnly::checkAccess';
+			$access = 'cms\Domain\Files\Files\Access\ReadOnly::checkAccess';
 		}
 
 		if (array_key_exists('access', $options))

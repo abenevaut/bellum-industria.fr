@@ -39,11 +39,11 @@ class EnvironmentEventsListener
 	{
 		$events->listen(
 			'cms\Domain\Environments\Environments\Events\EnvironmentCreatedEvent',
-			'cms\App\Listeners\EnvironmentEventListener@environmentCreatedEvent'
+			'cms\App\Listeners\EnvironmentEventsListener@environmentCreatedEvent'
 		);
 		$events->listen(
 			'cms\Domain\Environments\Environments\Events\EnvironmentDeletedEvent',
-			'cms\App\Listeners\EnvironmentEventListener@environmentDeletedEvent'
+			'cms\App\Listeners\EnvironmentEventsListener@environmentDeletedEvent'
 		);
 	}
 
@@ -103,14 +103,23 @@ class EnvironmentEventsListener
 		 * Create environment uploads directory
 		 */
 
-		if (!File::exists($env_uploads_directory))
+		if (!File::exists(public_path('uploads')))
+		{
+			File::makeDirectory(public_path('uploads'), 0777);
+		}
+
+		if (!File::exists(
+				public_path('uploads/' . $event->environment->reference)
+		))
 		{
 			File::makeDirectory(
-				public_path(
-					'uploads/' . $event->environment->reference
-				),
+				public_path('uploads/' . $event->environment->reference),
 				0777
 			);
+		}
+
+		if (!File::exists($env_uploads_directory))
+		{
 			File::makeDirectory($env_uploads_directory, 0777);
 		}
 
@@ -134,8 +143,8 @@ class EnvironmentEventsListener
 		$this->r_disk->mountElFinderDisk(
 			$disk_key,
 			[
-				'alias'  => $event->environment->name . ' uploads',
-				'URL'    => null,
+				'alias' => $event->environment->name . ' uploads',
+				'URL'   => null,
 			],
 			$event->environment->reference
 		);
