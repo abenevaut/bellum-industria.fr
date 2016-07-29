@@ -1,8 +1,8 @@
 <?php namespace cms\App\Services\Environments\Environments;
 
-use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Support\Facades\App;
+use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
 
 /**
  * Class Environment
@@ -62,7 +62,7 @@ class Environment
 		{
 			$current_reference = defined('CMS_PHP_CLI_RUN_AS_REFERENCE')
 				? CMS_PHP_CLI_RUN_AS_REFERENCE
-				: EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE;
+				: EnvironmentsRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE;
 
 			$current_domain = $this->database
 				->table('environments')

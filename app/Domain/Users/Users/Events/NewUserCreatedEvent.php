@@ -2,14 +2,14 @@
 
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Core\Events\Event;
+use cms\Infrastructure\Abstractions\Events\EventAbstract;
 use cms\Domain\Users\Users\User;
 
 /**
  * Class NewUserCreatedEvent
  * @package cms\Domain\Users\Users\Events
  */
-class NewUserCreatedEvent extends Event
+class NewUserCreatedEvent extends EventAbstract
 {
 
 	use SerializesModels;
