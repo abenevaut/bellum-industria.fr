@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Validation\ValidationException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Container\Container as Application;
+use CVEPDB\Settings\Facades\Settings;
 use CVEPDB\Addresses\AddressesFacade;
 use cms\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
@@ -577,9 +578,13 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	 */
 	public function getUserRegistrationFrontEnd()
 	{
-		// 'users::login.frontend_meta_title'
-		// 'users::login.frontend_meta_description'
-		return $this->htmlOutput->output('users.register');
+		return $this->htmlOutput->output(
+			'users.register',
+			[
+				'is_registration_allowed'
+					=> Settings::get('users.is_registration_allowed'),
+			]
+		);
 	}
 
 }
