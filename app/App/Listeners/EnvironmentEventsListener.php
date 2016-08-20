@@ -9,8 +9,8 @@ use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
 use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
 
 /**
- * Class EnvironmentEventListener
- * @package Core\Domain\Files\Listeners
+ * Class EnvironmentEventsListener
+ * @package cms\App\Listeners
  */
 class EnvironmentEventsListener
 {
@@ -33,7 +33,7 @@ class EnvironmentEventsListener
 	/**
 	 * Register the listeners for the subscriber.
 	 *
-	 * @param  Illuminate\Events\Dispatcher $events
+	 * @param  \Illuminate\Events\Dispatcher $events
 	 */
 	public function subscribe($events)
 	{

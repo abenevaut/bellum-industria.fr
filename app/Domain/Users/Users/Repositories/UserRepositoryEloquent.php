@@ -3,16 +3,21 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Validation\ValidationException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Container\Container as Application;
 use CVEPDB\Addresses\AddressesFacade;
 use cms\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
-//use Core\Criterias\OnlyTrashedCriteria;
-//use Core\Criterias\WithTrashedCriteria;
-use cms\Domain\Users\Users\User;
+use cms\App\Services\Views\HtmlViews;
 use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
 use cms\Domain\Users\ApiKeys\Repositories\ApiKeyRepositoryEloquent;
+use cms\Domain\Users\SocialTokens\Repositories\SocialTokenRepositoryEloquent;
+use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
+
+//use Core\Criterias\OnlyTrashedCriteria;
+//use Core\Criterias\WithTrashedCriteria;
 use cms\Domain\Users\Users\Criterias\EmailLikeCriteria;
 use cms\Domain\Users\Users\Criterias\UserNameLikeCriteria;
 use cms\Domain\Users\Users\Criterias\RolesCriteria;
@@ -22,6 +27,8 @@ use cms\Domain\Users\Users\Events\UserUpdatedEvent;
 use cms\Domain\Users\Users\Events\UserDeletedEvent;
 use cms\Domain\Users\Users\Events\NewUserCreatedEvent;
 use cms\Domain\Users\Users\Events\NewAdminCreatedEvent;
+use cms\Domain\Users\Users\Events\NewUserRegisteredEvent;
+use cms\Domain\Users\Users\User;
 
 /**
  * Class UserRepositoryEloquent
@@ -39,14 +46,29 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	];
 
 	/**
-	 * @var ApiKeyRepositoryEloquent|null
+	 * @var HtmlViews|null
 	 */
-	protected $r_apikey = null;
+	protected $htmlOutput = null;
 
 	/**
 	 * @var RolesRepositoryEloquent|null
 	 */
 	protected $r_roles = null;
+
+	/**
+	 * @var PermissionsRepositoryEloquent|null
+	 */
+	protected $r_permissions = null;
+
+	/**
+	 * @var ApiKeyRepositoryEloquent|null
+	 */
+	protected $r_apikey = null;
+
+	/**
+	 * @var SocialTokenRepositoryEloquent|null
+	 */
+	protected $r_social_tokens = null;
 
 	/**
 	 * UserRepositoryEloquent constructor.
@@ -57,14 +79,22 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	 */
 	public function __construct(
 		Application $app,
+		HtmlViews $htmlOutput,
 		RolesRepositoryEloquent $r_roles,
-		ApiKeyRepositoryEloquent $r_apikey
+		PermissionsRepositoryEloquent $r_permissions,
+		ApiKeyRepositoryEloquent $r_apikey,
+		SocialTokenRepositoryEloquent $r_social_tokens
 	)
 	{
 		parent::__construct($app);
 
+		$this->htmlOutput = $htmlOutput;
+		$this->htmlOutput->setCurrentModule('users::');
+
 		$this->r_roles = $r_roles;
+		$this->r_permissions = $r_permissions;
 		$this->r_apikey = $r_apikey;
+		$this->r_social_tokens = $r_social_tokens;
 	}
 
 	/**
@@ -288,7 +318,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	{
 		$user = $this->create_user($first_name, $last_name, $email);
 
-		$this->attach_user_to_role($user, RoleRepositoryEloquent::ADMIN);
+		$this->attach_user_to_role($user, RolesRepositoryEloquent::ADMIN);
 
 		event(new NewAdminCreatedEvent($user));
 
@@ -313,13 +343,13 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 		}
 
 		$user = $this->find($user_id);
-		$role_admin = $this->r_roles->role_exists(RoleRepositoryEloquent::ADMIN);
-		$role_user = $this->r_roles->role_exists(RoleRepositoryEloquent::USER);
+		$role_admin = $this->r_roles->role_exists(RolesRepositoryEloquent::ADMIN);
+		$role_user = $this->r_roles->role_exists(RolesRepositoryEloquent::USER);
 
 		if (
 			$user->roles->contains($role_admin->id)
 			&& 1 === $this->r_roles->count_users_by_roles([
-				RoleRepositoryEloquent::ADMIN
+				RolesRepositoryEloquent::ADMIN
 			])
 		)
 		{
@@ -354,7 +384,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 
 	/**
 	 * @param \cms\Domain\Users\Users\User $user
-	 * @param array                            $environments
+	 * @param array                        $environments
 	 *
 	 * @return mixed
 	 */
@@ -371,7 +401,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 
 	/**
 	 * @param \cms\Domain\Users\Users\User $user
-	 * @param array                            $roles
+	 * @param array                        $roles
 	 *
 	 * @return mixed
 	 */
@@ -390,7 +420,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 
 	/**
 	 * @param \cms\Domain\Users\Users\User $user
-	 * @param  array                           $addresses
+	 * @param  array                       $addresses
 	 *
 	 * @return null
 	 */
@@ -477,4 +507,84 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 			}
 		);
 	}
+
+	/**
+	 * Validate a new user.
+	 *
+	 * @param array $user_data The new user information
+	 *
+	 * @return \Illuminate\Validation\Validator
+	 */
+	public function validateNewUser($user_data = [])
+	{
+		return Validator::make(
+			$user_data,
+			[
+				'last_name'  => 'required|max:50',
+				'first_name' => 'required|max:50',
+				'email'      => 'required|email|max:255|unique:users',
+				'password'   => 'required|confirmed|min:6',
+			]
+		);
+	}
+
+	/**
+	 * Create a new user.
+	 *
+	 * @param array $user_data
+	 *
+	 * @return User
+	 * @throws ValidationException
+	 */
+	public function createNewUser($user_data = [])
+	{
+		$validator = $this->validateNewUser($user_data);
+
+		if ($validator->passes())
+		{
+			$user = $this->create([
+				'first_name' => $user_data['first_name'],
+				'last_name'  => $user_data['last_name'],
+				'email'      => $user_data['email'],
+				'password'   => bcrypt($user_data['password']),
+			]);
+
+			$this->r_apikey->generate_api_key($user);
+
+			// Always attach client role
+			$role = $this->r_roles->role_exists(RolesRepositoryEloquent::USER);
+			$user->attachRole($role);
+
+			event(new NewUserRegisteredEvent($user));
+
+			return $user;
+		}
+		throw new ValidationException($validator);
+	}
+
+	public function registerNewUser($user_data = [])
+	{
+
+	}
+
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function getUserLoginFrontEnd()
+	{
+		// 'users::login.frontend_meta_title'
+		// 'users::login.frontend_meta_description'
+		return $this->htmlOutput->output('users.login');
+	}
+
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function getUserRegistrationFrontEnd()
+	{
+		// 'users::login.frontend_meta_title'
+		// 'users::login.frontend_meta_description'
+		return $this->htmlOutput->output('users.register');
+	}
+
 }
