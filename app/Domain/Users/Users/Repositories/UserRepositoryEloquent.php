@@ -568,9 +568,13 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	 */
 	public function getUserLoginFrontEnd()
 	{
-		// 'users::login.frontend_meta_title'
-		// 'users::login.frontend_meta_description'
-		return $this->htmlOutput->output('users.login');
+		return $this->htmlOutput->output(
+			'users.login',
+			[
+				'is_registration_allowed'
+					=> Settings::get('users.is_registration_allowed'),
+			]
+		);
 	}
 
 	/**
