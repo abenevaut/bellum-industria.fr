@@ -536,7 +536,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	 * @return User
 	 * @throws ValidationException
 	 */
-	public function createNewUser($user_data = [])
+	public function registerNewUser($user_data = [])
 	{
 		$validator = $this->validateNewUser($user_data);
 
@@ -560,11 +560,6 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 			return $user;
 		}
 		throw new ValidationException($validator);
-	}
-
-	public function registerNewUser($user_data = [])
-	{
-
 	}
 
 	/**
