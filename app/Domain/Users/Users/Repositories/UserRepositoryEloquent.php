@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Foundation\Validation\ValidationException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Container\Container as Application;
+use Laravel\Socialite\Facades\Socialite;
 use CVEPDB\Settings\Facades\Settings;
 use CVEPDB\Addresses\AddressesFacade;
 use cms\Infrastructure\Interfaces\Repositories\RepositoryInterface;
@@ -537,7 +539,11 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	 * @return User
 	 * @throws ValidationException
 	 */
-	public function registerNewUser($user_data = [])
+	public function registerNewUserWithRedirection(
+		$user_data = [],
+		$guard = null,
+		$redirect_uri = '/'
+	)
 	{
 		$validator = $this->validateNewUser($user_data);
 
@@ -558,9 +564,42 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 
 			event(new NewUserRegisteredEvent($user));
 
-			return $user;
+			Auth::guard($guard)->login($user);
+
+			return redirect($redirect_uri);
 		}
 		throw new ValidationException($validator);
+	}
+
+	/**
+	 * @param string $uri
+	 *
+	 * @return string
+	 */
+	public function redirectAfterAuthentication($uri = '/')
+	{
+		if (
+			Auth::check()
+			&& (
+				Auth::user()->hasRole(RolesRepositoryEloquent::ADMIN)
+				|| Auth::user()->hasPermission(PermissionsRepositoryEloquent::ACCESS_ADMIN_PANEL)
+			)
+		)
+		{
+			$uri = 'admin';
+		}
+		else if (Auth::check() && Auth::user()->hasRole(RolesRepositoryEloquent::USER))
+		{
+			$uri = $uri;
+		}
+		else
+		{
+			// xABE Todo : An account non-linked to an env have to be activated
+			// xABE Todo : shared session between envs
+			$uri = $uri;
+		}
+
+		return redirect()->intended($uri);
 	}
 
 	/**
@@ -587,6 +626,92 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 			[
 				'is_registration_allowed'
 					=> Settings::get('users.is_registration_allowed'),
+			]
+		);
+	}
+
+	/**
+	 * @param $provider
+	 *
+	 * @return mixed
+	 */
+	public function redirectToProviderForAuthentification($provider)
+	{
+		$provider = Socialite::driver($provider);
+
+		// linkedin
+		// $provider->scopes(['r_basicprofile', 'r_emailaddress', 'w_share']);
+
+		// facebook
+		// $provider->scopes(['public_profile', 'email', 'publish_actions'])
+
+		// twitter
+		// $provider->scopes([])
+
+		return $provider->redirect();
+	}
+
+	public function handleProviderCallbackForAuthentification(
+		$provider,
+		$redirect_uri = '/'
+	)
+	{
+		$social_user = Socialite::driver($provider)->user();
+
+		$social_token = $this->r_social_tokens->findByField(
+			'token',
+			$social_user->token
+		)->first();
+
+		if (!is_null($social_token))
+		{
+			$user = $this->find($social_token->user_id);
+
+			Auth::login($user);
+
+			event(new Login($user, true));
+		}
+		else
+		{
+			if (Auth::check())
+			{
+				$this->r_social_tokens->create([
+					'provider' => $provider,
+					'token'    => $social_user->token,
+					'user_id'  => Auth::user()->id
+				]);
+
+				session()->flash('message-success', trans('auth.message_success_provider_linked'));
+			}
+			else if (Settings::get('users.is_registration_allowed'))
+			{
+				session()->set('register_from_social', [
+					'token' => $social_user->token
+				]);
+
+				return redirect('register/' . $provider);
+			}
+			else
+			{
+				session()->flash('message-warning', trans('auth.message_warning_registration_not_allowed'));
+			}
+		}
+
+		return redirect($redirect_uri);
+	}
+
+	/**
+	 * @param $provider
+	 *
+	 * @return mixed
+	 */
+	public function getRegisterFromProvider($provider)
+	{
+		return view(
+			'users.register',
+			[
+				'provider' => $provider,
+				'uri'      => '/register/' . $provider
 			]
 		);
 	}

@@ -9,10 +9,10 @@ use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
 use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
 
 /**
- * Class EnvironmentEventsListener
+ * Class EnvironmentsEventsListener
  * @package cms\App\Listeners
  */
-class EnvironmentEventsListener
+class EnvironmentsEventsListener
 {
 
 	/**

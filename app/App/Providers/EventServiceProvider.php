@@ -24,8 +24,9 @@ class EventServiceProvider extends ServiceProvider
 	 * @var array
 	 */
 	protected $subscribe = [
-		'cms\App\Listeners\EnvironmentEventsListener',
-		'cms\App\Listeners\UserEventsListener'
+		'cms\App\Listeners\AuthEventsListener',
+		'cms\App\Listeners\EnvironmentsEventsListener',
+		'cms\App\Listeners\UsersEventsListener'
 	];
 
 	/**
