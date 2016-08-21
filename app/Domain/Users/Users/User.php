@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
-use cms\Infrastructure\Abstractions\Model\LogModelAbstract;
+use cms\Infrastructure\Abstractions\Model\LogAuthenticatableModelAbstract;
 use cms\App\Facades\Environments;
 use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
 
@@ -10,7 +10,7 @@ use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
  * Class User
  * @package cms\Domain\Users\Users
  */
-class User extends LogModelAbstract
+class User extends LogAuthenticatableModelAbstract
 {
 
 	use EnvironmentTrait;

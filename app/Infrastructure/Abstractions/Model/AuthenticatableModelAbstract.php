@@ -1,6 +1,4 @@
-<?php
-
-namespace panacea\Infrastructure\Contracts\Model;
+<?php namespace cms\Infrastructure\Abstractions\Model;;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Prettus\Repository\Contracts\Transformable;
@@ -9,7 +7,7 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 /**
  * Class AuthenticatableModelAbstract
- * @package panacea\Infrastructure\Contracts\Model
+ * @package cms\Infrastructure\Contracts\Model
  */
 abstract class AuthenticatableModelAbstract extends Authenticatable implements Transformable
 {
