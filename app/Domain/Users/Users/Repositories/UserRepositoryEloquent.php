@@ -15,10 +15,12 @@ use CVEPDB\Addresses\AddressesFacade;
 use cms\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
 use cms\App\Services\Views\HtmlViews;
+use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
 use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
+use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
 use cms\Domain\Users\ApiKeys\Repositories\ApiKeyRepositoryEloquent;
 use cms\Domain\Users\SocialTokens\Repositories\SocialTokenRepositoryEloquent;
-use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
+
 //use Core\Criterias\OnlyTrashedCriteria;
 //use Core\Criterias\WithTrashedCriteria;
 use cms\Domain\Users\Users\Criterias\EmailLikeCriteria;
@@ -54,6 +56,11 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	protected $htmlOutput = null;
 
 	/**
+	 * @var EnvironmentsRepositoryEloquent|null
+	 */
+	protected $r_environments = null;
+
+	/**
 	 * @var RolesRepositoryEloquent|null
 	 */
 	protected $r_roles = null;
@@ -83,6 +90,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	public function __construct(
 		Application $app,
 		HtmlViews $htmlOutput,
+		EnvironmentsRepositoryEloquent $r_environments,
 		RolesRepositoryEloquent $r_roles,
 		PermissionsRepositoryEloquent $r_permissions,
 		ApiKeyRepositoryEloquent $r_apikey,
@@ -94,6 +102,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 		$this->htmlOutput = $htmlOutput;
 		$this->htmlOutput->setCurrentModule('users::');
 
+		$this->r_environments = $r_environments;
 		$this->r_roles = $r_roles;
 		$this->r_permissions = $r_permissions;
 		$this->r_apikey = $r_apikey;
@@ -369,16 +378,23 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 
 	/**
 	 * @param \cms\Domain\Users\Users\User $user
-	 * @param array                        $environments
+	 * @param array                        $environments_reference
 	 *
 	 * @return mixed
 	 */
-	public function set_user_environments(User $user, array $environments = [])
+	public function set_user_environments(User $user, array $environments_reference = [])
 	{
-		if (count($environments) > 0)
+		if (count($environments_reference) > 0)
 		{
-			$user->environments()->detach();
-			$user->environments()->attach($environments);
+			$environments_rows = $this->r_environments
+				->findWhereIn('reference', $environments_reference);
+
+			$environments_rows
+				->each($env, function ($env) use (&$user)
+				{
+					$user->environments()->detach();
+					$user->environments()->attach($env->id);
+				});
 		}
 
 		return $user;
@@ -605,7 +621,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 			'users.admin.login',
 			[
 				'is_registration_allowed'
-					=> Settings::get('users.is_registration_allowed'),
+				=> Settings::get('users.is_registration_allowed'),
 			]
 		);
 	}
@@ -619,7 +635,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 			'users.register',
 			[
 				'is_registration_allowed'
-					=> Settings::get('users.is_registration_allowed'),
+				=> Settings::get('users.is_registration_allowed'),
 			]
 		);
 	}
