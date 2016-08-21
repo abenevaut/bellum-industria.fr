@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Foundation\Validation\ValidationException;
 use Illuminate\Database\Eloquent\Builder;
@@ -576,19 +577,20 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	 *
 	 * @return string
 	 */
-	public function redirectAfterAuthentication($uri = '/')
+	public function redirectAfterAuthentication(
+		Request $request,
+		User $user,
+		$uri = '/'
+	)
 	{
 		if (
-			Auth::check()
-			&& (
-				Auth::user()->hasRole(RolesRepositoryEloquent::ADMIN)
-				|| Auth::user()->hasPermission(PermissionsRepositoryEloquent::ACCESS_ADMIN_PANEL)
-			)
+			$user->hasRole(RolesRepositoryEloquent::ADMIN)
+			|| $user->hasPermission(PermissionsRepositoryEloquent::ACCESS_ADMIN_PANEL)
 		)
 		{
 			$uri = 'admin';
 		}
-		else if (Auth::check() && Auth::user()->hasRole(RolesRepositoryEloquent::USER))
+		else if ($user->hasRole(RolesRepositoryEloquent::USER))
 		{
 			$uri = $uri;
 		}
@@ -651,7 +653,13 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 		return $provider->redirect();
 	}
 
-	public function handleProviderCallbackForAuthentification(
+	/**
+	 * @param        $provider
+	 * @param string $redirect_uri
+	 *
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+	 */
+	public function handleProviderCallbackForAuthentificationWithRedirect(
 		$provider,
 		$redirect_uri = '/'
 	)
@@ -707,13 +715,59 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	 */
 	public function getRegisterFromProvider($provider)
 	{
-		return view(
+		return $this->htmlOutput->output(
 			'users.register',
 			[
 				'provider' => $provider,
 				'uri'      => '/register/' . $provider
 			]
 		);
+	}
+
+	/**
+	 * @param Request $request
+	 * @param         $provider
+	 * @param         $redirect_uri
+	 *
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+	 * @throws ValidationException
+	 */
+	public function postRegisterFromProviderWithRedirect(
+		Request $request,
+		$provider,
+		$redirect_uri
+	)
+	{
+		// xABE Todo : check if email already exists, then redirect to link account
+
+		$validator = $this->validateNewUser($request->all());
+
+		if ($validator->passes())
+		{
+			$user = $this->create($request->all());
+
+			$social_user = session()->get('register_from_social');
+
+			// xABE Todo : check token doesn't exist - no duplicate token
+
+			$this->r_social_tokens->create([
+				'provider' => $provider,
+				'token'    => $social_user['token'],
+				'user_id'  => $user->id
+			]);
+
+			Auth::guard($this->getGuard())->login($user);
+
+			session()->set('register_from_social', []);
+
+			session()->flash(
+				'message-success',
+				trans('auth.message_success_provider_register_and_loggedin')
+			);
+
+			return redirect($redirect_uri);
+		}
+		throw new ValidationException($validator);
 	}
 
 }
