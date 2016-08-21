@@ -290,8 +290,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 		$this->r_apikey->generate_api_key($user);
 
 		// Always attach client role
-		$this->r_roles
-			->attach_user_to_role($user, RolesRepositoryEloquent::USER);
+		$this->set_user_roles($user, RolesRepositoryEloquent::USER);
 
 		event(new NewUserCreatedEvent($user));
 
@@ -389,10 +388,10 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 			$environments_rows = $this->r_environments
 				->findWhereIn('reference', $environments_reference);
 
+			$user->environments()->detach();
+
 			$environments_rows
-				->each($env, function ($env) use (&$user)
-				{
-					$user->environments()->detach();
+				->each(function ($env) use (&$user) {
 					$user->environments()->attach($env->id);
 				});
 		}
@@ -413,7 +412,15 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 
 			// xABE Todo : add role(s) for selected environment(s)
 
-			$user->roles()->attach($roles);
+			$roles_rows = $this->r_roles
+				->findWhereIn('reference', $roles);
+
+			$user->environments()->detach();
+
+			$roles_rows
+				->each(function ($role) use (&$user) {
+					$user->roles()->attach($role->id);
+				});
 		}
 
 		return $user;
