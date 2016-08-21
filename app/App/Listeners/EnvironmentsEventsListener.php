@@ -39,11 +39,11 @@ class EnvironmentsEventsListener
 	{
 		$events->listen(
 			'cms\Domain\Environments\Environments\Events\EnvironmentCreatedEvent',
-			'cms\App\Listeners\EnvironmentEventsListener@environmentCreatedEvent'
+			'cms\App\Listeners\EnvironmentsEventsListener@environmentCreatedEvent'
 		);
 		$events->listen(
 			'cms\Domain\Environments\Environments\Events\EnvironmentDeletedEvent',
-			'cms\App\Listeners\EnvironmentEventsListener@environmentDeletedEvent'
+			'cms\App\Listeners\EnvironmentsEventsListener@environmentDeletedEvent'
 		);
 	}
 
