@@ -184,33 +184,6 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	}
 
 	/**
-	 * Count all user, based on active criterias.
-	 *
-	 * @param array $columns
-	 *
-	 * @return int
-	 */
-	public function count($columns = ['*'])
-	{
-		$this->applyCriteria();
-		$this->applyScope();
-
-		if ($this->model instanceof Builder)
-		{
-			$results = $this->model->get($columns)->count();
-		}
-		else
-		{
-			$results = $this->model->count($columns);
-		}
-
-		$this->resetModel();
-		$this->resetScope();
-
-		return $results;
-	}
-
-	/**
 	 * Filter users by name.
 	 *
 	 * @param string $name The user last name or user first name
@@ -299,9 +272,17 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	 */
 	public function create_user($first_name, $last_name, $email)
 	{
-		$user = parent::create_user($first_name, $last_name, $email);
+		$user = $this->create([
+			'first_name' => $first_name,
+			'last_name'  => $last_name,
+			'email'      => $email,
+		]);
 
 		$this->r_apikey->generate_api_key($user);
+
+		// Always attach client role
+		$this->r_roles
+			->attach_user_to_role($user, RolesRepositoryEloquent::USER);
 
 		event(new NewUserCreatedEvent($user));
 
@@ -321,7 +302,8 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	{
 		$user = $this->create_user($first_name, $last_name, $email);
 
-		$this->attach_user_to_role($user, RolesRepositoryEloquent::ADMIN);
+		$this->r_roles
+			->attach_user_to_role($user, RolesRepositoryEloquent::ADMIN);
 
 		event(new NewAdminCreatedEvent($user));
 
@@ -549,18 +531,15 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 
 		if ($validator->passes())
 		{
-			$user = $this->create([
-				'first_name' => $user_data['first_name'],
-				'last_name'  => $user_data['last_name'],
-				'email'      => $user_data['email'],
-				'password'   => bcrypt($user_data['password']),
-			]);
+			$user = $this->create_user(
+				$user_data['first_name'],
+				$user_data['last_name'],
+				$user_data['email']
+			);
+
+			$this->set_user_password($user->id, '', $user_data['password']);
 
 			$this->r_apikey->generate_api_key($user);
-
-			// Always attach client role
-			$role = $this->r_roles->role_exists(RolesRepositoryEloquent::USER);
-			$user->attachRole($role);
 
 			event(new NewUserRegisteredEvent($user));
 
@@ -579,7 +558,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	public function redirectAfterAuthentication(
 		Request $request,
 		User $user,
-		$uri = '/'
+		$redirect_uri = '/'
 	)
 	{
 		if (
@@ -587,20 +566,20 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 			|| $user->hasPermission(PermissionsRepositoryEloquent::ACCESS_ADMIN_PANEL)
 		)
 		{
-			$uri = 'admin';
+			$redirect_uri = 'admin';
 		}
 		else if ($user->hasRole(RolesRepositoryEloquent::USER))
 		{
-			$uri = $uri;
+			$redirect_uri = $redirect_uri;
 		}
 		else
 		{
 			// xABE Todo : An account non-linked to an env have to be activated
 			// xABE Todo : shared session between envs
-			$uri = $uri;
+			$redirect_uri = $redirect_uri;
 		}
 
-		return redirect()->intended($uri);
+		return redirect()->intended($redirect_uri);
 	}
 
 	/**
