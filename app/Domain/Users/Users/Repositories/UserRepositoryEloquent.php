@@ -19,7 +19,6 @@ use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
 use cms\Domain\Users\ApiKeys\Repositories\ApiKeyRepositoryEloquent;
 use cms\Domain\Users\SocialTokens\Repositories\SocialTokenRepositoryEloquent;
 use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
-
 //use Core\Criterias\OnlyTrashedCriteria;
 //use Core\Criterias\WithTrashedCriteria;
 use cms\Domain\Users\Users\Criterias\EmailLikeCriteria;
@@ -611,6 +610,20 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	{
 		return $this->htmlOutput->output(
 			'users.login',
+			[
+				'is_registration_allowed'
+				=> Settings::get('users.is_registration_allowed'),
+			]
+		);
+	}
+
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function getUserLoginBackEnd()
+	{
+		return $this->htmlOutput->output(
+			'users.admin.login',
 			[
 				'is_registration_allowed'
 					=> Settings::get('users.is_registration_allowed'),
