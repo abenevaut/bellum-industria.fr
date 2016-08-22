@@ -75,7 +75,7 @@
         "barryvdh/laravel-debugbar": "^2.2",
         "phoenix/eloquent-meta": "1.4.*",
         "maatwebsite/excel": "~2.1.0",
-        "cvepdb/laravel-addresses": "1.0.52.*",
+        "cvepdb/laravel-addresses": "1.0.52.10",
         "cvepdb/laravel-settings": "1.2.52.*",
         "cvepdb-cms/module-dashboard": "1.0.52.*",
         "cvepdb-cms/module-files": "1.0.52.*",

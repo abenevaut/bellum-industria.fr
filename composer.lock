@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0e715758ebe5d1ab680bb923ec8c17a9",
-    "content-hash": "6b27d85f8249c4847320cc3c6bfccf7f",
+    "hash": "159add5bf963ffe55d77e9458c53a731",
+    "content-hash": "f98e74bd208c6cf40797d8619e775125",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1674,21 +1674,21 @@
         },
         {
             "name": "cvepdb/laravel-addresses",
-            "version": "1.0.52.4",
+            "version": "1.0.52.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CavaENCOREparlerdebits/laravel-addresses.git",
-                "reference": "654e4649f74d55adc6f5c4d28597cab4287ff5cc"
+                "reference": "eb4723758349a0a1b6ad942668f4b0285bcbb696"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CavaENCOREparlerdebits/laravel-addresses/zipball/654e4649f74d55adc6f5c4d28597cab4287ff5cc",
-                "reference": "654e4649f74d55adc6f5c4d28597cab4287ff5cc",
+                "url": "https://api.github.com/repos/CavaENCOREparlerdebits/laravel-addresses/zipball/eb4723758349a0a1b6ad942668f4b0285bcbb696",
+                "reference": "eb4723758349a0a1b6ad942668f4b0285bcbb696",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "5.2.*",
-                "laravelcollective/html": "5.2",
+                "illuminate/support": "5.2.24",
+                "laravelcollective/html": "~5.0",
                 "php": ">=5.5.9"
             },
             "type": "library",
@@ -1722,7 +1722,7 @@
                 "addresses",
                 "laravel"
             ],
-            "time": "2016-04-12 12:31:22"
+            "time": "2016-05-02 11:05:43"
         },
         {
             "name": "cvepdb/laravel-settings",
@@ -3232,16 +3232,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "5.2.x-dev",
+            "version": "v5.2.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "5daae73332284f7b5e30a70401f5955459cd1dcf"
+                "reference": "396297a5fd3c70c2fc1af68f09ee574a2380175c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/5daae73332284f7b5e30a70401f5955459cd1dcf",
-                "reference": "5daae73332284f7b5e30a70401f5955459cd1dcf",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/396297a5fd3c70c2fc1af68f09ee574a2380175c",
+                "reference": "396297a5fd3c70c2fc1af68f09ee574a2380175c",
                 "shasum": ""
             },
             "require": {
@@ -3298,12 +3298,11 @@
                 "illuminate/support": "self.version",
                 "illuminate/translation": "self.version",
                 "illuminate/validation": "self.version",
-                "illuminate/view": "self.version",
-                "tightenco/collect": "self.version"
+                "illuminate/view": "self.version"
             },
             "require-dev": {
                 "aws/aws-sdk-php": "~3.0",
-                "mockery/mockery": "~0.9.4",
+                "mockery/mockery": "~0.9.2",
                 "pda/pheanstalk": "~3.0",
                 "phpunit/phpunit": "~4.1",
                 "predis/predis": "~1.0",
@@ -3321,8 +3320,7 @@
                 "predis/predis": "Required to use the redis cache and queue drivers (~1.0).",
                 "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (~2.0).",
                 "symfony/css-selector": "Required to use some of the crawler integration testing tools (2.8.*|3.0.*).",
-                "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (2.8.*|3.0.*).",
-                "symfony/psr-http-message-bridge": "Required to use psr7 bridging features (0.2.*)."
+                "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (2.8.*|3.0.*)."
             },
             "type": "library",
             "extra": {
@@ -3358,7 +3356,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-08-22 08:07:15"
+            "time": "2016-03-22 13:45:19"
         },
         {
             "name": "laravel/socialite",
@@ -3416,16 +3414,16 @@
         },
         {
             "name": "laravelcollective/html",
-            "version": "v5.2",
+            "version": "5.2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "5a8f1380a0d5ef21cdef37e775d86566307f8358"
+                "reference": "abec449ed8208b0b335cfc5b0f1237134477e27f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/5a8f1380a0d5ef21cdef37e775d86566307f8358",
-                "reference": "5a8f1380a0d5ef21cdef37e775d86566307f8358",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/abec449ed8208b0b335cfc5b0f1237134477e27f",
+                "reference": "abec449ed8208b0b335cfc5b0f1237134477e27f",
                 "shasum": ""
             },
             "require": {
@@ -3466,7 +3464,7 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
-            "time": "2015-12-23 07:46:46"
+            "time": "2016-07-12 14:16:43"
         },
         {
             "name": "league/flysystem",
@@ -10318,16 +10316,16 @@
         },
         {
             "name": "react/stream",
-            "version": "v0.4.3",
+            "version": "v0.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/stream.git",
-                "reference": "305b2328d2a2e157bc13b61a0f5c6e41b666b188"
+                "reference": "fcc9e7cea126962cff303c90c05e2efdcec09a27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/stream/zipball/305b2328d2a2e157bc13b61a0f5c6e41b666b188",
-                "reference": "305b2328d2a2e157bc13b61a0f5c6e41b666b188",
+                "url": "https://api.github.com/repos/reactphp/stream/zipball/fcc9e7cea126962cff303c90c05e2efdcec09a27",
+                "reference": "fcc9e7cea126962cff303c90c05e2efdcec09a27",
                 "shasum": ""
             },
             "require": {
@@ -10335,6 +10333,7 @@
                 "php": ">=5.3.8"
             },
             "require-dev": {
+                "clue/stream-filter": "~1.2",
                 "react/event-loop": "^0.4|^0.3",
                 "react/promise": "^2.0|^1.0"
             },
@@ -10343,11 +10342,6 @@
                 "react/promise": "^2.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.5-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "React\\Stream\\": "src"
@@ -10362,7 +10356,7 @@
                 "pipe",
                 "stream"
             ],
-            "time": "2015-10-07 18:32:58"
+            "time": "2016-08-22 09:51:07"
         },
         {
             "name": "redcomponent/teststatistics",
@@ -11253,12 +11247,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "5d4f4ff02a3a5b24a7c81bb7e22f2e57c7526ee2"
+                "reference": "f79ccae79973eaa7aac683dab8553f878129f959"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/5d4f4ff02a3a5b24a7c81bb7e22f2e57c7526ee2",
-                "reference": "5d4f4ff02a3a5b24a7c81bb7e22f2e57c7526ee2",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/f79ccae79973eaa7aac683dab8553f878129f959",
+                "reference": "f79ccae79973eaa7aac683dab8553f878129f959",
                 "shasum": ""
             },
             "require": {
@@ -11308,7 +11302,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-08-16 16:09:30"
+            "time": "2016-08-22 12:11:39"
         },
         {
             "name": "symfony/dom-crawler",

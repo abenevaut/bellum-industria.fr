@@ -176,7 +176,7 @@ return [
 		 * Packages Service Providers...
 		 */
 
-		//Zizaco\Entrust\EntrustServiceProvider::class,
+//		Zizaco\Entrust\EntrustServiceProvider::class,
 		Prettus\Repository\Providers\RepositoryServiceProvider::class,
 		Barryvdh\Debugbar\ServiceProvider::class,
 		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
