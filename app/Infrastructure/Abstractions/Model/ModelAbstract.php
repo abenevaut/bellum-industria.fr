@@ -1,17 +1,16 @@
-<?php
+<?php namespace cms\Infrastructure\Abstractions\Model;
 
-namespace panacea\Infrastructure\Contracts\Model;
-
-use Prettus\Repository\Contracts\Transformable;
-use Prettus\Repository\Traits\TransformableTrait;
+use Illuminate\Database\Eloquent\Model as IlluminateModel;
+use Prettus\Repository\Contracts\Transformable as PrettusTransformable;
+use Prettus\Repository\Traits\TransformableTrait as PrettusTransformableTrait;
 
 /**
  * Class ModelAbstract
- * @package panacea\Infrastructure\Contracts\Model
+ * @package cms\Infrastructure\Abstractions\Model
  */
-abstract class ModelAbstract implements Transformable
+abstract class ModelAbstract extends IlluminateModel implements PrettusTransformable
 {
 
-	use TransformableTrait;
+	use PrettusTransformableTrait;
 
 }

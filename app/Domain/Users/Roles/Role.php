@@ -2,14 +2,14 @@
 
 use Phoenix\EloquentMeta\MetaTrait;
 use cms\App\Facades\Environments;
-use cms\Infrastructure\Abstractions\ModelAbstract;
+use cms\Infrastructure\Contracts\Model\RoleModelAbstract;
 use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
 
 /**
  * Class Role
  * @package cms\Domain\Users\Roles
  */
-class Role extends ModelAbstract
+class Role extends RoleModelAbstract
 {
 
 	use MetaTrait;

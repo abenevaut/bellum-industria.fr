@@ -1,18 +1,15 @@
 <?php namespace cms\Infrastructure\Abstractions\Model;
 
-use Illuminate\Database\Eloquent\Model as IlluminateModel;
-use Prettus\Repository\Contracts\Transformable as PrettusTransformable;
-use Prettus\Repository\Traits\TransformableTrait as PrettusTransformableTrait;
+use cms\Infrastructure\Abstractions\Model\ModelAbstract;
 use cms\Domain\Logs\Logs\Traits\LogTrait;
 
 /**
  * Class LogModelAbstract
- * @package cms\Infrastructure\Abstractions
+ * @package cms\Infrastructure\Abstractions\Model
  */
-abstract class LogModelAbstract extends IlluminateModel implements PrettusTransformable
+abstract class LogModelAbstract extends ModelAbstract
 {
 
-	use PrettusTransformableTrait;
 	use LogTrait;
 
 }

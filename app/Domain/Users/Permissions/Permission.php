@@ -1,13 +1,13 @@
 <?php namespace cms\Domain\Users\Permissions;
 
-use cms\Infrastructure\Abstractions\ModelAbstract;
+use cms\Infrastructure\Contracts\Model\PermissionModelAbstract;
 use Phoenix\EloquentMeta\MetaTrait;
 
 /**
  * Class Permission
  * @package cms\Domain\Users\Permissions
  */
-class Permission extends ModelAbstract
+class Permission extends PermissionModelAbstract
 {
 
 	use MetaTrait;
