@@ -1,7 +1,5 @@
 <?php namespace cms\Domain\Users\Users;
 
-use Illuminate\Foundation\Auth\Access\Authorizable;
-use Zizaco\Entrust\Traits\EntrustUserTrait;
 use cms\Infrastructure\Abstractions\Model\LogAuthenticatableModelAbstract;
 use cms\App\Facades\Environments;
 use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
@@ -14,12 +12,6 @@ class User extends LogAuthenticatableModelAbstract
 {
 
 	use EnvironmentTrait;
-	use EntrustUserTrait;
-
-	use Authorizable {
-		EntrustUserTrait::can insteadof Authorizable;
-		Authorizable::can as authCan;
-	}
 
 	/**
 	 * The attributes that are mass assignable.
