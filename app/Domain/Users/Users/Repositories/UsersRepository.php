@@ -3,10 +3,10 @@
 use cms\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 
 /**
- * Interface UserRepository
+ * Interface UsersRepository
  * @package cms\Domain\Users\Users\Repositories
  */
-interface UserRepository extends RepositoryInterface
+interface UsersRepository extends RepositoryInterface
 {
 	
 }

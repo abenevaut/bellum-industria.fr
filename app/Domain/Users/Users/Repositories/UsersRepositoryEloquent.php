@@ -3,24 +3,15 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
-use Illuminate\Auth\Events\Login;
-use Illuminate\Foundation\Validation\ValidationException;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Container\Container as Application;
-use Laravel\Socialite\Facades\Socialite;
-use CVEPDB\Settings\Facades\Settings;
 use CVEPDB\Addresses\AddressesFacade;
-use cms\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
-use cms\App\Services\Views\HtmlViews;
+use cms\Domain\Users\Users\Repositories\UsersRepository;
 use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
 use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
 use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
 use cms\Domain\Users\ApiKeys\Repositories\ApiKeyRepositoryEloquent;
 use cms\Domain\Users\SocialTokens\Repositories\SocialTokenRepositoryEloquent;
-
 //use Core\Criterias\OnlyTrashedCriteria;
 //use Core\Criterias\WithTrashedCriteria;
 use cms\Domain\Users\Users\Criterias\EmailLikeCriteria;
@@ -32,14 +23,13 @@ use cms\Domain\Users\Users\Events\UserUpdatedEvent;
 use cms\Domain\Users\Users\Events\UserDeletedEvent;
 use cms\Domain\Users\Users\Events\NewUserCreatedEvent;
 use cms\Domain\Users\Users\Events\NewAdminCreatedEvent;
-use cms\Domain\Users\Users\Events\NewUserRegisteredEvent;
 use cms\Domain\Users\Users\User;
 
 /**
- * Class UserRepositoryEloquent
+ * Class UsersRepositoryEloquent
  * @package cms\Domain\Users\Users\Repositories
  */
-class UserRepositoryEloquent extends RepositoryEloquentAbstract implements RepositoryInterface
+class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements UsersRepository
 {
 
 	public $fields = [
@@ -49,11 +39,6 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 		'users.email',
 		'users.deleted_at'
 	];
-
-	/**
-	 * @var HtmlViews|null
-	 */
-	protected $htmlOutput = null;
 
 	/**
 	 * @var EnvironmentsRepositoryEloquent|null
@@ -89,7 +74,6 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	 */
 	public function __construct(
 		Application $app,
-		HtmlViews $htmlOutput,
 		EnvironmentsRepositoryEloquent $r_environments,
 		RolesRepositoryEloquent $r_roles,
 		PermissionsRepositoryEloquent $r_permissions,
@@ -98,9 +82,6 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	)
 	{
 		parent::__construct($app);
-
-		$this->htmlOutput = $htmlOutput;
-		$this->htmlOutput->setCurrentModule('users::');
 
 		$this->r_environments = $r_environments;
 		$this->r_roles = $r_roles;
@@ -521,275 +502,6 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 				$message->subject(trans('passwords.mail_reset_password_title'));
 			}
 		);
-	}
-
-	/**
-	 * Validate a new user.
-	 *
-	 * @param array $user_data The new user information
-	 *
-	 * @return \Illuminate\Validation\Validator
-	 */
-	public function validateNewUser($user_data = [])
-	{
-		return Validator::make(
-			$user_data,
-			[
-				'last_name'  => 'required|max:50',
-				'first_name' => 'required|max:50',
-				'email'      => 'required|email|max:255|unique:users',
-				'password'   => 'required|confirmed|min:6',
-			]
-		);
-	}
-
-	/**
-	 * Create a new user.
-	 *
-	 * @param array $user_data
-	 *
-	 * @return User
-	 * @throws ValidationException
-	 */
-	public function registerNewUserWithRedirection(
-		$user_data = [],
-		$guard = null,
-		$redirect_uri = '/'
-	)
-	{
-		$validator = $this->validateNewUser($user_data);
-
-		if ($validator->passes())
-		{
-			$user = $this->create_user(
-				$user_data['first_name'],
-				$user_data['last_name'],
-				$user_data['email']
-			);
-
-			$this->set_user_password($user->id, '', $user_data['password']);
-
-			$this->r_apikey->generate_api_key($user);
-
-			event(new NewUserRegisteredEvent($user));
-
-			Auth::guard($guard)->login($user);
-
-			return redirect($redirect_uri);
-		}
-		throw new ValidationException($validator);
-	}
-
-	/**
-	 * @param string $uri
-	 *
-	 * @return string
-	 */
-	public function redirectAfterAuthentication(
-		Request $request,
-		User $user,
-		$redirect_uri = '/'
-	)
-	{
-		if (
-			$user->hasRole(RolesRepositoryEloquent::ADMIN)
-			|| $user->hasPermission(PermissionsRepositoryEloquent::ACCESS_ADMIN_PANEL)
-		)
-		{
-			$redirect_uri = 'admin';
-		}
-		else if ($user->hasRole(RolesRepositoryEloquent::USER))
-		{
-			$redirect_uri = $redirect_uri;
-		}
-		else
-		{
-			// xABE Todo : An account non-linked to an env have to be activated
-			// xABE Todo : shared session between envs
-			$redirect_uri = $redirect_uri;
-		}
-
-		return redirect()->intended($redirect_uri);
-	}
-
-	/**
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-	 */
-	public function getUserLoginFrontEnd()
-	{
-		return $this->htmlOutput->output(
-			'users.login',
-			[
-				'is_registration_allowed'
-				=> Settings::get('users.is_registration_allowed'),
-			]
-		);
-	}
-
-	/**
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-	 */
-	public function getUserLoginBackEnd()
-	{
-		return $this->htmlOutput->output(
-			'users.admin.login',
-			[
-				'is_registration_allowed'
-				=> Settings::get('users.is_registration_allowed'),
-			]
-		);
-	}
-
-	/**
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-	 */
-	public function getUserRegistrationFrontEnd()
-	{
-		return $this->htmlOutput->output(
-			'users.register',
-			[
-				'is_registration_allowed'
-				=> Settings::get('users.is_registration_allowed'),
-			]
-		);
-	}
-
-	/**
-	 * @param $provider
-	 *
-	 * @return mixed
-	 */
-	public function redirectToProviderForAuthentification($provider)
-	{
-		$provider = Socialite::driver($provider);
-
-		// linkedin
-		// $provider->scopes(['r_basicprofile', 'r_emailaddress', 'w_share']);
-
-		// facebook
-		// $provider->scopes(['public_profile', 'email', 'publish_actions'])
-
-		// twitter
-		// $provider->scopes([])
-
-		return $provider->redirect();
-	}
-
-	/**
-	 * @param        $provider
-	 * @param string $redirect_uri
-	 *
-	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-	 */
-	public function handleProviderCallbackForAuthentificationWithRedirect(
-		$provider,
-		$redirect_uri = '/'
-	)
-	{
-		$social_user = Socialite::driver($provider)->user();
-
-		$social_token = $this->r_social_tokens->findByField(
-			'token',
-			$social_user->token
-		)->first();
-
-		if (!is_null($social_token))
-		{
-			$user = $this->find($social_token->user_id);
-
-			Auth::login($user);
-
-			event(new Login($user, TRUE));
-		}
-		else
-		{
-			if (Auth::check())
-			{
-				$this->r_social_tokens->create([
-					'provider' => $provider,
-					'token'    => $social_user->token,
-					'user_id'  => Auth::user()->id
-				]);
-
-				session()->flash('message-success', trans('auth.message_success_provider_linked'));
-			}
-			else if (Settings::get('users.is_registration_allowed'))
-			{
-				session()->set('register_from_social', [
-					'token' => $social_user->token
-				]);
-
-				return redirect('register/' . $provider);
-			}
-			else
-			{
-				session()->flash('message-warning', trans('auth.message_warning_registration_not_allowed'));
-			}
-		}
-
-		return redirect($redirect_uri);
-	}
-
-	/**
-	 * @param $provider
-	 *
-	 * @return mixed
-	 */
-	public function getRegisterFromProvider($provider)
-	{
-		return $this->htmlOutput->output(
-			'users.register',
-			[
-				'provider' => $provider,
-				'uri'      => '/register/' . $provider
-			]
-		);
-	}
-
-	/**
-	 * @param Request $request
-	 * @param         $provider
-	 * @param         $redirect_uri
-	 *
-	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-	 * @throws ValidationException
-	 */
-	public function postRegisterFromProviderWithRedirect(
-		Request $request,
-		$provider,
-		$redirect_uri
-	)
-	{
-		// xABE Todo : check if email already exists, then redirect to link account
-
-		$validator = $this->validateNewUser($request->all());
-
-		if ($validator->passes())
-		{
-			$user = $this->create($request->all());
-
-			$social_user = session()->get('register_from_social');
-
-			// xABE Todo : check token doesn't exist - no duplicate token
-
-			$this->r_social_tokens->create([
-				'provider' => $provider,
-				'token'    => $social_user['token'],
-				'user_id'  => $user->id
-			]);
-
-			Auth::guard($this->getGuard())->login($user);
-
-			session()->set('register_from_social', []);
-
-			session()->flash(
-				'message-success',
-				trans('auth.message_success_provider_register_and_loggedin')
-			);
-
-			return redirect($redirect_uri);
-		}
-		throw new ValidationException($validator);
 	}
 
 }
