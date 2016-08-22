@@ -290,7 +290,9 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 		$this->r_apikey->generate_api_key($user);
 
 		// Always attach client role
-		$this->set_user_roles($user, RolesRepositoryEloquent::USER);
+		$this->set_user_roles($user, [
+			RolesRepositoryEloquent::USER
+		]);
 
 		event(new NewUserCreatedEvent($user));
 
@@ -310,8 +312,10 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	{
 		$user = $this->create_user($first_name, $last_name, $email);
 
-		$this->r_roles
-			->attach_user_to_role($user, RolesRepositoryEloquent::ADMIN);
+		$this->set_user_roles($user, [
+			RolesRepositoryEloquent::USER,
+			RolesRepositoryEloquent::ADMIN
+		]);
 
 		event(new NewAdminCreatedEvent($user));
 
@@ -391,7 +395,8 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 			$user->environments()->detach();
 
 			$environments_rows
-				->each(function ($env) use (&$user) {
+				->each(function ($env) use (&$user)
+				{
 					$user->environments()->attach($env->id);
 				});
 		}
@@ -413,12 +418,13 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 			// xABE Todo : add role(s) for selected environment(s)
 
 			$roles_rows = $this->r_roles
-				->findWhereIn('reference', $roles);
+				->findWhereIn('name', $roles);
 
-			$user->environments()->detach();
+			$user->roles()->detach();
 
 			$roles_rows
-				->each(function ($role) use (&$user) {
+				->each(function ($role) use (&$user)
+				{
 					$user->roles()->attach($role->id);
 				});
 		}
@@ -468,15 +474,16 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 	 * @param integer $user_id The user ID
 	 * @param string  $old_password
 	 * @param string  $new_password
+	 * @param bool    $force
 	 *
 	 * @event cms\Domain\Users\Users\Events\UserUpdatedEvent
 	 * @return bool
 	 */
-	public function set_user_password($user_id, $old_password, $new_password)
+	public function set_user_password($user_id, $old_password, $new_password, $force = FALSE)
 	{
 		$user = $this->find($user_id);
 
-		if (Hash::check($old_password, $user->password))
+		if (Hash::check($old_password, $user->password) || $force)
 		{
 			$data = [
 				'password' => Hash::make($new_password)
@@ -486,10 +493,10 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 
 			event(new UserUpdatedEvent($user));
 
-			return true;
+			return TRUE;
 		}
 
-		return false;
+		return FALSE;
 	}
 
 	/**
@@ -692,7 +699,7 @@ class UserRepositoryEloquent extends RepositoryEloquentAbstract implements Repos
 
 			Auth::login($user);
 
-			event(new Login($user, true));
+			event(new Login($user, TRUE));
 		}
 		else
 		{

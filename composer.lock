@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ccaa00f4dd817a2156dfc495ba2f1262",
+    "hash": "0e715758ebe5d1ab680bb923ec8c17a9",
     "content-hash": "6b27d85f8249c4847320cc3c6bfccf7f",
     "packages": [
         {
@@ -3236,12 +3236,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f6fe8b2492ede0b882607cabc1af40e5765ef133"
+                "reference": "5daae73332284f7b5e30a70401f5955459cd1dcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f6fe8b2492ede0b882607cabc1af40e5765ef133",
-                "reference": "f6fe8b2492ede0b882607cabc1af40e5765ef133",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5daae73332284f7b5e30a70401f5955459cd1dcf",
+                "reference": "5daae73332284f7b5e30a70401f5955459cd1dcf",
                 "shasum": ""
             },
             "require": {
@@ -3358,7 +3358,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-08-19 15:52:19"
+            "time": "2016-08-22 08:07:15"
         },
         {
             "name": "laravel/socialite",
@@ -6385,12 +6385,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "304ad3fedda3a8cd2feed5e11760bdbc556a4e41"
+                "reference": "571d1136b0182cda4911b42b880c13db9b3a85ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/304ad3fedda3a8cd2feed5e11760bdbc556a4e41",
-                "reference": "304ad3fedda3a8cd2feed5e11760bdbc556a4e41",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/571d1136b0182cda4911b42b880c13db9b3a85ad",
+                "reference": "571d1136b0182cda4911b42b880c13db9b3a85ad",
                 "shasum": ""
             },
             "require": {
@@ -6435,7 +6435,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-08-21 12:02:33"
+            "time": "2016-08-22 01:41:24"
         },
         {
             "name": "swiftmailer/swiftmailer",
