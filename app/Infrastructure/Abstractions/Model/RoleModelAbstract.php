@@ -1,4 +1,4 @@
-<?php namespace cms\Infrastructure\Contracts\Model;
+<?php namespace cms\Infrastructure\Abstractions\Model;
 
 use Zizaco\Entrust\EntrustRole;
 

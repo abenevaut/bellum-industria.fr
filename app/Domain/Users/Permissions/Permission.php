@@ -1,6 +1,6 @@
 <?php namespace cms\Domain\Users\Permissions;
 
-use cms\Infrastructure\Contracts\Model\PermissionModelAbstract;
+use cms\Infrastructure\Abstractions\Model\PermissionModelAbstract;
 use Phoenix\EloquentMeta\MetaTrait;
 
 /**

@@ -2,7 +2,7 @@
 
 use Phoenix\EloquentMeta\MetaTrait;
 use cms\App\Facades\Environments;
-use cms\Infrastructure\Contracts\Model\RoleModelAbstract;
+use cms\Infrastructure\Abstractions\Model\RoleModelAbstract;
 use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
 
 /**
