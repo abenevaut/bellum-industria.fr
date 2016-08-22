@@ -23,7 +23,7 @@ return [
 
 	'user' => array(
 		// user model class
-		'model'   => 'Core\Domain\Users\Entities\User',
+		'model'   => 'cms\Domain\Users\Users\User',
 		// Function to fetch currently logged in user. Any valid $callback to call_user_func works here
 		'current' => '\Auth::user',
 	),

@@ -1,5 +1,8 @@
 <?php namespace cms\Domain\Users\Users;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
+use CVEPDB\Addresses\Addressable;
 use cms\Infrastructure\Abstractions\Model\LogAuthenticatableModelAbstract;
 use cms\App\Facades\Environments;
 use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
@@ -11,7 +14,14 @@ use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
 class User extends LogAuthenticatableModelAbstract
 {
 
+	use Addressable;
+	use EntrustUserTrait;
 	use EnvironmentTrait;
+
+	use SoftDeletes {
+		SoftDeletes::restore insteadof EntrustUserTrait;
+		EntrustUserTrait::restore as restoreEntrustUserTrait;
+	}
 
 	/**
 	 * The attributes that are mass assignable.

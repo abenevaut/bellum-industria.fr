@@ -96,7 +96,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'UserImpersonate'               => \Modules\Users\Http\Middleware\UserImpersonate::class,
+        'UserImpersonate'               => \cms\Modules\Users\Http\Middleware\UserImpersonate::class,
         'auth'                          => \cms\Http\Middleware\Authenticate::class,
         'auth.basic'                    => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest'                         => \cms\Http\Middleware\RedirectIfAuthenticated::class,

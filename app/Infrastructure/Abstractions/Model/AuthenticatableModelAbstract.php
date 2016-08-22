@@ -17,8 +17,8 @@ abstract class AuthenticatableModelAbstract extends Authenticatable implements T
 	use EntrustUserTrait;
 
 	use Authorizable {
-		Authorizable::can insteadof EntrustUserTrait;
-		EntrustUserTrait::can as hasPermission;
+		EntrustUserTrait::can insteadof Authorizable;
+		Authorizable::can as hasPermission;
 	}
 
 }
