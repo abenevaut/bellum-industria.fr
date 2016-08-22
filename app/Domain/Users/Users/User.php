@@ -56,6 +56,16 @@ class User extends LogAuthenticatableModelAbstract
 	}
 
 	/**
+	 * Full name mutator.
+	 *
+	 * @return string
+	 */
+	public function getFullNameAttribute()
+	{
+		return ucfirst(strtolower($this->first_name)) . " " . ucfirst(strtolower($this->last_name));
+	}
+
+	/**
 	 * The apikey that belong to the user.
 	 */
 	public function apikey()

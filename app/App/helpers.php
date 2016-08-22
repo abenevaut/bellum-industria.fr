@@ -189,3 +189,17 @@ if (!function_exists('cmsuser_is_admin'))
 		);
 	}
 }
+
+if (! function_exists('settings')) {
+	/**
+	 * Get / set the specified configuration value.
+	 *
+	 * @param  string  $key
+	 * @param  mixed  $default
+	 * @return mixed
+	 */
+	function settings($key, $default = null)
+	{
+		return \CVEPDB\Settings\Facades\Settings::get($key, $default);
+	}
+}
