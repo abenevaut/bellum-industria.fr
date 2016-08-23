@@ -18,7 +18,10 @@
             "cms\\Modules\\": "modules/"
         },
         "files": [
-            "app/App/helpers.php"
+            "app/App/Services/AdminLteNavigationsHelpers.php",
+            "app/App/Services/AdminLtePaginationsHelpers.php",
+            "app/App/Services/MCryptHelpers.php",
+            "app/App/Services/helpers.php"
         ]
     },
     "autoload-dev": {

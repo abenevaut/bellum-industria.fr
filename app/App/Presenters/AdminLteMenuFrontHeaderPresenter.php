@@ -1,4 +1,4 @@
-<?php namespace cms\App\Services;
+<?php namespace cms\App\Presenters;
 
 use cms\Infrastructure\Abstractions\Presenters\NavigationPresenterAbstract;
 

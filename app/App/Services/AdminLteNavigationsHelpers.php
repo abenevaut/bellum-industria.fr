@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Pingpong\Menus\MenuFacade;
-use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
 
 if (!function_exists('adminlte_menu_header'))
 {
@@ -32,7 +30,7 @@ if (!function_exists('adminlte_menu_header'))
 
 		return MenuFacade::render(
 			'header_navigation',
-			'\panacea\App\Services\AdminLteMenuAppHeaderPresenter'
+			'\cms\App\Presenters\AdminLteMenuAppHeaderPresenter'
 		);
 	}
 }
@@ -65,7 +63,7 @@ if (!function_exists('adminlte_menu_front_mobile'))
 
 		return MenuFacade::render(
 			'header_navigation_mobile',
-			'\panacea\App\Services\AdminLteMenuFrontHeaderPresenter'
+			'\cms\App\Presenters\AdminLteMenuFrontHeaderPresenter'
 		);
 	}
 }
@@ -85,14 +83,14 @@ if (!function_exists('adminlte_menu_sidebar'))
 			{
 
 
-					$menu->route(
-						'catalog.customersrequests.my_requests.index',
-						trans('navigation.customersrequests'),
-						[],
-						[
-							'icon' => 'fa fa-folder-open'
-						]
-					);
+				$menu->route(
+					'home',
+					trans('navigation.home'),
+					[],
+					[
+						'icon' => 'fa fa-dashboard'
+					]
+				);
 
 
 			}
@@ -100,7 +98,7 @@ if (!function_exists('adminlte_menu_sidebar'))
 
 		return MenuFacade::render(
 			'sidebar_navigation',
-			'\panacea\App\Services\AdminLteMenuAppSidebarPresenter'
+			'\cms\App\Presenters\AdminLteMenuAppSidebarPresenter'
 		);
 	}
 }
