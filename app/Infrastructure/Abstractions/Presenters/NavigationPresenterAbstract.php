@@ -93,37 +93,4 @@ abstract class NavigationPresenterAbstract  extends Presenter
 		return PHP_EOL;
 	}
 
-	/**
-	 * Get child menu items.
-	 *
-	 * @param \Pingpong\Menus\MenuItem $item
-	 *
-	 * @return string
-	 */
-	public function getChildMenuItems(MenuItem $item)
-	{
-		return  $item->getChilds()
-			->each(function ($child, $key) {
-
-				if (!$child->hidden())
-				{
-					if ($child->hasSubMenu())
-					{
-						return $this->getMultiLevelDropdownWrapper($child);
-					}
-					elseif ($child->isHeader())
-					{
-						return  $this->getHeaderWrapper($child);
-					}
-					elseif ($child->isDivider())
-					{
-						return  $this->getDividerWrapper();
-					}
-
-					return  $this->getMenuWithoutDropdownWrapper($child);
-				}
-
-				return null;
-			});
-	}
 }
