@@ -18,6 +18,20 @@ class RolesRepositoryEloquent extends RepositoryEloquentAbstract
 	const ADMIN = 'admin';
 	const USER = 'user';
 
+	/**
+	 * @var array
+	 */
+	static private $list = [
+		self::ADMIN => [
+			'display_name' => 'admin:display_name',
+			'description'  => 'admin:description',
+		],
+		self::USER  => [
+			'display_name' => 'user:display_name',
+			'description'  => 'user:description',
+		],
+	];
+
 	public $fields = [
 		'roles.id',
 		'roles.name',
@@ -89,6 +103,53 @@ class RolesRepositoryEloquent extends RepositoryEloquentAbstract
 	}
 
 	/**
+	 * Check if role exists and control that role exists in DB.
+	 *
+	 * @param $role_name
+	 *
+	 * @return Role
+	 * @throws \Exception
+	 */
+	public function role_exists($role_name)
+	{
+		$role = Role::where('name', $role_name)->first();
+
+		if (is_null($role) && array_key_exists($role_name, self::$list))
+		{
+			$role = new Role();
+			$role->name = $role_name;
+			$role->display_name = self::$list[$role_name]['display_name']; // optional
+			$role->description = self::$list[$role_name]['description']; // optional
+			$role->save();
+		}
+
+		if (is_null($role))
+		{
+			throw new \Exception(
+				'RoleRepository::role_exists | role : ' . $role_name . ' not exists and could not be created'
+			);
+		}
+
+		return $role;
+	}
+
+	/**
+	 * @param array $roles
+	 *
+	 * @return int
+	 */
+	public function count_users_by_roles($roles = [])
+	{
+		$count = 0;
+		foreach ($this->findWhereIn('name', $roles) as $role)
+		{
+			$count += $role->users()->count();
+		}
+
+		return $count;
+	}
+
+	/**
 	 * @param integer $id
 	 */
 	public function findAndDelete($id)
@@ -122,7 +183,7 @@ class RolesRepositoryEloquent extends RepositoryEloquentAbstract
 	 * Set permissions for the current role.
 	 *
 	 * @param \cms\Domain\Users\Roles\Role $role
-	 * @param array                            $permissions
+	 * @param array                        $permissions
 	 */
 	public function set_role_permissions(Role $role, array $permissions = [])
 	{
@@ -139,7 +200,7 @@ class RolesRepositoryEloquent extends RepositoryEloquentAbstract
 	 * If no environment is set, we set the current env as default.
 	 *
 	 * @param \cms\Domain\Users\Roles\Role $role
-	 * @param array                            $environments
+	 * @param array                        $environments
 	 */
 	public function set_role_environments(Role $role, array $environments = [])
 	{

@@ -1,13 +1,13 @@
 <?php namespace cms\Domain\Users\Users\Criterias;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
-use Core\Criterias\Criteria as AbsCriteria;
+use cms\Infrastructure\Abstractions\Criterias\CriteriaAbstract;
 
 /**
  * Class RolesCriteria
- * @package Modules\Users\Criterias
+ * @package cms\Domain\Users\Users\Criterias
  */
-class RolesCriteria extends AbsCriteria
+class RolesCriteria extends CriteriaAbstract
 {
 
 	/**

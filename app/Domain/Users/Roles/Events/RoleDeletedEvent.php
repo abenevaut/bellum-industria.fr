@@ -1,14 +1,14 @@
-<?php namespace cms\Core\Domain\Users\Roles\Events;
+<?php namespace cms\Domain\Users\Roles\Events;
 
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Core\Events\Event;
+use cms\Infrastructure\Abstractions\Events\EventAbstract;
 
 /**
  * Class RoleDeletedEvent
- * @package Core\Domain\Roles\Events
+ * @package cms\Domain\Users\Roles\Events
  */
-class RoleDeletedEvent extends Event
+class RoleDeletedEvent extends EventAbstract
 {
 
 	use SerializesModels;
