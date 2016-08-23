@@ -12,7 +12,7 @@ if (!function_exists('adminlte_pagination'))
 	function adminlte_pagination($nb_rows, $total_row, $current_page, $per_page = 15)
 	{
 		return with(
-			new \cms\App\Services\AdminLtePaginationPresenter(
+			new \cms\App\Presenters\AdminLtePaginationPresenter(
 				new \Illuminate\Pagination\LengthAwarePaginator(
 					$nb_rows,
 					$total_row,

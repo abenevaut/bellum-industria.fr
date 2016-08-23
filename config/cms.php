@@ -3,12 +3,12 @@
 return [
 	'version'    => '0.1.0',
 	'site'       => [
-		'name'        => env('CMS_SITE_NAME'),
-		'description' => env('CMS_SITE_DESCRIPTION'),
+		'name'        => env('APP_SITE_NAME'),
+		'description' => env('APP_SITE_DESCRIPTION'),
 	],
 	'uri'        => [
-		'backend'   => env('CMS_URI_BACKEND', 'admin'),
-		'installer' => env('CMS_URI_INSTALLER', 'installer'),
+		'backend'   => env('APP_URI_BACKEND', 'backend'),
+		'installer' => env('APP_URI_INSTALLER', 'installer'),
 	],
 	'languages' => [
 		'fr',

@@ -45,11 +45,19 @@ class SettingsRepository
 		SettingsFacade::forget($key);
 	}
 
+	/**
+	 * @return mixed
+	 */
 	public function index()
 	{
 		return view('core.admin.settings.index', ['settings' => $this]);
 	}
 
+	/**
+	 * @param FormRequestAbstract $request
+	 *
+	 * @return mixed
+	 */
 	public function store(FormRequestAbstract $request)
 	{
 		$posts = $request->all();
@@ -58,7 +66,11 @@ class SettingsRepository
 		foreach ($posts as $key => $value)
 		{
 			$setting_key = $this->get($key);
-			$this->set($setting_key, $value);
+
+			if (!empty($value))
+			{
+				$this->set($setting_key, $value);
+			}
 		}
 
 		return redirect('admin/settings');

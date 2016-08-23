@@ -149,7 +149,7 @@ if (!function_exists('adminlte_menu_sidebar'))
 				if (cmsuser_can_see_env())
 				{
 					$menu->route(
-						'admin.environments.index',
+						'backend.environments.index',
 						trans('global.environment_s'),
 						[],
 						[
@@ -165,7 +165,7 @@ if (!function_exists('adminlte_menu_sidebar'))
 
 
 						$submenu->route(
-							'admin.settings.index',
+							'backend.settings.index',
 							trans('global.general'),
 							[],
 							[

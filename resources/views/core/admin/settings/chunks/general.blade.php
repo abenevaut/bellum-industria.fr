@@ -1,13 +1,13 @@
 <div class="form-group form-group-default">
 	<label>{{ trans('settings.core_site_name') }}</label>
 	<input type="text" class="form-control" name="core_site_name" required="required"
-		   value="{{ old('core_site_name', $settings->get('core.site.name')) }}">
+		   value="{{ old('core_site_name', $settings->get('cms.site.name')) }}">
 </div>
 
 <div class="form-group form-group-default">
 	<label>{{ trans('settings.core_site_description') }}</label>
 	<input type="text" class="form-control" name="core_site_description" required="required"
-		   value="{{ old('core_site_description', $settings->get('core.site.description')) }}">
+		   value="{{ old('core_site_description', $settings->get('cms.site.description')) }}">
 </div>
 
 {{--<div class="form-group form-group-default">--}}

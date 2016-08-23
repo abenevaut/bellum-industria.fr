@@ -22,7 +22,7 @@ return [
 
 	'message_success_provider_linked' => 'Your social account is successfully linked.',
 
-	'message_success_loggedin' => 'You have successfully logged in.',
+	'login_message_success' => 'You have successfully logged in.',
 	'message_success_loggedout' => 'You are logged out successfully.',
 
 	'message_success_provider_loggedin' => 'You have successfully logged in.',
