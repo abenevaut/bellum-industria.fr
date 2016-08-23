@@ -1,19 +1,17 @@
-<?php namespace Core\Domain\Users\Widgets;
+<?php namespace cms\App\Widgets\Users;
 
+use cms\Infrastructure\Abstractions\Widgets\WidgetsAbstract;
 use Core\Domain\Environments\Facades\EnvironmentFacade;
 use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
 use Illuminate\Support\Facades\Auth;
-use Widget;
-use CVEPDB\Contracts\Widgets;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 use Core\Domain\Users\Repositories\UserRepositoryEloquent;
-use Core\Domain\Widgets\AbstractWidgets;
 
 /**
- * Class RolesFields
- * @package Core\Domain\Roles\Widgets
+ * Class UsersFields
+ * @package cms\App\Widgets\Users
  */
-class UsersFields extends AbstractWidgets implements Widgets
+class UsersFields extends WidgetsAbstract
 {
 
 	/**

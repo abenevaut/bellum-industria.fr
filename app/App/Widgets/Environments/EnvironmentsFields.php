@@ -1,16 +1,15 @@
-<?php namespace Core\Domain\Environments\Widgets;
+<?php namespace cms\App\Widgets\Environments;
 
+use cms\Infrastructure\Abstractions\Widgets\WidgetsAbstract;
 use Core\Domain\Environments\Facades\EnvironmentFacade;
-use CVEPDB\Contracts\Widgets;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
-use Core\Domain\Widgets\AbstractWidgets;
 
 /**
  * Class EnvironmentsFields
  * @package Modules\Users\Widgets
  */
-class EnvironmentsFields extends AbstractWidgets implements Widgets
+class EnvironmentsFields extends WidgetsAbstract
 {
 
 	/**

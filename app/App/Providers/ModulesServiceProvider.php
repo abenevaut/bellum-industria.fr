@@ -26,7 +26,7 @@ class ModulesServiceProvider extends PingpongModulesServiceProvider
 			$loader = AliasLoader::getInstance();
 			$loader->alias('Widget', 'Pingpong\Widget\WidgetFacade');
 
-			$file = base_path('core/widgets.php');
+			$file = base_path('app/App/Widgets/widgets.php');
 
 			if (file_exists($file))
 			{

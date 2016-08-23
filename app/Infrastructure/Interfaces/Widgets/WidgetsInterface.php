@@ -1,10 +1,10 @@
-<?php namespace CVEPDB\Contracts;
+<?php namespace cms\Infrastructure\Interfaces\Widgets;
 
 /**
- * Interface Widgets
- * @package CVEPDB\Contracts
+ * Interface WidgetsInterface
+ * @package cms\Infrastructure\Interfaces\Widgets
  */
-interface Widgets
+interface WidgetsInterface
 {
 
 	/**
