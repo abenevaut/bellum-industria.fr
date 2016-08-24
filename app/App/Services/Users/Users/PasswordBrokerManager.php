@@ -3,7 +3,7 @@
 use InvalidArgumentException;
 use Illuminate\Contracts\Auth\PasswordBrokerFactory as FactoryContract;
 use Illuminate\Auth\Passwords\DatabaseTokenRepository;
-use cms\Domain\Services\MailPasswordResetService;
+use cms\App\Services\Mails\MailPasswordResetService;
 
 /**
  * Class PasswordBrokerManager

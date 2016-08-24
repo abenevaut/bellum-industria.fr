@@ -1,10 +1,15 @@
-<?php namespace CVEPDB\Abstracts\Services\Mails;
+<?php namespace cms\Infrastructure\Abstractions\Services\Mails;
 
-use Mail;
-use CVEPDB\Contracts\Services\Mails\MailService as IMailService;
+use Illuminate\Support\Facades\Mail;
+use cms\Infrastructure\Interfaces\Services\Mails\MailServiceInterface;
 
-abstract class MailService implements IMailService
+/**
+ * Class MailServiceAbstract
+ * @package cms\Infrastructure\Abstractions\Services\Mails
+ */
+abstract class MailServiceAbstract implements MailServiceInterface
 {
+
     /**
      * @param array $emails All emails to send the message
      * @param string $view Blade path view
@@ -21,4 +26,5 @@ abstract class MailService implements IMailService
                 ->subject($subject);
         });
     }
+
 }

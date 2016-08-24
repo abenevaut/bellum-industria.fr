@@ -1,10 +1,10 @@
-<?php namespace Ccms\Domain\Services;
+<?php namespace cms\App\Services\Mails;
 
-use cms\Domain\Services\MailSendService;
+use cms\App\Services\Mails\MailSendService;
 
 /**
  * Class MailToNewUserCreatedService
- * @package Ccms\Domain\Services
+ * @package cms\App\Services\Mails
  */
 class MailToNewUserCreatedService extends MailSendService
 {

@@ -1,10 +1,10 @@
-<?php namespace cms\Domain\Services;
+<?php namespace cms\App\Services\Mails;
 
-use cms\Domain\Services\MailSendService;
+use cms\App\Services\Mails\MailSendService;
 
 /**
  * Class MailPasswordResetService
- * @package cms\Domain\Services
+ * @package cms\App\Services\Mails
  */
 class MailPasswordResetService extends MailSendService
 {
@@ -23,4 +23,5 @@ class MailPasswordResetService extends MailSendService
 			$data
 		);
 	}
+
 }

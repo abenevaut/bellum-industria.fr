@@ -7,11 +7,11 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Contracts\Mail\Mailer as MailerContract;
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Auth\Passwords\TokenRepositoryInterface;
-use cms\Domain\Services\MailPasswordResetService;
+use cms\App\Services\Mails\MailPasswordResetService;
 
 /**
  * Class PasswordBroker
- * @package Modules\Users\Brokers
+ * @package cms\App\Services\Users\Users
  */
 class PasswordBroker extends IlluminatePasswordBroker
 {
@@ -50,7 +50,6 @@ class PasswordBroker extends IlluminatePasswordBroker
 		MailPasswordResetService $s_mailer
 	)
 	{
-
 		parent::__construct($tokens, $users, $mailer, $emailView);
 		$this->s_mailer = $s_mailer;
 	}
@@ -64,7 +63,11 @@ class PasswordBroker extends IlluminatePasswordBroker
 	 */
 	public function emailResetLink(CanResetPasswordContract $user, $token, Closure $callback = null)
 	{
-		$this->emailView = cmsview_prefix('users.emails.password', $view_prefix = null, 'users::') . 'users.emails.password';
+		$this->emailView = cmsview_prefix(
+				'users.emails.password',
+				$view_prefix = null,
+				'users::'
+			) . 'users.emails.password';
 
 		return $this->s_mailer->send(
 			$user->getEmailForPasswordReset(),
@@ -85,4 +88,5 @@ class PasswordBroker extends IlluminatePasswordBroker
 	{
 		return parent::reset($credentials, $callback);
 	}
+
 }

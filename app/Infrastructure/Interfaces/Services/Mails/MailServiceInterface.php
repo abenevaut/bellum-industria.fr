@@ -1,7 +1,12 @@
-<?php namespace CVEPDB\Contracts\Services\Mails;
+<?php namespace cms\Infrastructure\Interfaces\Services\Mails;
 
-interface MailService
+/**
+ * Interface MailServiceInterface
+ * @package cms\Infrastructure\Interfaces\Services\Mails
+ */
+interface MailServiceInterface
 {
+
     /**
      * @param array $emails All emails to send the message
      * @param string $view Blade path view
@@ -10,4 +15,5 @@ interface MailService
      * @return mixed
      */
     public function emailTo($emails, $view, $subject, $data = []);
+
 }

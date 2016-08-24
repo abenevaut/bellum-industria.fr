@@ -1,17 +1,14 @@
-<?php namespace cms\Domain\Services;
+<?php namespace cms\App\Services\Mails;
 
 use Illuminate\Support\Facades\Mail;
-use CVEPDB\Abstracts\Services\Mails\MailService as AbsMailService;
 use CVEPDB\Settings\Facades\Settings;
+use cms\Infrastructure\Abstractions\Services\Mails\MailServiceAbstract;
 
 /**
- * Class MailSendService
- *
- * Send emails without delay.
- *
- * @package Core\Services
+ * Class MailQueueService
+ * @package cms\App\Services\Mails
  */
-abstract class MailSendService extends AbsMailService
+abstract class MailQueueService extends MailServiceAbstract
 {
 
 	/**
@@ -26,12 +23,11 @@ abstract class MailSendService extends AbsMailService
 	 */
 	public function emailTo($emails, $view, $subject, $data = [])
 	{
-		Mail::send($view, $data, function ($message) use ($emails, $subject) {
-		
-
+		Mail::queue($view, $data, function ($message) use ($emails, $subject)
+		{
 			$mailfrom = Settings::get('mail.from.address');
 			$mailname = Settings::get('mail.from.name');
-			$mailwatch = Settings::get('cms.mail.mailwatch');
+			$mailwatch = Settings::get('core.mail.mailwatch');
 
 			$message->to($emails)
 				->from($mailfrom, $mailname)
@@ -43,4 +39,5 @@ abstract class MailSendService extends AbsMailService
 			}
 		});
 	}
+
 }
