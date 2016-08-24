@@ -7,12 +7,13 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    /**
-     * The Artisan commands provided by your application.
-     *
-     * @var array
-     */
-    protected $commands = [
+
+	/**
+	 * The Artisan commands provided by your application.
+	 *
+	 * @var array
+	 */
+	protected $commands = [
 		\cms\Console\Commands\BindingsCommand::class,
 		\cms\Console\Commands\ControllerCommand::class,
 		\cms\Console\Commands\EntityCommand::class,
@@ -21,16 +22,17 @@ class Kernel extends ConsoleKernel
 		\cms\Console\Commands\RepositoryCommand::class,
 		\cms\Console\Commands\TransformerCommand::class,
 		\cms\Console\Commands\ValidatorCommand::class,
-    ];
+	];
 
-    /**
-     * Define the application's command schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     * @return void
-     */
-    protected function schedule(Schedule $schedule)
-    {
+	/**
+	 * Define the application's command schedule.
+	 *
+	 * @param  \Illuminate\Console\Scheduling\Schedule $schedule
+	 *
+	 * @return void
+	 */
+	protected function schedule(Schedule $schedule)
+	{
 
 		/*
 		 * Flush expired password reset tokens
@@ -74,5 +76,6 @@ class Kernel extends ConsoleKernel
 			->withoutOverlapping()
 			->everyMinute();
 
-    }
+	}
+
 }
