@@ -27,10 +27,10 @@ class SettingsStoreFormRequest extends FormRequestAbstract
 	public function rules()
 	{
 		return [
-			'core_site_name'        => 'required',
-			'core_site_description' => 'required',
-			'core_site_logo'        => '',
-			'core_site_favico'        => '',
+			'cms_site_name'        => 'required',
+			'cms_site_description' => 'required',
+			'cms_site_logo'        => '',
+			'cms_site_favico'        => '',
 			'mail_from_address'     => 'required|email',
 			'mail_from_name'        => 'required',
 //            'mail_driver' => 'required',

@@ -71,7 +71,7 @@ if (!function_exists('adminlte_menu_header'))
 
 		return MenuFacade::render(
 			'header_navigation',
-			'\cms\App\Presenters\AdminLteMenuAppHeaderPresenter'
+			settings('cms.backend.menus.header.presenters.web')
 		);
 	}
 }
@@ -104,7 +104,7 @@ if (!function_exists('adminlte_menu_front_mobile'))
 
 		return MenuFacade::render(
 			'header_navigation_mobile',
-			'\cms\App\Presenters\AdminLteMenuFrontHeaderPresenter'
+			settings('cms.backend.menus.header.presenters.mobile')
 		);
 	}
 }
@@ -200,7 +200,7 @@ if (!function_exists('adminlte_menu_sidebar'))
 
 		return MenuFacade::render(
 			'sidebar_navigation',
-			'\cms\App\Presenters\AdminLteMenuAppSidebarPresenter'
+			settings('cms.backend.menus.sidebar.presenters')
 		);
 	}
 }

@@ -63,17 +63,20 @@ class SettingsRepository
 		$posts = $request->all();
 		unset($posts['_token']);
 
+		$settings_keys = config('settings.form_key_to_settings');
+
 		foreach ($posts as $key => $value)
 		{
-			$setting_key = $this->get($key);
-
 			if (!empty($value))
 			{
-				$this->set($setting_key, $value);
+				$this->set(
+					$settings_keys[$key],
+					$value
+				);
 			}
 		}
 
-		return redirect('admin/settings');
+		return redirect(route('backend.settings.index'));
 	}
 
 }

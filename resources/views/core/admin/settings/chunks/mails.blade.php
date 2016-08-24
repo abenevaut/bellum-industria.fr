@@ -11,9 +11,9 @@
 </div>
 
 <div class="form-group form-group-default">
-	<label>{{ trans('settings.core_mail_mailwatch') }}</label>
-	<input type="text" class="form-control" name="core_mail_mailwatch"
-		   value="{{ old('core_mail_mailwatch', $settings->get('core.mail.mailwatch')) }}">
+	<label>{{ trans('settings.cms_mail_mailwatch') }}</label>
+	<input type="text" class="form-control" name="cms_mail_mailwatch"
+		   value="{{ old('cms_mail_mailwatch', $settings->get('cms.mail.mailwatch')) }}">
 </div>
 
 <div class="box box-primary box-widget collapsed-box">

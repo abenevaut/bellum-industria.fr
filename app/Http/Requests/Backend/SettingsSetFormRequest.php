@@ -1,12 +1,12 @@
-<?php namespace Core\Http\Requests\Admin;
+<?php namespace cms\Http\Requests\Backend;
 
-use Core\Http\Requests\FormRequest as AbsFormRequest;
+use cms\Infrastructure\Abstractions\Requests\FormRequestAbstract;
 
 /**
  * Class SettingsSetFormRequest
- * @package Core\Http\Requests\Admin
+ * @package cms\Http\Requests\Backend
  */
-class SettingsSetFormRequest extends AbsFormRequest
+class SettingsSetFormRequest extends FormRequestAbstract
 {
 
 	/**
