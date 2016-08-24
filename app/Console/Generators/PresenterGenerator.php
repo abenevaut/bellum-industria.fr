@@ -32,7 +32,7 @@ class PresenterGenerator extends PrettusGeneratorAbstract
 			&& !empty($this->options['module'])
 		)
 		{
-			$module_path = 'Modules\\'
+			$module_path = 'cms\\Modules\\'
 				. ucfirst(strtolower($this->options['module']))
 				. '\\';
 
@@ -68,7 +68,7 @@ class PresenterGenerator extends PrettusGeneratorAbstract
 			&& !empty($this->options['module'])
 		)
 		{
-			$module_namespace = 'Modules\\'
+			$module_namespace = 'cms\\Modules\\'
 				. ucfirst(strtolower($this->options['module']));
 
 			$transformer = $module_namespace

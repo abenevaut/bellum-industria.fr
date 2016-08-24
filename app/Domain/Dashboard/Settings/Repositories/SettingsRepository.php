@@ -1,7 +1,7 @@
 <?php namespace cms\Domain\Dashboard\Settings\Repositories;
 
 use Illuminate\Support\Collection;
-use Pingpong\Modules\Module;
+use Pingpong\Modules\Facades\Module;
 use cms\Domain\Settings\Settings\Repositories\SettingsRepository as ParentSettingsRepository;
 
 /**
