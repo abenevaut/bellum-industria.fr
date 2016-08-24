@@ -67,13 +67,7 @@ class SettingsRepository
 
 		foreach ($posts as $key => $value)
 		{
-			if (!empty($value))
-			{
-				$this->set(
-					$settings_keys[$key],
-					$value
-				);
-			}
+			$this->set($settings_keys[$key], $value);
 		}
 
 		return redirect(route('backend.settings.index'));
