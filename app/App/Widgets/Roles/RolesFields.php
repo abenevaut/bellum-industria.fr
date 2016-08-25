@@ -1,13 +1,9 @@
 <?php namespace cms\App\Widgets\Roles;
 
+use cms\App\Facades\Environments;
 use cms\Infrastructure\Abstractions\Widgets\WidgetsAbstract;
-use Core\Domain\Environments\Facades\EnvironmentFacade;
-use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
-use cms\Core\Domain\Roles\Permissions\Repositories\PermissionsRepositoryEloquent;
-use Illuminate\Support\Facades\Auth;
-use Core\Domain\Settings\Repositories\SettingsRepository;
-use Modules\Users\Repositories\RoleRepositoryEloquent;
-use Core\Domain\Widgets\AbstractWidgets;
+use cms\Domain\Settings\Settings\Repositories\SettingsRepository;
+use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
 
 /**
  * Class RolesFields
@@ -42,14 +38,14 @@ class RolesFields extends WidgetsAbstract
 	private $r_settings = null;
 
 	/**
-	 * @var RoleRepositoryEloquent|null
+	 * @var RolesRepositoryEloquent|null
 	 */
-	private $r_role = null;
+	private $r_roles = null;
 
-	public function __construct(SettingsRepository $r_settings, RoleRepositoryEloquent $r_role)
+	public function __construct(SettingsRepository $r_settings, RolesRepositoryEloquent $r_roles)
 	{
 		$this->r_settings = $r_settings;
-		$this->r_role = $r_role;
+		$this->r_roles = $r_roles;
 	}
 	
 	public function register($name = 'roles[]', $attributes = [])
@@ -58,9 +54,9 @@ class RolesFields extends WidgetsAbstract
 
 		if (!$user_can_see_environment)
 		{
-			$this->r_role->filterEnvironments([EnvironmentFacade::currentId()]);
+			$this->r_roles->filterEnvironments([Environments::currentId()]);
 		}
-		$roles = $this->r_role->all(['roles.display_name', 'roles.id']);
+		$roles = $this->r_roles->all(['roles.display_name', 'roles.id']);
 
 		$roles_list = [];
 		foreach ($roles as $role)

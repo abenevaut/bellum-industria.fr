@@ -1,9 +1,9 @@
 <?php namespace cms\App\Widgets\Environments;
 
+use cms\App\Facades\Environments;
 use cms\Infrastructure\Abstractions\Widgets\WidgetsAbstract;
-use Core\Domain\Environments\Facades\EnvironmentFacade;
-use Core\Domain\Settings\Repositories\SettingsRepository;
-use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
+use cms\Domain\Settings\Settings\Repositories\SettingsRepository;
+use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
 
 /**
  * Class EnvironmentsFields
@@ -18,14 +18,14 @@ class EnvironmentsFields extends WidgetsAbstract
 	private $r_settings = null;
 
 	/**
-	 * @var EnvironmentRepositoryEloquent|null
+	 * @var EnvironmentsRepositoryEloquent|null
 	 */
-	private $r_environment = null;
+	private $r_environments = null;
 
-	public function __construct(SettingsRepository $r_settings, EnvironmentRepositoryEloquent $r_environment)
+	public function __construct(SettingsRepository $r_settings, EnvironmentsRepositoryEloquent $r_environments)
 	{
 		$this->r_settings = $r_settings;
-		$this->r_environment = $r_environment;
+		$this->r_environments = $r_environments;
 	}
 
 	/**
@@ -36,7 +36,7 @@ class EnvironmentsFields extends WidgetsAbstract
 	 */
 	public function register($name = 'environments[]', $attributes = [])
 	{
-		$envs = $this->r_environment
+		$envs = $this->r_environments
 			->lists('domain', 'id')
 			->toArray();
 
@@ -54,14 +54,14 @@ class EnvironmentsFields extends WidgetsAbstract
 
 		if (array_key_exists('default', $attributes) && $attributes['default'])
 		{
-			$value = empty($value) ? [EnvironmentFacade::currentId()] : $value;
+			$value = empty($value) ? [Environments::currentId()] : $value;
 		}
 
 		return $this->output(
 			'core.widgets.environmentsfields',
 			[
 				'environments' => $envs,
-				'default_env'  => EnvironmentFacade::currentId(),
+				'default_env'  => Environments::currentId(),
 				'name'         => $name,
 				'value'        => $value,
 				'old_value'    => preg_replace("/[^A-Za-z0-9 ]/", '', $name),
