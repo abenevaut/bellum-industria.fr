@@ -1,16 +1,15 @@
 <?php namespace cms\Domain\Users\ApiKeys\Repositories;
 
-use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
-use cms\Domain\Users\ApiKeys\Repositories\ApiKeyRepository;
+use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
+use cms\Domain\Users\ApiKeys\Repositories\ApiKeysRepository;
 use cms\Domain\Users\ApiKeys\ApiKey;
 use cms\Domain\Users\Users\User;
 
 /**
- * Class ApiKeyRepositoryEloquent
+ * Class ApiKeysRepositoryEloquent
  * @package cms\Domain\Users\ApiKeys\Repositories
  */
-class ApiKeyRepositoryEloquent extends BaseRepository implements ApiKeyRepository
+class ApiKeysRepositoryEloquent extends RepositoryEloquentAbstract implements ApiKeysRepository
 {
 
 	/**
@@ -21,14 +20,6 @@ class ApiKeyRepositoryEloquent extends BaseRepository implements ApiKeyRepositor
 	public function model()
 	{
 		return ApiKey::class;
-	}
-
-	/**
-	 * Boot up the repository, pushing criteria
-	 */
-	public function boot()
-	{
-		$this->pushCriteria(app(RequestCriteria::class));
 	}
 
 	public function generate_api_key(User $user, $level = 10, $ignore_limit = 0)
@@ -53,4 +44,5 @@ class ApiKeyRepositoryEloquent extends BaseRepository implements ApiKeyRepositor
 	{
 		$this->findWhereIn('key', [$key])->first()->delete();
 	}
+
 }

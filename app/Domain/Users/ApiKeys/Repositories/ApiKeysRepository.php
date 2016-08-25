@@ -3,10 +3,10 @@
 use cms\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 
 /**
- * Interface ApiKeyRepository
+ * Interface ApiKeysRepository
  * @package cms\Domain\Users\ApiKeys\Repositories
  */
-interface ApiKeyRepository extends RepositoryInterface
+interface ApiKeysRepository extends RepositoryInterface
 {
 
 }

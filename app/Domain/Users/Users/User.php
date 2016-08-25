@@ -70,7 +70,7 @@ class User extends LogAuthenticatableModelAbstract
 	 */
 	public function apikey()
 	{
-		return $this->hasOne('Core\Domain\Users\Entities\ApiKey');
+		return $this->hasOne('cms\Domain\Users\ApiKeys\ApiKey');
 	}
 
 	/**

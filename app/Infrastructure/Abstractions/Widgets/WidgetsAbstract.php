@@ -22,12 +22,12 @@ abstract class WidgetsAbstract implements WidgetsInterface
 	/**
 	 * @var string View namespace ('dashboard::'|null)
 	 */
-	protected $view_prefix = '';
+	protected $view_prefix = null;
 
 	/**
 	 * @var string
 	 */
-	protected $module = '';
+	protected $module = null;
 
 	public function setTitle($title)
 	{
@@ -61,7 +61,7 @@ abstract class WidgetsAbstract implements WidgetsInterface
 
 	public function output($view, $data = [])
 	{
-		return cmsview($view, $data, $this->view_prefix, $this->module);
+		return cmsview($view, $data, $this->module, $this->view_prefix);
 	}
 
 	public function widgetInformation()

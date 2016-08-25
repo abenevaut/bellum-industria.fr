@@ -25,7 +25,7 @@ class ApiKey extends ApiKeyApiGuard implements Transformable
 	 */
 	public function apilogs()
 	{
-		return $this->hasMany('Core\Domain\Users\Entities\ApiLog');
+		return $this->hasMany('cms\Domain\Users\ApiLogs\ApiLog');
 	}
 
 	/**
@@ -33,6 +33,7 @@ class ApiKey extends ApiKeyApiGuard implements Transformable
 	 */
 	public function user()
 	{
-		return $this->hasOne('Core\Domain\Users\Entities\User');
+		return $this->hasOne('cms\Domain\Users\Users\User');
 	}
+
 }

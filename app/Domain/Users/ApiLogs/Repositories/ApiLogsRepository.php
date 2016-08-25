@@ -3,10 +3,10 @@
 use cms\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 
 /**
- * Interface ApiLogRepository
- * @package Core\Domain\Users\Repositories
+ * Interface ApiLogsRepository
+ * @package cms\Domain\Users\ApiLogs\Repositories
  */
-interface ApiLogRepository extends RepositoryInterface
+interface ApiLogsRepository extends RepositoryInterface
 {
 	
 }

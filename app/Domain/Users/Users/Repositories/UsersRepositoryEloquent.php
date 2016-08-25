@@ -10,7 +10,7 @@ use cms\Domain\Users\Users\Repositories\UsersRepository;
 use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
 use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
 use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
-use cms\Domain\Users\ApiKeys\Repositories\ApiKeyRepositoryEloquent;
+use cms\Domain\Users\ApiKeys\Repositories\ApiKeysRepositoryEloquent;
 use cms\Domain\Users\SocialTokens\Repositories\SocialTokenRepositoryEloquent;
 //use Core\Criterias\OnlyTrashedCriteria;
 //use Core\Criterias\WithTrashedCriteria;
@@ -56,7 +56,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	protected $r_permissions = null;
 
 	/**
-	 * @var ApiKeyRepositoryEloquent|null
+	 * @var ApiKeysRepositoryEloquent|null
 	 */
 	protected $r_apikey = null;
 
@@ -70,14 +70,14 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 *
 	 * @param Application              $app
 	 * @param RolesRepositoryEloquent  $r_roles
-	 * @param ApiKeyRepositoryEloquent $r_apikey
+	 * @param ApiKeysRepositoryEloquent $r_apikey
 	 */
 	public function __construct(
 		Application $app,
 		EnvironmentsRepositoryEloquent $r_environments,
 		RolesRepositoryEloquent $r_roles,
 		PermissionsRepositoryEloquent $r_permissions,
-		ApiKeyRepositoryEloquent $r_apikey,
+		ApiKeysRepositoryEloquent $r_apikey,
 		SocialTokenRepositoryEloquent $r_social_tokens
 	)
 	{

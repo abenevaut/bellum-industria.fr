@@ -65,7 +65,12 @@ if (!function_exists('cmsview'))
 	 *
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	function cmsview($view, $data = [], $view_prefix = null, $current_module = null)
+	function cmsview(
+		$view,
+		$data = [],
+		$current_module = null,
+		$view_prefix = null
+	)
 	{
 		if (is_null($view_prefix))
 		{

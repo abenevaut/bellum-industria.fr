@@ -7,7 +7,7 @@ use cms\Domain\Logs\Logs\Traits\LogTrait;
 
 /**
  * Class ApiLog
- * @package cms\Domain\Users\Permissions\ApiLogs
+ * @package cms\Domain\Users\ApiLogs
  */
 class ApiLog extends ApiLogApiGuard implements Transformable
 {
@@ -28,6 +28,7 @@ class ApiLog extends ApiLogApiGuard implements Transformable
 	 */
 	public function apikey()
 	{
-		return $this->hasOne('Core\Domain\Users\Entities\ApiKey', 'api_key_id');
+		return $this->hasOne('cms\Domain\Users\ApiKeys\ApiKey', 'api_key_id');
 	}
+
 }

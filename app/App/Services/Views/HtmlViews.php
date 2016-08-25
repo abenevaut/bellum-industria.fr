@@ -30,8 +30,8 @@ class HtmlViews implements ViewsInterface
 		return cmsview(
 			$view,
 			$data,
-			$this->view_prefix,
-			$this->current_module
+			$this->current_module,
+			$this->view_prefix
 		);
 	}
 }
