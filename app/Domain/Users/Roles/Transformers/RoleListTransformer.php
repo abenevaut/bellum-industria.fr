@@ -1,7 +1,7 @@
-<?php namespace cms\Core\Domain\Users\Roles\Transformers;
+<?php namespace cms\Domain\Users\Roles\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use cms\Core\Domain\Users\Roles\Role;
+use cms\Domain\Users\Roles\Role;
 
 /**
  * Class RoleListTransformer

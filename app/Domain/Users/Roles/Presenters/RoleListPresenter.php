@@ -1,11 +1,11 @@
-<?php namespace cms\Core\Domain\Users\Roles\Presenters;
+<?php namespace cms\Domain\Users\Roles\Presenters;
 
 use Prettus\Repository\Presenter\FractalPresenter;
-use cms\Core\Domain\Users\Roles\Transformers\RoleListTransformer;
+use cms\Domain\Users\Roles\Transformers\RoleListTransformer;
 
 /**
  * Class RoleListPresenter
- * @package cms\Core\Domain\Users\Roles\Presenters
+ * @package cms\Domain\Users\Roles\Presenters
  */
 class RoleListPresenter extends FractalPresenter
 {
