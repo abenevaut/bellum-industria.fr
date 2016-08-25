@@ -1,12 +1,10 @@
 <?php namespace cms\Http\Controllers\Backend;
 
 use cms\Infrastructure\Abstractions\Controllers\BackendController;
-use cms\Domain\Roles\Permissions\Repositories\PermissionsRepositoryEloquent;
-use cms\Domain\Roles\Roles\Repositories\RolesRepositoryEloquent;
-
-use cms\Http\Outputters\Admin\EnvironmentsOutputter;
-use cms\Http\Requests\Admin\EnvironmentFormRequest;
-use cms\Http\Requests\Admin\SettingsStoreFormRequest;
+use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
+use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
+use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
+use cms\Http\Requests\Backend\EnvironmentFormRequest;
 
 /**
  * Class EnvironmentsController
@@ -15,26 +13,28 @@ use cms\Http\Requests\Admin\SettingsStoreFormRequest;
 class EnvironmentsController extends BackendController
 {
 	/**
-	 * @var SettingsOutputter|null
+	 * @var EnvironmentsRepositoryEloquent|null
 	 */
-	protected $outputter = null;
+	protected $r_environments = null;
 
 	/**
-	 * SettingsController constructor.
+	 * EnvironmentsController constructor.
 	 *
-	 * @param EnvironmentsOutputter $outputter
+	 * @param EnvironmentsRepositoryEloquent $r_environments
 	 */
-	public function __construct(EnvironmentsOutputter $outputter)
+	public function __construct(EnvironmentsRepositoryEloquent $r_environments)
 	{
 
-		$this->middleware('ability:' . RoleRepositoryEloquent::ADMIN . ',' . PermissionRepositoryEloquent::SEE_ENVIRONMENT);
+		$this->middleware(
+			'ability:' . RolesRepositoryEloquent::ADMIN . ',' . PermissionsRepositoryEloquent::SEE_ENVIRONMENT
+		);
 
 		if (!cmsuser_can_see_env())
 		{
 			abort(404);
 		}
 
-		$this->outputter = $outputter;
+		$this->r_environments = $r_environments;
 	}
 
 	/**
@@ -42,7 +42,7 @@ class EnvironmentsController extends BackendController
 	 */
 	public function index()
 	{
-		return $this->outputter->index();
+		return $this->r_environments->indexBackEnd();
 	}
 
 	/**
@@ -52,7 +52,7 @@ class EnvironmentsController extends BackendController
 	 */
 	public function store(EnvironmentFormRequest $request)
 	{
-		return $this->outputter->store($request);
+		return $this->r_environments->storeBackEnd($request);
 	}
 
 	/**
@@ -62,7 +62,7 @@ class EnvironmentsController extends BackendController
 	 */
 	public function edit($id)
 	{
-		return $this->outputter->edit($id);
+		return $this->r_environments->editBackEnd($id);
 	}
 
 	/**
@@ -73,7 +73,7 @@ class EnvironmentsController extends BackendController
 	 */
 	public function update(EnvironmentFormRequest $request, $id)
 	{
-		return $this->outputter->update($request, $id);
+		return $this->r_environments->updateBackEnd($request, $id);
 	}
 
 	/**
@@ -83,6 +83,6 @@ class EnvironmentsController extends BackendController
 	 */
 	public function destroy($id)
 	{
-		return $this->outputter->destroy($id);
+		return $this->r_environments->destroyBackEnd($id);
 	}
 }

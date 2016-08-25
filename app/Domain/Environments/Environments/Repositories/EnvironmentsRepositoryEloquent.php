@@ -1,8 +1,10 @@
 <?php namespace cms\Domain\Environments\Environments\Repositories;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Container\Container as Application;
-use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
+use CVEPDB\Settings\Facades\Settings;
+use cms\Modules\Installer\Infrastructure\Abstractions\Requests\FormRequestAbstract;
+use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
 //use Core\Criterias\OnlyTrashedCriteria;
 //use Core\Criterias\WithTrashedCriteria;
 use cms\Domain\Environments\Environments\Environment;
@@ -10,12 +12,13 @@ use cms\Domain\Environments\Environments\Events\EnvironmentCreatedEvent;
 use cms\Domain\Environments\Environments\Events\EnvironmentDeletedEvent;
 use cms\Domain\Environments\Environments\Events\EnvironmentUpdatedEvent;
 use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
+use cms\Domain\Environments\Environments\Presenters\EnvironmentListPresenter;
 
 /**
  * Class EnvironmentsRepositoryEloquent
  * @package cms\Domain\Environments\Environments\Repositories
  */
-class EnvironmentsRepositoryEloquent extends BaseRepository implements EnvironmentsRepository
+class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implements EnvironmentsRepository
 {
 
 	const DEFAULT_ENVIRONMENT_REFERENCE = 'default';
@@ -46,14 +49,6 @@ class EnvironmentsRepositoryEloquent extends BaseRepository implements Environme
 	public function model()
 	{
 		return Environment::class;
-	}
-
-	/**
-	 * Boot up the repository, pushing criteria
-	 */
-	public function boot()
-	{
-		$this->pushCriteria(app(RequestCriteria::class));
 	}
 
 	/**
@@ -188,4 +183,126 @@ class EnvironmentsRepositoryEloquent extends BaseRepository implements Environme
 			]
 		);
 	}
+
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function indexBackEnd()
+	{
+		$this->setPresenter(new EnvironmentListPresenter());
+
+		$this->filterShowWithTrashed();
+
+		$envs = $this
+			->paginate(Settings::get('app.pagination'));
+
+		return cmsview(
+			'core.admin.environments.index',
+			[
+				'environments' => $envs
+			]
+		);
+	}
+
+	/**
+	 * @param FormRequestAbstract $request
+	 *
+	 * @return mixed|\Redirect
+	 */
+	public function storeBackEnd(FormRequestAbstract $request)
+	{
+		$environment = $this->create([
+			'name'      => $request->get('name'),
+			'reference' => $request->get('reference'),
+			'domain'    => $request->get('domain'),
+		]);
+
+		$this->link_default_roles_with($environment);
+
+		$this->link_users_with(
+			$environment,
+			[
+				Auth::user()->id
+			]
+		);
+
+		return redirect('backend/environments')
+			->with('message-success', 'environments.index.modal.add.message.success');
+	}
+
+	/**
+	 * @param $id
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function editBackEnd($id)
+	{
+		$env = $this->find($id);
+
+		return cmsview(
+			'core.admin.environments.show',
+			[
+				'environment' => $env
+			]
+		);
+	}
+
+	/**
+	 * @param FormRequestAbstract $request
+	 * @param                $id
+	 *
+	 * @return mixed|\Redirect
+	 */
+	public function updateBackEnd(FormRequestAbstract $request, $id)
+	{
+		$this->update(
+			[
+				'name'   => $request->get('name'),
+				'domain' => $request->get('domain'),
+			],
+			$id
+		);
+
+		return redirect('backend/environments')
+			->with('message-success', 'environments.index.modal.update.message.success');
+	}
+
+	/**
+	 * @param $id
+	 *
+	 * @return mixed|\Redirect
+	 */
+	public function destroyBackEnd($id)
+	{
+		$redirectTo = null;
+
+		try
+		{
+			$this->delete($id);
+
+			$redirectTo = redirect('backend/environments')
+				->with('message-success', 'environments.index.modal.delete.message.success');
+		}
+		catch (\Exception $e)
+		{
+			switch ($e->getCode())
+			{
+				case 1:
+				{
+					$redirectTo = redirect('backend/environments')
+						->with('message-error', $e->getMessage());
+					break;
+				}
+				default:
+				{
+					$redirectTo = redirect('backend/environments')
+						->with('message-error', 'An error occured');
+					break;
+				}
+			}
+		}
+
+		return $redirectTo;
+	}
+
 }

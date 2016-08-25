@@ -1,9 +1,9 @@
 <?php namespace cms\Http\Controllers\Ajax;
 
 use cms\Infrastructure\Abstractions\Controllers\AjaxController;
-use Core\Http\Requests\Admin\SettingsGetFormRequest;
-use Core\Http\Requests\Admin\SettingsSetFormRequest;
-use Core\Domain\Settings\Repositories\SettingsRepository;
+use cms\Http\Requests\Backend\SettingsGetFormRequest;
+use cms\Http\Requests\Backend\SettingsSetFormRequest;
+use cms\Domain\Settings\Settings\Repositories\SettingsRepository;
 
 /**
  * Class SettingsController
@@ -24,7 +24,6 @@ class SettingsController extends AjaxController
 	 */
 	public function __construct(SettingsRepository $r_settings)
 	{
-		parent::__construct();
 		$this->r_settings = $r_settings;
 	}
 

@@ -1,6 +1,6 @@
 <?php namespace cms\Domain\Environments\Environments\Presenters;
 
-use Core\Domain\Environments\Transformers\EnvironmentListTransformer;
+use cms\Domain\Environments\Environments\Transformers\EnvironmentListTransformer;
 use Prettus\Repository\Presenter\FractalPresenter;
 
 /**
@@ -19,4 +19,5 @@ class EnvironmentListPresenter extends FractalPresenter
 	{
 		return new EnvironmentListTransformer();
 	}
+
 }
