@@ -72,12 +72,12 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 	}
 
 	/**
-	 * Create user and fire event "UserCreatedEvent".
+	 * Create environment and fire event "EnvironmentCreatedEvent".
 	 *
 	 * @param array $attributes
 	 *
-	 * @event Core\Domain\Users\Events\UserUpdatedEvent
-	 * @return \Core\Domain\Users\Entities\User
+	 * @event cms\Domain\Environments\Environments\Events\EnvironmentCreatedEvent
+	 * @return \cms\Domain\Environments\Environments\Environment
 	 */
 	public function create(array $attributes)
 	{
@@ -89,13 +89,13 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 	}
 
 	/**
-	 * Update user and fire event "UserUpdatedEvent".
+	 * Update environment and fire event "EnvironmentUpdatedEvent".
 	 *
 	 * @param array   $attributes
 	 * @param integer $user_id
 	 *
-	 * @event Core\Domain\Users\Events\UserUpdatedEvent
-	 * @return \Core\Domain\Users\Entities\User
+	 * @event cms\Domain\Environments\Environments\Events\EnvironmentUpdatedEvent
+	 * @return \cms\Domain\Environments\Environments\Environment
 	 */
 	public function update(array $attributes, $user_id)
 	{
@@ -107,19 +107,18 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 	}
 
 	/**
-	 * Delete user and fire event "UserDeletedEvent".
+	 * Delete environment and fire event "EnvironmentDeletedEvent".
 	 *
-	 * @param array   $attributes
 	 * @param integer $user_id
 	 *
-	 * @event Core\Domain\Users\Events\UserDeletedEvent
+	 * @event cms\Domain\Environments\Environments\Events\EnvironmentDeletedEvent
 	 * @return int
 	 */
-	public function delete($id)
+	public function delete($user_id)
 	{
-		$env = $this->find($id);
+		$env = $this->find($user_id);
 
-		$environment = parent::delete($id);
+		$environment = parent::delete($user_id);
 
 		event(new EnvironmentDeletedEvent($env));
 
