@@ -6,7 +6,6 @@
 Homestead.yaml
 Homestead.json
 resources/assets/bower
-public/assets/*
 public/modules/*
 public/themes/*
 public/uploads/*
@@ -69,3 +68,4 @@ public/modules/
 public/themes/
 modules/
 storage/laravel-backups/
+storage/apps/*
