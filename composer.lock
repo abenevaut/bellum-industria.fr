@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "de89b53c8a3cf430e0be2b75ed47d101",
-    "content-hash": "6b27d85f8249c4847320cc3c6bfccf7f",
+    "hash": "5248883aec52c7a2bb6eff6c2a86c17a",
+    "content-hash": "dfc850d09e698ab4ad00229a06d676d2",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -5764,21 +5764,20 @@
         },
         {
             "name": "roumen/sitemap",
-            "version": "v2.6.3",
+            "version": "v2.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RoumenDamianoff/laravel-sitemap.git",
-                "reference": "5d4ccd82e94edf9ac029196ae557399a557b12bd"
+                "reference": "b56f9cf336c04257316bfdc4476e1f5eb875204e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-sitemap/zipball/5d4ccd82e94edf9ac029196ae557399a557b12bd",
-                "reference": "5d4ccd82e94edf9ac029196ae557399a557b12bd",
+                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-sitemap/zipball/b56f9cf336c04257316bfdc4476e1f5eb875204e",
+                "reference": "b56f9cf336c04257316bfdc4476e1f5eb875204e",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "~5",
-                "paragonie/random_compat": "~1",
                 "php": ">=5.5.9"
             },
             "require-dev": {
@@ -5797,19 +5796,19 @@
             "authors": [
                 {
                     "name": "Roumen Damianoff",
-                    "email": "roumen@dawebs.com",
+                    "email": "dev@roumen.it",
                     "homepage": "https://roumen.it",
                     "role": "Developer"
                 }
             ],
-            "description": "A simple sitemap generator for Laravel.",
+            "description": "A not so simple sitemap generator for Laravel.",
             "homepage": "https://roumen.it/projects/laravel-sitemap",
             "keywords": [
                 "Sitemap",
                 "generator",
                 "laravel"
             ],
-            "time": "2016-04-27 17:02:46"
+            "time": "2016-08-27 18:07:27"
         },
         {
             "name": "sammyk/laravel-facebook-sdk",
@@ -6390,12 +6389,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "385670f452adbec194b6c99dcc7891643fb92e0c"
+                "reference": "5ae637a0f965d50cc5d6355506f145cc9024ac64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/385670f452adbec194b6c99dcc7891643fb92e0c",
-                "reference": "385670f452adbec194b6c99dcc7891643fb92e0c",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/5ae637a0f965d50cc5d6355506f145cc9024ac64",
+                "reference": "5ae637a0f965d50cc5d6355506f145cc9024ac64",
                 "shasum": ""
             },
             "require": {
@@ -6440,7 +6439,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-08-26 02:49:41"
+            "time": "2016-08-28 05:01:08"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -9736,12 +9735,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "203ac2709470161c65b5a9f672e7ca9e48ce38ef"
+                "reference": "3fcd103a28a34f2bc0835aee37b8eeaa78c12ebf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/203ac2709470161c65b5a9f672e7ca9e48ce38ef",
-                "reference": "203ac2709470161c65b5a9f672e7ca9e48ce38ef",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3fcd103a28a34f2bc0835aee37b8eeaa78c12ebf",
+                "reference": "3fcd103a28a34f2bc0835aee37b8eeaa78c12ebf",
                 "shasum": ""
             },
             "require": {
@@ -9803,7 +9802,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-08-17 04:23:50"
+            "time": "2016-08-28 06:17:24"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -11422,12 +11421,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "5b61eed69891b2add260a3741660fa68c38900ae"
+                "reference": "91aab601eec635b9c06232a6b0a05cdd251d34f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/5b61eed69891b2add260a3741660fa68c38900ae",
-                "reference": "5b61eed69891b2add260a3741660fa68c38900ae",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/91aab601eec635b9c06232a6b0a05cdd251d34f8",
+                "reference": "91aab601eec635b9c06232a6b0a05cdd251d34f8",
                 "shasum": ""
             },
             "require": {
@@ -11469,7 +11468,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-08-13 18:49:42"
+            "time": "2016-08-27 16:29:21"
         },
         {
             "name": "theseer/fdomdocument",

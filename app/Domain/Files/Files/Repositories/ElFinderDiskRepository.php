@@ -100,7 +100,7 @@ class ElFinderDiskRepository extends DiskRepository
 				'driver'        => 'LocalFileSystem',
 				'path'          => public_path($dir),
 				'URL'           => url($dir),
-				'accessControl' => 'Core\Domain\Files\Access\DontShowFilesStartingWithDot::checkAccess'
+				'accessControl' => 'cms\Domain\Files\Files\Access\DontShowFilesStartingWithDot::checkAccess'
 			];
 		}
 
@@ -126,7 +126,8 @@ class ElFinderDiskRepository extends DiskRepository
 	}
 
 	/**
-	 * Allow to unmount an elFinder disk based on file system disk configuration.
+	 * Allow to unmount an elFinder disk based on file system disk
+	 * configuration.
 	 *
 	 * @param string $disk_reference
 	 * @param string $environment_reference
@@ -256,7 +257,7 @@ class ElFinderDiskRepository extends DiskRepository
 				'driver'        => 'Flysystem',
 				'filesystem'    => $disk->getDriver(),
 				'alias'         => $disk_name,
-				'accessControl' => $access
+				'accessControl' => $access,
 			];
 
 			return array_merge($defaults, $options);

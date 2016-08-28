@@ -76,7 +76,7 @@ return array(
     |
     */
 
-	'access' => 'Core\Domain\Files\Access\DontShowFilesStartingWithDot::checkAccess',
+	'access' => 'cms\Domain\Files\Files\Access\DontShowFilesStartingWithDot::checkAccess',
 
 	/*
     |--------------------------------------------------------------------------
