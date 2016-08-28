@@ -1343,16 +1343,16 @@
         },
         {
             "name": "cvepdb-cms/module-dashboard",
-            "version": "1.0.52.5",
+            "version": "1.0.52.6",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-dashboard.git",
-                "reference": "864498f9fa797d96e2d96994c71a6ad3346e780c"
+                "reference": "dd86e9a80abf61e4f50623173e47a91d38aced97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-dashboard/repository/archive.zip?sha=864498f9fa797d96e2d96994c71a6ad3346e780c",
-                "reference": "864498f9fa797d96e2d96994c71a6ad3346e780c",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-dashboard/repository/archive.zip?sha=dd86e9a80abf61e4f50623173e47a91d38aced97",
+                "reference": "dd86e9a80abf61e4f50623173e47a91d38aced97",
                 "shasum": ""
             },
             "require": {
@@ -1386,35 +1386,25 @@
                 "dashboard",
                 "module"
             ],
-            "time": "2016-06-16 15:37:23"
+            "time": "2016-08-28 17:39:25"
         },
         {
             "name": "cvepdb-cms/module-files",
-            "version": "1.0.52.5",
+            "version": "1.0.52.6",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-files.git",
-                "reference": "e6ff30fa6a6af9005b6c3e5cbc48d30cfdd1d09a"
+                "reference": "80b3d7535c28d8119585729c1b7e4fe83fbe50ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-files/repository/archive.zip?sha=e6ff30fa6a6af9005b6c3e5cbc48d30cfdd1d09a",
-                "reference": "e6ff30fa6a6af9005b6c3e5cbc48d30cfdd1d09a",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-files/repository/archive.zip?sha=80b3d7535c28d8119585729c1b7e4fe83fbe50ba",
+                "reference": "80b3d7535c28d8119585729c1b7e4fe83fbe50ba",
                 "shasum": ""
             },
             "require": {
-                "aws/aws-php-sns-message-validator": "^1.1",
-                "barryvdh/laravel-elfinder": "^0.3.7",
                 "composer/installers": "~1.0",
-                "doctrine/cache": "^1.6",
-                "league/flysystem": "^1.0",
-                "league/flysystem-aws-s3-v3": "~1.0",
-                "league/flysystem-dropbox": "^1.0",
-                "league/flysystem-rackspace": "~1.0",
-                "maknz/slack": "^1.7",
-                "php": ">=5.5.9",
-                "spatie/laravel-backup": "^3.4",
-                "spatie/laravel-medialibrary": "^3.16"
+                "php": ">=5.5.9"
             },
             "type": "laravel-library",
             "extra": {
@@ -1443,20 +1433,20 @@
                 "files",
                 "module"
             ],
-            "time": "2016-07-05 16:32:17"
+            "time": "2016-08-28 17:40:55"
         },
         {
             "name": "cvepdb-cms/module-installer",
-            "version": "1.0.52.19",
+            "version": "1.0.52.20",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-installer.git",
-                "reference": "0d5917205cfe5a3557f4f18365f4e83044de1790"
+                "reference": "b3e7da7a6b699f20332d480e1ff5fb86faded5d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=0d5917205cfe5a3557f4f18365f4e83044de1790",
-                "reference": "0d5917205cfe5a3557f4f18365f4e83044de1790",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=b3e7da7a6b699f20332d480e1ff5fb86faded5d0",
+                "reference": "b3e7da7a6b699f20332d480e1ff5fb86faded5d0",
                 "shasum": ""
             },
             "require": {
@@ -1490,7 +1480,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-07-10 16:16:35"
+            "time": "2016-08-28 17:38:42"
         },
         {
             "name": "cvepdb-cms/module-pages",
@@ -1731,16 +1721,16 @@
         },
         {
             "name": "cvepdb-cms/module-users",
-            "version": "1.0.52.11",
+            "version": "1.0.52.12",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-users.git",
-                "reference": "03dbb1f568193f4c58a183619c1cf0251e115dea"
+                "reference": "88ee496e7cbc340152ed69457f288104d7aca27d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=03dbb1f568193f4c58a183619c1cf0251e115dea",
-                "reference": "03dbb1f568193f4c58a183619c1cf0251e115dea",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=88ee496e7cbc340152ed69457f288104d7aca27d",
+                "reference": "88ee496e7cbc340152ed69457f288104d7aca27d",
                 "shasum": ""
             },
             "require": {
@@ -1774,20 +1764,20 @@
                 "cms",
                 "module"
             ],
-            "time": "2016-07-09 21:56:15"
+            "time": "2016-08-28 17:40:15"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
-            "version": "1.0.52.5",
+            "version": "1.0.52.6",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-adminlte.git",
-                "reference": "d8f03567b386b46df0b1b38b0867c6a257822056"
+                "reference": "05fd8f9c4b900b4d763709d8b469a4c92d1b563c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=d8f03567b386b46df0b1b38b0867c6a257822056",
-                "reference": "d8f03567b386b46df0b1b38b0867c6a257822056",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=05fd8f9c4b900b4d763709d8b469a4c92d1b563c",
+                "reference": "05fd8f9c4b900b4d763709d8b469a4c92d1b563c",
                 "shasum": ""
             },
             "require": {
@@ -1816,7 +1806,7 @@
                 "cms",
                 "theme"
             ],
-            "time": "2016-06-09 14:27:55"
+            "time": "2016-08-28 17:38:06"
         },
         {
             "name": "cvepdb-cms/theme-flatly",
@@ -4384,12 +4374,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "a57db25bb36299a877888a6f7456fd1422edf583"
+                "reference": "c639a8435172116f4edf6d1cdad64801b1f2fad6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/a57db25bb36299a877888a6f7456fd1422edf583",
-                "reference": "a57db25bb36299a877888a6f7456fd1422edf583",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/c639a8435172116f4edf6d1cdad64801b1f2fad6",
+                "reference": "c639a8435172116f4edf6d1cdad64801b1f2fad6",
                 "shasum": ""
             },
             "require": {
@@ -4437,7 +4427,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2016-08-09 14:07:21"
+            "time": "2016-08-28 15:57:48"
         },
         {
             "name": "mikemccabe/json-patch-php",
@@ -6778,12 +6768,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "5ae637a0f965d50cc5d6355506f145cc9024ac64"
+                "reference": "09a84b2db871930af3595d4280d960d5afb04b9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/5ae637a0f965d50cc5d6355506f145cc9024ac64",
-                "reference": "5ae637a0f965d50cc5d6355506f145cc9024ac64",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/09a84b2db871930af3595d4280d960d5afb04b9c",
+                "reference": "09a84b2db871930af3595d4280d960d5afb04b9c",
                 "shasum": ""
             },
             "require": {
@@ -6828,7 +6818,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-08-28 05:01:08"
+            "time": "2016-08-28 15:44:38"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -9810,12 +9800,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "41f85e9c2582b3f6d1b7d20395fb40c687ad5370"
+                "reference": "6dc50cc5c967a74aa653f6362de5723b0fc0517d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/41f85e9c2582b3f6d1b7d20395fb40c687ad5370",
-                "reference": "41f85e9c2582b3f6d1b7d20395fb40c687ad5370",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/6dc50cc5c967a74aa653f6362de5723b0fc0517d",
+                "reference": "6dc50cc5c967a74aa653f6362de5723b0fc0517d",
                 "shasum": ""
             },
             "require": {
@@ -9894,7 +9884,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2016-08-18 18:49:14"
+            "time": "2016-08-28 15:45:31"
         },
         {
             "name": "phpspec/prophecy",
