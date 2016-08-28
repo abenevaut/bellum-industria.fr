@@ -80,7 +80,7 @@
 													<i class="fa fa-pencil"></i> {{ trans('global.edit') }}
 												</a>
 												<button type="button" class="btn btn-danger btn-flat btn-mobile"
-														@if (\Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === $environment['reference'])
+														@if (\cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === $environment['reference'])
 														disabled="disabled"
 														@else
 														data-toggle="modal"
@@ -100,16 +100,12 @@
 						</table>
 					</div>
 					<div class="box-footer clearfix">
-						{!! with(
-							new \Core\Paginations\AdminltePagination(
-								new \Illuminate\Pagination\LengthAwarePaginator(
-									$environments['meta']['pagination']['total'],
-									$environments['meta']['pagination']['count'],
-									$environments['meta']['pagination']['per_page'],
-									$environments['meta']['pagination']['current_page']
-								)
-							)
-						)->render() !!}
+						{!! adminlte_pagination(
+							$environments['meta']['pagination']['count'],
+							$environments['meta']['pagination']['total'],
+							$environments['meta']['pagination']['current_page'],
+							$environments['meta']['pagination']['per_page']
+						) !!}
 					</div>
 				@else
 					<div class="box-body">
@@ -145,7 +141,7 @@
 						<button type="button" class="btn btn-default pull-left" data-dismiss="modal">
 							{{ trans('environments.index.modal.delete.btn.cancel_delete') }}
 						</button>
-						{!! Form::open(['route' => ['admin.environments.destroy', $environment['id']], 'method' => 'delete']) !!}
+						{!! Form::open(['route' => ['backend.environments.destroy', $environment['id']], 'method' => 'delete']) !!}
 						<button type="submit" class="btn btn-danger">
 							<i class="fa fa-trash"></i> {{ trans('environments.index.modal.delete.btn.valid_delete') }}
 						</button>
@@ -164,7 +160,7 @@
 	<div class="modal" id="add_environment">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				{!! Form::open(['route' => 'admin.environments.store', 'class' => 'forms js-call-form_validation']) !!}
+				{!! Form::open(['route' => 'backend.environments.store', 'class' => 'forms js-call-form_validation']) !!}
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">×</span>

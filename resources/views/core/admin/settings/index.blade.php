@@ -17,7 +17,7 @@
 				</div>
 			@endif
 
-			{!! Form::open(array('route' => 'admin.settings.store', 'class' => 'forms js-call-form_validation')) !!}
+			{!! Form::open(array('route' => 'backend.settings.store', 'class' => 'forms js-call-form_validation')) !!}
 			<div class="nav-tabs-custom">
 				<ul class="nav nav-tabs">
 					<li class="active">

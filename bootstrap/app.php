@@ -11,7 +11,9 @@
 |
 */
 
-$app = new Illuminate\Foundation\Application(realpath(__DIR__ . '/../'));
+$app = new Illuminate\Foundation\Application(
+	realpath(__DIR__ . '/../')
+);
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +26,20 @@ $app = new Illuminate\Foundation\Application(realpath(__DIR__ . '/../'));
 |
 */
 
-$app->singleton(Illuminate\Contracts\Http\Kernel::class, Core\Http\Kernel::class);
-$app->singleton(Illuminate\Contracts\Console\Kernel::class, Core\Console\Kernel::class);
-$app->singleton(Illuminate\Contracts\Debug\ExceptionHandler::class, Core\Exceptions\Handler::class);
+$app->singleton(
+	Illuminate\Contracts\Http\Kernel::class,
+	cms\Http\Kernel::class
+);
+
+$app->singleton(
+	Illuminate\Contracts\Console\Kernel::class,
+	cms\Console\Kernel::class
+);
+
+$app->singleton(
+	Illuminate\Contracts\Debug\ExceptionHandler::class,
+	cms\Exceptions\Handler::class
+);
 
 /*
 |--------------------------------------------------------------------------
@@ -53,10 +66,11 @@ $env = $app->detectEnvironment(function ()
 		$setEnv = 'installer';
 	}
 
-	putenv('CORE_ENV=' . $setEnv);
+	putenv('APP_ENV=' . $setEnv);
 
-	$dotenv = new \Dotenv\Dotenv(__DIR__ . '/../', '.env' . '.' . getenv('CORE_ENV')); // Laravel 5.2
+	$dotenv = new \Dotenv\Dotenv(__DIR__ . '/../', '.env' . '.' . getenv('APP_ENV')); // Laravel 5.2
 	$dotenv->overload(); //this is important
+	
 });
 
 /*

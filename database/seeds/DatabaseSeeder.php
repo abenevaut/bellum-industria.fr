@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
         $this->call('CountryTableSeeder');
         $this->call('StateTableSeeder');
-        $this->call('Modules\Users\Database\Seeders\DatabaseSeeder');
+        $this->call('cms\Modules\Users\Database\Seeders\DatabaseSeeder');
         Model::reguard();
     }
 }

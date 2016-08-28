@@ -62,6 +62,7 @@ database/migrations/2016_03_23_150432_alter_users_table_to_add_soft_delete.php
 database/migrations/2016_03_30_203434_alter_roles_table_add_unchangeable_bool.php
 
 _ide_helper.php
+.phpstorm.meta.php
 
 public/.tmb/
 public/modules/

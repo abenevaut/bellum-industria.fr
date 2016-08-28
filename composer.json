@@ -1,45 +1,102 @@
 {
   "name": "cvepdb/cms",
-  "description": "The #CVEPDB CMS.",
+  "description": "A Laravel Framework based CMS.",
   "keywords": [
-    "cms",
-    "cvepdb"
+    "framework",
+    "laravel",
+    "cms"
   ],
   "license": "GPL-3.0",
   "type": "project",
+  "autoload": {
+    "classmap": [
+      "database"
+    ],
+    "psr-4": {
+      "cms\\Domain\\": "app/Domain",
+      "cms\\App\\": "app/App",
+      "cms\\Infrastructure\\": "app/Infrastructure",
+      "cms\\Console\\": "app/Console",
+      "cms\\Http\\": "app/Http",
+      "cms\\Exceptions\\": "app/Exceptions",
+      "cms\\Modules\\": "modules/"
+    },
+    "files": [
+      "app/App/Services/AdminLteNavigationsHelpers.php",
+      "app/App/Services/AdminLtePaginationsHelpers.php",
+      "app/App/Services/MCryptHelpers.php",
+      "app/App/Services/helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "classmap": [
+    ]
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\""
+    ],
+    "post-create-project-cmd": [
+      "php artisan key:generate"
+    ],
+    "post-install-cmd": [
+      "Illuminate\\Foundation\\ComposerScripts::postInstall",
+      "php artisan optimize"
+    ],
+    "post-update-cmd": [
+      "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+      "php artisan clear-compiled",
+      "php artisan ide-helper:generate",
+      "php artisan ide-helper:meta",
+      "php artisan optimize"
+    ]
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
   "minimum-stability": "dev",
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "http://packages.cvepdb.fr"
-    }
-  ],
   "require": {
     "php": ">=5.5.9",
+    "laravel/framework": "5.2.*",
     "beelab/bowerphp": "0.3.*@beta",
     "composer/composer": "^1.0@beta",
     "composer/installers": "~1.0",
-    "laravel/framework": "5.2.24",
     "doctrine/cache": "^1.6",
-    "cvepdb/laravel": "1.0.52.*",
+    "zizaco/entrust": "5.2.x-dev",
+    "chrisbjr/api-guard": "^3.1",
+    "predis/predis": "^1.0",
+    "creitive/laravel5-breadcrumbs": "^1.0",
+    "laravel/socialite": "^2.0",
+    "jenssegers/raven": "^1.4",
+    "roumen/sitemap": "^2.5",
+    "roumen/feed": "^2.9",
+    "toin0u/geocoder-laravel": "@stable",
+    "nesbot/carbon": "^1.21",
+    "prettus/l5-repository": "^2.1",
+    "doctrine/dbal": "~2.3",
+    "pingpong/modules": "~2.2",
+    "pingpong/widget": "~2.2",
+    "pingpong/menus": "^2.2",
+    "pingpong/themes": "~2.2",
+    "laravelcollective/html": "5.2.*",
+    "barryvdh/laravel-debugbar": "^2.2",
+    "phoenix/eloquent-meta": "1.4.*",
+    "maatwebsite/excel": "~2.1.0",
     "cvepdb/laravel-addresses": "1.0.52.*",
     "cvepdb/laravel-settings": "1.2.52.*",
-    "cvepdb/theme-longwave": "1.0.52.*",
-    "cvepdb/theme-pages": "1.0.52.*",
     "cvepdb-cms/module-dashboard": "1.0.52.*",
     "cvepdb-cms/module-files": "1.0.52.*",
     "cvepdb-cms/module-installer": "1.0.52.*",
     "cvepdb-cms/module-pages": "1.0.52.*",
     "cvepdb-cms/module-posts": "1.0.52.*",
     "cvepdb-cms/module-themes": "1.0.52.*",
-    "cvepdb-cms/module-navigations": "1.0.52.*",
-    "cvepdb-cms/theme-adminlte": "dev-master",
-    "cvepdb-cms/theme-lumen": "dev-master",
+    "cvepdb-cms/module-users": "1.0.52.*",
+    "cvepdb-cms/theme-adminlte": "1.0.52.*",
+    "cvepdb-cms/theme-lumen": "1.0.52.*",
     "cvepdb-cms/theme-flatly": "dev-master",
     "cvepdb-cms/module-clashofclan": "1.0.52.*",
     "cvepdb-cms/module-steam": "1.0.52.*",
     "cvepdb-cms/module-csgolounge": "1.0.52.*",
-    "cvepdb-cms/module-users": "1.0.52.*",
     "cvepdb-cms/module-teams": "1.0.52.*",
     "league/flysystem": "^1.0",
     "league/flysystem-aws-s3-v3": "~1.0",
@@ -48,21 +105,19 @@
     "spatie/laravel-medialibrary": "^3.16",
     "barryvdh/laravel-elfinder": "^0.3.7",
     "aws/aws-php-sns-message-validator": "^1.1",
-    "laravel/socialite": "^2.0",
     "spatie/laravel-backup": "3.8.*",
     "maknz/slack": "^1.7",
     "monolog/monolog": "^1.19",
     "barryvdh/laravel-ide-helper": "^2.1",
     "spatie/laravel-glide": "^2.3",
+    "thujohn/twitter": "^2.2",
+    "sammyk/laravel-facebook-sdk": "^3.0",
+    "artesaos/laravel-linkedin": "dev-master",
     "invisnik/laravel-steam-auth": "^2.0",
     "xpaw/php-source-query-class": "^1.0",
     "da-mitchell/steam-api": "^2.1",
     "toniperic/php-clash-of-clans": "dev-master",
-    "simplepie/simplepie": "^1.4",
-    "phoenix/eloquent-meta": "1.4.*",
-    "thujohn/twitter": "^2.2",
-    "sammyk/laravel-facebook-sdk": "^3.0",
-    "artesaos/laravel-linkedin": "dev-master"
+    "simplepie/simplepie": "^1.4"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
@@ -85,45 +140,6 @@
     "squizlabs/php_codesniffer": "*",
     "pragmarx/laravelcs": "^0.1.0",
     "sebastian/phpcpd": "*"
-  },
-  "autoload": {
-    "classmap": [
-      "database"
-    ],
-    "psr-4": {
-      "App\\": "app/",
-      "Core\\": "core/",
-      "Modules\\": "modules/"
-    },
-    "files": [
-      "core/helpers.php"
-    ]
-  },
-  "scripts": {
-    "post-root-package-install": [
-      "php -r \"file_put_contents('.env', 'installer');\""
-    ],
-    "post-create-project-cmd": [
-      "php artisan cms:key_generate"
-    ],
-    "post-install-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS",
-      "php artisan clear-compiled",
-      "php artisan ide-helper:generate",
-      "php artisan optimize"
-    ],
-    "pre-update-cmd": [
-    ],
-    "post-update-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS",
-      "php artisan clear-compiled",
-      "php artisan ide-helper:generate",
-      "php artisan optimize"
-    ]
-  },
-  "config": {
-    "bin-dir": "bin",
-    "preferred-install": "dist"
   },
   "extra": {
     "installer-paths": {

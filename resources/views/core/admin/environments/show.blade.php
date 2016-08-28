@@ -4,10 +4,6 @@
 	{{ $environment->name }} <small>({{ $environment->reference }})</small>
 @endsection
 
-@section('before')
-	{!! Form::open(['route' => ['admin.environments.update', $environment['id']], 'class' => 'forms js-call-form_validation', 'method' => 'PUT']) !!}
-@endsection
-
 @section('head')
 	<script>
 		cvepdb_config.libraries.push(
@@ -25,6 +21,10 @@
 
 @section('js')
 	<script src="{{ asset('assets/js/environments/show.js') }}"></script>
+@endsection
+
+@section('before')
+	{!! Form::open(['route' => ['backend.environments.update', $environment['id']], 'class' => 'forms js-call-form_validation', 'method' => 'PUT']) !!}
 @endsection
 
 @section('content')
