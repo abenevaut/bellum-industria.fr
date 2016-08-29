@@ -1666,16 +1666,16 @@
         },
         {
             "name": "cvepdb-cms/module-themes",
-            "version": "1.0.52.11",
+            "version": "1.0.52.12",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-themes.git",
-                "reference": "df7182023e8f6beb2b28ea7ab448fb0826c72f49"
+                "reference": "a889b8bce623e6d4b0ee0aadba0c336b038995a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=df7182023e8f6beb2b28ea7ab448fb0826c72f49",
-                "reference": "df7182023e8f6beb2b28ea7ab448fb0826c72f49",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=a889b8bce623e6d4b0ee0aadba0c336b038995a5",
+                "reference": "a889b8bce623e6d4b0ee0aadba0c336b038995a5",
                 "shasum": ""
             },
             "require": {
@@ -1717,7 +1717,7 @@
                 "module",
                 "themes"
             ],
-            "time": "2016-06-16 14:11:35"
+            "time": "2016-08-24 15:55:41"
         },
         {
             "name": "cvepdb-cms/module-users",
@@ -4070,12 +4070,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/fractal.git",
-                "reference": "56ad8933fbb40328ca3321c84143b2c16186eebf"
+                "reference": "746a07fea7a9710d1b34837815c957e5051c5682"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/56ad8933fbb40328ca3321c84143b2c16186eebf",
-                "reference": "56ad8933fbb40328ca3321c84143b2c16186eebf",
+                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/746a07fea7a9710d1b34837815c957e5051c5682",
+                "reference": "746a07fea7a9710d1b34837815c957e5051c5682",
                 "shasum": ""
             },
             "require": {
@@ -4125,7 +4125,7 @@
                 "league",
                 "rest"
             ],
-            "time": "2016-07-21 09:56:14"
+            "time": "2016-08-29 18:01:47"
         },
         {
             "name": "league/glide",
