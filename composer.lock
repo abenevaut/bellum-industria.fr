@@ -1852,16 +1852,16 @@
         },
         {
             "name": "cvepdb-cms/theme-lumen",
-            "version": "1.0.52.4",
+            "version": "1.0.52.5",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-lumen.git",
-                "reference": "53250e5c4bcf566c351d3bb57636f4cbc7d697ac"
+                "reference": "997ea853263a6f71eba75147251715b7e752ee91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=53250e5c4bcf566c351d3bb57636f4cbc7d697ac",
-                "reference": "53250e5c4bcf566c351d3bb57636f4cbc7d697ac",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=997ea853263a6f71eba75147251715b7e752ee91",
+                "reference": "997ea853263a6f71eba75147251715b7e752ee91",
                 "shasum": ""
             },
             "require": {
@@ -1890,7 +1890,7 @@
                 "lumen",
                 "theme"
             ],
-            "time": "2016-06-09 14:27:13"
+            "time": "2016-08-23 00:33:15"
         },
         {
             "name": "cvepdb/laravel-addresses",
