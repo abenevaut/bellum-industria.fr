@@ -2747,16 +2747,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/php-graph-sdk.git",
-                "reference": "ab068ef4097878e2a2a03a5c5b4bcbfc1f44f7cb"
+                "reference": "8e2f2be46ab6394df3e4ad8a6399fc840c92002d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/php-graph-sdk/zipball/ab068ef4097878e2a2a03a5c5b4bcbfc1f44f7cb",
-                "reference": "ab068ef4097878e2a2a03a5c5b4bcbfc1f44f7cb",
+                "url": "https://api.github.com/repos/facebook/php-graph-sdk/zipball/8e2f2be46ab6394df3e4ad8a6399fc840c92002d",
+                "reference": "8e2f2be46ab6394df3e4ad8a6399fc840c92002d",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.4|^7.0"
+                "php": "^5.6|^7.0"
             },
             "require-dev": {
                 "guzzlehttp/guzzle": "~5.0",
@@ -2796,7 +2796,7 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2016-08-22 23:57:48"
+            "time": "2016-08-29 14:07:09"
         },
         {
             "name": "guzzle/guzzle",
@@ -4258,12 +4258,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "01b2a13d83e8c47336dccfdea6e302f988ab8cfd"
+                "reference": "b5c91156f6bd29f68f4f2c51186faae4310a5a68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/01b2a13d83e8c47336dccfdea6e302f988ab8cfd",
-                "reference": "01b2a13d83e8c47336dccfdea6e302f988ab8cfd",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/b5c91156f6bd29f68f4f2c51186faae4310a5a68",
+                "reference": "b5c91156f6bd29f68f4f2c51186faae4310a5a68",
                 "shasum": ""
             },
             "require": {
@@ -4317,7 +4317,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2016-08-08 18:29:50"
+            "time": "2016-08-28 20:25:51"
         },
         {
             "name": "maknz/slack",
@@ -6768,12 +6768,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "09a84b2db871930af3595d4280d960d5afb04b9c"
+                "reference": "9b65543ca30772789f31d7888e8092d5c402e622"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/09a84b2db871930af3595d4280d960d5afb04b9c",
-                "reference": "09a84b2db871930af3595d4280d960d5afb04b9c",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/9b65543ca30772789f31d7888e8092d5c402e622",
+                "reference": "9b65543ca30772789f31d7888e8092d5c402e622",
                 "shasum": ""
             },
             "require": {
@@ -6818,7 +6818,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-08-28 15:44:38"
+            "time": "2016-08-29 06:37:07"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -9800,12 +9800,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "6dc50cc5c967a74aa653f6362de5723b0fc0517d"
+                "reference": "f30f8045fdd4de0992ed8c2ee3795ddd14360817"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/6dc50cc5c967a74aa653f6362de5723b0fc0517d",
-                "reference": "6dc50cc5c967a74aa653f6362de5723b0fc0517d",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/f30f8045fdd4de0992ed8c2ee3795ddd14360817",
+                "reference": "f30f8045fdd4de0992ed8c2ee3795ddd14360817",
                 "shasum": ""
             },
             "require": {
@@ -9884,7 +9884,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2016-08-28 15:45:31"
+            "time": "2016-08-29 04:17:06"
         },
         {
             "name": "phpspec/prophecy",
@@ -11889,12 +11889,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "91aab601eec635b9c06232a6b0a05cdd251d34f8"
+                "reference": "6e73e8c7d07d308bed00d5025235914a39436f87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/91aab601eec635b9c06232a6b0a05cdd251d34f8",
-                "reference": "91aab601eec635b9c06232a6b0a05cdd251d34f8",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/6e73e8c7d07d308bed00d5025235914a39436f87",
+                "reference": "6e73e8c7d07d308bed00d5025235914a39436f87",
                 "shasum": ""
             },
             "require": {
@@ -11936,7 +11936,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-08-27 16:29:21"
+            "time": "2016-08-29 08:54:53"
         },
         {
             "name": "theseer/fdomdocument",
