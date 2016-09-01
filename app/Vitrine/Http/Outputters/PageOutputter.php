@@ -1,6 +1,6 @@
-<?php namespace App\Vitrine\Http\Outputters;
+<?php namespace cms\App\Vitrine\Http\Outputters;
 
-use App\Admin\Repositories\Posts\RssRepository;
+use cms\App\Admin\Repositories\Posts\RssRepository;
 use Core\Http\Outputters\FrontOutputter;
 use Core\Domain\Settings\Repositories\SettingsRepository;
 

@@ -54,6 +54,12 @@
   "config": {
     "preferred-install": "dist"
   },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://packages.cvepdb.fr"
+    }
+  ],
   "minimum-stability": "dev",
   "require": {
     "php": ">=5.5.9",
@@ -98,6 +104,8 @@
     "cvepdb-cms/module-steam": "1.0.52.*",
     "cvepdb-cms/module-csgolounge": "1.0.52.*",
     "cvepdb-cms/module-teams": "1.0.52.*",
+    "cvepdb/theme-longwave": "1.0.52.*",
+    "cvepdb/theme-pages": "1.0.52.*",
     "league/flysystem": "^1.0",
     "league/flysystem-aws-s3-v3": "~1.0",
     "league/flysystem-rackspace": "~1.0",

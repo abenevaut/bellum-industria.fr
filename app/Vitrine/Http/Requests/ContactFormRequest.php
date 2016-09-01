@@ -1,4 +1,4 @@
-<?php namespace App\Vitrine\Http\Requests;
+<?php namespace cms\App\Vitrine\Http\Requests;
 
 use Core\Http\Requests\FormRequest;
 

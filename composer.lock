@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e54d78564f63ec45878fd1e16b26ffb7",
-    "content-hash": "69904d3cc57d48b615504bed47386cb1",
+    "hash": "2cb1330908287d14f44e3ceeaf96d556",
+    "content-hash": "104e6815c5d2003afb1f7007f8af4951",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -165,16 +165,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.19.3",
+            "version": "3.19.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "1fdf5ec8743575a01d5953a84cd1d9438ce36d1a"
+                "reference": "f67bc37fa4b76d85423052eae2a9577aab99adc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1fdf5ec8743575a01d5953a84cd1d9438ce36d1a",
-                "reference": "1fdf5ec8743575a01d5953a84cd1d9438ce36d1a",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f67bc37fa4b76d85423052eae2a9577aab99adc1",
+                "reference": "f67bc37fa4b76d85423052eae2a9577aab99adc1",
                 "shasum": ""
             },
             "require": {
@@ -241,7 +241,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-08-30 17:56:50"
+            "time": "2016-09-01 21:37:32"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -1301,16 +1301,16 @@
         },
         {
             "name": "cvepdb-cms/module-csgolounge",
-            "version": "1.0.52.1",
+            "version": "1.0.52.2",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-csgolounge.git",
-                "reference": "39752b7bfc7fbd51e909b3cd302d0f7e217c4390"
+                "reference": "722bca30935d7a7e421cfc8898b9f446d0118abe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-csgolounge/repository/archive.zip?sha=39752b7bfc7fbd51e909b3cd302d0f7e217c4390",
-                "reference": "39752b7bfc7fbd51e909b3cd302d0f7e217c4390",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-csgolounge/repository/archive.zip?sha=722bca30935d7a7e421cfc8898b9f446d0118abe",
+                "reference": "722bca30935d7a7e421cfc8898b9f446d0118abe",
                 "shasum": ""
             },
             "require": {
@@ -1344,7 +1344,7 @@
                 "CVEPDB",
                 "module"
             ],
-            "time": "2016-07-10 12:38:45"
+            "time": "2016-09-01 21:46:23"
         },
         {
             "name": "cvepdb-cms/module-dashboard",
@@ -1577,16 +1577,16 @@
         },
         {
             "name": "cvepdb-cms/module-steam",
-            "version": "1.0.52.1",
+            "version": "1.0.52.2",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-steam.git",
-                "reference": "46acc9f379c3adfb1dd74eeb08fbd5d3ca7660f6"
+                "reference": "f4e22a6fff697f726a0fafb30384a8784ac9a02e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-steam/repository/archive.zip?sha=46acc9f379c3adfb1dd74eeb08fbd5d3ca7660f6",
-                "reference": "46acc9f379c3adfb1dd74eeb08fbd5d3ca7660f6",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-steam/repository/archive.zip?sha=f4e22a6fff697f726a0fafb30384a8784ac9a02e",
+                "reference": "f4e22a6fff697f726a0fafb30384a8784ac9a02e",
                 "shasum": ""
             },
             "require": {
@@ -1622,20 +1622,20 @@
                 "Steam",
                 "module"
             ],
-            "time": "2016-07-09 21:54:03"
+            "time": "2016-09-01 21:45:52"
         },
         {
             "name": "cvepdb-cms/module-teams",
-            "version": "1.0.52.1",
+            "version": "1.0.52.2",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-teams.git",
-                "reference": "a52d9023c777c62a1487bd69be4e4e1376e56ac8"
+                "reference": "c5271e36d043b088ebfa06f5b97ece31fc33a0e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-teams/repository/archive.zip?sha=a52d9023c777c62a1487bd69be4e4e1376e56ac8",
-                "reference": "a52d9023c777c62a1487bd69be4e4e1376e56ac8",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-teams/repository/archive.zip?sha=c5271e36d043b088ebfa06f5b97ece31fc33a0e0",
+                "reference": "c5271e36d043b088ebfa06f5b97ece31fc33a0e0",
                 "shasum": ""
             },
             "require": {
@@ -1667,7 +1667,7 @@
                 "Teams",
                 "module"
             ],
-            "time": "2016-07-12 16:05:53"
+            "time": "2016-09-01 22:46:22"
         },
         {
             "name": "cvepdb-cms/module-themes",
@@ -2002,6 +2002,88 @@
                 "persistent"
             ],
             "time": "2016-05-09 15:10:32"
+        },
+        {
+            "name": "cvepdb/theme-longwave",
+            "version": "1.0.52.4",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/theme-longwave.git",
+                "reference": "15d61dcf4a767caca74fb29389e7eaf949bd6263"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=15d61dcf4a767caca74fb29389e7eaf949bd6263",
+                "reference": "15d61dcf4a767caca74fb29389e7eaf949bd6263",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "longwave"
+            },
+            "license": [
+                "copyright"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Theme longwave for #CVEPDB CMS",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "CMS",
+                "CVEPDB",
+                "Theme",
+                "longwave"
+            ],
+            "time": "2016-07-12 17:34:34"
+        },
+        {
+            "name": "cvepdb/theme-pages",
+            "version": "1.0.52.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/theme-pages.git",
+                "reference": "2c8f672ae4b0cdaa69875ad0ee4d71c7a40c74b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-pages/repository/archive.zip?sha=2c8f672ae4b0cdaa69875ad0ee4d71c7a40c74b6",
+                "reference": "2c8f672ae4b0cdaa69875ad0ee4d71c7a40c74b6",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "pages"
+            },
+            "license": [
+                "copyright"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Theme pages for #CVEPDB CMS",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "CMS",
+                "CVEPDB",
+                "Theme",
+                "pages"
+            ],
+            "time": "2016-06-13 13:30:26"
         },
         {
             "name": "da-mitchell/steam-api",
