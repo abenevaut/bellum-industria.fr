@@ -77,7 +77,7 @@
     "pingpong/modules": "~2.2",
     "pingpong/widget": "~2.2",
     "pingpong/menus": "^2.2",
-    "pingpong/themes": "~2.2",
+    "pingpong/themes": "dev-master#9db61b9242207ac7eb199e276b51afa6f675dab8",
     "laravelcollective/html": "5.2.*",
     "barryvdh/laravel-debugbar": "^2.2",
     "phoenix/eloquent-meta": "1.4.*",
