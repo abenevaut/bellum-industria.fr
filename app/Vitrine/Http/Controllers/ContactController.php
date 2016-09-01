@@ -1,33 +1,21 @@
-<?php namespace App\Vitrine\Http\Controllers;
+<?php namespace cms\Vitrine\Http\Controllers;
 
-use Core\Http\Controllers\CorePublicController;
-use App\Vitrine\Http\Requests\ContactFormRequest;
-use App\Vitrine\Http\Outputters\ContactOutputter;
+use cms\Infrastructure\Abstractions\Controllers\FrontendController;
+use cms\Vitrine\Http\Requests\ContactFormRequest;
 
 /**
  * Class ContactController
- * @package App\Vitrine\Controllers
+ * @package cms\Vitrine\Http\Controllers
  */
-class ContactController extends CorePublicController
+class ContactController extends FrontendController
 {
 
 	/**
-	 * @var ContactOutputter|null
-	 */
-	protected $outputter = null;
-
-	/**
 	 * PageController constructor.
-	 *
-	 * @param ContactOutputter $outputter
 	 */
 	public function __construct(
-		ContactOutputter $outputter
 	)
 	{
-		parent::__construct();
-
-		$this->outputter = $outputter;
 	}
 
 	/**
@@ -37,7 +25,7 @@ class ContactController extends CorePublicController
 	 */
 	public function index()
 	{
-		return $this->outputter->index();
+		return view('app/vitrine/contact');
 	}
 
 	/**
@@ -49,6 +37,18 @@ class ContactController extends CorePublicController
 	 */
 	public function store(ContactFormRequest $request)
 	{
-		return $this->outputter->show($request);
+		$m_contacts = new LogContact();
+		$m_contacts->first_name = $request->get('first_name');
+		$m_contacts->last_name = $request->get('last_name');
+		$m_contacts->email = $request->get('email');
+		$m_contacts->subject = $request->get('subject');
+		$m_contacts->message = $request->get('message');
+//		$m_contacts->save();
+
+		$this->mailer->send($m_contacts);
+
+		return $this->redirectTo('contact')
+			->with('message', 'Thanks for contacting us!');
 	}
+
 }

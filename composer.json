@@ -15,6 +15,8 @@
     "psr-4": {
       "cms\\Domain\\": "app/Domain",
       "cms\\App\\": "app/App",
+      "cms\\Vitrine\\": "app/Vitrine",
+      "cms\\Multigaming\\": "app/Multigaming",
       "cms\\Infrastructure\\": "app/Infrastructure",
       "cms\\Console\\": "app/Console",
       "cms\\Http\\": "app/Http",
