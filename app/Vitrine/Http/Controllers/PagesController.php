@@ -1,6 +1,7 @@
 <?php namespace cms\Vitrine\Http\Controllers;
 
 use cms\Infrastructure\Abstractions\Controllers\FrontendController;
+use cms\Vitrine\Repositories\RssRepository;
 
 /**
  * Class PagesController
@@ -10,10 +11,18 @@ class PagesController extends FrontendController
 {
 
 	/**
-	 * PageController constructor.
+	 * @var RssRepository|null
 	 */
-	public function __construct()
+	protected $r_rss = null;
+
+	/**
+	 * PagesController constructor.
+	 *
+	 * @param RssRepository $r_rss
+	 */
+	public function __construct(RssRepository $r_rss)
 	{
+		$this->r_rss = $r_rss;
 	}
 
 	/**

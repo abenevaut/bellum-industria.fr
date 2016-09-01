@@ -2,6 +2,8 @@
 
 use cms\Infrastructure\Abstractions\Controllers\FrontendController;
 use cms\Vitrine\Http\Requests\ContactFormRequest;
+use cms\Vitrine\Repositories\LogContact;
+use cms\Vitrine\Services\MailContactService;
 
 /**
  * Class ContactController
@@ -11,17 +13,26 @@ class ContactController extends FrontendController
 {
 
 	/**
-	 * PageController constructor.
+	 * @var MailContactService|null
+	 */
+	protected $s_mailer = null;
+
+	/**
+	 * ContactController constructor.
+	 *
+	 * @param MailContactService $s_mailer
 	 */
 	public function __construct(
+		MailContactService $s_mailer
 	)
 	{
+		$this->s_mailer = $s_mailer;
 	}
 
 	/**
 	 * Display a listing of the resource.
 	 *
-	 * @return Response
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function index()
 	{
@@ -31,9 +42,9 @@ class ContactController extends FrontendController
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * @param Request $request
+	 * @param ContactFormRequest $request
 	 *
-	 * @return Response
+	 * @return \Illuminate\Http\RedirectResponse
 	 */
 	public function store(ContactFormRequest $request)
 	{
@@ -45,9 +56,9 @@ class ContactController extends FrontendController
 		$m_contacts->message = $request->get('message');
 //		$m_contacts->save();
 
-		$this->mailer->send($m_contacts);
+		$this->s_mailer->send($m_contacts);
 
-		return $this->redirectTo('contact')
+		return redirect('contact')
 			->with('message', 'Thanks for contacting us!');
 	}
 

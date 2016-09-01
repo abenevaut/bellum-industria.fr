@@ -1,13 +1,13 @@
-<?php namespace App\Vitrine\Services;
+<?php namespace cms\Vitrine\Services;
 
-use Core\Services\MailSendService;
-use App\Admin\Repositories\Users\LogContact;
+use cms\Infrastructure\Abstractions\Services\Mails\MailServiceAbstract;
+use cms\Vitrine\Repositories\LogContact;
 
 /**
- * Class MailPasswordResetService
- * @package Core\Domain\Users\Services
+ * Class MailContactService
+ * @package cms\Vitrine\Services
  */
-class MailContactService extends MailSendService
+class MailContactService extends MailServiceAbstract
 {
 
 	/**
@@ -28,4 +28,5 @@ class MailContactService extends MailSendService
 			]
 		);
 	}
+
 }
