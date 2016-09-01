@@ -11486,12 +11486,12 @@
             "version": "v1.1.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/site5/phantoman.git",
+                "url": "https://github.com/grantlucas/phantoman.git",
                 "reference": "6ac9bed985d023909966a5c5b82489ced62998d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/site5/phantoman/zipball/6ac9bed985d023909966a5c5b82489ced62998d1",
+                "url": "https://api.github.com/repos/grantlucas/phantoman/zipball/6ac9bed985d023909966a5c5b82489ced62998d1",
                 "reference": "6ac9bed985d023909966a5c5b82489ced62998d1",
                 "shasum": ""
             },
