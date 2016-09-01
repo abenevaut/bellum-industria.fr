@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
-use CVEPDB\Addresses\Addressable;
+use CVEPDB\Addresses\Domain\Addresses\Addresses\Traits\AddressableTrait;
 use cms\Infrastructure\Abstractions\Model\LogAuthenticatableModelAbstract;
 use cms\App\Facades\Environments;
 use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
@@ -14,7 +14,7 @@ use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
 class User extends LogAuthenticatableModelAbstract
 {
 
-	use Addressable;
+	use AddressableTrait;
 	use EntrustUserTrait;
 	use EnvironmentTrait;
 

@@ -196,7 +196,7 @@ return [
 		Maatwebsite\Excel\ExcelServiceProvider::class,
 		Pingpong\Menus\MenusServiceProvider::class,
 		Pingpong\Widget\WidgetServiceProvider::class,
-		CVEPDB\Addresses\AddressesServiceProvider::class,
+		CVEPDB\Addresses\App\Providers\AddressesServiceProvider::class,
 		Spatie\Glide\GlideServiceProvider::class,
 		Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 		Spatie\Backup\BackupServiceProvider::class,
