@@ -36,7 +36,9 @@ class ContactController extends FrontendController
 	 */
 	public function index()
 	{
-		return view('app/vitrine/contact');
+		return view(
+			'app/vitrine/contact'
+		);
 	}
 
 	/**
