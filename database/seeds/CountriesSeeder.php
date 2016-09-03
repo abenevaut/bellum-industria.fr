@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use CVEPDB\Addresses\Domain\Addresses\Countries\Country;
+use CVEPDB\Addresses\Domain\Addresses\Addresses\Repositories\Iso3166;
 
 /**
  * Class CountriesSeeder
@@ -12,14 +13,11 @@ use CVEPDB\Addresses\Domain\Addresses\Countries\Country;
 class CountriesSeeder extends Seeder
 {
 
-	private $urlList = 'https://raw.githubusercontent.com/CavaENCOREparlerdebits/ISO-3166-Countries-with-Regional-Codes/master/all/all.json';
-
 	public function run()
 	{
 		DB::table('countries')->truncate();
 
-		$insertList = file_get_contents($this->urlList);
-		$insertList = json_decode($insertList);
+		$insertList = Iso3166::get_countries_from_web();
 
 		collect($insertList)
 			->each(function ($item)
