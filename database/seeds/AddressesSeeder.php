@@ -17,6 +17,7 @@ class AddressesSeeder extends Seeder
 	{
 		$this->call('CountriesSeeder');
 		$this->call('StatesSeeder');
+		$this->call('SubStatesSeeder');
 	}
 
 }
