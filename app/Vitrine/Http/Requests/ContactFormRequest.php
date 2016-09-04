@@ -1,12 +1,12 @@
-<?php namespace App\Vitrine\Http\Requests;
+<?php namespace cms\Vitrine\Http\Requests;
 
-use Core\Http\Requests\FormRequest;
+use cms\Infrastructure\Abstractions\Requests\FormRequestAbstract;
 
 /**
  * Class ContactFormRequest
- * @package App\Vitrine\Http\Requests
+ * @package cms\Vitrine\Http\Requests
  */
-class ContactFormRequest extends FormRequest
+class ContactFormRequest extends FormRequestAbstract
 {
 
 	/**
@@ -33,4 +33,5 @@ class ContactFormRequest extends FormRequest
 			'message'    => 'required',
 		];
 	}
+
 }

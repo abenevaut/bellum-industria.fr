@@ -70,7 +70,7 @@ class RolesFields extends WidgetsAbstract
 		}
 
 		return $this->output(
-			'core.widgets.rolesfields',
+			'app.widgets.rolesfields',
 			[
 				'roles'       => $roles_list,
 				'name'        => $name,

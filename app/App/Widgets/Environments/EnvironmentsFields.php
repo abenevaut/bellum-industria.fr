@@ -58,7 +58,7 @@ class EnvironmentsFields extends WidgetsAbstract
 		}
 
 		return $this->output(
-			'core.widgets.environmentsfields',
+			'app.widgets.environmentsfields',
 			[
 				'environments' => $envs,
 				'default_env'  => Environments::currentId(),

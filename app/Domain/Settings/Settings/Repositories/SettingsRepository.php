@@ -50,7 +50,7 @@ class SettingsRepository
 	 */
 	public function index()
 	{
-		return view('core.admin.settings.index', ['settings' => $this]);
+		return view('app.backend.settings.index', ['settings' => $this]);
 	}
 
 	/**

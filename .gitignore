@@ -5,11 +5,23 @@
 /public/storage
 Homestead.yaml
 Homestead.json
-resources/assets/bower
-public/modules/*
-public/themes/*
+_ide_helper.php
+.phpstorm.meta.php
+
+public/.tmb/
+public/modules/
+public/themes/
 public/uploads/*
+
+resources/assets/bower
 resources/views/modules/*
+
+storage/laravel-backups/
+storage/laravel-backups/*
+storage/app
+storage/app/*
+storage/logs
+storage/logs/*
 
 # Dotenv
 .env
@@ -22,14 +34,8 @@ resources/views/modules/*
 .env.production
 
 # Modules directory
-modules/Themes
-modules/Dashboard
-modules/Installer
-modules/Files
-modules/Navigations
-modules/Pages
-modules/Posts
-modules/Users
+modules/
+modules/*
 resources/themes
 
 # Tests
@@ -59,19 +65,11 @@ database/migrations/2016_04_04_174738_create_table_pages.php
 database/migrations/2016_03_14_122839_alter_users_table_remove_name_add_first_name_and_last_name.php
 database/migrations/2016_03_23_150432_alter_users_table_to_add_soft_delete.php
 database/migrations/2016_03_30_203434_alter_roles_table_add_unchangeable_bool.php
-
-_ide_helper.php
-.phpstorm.meta.php
-
-public/.tmb/
-public/modules/
-public/themes/
-modules/
-storage/laravel-backups/
+# CsgoLoung
 database/migrations/2016_07_10_084330_CreateCsgoLoungTeams.php
 database/migrations/2016_07_10_084334_CreateCsgoLoungMatches.php
 database/migrations/2016_07_10_084343_CreateCsgoLoungVictories.php
+# Team
 2016_07_11_134758_CreateTeamsTable.php
 2016_07_11_141157_CreateEnvironmentTeamTable.php
 2016_07_11_144934_CreateTeamUserTable.php
-storage/apps/*

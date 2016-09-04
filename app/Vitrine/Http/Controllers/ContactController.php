@@ -1,54 +1,67 @@
-<?php namespace App\Vitrine\Http\Controllers;
+<?php namespace cms\Vitrine\Http\Controllers;
 
-use Core\Http\Controllers\CorePublicController;
-use App\Vitrine\Http\Requests\ContactFormRequest;
-use App\Vitrine\Http\Outputters\ContactOutputter;
+use cms\Infrastructure\Abstractions\Controllers\FrontendController;
+use cms\Vitrine\Http\Requests\ContactFormRequest;
+use cms\Vitrine\Repositories\LogContact;
+use cms\Vitrine\Services\MailContactService;
 
 /**
  * Class ContactController
- * @package App\Vitrine\Controllers
+ * @package cms\Vitrine\Http\Controllers
  */
-class ContactController extends CorePublicController
+class ContactController extends FrontendController
 {
 
 	/**
-	 * @var ContactOutputter|null
+	 * @var MailContactService|null
 	 */
-	protected $outputter = null;
+	protected $s_mailer = null;
 
 	/**
-	 * PageController constructor.
+	 * ContactController constructor.
 	 *
-	 * @param ContactOutputter $outputter
+	 * @param MailContactService $s_mailer
 	 */
 	public function __construct(
-		ContactOutputter $outputter
+		MailContactService $s_mailer
 	)
 	{
-		parent::__construct();
-
-		$this->outputter = $outputter;
+		$this->s_mailer = $s_mailer;
 	}
 
 	/**
 	 * Display a listing of the resource.
 	 *
-	 * @return Response
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function index()
 	{
-		return $this->outputter->index();
+		return view(
+			'app/vitrine/contact'
+		);
 	}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * @param Request $request
+	 * @param ContactFormRequest $request
 	 *
-	 * @return Response
+	 * @return \Illuminate\Http\RedirectResponse
 	 */
 	public function store(ContactFormRequest $request)
 	{
-		return $this->outputter->show($request);
+		$m_contacts = new LogContact();
+		$m_contacts->first_name = $request->get('first_name');
+		$m_contacts->last_name = $request->get('last_name');
+		$m_contacts->email = $request->get('email');
+		$m_contacts->subject = $request->get('subject');
+		$m_contacts->message = $request->get('message');
+//		$m_contacts->save();
+
+		$this->s_mailer->send($m_contacts);
+
+		return redirect('contact')
+			->with('message', 'Thanks for contacting us!');
 	}
+
 }

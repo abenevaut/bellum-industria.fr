@@ -9,7 +9,7 @@ return [
 	| Cache configuration path
 	|
 	*/
-	'cache_file'           => storage_path('app/settings.json'),
+	'cache_file'           => storage_path('framework/cache/settings.json'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -41,13 +41,13 @@ return [
     |
     */
 	'form_key_to_settings' => [
-		'cms_site_name'                   => 'cms.site.name',
-		'cms_site_description'            => 'cms.site.description',
-		'cms_site_logo'                   => 'cms.site.logo',
-		'cms_site_favico'                 => 'cms.site.favico',
+		'cms_site_name'                    => 'cms.site.name',
+		'cms_site_description'             => 'cms.site.description',
+		'cms_site_logo'                    => 'cms.site.logo',
+		'cms_site_favico'                  => 'cms.site.favico',
 		'mail_from_address'                => 'mail.from.address',
 		'mail_from_name'                   => 'mail.from.name',
-		'cms_mail_mailwatch'              => 'cms.mail.mailwatch',
+		'cms_mail_mailwatch'               => 'cms.mail.mailwatch',
 		'mail_driver'                      => 'mail.driver',
 		'mail_host'                        => 'mail.host',
 		'mail_port'                        => 'mail.port',

@@ -143,7 +143,7 @@ class EnvironmentsEventsListener
 		$this->r_disk->mountElFinderDisk(
 			$disk_key,
 			[
-				'alias' => $event->environment->name . ' uploads',
+				'alias' => $event->environment->name . ' public',
 				'URL'   => null,
 			],
 			$event->environment->reference
