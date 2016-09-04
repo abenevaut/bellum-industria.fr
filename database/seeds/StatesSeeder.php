@@ -18,26 +18,35 @@ class StatesSeeder extends Seeder
 	{
 		DB::table('states')->truncate();
 
-		collect(Country::all())
-			->each(function (Country $country)
+		for ($i = 1; $countries = Country::forPage($i, 30); ++$i)
+		{
+			if (!$countries->count())
 			{
-				$states = Iso3166::regions_by_country($country->iso_3166_alpha_2);
+				break;
+			}
 
-				if (is_array($states) && array_key_exists('regions', $states))
+			$countries
+				->each(function (Country $country)
 				{
+					$states = Iso3166::regions_by_country($country->iso_3166_alpha_2);
 
-					collect($states['regions'])
-						->each(function($region, $region_a2) use ($country, $states) {
-							State::create([
-								'country_id'       => $country->id,
-								'name'             => $region['name'],
-								'slug'             => str_slug($region['name']),
-								'regions_label'    => str_slug($states['regions_label']),
-								'iso_3166_alpha_2' => $region_a2,
-							]);
-						});
-				}
-			});
+					if (is_array($states) && array_key_exists('regions', $states))
+					{
+
+						collect($states['regions'])
+							->each(function ($region, $region_a2) use ($country, $states)
+							{
+								State::create([
+									'country_id'       => $country->id,
+									'name'             => $region['name'],
+									'slug'             => str_slug($region['name']),
+									'regions_label'    => str_slug($states['regions_label']),
+									'iso_3166_alpha_2' => $region_a2,
+								]);
+							});
+					}
+				});
+		}
 	}
 
 }

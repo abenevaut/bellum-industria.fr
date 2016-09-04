@@ -20,6 +20,8 @@ storage/laravel-backups/
 storage/laravel-backups/*
 storage/app
 storage/app/*
+storage/logs
+storage/logs/*
 
 # Dotenv
 .env

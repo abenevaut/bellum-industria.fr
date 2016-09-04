@@ -19,34 +19,42 @@ class SubStatesSeeder extends Seeder
 	{
 		DB::table('substates')->truncate();
 
-		collect(State::all())
-			->each(function (State $state)
+		for ($i = 1; $states = State::forPage($i, 30); ++$i)
+		{
+			if (!$states->count())
 			{
+				break;
+			}
 
-				$states = Iso3166::regions_by_country($state->country->iso_3166_alpha_2);
-
-				if (array_key_exists('regions', $states))
+			$states
+				->each(function (State $state)
 				{
-					collect($states['regions'])
-						->each(function ($region) use ($state, $states)
-						{
-							if (array_key_exists('subregions', $region))
+
+					$states = Iso3166::regions_by_country($state->country->iso_3166_alpha_2);
+
+					if (array_key_exists('regions', $states))
+					{
+						collect($states['regions'])
+							->each(function ($region) use ($state, $states)
 							{
-								collect($region['subregions'])
-									->each(function ($subregion, $subregion_a2) use ($state, $states)
-									{
-										SubState::create([
-											'state_id'         => $state->id,
-											'name'             => $subregion['name'],
-											'slug'             => str_slug($subregion['name']),
-											'subregions_label' => str_slug($states['subregions_label']),
-											'iso_3166_alpha_2' => $subregion_a2,
-										]);
-									});
-							}
-						});
-				}
-			});
+								if (array_key_exists('subregions', $region))
+								{
+									collect($region['subregions'])
+										->each(function ($subregion, $subregion_a2) use ($state, $states)
+										{
+											SubState::create([
+												'state_id'         => $state->id,
+												'name'             => $subregion['name'],
+												'slug'             => str_slug($subregion['name']),
+												'subregions_label' => str_slug($states['subregions_label']),
+												'iso_3166_alpha_2' => $subregion_a2,
+											]);
+										});
+								}
+							});
+					}
+				});
+		}
 	}
 
 }
