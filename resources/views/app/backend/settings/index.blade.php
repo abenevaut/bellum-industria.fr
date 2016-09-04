@@ -32,20 +32,20 @@
 					</li>
 					<li>
 						<a href="#control-sidebar-socials-tab" data-toggle="tab">
-							<i class="fa fa-share-square-o"></i> {{ trans('settings.socials') }}
+							<i class="fa fa-share-square-o"></i> {{ trans('settings/backend.socials') }}
 						</a>
 					</li>
 				</ul>
 				<div class="tab-content">
 					<div class="tab-content">
 						<div class="tab-pane active" id="control-sidebar-settings-tab">
-							@include('core.admin.settings.chunks.general')
+							@include('app.backend.settings.chunks.general')
 						</div>
 						<div class="tab-pane" id="control-sidebar-mails-tab">
-							@include('core.admin.settings.chunks.mails')
+							@include('app.backend.settings.chunks.mails')
 						</div>
 						<div class="tab-pane" id="control-sidebar-socials-tab">
-							@include('core.admin.settings.chunks.socials')
+							@include('app.backend.settings.chunks.socials')
 						</div>
 					</div>
 				</div>
@@ -57,7 +57,7 @@
 					</div>
 					<div class="pull-right">
 						<button class="btn btn-primary btn-flat" type="submit">
-							<i class="fa fa-pencil"></i> {{ trans('settings.btn.edit') }}
+							<i class="fa fa-pencil"></i> {{ trans('settings/backend.btn.edit') }}
 						</button>
 					</div>
 				</div>
