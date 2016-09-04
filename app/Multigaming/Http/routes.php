@@ -14,8 +14,7 @@
 Route::group(['middleware' => ['web'], 'domain' => env('CVEPDB_MULTIGAMING_DOMAIN')], function ()
 {
 
-	Route::resource('index', '\cms\Multigaming\Http\Controllers\IndexController');
-	Route::get('/', '\cms\Multigaming\Http\Controllers\IndexController@index');
+	Route::get('/', ['as' => 'home', 'uses' => '\cms\Multigaming\Http\Controllers\IndexController@index']);
 	Route::get('boutique', '\cms\Multigaming\Http\Controllers\IndexController@boutique');
 	Route::get('challenge', '\cms\Multigaming\Http\Controllers\IndexController@challenge');
 	Route::get('message-of-the-day', '\cms\Multigaming\Http\Controllers\IndexController@messageoftheday');
