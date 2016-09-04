@@ -35,7 +35,7 @@ class ModulesServiceProvider extends PingpongModulesServiceProvider
 
 			foreach (Module::getOrdered() as $module)
 			{
-				$file = $module->getPath() . '/widgets.php';
+				$file = $module->getPath() . '/App/Widgets/widgets.php';
 
 				if (file_exists($file))
 				{

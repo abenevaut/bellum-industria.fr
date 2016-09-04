@@ -18,7 +18,7 @@ class CreateCountriesTables extends Migration
 			$table->increments('id');
 			$table->string('name', 60);
 			$table->string('slug', 60);
-			$table->string('iso_3166_2', 2);
+			$table->string('iso_3166_2', 13);
 			$table->string('iso_3166_alpha_2', 2);
 			$table->string('iso_3166_alpha_3', 3);
 		});

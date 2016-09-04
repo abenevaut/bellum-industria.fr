@@ -19,14 +19,18 @@ class CreateAddressesTables extends Migration
 			$table->increments('id');
 			$table->enum('flag', Config::get('addresses.flags'));
 			$table->morphs('model');
-			$table->string('street', 50);
+			$table->string('street', 50)
+				->nullable();
 			$table->string('street_extra', 50)
 				->nullable();
-			$table->string('city', 50);
-			$table->string('zip', 11);
+			$table->string('city', 50)
+				->nullable();
+			$table->string('zip', 11)
+				->nullable();
 
 			$table->integer('state_id')
 				->unsigned()
+				->nullable()
 				->index()
 				->foreign('state_id')
 				->references('id')

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStatesTables extends Migration
+class CreateSubstatesTables extends Migration
 {
 
 	/**
@@ -13,20 +13,20 @@ class CreateStatesTables extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('states', function (Blueprint $table)
+		Schema::create('substates', function (Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('country_id')
+			$table->integer('state_id')
 				->unsigned()
 				->index()
-				->foreign('country_id')
+				->foreign('state_id')
 				->references('id')
-				->on('countries')
+				->on('states')
 				->onUpdate('cascade')
 				->onDelete('cascade');
 			$table->string('name', 60);
 			$table->string('slug', 60);
-			$table->string('regions_label', 60);
+			$table->string('subregions_label', 60);
 			$table->string('iso_3166_alpha_2', 3)
 				->nullable();
 		});
@@ -39,7 +39,7 @@ class CreateStatesTables extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('states');
+		Schema::drop('substates');
 	}
 
 }

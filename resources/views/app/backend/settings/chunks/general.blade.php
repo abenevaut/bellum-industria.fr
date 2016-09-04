@@ -1,17 +1,17 @@
 <div class="form-group form-group-default">
-	<label>{{ trans('settings.cms_site_name') }}</label>
+	<label>{{ trans('settings/backend.cms_site_name') }}</label>
 	<input type="text" class="form-control" name="cms_site_name" required="required"
 		   value="{{ old('cms_site_name', $settings->get('cms.site.name')) }}">
 </div>
 
 <div class="form-group form-group-default">
-	<label>{{ trans('settings.cms_site_description') }}</label>
+	<label>{{ trans('settings/backend.cms_site_description') }}</label>
 	<input type="text" class="form-control" name="cms_site_description" required="required"
 		   value="{{ old('cms_site_description', $settings->get('cms.site.description')) }}">
 </div>
 
 {{--<div class="form-group form-group-default">--}}
-	{{--<label>{{ trans('settings.cms_site_logo') }}</label>--}}
+	{{--<label>{{ trans('settings/backend.cms_site_logo') }}</label>--}}
 
 	{{--{!! Widget::files_fields(--}}
 			{{--'cms_site_logo', [--}}
@@ -24,7 +24,7 @@
 {{--</div>--}}
 
 {{--<div class="form-group form-group-default">--}}
-	{{--<label>{{ trans('settings.cms_site_favico') }}</label>--}}
+	{{--<label>{{ trans('settings/backend.cms_site_favico') }}</label>--}}
 
 	{{--{!! Widget::files_fields(--}}
 			{{--'cms_site_favico', [--}}

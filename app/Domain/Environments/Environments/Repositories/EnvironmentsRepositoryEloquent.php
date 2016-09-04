@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Container\Container as Application;
 use CVEPDB\Settings\Facades\Settings;
-use cms\Modules\Installer\Infrastructure\Abstractions\Requests\FormRequestAbstract;
+use cms\Infrastructure\Abstractions\Requests\FormRequestAbstract;
 use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
 //use Core\Criterias\OnlyTrashedCriteria;
 //use Core\Criterias\WithTrashedCriteria;
@@ -23,6 +23,9 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 
 	const DEFAULT_ENVIRONMENT_REFERENCE = 'default';
 
+	/**
+	 * @var RolesRepositoryEloquent|null
+	 */
 	protected $r_roles = null;
 
 	/**
@@ -196,7 +199,7 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 			->paginate(Settings::get('app.pagination'));
 
 		return cmsview(
-			'core.admin.environments.index',
+			'app.backend.environments.index',
 			[
 				'environments' => $envs
 			]
@@ -225,8 +228,8 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 			]
 		);
 
-		return redirect('backend/environments')
-			->with('message-success', 'environments.index.modal.add.message.success');
+		return redirect(route('backend.environments.index'))
+			->with('message-success', 'environments/backend.index.modal.add.message.success');
 	}
 
 	/**
@@ -239,7 +242,7 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 		$env = $this->find($id);
 
 		return cmsview(
-			'core.admin.environments.show',
+			'app.backend.environments.show',
 			[
 				'environment' => $env
 			]
@@ -262,8 +265,8 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 			$id
 		);
 
-		return redirect('backend/environments')
-			->with('message-success', 'environments.index.modal.update.message.success');
+		return redirect(route('backend.environments.index'))
+			->with('message-success', 'environments/backend.index.modal.update.message.success');
 	}
 
 	/**
@@ -279,8 +282,8 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 		{
 			$this->delete($id);
 
-			$redirectTo = redirect('backend/environments')
-				->with('message-success', 'environments.index.modal.delete.message.success');
+			$redirectTo = redirect(route('backend.environments.index'))
+				->with('message-success', 'environments/backend.index.modal.delete.message.success');
 		}
 		catch (\Exception $e)
 		{
@@ -288,13 +291,13 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 			{
 				case 1:
 				{
-					$redirectTo = redirect('backend/environments')
+					$redirectTo = redirect(route('backend.environments.index'))
 						->with('message-error', $e->getMessage());
 					break;
 				}
 				default:
 				{
-					$redirectTo = redirect('backend/environments')
+					$redirectTo = redirect(route('backend.environments.index'))
 						->with('message-error', 'An error occured');
 					break;
 				}

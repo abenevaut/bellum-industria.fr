@@ -1,13 +1,15 @@
 <?php
 
 return [
-	'core_site_name'          => 'Web site name',
-	'core_site_description'   => 'Web site description',
-	'core_site_logo'          => 'Web site logo',
-	'core_site_favico'        => 'Web site favico',
+	'meta_title'              => 'Settings',
+	'meta_description'        => 'settings panel',
+	'cms_site_name'           => 'Web site name',
+	'cms_site_description'    => 'Web site description',
+	'cms_site_logo'           => 'Web site logo',
+	'cms_site_favico'         => 'Web site favico',
 	'mail_from_address'       => 'Web site contact mail',
 	'mail_from_name'          => 'Web site contact mail display name',
-	'core_mail_mailwatch'     => 'Web site copy mailbox',
+	'cms_mail_mailwatch'      => 'Web site copy mailbox',
 	'mail_provider_title'     => 'Emails provider configuration',
 	'mail_host'               => 'Emails provider hostname',
 	'mail_username'           => 'Emails provider username',
