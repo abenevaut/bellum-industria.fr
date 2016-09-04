@@ -1,5 +1,9 @@
 @extends('adminlte::layouts.default')
 
+@section('title', trans('settings/backend.meta_title'))
+@section('meta-description', trans('settings/backend.meta_description'))
+@section('subtitle', trans('settings/backend.meta_description'))
+
 @section('content')
 	<div class="row">
 		<div class="col-md-12">
