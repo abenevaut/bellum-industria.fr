@@ -85,7 +85,7 @@ class IndexController extends FrontendController
 		$feed = new SimplePie();
 		$feed->set_feed_url("https://steamcommunity.com/groups/Bellum-Industria/rss");
 		$feed->enable_cache(true);
-		$feed->set_cache_location(storage_path() . '/apps/multigaming/simplepie/cache');
+		$feed->set_cache_location(storage_path('framework/cache'));
 		$feed->set_cache_duration(60 * 60 * 12);
 		$feed->set_output_encoding('utf-8');
 		$feed->init();
