@@ -1258,12 +1258,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-dashboard.git",
-                "reference": "dd86e9a80abf61e4f50623173e47a91d38aced97"
+                "reference": "aa5a87777aa64a66aadb83ec1d1a4f7f3266581b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-dashboard/repository/archive.zip?sha=dd86e9a80abf61e4f50623173e47a91d38aced97",
-                "reference": "dd86e9a80abf61e4f50623173e47a91d38aced97",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-dashboard/repository/archive.zip?sha=aa5a87777aa64a66aadb83ec1d1a4f7f3266581b",
+                "reference": "aa5a87777aa64a66aadb83ec1d1a4f7f3266581b",
                 "shasum": ""
             },
             "require": {
@@ -1297,7 +1297,7 @@
                 "dashboard",
                 "module"
             ],
-            "time": "2016-08-28 17:39:25"
+            "time": "2016-09-04 12:15:23"
         },
         {
             "name": "cvepdb-cms/module-files",
@@ -1305,12 +1305,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-files.git",
-                "reference": "80b3d7535c28d8119585729c1b7e4fe83fbe50ba"
+                "reference": "fd87bbf972302453367c1d27f1f74b97d703ecdb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-files/repository/archive.zip?sha=80b3d7535c28d8119585729c1b7e4fe83fbe50ba",
-                "reference": "80b3d7535c28d8119585729c1b7e4fe83fbe50ba",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-files/repository/archive.zip?sha=fd87bbf972302453367c1d27f1f74b97d703ecdb",
+                "reference": "fd87bbf972302453367c1d27f1f74b97d703ecdb",
                 "shasum": ""
             },
             "require": {
@@ -1344,7 +1344,7 @@
                 "files",
                 "module"
             ],
-            "time": "2016-08-28 17:40:55"
+            "time": "2016-09-04 12:22:13"
         },
         {
             "name": "cvepdb-cms/module-installer",
@@ -1352,12 +1352,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-installer.git",
-                "reference": "b3e7da7a6b699f20332d480e1ff5fb86faded5d0"
+                "reference": "ecdd615899dc18e38f7fe909c3308e816ffca217"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=b3e7da7a6b699f20332d480e1ff5fb86faded5d0",
-                "reference": "b3e7da7a6b699f20332d480e1ff5fb86faded5d0",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=ecdd615899dc18e38f7fe909c3308e816ffca217",
+                "reference": "ecdd615899dc18e38f7fe909c3308e816ffca217",
                 "shasum": ""
             },
             "require": {
@@ -1391,7 +1391,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-08-28 17:38:42"
+            "time": "2016-09-04 12:22:46"
         },
         {
             "name": "cvepdb-cms/module-pages",
@@ -1487,12 +1487,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-themes.git",
-                "reference": "942c011259e7c91291e0864158fd48506e1b4884"
+                "reference": "b6a5280266d6495127e25606ddcfd279feca4acb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=942c011259e7c91291e0864158fd48506e1b4884",
-                "reference": "942c011259e7c91291e0864158fd48506e1b4884",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=b6a5280266d6495127e25606ddcfd279feca4acb",
+                "reference": "b6a5280266d6495127e25606ddcfd279feca4acb",
                 "shasum": ""
             },
             "require": {
@@ -1534,7 +1534,7 @@
                 "module",
                 "themes"
             ],
-            "time": "2016-09-03 21:12:28"
+            "time": "2016-09-04 13:00:46"
         },
         {
             "name": "cvepdb-cms/module-users",
