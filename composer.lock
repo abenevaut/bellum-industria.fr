@@ -6842,12 +6842,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "687165965bb8a732cd3a58c5ec8ecbe10fe12d4a"
+                "reference": "5d163e4552d1857a7790ccc14b11303f07d5ccf7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/687165965bb8a732cd3a58c5ec8ecbe10fe12d4a",
-                "reference": "687165965bb8a732cd3a58c5ec8ecbe10fe12d4a",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/5d163e4552d1857a7790ccc14b11303f07d5ccf7",
+                "reference": "5d163e4552d1857a7790ccc14b11303f07d5ccf7",
                 "shasum": ""
             },
             "require": {
@@ -6892,7 +6892,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-09-03 15:17:53"
+            "time": "2016-09-04 12:04:15"
         },
         {
             "name": "swiftmailer/swiftmailer",

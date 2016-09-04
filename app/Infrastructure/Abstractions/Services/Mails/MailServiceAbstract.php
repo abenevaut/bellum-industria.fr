@@ -1,5 +1,6 @@
 <?php namespace cms\Infrastructure\Abstractions\Services\Mails;
 
+use CVEPDB\Settings\Facades\Settings;
 use Illuminate\Support\Facades\Mail;
 use cms\Infrastructure\Interfaces\Services\Mails\MailServiceInterface;
 
@@ -21,9 +22,13 @@ abstract class MailServiceAbstract implements MailServiceInterface
     {
         Mail::send($view, $data, function($message) use ($emails, $subject) {
             $message->to($emails)
-                ->from(config('cvepdb.emails.from.contact'))
-                ->bcc(config('cvepdb.emails.copy.mailwatch'))
+                ->from(Settings::get('mail.from.address'))
                 ->subject($subject);
+
+			if ($mailwatch = Settings::get('cms.mail.mailwatch'))
+			{
+				$message->bcc($mailwatch);
+			}
         });
     }
 
