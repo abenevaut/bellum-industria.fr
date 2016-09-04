@@ -1,11 +1,15 @@
-<?php namespace App\Multigaming\Http\Controllers;
+<?php namespace cms\Multigaming\Http\Controllers;
 
-use Core\Http\Controllers\CorePublicController;
+use cms\Infrastructure\Abstractions\Controllers\FrontendController;
 use App\Multigaming\Repositories\UserRepository as UserRepository;
 use Invisnik\LaravelSteamAuth\SteamAuth;
 use CVEPDB\Repositories\Users\User;
 
-class AuthController extends CorePublicController
+/**
+ * Class AuthController
+ * @package App\Multigaming\Http\Controllers
+ */
+class AuthController extends FrontendController
 {
 
 	/**

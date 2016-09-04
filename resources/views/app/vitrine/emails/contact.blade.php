@@ -1,4 +1,4 @@
-@extends('cvepdb.emails.layouts.clip')
+@extends('longwave::emails.layouts.clip')
 
 @section('content')
 	<table bgcolor="#cdcdc8" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -37,7 +37,7 @@
 													{{ trans('cvepdb/vitrine/emails/emails.contact_form') }}
 												</td>
 											</tr>
-										@include('cvepdb.emails.partials.clip_signature')
+										@include('longwave::emails.partials.clip_signature')
 										<!--end content-->
 										</tbody>
 									</table>
@@ -67,7 +67,7 @@
 											<tr>
 												<td align="center" style="line-height: 0px;">
 													<img style="display:block; line-height:0px; font-size:0px; border:0px;"
-														 class="pattern" src="{{ asset('assets/images/pattern-line.png') }}"
+														 class="pattern" src="{{ asset('themes/longwave/images/clips/clip2/pattern-line.png') }}"
 														 height="9">
 												</td>
 											</tr>

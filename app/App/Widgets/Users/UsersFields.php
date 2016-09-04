@@ -1,11 +1,9 @@
 <?php namespace cms\App\Widgets\Users;
 
 use cms\Infrastructure\Abstractions\Widgets\WidgetsAbstract;
-use Core\Domain\Environments\Facades\EnvironmentFacade;
-use Core\Domain\Environments\Repositories\EnvironmentRepositoryEloquent;
-use Illuminate\Support\Facades\Auth;
-use Core\Domain\Settings\Repositories\SettingsRepository;
-use Core\Domain\Users\Repositories\UserRepositoryEloquent;
+use cms\App\Facades\Environments;
+use cms\Domain\Settings\Settings\Repositories\SettingsRepository;
+use cms\Domain\Users\Users\Repositories\UsersRepositoryEloquent;
 
 /**
  * Class UsersFields
@@ -40,26 +38,26 @@ class UsersFields extends WidgetsAbstract
 	private $r_settings = null;
 
 	/**
-	 * @var UserRepositoryEloquent|null
+	 * @var UsersRepositoryEloquent|null
 	 */
 	private $r_user = null;
 
 	public function __construct(
 		SettingsRepository $r_settings,
-		UserRepositoryEloquent $r_user
+		UsersRepositoryEloquent $r_user
 	)
 	{
 		$this->r_settings = $r_settings;
 		$this->r_user = $r_user;
 	}
-	
+
 	public function register($name = 'users[]', $attributes = [])
 	{
 		$user_can_see_environment = cmsuser_can_see_env();
 
 		if (!$user_can_see_environment)
 		{
-			$this->r_user->filterEnvironments([EnvironmentFacade::currentId()]);
+			$this->r_user->filterEnvironments([Environments::currentId()]);
 		}
 		$users = $this->r_user->all(['users.first_name', 'users.last_name', 'users.id']);
 

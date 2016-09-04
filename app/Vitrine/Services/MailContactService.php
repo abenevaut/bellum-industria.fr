@@ -20,7 +20,7 @@ class MailContactService extends MailServiceAbstract
 		$this->emailTo(
 			$contact->email,
 			'app.vitrine.emails.contact',
-			trans('cvepdb/vitrine/emails.contact_title') . $contact->subject,
+			trans('cvepdb/vitrine/emails/emails.contact_title') . $contact->subject,
 			[
 				'name'         => $contact->last_name . ' ' . $contact->first_name,
 				'user_subject' => $contact->subject,
