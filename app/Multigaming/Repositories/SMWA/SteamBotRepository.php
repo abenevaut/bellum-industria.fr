@@ -1,10 +1,8 @@
-<?php
-
-namespace App\Multigaming\Repositories\SMWA;
+<?php namespace cms\Multigaming\Repositories\SMWA;
 
 /**
  * Class SteamBotRepository
- * @package App\CVEPDB\Multigaming\Repositories\SMWA
+ * @package cms\Multigaming\Repositories\SMWA
  */
 class SteamBotRepository
 {
