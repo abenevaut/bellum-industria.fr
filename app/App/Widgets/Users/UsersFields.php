@@ -75,7 +75,7 @@ class UsersFields extends WidgetsAbstract
 		}
 
 		return $this->output(
-			'core.widgets.usersfields',
+			'app.widgets.usersfields',
 			[
 				'users'       => $users_list,
 				'name'        => $name,
