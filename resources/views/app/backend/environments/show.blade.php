@@ -29,13 +29,11 @@
 
 @section('content')
 	<div class="box-body no-padding">
-
 		<div class="form-group form-group-default">
 			<label>{{ trans('global.name') }}</label>
 			<input type="text" class="form-control" name="name" required="required"
 				   value="{{ $environment['name'] }}" placeholder="{{ trans('global.name') }}">
 		</div>
-
 		<div class="form-group form-group-default">
 			<label>{{ trans('global.reference') }}</label>
 			<input type="text" class="form-control"
@@ -43,13 +41,11 @@
 				   required="required" readonly="readonly"
 				   value="{{ $environment['reference'] }}" placeholder="{{ trans('global.reference') }}">
 		</div>
-
 		<div class="form-group form-group-default">
 			<label>{{ trans('global.domain') }}</label>
 			<input type="text" class="form-control" name="domain" required="required"
 				   value="{{ $environment['domain'] }}" placeholder="{{ trans('global.domain') }}">
 		</div>
-
 	</div>
 @endsection
 
@@ -57,9 +53,8 @@
 	<button type="button" class="btn btn-default pull-left" data-dismiss="modal">
 		{{ trans('global.cancel') }}
 	</button>
-
 	<button type="submit" class="btn btn-primary pull-right">
-		<i class="fa fa-pencil"></i> {{ trans('environments.index.modal.update.btn.edit') }}
+		<i class="fa fa-pencil"></i> {{ trans('environments/backend.index.modal.update.btn.edit') }}
 	</button>
 @endsection
 

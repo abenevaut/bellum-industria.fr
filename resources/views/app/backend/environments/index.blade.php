@@ -1,5 +1,9 @@
 @extends('adminlte::layouts.default')
 
+@section('title', trans('environments/backend.meta_title'))
+@section('meta-description', trans('environments/backend.meta_description'))
+@section('subtitle', trans('environments/backend.meta_description'))
+
 @section('head')
 	<script>
 		cvepdb_config.libraries.push(
@@ -38,12 +42,12 @@
 
 			<div class="box box-primary">
 				<div class="box-header with-border">
-					<h3 class="box-title">{{ trans('environments.index.title') }}</h3>
+					<h3 class="box-title">{{ trans('environments/backend.index.title') }}</h3>
 					<div class="box-tools hidden-xs pull-right">
 						<a class="btn btn-box-tool btn-box-tool-primary"
 						   data-toggle="modal"
 						   data-target="#add_environment">
-							<i class="fa fa-plus"></i> {{ trans('environments.index.btn.add') }}
+							<i class="fa fa-plus"></i> {{ trans('environments/backend.index.btn.add') }}
 						</a>
 					</div>
 				</div>
@@ -73,7 +77,7 @@
 										</td>
 										<td class="hidden-xs cell-center">
 											@if (empty($environment['deleted_at']))
-												<a href="{{ url('admin/environments/' . $environment['id'] . '/edit') }}"
+												<a href="{{ route('backend.environments.edit', ['id' => $environment['id']]) }}"
 												   class="btn btn-warning btn-flat btn-mobile"
 												   data-toggle="modal"
 												   data-target="#environment_show_{{ $environment['id'] }}">
@@ -114,9 +118,9 @@
 						</div>
 						<div class="callout callout-info" role="alert">
 							<h4>
-								<i class="icon fa fa-info"></i> {{ trans('environments.index.no_data.title') }}
+								<i class="icon fa fa-info"></i> {{ trans('environments/backend.index.no_data.title') }}
 							</h4>
-							<p>{{ trans('environments.index.no_data.description') }}</p>
+							<p>{{ trans('environments/backend.index.no_data.description') }}</p>
 						</div>
 					</div>
 				@endif
@@ -132,18 +136,18 @@
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">×</span>
 						</button>
-						<h4 class="modal-title">{{ trans('environments.index.modal.delete.title') }}</h4>
+						<h4 class="modal-title">{{ trans('environments/backend.index.modal.delete.title') }}</h4>
 					</div>
 					<div class="modal-body">
-						<p>{{ trans('environments.index.modal.delete.question') }} {{ $environment['name'] }} <small>({{ $environment['reference'] }})</small> ?</p>
+						<p>{{ trans('environments/backend.index.modal.delete.question') }} {{ $environment['name'] }} <small>({{ $environment['reference'] }})</small> ?</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default pull-left" data-dismiss="modal">
-							{{ trans('environments.index.modal.delete.btn.cancel_delete') }}
+							{{ trans('environments/backend.index.modal.delete.btn.cancel_delete') }}
 						</button>
 						{!! Form::open(['route' => ['backend.environments.destroy', $environment['id']], 'method' => 'delete']) !!}
 						<button type="submit" class="btn btn-danger">
-							<i class="fa fa-trash"></i> {{ trans('environments.index.modal.delete.btn.valid_delete') }}
+							<i class="fa fa-trash"></i> {{ trans('environments/backend.index.modal.delete.btn.valid_delete') }}
 						</button>
 						{!! Form::close() !!}
 					</div>
@@ -165,7 +169,7 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
-					<h4 class="modal-title">{{ trans('environments.index.modal.add.title') }}</h4>
+					<h4 class="modal-title">{{ trans('environments/backend.index.modal.add.title') }}</h4>
 				</div>
 				<div class="modal-body">
 
