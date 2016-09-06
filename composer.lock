@@ -1543,12 +1543,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-users.git",
-                "reference": "5ef625481b422fcd4ec782cde12c2b4420d37a07"
+                "reference": "3877a502a1a91132dcd6fa68a9f86315bcbcb62e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=5ef625481b422fcd4ec782cde12c2b4420d37a07",
-                "reference": "5ef625481b422fcd4ec782cde12c2b4420d37a07",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=3877a502a1a91132dcd6fa68a9f86315bcbcb62e",
+                "reference": "3877a502a1a91132dcd6fa68a9f86315bcbcb62e",
                 "shasum": ""
             },
             "require": {
@@ -1582,7 +1582,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2016-09-06 18:11:51"
+            "time": "2016-09-06 23:26:17"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -1590,12 +1590,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-adminlte.git",
-                "reference": "05fd8f9c4b900b4d763709d8b469a4c92d1b563c"
+                "reference": "38b0d3971155b90906f854a01bb3636ed1f5c61d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=05fd8f9c4b900b4d763709d8b469a4c92d1b563c",
-                "reference": "05fd8f9c4b900b4d763709d8b469a4c92d1b563c",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=38b0d3971155b90906f854a01bb3636ed1f5c61d",
+                "reference": "38b0d3971155b90906f854a01bb3636ed1f5c61d",
                 "shasum": ""
             },
             "require": {
@@ -1624,7 +1624,7 @@
                 "cms",
                 "theme"
             ],
-            "time": "2016-08-28 17:38:06"
+            "time": "2016-09-06 23:26:55"
         },
         {
             "name": "cvepdb-cms/theme-lumen",
@@ -2610,12 +2610,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "ba573b420d0e74494716c3e65d88c400e204294f"
+                "reference": "def7d323bd17466dc9376ef39de2393795f341d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ba573b420d0e74494716c3e65d88c400e204294f",
-                "reference": "ba573b420d0e74494716c3e65d88c400e204294f",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/def7d323bd17466dc9376ef39de2393795f341d4",
+                "reference": "def7d323bd17466dc9376ef39de2393795f341d4",
                 "shasum": ""
             },
             "require": {
@@ -2664,7 +2664,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-08-31 16:51:05"
+            "time": "2016-09-06 21:17:25"
         },
         {
             "name": "guzzlehttp/promises",
