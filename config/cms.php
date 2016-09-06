@@ -15,7 +15,7 @@ return [
 		'en'
 	],
 	'backend'   => [
-		'uri'   => 'backend',
+		'uri'   => env('APP_URI_BACKEND', 'backend'),
 		'menus' => [
 			'header'  => [
 				// Presenter to display admin CMS header menu
