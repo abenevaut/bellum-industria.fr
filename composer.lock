@@ -1543,12 +1543,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-users.git",
-                "reference": "3877a502a1a91132dcd6fa68a9f86315bcbcb62e"
+                "reference": "496feaea07aead2edac1836a60cfa35ca247ecec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=3877a502a1a91132dcd6fa68a9f86315bcbcb62e",
-                "reference": "3877a502a1a91132dcd6fa68a9f86315bcbcb62e",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=496feaea07aead2edac1836a60cfa35ca247ecec",
+                "reference": "496feaea07aead2edac1836a60cfa35ca247ecec",
                 "shasum": ""
             },
             "require": {
@@ -1582,7 +1582,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2016-09-06 23:26:17"
+            "time": "2016-09-07 22:46:04"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -1632,12 +1632,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-lumen.git",
-                "reference": "fc415fe0d3438a845b423e9114fd3ad62cf00dc5"
+                "reference": "fa5c2bcc0a9c07202af1a84adf53aebdbe2c9ef7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=fc415fe0d3438a845b423e9114fd3ad62cf00dc5",
-                "reference": "fc415fe0d3438a845b423e9114fd3ad62cf00dc5",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=fa5c2bcc0a9c07202af1a84adf53aebdbe2c9ef7",
+                "reference": "fa5c2bcc0a9c07202af1a84adf53aebdbe2c9ef7",
                 "shasum": ""
             },
             "require": {
@@ -1666,7 +1666,7 @@
                 "lumen",
                 "theme"
             ],
-            "time": "2016-09-06 17:25:37"
+            "time": "2016-09-07 22:45:46"
         },
         {
             "name": "cvepdb/laravel-addresses",
