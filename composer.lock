@@ -411,12 +411,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "2de6ab6038ed137dcd4d50299e0536e03951f96c"
+                "reference": "dc476f97367eadefa82bbffaaf2b15e052a77147"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/2de6ab6038ed137dcd4d50299e0536e03951f96c",
-                "reference": "2de6ab6038ed137dcd4d50299e0536e03951f96c",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/dc476f97367eadefa82bbffaaf2b15e052a77147",
+                "reference": "dc476f97367eadefa82bbffaaf2b15e052a77147",
                 "shasum": ""
             },
             "require": {
@@ -469,7 +469,7 @@
                 "phpstorm",
                 "sublime"
             ],
-            "time": "2016-09-02 22:21:49"
+            "time": "2016-09-07 13:05:31"
         },
         {
             "name": "barryvdh/reflection-docblock",
@@ -2460,12 +2460,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/php-graph-sdk.git",
-                "reference": "8e2f2be46ab6394df3e4ad8a6399fc840c92002d"
+                "reference": "ad21129edb95196d04e4e69a464702215ad8c255"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/php-graph-sdk/zipball/8e2f2be46ab6394df3e4ad8a6399fc840c92002d",
-                "reference": "8e2f2be46ab6394df3e4ad8a6399fc840c92002d",
+                "url": "https://api.github.com/repos/facebook/php-graph-sdk/zipball/ad21129edb95196d04e4e69a464702215ad8c255",
+                "reference": "ad21129edb95196d04e4e69a464702215ad8c255",
                 "shasum": ""
             },
             "require": {
@@ -2509,7 +2509,7 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2016-08-29 14:07:09"
+            "time": "2016-09-07 11:40:40"
         },
         {
             "name": "guzzle/guzzle",
@@ -2610,12 +2610,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "def7d323bd17466dc9376ef39de2393795f341d4"
+                "reference": "870527d30b3943c728dc330a5a95d045c1e91ab1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/def7d323bd17466dc9376ef39de2393795f341d4",
-                "reference": "def7d323bd17466dc9376ef39de2393795f341d4",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/870527d30b3943c728dc330a5a95d045c1e91ab1",
+                "reference": "870527d30b3943c728dc330a5a95d045c1e91ab1",
                 "shasum": ""
             },
             "require": {
@@ -2664,7 +2664,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-09-06 21:17:25"
+            "time": "2016-09-07 09:38:23"
         },
         {
             "name": "guzzlehttp/promises",
@@ -6384,12 +6384,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "23e969b885602f8b904d4d27155e218a87b66f12"
+                "reference": "784402c1321ef2191444926c4b952caadd1e0cf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/23e969b885602f8b904d4d27155e218a87b66f12",
-                "reference": "23e969b885602f8b904d4d27155e218a87b66f12",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/784402c1321ef2191444926c4b952caadd1e0cf0",
+                "reference": "784402c1321ef2191444926c4b952caadd1e0cf0",
                 "shasum": ""
             },
             "require": {
@@ -6434,7 +6434,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-09-06 16:11:53"
+            "time": "2016-09-07 15:11:01"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6721,12 +6721,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "5382f4c882e73c267c80b8edcd482a76ef62bbe2"
+                "reference": "20dc18ee3f12a956681dc91f126c2f39b3054dd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/5382f4c882e73c267c80b8edcd482a76ef62bbe2",
-                "reference": "5382f4c882e73c267c80b8edcd482a76ef62bbe2",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/20dc18ee3f12a956681dc91f126c2f39b3054dd9",
+                "reference": "20dc18ee3f12a956681dc91f126c2f39b3054dd9",
                 "shasum": ""
             },
             "require": {
@@ -6773,7 +6773,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-19 10:47:02"
+            "time": "2016-09-06 23:13:31"
         },
         {
             "name": "symfony/filesystem",
@@ -11060,12 +11060,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "571e27b6348e5b3a637b2abc82ac0d01e6d7bbed"
+                "reference": "1637d17879daa55143c423b92f26a20b6649c4b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/571e27b6348e5b3a637b2abc82ac0d01e6d7bbed",
-                "reference": "571e27b6348e5b3a637b2abc82ac0d01e6d7bbed",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/1637d17879daa55143c423b92f26a20b6649c4b1",
+                "reference": "1637d17879daa55143c423b92f26a20b6649c4b1",
                 "shasum": ""
             },
             "require": {
@@ -11130,7 +11130,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-09-01 23:53:02"
+            "time": "2016-09-07 03:41:41"
         },
         {
             "name": "symfony/browser-kit",
