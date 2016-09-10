@@ -103,29 +103,27 @@ class IndexController extends FrontendController
 			else
 			{
 				$trades[$key]->json = json_decode($trade->json);
-//				$trades[$key]->trader = $this->steam->playerSummaries(
-//					$trade->steam_id_trader
-//				);
+				$trades[$key]->trader = $this->steam->playerSummaries(
+					$trade->steam_id_trader
+				);
 			}
 		}
 
-		$team_bot = null;
-//		$team_bot = $this->teams->findByField('reference', 'bots')->first();
-//		foreach ($team_bot->users as $user)
-//		{
-//			$user->steam_summaries = $this->steam->playerSummaries(
-//				$user->tokens->where('provider', 'steam')->first()->token
-//			);
-//		}
-//
-		$team_bellumindustria = null;
-//		$team_bellumindustria = $this->teams->findByField('reference', 'bellum-industria')->first();
-//		foreach ($team_bellumindustria->users as $user)
-//		{
-//			$user->steam_summaries = $this->steam->playerSummaries(
-//				$user->tokens->where('provider', 'steam')->first()->token
-//			);
-//		}
+		$team_bot = $this->teams->findByField('reference', 'bots')->first();
+		foreach ($team_bot->users as $user)
+		{
+			$user->steam_summaries = $this->steam->playerSummaries(
+				$user->tokens->where('provider', 'steam')->first()->token
+			);
+		}
+
+		$team_bellumindustria = $this->teams->findByField('reference', 'bellum-industria')->first();
+		foreach ($team_bellumindustria->users as $user)
+		{
+			$user->steam_summaries = $this->steam->playerSummaries(
+				$user->tokens->where('provider', 'steam')->first()->token
+			);
+		}
 
 		//$this->test();
 
