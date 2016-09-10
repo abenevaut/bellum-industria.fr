@@ -305,12 +305,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "5056a3878db4ab7ac232d5a075d54aaa590c2d27"
+                "reference": "4774e1b3f5b113fa4510ead421148ef916320a44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/5056a3878db4ab7ac232d5a075d54aaa590c2d27",
-                "reference": "5056a3878db4ab7ac232d5a075d54aaa590c2d27",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/4774e1b3f5b113fa4510ead421148ef916320a44",
+                "reference": "4774e1b3f5b113fa4510ead421148ef916320a44",
                 "shasum": ""
             },
             "require": {
@@ -351,7 +351,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2016-08-25 20:55:54"
+            "time": "2016-09-08 07:00:34"
         },
         {
             "name": "barryvdh/laravel-elfinder",
@@ -411,12 +411,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "dc476f97367eadefa82bbffaaf2b15e052a77147"
+                "reference": "22612733a2c3beddce6f801587926bfceb4440d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/dc476f97367eadefa82bbffaaf2b15e052a77147",
-                "reference": "dc476f97367eadefa82bbffaaf2b15e052a77147",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/22612733a2c3beddce6f801587926bfceb4440d8",
+                "reference": "22612733a2c3beddce6f801587926bfceb4440d8",
                 "shasum": ""
             },
             "require": {
@@ -469,7 +469,7 @@
                 "phpstorm",
                 "sublime"
             ],
-            "time": "2016-09-07 13:05:31"
+            "time": "2016-09-08 06:54:27"
         },
         {
             "name": "barryvdh/reflection-docblock",
@@ -2085,12 +2085,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "c446c31130e6db7178e4188f8c12033b2ca3ee4a"
+                "reference": "ec8fc16604915110eea8046e3ea594c133aee880"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/c446c31130e6db7178e4188f8c12033b2ca3ee4a",
-                "reference": "c446c31130e6db7178e4188f8c12033b2ca3ee4a",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/ec8fc16604915110eea8046e3ea594c133aee880",
+                "reference": "ec8fc16604915110eea8046e3ea594c133aee880",
                 "shasum": ""
             },
             "require": {
@@ -2149,7 +2149,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2016-08-25 23:11:10"
+            "time": "2016-09-09 19:26:50"
         },
         {
             "name": "doctrine/inflector",
@@ -2610,12 +2610,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "870527d30b3943c728dc330a5a95d045c1e91ab1"
+                "reference": "b6e8a8e01f8a05fc81cc1ac28e6dfa907c3a47c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/870527d30b3943c728dc330a5a95d045c1e91ab1",
-                "reference": "870527d30b3943c728dc330a5a95d045c1e91ab1",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b6e8a8e01f8a05fc81cc1ac28e6dfa907c3a47c4",
+                "reference": "b6e8a8e01f8a05fc81cc1ac28e6dfa907c3a47c4",
                 "shasum": ""
             },
             "require": {
@@ -2664,7 +2664,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-09-07 09:38:23"
+            "time": "2016-09-08 08:57:31"
         },
         {
             "name": "guzzlehttp/promises",
@@ -5091,12 +5091,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pingpong-labs/modules.git",
-                "reference": "8ee9dfcc49e56173a26b3cfdc46b6037a1400a5a"
+                "reference": "6df3f241c9c901de7630fa601debb07498d8456d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pingpong-labs/modules/zipball/8ee9dfcc49e56173a26b3cfdc46b6037a1400a5a",
-                "reference": "8ee9dfcc49e56173a26b3cfdc46b6037a1400a5a",
+                "url": "https://api.github.com/repos/pingpong-labs/modules/zipball/6df3f241c9c901de7630fa601debb07498d8456d",
+                "reference": "6df3f241c9c901de7630fa601debb07498d8456d",
                 "shasum": ""
             },
             "require": {
@@ -5134,7 +5134,7 @@
                 "modules",
                 "pingpong"
             ],
-            "time": "2016-01-29 04:39:40"
+            "time": "2016-09-08 07:26:38"
         },
         {
             "name": "pingpong/support",
@@ -6277,16 +6277,16 @@
         },
         {
             "name": "spatie/pdf-to-image",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/pdf-to-image.git",
-                "reference": "c08dac65f0f857dd4d467d40794772be5a75d6de"
+                "reference": "4dfb2bc86af254d9a1dbd2a96939777a99fcc817"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/pdf-to-image/zipball/c08dac65f0f857dd4d467d40794772be5a75d6de",
-                "reference": "c08dac65f0f857dd4d467d40794772be5a75d6de",
+                "url": "https://api.github.com/repos/spatie/pdf-to-image/zipball/4dfb2bc86af254d9a1dbd2a96939777a99fcc817",
+                "reference": "4dfb2bc86af254d9a1dbd2a96939777a99fcc817",
                 "shasum": ""
             },
             "require": {
@@ -6323,7 +6323,7 @@
                 "pdf-to-image",
                 "spatie"
             ],
-            "time": "2016-04-29 08:02:56"
+            "time": "2016-09-08 09:26:02"
         },
         {
             "name": "spatie/string",
@@ -6384,12 +6384,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "784402c1321ef2191444926c4b952caadd1e0cf0"
+                "reference": "a96fcf6f66e15be22d6c3d2c9076d587e822c1c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/784402c1321ef2191444926c4b952caadd1e0cf0",
-                "reference": "784402c1321ef2191444926c4b952caadd1e0cf0",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/a96fcf6f66e15be22d6c3d2c9076d587e822c1c2",
+                "reference": "a96fcf6f66e15be22d6c3d2c9076d587e822c1c2",
                 "shasum": ""
             },
             "require": {
@@ -6434,7 +6434,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-09-07 15:11:01"
+            "time": "2016-09-10 03:12:25"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6442,12 +6442,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "0b3e60404c3e398f521e9f366555678178695d91"
+                "reference": "de19df332219d73a2704525ba75aabd7dfaa303b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/0b3e60404c3e398f521e9f366555678178695d91",
-                "reference": "0b3e60404c3e398f521e9f366555678178695d91",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/de19df332219d73a2704525ba75aabd7dfaa303b",
+                "reference": "de19df332219d73a2704525ba75aabd7dfaa303b",
                 "shasum": ""
             },
             "require": {
@@ -6487,7 +6487,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2016-08-19 20:47:22"
+            "time": "2016-09-07 22:19:22"
         },
         {
             "name": "symfony/class-loader",
@@ -11060,12 +11060,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "1637d17879daa55143c423b92f26a20b6649c4b1"
+                "reference": "e11f25393c3e5795ff87f2ccb2c156c63d6a13b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/1637d17879daa55143c423b92f26a20b6649c4b1",
-                "reference": "1637d17879daa55143c423b92f26a20b6649c4b1",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/e11f25393c3e5795ff87f2ccb2c156c63d6a13b3",
+                "reference": "e11f25393c3e5795ff87f2ccb2c156c63d6a13b3",
                 "shasum": ""
             },
             "require": {
@@ -11130,7 +11130,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-09-07 03:41:41"
+            "time": "2016-09-07 18:33:01"
         },
         {
             "name": "symfony/browser-kit",
