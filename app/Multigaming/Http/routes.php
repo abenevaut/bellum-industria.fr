@@ -20,8 +20,6 @@ Route::group(['middleware' => ['web'], 'domain' => env('CVEPDB_MULTIGAMING_DOMAI
 	Route::get('message-of-the-day', '\cms\Multigaming\Http\Controllers\IndexController@messageoftheday');
 	Route::get('ranks', '\cms\Multigaming\Http\Controllers\IndexController@ranks');
 
-	Route::resource('teams', '\cms\Multigaming\Http\Controllers\TeamController');
-
 	/*
 	 * Auth
 	 */
