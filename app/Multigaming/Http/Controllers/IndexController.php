@@ -84,7 +84,8 @@ class IndexController extends FrontendController
 		$team_bellumindustria = [];
 
 
-		$feed = Cache::remember('announcements', 60, function() {
+		$feed = Cache::remember('announcements', 60, function ()
+		{
 
 			$feed = new SimplePie();
 			$feed->set_feed_url("https://steamcommunity.com/groups/Bellum-Industria/rss");
@@ -96,7 +97,6 @@ class IndexController extends FrontendController
 
 			return $feed;
 		});
-
 
 
 		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27015);
@@ -152,7 +152,8 @@ class IndexController extends FrontendController
 
 	public function announcements()
 	{
-		$feed = Cache::remember('announcements', 60, function() {
+		$feed = Cache::remember('announcements', 60, function ()
+		{
 			$feed = new SimplePie();
 			$feed->set_feed_url("https://steamcommunity.com/groups/Bellum-Industria/rss");
 			$feed->enable_cache(true);
@@ -184,7 +185,20 @@ class IndexController extends FrontendController
 
 	public function ranks()
 	{
-		//        dd( $this->stamm->getPlayer('STEAM_0:0:13482029') );
+//		dd(
+//			$this->steam->playerSummaries( 76561197987229786 )
+//		);
+
+
+//		dd(
+//			$this->stamm->getPlayer(
+//				$this->steam->convertCommunityIdToSteamId( 76561197987229786 )
+//			)
+//		);
+
+//		dd(
+//			$this->stamm->all()
+//		);
 
 //        dd( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_1') );
 
@@ -201,6 +215,31 @@ class IndexController extends FrontendController
 //        var_dump( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_2') );
 //        $this->stamm->delStammPointsToPlayer('STEAM_0:0:13482029', 100);
 //        var_dump( $this->stamm->getPlayerOnServer('STEAM_0:0:13482029', 'sm_multigaming_csgo_2') );
+
+
+		$ranks = Cache::remember('ranks', 60, function ()
+		{
+			$ranks = $this->stamm->all();
+
+			$ranks = collect($ranks)
+				->map(function($server, $server_name) {
+					return collect($server)->sortBy('points')->reverse();
+				});
+			return $ranks;
+		});
+		unset($ranks['sm_multigaming_csgo_2']);
+
+		$game_servers = [];
+		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27015);
+		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27017);
+
+		return view(
+			'app.multigaming.ranks',
+			[
+				'ranks'        => $ranks,
+				'game_servers' => $game_servers,
+			]
+		);
 
 	}
 

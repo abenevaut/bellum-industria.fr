@@ -119,4 +119,20 @@ class StammRepository
         $player = $this->getPlayer($steam_id);
         return $player[$server_table];
     }
+
+	/**
+	 * @param $steam_id
+	 * @return array
+	 */
+	public function all()
+	{
+		$player = [];
+		foreach ($this->stamm_tables as $table) {
+			$player[$table] = \DB::connection($this->laravel_db_config_name)
+				->table($table)
+				->get();
+		}
+		return $player;
+	}
+
 }
