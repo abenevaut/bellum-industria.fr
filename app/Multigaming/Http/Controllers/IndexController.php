@@ -98,6 +98,20 @@ class IndexController extends FrontendController
 			return $feed;
 		});
 
+		$feed_vakarm = Cache::remember('vakarm', 60, function ()
+		{
+
+			$feed = new SimplePie();
+			$feed->set_feed_url("http://feeds2.feedburner.com/vakarm");
+			$feed->enable_cache(true);
+			$feed->set_cache_location(storage_path('framework/cache'));
+			$feed->set_cache_duration(60 * 60 * 12);
+			$feed->set_output_encoding('utf-8');
+			$feed->init();
+
+			return $feed;
+		});
+
 
 		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27015);
 		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27017);
@@ -142,6 +156,7 @@ class IndexController extends FrontendController
 				'team_bot'             => $team_bot,
 				'team_bellumindustria' => $team_bellumindustria,
 				'announcements'        => $feed->get_items(0, 2),
+				'feeds_vakarm'         => $feed_vakarm->get_items(0, 2),
 				'threads'              => $this->steam->paginate('Bellum-Industria', 4),
 				'game_servers'         => $game_servers,
 				'coc_clan'             => $this->r_coc->getClan('#PY2UJ8C0'),
@@ -222,9 +237,11 @@ class IndexController extends FrontendController
 			$ranks = $this->stamm->all();
 
 			$ranks = collect($ranks)
-				->map(function($server, $server_name) {
+				->map(function ($server, $server_name)
+				{
 					return collect($server)->sortBy('points')->reverse();
 				});
+
 			return $ranks;
 		});
 		unset($ranks['sm_multigaming_csgo_2']);

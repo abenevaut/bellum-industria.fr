@@ -2,8 +2,20 @@
 
 @section('content')
 
-<!-- Begin Gray Wrapper -->
-<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
+    <!-- Begin Gray Wrapper -->
+    <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even layout__body-wrapper__content-wrapper--intro">
+        <!-- Begin Inner -->
+        <div class="layout__body-wrapper__content-wrapper__inner layout__body-wrapper__content-wrapper__inner--intro">
+            <p>Challenges</p>
+        </div>
+        <!-- End Inner -->
+    </div>
+    <!-- End Gray Wrapper -->
+
+
+
+<!-- Begin White Wrapper -->
+<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
     <!-- Begin Inner -->
     <div class="layout__body-wrapper__content-wrapper__inner">
 
@@ -23,6 +35,7 @@
                 </li>
             </ul>
         </div>
+
         <div class="one-third">
             <ul>
                 <li>
@@ -35,6 +48,7 @@
                 </li>
             </ul>
         </div>
+
         <div class="one-third last">
             <ul>
                 <li>
@@ -47,23 +61,15 @@
                 </li>
             </ul>
         </div>
-
         <div class="clear"></div>
-
     </div>
-    <!-- Begin Inner -->
 </div>
-<!-- End Gray Wrapper -->
+
 
 <!-- Begin White Wrapper -->
 <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
     <!-- Begin Inner -->
     <div class="layout__body-wrapper__content-wrapper__inner">
-
-
-
-
-
         <h2 class="colored">Liste des grades</h2>
 
         <div class="toggle">
@@ -239,7 +245,7 @@
     </div>
     <!-- Begin Inner -->
 </div>
-<!-- End White Wrapper -->
+<!-- End Gray Wrapper -->
 
 <!-- Begin Grey Wrapper -->
 <div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">

@@ -232,6 +232,32 @@
 			<div class="layout__body-wrapper__content-wrapper__inner__widget-posts">
 				<div class="grid">
 
+					@foreach ($feeds_vakarm as $item)
+
+						<div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
+							<div class="frame alignleft">
+								<a href="{!! $item->get_link() !!}" target="_blank">
+									<img src="/themes/longwave/images/multigaming/logo.png" alt="{!! $item->get_title() !!}"
+										 width="142" height="142"/>
+
+									<div></div>
+								</a>
+							</div>
+							<div class="post-content">
+								<h5>
+									<a href="{!! $item->get_link() !!}" target="_blank">{!! $item->get_title() !!}</a>
+								</h5>
+
+								<div class="meta">
+									<span class="date">{!! $item->get_date() !!}</span>
+									<span class="sep">|</span>
+									<span class="comments"><a href="{!! $item->get_link() !!}">source : vakarm.net</a></span>
+								</div>
+								{!! str_limit(strip_tags($item->get_description()), 120, ' ..') !!}
+							</div>
+						</div>
+
+					@endforeach
 
 					@foreach ($announcements as $item)
 
@@ -258,20 +284,13 @@
 
 					@endforeach
 
-
 				</div>
 			</div>
 			<div class="clear"></div>
-
 			<h2 class="colored">Steam community</h2>
-
-
 			<div class="layout__body-wrapper__content-wrapper__inner__widget-posts">
 				<div class="grid">
-
-
 					@foreach ($threads as $thread)
-
 						<div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
 							<div class="frame alignleft">
 								<a href="{{ $thread['url'] }}" target="_blank">
@@ -285,22 +304,16 @@
 								<h5>
 									<a href="{{ $thread['url'] }}" target="_blank">{{ $thread['title'] }}</a>
 								</h5>
-
 								<div class="meta">
-									<span class="date"> date($thread['created']) </span>
+									<span class="date">{{ array_key_exists('date', $thread) ? $thread['date'] : '' }}</span>
 								</div>
 								{!! str_limit($thread['intro'], 120, ' ..') !!}
 							</div>
 						</div>
-
 					@endforeach
-
-
 				</div>
 			</div>
 			<div class="clear"></div>
-
-
 		</div>
 		<!-- Begin Inner -->
 	</div>
