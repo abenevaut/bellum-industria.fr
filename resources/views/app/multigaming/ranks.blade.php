@@ -78,7 +78,7 @@
 											<td>{{ $player->name }}</td>
 											<td>{{ $player->points }}</td>
 											<td>{{ $player->level }}</td>
-											<td>{{ $player->last_visit }}</td>
+											<td>{{ \Carbon\Carbon::createFromTimestamp($player->last_visit)->format('d F Y, g:i a') }}</td>
 										</tr>
 									@endforeach
 								</tbody>
