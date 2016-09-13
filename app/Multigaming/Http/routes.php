@@ -19,6 +19,7 @@ Route::group(['middleware' => ['web'], 'domain' => env('CVEPDB_MULTIGAMING_DOMAI
 	Route::get('challenge', '\cms\Multigaming\Http\Controllers\IndexController@challenge');
 	Route::get('message-of-the-day', '\cms\Multigaming\Http\Controllers\IndexController@messageoftheday');
 	Route::get('ranks', '\cms\Multigaming\Http\Controllers\IndexController@ranks');
+//	Route::get('announcements', '\cms\Multigaming\Http\Controllers\IndexController@announcements');
 
 	/*
 	 * Auth
