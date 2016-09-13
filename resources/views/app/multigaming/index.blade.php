@@ -21,9 +21,16 @@
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even layout__body-wrapper__content-wrapper--intro">
 		<!-- Begin Inner -->
 		<div class="layout__body-wrapper__content-wrapper__inner layout__body-wrapper__content-wrapper__inner--intro">
-			<p>
-				Si vis <em>pacem</em>, <strong>para bellum</strong>
-			</p>
+			<h1 class="title alignleft">Si vis <em>pacem</em>, <strong>para bellum</strong></h1>
+
+			<div class="navigation alignright">
+
+				<a href="#" title="My teams"><i class="icon-user-1"></i></a>
+
+			</div>
+
+			<div class="clear"></div>
+
 		</div>
 		<!-- End Inner -->
 	</div>
@@ -87,177 +94,13 @@
 
 		<div class="clear"></div>
 
-
 		<!-- Begin Inner -->
 		<div class="layout__body-wrapper__content-wrapper__inner">
-
-			<div class="row">
-
-				{{--<div class="one-third ">--}}
-				{{--<h2 class="colored">Teamspeak</h2>--}}
-				{{--<iframe allowtransparency="true"--}}
-				{{--src="http://ts.cvepdb.fr/tsviewpub.php?skey=0&sid=1&showicons=right&bgcolor=ffffff&fontcolor=000000"--}}
-				{{--style="height:100%;width:100%"--}}
-				{{--scrolling="auto"--}}
-				{{--frameborder="0">Your Browser will not show Iframes--}}
-				{{--</iframe>--}}
-				{{--</div>--}}
-
-				<div class="one-third">
-					<div class="layout__body-wrapper__content-wrapper__inner__widget-clients-list">
-						<ul class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list">
-
-							@foreach ($team_bot->users as $teammate)
-								<li class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame
-                                 layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame--tradebot">
-
-									{!! $teammate->steam_summaries['personaname'] !!}
-
-									<a href="{!! $teammate->steam_summaries['profileurl'] !!}" target="_blank">
-										<img src="{!! $teammate->steam_summaries['avatarfull'] !!}"
-											 alt="{!! $teammate->steam_summaries['personaname'] !!}">
-									</a>
-
-
-									<ul style="list-style-type: none;">
-										<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-											<a href="javascript:void(0);" class="gwi-thumbs" original-title="En ligne sur Steam ?">
-												@if ($teammate->steam_summaries['personastateflags'] == 1)
-													<i class="icon-light-up"></i>
-												@else
-													<i class="icon-light-up"></i>
-												@endif
-											</a>
-										</li>
-										<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-											<a href="steam://friends/add/{!! $teammate->steam_summaries['steamid'] !!}"
-											   class="gwi-thumbs"
-											   original-title="Ajouté comme Steam ami" target="_blank">
-												<i class="icon-user-add"></i>
-											</a>
-										</li>
-
-									</ul>
-
-								</li>
-							@endforeach
-
-						</ul>
-					</div>
-					<div class="clear"></div>
-				</div>
-
-				<div class="two-third last">
-
-					<h3>Latest trade <a href="http://steamcommunity.com/profiles/{!! $trades[0]->trader['steamid'] !!}" target="_blank">with {{ $trades[0]->trader['personaname'] }}</a></h3>
-
-					<div id="DIV_1">
-						<form id="FORM_2">
-							@if (!count($trades[0]->json->itemsToReceive))
-								<div class="info-box">
-									This is a gift for <a href="http://steamcommunity.com/profiles/{!! $trades[0]->trader['steamid'] !!}" target="_blank">{{ $trades[0]->trader['personaname'] }}</a>
-								</div>
-							@else
-								@foreach (array_slice($trades[0]->json->itemsToReceive, 0, 9) as $item)
-									<div id="DIV_128">
-										<div id="DIV_132">
-											<img src="https://steamcommunity-a.akamaihd.net/economy/image/{{ $item->icon_url }}/99fx66f" alt="{{ $item->market_name }}" id="IMG_133" />
-											<div id="DIV_134"></div>
-										</div>
-									</div>
-									<div id="DIV_128">
-										<div id="DIV_132">
-											<img src="https://steamcommunity-a.akamaihd.net/economy/image/{{ $item->icon_url }}/99fx66f" alt="{{ $item->market_name }}" id="IMG_133" />
-											<div id="DIV_134"></div>
-										</div>
-									</div>
-								@endforeach
-							@endif
-						</form>
-						<form id="FORM_127">
-							@if (!count($trades[0]->json->itemsToGive))
-								<div class="info-box">
-									This is a gift for our trade bot
-								</div>
-							@else
-								@foreach (array_slice($trades[0]->json->itemsToGive, 0, 9) as $item)
-									<div id="DIV_128">
-										<div id="DIV_129">
-											<b id="B_130">{{ $item->name }}</b><br id="BR_131" />
-										</div>
-										<div id="DIV_132">
-											<img src="https://steamcommunity-a.akamaihd.net/economy/image/{{ $item->icon_url }}/99fx66f" alt="{{ $item->market_name }}" id="IMG_133" />
-											<div id="DIV_134"></div>
-										</div>
-									</div>
-								@endforeach
-							@endif
-						</form>
-					</div>
-
-
-
-				</div>
-
-			</div>
-			<div class="clear"></div>
-
-
-			<div class="toggle">
-				<h4 class="title">How to trade with the bot ?</h4>
-				<div class="togglebox">
-					<div>
-						<p>Trade with the bot is very simple, visit his profile and make a trade offer!</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="clear"></div>
-
-		</div>
-		<!-- Begin Inner -->
-	</div>
-	<!-- End White Wrapper -->
-
-	<!-- Begin Gray Wrapper -->
-	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
-		<!-- Begin Inner -->
-		<div class="layout__body-wrapper__content-wrapper__inner">
-
-
 
 			<h2 class="colored">Annonces</h2>
 
-
 			<div class="layout__body-wrapper__content-wrapper__inner__widget-posts">
 				<div class="grid">
-
-					@foreach ($feeds_vakarm as $item)
-
-						<div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
-							<div class="frame alignleft">
-								<a href="{!! $item->get_link() !!}" target="_blank">
-									<img src="/themes/longwave/images/multigaming/logo.png" alt="{!! $item->get_title() !!}"
-										 width="142" height="142"/>
-
-									<div></div>
-								</a>
-							</div>
-							<div class="post-content">
-								<h5>
-									<a href="{!! $item->get_link() !!}" target="_blank">{!! $item->get_title() !!}</a>
-								</h5>
-
-								<div class="meta">
-									<span class="date">{!! $item->get_date() !!}</span>
-									<span class="sep">|</span>
-									<span class="comments"><a href="{!! $item->get_link() !!}">source : vakarm.net</a></span>
-								</div>
-								{!! str_limit(strip_tags($item->get_description()), 120, ' ..') !!}
-							</div>
-						</div>
-
-					@endforeach
 
 					@foreach ($announcements as $item)
 
@@ -286,7 +129,79 @@
 
 				</div>
 			</div>
-			<div class="clear"></div>
+
+		</div>
+		<!-- Begin Inner -->
+	</div>
+	<!-- End White Wrapper -->
+
+	<!-- Begin Gray Wrapper -->
+	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
+		<!-- Begin Inner -->
+		<div class="layout__body-wrapper__content-wrapper__inner">
+
+
+			{{--<h2 class="colored">Annonces</h2>--}}
+
+
+			{{--<div class="layout__body-wrapper__content-wrapper__inner__widget-posts">--}}
+			{{--<div class="grid">--}}
+
+			{{--@foreach ($feeds_vakarm as $item)--}}
+
+			{{--<div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">--}}
+			{{--<div class="frame alignleft">--}}
+			{{--<a href="{!! $item->get_link() !!}" target="_blank">--}}
+			{{--<img src="/themes/longwave/images/multigaming/logo.png" alt="{!! $item->get_title() !!}"--}}
+			{{--width="142" height="142"/>--}}
+
+			{{--<div></div>--}}
+			{{--</a>--}}
+			{{--</div>--}}
+			{{--<div class="post-content">--}}
+			{{--<h5>--}}
+			{{--<a href="{!! $item->get_link() !!}" target="_blank">{!! $item->get_title() !!}</a>--}}
+			{{--</h5>--}}
+
+			{{--<div class="meta">--}}
+			{{--<span class="date">{!! $item->get_date() !!}</span>--}}
+			{{--<span class="sep">|</span>--}}
+			{{--<span class="comments"><a href="{!! $item->get_link() !!}">source : vakarm.net</a></span>--}}
+			{{--</div>--}}
+			{{--{!! str_limit(strip_tags($item->get_description()), 120, ' ..') !!}--}}
+			{{--</div>--}}
+			{{--</div>--}}
+
+			{{--@endforeach--}}
+
+			{{--@foreach ($announcements as $item)--}}
+
+			{{--<div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">--}}
+			{{--<div class="frame alignleft">--}}
+			{{--<a href="{!! $item->get_link() !!}" target="_blank">--}}
+			{{--<img src="/themes/longwave/images/multigaming/logo.png" alt="{!! $item->get_title() !!}"--}}
+			{{--width="142" height="142"/>--}}
+
+			{{--<div></div>--}}
+			{{--</a>--}}
+			{{--</div>--}}
+			{{--<div class="post-content">--}}
+			{{--<h5>--}}
+			{{--<a href="{!! $item->get_link() !!}" target="_blank">{!! $item->get_title() !!}</a>--}}
+			{{--</h5>--}}
+
+			{{--<div class="meta">--}}
+			{{--<span class="date">{!! $item->get_date() !!}</span>--}}
+			{{--</div>--}}
+			{{--{!! str_limit(strip_tags($item->get_description()), 120, ' ..') !!}--}}
+			{{--</div>--}}
+			{{--</div>--}}
+
+			{{--@endforeach--}}
+
+			{{--</div>--}}
+			{{--</div>--}}
+			{{--<div class="clear"></div>--}}
 			<h2 class="colored">Steam community</h2>
 			<div class="layout__body-wrapper__content-wrapper__inner__widget-posts">
 				<div class="grid">
@@ -319,76 +234,8 @@
 	</div>
 	<!-- End Gray Wrapper -->
 
-	<!-- Begin Evil Wrapper -->
-	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even-evil">
-		<!-- Begin Inner -->
-		<div class="layout__body-wrapper__content-wrapper__inner">
-
-
-				<h4 class="colored">{!! $team_bellumindustria->name !!}</h4>
-
-
-				<div class="row">
-					<div class="layout__body-wrapper__content-wrapper__inner__widget-clients-list">
-						<ul class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list">
-
-
-							@foreach ($team_bellumindustria->users as $teammate)
-								<li class="layout__body-wrapper__content-wrapper__inner__widget-clients-list__list__frame"
-									style="opacity: 0.7;">
-
-									{!! str_limit($teammate->steam_summaries['personaname'], 18, ' ..') !!}
-
-									<a href="{!! $teammate->steam_summaries['profileurl'] !!}" target="_blank">
-										<img src="{!! $teammate->steam_summaries['avatarfull'] !!}"
-											 alt="{!! $teammate->steam_summaries['personaname'] !!}">
-									</a>
-
-									<ul style="list-style-type: none;">
-										<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-										<a href="javascript:void(0);" class="gwi-thumbs"
-										original-title="En ligne sur Steam ?">
-										@if ($teammate->steam_summaries['profilestate'] == 1)
-										<i class="icon-light-up"></i>
-										@else
-										<i class="icon-moon"></i>
-										@endif
-										</a>
-										</li>
-										<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-											<a href="http://steamcommunity.com/profiles/{!! $teammate->steam_summaries['steamid'] !!}/"
-											   class="gwi-thumbs"
-											   original-title="Profile Steam" target="_blank">
-												<i class="icon-user"></i>
-											</a>
-										</li>
-										<li style="margin: 10px; list-style: none; display: inline-block !important; opacity: 0.7;">
-											<a href="steam://friends/add/{!! $teammate->steam_summaries['steamid'] !!}"
-											   class="gwi-thumbs"
-											   original-title="Ajouté comme Steam ami" target="_blank">
-												<i class="icon-user-add"></i>
-											</a>
-										</li>
-									</ul>
-
-								</li>
-							@endforeach
-
-
-						</ul>
-					</div>
-				</div>
-
-				<div class="clear"></div>
-
-
-		</div>
-		<!-- Begin Inner -->
-	</div>
-	<!-- End Evil Wrapper -->
-
-	<!-- Begin Gray Wrapper -->
-	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
+	<!-- Begin White Wrapper -->
+	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
 		<!-- Begin Inner -->
 		<div class="layout__body-wrapper__content-wrapper__inner">
 
@@ -444,7 +291,7 @@
 				<ul class="layout__body-wrapper__content-wrapper__inner__widget-challenge alignright">
 
 					<li>
-						<a href="{{  url('challenge') }}"  style="width: auto;" class="button green">
+						<a href="{{  url('challenge') }}" style="width: auto;" class="button green">
 							challenges
 						</a>
 					</li>
@@ -456,66 +303,8 @@
 		</div>
 		<!-- Begin Inner -->
 	</div>
-	<!-- End Gray Wrapper -->
+	<!-- End White Wrapper -->
 
-	<!-- Begin Evil Wrapper -->
-	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--cocsushido">
-		<!-- Begin Inner -->
-		<div class="layout__body-wrapper__content-wrapper__inner">
-
-			@if (!empty($coc_clan))
-				<img src="/modules/clashofclan/images/Sans_titre-1422709806.png" width="140" height="140" style="float: right">
-
-				<h2 class="colored">{{ $coc_clan->name() }}</h2>
-
-
-
-				<p>
-					Niveau : {{ $coc_clan->clanLevel() }} -
-					Point{{ $coc_clan->clanPoints() > 1 ? 's' : '' }}
-					: {{ $coc_clan->clanPoints() }} -
-					Victoire{{ $coc_clan->warWins() > 1 ? 's' : '' }}
-					: {{ $coc_clan->warWins() }}
-				</p>
-				<p>
-					{{ $coc_clan->description() }}
-				</p>
-
-				<div class="grid-wrapper">
-					<ul class="retina-icons">
-						@foreach ($coc_clan->memberList()->all() as $member)
-
-							<li style="margin-bottom: 15px;">
-								<div class="alignleft">
-									<img src="{{ $member->league()->icon()->small() }}" alt="rank">
-								</div>
-								<div class="alignleft" style="padding-left: 8px;">
-									<strong>{{ $member->name() }}</strong>
-									({{ $member->role() }})<br>
-									Trophies : {{ $member->trophies() }}<br>
-									Don : {{ $member->donations() ? $member->donations() : '0' }}
-									/ {{ $member->donationsReceived() ? $member->donationsReceived() : '0' }}
-
-								</div>
-
-								<div class="clear"></div>
-							</li>
-
-						@endforeach
-
-					</ul>
-				</div>
-			@else
-				<div>
-					Impossible de récuperer les informations depuis l'API Clash
-					of clan.
-				</div>
-			@endif
-
-		</div>
-		<!-- Begin Inner -->
-	</div>
-	<!-- End Evil Wrapper -->
 
 	<!-- Begin Grey Wrapper -->
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
@@ -526,5 +315,4 @@
 		<!-- Begin Inner -->
 	</div>
 	<!-- End Grey Wrapper -->
-
 @endsection
