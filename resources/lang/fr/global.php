@@ -32,4 +32,5 @@ return [
 	'lang_fr'      => 'Français',
 	'lang_en'      => 'English',
 	'dashboard'    => 'Tableau de bord',
+	'user_s'       => 'Utilisateur(s)',
 ];

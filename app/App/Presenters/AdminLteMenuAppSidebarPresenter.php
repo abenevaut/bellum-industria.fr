@@ -1,5 +1,6 @@
 <?php namespace cms\App\Presenters;
 
+use Illuminate\Support\Facades\Request;
 use cms\Infrastructure\Abstractions\Presenters\NavigationPresenterAbstract;
 
 /**
@@ -15,6 +16,19 @@ class AdminLteMenuAppSidebarPresenter extends NavigationPresenterAbstract
 	public function getOpenTagWrapper()
 	{
 		return PHP_EOL . '<ul class="sidebar-menu">' . PHP_EOL;
+	}
+
+	/**
+	 * {@inheritdoc }.
+	 */
+	public function getActiveState($item, $state = 'active')
+	{
+		return (
+			$item->isActive()
+			|| Request::is(str_replace(url('/').'/', '', $item->getUrl()) . '/*')
+		)
+			? $state
+			: null;
 	}
 
 	/**
