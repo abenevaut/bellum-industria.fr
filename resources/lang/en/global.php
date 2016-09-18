@@ -45,4 +45,5 @@ return [
 	'reference'        => 'Reference',
 	'domain'           => 'Domain',
 	'add'              => 'Add',
+	'user_s'           => 'User(s)',
 ];
