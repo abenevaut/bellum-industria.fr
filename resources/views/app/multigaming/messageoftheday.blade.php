@@ -79,7 +79,7 @@
 
 
     <!-- Begin Inner -->
-    <div class="layout__body-wrapper__content-wrapper__inner">
+    <div class="layout__body-wrapper__content-wrapper__inner js-call-hoverdir">
 
         <h2 class="colored">From community</h2>
 

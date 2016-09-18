@@ -96,7 +96,7 @@
 	<!-- Begin Gray Wrapper -->
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
 		<!-- Begin Inner -->
-		<div class="layout__body-wrapper__content-wrapper__inner">
+		<div class="layout__body-wrapper__content-wrapper__inner js-call-hoverdir">
 
 
 			<h2 class="colored">Servers</h2>
