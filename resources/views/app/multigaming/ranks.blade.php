@@ -58,7 +58,7 @@
 							<table id="table-{{ slugify($server_key) }}">
 								<thead>
 									<tr>
-										<th>Speudo</th>
+										<th>Pseudo</th>
 										<th>Point(s)</th>
 										<th>Level</th>
 										<th>Dernière visite</th>
@@ -66,7 +66,7 @@
 								</thead>
 								<tfoot>
 									<tr>
-										<th>Speudo</th>
+										<th>Pseudo</th>
 										<th>Point(s)</th>
 										<th>Level</th>
 										<th>Dernière visite</th>
