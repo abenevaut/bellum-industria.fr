@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3987ac312a3ff1781cefccf9af347320",
-    "content-hash": "99044cd71a60682bcd366c8746807e89",
+    "hash": "544cf4c0a9c33199274de26d28743375",
+    "content-hash": "9360c2bad5273e91e4fac55ad42ba115",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1575,6 +1575,51 @@
                 "posts"
             ],
             "time": "2016-08-24 15:56:19"
+        },
+        {
+            "name": "cvepdb-cms/module-servers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/module-servers.git",
+                "reference": "a691d41296e4c70046970c78303eac09b4c32758"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-servers/repository/archive.zip?sha=a691d41296e4c70046970c78303eac09b4c32758",
+                "reference": "a691d41296e4c70046970c78303eac09b4c32758",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "Servers"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Modules\\Servers\\": ""
+                }
+            },
+            "license": [
+                "copyright"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Servers on #CVEPDB CMS",
+            "keywords": [
+                "CMS",
+                "CVEPDB",
+                "Servers",
+                "module"
+            ],
+            "time": "2016-09-18 22:11:15"
         },
         {
             "name": "cvepdb-cms/module-steam",
@@ -4549,12 +4594,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "f42fbdfd53e306bda545845e4dbfd3e72edb4952"
+                "reference": "dacec2fe1ead778f90d0149caa8f047a0856571b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f42fbdfd53e306bda545845e4dbfd3e72edb4952",
-                "reference": "f42fbdfd53e306bda545845e4dbfd3e72edb4952",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/dacec2fe1ead778f90d0149caa8f047a0856571b",
+                "reference": "dacec2fe1ead778f90d0149caa8f047a0856571b",
                 "shasum": ""
             },
             "require": {
@@ -4619,7 +4664,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-07-29 03:23:52"
+            "time": "2016-09-18 16:07:11"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -6850,12 +6895,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "564bd91d5f728e2c63069abf7dfc13b5f11d51da"
+                "reference": "1180d35e6ec1dbe1a40cc08f6c77835e840a5c5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/564bd91d5f728e2c63069abf7dfc13b5f11d51da",
-                "reference": "564bd91d5f728e2c63069abf7dfc13b5f11d51da",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/1180d35e6ec1dbe1a40cc08f6c77835e840a5c5d",
+                "reference": "1180d35e6ec1dbe1a40cc08f6c77835e840a5c5d",
                 "shasum": ""
             },
             "require": {
@@ -6900,7 +6945,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-09-16 12:27:17"
+            "time": "2016-09-18 16:05:16"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -12181,6 +12226,7 @@
         "cvepdb-cms/module-pages": 20,
         "cvepdb-cms/module-posts": 20,
         "cvepdb-cms/module-themes": 20,
+        "cvepdb-cms/module-servers": 20,
         "cvepdb-cms/module-users": 20,
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,

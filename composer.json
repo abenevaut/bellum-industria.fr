@@ -98,6 +98,7 @@
     "cvepdb-cms/module-pages": "dev-master",
     "cvepdb-cms/module-posts": "dev-master",
     "cvepdb-cms/module-themes": "dev-master",
+    "cvepdb-cms/module-servers": "dev-master",
     "cvepdb-cms/module-users": "dev-master",
     "cvepdb-cms/theme-adminlte": "dev-master",
     "cvepdb-cms/theme-lumen": "dev-master",
@@ -165,7 +166,8 @@
         "cvepdb-cms/module-users",
         "cvepdb-cms/module-posts",
         "cvepdb-cms/module-teams",
-        "cvepdb-cms/module-pages"
+        "cvepdb-cms/module-pages",
+        "cvepdb-cms/module-servers"
       ],
       "resources/themes/{$name}": [
         "cvepdb-cms/theme-adminlte",
