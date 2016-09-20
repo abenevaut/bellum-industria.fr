@@ -71,9 +71,10 @@ class Kernel extends ConsoleKernel
 		 */
 
 		$schedule
-			->call('queue:listen', ['--queue' => 'default'])
+			->command('queue:work')
 			->name('[Queue] : run default queue')
 			->withoutOverlapping()
+			->sendOutputTo(storage_path('logs/cron_queue_' . date('Y-m-d_H-i') . '.log'))
 			->everyMinute();
 
 		/*
