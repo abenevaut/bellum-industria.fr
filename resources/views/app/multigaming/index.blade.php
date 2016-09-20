@@ -121,7 +121,7 @@
 	</div>
 	<!-- End White Wrapper -->
 
-	{!! Widget::clashofclan_clan() !!}
+	{{--{!! Widget::clashofclan_clan() !!}--}}
 
 	<!-- Begin Grey Wrapper -->
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
