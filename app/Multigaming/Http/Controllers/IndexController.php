@@ -1,13 +1,11 @@
 <?php namespace cms\Multigaming\Http\Controllers;
 
-use SimplePie;
 use Illuminate\Support\Facades\Cache;
 use cms\Multigaming\Repositories\SMWA\StammRepository;
 use cms\Multigaming\Repositories\SMWA\SteamBotRepository;
 use cms\Infrastructure\Abstractions\Controllers\FrontendController;
 use cms\Domain\Settings\Settings\Repositories\SettingsRepository;
 use cms\Modules\Steam\Domain\Steam\Steam\Repositories\SteamRepository;
-use cms\Modules\ClashOfClan\Domain\Coc\CocApi\Repositories\CocRepository;
 use cms\Modules\Teams\Domain\Teams\Teams\Repositories\TeamsRepositoryEloquent;
 
 /**
@@ -33,11 +31,6 @@ class IndexController extends FrontendController
 	protected $teams = null;
 
 	/**
-	 * @var CocRepository|null
-	 */
-	protected $r_coc = null;
-
-	/**
 	 * @var SteamBotRepository|null
 	 */
 	protected $r_steambot = null;
@@ -49,9 +42,7 @@ class IndexController extends FrontendController
 
 		StammRepository $r_stamm,
 		TeamsRepositoryEloquent $r_team,
-		SteamBotRepository $r_steambot,
-
-		CocRepository $r_coc
+		SteamBotRepository $r_steambot
 	)
 	{
 
@@ -59,7 +50,6 @@ class IndexController extends FrontendController
 		$this->teams = $r_team;
 		$this->stamm = $r_stamm;
 		$this->r_steambot = $r_steambot;
-		$this->r_coc = $r_coc;
 
 		$this->stamm->init();
 	}
@@ -69,8 +59,6 @@ class IndexController extends FrontendController
 		$this->title = 'Multigaming#CVEPDB.fr';
 		$this->description = 'Multigaming#CVEPDB.fr';
 
-
-		$coc_clan = [];
 		$trades = [];
 		$team_bot = [];
 		$team_bellumindustria = [];
@@ -114,8 +102,6 @@ class IndexController extends FrontendController
 			[
 				'team_bot'             => $team_bot,
 				'team_bellumindustria' => $team_bellumindustria,
-				'threads'              => $this->steam->paginate('Bellum-Industria', 4),
-				'coc_clan'             => $this->r_coc->getClan('#PY2UJ8C0'),
 				'trades'               => $trades,
 			]
 		);
@@ -123,23 +109,9 @@ class IndexController extends FrontendController
 
 	public function announcements()
 	{
-		$feed = Cache::remember('announcements', 60, function ()
-		{
-			$feed = new SimplePie();
-			$feed->set_feed_url("https://steamcommunity.com/groups/Bellum-Industria/rss");
-			$feed->enable_cache(true);
-			$feed->set_cache_location(storage_path('framework/cache'));
-			$feed->set_cache_duration(60 * 60 * 12);
-			$feed->set_output_encoding('utf-8');
-			$feed->init();
-
-			return $feed;
-		});
-
 		return view(
 			'app.multigaming.announcements',
 			[
-				'announcements' => $feed->get_items(0, 5),
 			]
 		);
 	}
