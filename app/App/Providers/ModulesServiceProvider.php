@@ -33,6 +33,21 @@ class ModulesServiceProvider extends PingpongModulesServiceProvider
 				include $file;
 			}
 
+			if (file_exists(base_path('app/apps.json')))
+			{
+				$apps = json_decode(file_get_contents(base_path('app/apps.json')));
+
+				foreach ($apps->apps as $app)
+				{
+					$file = base_path("app/$app/App/Widgets/widgets.php");
+
+					if (file_exists($file))
+					{
+						include $file;
+					}
+				}
+			}
+
 			foreach (Module::getOrdered() as $module)
 			{
 				$file = $module->getPath() . '/App/Widgets/widgets.php';
