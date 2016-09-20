@@ -185,50 +185,49 @@ class IndexController extends FrontendController
 
 	public function messageoftheday()
 	{
-		$team_bot = $this->teams->findByField('reference', 'bots')->first();
-		foreach ($team_bot->users as $user)
-		{
-			$user->steam_summaries = $this->steam->playerSummaries(
-				$user->tokens->where('provider', 'steam')->first()->token
-			);
-		}
-
-		$trades = $this->r_steambot->lastTrades();
-		foreach ($trades as $key => $trade)
-		{
-			if (is_null($trade->json))
-			{
-				unset($trades[$key]);
-			}
-			else
-			{
-				$trades[$key]->json = json_decode($trade->json);
-				$trades[$key]->trader = $this->steam->playerSummaries(
-					$trade->steam_id_trader
-				);
-			}
-		}
+//		$team_bot = $this->teams->findByField('reference', 'bots')->first();
+//		foreach ($team_bot->users as $user)
+//		{
+//			$user->steam_summaries = $this->steam->playerSummaries(
+//				$user->tokens->where('provider', 'steam')->first()->token
+//			);
+//		}
+//
+//		$trades = $this->r_steambot->lastTrades();
+//		foreach ($trades as $key => $trade)
+//		{
+//			if (is_null($trade->json))
+//			{
+//				unset($trades[$key]);
+//			}
+//			else
+//			{
+//				$trades[$key]->json = json_decode($trade->json);
+//				$trades[$key]->trader = $this->steam->playerSummaries(
+//					$trade->steam_id_trader
+//				);
+//			}
+//		}
 
 		return view(
 			'app.multigaming.messageoftheday',
 			[
-				'team_bot' => $team_bot,
-				'threads'  => $this->steam->paginate('Bellum-Industria', 4),
-				'trades'   => $trades
+//				'team_bot' => $team_bot,
+//				'trades'   => $trades
 			]
 		);
 	}
 
 	public function sitemap()
 	{
-		return $this->generateSitemapIndex(
-			[
-				'sitemap-multigaming-teams.xml',
-				'sitemap-multigaming-coc.xml'
-			],
-			'sitemap-multigaming-index',
-			3600
-		);
+//		return $this->generateSitemapIndex(
+//			[
+//				'sitemap-multigaming-teams.xml',
+//				'sitemap-multigaming-coc.xml'
+//			],
+//			'sitemap-multigaming-index',
+//			3600
+//		);
 	}
 
 }
