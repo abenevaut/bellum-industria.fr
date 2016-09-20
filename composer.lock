@@ -1627,12 +1627,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-steam.git",
-                "reference": "c608ec3a223224cd9b0b2b7cffec8ae62641f7ab"
+                "reference": "8a714ff584c00fc24da814eb0af93c73b0581803"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-steam/repository/archive.zip?sha=c608ec3a223224cd9b0b2b7cffec8ae62641f7ab",
-                "reference": "c608ec3a223224cd9b0b2b7cffec8ae62641f7ab",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-steam/repository/archive.zip?sha=8a714ff584c00fc24da814eb0af93c73b0581803",
+                "reference": "8a714ff584c00fc24da814eb0af93c73b0581803",
                 "shasum": ""
             },
             "require": {
@@ -1668,7 +1668,7 @@
                 "Steam",
                 "module"
             ],
-            "time": "2016-09-20 14:47:50"
+            "time": "2016-09-20 17:58:32"
         },
         {
             "name": "cvepdb-cms/module-teams",
@@ -2051,12 +2051,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-longwave.git",
-                "reference": "9269c3b5cb4ccd7248a67df947c2aabca5fd9c65"
+                "reference": "51d523c2f0385876cec4ce2d9c90dd868222e279"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=9269c3b5cb4ccd7248a67df947c2aabca5fd9c65",
-                "reference": "9269c3b5cb4ccd7248a67df947c2aabca5fd9c65",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=51d523c2f0385876cec4ce2d9c90dd868222e279",
+                "reference": "51d523c2f0385876cec4ce2d9c90dd868222e279",
                 "shasum": ""
             },
             "require": {
@@ -2084,7 +2084,7 @@
                 "Theme",
                 "longwave"
             ],
-            "time": "2016-09-20 14:48:11"
+            "time": "2016-09-20 17:58:42"
         },
         {
             "name": "cvepdb/theme-pages",
