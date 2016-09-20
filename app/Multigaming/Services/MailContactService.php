@@ -1,13 +1,13 @@
 <?php namespace cms\Multigaming\Services;
 
-use cms\Infrastructure\Abstractions\Services\Mails\MailServiceAbstract;
+use cms\App\Services\Mails\MailSendService;
 use cms\Vitrine\Repositories\LogContact;
 
 /**
  * Class MailContactService
  * @package cms\Multigaming\Services
  */
-class MailContactService extends MailServiceAbstract
+class MailContactService extends MailSendService
 {
 
 	/**
