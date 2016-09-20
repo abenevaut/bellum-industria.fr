@@ -3022,12 +3022,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "113071af3b2b9eb96b05dab05472cbaed64a3df4"
+                "reference": "f314080006142bc05a8a92ee0863751acaa7238f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/113071af3b2b9eb96b05dab05472cbaed64a3df4",
-                "reference": "113071af3b2b9eb96b05dab05472cbaed64a3df4",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f314080006142bc05a8a92ee0863751acaa7238f",
+                "reference": "f314080006142bc05a8a92ee0863751acaa7238f",
                 "shasum": ""
             },
             "require": {
@@ -3076,7 +3076,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-09-12 15:07:23"
+            "time": "2016-09-19 09:50:28"
         },
         {
             "name": "guzzlehttp/promises",
@@ -5988,12 +5988,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "d8e60a5619fff77f9669da8997697443ef1a1d7e"
+                "reference": "5277094ed527a1c4477177d102fe4c53551953e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/d8e60a5619fff77f9669da8997697443ef1a1d7e",
-                "reference": "d8e60a5619fff77f9669da8997697443ef1a1d7e",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/5277094ed527a1c4477177d102fe4c53551953e0",
+                "reference": "5277094ed527a1c4477177d102fe4c53551953e0",
                 "shasum": ""
             },
             "require": {
@@ -6027,7 +6027,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-01-06 21:40:42"
+            "time": "2016-09-19 16:02:08"
         },
         {
             "name": "psy/psysh",
@@ -6895,12 +6895,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "1180d35e6ec1dbe1a40cc08f6c77835e840a5c5d"
+                "reference": "17a87733ea77b63cca6870641ecbe43e9d7500b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/1180d35e6ec1dbe1a40cc08f6c77835e840a5c5d",
-                "reference": "1180d35e6ec1dbe1a40cc08f6c77835e840a5c5d",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/17a87733ea77b63cca6870641ecbe43e9d7500b6",
+                "reference": "17a87733ea77b63cca6870641ecbe43e9d7500b6",
                 "shasum": ""
             },
             "require": {
@@ -6945,7 +6945,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-09-18 16:05:16"
+            "time": "2016-09-19 12:41:01"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -11650,12 +11650,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "a71771e813541fee035c8c85105dac75dc161d7c"
+                "reference": "fb6d87cf3323bb35cd57bd5f1ddbdc59ecbcbddb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/a71771e813541fee035c8c85105dac75dc161d7c",
-                "reference": "a71771e813541fee035c8c85105dac75dc161d7c",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/fb6d87cf3323bb35cd57bd5f1ddbdc59ecbcbddb",
+                "reference": "fb6d87cf3323bb35cd57bd5f1ddbdc59ecbcbddb",
                 "shasum": ""
             },
             "require": {
@@ -11720,7 +11720,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-09-12 23:24:57"
+            "time": "2016-09-20 02:22:44"
         },
         {
             "name": "symfony/browser-kit",
@@ -11841,12 +11841,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "fc62b8654d208bcfb8a44999feb68fc7f1d76cf0"
+                "reference": "fe652a57a24b4359dfb4909aea59c4882921b6c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/fc62b8654d208bcfb8a44999feb68fc7f1d76cf0",
-                "reference": "fc62b8654d208bcfb8a44999feb68fc7f1d76cf0",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/fe652a57a24b4359dfb4909aea59c4882921b6c5",
+                "reference": "fe652a57a24b4359dfb4909aea59c4882921b6c5",
                 "shasum": ""
             },
             "require": {
@@ -11896,7 +11896,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-15 17:44:52"
+            "time": "2016-09-19 19:25:58"
         },
         {
             "name": "symfony/dom-crawler",
@@ -12009,12 +12009,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "46b44cb89d05e691f2719d468fd476d57487b487"
+                "reference": "7fbb0dfc86370757774ff2d9bd5c3b89c9aac1a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/46b44cb89d05e691f2719d468fd476d57487b487",
-                "reference": "46b44cb89d05e691f2719d468fd476d57487b487",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/7fbb0dfc86370757774ff2d9bd5c3b89c9aac1a8",
+                "reference": "7fbb0dfc86370757774ff2d9bd5c3b89c9aac1a8",
                 "shasum": ""
             },
             "require": {
@@ -12056,7 +12056,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-14 23:17:14"
+            "time": "2016-09-20 08:33:13"
         },
         {
             "name": "theseer/fdomdocument",
@@ -12104,12 +12104,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "c418d07c64bdf004635973f978c806a53a32b320"
+                "reference": "03dd9c5e5154e5835297e612feaaaaec8ccb6743"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/c418d07c64bdf004635973f978c806a53a32b320",
-                "reference": "c418d07c64bdf004635973f978c806a53a32b320",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/03dd9c5e5154e5835297e612feaaaaec8ccb6743",
+                "reference": "03dd9c5e5154e5835297e612feaaaaec8ccb6743",
                 "shasum": ""
             },
             "require": {
@@ -12122,7 +12122,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.24-dev"
+                    "dev-master": "1.25-dev"
                 }
             },
             "autoload": {
@@ -12157,7 +12157,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-09-01 17:55:16"
+            "time": "2016-09-20 05:07:57"
         },
         {
             "name": "webmozart/assert",
