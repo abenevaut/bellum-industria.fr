@@ -6,14 +6,13 @@ use cms\Multigaming\Repositories\SMWA\StammRepository;
 use cms\Multigaming\Repositories\SMWA\SteamBotRepository;
 use cms\Infrastructure\Abstractions\Controllers\FrontendController;
 use cms\Domain\Settings\Settings\Repositories\SettingsRepository;
-use cms\Modules\Steam\Domain\Steam\Repositories\SteamGameServerRepository;
-use cms\Modules\Steam\Domain\Steam\Repositories\SteamRepository;
+use cms\Modules\Steam\Domain\Steam\Steam\Repositories\SteamRepository;
 use cms\Modules\ClashOfClan\Domain\Coc\CocApi\Repositories\CocRepository;
 use cms\Modules\Teams\Domain\Teams\Teams\Repositories\TeamsRepositoryEloquent;
 
 /**
  * Class IndexController
- * @package App\Multigaming\Http\Controllers
+ * @package cms\Multigaming\Http\Controllers
  */
 class IndexController extends FrontendController
 {
@@ -51,7 +50,6 @@ class IndexController extends FrontendController
 	public function __construct(
 		SettingsRepository $r_settings,
 
-		SteamGameServerRepository $r_gs,
 		SteamRepository $r_steam,
 
 		StammRepository $r_stamm,
@@ -61,7 +59,7 @@ class IndexController extends FrontendController
 		CocRepository $r_coc
 	)
 	{
-		$this->game_servers = $r_gs;
+
 		$this->steam = $r_steam;
 		$this->teams = $r_team;
 		$this->stamm = $r_stamm;
@@ -112,10 +110,6 @@ class IndexController extends FrontendController
 			return $feed;
 		});
 
-
-		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27015);
-		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27017);
-
 		$trades = $this->r_steambot->lastTrades();
 		foreach ($trades as $key => $trade)
 		{
@@ -158,7 +152,6 @@ class IndexController extends FrontendController
 				'announcements'        => $feed->get_items(0, 2),
 				'feeds_vakarm'         => $feed_vakarm->get_items(0, 2),
 				'threads'              => $this->steam->paginate('Bellum-Industria', 4),
-				'game_servers'         => $game_servers,
 				'coc_clan'             => $this->r_coc->getClan('#PY2UJ8C0'),
 				'trades'               => $trades,
 			]
