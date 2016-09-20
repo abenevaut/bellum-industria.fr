@@ -21,7 +21,7 @@ Route::group(['middleware' => ['web'], 'domain' => env('CVEPDB_MULTIGAMING_DOMAI
 	Route::get('ranks', '\cms\Multigaming\Http\Controllers\IndexController@ranks');
 //	Route::get('announcements', '\cms\Multigaming\Http\Controllers\IndexController@announcements');
 
-	Route::resource('contact', '\cms\Multigaming\Http\Controllers\ContactController');
+	Route::resource('contact', ['as' => 'multigaming.contact', 'uses' => '\cms\Multigaming\Http\Controllers\ContactController']);
 
 	/*
 	 * Auth
