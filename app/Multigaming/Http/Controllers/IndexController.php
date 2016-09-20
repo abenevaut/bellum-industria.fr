@@ -18,11 +18,6 @@ class IndexController extends FrontendController
 {
 
 	/**
-	 * @var SteamGameServerRepository|null
-	 */
-	protected $game_servers = null;
-
-	/**
 	 * @var SteamRepository|null
 	 */
 	protected $steam = null;
@@ -76,39 +71,9 @@ class IndexController extends FrontendController
 
 
 		$coc_clan = [];
-		$game_servers = [];
 		$trades = [];
 		$team_bot = [];
 		$team_bellumindustria = [];
-
-
-		$feed = Cache::remember('announcements', 60, function ()
-		{
-
-			$feed = new SimplePie();
-			$feed->set_feed_url("https://steamcommunity.com/groups/Bellum-Industria/rss");
-			$feed->enable_cache(true);
-			$feed->set_cache_location(storage_path('framework/cache'));
-			$feed->set_cache_duration(60 * 60 * 12);
-			$feed->set_output_encoding('utf-8');
-			$feed->init();
-
-			return $feed;
-		});
-
-		$feed_vakarm = Cache::remember('vakarm', 60, function ()
-		{
-
-			$feed = new SimplePie();
-			$feed->set_feed_url("http://feeds2.feedburner.com/vakarm");
-			$feed->enable_cache(true);
-			$feed->set_cache_location(storage_path('framework/cache'));
-			$feed->set_cache_duration(60 * 60 * 12);
-			$feed->set_output_encoding('utf-8');
-			$feed->init();
-
-			return $feed;
-		});
 
 		$trades = $this->r_steambot->lastTrades();
 		foreach ($trades as $key => $trade)
@@ -149,8 +114,6 @@ class IndexController extends FrontendController
 			[
 				'team_bot'             => $team_bot,
 				'team_bellumindustria' => $team_bellumindustria,
-				'announcements'        => $feed->get_items(0, 2),
-				'feeds_vakarm'         => $feed_vakarm->get_items(0, 2),
 				'threads'              => $this->steam->paginate('Bellum-Industria', 4),
 				'coc_clan'             => $this->r_coc->getClan('#PY2UJ8C0'),
 				'trades'               => $trades,
