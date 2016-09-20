@@ -20,7 +20,7 @@
 		<div id="canvas-for-google-map" style="height:100%; width:100%;max-width:100%;">
 			<iframe style="height:100%;width:100%;border:0;"
 					frameborder="0"
-					src="https://www.google.com/maps/embed/v1/place?q=37+Rue+Richard+Lenoir,+Paris,+France&key={{ env('CVEPDB_GOOGLE_PLACES_API_KEY_JS') }}">
+					src="https://www.google.com/maps/embed/v1/place?q=Paris,+France&key={{ env('CVEPDB_GOOGLE_PLACES_API_KEY_JS') }}">
 			</iframe>
 		</div>
 	</div>
@@ -85,13 +85,8 @@
 			<div class="layout__body-wrapper__content-wrapper__inner__sidebar">
 				<div class="layout__body-wrapper__content-wrapper__inner__sidebar__sidebox">
 					<h3>{!! trans('cvepdb/vitrine/contact.address_title') !!}</h3>
-					<p>{!! trans('cvepdb/vitrine/contact.address_intro') !!}</p>
-					<i class="icon-location contact"></i> {!! trans('cvepdb/vitrine/contact.address_address') !!}
-					<br/>
-					<i class="icon-phone contact"></i>
-					<a href="tel:{!! str_replace([' ', '.'], ['', ''], trans('cvepdb/vitrine/contact.address_phone')) !!}">{!! trans('cvepdb/vitrine/contact.address_phone') !!}</a><br/>
 					<i class="icon-mail contact"></i>
-					<a href="mailto:{!! trans('cvepdb/vitrine/contact.address_mail') !!}">{!! trans('cvepdb/vitrine/contact.address_mail') !!}</a>
+					<a href="mailto:multigaming@cvepdb.fr">multigaming@cvepdb.fr</a>
 				</div>
 			</div>
 			<!-- End Sidebar -->
