@@ -1259,12 +1259,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-clashofclan.git",
-                "reference": "8907369dfbf7dc51d7179210c4a9b00ac5a9c150"
+                "reference": "ea70fa3937d8311b52942a24d155a5c09da4a071"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-clashofclan/repository/archive.zip?sha=8907369dfbf7dc51d7179210c4a9b00ac5a9c150",
-                "reference": "8907369dfbf7dc51d7179210c4a9b00ac5a9c150",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-clashofclan/repository/archive.zip?sha=ea70fa3937d8311b52942a24d155a5c09da4a071",
+                "reference": "ea70fa3937d8311b52942a24d155a5c09da4a071",
                 "shasum": ""
             },
             "require": {
@@ -1298,7 +1298,7 @@
                 "Clash of Clan",
                 "module"
             ],
-            "time": "2016-09-13 20:11:41"
+            "time": "2016-09-20 14:48:01"
         },
         {
             "name": "cvepdb-cms/module-csgolounge",
@@ -1582,12 +1582,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-servers.git",
-                "reference": "a691d41296e4c70046970c78303eac09b4c32758"
+                "reference": "77fab911d6e7ad299e2f5512a3a043eaf9240e2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-servers/repository/archive.zip?sha=a691d41296e4c70046970c78303eac09b4c32758",
-                "reference": "a691d41296e4c70046970c78303eac09b4c32758",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-servers/repository/archive.zip?sha=77fab911d6e7ad299e2f5512a3a043eaf9240e2d",
+                "reference": "77fab911d6e7ad299e2f5512a3a043eaf9240e2d",
                 "shasum": ""
             },
             "require": {
@@ -1619,7 +1619,7 @@
                 "Servers",
                 "module"
             ],
-            "time": "2016-09-18 22:11:15"
+            "time": "2016-09-20 13:04:17"
         },
         {
             "name": "cvepdb-cms/module-steam",
@@ -1627,12 +1627,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-steam.git",
-                "reference": "1b35ecaf093e6dfe845a56614a9c3f225d927a1b"
+                "reference": "c608ec3a223224cd9b0b2b7cffec8ae62641f7ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-steam/repository/archive.zip?sha=1b35ecaf093e6dfe845a56614a9c3f225d927a1b",
-                "reference": "1b35ecaf093e6dfe845a56614a9c3f225d927a1b",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-steam/repository/archive.zip?sha=c608ec3a223224cd9b0b2b7cffec8ae62641f7ab",
+                "reference": "c608ec3a223224cd9b0b2b7cffec8ae62641f7ab",
                 "shasum": ""
             },
             "require": {
@@ -1668,7 +1668,7 @@
                 "Steam",
                 "module"
             ],
-            "time": "2016-09-13 20:11:49"
+            "time": "2016-09-20 14:47:50"
         },
         {
             "name": "cvepdb-cms/module-teams",
@@ -1676,12 +1676,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-teams.git",
-                "reference": "0f52555da833972f8109931c7f9efc76493f49b3"
+                "reference": "d5b25603b1c3bff521e5ee0d31b70cfc951b78cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-teams/repository/archive.zip?sha=0f52555da833972f8109931c7f9efc76493f49b3",
-                "reference": "0f52555da833972f8109931c7f9efc76493f49b3",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-teams/repository/archive.zip?sha=d5b25603b1c3bff521e5ee0d31b70cfc951b78cc",
+                "reference": "d5b25603b1c3bff521e5ee0d31b70cfc951b78cc",
                 "shasum": ""
             },
             "require": {
@@ -1713,7 +1713,7 @@
                 "Teams",
                 "module"
             ],
-            "time": "2016-09-18 16:11:11"
+            "time": "2016-09-20 14:47:43"
         },
         {
             "name": "cvepdb-cms/module-themes",
@@ -2051,12 +2051,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-longwave.git",
-                "reference": "81fe9fd2ba6cd750dbae234bf60f851b93cc946a"
+                "reference": "9269c3b5cb4ccd7248a67df947c2aabca5fd9c65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=81fe9fd2ba6cd750dbae234bf60f851b93cc946a",
-                "reference": "81fe9fd2ba6cd750dbae234bf60f851b93cc946a",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=9269c3b5cb4ccd7248a67df947c2aabca5fd9c65",
+                "reference": "9269c3b5cb4ccd7248a67df947c2aabca5fd9c65",
                 "shasum": ""
             },
             "require": {
@@ -2084,7 +2084,7 @@
                 "Theme",
                 "longwave"
             ],
-            "time": "2016-09-18 16:11:28"
+            "time": "2016-09-20 14:48:11"
         },
         {
             "name": "cvepdb/theme-pages",
@@ -6895,12 +6895,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "17a87733ea77b63cca6870641ecbe43e9d7500b6"
+                "reference": "72d61468a1d2d24cbec8002669d592ed90104f85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/17a87733ea77b63cca6870641ecbe43e9d7500b6",
-                "reference": "17a87733ea77b63cca6870641ecbe43e9d7500b6",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/72d61468a1d2d24cbec8002669d592ed90104f85",
+                "reference": "72d61468a1d2d24cbec8002669d592ed90104f85",
                 "shasum": ""
             },
             "require": {
@@ -6945,7 +6945,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-09-19 12:41:01"
+            "time": "2016-09-20 10:59:38"
         },
         {
             "name": "swiftmailer/swiftmailer",
