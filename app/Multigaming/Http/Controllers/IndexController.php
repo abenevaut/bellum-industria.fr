@@ -174,15 +174,10 @@ class IndexController extends FrontendController
 		});
 		unset($ranks['sm_multigaming_csgo_2']);
 
-		$game_servers = [];
-		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27015);
-		$game_servers[] = $this->game_servers->find('cvepdb.fr', 27017);
-
 		return view(
 			'app.multigaming.ranks',
 			[
 				'ranks'        => $ranks,
-				'game_servers' => $game_servers,
 			]
 		);
 

@@ -100,46 +100,7 @@
 
 
 			<h2 class="colored">Servers</h2>
-
-
-			<div class="layout__body-wrapper__content-wrapper__inner__widget-posts">
-				<div class="grid">
-
-					@foreach ($game_servers as $server)
-
-
-						<div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
-							<div class="frame alignleft">
-								<a href="steam://connect/cvepdb.fr:{{$server['info']['GamePort']}}">
-									<img src="/modules/steam/images/csgo/maps/{{ $server['info']['Map'] }}.jpg" alt="Ca va ENCORE parler de bits!"
-										 width="142" height="100"/>
-
-									<div></div>
-								</a>
-							</div>
-							<div class="post-content">
-								<h5>
-									<a href="steam://connect/cvepdb.fr:{{$server['info']['GamePort']}}">cvepdb.fr:{{$server['info']['GamePort']}}</a>
-								</h5>
-
-								<div class="meta">
-									<span class="date">{{$server['info']['ModDesc']}}</span>
-								</div>
-								<div>
-									{{ $server['info']['HostName'] }}
-								</div>
-								<div>
-									<strong>{{ $server['info']['Map'] }}</strong>
-									({{ $server['info']['Players'] }}
-									/{{ $server['info']['MaxPlayers'] }})
-								</div>
-							</div>
-						</div>
-
-					@endforeach
-
-				</div>
-			</div>
+			{!! Widget::steam_game_servers() !!}
 			<div class="clear"></div>
 
 			<hr>
