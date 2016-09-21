@@ -11,37 +11,37 @@
 
 return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Default Connection Name
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify which of the connections below you wish to use as
-    | your default connection for all work. Of course, you may use many
-    | connections at once using the manager class.
-    |
-    */
+	/*
+	|--------------------------------------------------------------------------
+	| Default Connection Name
+	|--------------------------------------------------------------------------
+	|
+	| Here you may specify which of the connections below you wish to use as
+	| your default connection for all work. Of course, you may use many
+	| connections at once using the manager class.
+	|
+	*/
 
-    'default' => 'main',
+	'default' => 'main',
 
-    /*
-    |--------------------------------------------------------------------------
-    | GitLab Connections
-    |--------------------------------------------------------------------------
-    |
-    | Here are each of the connections setup for your application. Example
-    | configuration has been included, but you may add as many connections as
-    | you would like.
-    |
-    */
+	/*
+	|--------------------------------------------------------------------------
+	| GitLab Connections
+	|--------------------------------------------------------------------------
+	|
+	| Here are each of the connections setup for your application. Example
+	| configuration has been included, but you may add as many connections as
+	| you would like.
+	|
+	*/
 
-    'connections' => [
+	'connections' => [
 
-        'main' => [
-            'token' => 'XyoqQzryzRsRbMs5eri-',
-            'base_url' => 'https://gitlab.com/api/v3/',
-        ],
+		'main' => [
+			'token'    => env('CVEPDB_GITLAB_TOKEN'),
+			'base_url' => 'https://gitlab.com/api/v3/',
+		],
 
-    ],
+	],
 
 ];
