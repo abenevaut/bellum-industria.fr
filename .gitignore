@@ -76,3 +76,5 @@ database/migrations/2016_07_11_144934_CreateTeamUserTable.php
 # Servers
 database/migrations/2016_09_18_134758_CreateServersTable.php
 database/migrations/2016_09_18_141157_CreateEnvironmentServerTable.php
+# Projects
+database/migrations/2016_09_21_161139_create_table_projects.php
