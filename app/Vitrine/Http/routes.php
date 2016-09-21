@@ -8,6 +8,6 @@ Route::group(['middleware' => ['web'], 'domain' => env('CVEPDB_VITRINE_DOMAIN')]
 	Route::get('services', '\cms\Vitrine\Http\Controllers\PagesController@services');
 	Route::get('boutique', '\cms\Vitrine\Http\Controllers\PagesController@boutique');
 
-	Route::resource('contact', ['as' => 'vitrine.contact', 'uses' => '\cms\Vitrine\Http\Controllers\ContactController']);
+	Route::resource('contact', '\cms\Vitrine\Http\Controllers\ContactController');
 
 });

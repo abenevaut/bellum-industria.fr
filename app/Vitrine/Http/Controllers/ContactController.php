@@ -59,7 +59,7 @@ class ContactController extends FrontendController
 		$this->s_mailer->send($m_contacts);
 
 		return redirect('contact')
-			->with('message', 'Thanks for contacting us!');
+			->with('message-success', 'Thanks for contacting us!');
 	}
 
 }
