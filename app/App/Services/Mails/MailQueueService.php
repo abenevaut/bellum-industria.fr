@@ -27,7 +27,7 @@ abstract class MailQueueService extends MailServiceAbstract
 		{
 			$mailfrom = Settings::get('mail.from.address');
 			$mailname = Settings::get('mail.from.name');
-			$mailwatch = Settings::get('core.mail.mailwatch');
+			$mailwatch = Settings::get('cms.mail.mailwatch');
 
 			$message->to($emails)
 				->from($mailfrom, $mailname)
