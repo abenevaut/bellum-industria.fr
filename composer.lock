@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "544cf4c0a9c33199274de26d28743375",
-    "content-hash": "9360c2bad5273e91e4fac55ad42ba115",
+    "hash": "de623577920d6df42a4c24099f0c8c53",
+    "content-hash": "006235601ef75b761c28b921d168db04",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2046,6 +2046,51 @@
             "time": "2016-05-09 17:10:32"
         },
         {
+            "name": "cvepdb/module-projects",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/module-projects.git",
+                "reference": "902bbbc0400fd2188f765a62b23de315727b16c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-projects/repository/archive.zip?sha=902bbbc0400fd2188f765a62b23de315727b16c4",
+                "reference": "902bbbc0400fd2188f765a62b23de315727b16c4",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "Projects"
+            },
+            "autoload": {
+                "psr-4": {
+                    "cms\\Modules\\Projects\\": ""
+                }
+            },
+            "license": [
+                "open"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Projects module for #CVEPDB CMS",
+            "keywords": [
+                "CMS",
+                "CVEPDB",
+                "Pages",
+                "module"
+            ],
+            "time": "2016-09-21 15:07:55"
+        },
+        {
             "name": "cvepdb/theme-longwave",
             "version": "dev-master",
             "source": {
@@ -2924,6 +2969,65 @@
             "time": "2016-09-07 11:40:40"
         },
         {
+            "name": "graham-campbell/manager",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GrahamCampbell/Laravel-Manager.git",
+                "reference": "ea87ba63973bfd7a69d9b49081a08170b2c2d75f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Manager/zipball/ea87ba63973bfd7a69d9b49081a08170b2c2d75f",
+                "reference": "ea87ba63973bfd7a69d9b49081a08170b2c2d75f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.1.*|5.2.*|5.3.*",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "graham-campbell/testbench-core": "^1.1",
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "^4.8|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GrahamCampbell\\Manager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@alt-three.com"
+                }
+            ],
+            "description": "Manager Provides Some Manager Functionality For Laravel 5",
+            "keywords": [
+                "Graham Campbell",
+                "GrahamCampbell",
+                "Laravel Manager",
+                "Laravel-Manager",
+                "connector",
+                "framework",
+                "interface",
+                "laravel",
+                "manager"
+            ],
+            "time": "2016-08-04 11:12:46"
+        },
+        {
             "name": "guzzle/guzzle",
             "version": "v3.8.1",
             "source": {
@@ -3688,6 +3792,54 @@
             "time": "2015-08-20 09:44:33"
         },
         {
+            "name": "kriswallsmith/buzz",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriswallsmith/Buzz.git",
+                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/d4041666c3ffb379af02a92dabe81c904b35fab8",
+                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Buzz": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Lightweight HTTP client",
+            "homepage": "https://github.com/kriswallsmith/Buzz",
+            "keywords": [
+                "curl",
+                "http client"
+            ],
+            "time": "2015-06-25 17:26:56"
+        },
+        {
             "name": "laravel/framework",
             "version": "5.2.x-dev",
             "source": {
@@ -4383,6 +4535,61 @@
                 "twitter"
             ],
             "time": "2016-08-17 00:36:58"
+        },
+        {
+            "name": "m4tthumphrey/php-gitlab-api",
+            "version": "7.13.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/m4tthumphrey/php-gitlab-api.git",
+                "reference": "aefeb9409bd517da7da7762087fc67ac6416d9a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/m4tthumphrey/php-gitlab-api/zipball/aefeb9409bd517da7da7762087fc67ac6416d9a8",
+                "reference": "aefeb9409bd517da7da7762087fc67ac6416d9a8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "kriswallsmith/buzz": ">=0.7",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Gitlab\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thibault Duplessis",
+                    "email": "thibault.duplessis@gmail.com",
+                    "homepage": "http://ornicar.github.com"
+                },
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Matt Humphrey",
+                    "homepage": "http://m4tt.io"
+                }
+            ],
+            "description": "GitLab API client",
+            "homepage": "https://github.com/m4tthumphrey/php-gitlab-api",
+            "keywords": [
+                "api",
+                "gitlab"
+            ],
+            "time": "2016-06-20 12:44:22"
         },
         {
             "name": "maatwebsite/excel",
@@ -8219,6 +8426,62 @@
                 "versioning"
             ],
             "time": "2015-05-02 19:28:54"
+        },
+        {
+            "name": "vinkla/gitlab",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vinkla/laravel-gitlab.git",
+                "reference": "c5b54bc9f333cdd5a2dd1cd8c5b15c341bd9fe96"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vinkla/laravel-gitlab/zipball/c5b54bc9f333cdd5a2dd1cd8c5b15c341bd9fe96",
+                "reference": "c5b54bc9f333cdd5a2dd1cd8c5b15c341bd9fe96",
+                "shasum": ""
+            },
+            "require": {
+                "graham-campbell/manager": "^2.4",
+                "illuminate/contracts": "5.1.* || 5.2.* || 5.3.*",
+                "illuminate/support": "5.1.* || 5.2.* || 5.3.*",
+                "m4tthumphrey/php-gitlab-api": "^7.13",
+                "php": "^5.6.4 || ^7.0"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "^3.2",
+                "mockery/mockery": "^0.9.5",
+                "phpunit/phpunit": "^5.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vinkla\\GitLab\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Klaiber",
+                    "email": "hello@vinkla.com"
+                }
+            ],
+            "description": "A GitLab bridge for Laravel",
+            "keywords": [
+                "api",
+                "git",
+                "gitlab",
+                "laravel"
+            ],
+            "time": "2016-09-01 09:34:03"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -12236,6 +12499,7 @@
         "cvepdb-cms/module-csgolounge": 20,
         "cvepdb-cms/module-teams": 20,
         "cvepdb/theme-longwave": 20,
+        "cvepdb/module-projects": 20,
         "cvepdb/theme-pages": 20,
         "artesaos/laravel-linkedin": 20,
         "toniperic/php-clash-of-clans": 20,

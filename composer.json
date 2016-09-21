@@ -108,6 +108,7 @@
     "cvepdb-cms/module-csgolounge": "dev-master",
     "cvepdb-cms/module-teams": "dev-master",
     "cvepdb/theme-longwave": "dev-master",
+    "cvepdb/module-projects": "dev-master",
     "cvepdb/theme-pages": "dev-master",
     "league/flysystem": "^1.0",
     "league/flysystem-aws-s3-v3": "~1.0",
@@ -167,7 +168,8 @@
         "cvepdb-cms/module-posts",
         "cvepdb-cms/module-teams",
         "cvepdb-cms/module-pages",
-        "cvepdb-cms/module-servers"
+        "cvepdb-cms/module-servers",
+        "cvepdb/module-projects"
       ],
       "resources/themes/{$name}": [
         "cvepdb-cms/theme-adminlte",
