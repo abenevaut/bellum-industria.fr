@@ -67,7 +67,7 @@ class UserListTransformer extends TransformerAbstract
 					];
 					break;
 				}
-				case 'CVEPDB\Addresses\Domain\Addresses\SubStates\State':
+				case 'CVEPDB\Addresses\Domain\Addresses\States\State':
 				{
 					$data['addresses']['primary'] = [
 						'country_id'   => !is_null($primary_address->locator)

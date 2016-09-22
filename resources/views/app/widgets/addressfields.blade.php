@@ -24,7 +24,7 @@
 								search_term: params.term,
 								page: params.page,
 								country_id: input_substates.attr('data-country_id'),
-								substate_id: input_substates.attr('data-substate_id')
+								state_id: input_substates.attr('data-state_id')
 							};
 						},
 						processResults: function (data, params) {
@@ -95,7 +95,12 @@
 					templateResult: function (repo) {
 						return repo.name;
 					}
-				});
+				})
+						.on("change", function (e) {
+							input_substates.attr('data-state_id', this.value);
+							input_substates.empty();
+							input_substates.trigger('change.select2');
+						});
 			}
 
 
@@ -111,6 +116,9 @@
 					minimumResultsForSearch: 1
 				})
 						.on("change", function (e) {
+							input_substates.attr('data-country_id', this.value);
+							input_substates.empty();
+							input_substates.trigger('change.select2');
 							input_states.attr('data-country_id', this.value);
 							input_states.empty();
 							input_states.trigger('change.select2');
