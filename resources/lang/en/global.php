@@ -46,4 +46,6 @@ return [
 	'domain'           => 'Domain',
 	'add'              => 'Add',
 	'user_s'           => 'User(s)',
+	'addresses'        => 'Addresses',
+	'address'          => 'Address',
 ];

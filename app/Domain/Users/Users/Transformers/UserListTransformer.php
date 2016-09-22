@@ -25,6 +25,7 @@ class UserListTransformer extends TransformerAbstract
 			'last_name'        => $user->last_name,
 			'full_name'        => $user->full_name,
 			'email'            => $user->email,
+			'apikey'           => $user->apikey->key,
 			'deleted_at'       => $user->deleted_at,
 			'roles'            => [],
 			'roles_ids'        => [],
@@ -32,13 +33,16 @@ class UserListTransformer extends TransformerAbstract
 			'environments_ids' => [],
 			'addresses'        => [
 				'primary' => [
-					'country_id'   => null,
-					'state_id'     => null,
-					'substate_id'  => null,
-					'street'       => '',
-					'street_extra' => '',
-					'city'         => '',
-					'zip'          => '',
+					'country_id'    => null,
+					'state_id'      => null,
+					'substate_id'   => null,
+					'country_name'  => '',
+					'state_name'    => '',
+					'substate_name' => '',
+					'street'        => '',
+					'street_extra'  => '',
+					'city'          => '',
+					'zip'           => '',
 				]
 			]
 		];
@@ -49,57 +53,77 @@ class UserListTransformer extends TransformerAbstract
 
 		if (!is_null($primary_address))
 		{
-
 			switch ($primary_address->locator_type)
 			{
 				case 'CVEPDB\Addresses\Domain\Addresses\Countries\Country':
 				{
 					$data['addresses']['primary'] = [
-						'country_id'   => !is_null($primary_address->locator)
+						'country_id'    => !is_null($primary_address->locator)
 							? $primary_address->locator->id
 							: null,
-						'state_id'     => null,
-						'substate_id'  => null,
-						'street'       => $primary_address->street,
-						'street_extra' => $primary_address->street_extra,
-						'city'         => $primary_address->city,
-						'zip'          => $primary_address->zip,
+						'state_id'      => null,
+						'substate_id'   => null,
+						'country_name'  => !is_null($primary_address->locator)
+							? $primary_address->locator->name
+							: '',
+						'state_name'    => '',
+						'substate_name' => '',
+						'street'        => $primary_address->street,
+						'street_extra'  => $primary_address->street_extra,
+						'city'          => $primary_address->city,
+						'zip'           => $primary_address->zip,
 					];
 					break;
 				}
 				case 'CVEPDB\Addresses\Domain\Addresses\States\State':
 				{
 					$data['addresses']['primary'] = [
-						'country_id'   => !is_null($primary_address->locator)
+						'country_id'    => !is_null($primary_address->locator)
 							? $primary_address->locator->country->id
 							: null,
-						'state_id'     => !is_null($primary_address->locator)
+						'state_id'      => !is_null($primary_address->locator)
 							? $primary_address->locator->id
 							: null,
-						'substate_id'  => null,
-						'street'       => $primary_address->street,
-						'street_extra' => $primary_address->street_extra,
-						'city'         => $primary_address->city,
-						'zip'          => $primary_address->zip,
+						'substate_id'   => null,
+						'country_name'  => !is_null($primary_address->locator)
+							? $primary_address->locator->country->name
+							: '',
+						'state_name'    => !is_null($primary_address->locator)
+							? $primary_address->locator->name
+							: '',
+						'substate_name' => '',
+						'street'        => $primary_address->street,
+						'street_extra'  => $primary_address->street_extra,
+						'city'          => $primary_address->city,
+						'zip'           => $primary_address->zip,
 					];
 					break;
 				}
 				case 'CVEPDB\Addresses\Domain\Addresses\SubStates\SubState':
 				{
 					$data['addresses']['primary'] = [
-						'country_id'   => !is_null($primary_address->locator)
+						'country_id'    => !is_null($primary_address->locator)
 							? $primary_address->locator->state->country->id
 							: null,
-						'state_id'     => !is_null($primary_address->locator)
+						'state_id'      => !is_null($primary_address->locator)
 							? $primary_address->locator->state->id
 							: null,
-						'substate_id'  => !is_null($primary_address->locator)
+						'substate_id'   => !is_null($primary_address->locator)
 							? $primary_address->locator->id
 							: null,
-						'street'       => $primary_address->street,
-						'street_extra' => $primary_address->street_extra,
-						'city'         => $primary_address->city,
-						'zip'          => $primary_address->zip,
+						'country_name'  => !is_null($primary_address->locator)
+							? $primary_address->locator->state->country->name
+							: '',
+						'state_name'    => !is_null($primary_address->locator)
+							? $primary_address->locator->state->name
+							: '',
+						'substate_name' => !is_null($primary_address->locator)
+							? $primary_address->locator->name
+							: '',
+						'street'        => $primary_address->street,
+						'street_extra'  => $primary_address->street_extra,
+						'city'          => $primary_address->city,
+						'zip'           => $primary_address->zip,
 					];
 					break;
 				}
@@ -117,9 +141,10 @@ class UserListTransformer extends TransformerAbstract
 				$data['environments_ids'][] = $env->id;
 
 				$data['environments'][] = [
-					'id'     => $env->id,
-					'name'   => $env->name,
-					'domain' => $env->domain,
+					'id'        => $env->id,
+					'name'      => $env->name,
+					'reference' => $env->reference,
+					'domain'    => $env->domain,
 				];
 			}
 		}
