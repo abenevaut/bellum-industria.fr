@@ -25,7 +25,7 @@ class UserListTransformer extends TransformerAbstract
 			'last_name'        => $user->last_name,
 			'full_name'        => $user->full_name,
 			'email'            => $user->email,
-			'apikey'           => $user->apikey->key,
+			'apikey'           => !is_null($user->apikey) ? $user->apikey->key : '',
 			'deleted_at'       => $user->deleted_at,
 			'roles'            => [],
 			'roles_ids'        => [],
