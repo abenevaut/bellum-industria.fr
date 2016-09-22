@@ -87,11 +87,11 @@ class UserListTransformer extends TransformerAbstract
 				case 'CVEPDB\Addresses\Domain\Addresses\SubStates\SubState':
 				{
 					$data['addresses']['primary'] = [
-						'country_id'   => !is_null($primary_address->state)
-							? $primary_address->state->country->id
+						'country_id'   => !is_null($primary_address->locator)
+							? $primary_address->locator->state->country->id
 							: null,
-						'state_id'     => !is_null($primary_address->state)
-							? $primary_address->state->id
+						'state_id'     => !is_null($primary_address->locator)
+							? $primary_address->locator->state->id
 							: null,
 						'substate_id'  => !is_null($primary_address->locator)
 							? $primary_address->locator->id

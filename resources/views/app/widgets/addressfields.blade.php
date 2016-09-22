@@ -48,12 +48,8 @@
 					}
 				})
 						.on("change", function (e) {
-
 							var zipcode = $('input[name="{{ $prefix }}_address_zip"]');
-
-							if (!zipcode.val().length || zipcode.val().length == 2) {
-								zipcode.val(substates_zip);
-							}
+							zipcode.val('');
 						});
 			}
 
