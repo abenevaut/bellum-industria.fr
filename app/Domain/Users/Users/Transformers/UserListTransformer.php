@@ -20,15 +20,17 @@ class UserListTransformer extends TransformerAbstract
 		$primary_address = $user->flaggedAddress('primary');
 
 		$data = [
-			'id'           => (int)$user->id,
-			'first_name'   => $user->first_name,
-			'last_name'    => $user->last_name,
-			'full_name'    => $user->full_name,
-			'email'        => $user->email,
-			'deleted_at'   => $user->deleted_at,
-			'roles'        => [],
-			'environments' => [],
-			'addresses'    => [
+			'id'               => (int)$user->id,
+			'first_name'       => $user->first_name,
+			'last_name'        => $user->last_name,
+			'full_name'        => $user->full_name,
+			'email'            => $user->email,
+			'deleted_at'       => $user->deleted_at,
+			'roles'            => [],
+			'roles_ids'        => [],
+			'environments'     => [],
+			'environments_ids' => [],
+			'addresses'        => [
 				'primary' => [
 					'country_id'   => null,
 					'state_id'     => null,
@@ -72,6 +74,8 @@ class UserListTransformer extends TransformerAbstract
 		{
 			foreach ($user->environments as $env)
 			{
+				$data['environments_ids'][] = $env->id;
+
 				$data['environments'][] = [
 					'id'     => $env->id,
 					'name'   => $env->name,
@@ -90,6 +94,8 @@ class UserListTransformer extends TransformerAbstract
 
 		foreach ($user->roles as $role)
 		{
+			$data['roles_ids'][] = $role->id;
+
 			$data['roles'][] = [
 				'id'           => $role->id,
 				'display_name' => trans($role->display_name),
