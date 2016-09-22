@@ -49,21 +49,61 @@ class UserListTransformer extends TransformerAbstract
 
 		if (!is_null($primary_address))
 		{
-			$data['addresses']['primary'] = [
-				'country_id'   => !is_null($primary_address->state)
-					? $primary_address->state->country->id
-					: null,
-				'state_id'     => !is_null($primary_address->state)
-					? $primary_address->state->id
-					: null,
-				'substate_id'  => !is_null($primary_address->locator)
-					? $primary_address->locator->id
-					: null,
-				'street'       => $primary_address->street,
-				'street_extra' => $primary_address->street_extra,
-				'city'         => $primary_address->city,
-				'zip'          => $primary_address->zip,
-			];
+
+			switch ($primary_address->locator_type)
+			{
+				case 'CVEPDB\Addresses\Domain\Addresses\Countries\Country':
+				{
+					$data['addresses']['primary'] = [
+						'country_id'   => !is_null($primary_address->locator)
+							? $primary_address->locator->id
+							: null,
+						'state_id'     => null,
+						'substate_id'  => null,
+						'street'       => $primary_address->street,
+						'street_extra' => $primary_address->street_extra,
+						'city'         => $primary_address->city,
+						'zip'          => $primary_address->zip,
+					];
+					break;
+				}
+				case 'CVEPDB\Addresses\Domain\Addresses\SubStates\State':
+				{
+					$data['addresses']['primary'] = [
+						'country_id'   => !is_null($primary_address->locator)
+							? $primary_address->locator->country->id
+							: null,
+						'state_id'     => !is_null($primary_address->locator)
+							? $primary_address->locator->id
+							: null,
+						'substate_id'  => null,
+						'street'       => $primary_address->street,
+						'street_extra' => $primary_address->street_extra,
+						'city'         => $primary_address->city,
+						'zip'          => $primary_address->zip,
+					];
+					break;
+				}
+				case 'CVEPDB\Addresses\Domain\Addresses\SubStates\SubState':
+				{
+					$data['addresses']['primary'] = [
+						'country_id'   => !is_null($primary_address->state)
+							? $primary_address->state->country->id
+							: null,
+						'state_id'     => !is_null($primary_address->state)
+							? $primary_address->state->id
+							: null,
+						'substate_id'  => !is_null($primary_address->locator)
+							? $primary_address->locator->id
+							: null,
+						'street'       => $primary_address->street,
+						'street_extra' => $primary_address->street_extra,
+						'city'         => $primary_address->city,
+						'zip'          => $primary_address->zip,
+					];
+					break;
+				}
+			}
 		}
 
 		/*

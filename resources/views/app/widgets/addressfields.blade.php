@@ -23,7 +23,8 @@
 							return {
 								search_term: params.term,
 								page: params.page,
-								country_id: input_substates.attr('data-country_id')
+								country_id: input_substates.attr('data-country_id'),
+								substate_id: input_substates.attr('data-substate_id')
 							};
 						},
 						processResults: function (data, params) {
@@ -98,7 +99,7 @@
 			}
 
 
-			input_countries = $('select[name="{{ $prefix }}_address_country"]');
+			input_countries = $('select[name="{{ $prefix }}_address_country_id"]');
 
 			if (input_countries.length) {
 
@@ -167,11 +168,11 @@
 
 @if (config('addresses.show_country') && $show_country)
 	<div class="form-group">
-		{!! Form::label($prefix . '_address_country', trans('widgets/addressfields.country_address'), ['class'=>'col-sm-3 control-label']) !!}
+		{!! Form::label($prefix . '_address_country_id', trans('widgets/addressfields.country_address'), ['class'=>'col-sm-3 control-label']) !!}
 		<div class="col-sm-9">
 			{!! Addresses::selectCountry(
-				$prefix . '_address_country',
-				old($prefix . '_address_country', $address['country_id']),
+				$prefix . '_address_country_id',
+				old($prefix . '_address_country_id', $address['country_id']),
 				[
 					'class' => 'form-control',
 					'data-state_id' => $address['state_id']
@@ -187,7 +188,7 @@
 		<div class="col-sm-9">
 			<select id="{{ $prefix }}_address_state_id" class="form-control" name="{{ $prefix }}_address_state_id"
 					data-value="{{ old($prefix . '_address_state_id', $address['state_id']) }}"
-					data-country_id="{{ old($prefix . '_address_country', $address['country_id']) }}"
+					data-country_id="{{ old($prefix . '_address_country_id', $address['country_id']) }}"
 			></select>
 		</div>
 	</div>
@@ -198,7 +199,8 @@
 	<div class="col-sm-9">
 		<select id="{{ $prefix }}_address_substate_id" class="form-control" name="{{ $prefix }}_address_substate_id"
 				data-value="{{ old($prefix . '_address_substate_id', $address['substate_id']) }}"
-				data-country_id="{{ old($prefix . '_address_country', $address['country_id']) }}"
+				data-state_id="{{ old($prefix . '_address_state_id', $address['state_id']) }}"
+				data-country_id="{{ old($prefix . '_address_country_id', $address['country_id']) }}"
 		></select>
 	</div>
 </div>
