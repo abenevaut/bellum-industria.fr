@@ -3,14 +3,17 @@
 return [
 
 	// flags that can be linked to addresses ['primary', 'billing', 'shipping']
-	'flags'           => [
+	'flags'        => [
 		'primary',
 		'billing',
 		'shipping',
 	],
 
 	// whether or not to show country on address view/edit
-	'show_country'    => true,
+	'show_country' => true,
+
+	// whether or not to show state on address view/edit
+	'show_state'      => true,
 
 	// two letter code for the default country you want
 	'default_country' => 'FR',
