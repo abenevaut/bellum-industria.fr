@@ -1544,12 +1544,12 @@
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/cvepdb-cms/module-users.git",
-                "reference": "bae2f436c728fc8121f80dbbeff4891639f4fbb3"
+                "reference": "3bbef3feafc79158b0031b0a928f675f1cdc6afa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=bae2f436c728fc8121f80dbbeff4891639f4fbb3",
-                "reference": "bae2f436c728fc8121f80dbbeff4891639f4fbb3",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=3bbef3feafc79158b0031b0a928f675f1cdc6afa",
+                "reference": "3bbef3feafc79158b0031b0a928f675f1cdc6afa",
                 "shasum": ""
             },
             "require": {
@@ -1583,7 +1583,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2016-09-22 18:19:49"
+            "time": "2016-09-22 19:41:42"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -3934,12 +3934,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "700eba02f76f2971c81726a4f6a04121c1977e64"
+                "reference": "bafe0e990b671219eb1112b1dfd2c3b963a3bd6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/700eba02f76f2971c81726a4f6a04121c1977e64",
-                "reference": "700eba02f76f2971c81726a4f6a04121c1977e64",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/bafe0e990b671219eb1112b1dfd2c3b963a3bd6a",
+                "reference": "bafe0e990b671219eb1112b1dfd2c3b963a3bd6a",
                 "shasum": ""
             },
             "require": {
@@ -3993,7 +3993,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2016-09-15 21:03:21"
+            "time": "2016-09-22 16:39:14"
         },
         {
             "name": "maknz/slack",
@@ -9731,12 +9731,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3fcd103a28a34f2bc0835aee37b8eeaa78c12ebf"
+                "reference": "35f376bf4ce6d7cdce04833883a2069d11eccc71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3fcd103a28a34f2bc0835aee37b8eeaa78c12ebf",
-                "reference": "3fcd103a28a34f2bc0835aee37b8eeaa78c12ebf",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/35f376bf4ce6d7cdce04833883a2069d11eccc71",
+                "reference": "35f376bf4ce6d7cdce04833883a2069d11eccc71",
                 "shasum": ""
             },
             "require": {
@@ -9798,7 +9798,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-08-28 06:17:24"
+            "time": "2016-09-22 17:38:11"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
