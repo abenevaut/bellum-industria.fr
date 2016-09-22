@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Container\Container as Application;
-use CVEPDB\Addresses\AddressesFacade;
 use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
 use cms\Domain\Users\Users\Repositories\UsersRepository;
 use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
@@ -12,8 +11,8 @@ use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
 use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
 use cms\Domain\Users\ApiKeys\Repositories\ApiKeysRepositoryEloquent;
 use cms\Domain\Users\SocialTokens\Repositories\SocialTokenRepositoryEloquent;
-//use Core\Criterias\OnlyTrashedCriteria;
-//use Core\Criterias\WithTrashedCriteria;
+use cms\Domain\Users\Users\Criterias\OnlyTrashedCriteria;
+use cms\Domain\Users\Users\Criterias\WithTrashedCriteria;
 use cms\Domain\Users\Users\Criterias\EmailLikeCriteria;
 use cms\Domain\Users\Users\Criterias\UserNameLikeCriteria;
 use cms\Domain\Users\Users\Criterias\RolesCriteria;
@@ -409,42 +408,6 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 		}
 
 		return $user;
-	}
-
-	/**
-	 * @param \cms\Domain\Users\Users\User $user
-	 * @param  array                       $addresses
-	 *
-	 * @return null
-	 */
-	public function set_user_addresses(User $user, array $addresses)
-	{
-		$validator = null;
-
-		$primary_address = array_key_exists('primary', $addresses)
-			? $addresses['primary']
-			: [];
-
-		/**
-		 * Check addresses values
-		 *
-		 * If primary address registered and not others, use primary foreach addresses
-		 */
-		foreach ($addresses as $type => $address)
-		{
-			$validator = AddressesFacade::getValidator($address);
-
-			if (!$validator->fails())
-			{
-				AddressesFacade::createAddress($address, $user->id);
-			}
-			else
-			{
-				break;
-			}
-		}
-
-		return $validator;
 	}
 
 	/**
