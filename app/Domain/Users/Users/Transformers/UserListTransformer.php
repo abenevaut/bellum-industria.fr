@@ -17,6 +17,8 @@ class UserListTransformer extends TransformerAbstract
 	 */
 	public function transform(User $user)
 	{
+		$primary_address = $user->flaggedAddress('primary');
+
 		$data = [
 			'id'           => (int)$user->id,
 			'first_name'   => $user->first_name,
@@ -25,8 +27,42 @@ class UserListTransformer extends TransformerAbstract
 			'email'        => $user->email,
 			'deleted_at'   => $user->deleted_at,
 			'roles'        => [],
-			'environments' => []
+			'environments' => [],
+			'addresses'    => [
+				'primary' => [
+					'country_id'   => null,
+					'state_id'     => null,
+					'substate_id'  => null,
+					'street'       => '',
+					'street_extra' => '',
+					'city'         => '',
+					'zip'          => '',
+				]
+			]
 		];
+
+		/*
+		 * Primary address
+		 */
+
+		if (!is_null($primary_address))
+		{
+			$data['addresses']['primary'] = [
+				'country_id'   => !is_null($primary_address->state)
+					? $primary_address->state->country->id
+					: null,
+				'state_id'     => !is_null($primary_address->state)
+					? $primary_address->state->id
+					: null,
+				'substate_id'  => !is_null($primary_address->locator)
+					? $primary_address->locator->id
+					: null,
+				'street'       => $primary_address->street,
+				'street_extra' => $primary_address->street_extra,
+				'city'         => $primary_address->city,
+				'zip'          => $primary_address->zip,
+			];
+		}
 
 		/*
 		 * List environment(s) linked to the user.
