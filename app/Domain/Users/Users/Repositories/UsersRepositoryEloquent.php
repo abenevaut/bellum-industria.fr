@@ -315,8 +315,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 		if ($user_id == Auth::user()->id)
 		{
 			throw new \Exception(
-				trans('repositories.users.findanddelete:you_can_not_delete_your_account'),
-				1
+				trans('domain/users.findanddelete.you_can_not_delete_your_account')
 			);
 		}
 
@@ -333,10 +332,9 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 		{
 			throw new \Exception(
 				sprintf(
-					trans('repositories.users.findanddelete:this_is_the_last_user_admin'),
+					trans('domain/users.findanddelete.this_is_the_last_user_admin'),
 					$user->full_name
-				),
-				1
+				)
 			);
 		}
 

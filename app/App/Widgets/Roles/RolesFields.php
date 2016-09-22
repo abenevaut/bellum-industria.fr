@@ -56,6 +56,7 @@ class RolesFields extends WidgetsAbstract
 		{
 			$this->r_roles->filterEnvironments([Environments::currentId()]);
 		}
+
 		$roles = $this->r_roles->all(['roles.display_name', 'roles.id']);
 
 		$roles_list = [];
@@ -69,12 +70,19 @@ class RolesFields extends WidgetsAbstract
 			$roles_list = [0 => trans('global.all')] + $roles_list;
 		}
 
+		$value = array_key_exists('value', $attributes) ? $attributes['value'] : '';
+
+		if (array_key_exists('default', $attributes) && $attributes['default'])
+		{
+			$value = empty($value) ? [1] : $value;
+		}
+
 		return $this->output(
 			'app.widgets.rolesfields',
 			[
 				'roles'       => $roles_list,
 				'name'        => $name,
-				'value'       => array_key_exists('value', $attributes) ? $attributes['value'] : '',
+				'value'       => $value,
 				'old_value'   => preg_replace("/[^A-Za-z0-9 ]/", '', $name),
 				'placeholder' => array_key_exists('placeholder', $attributes) ? trans($attributes['placeholder']) : '',
 				'class'       => array_key_exists('class', $attributes) ? $attributes['class'] : ''

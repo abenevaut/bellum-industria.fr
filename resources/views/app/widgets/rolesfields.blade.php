@@ -26,5 +26,4 @@
 </script>
 @endpush
 
-
 {!! Form::select($name, $roles, $value, ['class' => $class, 'multiple' => 'multiple']) !!}

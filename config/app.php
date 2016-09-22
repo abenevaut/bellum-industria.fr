@@ -202,6 +202,7 @@ return [
 		Spatie\Backup\BackupServiceProvider::class,
 		Toin0u\Geocoder\GeocoderServiceProvider::class,
 		Vinkla\GitLab\GitLabServiceProvider::class,
+		Jenssegers\Raven\RavenServiceProvider::class,
 
 //		"Modules\\Files\\Providers\\ElfinderServiceProvider"
 
@@ -274,6 +275,11 @@ return [
 		'GlideImage'   => Spatie\Glide\GlideImageFacade::class,
 		'Geocoder'     => Toin0u\Geocoder\Facade\Geocoder::class,
 		'GitLab'       => Vinkla\GitLab\Facades\GitLab::class,
+
+		/*
+		 * @deprecated, prefere the use of Log facade : Illuminate\Support\Facades\Log
+		 */
+		// 'Raven'        => Jenssegers\Raven\Facades\Raven::class,
 
 	],
 

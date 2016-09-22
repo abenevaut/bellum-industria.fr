@@ -53,7 +53,7 @@ class Role extends RoleModelAbstract
 		return $this->belongsToMany('cms\Domain\Users\Users\User')
 			->join('environment_user', 'role_user.user_id', '=', 'environment_user.user_id')
 			->where('environment_user.environment_id', '=', Environments::currentId())
-			->join('environment_role', 'roles.id', '=', 'environment_role.role_id')
+			->join('environment_role', 'role_user.role_id', '=', 'environment_role.role_id')
 			->where('environment_role.environment_id', '=', Environments::currentId());
 	}
 
