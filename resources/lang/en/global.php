@@ -48,4 +48,5 @@ return [
 	'user_s'           => 'User(s)',
 	'addresses'        => 'Addresses',
 	'address'          => 'Address',
+	'permission_s'     => 'Permission(s)',
 ];

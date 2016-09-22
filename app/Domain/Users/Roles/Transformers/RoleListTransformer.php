@@ -21,7 +21,7 @@ class RoleListTransformer extends TransformerAbstract
 			'id'           => (int)$role->id,
 			'name'         => $role->name,
 			'display_name' => $role->display_name,
-			'description' => $role->description,
+			'description'  => $role->description,
 			'unchangeable' => $role->unchangeable,
 			'environments' => []
 		];
