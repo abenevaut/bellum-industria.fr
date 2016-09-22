@@ -141,10 +141,14 @@ class RolesRepositoryEloquent extends RepositoryEloquentAbstract
 	public function count_users_by_roles($roles = [])
 	{
 		$count = 0;
-		foreach ($this->findWhereIn('name', $roles) as $role)
-		{
-			$count += $role->users()->count();
-		}
+
+		$roles = $this
+			->with(['users'])
+			->findWhereIn('name', $roles);
+
+		$roles->each(function($role) use (&$count) {
+			$count += $role->users->count();
+		});
 
 		return $count;
 	}
