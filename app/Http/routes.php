@@ -21,6 +21,11 @@ Route::group(['middleware' => ['ajax'], 'prefix' => 'ajax'], function ()
 {
 	Route::post('settings/set', '\cms\Http\Controllers\Ajax\SettingsController@set');
 	Route::get('settings/get', '\cms\Http\Controllers\Ajax\SettingsController@get');
+
+	Route::group(['prefix' => 'addresses'], function () {
+		Route::resource('states', '\CVEPDB\Addresses\Http\Controllers\States\AjaxStatesController');
+		Route::resource('substates', '\CVEPDB\Addresses\Http\Controllers\SubStates\AjaxSubStatesController');
+	});
 });
 
 Route::group(['middleware' => ['api'], 'prefix' => 'api'], function ()
