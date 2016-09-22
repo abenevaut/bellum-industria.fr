@@ -1543,13 +1543,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@gitlab.com:cvepdb-cms/module-users.git",
-                "reference": "496feaea07aead2edac1836a60cfa35ca247ecec"
+                "url": "https://gitlab.com/cvepdb-cms/module-users.git",
+                "reference": "bae2f436c728fc8121f80dbbeff4891639f4fbb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=496feaea07aead2edac1836a60cfa35ca247ecec",
-                "reference": "496feaea07aead2edac1836a60cfa35ca247ecec",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=bae2f436c728fc8121f80dbbeff4891639f4fbb3",
+                "reference": "bae2f436c728fc8121f80dbbeff4891639f4fbb3",
                 "shasum": ""
             },
             "require": {
@@ -1583,7 +1583,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2016-09-07 22:46:04"
+            "time": "2016-09-22 18:19:49"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -2611,12 +2611,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "f314080006142bc05a8a92ee0863751acaa7238f"
+                "reference": "a0d75173c8553b4281c8319333d9ee90e4656ed1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f314080006142bc05a8a92ee0863751acaa7238f",
-                "reference": "f314080006142bc05a8a92ee0863751acaa7238f",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/a0d75173c8553b4281c8319333d9ee90e4656ed1",
+                "reference": "a0d75173c8553b4281c8319333d9ee90e4656ed1",
                 "shasum": ""
             },
             "require": {
@@ -2665,7 +2665,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-09-19 09:50:28"
+            "time": "2016-09-22 14:23:55"
         },
         {
             "name": "guzzlehttp/promises",
@@ -11510,12 +11510,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "c9aac2403c5d9e7249cb4954ea11b7f893eaa9b7"
+                "reference": "bba5e1a1b322d35ab9ca8615205de64d7d64eae5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/c9aac2403c5d9e7249cb4954ea11b7f893eaa9b7",
-                "reference": "c9aac2403c5d9e7249cb4954ea11b7f893eaa9b7",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/bba5e1a1b322d35ab9ca8615205de64d7d64eae5",
+                "reference": "bba5e1a1b322d35ab9ca8615205de64d7d64eae5",
                 "shasum": ""
             },
             "require": {
@@ -11563,7 +11563,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-09-21 23:20:10"
+            "time": "2016-09-22 15:15:13"
         },
         {
             "name": "webmozart/assert",
