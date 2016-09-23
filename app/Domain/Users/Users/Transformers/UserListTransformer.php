@@ -19,12 +19,21 @@ class UserListTransformer extends TransformerAbstract
 	{
 		$primary_address = $user->flaggedAddress('primary');
 
+		$birth_date = $user->birth_date_carbon;
+
+		if (!is_null($birth_date))
+		{
+			$birth_date = $birth_date->format(trans('global.date_format'));
+		}
+
 		$data = [
 			'id'               => (int)$user->id,
+			'civility'         => $user->civility,
 			'first_name'       => $user->first_name,
 			'last_name'        => $user->last_name,
 			'full_name'        => $user->full_name,
 			'email'            => $user->email,
+			'birth_date'       => $birth_date,
 			'apikey'           => !is_null($user->apikey) ? $user->apikey->key : '',
 			'deleted_at'       => $user->deleted_at,
 			'roles'            => [],
