@@ -306,12 +306,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "0c87981df959c7c1943abe227baf607c92f204f9"
+                "reference": "e353bc168503798e2f4800073d0850347b30c0d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/0c87981df959c7c1943abe227baf607c92f204f9",
-                "reference": "0c87981df959c7c1943abe227baf607c92f204f9",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/e353bc168503798e2f4800073d0850347b30c0d7",
+                "reference": "e353bc168503798e2f4800073d0850347b30c0d7",
                 "shasum": ""
             },
             "require": {
@@ -352,7 +352,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2016-09-15 14:05:56"
+            "time": "2016-09-23 11:48:11"
         },
         {
             "name": "barryvdh/laravel-elfinder",
@@ -1353,13 +1353,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@gitlab.com:cvepdb-cms/module-installer.git",
-                "reference": "ecdd615899dc18e38f7fe909c3308e816ffca217"
+                "url": "https://gitlab.com/cvepdb-cms/module-installer.git",
+                "reference": "787c4221d3d71d9e0f4dfe058c1c75cfda48fe08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=ecdd615899dc18e38f7fe909c3308e816ffca217",
-                "reference": "ecdd615899dc18e38f7fe909c3308e816ffca217",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=787c4221d3d71d9e0f4dfe058c1c75cfda48fe08",
+                "reference": "787c4221d3d71d9e0f4dfe058c1c75cfda48fe08",
                 "shasum": ""
             },
             "require": {
@@ -1393,7 +1393,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-09-04 12:22:46"
+            "time": "2016-09-23 15:11:30"
         },
         {
             "name": "cvepdb-cms/module-pages",
@@ -6378,12 +6378,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "0b7abb92b806a6d935fbb0323553492b949aed33"
+                "reference": "362b494797042d3f4bb33eaa4a21ce6fc29b67ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/0b7abb92b806a6d935fbb0323553492b949aed33",
-                "reference": "0b7abb92b806a6d935fbb0323553492b949aed33",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/362b494797042d3f4bb33eaa4a21ce6fc29b67ce",
+                "reference": "362b494797042d3f4bb33eaa4a21ce6fc29b67ce",
                 "shasum": ""
             },
             "require": {
@@ -6428,7 +6428,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-09-23 03:05:52"
+            "time": "2016-09-23 12:14:50"
         },
         {
             "name": "swiftmailer/swiftmailer",
