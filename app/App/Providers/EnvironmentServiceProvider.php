@@ -16,16 +16,19 @@ class EnvironmentServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
-		$this->app['environment'] = $this->app->share(function ($app)
+		if (cmsinstalled())
 		{
+			$this->app['environment'] = $this->app->share(function ($app)
+			{
 
 //			$config = $app->config->get('settings', [
 //				'cache_file' => storage_path('settings.json'),
 //				'db_table'   => 'settings'
 //			]);
 
-			return new Environment($app['db'], []);
-		});
+				return new Environment($app['db'], []);
+			});
+		}
 	}
 
 	/**
