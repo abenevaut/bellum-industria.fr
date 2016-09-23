@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-		if (cmsinstalled()) {
+		if (cmsinstalled() && !empty(config('services.raven.dsn'))) {
 			$this->app->register(\Jenssegers\Raven\RavenServiceProvider::class);
 		}
     }
