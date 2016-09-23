@@ -33,9 +33,11 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 
 	public $fields = [
 		'users.id',
+		'users.civility',
 		'users.first_name',
 		'users.last_name',
 		'users.email',
+		'users.birth_date',
 		'users.deleted_at'
 	];
 
