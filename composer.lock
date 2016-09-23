@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ebe8bcfe55975ba0e6aa7f8258225e56",
-    "content-hash": "d381f2c69d3fd1dcbd6d132215247012",
+    "hash": "094f7be5d3ee8fda3d6269d0275f836e",
+    "content-hash": "fe7c8dd679ffb97d97f8f5b439614cea",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -8137,6 +8137,42 @@
                 "dump"
             ],
             "time": "2016-07-26 08:03:56"
+        },
+        {
+            "name": "team-reflex/challonge-php",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/teamreflex/ChallongePHP.git",
+                "reference": "2cf1372c16319c007e317c0df4dc765813100183"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/teamreflex/ChallongePHP/zipball/2cf1372c16319c007e317c0df4dc765813100183",
+                "reference": "2cf1372c16319c007e317c0df4dc765813100183",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Reflex\\Challonge\\": "src/Challonge"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Ward",
+                    "email": "kairu@team-reflex.com"
+                }
+            ],
+            "description": "Unofficial API to interface with the bracket generator Challonge.",
+            "time": "2016-01-17 06:42:25"
         },
         {
             "name": "themattharris/tmhoauth",

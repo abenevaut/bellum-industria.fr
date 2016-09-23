@@ -130,7 +130,8 @@
     "da-mitchell/steam-api": "^2.1",
     "toniperic/php-clash-of-clans": "dev-master",
     "simplepie/simplepie": "^1.4",
-    "vinkla/gitlab": "^2.5"
+    "vinkla/gitlab": "^2.5",
+    "team-reflex/challonge-php": "^1.0"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
