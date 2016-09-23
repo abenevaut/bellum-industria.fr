@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "094f7be5d3ee8fda3d6269d0275f836e",
-    "content-hash": "fe7c8dd679ffb97d97f8f5b439614cea",
+    "hash": "f64f49a09ae0e88260ec0451ac6a79ea",
+    "content-hash": "facc4a21dc34719a1c7b5a963c9e2701",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1628,12 +1628,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-steam.git",
-                "reference": "8a714ff584c00fc24da814eb0af93c73b0581803"
+                "reference": "62497ed25499034cbb89d4073f4caae17f7a1f45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-steam/repository/archive.zip?sha=8a714ff584c00fc24da814eb0af93c73b0581803",
-                "reference": "8a714ff584c00fc24da814eb0af93c73b0581803",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-steam/repository/archive.zip?sha=62497ed25499034cbb89d4073f4caae17f7a1f45",
+                "reference": "62497ed25499034cbb89d4073f4caae17f7a1f45",
                 "shasum": ""
             },
             "require": {
@@ -1669,7 +1669,7 @@
                 "Steam",
                 "module"
             ],
-            "time": "2016-09-20 17:58:32"
+            "time": "2016-09-23 20:25:30"
         },
         {
             "name": "cvepdb-cms/module-teams",
@@ -1770,6 +1770,52 @@
                 "themes"
             ],
             "time": "2016-09-04 13:00:46"
+        },
+        {
+            "name": "cvepdb-cms/module-tournaments",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/module-tournaments.git",
+                "reference": "7de096c5fa6370b96f6cd76651702d83b3b10229"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-tournaments/repository/archive.zip?sha=7de096c5fa6370b96f6cd76651702d83b3b10229",
+                "reference": "7de096c5fa6370b96f6cd76651702d83b3b10229",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9",
+                "team-reflex/challonge-php": "^1.0"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "Tournaments"
+            },
+            "autoload": {
+                "psr-4": {
+                    "cms\\Modules\\Tournaments\\": ""
+                }
+            },
+            "license": [
+                "copyright"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Tournaments on #CVEPDB CMS",
+            "keywords": [
+                "CMS",
+                "CVEPDB",
+                "Tournaments",
+                "module"
+            ],
+            "time": "2016-09-23 23:16:06"
         },
         {
             "name": "cvepdb-cms/module-users",
@@ -2052,12 +2098,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-projects.git",
-                "reference": "c971e1f816b9a8b41eb35e5708b62eca0fea0323"
+                "reference": "e25867a3aadeda35a4ed3d491373da2131d9fd5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-projects/repository/archive.zip?sha=c971e1f816b9a8b41eb35e5708b62eca0fea0323",
-                "reference": "c971e1f816b9a8b41eb35e5708b62eca0fea0323",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-projects/repository/archive.zip?sha=e25867a3aadeda35a4ed3d491373da2131d9fd5d",
+                "reference": "e25867a3aadeda35a4ed3d491373da2131d9fd5d",
                 "shasum": ""
             },
             "require": {
@@ -2089,7 +2135,7 @@
                 "Pages",
                 "module"
             ],
-            "time": "2016-09-21 23:54:43"
+            "time": "2016-09-23 23:13:47"
         },
         {
             "name": "cvepdb/theme-longwave",
@@ -3606,12 +3652,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeremeamia/super_closure.git",
-                "reference": "8380a2b24c6a4dce90194cf3259910493d52df2d"
+                "reference": "2b338315d54ea37aa6c5e97f4d75a33ccf303503"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/8380a2b24c6a4dce90194cf3259910493d52df2d",
-                "reference": "8380a2b24c6a4dce90194cf3259910493d52df2d",
+                "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/2b338315d54ea37aa6c5e97f4d75a33ccf303503",
+                "reference": "2b338315d54ea37aa6c5e97f4d75a33ccf303503",
                 "shasum": ""
             },
             "require": {
@@ -3625,7 +3671,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
@@ -3656,7 +3702,7 @@
                 "serialize",
                 "tokenizer"
             ],
-            "time": "2016-09-17 08:57:48"
+            "time": "2016-09-23 18:24:34"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -12530,6 +12576,7 @@
         "cvepdb-cms/module-teams": 20,
         "cvepdb/theme-longwave": 20,
         "cvepdb/module-projects": 20,
+        "cvepdb-cms/module-tournaments": 20,
         "cvepdb/theme-pages": 20,
         "artesaos/laravel-linkedin": 20,
         "toniperic/php-clash-of-clans": 20,

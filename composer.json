@@ -109,6 +109,7 @@
     "cvepdb-cms/module-teams": "dev-master",
     "cvepdb/theme-longwave": "dev-master",
     "cvepdb/module-projects": "dev-master",
+    "cvepdb-cms/module-tournaments": "dev-master",
     "cvepdb/theme-pages": "dev-master",
     "league/flysystem": "^1.0",
     "league/flysystem-aws-s3-v3": "~1.0",
@@ -171,7 +172,8 @@
         "cvepdb-cms/module-teams",
         "cvepdb-cms/module-pages",
         "cvepdb-cms/module-servers",
-        "cvepdb/module-projects"
+        "cvepdb/module-projects",
+        "cvepdb-cms/module-tournaments"
       ],
       "resources/themes/{$name}": [
         "cvepdb-cms/theme-adminlte",
