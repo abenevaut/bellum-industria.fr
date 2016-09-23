@@ -1,10 +1,12 @@
 <?php namespace cms\Domain\Users\Users;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use CVEPDB\Addresses\Domain\Addresses\Addresses\Traits\AddressableTrait;
 use cms\Infrastructure\Abstractions\Model\LogAuthenticatableModelAbstract;
 use cms\App\Facades\Environments;
+use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
 use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
 
 /**
@@ -18,7 +20,8 @@ class User extends LogAuthenticatableModelAbstract
 	use EntrustUserTrait;
 	use EnvironmentTrait;
 
-	use SoftDeletes {
+	use SoftDeletes
+	{
 		SoftDeletes::restore insteadof EntrustUserTrait;
 		EntrustUserTrait::restore as restoreEntrustUserTrait;
 	}
@@ -29,9 +32,11 @@ class User extends LogAuthenticatableModelAbstract
 	 * @var array
 	 */
 	protected $fillable = [
+		'civility',
 		'first_name',
 		'last_name',
 		'email',
+		'birth_date',
 		'password',
 	];
 
@@ -63,6 +68,38 @@ class User extends LogAuthenticatableModelAbstract
 	public function getFullNameAttribute()
 	{
 		return ucfirst(strtolower($this->first_name)) . " " . ucfirst(strtolower($this->last_name));
+	}
+
+	/**
+	 * Is admin mutator to obtain a variable "is_admin".
+	 *
+	 * @return bool
+	 */
+	public function getIsAdminAttribute()
+	{
+		return $this
+			->roles()
+			->where(function ($query)
+			{
+				$query->where('name', '=', RolesRepositoryEloquent::ADMIN);
+			})
+			->first()
+				? true
+				: false;
+	}
+
+	/**
+	 * Date mutator to obtain a variable "birth_date_carbon".
+	 *
+	 * @return \Carbon\Carbon
+	 */
+	public function getBirthDateCarbonAttribute()
+	{
+		if (strcmp("0000-00-00", $this->birth_date))
+		{
+			return new Carbon($this->birth_date);
+		}
+		return null;
 	}
 
 	/**
