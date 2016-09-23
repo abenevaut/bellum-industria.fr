@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9a2cb73e3c24aaa410723821c1beb843",
+    "hash": "d3c9eabbeb0a7a21e209961811d53125",
     "content-hash": "158a9adf021b3fdc7fcea1fc5a93fd2e",
     "packages": [
         {
@@ -1354,12 +1354,12 @@
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/cvepdb-cms/module-installer.git",
-                "reference": "787c4221d3d71d9e0f4dfe058c1c75cfda48fe08"
+                "reference": "aec80f14f1af633c816168029ace61f6cca15f74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=787c4221d3d71d9e0f4dfe058c1c75cfda48fe08",
-                "reference": "787c4221d3d71d9e0f4dfe058c1c75cfda48fe08",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=aec80f14f1af633c816168029ace61f6cca15f74",
+                "reference": "aec80f14f1af633c816168029ace61f6cca15f74",
                 "shasum": ""
             },
             "require": {
@@ -1393,7 +1393,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-09-23 15:11:30"
+            "time": "2016-09-23 16:15:21"
         },
         {
             "name": "cvepdb-cms/module-pages",
@@ -1544,12 +1544,12 @@
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/cvepdb-cms/module-users.git",
-                "reference": "1af614ef4acc364c3d7e040d0fe09c7f6a40433f"
+                "reference": "293ed54341677d680a5b96962e12b7c1d3819d58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=1af614ef4acc364c3d7e040d0fe09c7f6a40433f",
-                "reference": "1af614ef4acc364c3d7e040d0fe09c7f6a40433f",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=293ed54341677d680a5b96962e12b7c1d3819d58",
+                "reference": "293ed54341677d680a5b96962e12b7c1d3819d58",
                 "shasum": ""
             },
             "require": {
@@ -1583,7 +1583,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2016-09-23 12:49:27"
+            "time": "2016-09-23 18:45:18"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -1591,12 +1591,12 @@
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/cvepdb-cms/theme-adminlte.git",
-                "reference": "71dfb6f6038620e2c48a7e8039018d992aae7ed7"
+                "reference": "6073e630d89c9a8adb1af3f3cb8b4978eb03e132"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=71dfb6f6038620e2c48a7e8039018d992aae7ed7",
-                "reference": "71dfb6f6038620e2c48a7e8039018d992aae7ed7",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=6073e630d89c9a8adb1af3f3cb8b4978eb03e132",
+                "reference": "6073e630d89c9a8adb1af3f3cb8b4978eb03e132",
                 "shasum": ""
             },
             "require": {
@@ -1625,20 +1625,20 @@
                 "cms",
                 "theme"
             ],
-            "time": "2016-09-23 11:41:54"
+            "time": "2016-09-23 18:46:10"
         },
         {
             "name": "cvepdb-cms/theme-lumen",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@gitlab.com:cvepdb-cms/theme-lumen.git",
-                "reference": "fa5c2bcc0a9c07202af1a84adf53aebdbe2c9ef7"
+                "url": "https://gitlab.com/cvepdb-cms/theme-lumen.git",
+                "reference": "768e93bf44205c302e1644a3413455ae41e373ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=fa5c2bcc0a9c07202af1a84adf53aebdbe2c9ef7",
-                "reference": "fa5c2bcc0a9c07202af1a84adf53aebdbe2c9ef7",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=768e93bf44205c302e1644a3413455ae41e373ec",
+                "reference": "768e93bf44205c302e1644a3413455ae41e373ec",
                 "shasum": ""
             },
             "require": {
@@ -1667,7 +1667,7 @@
                 "lumen",
                 "theme"
             ],
-            "time": "2016-09-07 22:45:46"
+            "time": "2016-09-23 18:45:53"
         },
         {
             "name": "cvepdb/laravel-addresses",
