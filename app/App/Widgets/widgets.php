@@ -12,12 +12,12 @@ Widget::register('field_users', 'cms\App\Widgets\Users\UsersFields');
  * Output google analytics script
  */
 Widget::register('site_name', function () {
-	return Settings::get('cms.site.name');
+	return cmsinstalled() ? Settings::get('cms.site.name') : '';
 });
 
 /**
  * Output google analytics script
  */
 Widget::register('site_description', function () {
-	return Settings::get('cms.site.description');
+	return cmsinstalled() ? Settings::get('cms.site.description') : '';
 });

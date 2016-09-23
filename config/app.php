@@ -202,7 +202,6 @@ return [
 		Spatie\Backup\BackupServiceProvider::class,
 		Toin0u\Geocoder\GeocoderServiceProvider::class,
 		Vinkla\GitLab\GitLabServiceProvider::class,
-		Jenssegers\Raven\RavenServiceProvider::class,
 
 //		"Modules\\Files\\Providers\\ElfinderServiceProvider"
 
