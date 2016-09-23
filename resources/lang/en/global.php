@@ -55,5 +55,5 @@ return [
 	'madam'            => 'Madam',
 	'miss'             => 'Miss',
 	'civility'         => 'Civility',
-	'Birth_date'       => 'Birth date',
+	'birth_date'       => 'Birth date',
 ];
