@@ -280,7 +280,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 *
 	 * @return mixed
 	 */
-	public function create_user($civility, $first_name, $last_name, $email, $birth_date)
+	public function create_user($civility, $first_name, $last_name, $email, $birth_date = '0000-00-00')
 	{
 		$user = $this->create([
 			'civility'   => $civility,
