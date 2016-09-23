@@ -201,7 +201,6 @@ return [
 		Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 		Spatie\Backup\BackupServiceProvider::class,
 		Toin0u\Geocoder\GeocoderServiceProvider::class,
-		Jenssegers\Raven\RavenServiceProvider::class,
 
 //		"Modules\\Files\\Providers\\ElfinderServiceProvider"
 
