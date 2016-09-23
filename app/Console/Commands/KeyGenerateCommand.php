@@ -43,7 +43,11 @@ class KeyGenerateCommand extends CommandAbstract
 			return $this->line('<comment>' . $key . '</comment>');
 		}
 
-		$path = $app->environmentPath() . '/' . $app->environmentFile() . '.' . env('APP_ENV');
+		$env_file = (0 === strcmp('.env', $app->environmentFile()))
+			? $app->environmentFile() . '.' . env('APP_ENV')
+			: $app->environmentFile();
+
+		$path = $app->environmentPath() . '/' . $env_file;
 
 		if (file_exists($path))
 		{
