@@ -40,6 +40,15 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	];
 
 	/**
+	 * @var array Civilities available to fill civility field in users table.
+	 */
+	protected $civilities = [
+		'madam'  => 'global.madam',
+		'miss'   => 'global.miss',
+		'mister' => 'global.mister',
+	];
+
+	/**
 	 * @var EnvironmentsRepositoryEloquent|null
 	 */
 	protected $r_environments = null;
@@ -67,8 +76,8 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	/**
 	 * UserRepositoryEloquent constructor.
 	 *
-	 * @param Application              $app
-	 * @param RolesRepositoryEloquent  $r_roles
+	 * @param Application               $app
+	 * @param RolesRepositoryEloquent   $r_roles
 	 * @param ApiKeysRepositoryEloquent $r_apikey
 	 */
 	public function __construct(
@@ -97,6 +106,18 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	public function model()
 	{
 		return User::class;
+	}
+
+	/**
+	 * @return \Illuminate\Support\Collection
+	 */
+	public function getCivilitiesList()
+	{
+		return collect($this->civilities)
+			->map(function ($translation_key, $civility_key)
+			{
+				return trans($translation_key);
+			});
 	}
 
 	/**
@@ -259,12 +280,14 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 *
 	 * @return mixed
 	 */
-	public function create_user($first_name, $last_name, $email)
+	public function create_user($civility, $first_name, $last_name, $email, $birth_date)
 	{
 		$user = $this->create([
+			'civility'   => $civility,
 			'first_name' => $first_name,
 			'last_name'  => $last_name,
 			'email'      => $email,
+			'birth_date' => $birth_date,
 		]);
 
 		$this->r_apikey->generate_api_key($user);
@@ -288,9 +311,9 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 *
 	 * @return mixed
 	 */
-	public function create_admin($first_name, $last_name, $email)
+	public function create_admin($civility, $first_name, $last_name, $email, $birth_date)
 	{
-		$user = $this->create_user($first_name, $last_name, $email);
+		$user = $this->create_user($civility, $first_name, $last_name, $email, $birth_date);
 
 		$this->set_user_roles($user, [
 			RolesRepositoryEloquent::USER,
@@ -421,7 +444,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 * @event cms\Domain\Users\Users\Events\UserUpdatedEvent
 	 * @return bool
 	 */
-	public function set_user_password($user_id, $old_password, $new_password, $force = FALSE)
+	public function set_user_password($user_id, $old_password, $new_password, $force = false)
 	{
 		$user = $this->find($user_id);
 
@@ -435,10 +458,10 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 
 			event(new UserUpdatedEvent($user));
 
-			return TRUE;
+			return true;
 		}
 
-		return FALSE;
+		return false;
 	}
 
 	/**

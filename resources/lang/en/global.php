@@ -49,4 +49,11 @@ return [
 	'addresses'        => 'Addresses',
 	'address'          => 'Address',
 	'permission_s'     => 'Permission(s)',
+	'date_format'      => 'Y-m-d',
+	'datetime_format'  => 'Y-m-d H:i',
+	'mister'           => 'Mister',
+	'madam'            => 'Madam',
+	'miss'             => 'Miss',
+	'civility'         => 'Civility',
+	'Birth_date'       => 'Birth date',
 ];
