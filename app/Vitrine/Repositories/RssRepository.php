@@ -24,7 +24,7 @@ class RssRepository
 		$feed->set_output_encoding('utf-8');
 		$feed->init();
 
-		return $feed->get_items(0, 4);
+		return $feed->get_items(0, 2);
 	}
 
 }

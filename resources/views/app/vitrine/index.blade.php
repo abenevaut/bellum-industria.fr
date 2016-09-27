@@ -37,11 +37,19 @@
 				</div>
 			</div>
 			<div class="clear"></div>
+			<hr/>
+			<!-- Begin Portfolio -->
+			<div id="portfolio">
+				<h2 class="colored alignleft">Portfolio</h2>
+				{!! Widget::show_projects_categories(5) !!}
+			</div>
+			<!-- End Portfolio -->
+			{!! Widget::show_projects(12) !!}
+			<div class="clear"></div>
 		</div>
 		<!-- Begin Inner -->
 	</div>
 	<!-- End White Wrapper -->
-
 	<!-- Begin Gray Wrapper -->
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
 		<!-- Begin Inner -->
@@ -75,49 +83,20 @@
 		<!-- Begin Inner -->
 	</div>
 	<!-- End Gray Wrapper -->
-
-	{{--<!-- Begin White Wrapper -->--}}
-	{{--<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">--}}
-	{{--<!-- Begin Inner -->--}}
-	{{--<div class="layout__body-wrapper__content-wrapper__inner">--}}
-	{{--<h3 class="colored">{{ trans('cvepdb/vitrine/portfolio.title') }}</h3>--}}
-
-	{{--<div class="info-box">--}}
-	{{--{{ trans('cvepdb/vitrine/portfolio.maintenance') }}--}}
-	{{--</div>--}}
-
-	{{--<hr>--}}
-	{{----}}
-	{{--<h3 class="colored">{{ trans('cvepdb/vitrine/blog.title') }}</h3>--}}
-
-	{{--<div class="info-box">--}}
-	{{--{{ trans('cvepdb/vitrine/blog.maintenance') }}--}}
-	{{--</div>--}}
-
-	{{--</div>--}}
-	{{--<!-- Begin Inner -->--}}
-	{{--</div>--}}
-	{{--<!-- End White Wrapper -->--}}
-
 	<!-- Begin White Wrapper -->
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
 		<!-- Begin Inner -->
 		<div class="layout__body-wrapper__content-wrapper__inner js-call-hoverdir">
-
 			<h3 class="colored">{{ trans('cvepdb/vitrine/index.blog_title') }}</h3>
-
 			@if (count($blog_articles) > 0)
 				<div class="layout__body-wrapper__content-wrapper__inner__widget-posts">
 					<div class="grid">
-
 						@foreach($blog_articles as $item)
-
 							<div class="layout__body-wrapper__content-wrapper__inner__widget-posts__post">
 								<div class="frame alignleft" style="padding:31px 0 31px 0;">
 									<a href="{!! $item->get_link() !!}">
 										<img src="/themes/longwave/images/cvepdb/logo.png" alt="{!! $item->get_title() !!}"
 											 width="142" height="80" class="js-call-lazyload"/>
-
 										<div></div>
 									</a>
 								</div>
@@ -125,16 +104,13 @@
 									<h5><a href="{!! $item->get_link() !!}">
 											{!! str_limit($item->get_title(), 55, ' ..') !!}
 										</a></h5>
-
 									<div class="meta">
 										<span class="date">{!! $item->get_date() !!}</span>
 									</div>
 									{!! str_limit(strip_tags($item->get_description()), 100, ' ..') !!}
 								</div>
 							</div>
-
 						@endforeach
-
 					</div>
 				</div>
 			@else
@@ -147,9 +123,6 @@
 		<!-- Begin Inner -->
 	</div>
 	<!-- End White Wrapper -->
-
-
-
 	<!-- Begin Gray Wrapper -->
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
 		<!-- Begin Inner -->
