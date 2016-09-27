@@ -6,7 +6,9 @@ use Prettus\Repository\Traits\TransformableTrait;
 
 /**
  * Class LogContact
+ *
  * @package cms\Vitrine\Repositories
+ * @mixin \Eloquent
  */
 class LogContact extends Model implements Transformable
 {
