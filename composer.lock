@@ -360,12 +360,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-elfinder.git",
-                "reference": "a4d2f2e88b118f4d23343fe1326c7424b5cea3db"
+                "reference": "9d1d409a7a724ae5ea38a5dd8cb36a05f82074a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-elfinder/zipball/a4d2f2e88b118f4d23343fe1326c7424b5cea3db",
-                "reference": "a4d2f2e88b118f4d23343fe1326c7424b5cea3db",
+                "url": "https://api.github.com/repos/barryvdh/laravel-elfinder/zipball/9d1d409a7a724ae5ea38a5dd8cb36a05f82074a7",
+                "reference": "9d1d409a7a724ae5ea38a5dd8cb36a05f82074a7",
                 "shasum": ""
             },
             "require": {
@@ -404,7 +404,7 @@
                 "laravel",
                 "tinymce"
             ],
-            "time": "2016-08-26 11:08:14"
+            "time": "2016-09-27 09:15:28"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -1400,13 +1400,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@gitlab.com:cvepdb-cms/module-files.git",
-                "reference": "fd87bbf972302453367c1d27f1f74b97d703ecdb"
+                "url": "https://gitlab.com/cvepdb-cms/module-files.git",
+                "reference": "30ddab6fe02799bbedf0993e33be7243f6e4a601"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-files/repository/archive.zip?sha=fd87bbf972302453367c1d27f1f74b97d703ecdb",
-                "reference": "fd87bbf972302453367c1d27f1f74b97d703ecdb",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-files/repository/archive.zip?sha=30ddab6fe02799bbedf0993e33be7243f6e4a601",
+                "reference": "30ddab6fe02799bbedf0993e33be7243f6e4a601",
                 "shasum": ""
             },
             "require": {
@@ -1440,7 +1440,7 @@
                 "files",
                 "module"
             ],
-            "time": "2016-09-04 12:22:13"
+            "time": "2016-09-27 13:59:32"
         },
         {
             "name": "cvepdb-cms/module-installer",
@@ -1777,12 +1777,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-tournaments.git",
-                "reference": "7de096c5fa6370b96f6cd76651702d83b3b10229"
+                "reference": "232d3fd0d1e72148003a3d3226c8239383113b62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-tournaments/repository/archive.zip?sha=7de096c5fa6370b96f6cd76651702d83b3b10229",
-                "reference": "7de096c5fa6370b96f6cd76651702d83b3b10229",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-tournaments/repository/archive.zip?sha=232d3fd0d1e72148003a3d3226c8239383113b62",
+                "reference": "232d3fd0d1e72148003a3d3226c8239383113b62",
                 "shasum": ""
             },
             "require": {
@@ -1815,7 +1815,7 @@
                 "Tournaments",
                 "module"
             ],
-            "time": "2016-09-23 23:16:06"
+            "time": "2016-09-25 20:47:23"
         },
         {
             "name": "cvepdb-cms/module-users",
@@ -2098,12 +2098,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-projects.git",
-                "reference": "e25867a3aadeda35a4ed3d491373da2131d9fd5d"
+                "reference": "75c0a7d472ec467aa72ba0d2fcbc605295f05a85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-projects/repository/archive.zip?sha=e25867a3aadeda35a4ed3d491373da2131d9fd5d",
-                "reference": "e25867a3aadeda35a4ed3d491373da2131d9fd5d",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-projects/repository/archive.zip?sha=75c0a7d472ec467aa72ba0d2fcbc605295f05a85",
+                "reference": "75c0a7d472ec467aa72ba0d2fcbc605295f05a85",
                 "shasum": ""
             },
             "require": {
@@ -2135,7 +2135,7 @@
                 "Pages",
                 "module"
             ],
-            "time": "2016-09-23 23:13:47"
+            "time": "2016-09-27 12:39:56"
         },
         {
             "name": "cvepdb/theme-longwave",
@@ -4637,12 +4637,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "bafe0e990b671219eb1112b1dfd2c3b963a3bd6a"
+                "reference": "0a26cdfabb51bf6dc4a53d8fafae6b63a51083c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/bafe0e990b671219eb1112b1dfd2c3b963a3bd6a",
-                "reference": "bafe0e990b671219eb1112b1dfd2c3b963a3bd6a",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/0a26cdfabb51bf6dc4a53d8fafae6b63a51083c6",
+                "reference": "0a26cdfabb51bf6dc4a53d8fafae6b63a51083c6",
                 "shasum": ""
             },
             "require": {
@@ -4696,7 +4696,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2016-09-22 16:39:14"
+            "time": "2016-09-26 11:11:04"
         },
         {
             "name": "maknz/slack",
@@ -4841,12 +4841,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "dacec2fe1ead778f90d0149caa8f047a0856571b"
+                "reference": "ffc421a4fd4e9651e236341f5ff3994b25a8ecc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/dacec2fe1ead778f90d0149caa8f047a0856571b",
-                "reference": "dacec2fe1ead778f90d0149caa8f047a0856571b",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/ffc421a4fd4e9651e236341f5ff3994b25a8ecc5",
+                "reference": "ffc421a4fd4e9651e236341f5ff3994b25a8ecc5",
                 "shasum": ""
             },
             "require": {
@@ -4911,7 +4911,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-09-18 16:07:11"
+            "time": "2016-09-25 14:47:31"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -6235,12 +6235,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "5277094ed527a1c4477177d102fe4c53551953e0"
+                "reference": "607ce1d4005af32dd866c4a402459494c168d555"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/5277094ed527a1c4477177d102fe4c53551953e0",
-                "reference": "5277094ed527a1c4477177d102fe4c53551953e0",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/607ce1d4005af32dd866c4a402459494c168d555",
+                "reference": "607ce1d4005af32dd866c4a402459494c168d555",
                 "shasum": ""
             },
             "require": {
@@ -6274,7 +6274,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-09-19 16:02:08"
+            "time": "2016-09-25 13:41:54"
         },
         {
             "name": "psy/psysh",
@@ -7142,12 +7142,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "362b494797042d3f4bb33eaa4a21ce6fc29b67ce"
+                "reference": "c93a0e7b751e1d60100c635fab544389696f67e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/362b494797042d3f4bb33eaa4a21ce6fc29b67ce",
-                "reference": "362b494797042d3f4bb33eaa4a21ce6fc29b67ce",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/c93a0e7b751e1d60100c635fab544389696f67e0",
+                "reference": "c93a0e7b751e1d60100c635fab544389696f67e0",
                 "shasum": ""
             },
             "require": {
@@ -7192,7 +7192,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-09-23 12:14:50"
+            "time": "2016-09-27 06:44:14"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -11989,12 +11989,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "84b88e0f5d283011012e67c50125c85c12a28d86"
+                "reference": "a3cb3163988f6ec1646d8a06b2c0c7b30798ce54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/84b88e0f5d283011012e67c50125c85c12a28d86",
-                "reference": "84b88e0f5d283011012e67c50125c85c12a28d86",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/a3cb3163988f6ec1646d8a06b2c0c7b30798ce54",
+                "reference": "a3cb3163988f6ec1646d8a06b2c0c7b30798ce54",
                 "shasum": ""
             },
             "require": {
@@ -12059,7 +12059,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-09-23 01:12:07"
+            "time": "2016-09-25 22:43:32"
         },
         {
             "name": "symfony/browser-kit",
@@ -12124,12 +12124,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "dd9921cab28b9605a0693d04e851d86e83b4a0fa"
+                "reference": "8182867eec0db70c1b1c6fa1d7422d55c2de087d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/dd9921cab28b9605a0693d04e851d86e83b4a0fa",
-                "reference": "dd9921cab28b9605a0693d04e851d86e83b4a0fa",
+                "url": "https://api.github.com/repos/symfony/config/zipball/8182867eec0db70c1b1c6fa1d7422d55c2de087d",
+                "reference": "8182867eec0db70c1b1c6fa1d7422d55c2de087d",
                 "shasum": ""
             },
             "require": {
@@ -12172,7 +12172,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-15 14:03:09"
+            "time": "2016-09-25 16:21:58"
         },
         {
             "name": "symfony/dependency-injection",
@@ -12180,12 +12180,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "28532e671601a7644563e26c089d92c356291888"
+                "reference": "142da08441978f7a24e972e86d76852b15224ad7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/28532e671601a7644563e26c089d92c356291888",
-                "reference": "28532e671601a7644563e26c089d92c356291888",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/142da08441978f7a24e972e86d76852b15224ad7",
+                "reference": "142da08441978f7a24e972e86d76852b15224ad7",
                 "shasum": ""
             },
             "require": {
@@ -12235,7 +12235,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-21 06:09:36"
+            "time": "2016-09-24 15:57:00"
         },
         {
             "name": "symfony/dom-crawler",
@@ -12348,12 +12348,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "7fbb0dfc86370757774ff2d9bd5c3b89c9aac1a8"
+                "reference": "ef38bb2d8e9341a7a052526330b0f6693fb95138"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/7fbb0dfc86370757774ff2d9bd5c3b89c9aac1a8",
-                "reference": "7fbb0dfc86370757774ff2d9bd5c3b89c9aac1a8",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/ef38bb2d8e9341a7a052526330b0f6693fb95138",
+                "reference": "ef38bb2d8e9341a7a052526330b0f6693fb95138",
                 "shasum": ""
             },
             "require": {
@@ -12395,7 +12395,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-20 08:33:13"
+            "time": "2016-09-25 16:21:58"
         },
         {
             "name": "theseer/fdomdocument",
@@ -12443,12 +12443,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "bba5e1a1b322d35ab9ca8615205de64d7d64eae5"
+                "reference": "48a6df29e8c3971049dd319081b98ce48505e5e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/bba5e1a1b322d35ab9ca8615205de64d7d64eae5",
-                "reference": "bba5e1a1b322d35ab9ca8615205de64d7d64eae5",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/48a6df29e8c3971049dd319081b98ce48505e5e1",
+                "reference": "48a6df29e8c3971049dd319081b98ce48505e5e1",
                 "shasum": ""
             },
             "require": {
@@ -12496,7 +12496,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-09-22 15:15:13"
+            "time": "2016-09-27 04:10:54"
         },
         {
             "name": "webmozart/assert",
