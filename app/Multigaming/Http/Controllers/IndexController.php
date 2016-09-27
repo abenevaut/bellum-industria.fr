@@ -15,6 +15,12 @@ use cms\Modules\Teams\Domain\Teams\Teams\Repositories\TeamsRepositoryEloquent;
 class IndexController extends FrontendController
 {
 
+
+	/*
+	 * https://steamcommunity.com/groups/Bellum-Industria/memberslistxml/?xml=1
+	 */
+
+
 	/**
 	 * @var SteamRepository|null
 	 */
