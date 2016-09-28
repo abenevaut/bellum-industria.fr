@@ -1,18 +1,15 @@
-# Codeception Test Suite Configuration
-#
-# Suite for unit (internal) tests.
-
-class_name: UnitTester
+class_name: ApiTester
 modules:
     enabled:
-        - Asserts
-        - \Helper\Unit
-        - \Helper\Factory
+        - \Helper\Api
+        - PhpBrowser:
+            url: http://localhost:8000
         - Laravel5:
-            environment_file: "tests/.env.testing"
-            cleanup: false
-            disable_middleware: false
-            disable_events: false
+            environment_file: "tests/_data/.env.testing"
+            cleanup: true
+        - REST:
+            url: http://localhost:8000/api/
+            depends: Laravel5
         - Db:
             dsn: 'mysql:host=127.0.0.1;dbname=cvepdb_cms_testing'
             user: 'cvepdb_testing'
@@ -30,13 +27,6 @@ env:
                 - Db:
                     cleanup: true
                     dump: 'tests/_data/empty.sql'
-    core:
-        modules:
-            enabled:
-                - Laravel5:
-                    environment_file: "tests/_data/.env.testing"
-                    cleanup: true
-                    disable_middleware: true
     travis:
         modules:
             enabled:
