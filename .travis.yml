@@ -16,9 +16,9 @@ before_script:
   - composer install --prefer-dist --no-interaction --optimize-autoloader
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
   - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
-  - php artisan theme:publish
-  - php artisan module:publish
-  - php artisan module:publish-migration
+  - php artisan cms:theme:publish
+  - php artisan cms:module:publish
+  - php artisan cms:module:publish-migration
   - echo "extension = xdebug.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 script:
