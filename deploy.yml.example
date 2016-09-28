@@ -1,4 +1,20 @@
-prod:
+production:
+  host: domain.com
+  user: www
+  identity_file: ~
+  stage: production
+  deploy_path: /home/www/
+  password:
+
+staging:
+  host: domain.com
+  user: www
+  identity_file: ~
+  stage: production
+  deploy_path: /home/www/
+  password:
+
+testing:
   host: domain.com
   user: www
   identity_file: ~

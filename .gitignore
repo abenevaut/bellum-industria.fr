@@ -49,8 +49,13 @@ database/testing.sqlite
 :memory:
 
 # Deployer
-!deployer/shared/.env.example
-!deployer/shared/.env.production.example
+deployer/shared
+!deployer/shared/production/.env.example
+!deployer/shared/production/.env.production.example
+!deployer/shared/staging/.env.example
+!deployer/shared/staging/.env.staging.example
+!deployer/shared/testing/.env.example
+!deployer/shared/testing/.env.testing.example
 deployer/release
 deployer/releases
 deploy.yml

@@ -5,53 +5,95 @@ require 'recipe/common.php';
 require 'vendor/deployphp/recipes/recipes/local.php';
 
 serverList('deploy.yml');
+
 // Where we run the deployement
 env('local_deploy_path', './deployer');
+
 // Removes old releases and keeps the last 5
 set('keep_releases', 5);
 
 set('repository', 'https://gitlab.com/cvepdb/cms.git');
-env('branch', 'master');
-env('env_vars', ''); // For Composer installation. Like SYMFONY_ENV=prod
-env('composer_options', 'install --no-dev --verbose --prefer-dist --optimize-autoloader --no-progress --no-interaction');
-// CMS shared file
-set('shared_files', ['.env', '.env.production']);
-// Todo : CMS shared directories
-//set('shared_dirs', [
-//    'storage/app',
-//    'storage/framework/cache',
-//    'storage/framework/sessions',
-//    'storage/framework/views',
-//    'storage/logs',
-//]);
-// CMS writable dirs
-set('writable_dirs', ['bootstrap/cache', 'storage']);
+
 // Specific to OVH Mutualised
 //env('bin/php', function () {
 //    return run('which php.TEST.5')->toString();
 //});
+
 // Composer local path
 env('bin/composer', function ()
 {
-	$composer = runLocally('which composer')->toString();
-
-	return $composer;
+	return runLocally('which composer')->toString();
 });
 
-task('cvepdb:git', function ()
+task('cms:initialize', function ()
 {
-	runLocally('git submodule init');
-	runLocally('git submodule update');
-})->desc('Deploy your project');
+	$server_name = \Deployer\Task\Context::get()
+		->getServer()
+		->getConfiguration()
+		->getName();
 
-task('cvepdb:vendors', function ()
+	env('composer_options', 'install --verbose --prefer-dist --optimize-autoloader --no-progress --no-interaction');
+
+	// Laravel & CMS writable directories
+	set('writable_dirs', ['bootstrap/cache', 'storage']);
+
+	switch ($server_name)
+	{
+		case 'production':
+		{
+			env('branch', 'master');
+
+			// Composer options
+			env('composer_options', 'install --no-dev --prefer-dist --optimize-autoloader --no-progress --no-interaction');
+
+			// CMS shared file
+			set('shared_files', ['production/.env', 'production/.env.production']);
+
+			// Todo : CMS shared directories
+			//set('shared_dirs', [
+			//    'storage/app',
+			//    'storage/framework/cache',
+			//    'storage/framework/sessions',
+			//    'storage/framework/views',
+			//    'storage/logs',
+			//]);
+
+			break;
+		}
+		case 'staging':
+		{
+			env('branch', 'master');
+
+			// CMS shared file
+			set('shared_files', ['staging/.env', 'staging/.env.staging']);
+
+			break;
+		}
+		case 'testing':
+		{
+			env('branch', 'master');
+
+			// CMS shared file
+			set('shared_files', ['testing/.env', 'testing/.env.testing']);
+
+			break;
+		}
+	}
+})->desc('Initialize project');
+
+task('cms:vendors', function ()
 {
+	runLocally("cd {{local_release_path}} && {{env_vars}} {{bin/composer}} {{composer_options}}", 360);
+	runLocally("cd {{local_release_path}} && cd resources/themes/adminlte/assets && npm install && gulp bower && cd -", 360);
+	runLocally("cd {{local_release_path}} && cd resources/themes/lumen/assets && npm install && gulp bower && cd -", 360);
+	runLocally("cd {{local_release_path}} && {{bin/php}} artisan cms:module:publish", 360);
+	runLocally("cd {{local_release_path}} && {{bin/php}} artisan cms:module:publish-migration", 360);
+	runLocally("cd {{local_release_path}} && {{bin/php}} artisan cms:theme:publish", 360);
 	upload(env('local_release_path'), env('release_path'));
 })->desc('Deploy your project');
 
-task('local:shared', function ()
+task('cms:shared', function ()
 {
-
 	$remoteSharedPath = '{{deploy_path}}/shared';
 	$localSharedPath = '{{local_deploy_path}}/shared';
 
@@ -73,18 +115,21 @@ task('local:shared', function ()
 })->desc('Creating symlinks for shared files');
 
 task('deploy', [
+
+	'cms:initialize',
+
 	'local:prepare',
 	'deploy:prepare',
+
 	'local:release',
 	'deploy:release',
+
 	'local:update_code',
-	'local:vendors',
-	'local:shared',
+	'cms:vendors',
+	'cms:shared',
+
 	//'deploy:writable',
 	'deploy:symlink',
 	'cleanup',
 	'local:cleanup',
 ])->desc('Deploy your project');
-
-after('local:update_code', 'cvepdb:git');
-after('local:vendors', 'cvepdb:vendors');
