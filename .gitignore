@@ -12,6 +12,7 @@ public/.tmb/
 public/modules/
 public/themes/
 public/uploads/*
+!public/uploads/.gitkeep
 
 resources/assets/bower
 resources/views/modules/*
