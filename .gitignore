@@ -65,3 +65,5 @@ database/migrations/2016_04_04_174738_create_table_pages.php
 database/migrations/2016_03_14_122839_alter_users_table_remove_name_add_first_name_and_last_name.php
 database/migrations/2016_03_23_150432_alter_users_table_to_add_soft_delete.php
 database/migrations/2016_03_30_203434_alter_roles_table_add_unchangeable_bool.php
+
+tests/_output/*
