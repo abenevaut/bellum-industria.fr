@@ -255,7 +255,6 @@ return [
 		 */
 
 		'Entrust'     => Zizaco\Entrust\EntrustFacade::class,
-		'Debugbar'    => Barryvdh\Debugbar\Facade::class,
 //		'PDF' => Barryvdh\DomPDF\Facade::class,
 		'Excel'       => Maatwebsite\Excel\Facades\Excel::class,
 		'Form'        => Collective\Html\FormFacade::class,
