@@ -1,0 +1,17 @@
+production:
+  host: domain.com
+  user: www
+  password:
+  deploy_path: /www/production
+
+staging:
+  host: domain.com
+  user: www
+  password:
+  deploy_path: /www/staging
+
+testing:
+  host: domain.com
+  user: www
+  password:
+  deploy_path: /www/testing

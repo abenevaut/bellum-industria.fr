@@ -47,8 +47,6 @@
     "post-update-cmd": [
       "Illuminate\\Foundation\\ComposerScripts::postUpdate",
       "php artisan clear-compiled",
-      "php artisan ide-helper:generate",
-      "php artisan ide-helper:meta",
       "php artisan optimize"
     ]
   },
@@ -144,6 +142,7 @@
     "phpunit/php-code-coverage": "^3",
     "deployer/deployer": "3.2.*",
     "deployphp/recipes": "3.1.*",
+    "herzult/php-ssh": "^1.1",
     "site5/phantoman": "^1.1",
     "jonnyw/php-phantomjs": "^4.3",
     "jakoch/phantomjs-installer": "^2.1",
