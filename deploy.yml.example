@@ -10,7 +10,7 @@ staging:
   host: domain.com
   user: www
   identity_file: ~
-  stage: production
+  stage: staging
   deploy_path: /home/www/
   password:
 
@@ -18,6 +18,6 @@ testing:
   host: domain.com
   user: www
   identity_file: ~
-  stage: production
+  stage: testing
   deploy_path: /home/www/
   password:

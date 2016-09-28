@@ -5,6 +5,7 @@ require 'recipe/common.php';
 require 'vendor/deployphp/recipes/recipes/local.php';
 
 serverList('deploy.yml');
+set('ssh_type', 'ext-ssh2');
 
 // Where we run the deployement
 env('local_deploy_path', './deployer');
@@ -86,9 +87,9 @@ task('cms:vendors', function ()
 	runLocally("cd {{local_release_path}} && {{env_vars}} {{bin/composer}} {{composer_options}}", 360);
 	runLocally("cd {{local_release_path}} && cd resources/themes/adminlte/assets && npm install && gulp bower && cd -", 360);
 	runLocally("cd {{local_release_path}} && cd resources/themes/lumen/assets && npm install && gulp bower && cd -", 360);
-	runLocally("cd {{local_release_path}} && {{bin/php}} artisan cms:module:publish", 360);
-	runLocally("cd {{local_release_path}} && {{bin/php}} artisan cms:module:publish-migration", 360);
-	runLocally("cd {{local_release_path}} && {{bin/php}} artisan cms:theme:publish", 360);
+	runLocally("cd {{local_release_path}} && php artisan cms:module:publish", 360);
+	runLocally("cd {{local_release_path}} && php artisan cms:module:publish-migration", 360);
+	runLocally("cd {{local_release_path}} && php artisan cms:theme:publish", 360);
 	upload(env('local_release_path'), env('release_path'));
 })->desc('Deploy your project');
 
@@ -115,19 +116,14 @@ task('cms:shared', function ()
 })->desc('Creating symlinks for shared files');
 
 task('deploy', [
-
 	'cms:initialize',
-
 	'local:prepare',
 	'deploy:prepare',
-
 	'local:release',
 	'deploy:release',
-
 	'local:update_code',
 	'cms:vendors',
 	'cms:shared',
-
 	//'deploy:writable',
 	'deploy:symlink',
 	'cleanup',
