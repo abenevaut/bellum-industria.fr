@@ -1401,12 +1401,12 @@
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/cvepdb-cms/module-files.git",
-                "reference": "670cc944bf08eef032520764f3be4e18dc0439e9"
+                "reference": "bc5b647f5c2ae1b4a95d74923eb5bb04bd324e07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-files/repository/archive.zip?sha=670cc944bf08eef032520764f3be4e18dc0439e9",
-                "reference": "670cc944bf08eef032520764f3be4e18dc0439e9",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-files/repository/archive.zip?sha=bc5b647f5c2ae1b4a95d74923eb5bb04bd324e07",
+                "reference": "bc5b647f5c2ae1b4a95d74923eb5bb04bd324e07",
                 "shasum": ""
             },
             "require": {
@@ -1440,7 +1440,7 @@
                 "files",
                 "module"
             ],
-            "time": "2016-09-27 16:58:44"
+            "time": "2016-09-29 10:27:37"
         },
         {
             "name": "cvepdb-cms/module-installer",
@@ -2098,12 +2098,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-projects.git",
-                "reference": "75c0a7d472ec467aa72ba0d2fcbc605295f05a85"
+                "reference": "1ad405a09cf7011b34a17e61189bf319dc4b725a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-projects/repository/archive.zip?sha=75c0a7d472ec467aa72ba0d2fcbc605295f05a85",
-                "reference": "75c0a7d472ec467aa72ba0d2fcbc605295f05a85",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-projects/repository/archive.zip?sha=1ad405a09cf7011b34a17e61189bf319dc4b725a",
+                "reference": "1ad405a09cf7011b34a17e61189bf319dc4b725a",
                 "shasum": ""
             },
             "require": {
@@ -2135,7 +2135,7 @@
                 "Pages",
                 "module"
             ],
-            "time": "2016-09-27 12:39:56"
+            "time": "2016-09-29 10:30:25"
         },
         {
             "name": "cvepdb/theme-longwave",
@@ -3885,12 +3885,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "557b9f62005639cfe6a20c26c3e7c9dc8a7a637a"
+                "reference": "c32d91c64504dd2baf40e8ba025ad348da4607a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/557b9f62005639cfe6a20c26c3e7c9dc8a7a637a",
-                "reference": "557b9f62005639cfe6a20c26c3e7c9dc8a7a637a",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c32d91c64504dd2baf40e8ba025ad348da4607a1",
+                "reference": "c32d91c64504dd2baf40e8ba025ad348da4607a1",
                 "shasum": ""
             },
             "require": {
@@ -4007,7 +4007,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-08-26 16:26:18"
+            "time": "2016-09-28 15:50:15"
         },
         {
             "name": "laravel/socialite",
@@ -4841,12 +4841,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "ffc421a4fd4e9651e236341f5ff3994b25a8ecc5"
+                "reference": "7f135e9ed0d5c3b6102f3df5d5fd258c6b746afc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/ffc421a4fd4e9651e236341f5ff3994b25a8ecc5",
-                "reference": "ffc421a4fd4e9651e236341f5ff3994b25a8ecc5",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/7f135e9ed0d5c3b6102f3df5d5fd258c6b746afc",
+                "reference": "7f135e9ed0d5c3b6102f3df5d5fd258c6b746afc",
                 "shasum": ""
             },
             "require": {
@@ -4857,7 +4857,7 @@
                 "psr/log-implementation": "1.0.0"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "^2.4.9",
+                "aws/aws-sdk-php": "^2.4.9 || ^3.0",
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
                 "jakub-onderka/php-parallel-lint": "0.9",
@@ -4911,7 +4911,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-09-25 14:47:31"
+            "time": "2016-09-29 07:29:30"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -7142,12 +7142,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "22855c577c86f6bac4a57c45d7da6eed866a4612"
+                "reference": "e244a04c800fbdf8e90d19ea861452d95bd047a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/22855c577c86f6bac4a57c45d7da6eed866a4612",
-                "reference": "22855c577c86f6bac4a57c45d7da6eed866a4612",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/e244a04c800fbdf8e90d19ea861452d95bd047a4",
+                "reference": "e244a04c800fbdf8e90d19ea861452d95bd047a4",
                 "shasum": ""
             },
             "require": {
@@ -7192,7 +7192,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-09-28 01:00:56"
+            "time": "2016-09-29 00:14:22"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -12498,12 +12498,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "52e9e01353fb213810f82b93b6208b4f971d6b1e"
+                "reference": "c8e96e8c8921bfd6b3985c9f612238f90ca1b8ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/52e9e01353fb213810f82b93b6208b4f971d6b1e",
-                "reference": "52e9e01353fb213810f82b93b6208b4f971d6b1e",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/c8e96e8c8921bfd6b3985c9f612238f90ca1b8ac",
+                "reference": "c8e96e8c8921bfd6b3985c9f612238f90ca1b8ac",
                 "shasum": ""
             },
             "require": {
@@ -12516,7 +12516,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.25-dev"
+                    "dev-master": "1.26-dev"
                 }
             },
             "autoload": {
@@ -12551,7 +12551,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-09-27 17:24:00"
+            "time": "2016-09-29 00:59:53"
         },
         {
             "name": "webmozart/assert",
