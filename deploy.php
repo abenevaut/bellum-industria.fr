@@ -70,7 +70,7 @@ task('cms:initialize', function ()
 		case 'testing':
 		{
 			env('branch', 'master');
-			//Laravel & CMS shared file
+			// Laravel & CMS shared file
 			set('shared_files', ['testing/.env', 'testing/.env.testing']);
 			break;
 		}
