@@ -2,7 +2,6 @@
 
 // All Deployer recipes are based on `recipe/common.php`.
 require 'recipe/common.php';
-require 'vendor/deployphp/recipes/recipes/local.php';
 
 serverList('deploy.yml');
 set('ssh_type', 'ext-ssh2');
@@ -38,45 +37,41 @@ task('cms:initialize', function ()
 	// Laravel & CMS writable directories
 	set('writable_dirs', ['bootstrap/cache', 'storage']);
 
+	// Laravel & CMS shared directories
+	set('shared_dirs', [
+		'public/uploads',
+		'storage/app',
+		'storage/framework/cache',
+		'storage/framework/debugbar',
+		'storage/framework/sessions',
+		'storage/framework/views',
+		'storage/logs',
+		'vendor'
+	]);
+
 	switch ($server_name)
 	{
 		case 'production':
 		{
 			env('branch', 'master');
-
 			// Composer options
 			env('composer_options', 'install --no-dev --prefer-dist --optimize-autoloader --no-progress --no-interaction');
-
-			// CMS shared file
+			// Laravel & CMS shared file
 			set('shared_files', ['production/.env', 'production/.env.production']);
-
-			// Todo : CMS shared directories
-			//set('shared_dirs', [
-			//    'storage/app',
-			//    'storage/framework/cache',
-			//    'storage/framework/sessions',
-			//    'storage/framework/views',
-			//    'storage/logs',
-			//]);
-
 			break;
 		}
 		case 'staging':
 		{
 			env('branch', 'master');
-
-			// CMS shared file
+			// Laravel & CMS shared file
 			set('shared_files', ['staging/.env', 'staging/.env.staging']);
-
 			break;
 		}
 		case 'testing':
 		{
 			env('branch', 'master');
-
-			// CMS shared file
+			//Laravel & CMS shared file
 			set('shared_files', ['testing/.env', 'testing/.env.testing']);
-
 			break;
 		}
 	}
