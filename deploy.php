@@ -16,9 +16,6 @@ set('repository', 'git@gitlab.com:cvepdb/cms.git');
 
 env('release_name', date('Y-m-d_H-i-s'));
 
-set('http_user', 'cvepdb-www');
-set('writable_use_sudo', false);
-
 task('cms:initialize', function ()
 {
 	$server_name = \Deployer\Task\Context::get()
