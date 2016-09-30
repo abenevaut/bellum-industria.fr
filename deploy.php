@@ -41,26 +41,20 @@ task('cms:initialize', function ()
 		'vendor'
 	]);
 
+	// Laravel & CMS shared file
+	set('shared_files', []);
+
 	switch ($server_name)
 	{
 		case 'production':
 		{
 			// Composer options
 			env('composer_options', 'install --no-dev --prefer-dist --optimize-autoloader --no-progress --no-interaction');
-			// Laravel & CMS shared file
-			set('shared_files', ['production/.env', 'production/.env.production']);
 			break;
 		}
 		case 'staging':
-		{
-			// Laravel & CMS shared file
-			set('shared_files', ['staging/.env', 'staging/.env.staging']);
-			break;
-		}
 		case 'testing':
 		{
-			// Laravel & CMS shared file
-			set('shared_files', ['staging/.env', 'staging/.env.testing']);
 			break;
 		}
 	}
@@ -82,6 +76,7 @@ task('deploy', [
 	'deploy:update_code',
 	'deploy:shared',
 	'deploy:symlink',
+	'deploy:writable',
 	'deploy:vendors',
 	'cms:prepare',
 	'cleanup'
