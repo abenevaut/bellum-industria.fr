@@ -2,7 +2,6 @@
 
 // All Deployer recipes are based on `recipe/common.php`.
 require 'recipe/common.php';
-require 'vendor/deployphp/recipes/recipes/local.php';
 
 serverList('deploy.yml');
 set('ssh_type', 'ext-ssh2');
@@ -13,18 +12,12 @@ env('local_deploy_path', './deployer');
 // Removes old releases and keeps the last 5
 set('keep_releases', 5);
 
-set('repository', 'https://gitlab.com/cvepdb/cms.git');
+set('repository', 'git@gitlab.com:cvepdb/cms.git');
 
-// Specific to OVH Mutualised
-//env('bin/php', function () {
-//    return run('which php.TEST.5')->toString();
-//});
+env('release_name', date('Y-m-d_H-i-s'));
 
-// Composer local path
-env('bin/composer', function ()
-{
-	return runLocally('which composer')->toString();
-});
+set('http_user', 'cvepdb-www');
+set('writable_use_sudo', false);
 
 task('cms:initialize', function ()
 {
@@ -33,99 +26,116 @@ task('cms:initialize', function ()
 		->getConfiguration()
 		->getName();
 
+	env('branch', 'master');
+
 	env('composer_options', 'install --verbose --prefer-dist --optimize-autoloader --no-progress --no-interaction');
 
 	// Laravel & CMS writable directories
 	set('writable_dirs', ['bootstrap/cache', 'storage']);
 
+	// Laravel & CMS shared directories
+	set('shared_dirs', [
+		'public/uploads',
+		'storage/app',
+		'storage/framework/cache',
+		'storage/framework/debugbar',
+		'storage/framework/sessions',
+		'storage/framework/views',
+		'storage/logs',
+		'storage/medias',
+		'vendor'
+	]);
+
+	// Laravel & CMS shared file
+	set('shared_files', [
+		$server_name . '/.env',
+		$server_name . '/.env.' . $server_name
+	]);
+
 	switch ($server_name)
 	{
 		case 'production':
 		{
-			env('branch', 'master');
-
 			// Composer options
 			env('composer_options', 'install --no-dev --prefer-dist --optimize-autoloader --no-progress --no-interaction');
-
-			// CMS shared file
-			set('shared_files', ['production/.env', 'production/.env.production']);
-
-			// Todo : CMS shared directories
-			//set('shared_dirs', [
-			//    'storage/app',
-			//    'storage/framework/cache',
-			//    'storage/framework/sessions',
-			//    'storage/framework/views',
-			//    'storage/logs',
-			//]);
-
 			break;
 		}
 		case 'staging':
-		{
-			env('branch', 'master');
-
-			// CMS shared file
-			set('shared_files', ['staging/.env', 'staging/.env.staging']);
-
-			break;
-		}
 		case 'testing':
 		{
-			env('branch', 'master');
-
-			// CMS shared file
-			set('shared_files', ['testing/.env', 'testing/.env.testing']);
-
 			break;
 		}
 	}
 })->desc('Initialize project');
 
-task('cms:vendors', function ()
+task('cms:prepare', function ()
 {
-//	runLocally("cd {{local_release_path}} && {{env_vars}} {{bin/composer}} {{composer_options}}", 360);
-//	runLocally("cd {{local_release_path}} && cd resources/themes/adminlte/assets && npm install && gulp bower && cd -", 360);
-//	runLocally("cd {{local_release_path}} && cd resources/themes/lumen/assets && npm install && gulp bower && cd -", 360);
-//	runLocally("cd {{local_release_path}} && php artisan cms:module:publish", 360);
-//	runLocally("cd {{local_release_path}} && php artisan cms:module:publish-migration", 360);
-//	runLocally("cd {{local_release_path}} && php artisan cms:theme:publish", 360);
-	upload(env('local_release_path'), env('release_path'));
-})->desc('Deploy your project');
+	run("cd {{deploy_path}}/current/resources/themes/adminlte/assets && bower install && cd -");
+	run("cd {{deploy_path}}/current/resources/themes/lumen/assets && bower install && cd -");
+	run("php {{deploy_path}}/current/artisan cms:module:publish");
+	run("php {{deploy_path}}/current/artisan cms:module:publish-migration");
+	run("php {{deploy_path}}/current/artisan cms:theme:publish");
+})->desc('Prepare project');
 
-task('cms:shared', function ()
+task('cms:uploads_env_files', function ()
 {
-	$remoteSharedPath = '{{deploy_path}}/shared';
-	$localSharedPath = '{{local_deploy_path}}/shared';
+	$sharedPath = "{{deploy_path}}/shared";
 
 	foreach (get('shared_files') as $file)
 	{
-		// Current file directory path
-		$dirname = dirname($file);
+		$basefilename = basename($file);
+
+		// Send file to host
+		upload(__DIR__ . '/deployer/shared/' . $file, $sharedPath . '/' . $basefilename);
 		// Remove from source.
-		run("if [ -f $(echo {{release_path}}/$file) ]; then rm -rf {{release_path}}/$file; fi");
-		// Ensure dir is available in release
-		run("if [ ! -d $(echo {{release_path}}/$dirname) ]; then mkdir -p {{release_path}}/$dirname;fi");
-		// Create dir of shared file
-		run("mkdir -p $remoteSharedPath/" . $dirname);
-		// Send local shared file to remote shared directory
-		upload("$localSharedPath/$file", "$remoteSharedPath/$file");
+		run("if [ -f $(echo {{release_path}}/$basefilename) ]; then rm -rf {{release_path}}/$basefilename; fi");
 		// Symlink shared dir to release dir
-		run("ln -nfs $remoteSharedPath/$file {{release_path}}/$file");
+		run("ln -nfs $sharedPath/$basefilename {{release_path}}/$basefilename");
+	}
+})->desc('Uploads environment files');
+
+task('cms:shared', function ()
+{
+	$sharedPath = "{{deploy_path}}/shared";
+
+	foreach (get('shared_dirs') as $dir)
+	{
+		// Remove from source.
+		run("if [ -d $(echo {{release_path}}/$dir) ]; then rm -rf {{release_path}}/$dir; fi");
+		// Create shared dir if it does not exist.
+		run("mkdir -p $sharedPath/$dir");
+		// Create path to shared dir in release dir if it does not exist.
+		// (symlink will not create the path and will fail otherwise)
+		run("mkdir -p `dirname {{release_path}}/$dir`");
+		// Symlink shared dir to release dir
+		run("ln -nfs $sharedPath/$dir {{release_path}}/$dir");
 	}
 })->desc('Creating symlinks for shared files');
 
+task('deploy:up', function ()
+{
+	$output = run('if [ -d $(echo {{deploy_path}}/current/) ]; then php {{deploy_path}}/current/artisan up; fi');
+	writeln('<info>' . $output . '</info>');
+})->desc('Disable maintenance mode');
+
+task('deploy:down', function ()
+{
+	$output = run('if [ -d $(echo {{deploy_path}}/current/) ]; then php {{deploy_path}}/current/artisan down; fi');
+	writeln('<error>' . $output . '</error>');
+})->desc('Enable maintenance mode');
+
 task('deploy', [
+	'deploy:down',
 	'cms:initialize',
-	'local:prepare',
 	'deploy:prepare',
-	'local:release',
 	'deploy:release',
-	'local:update_code',
-	'cms:vendors',
+	'deploy:update_code',
 	'cms:shared',
-	//'deploy:writable',
+	'cms:uploads_env_files',
 	'deploy:symlink',
+	'deploy:writable',
+	'deploy:vendors',
+	'cms:prepare',
 	'cleanup',
-	'local:cleanup',
+	'deploy:up'
 ])->desc('Deploy your project');
