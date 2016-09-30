@@ -36,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
 		{
 			if (config('app.debug'))
 			{
+				$this->app->register(\Antennaio\Codeception\DbDumpServiceProvider::class);
 				$this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
 				AliasLoader::getInstance([
 					'Debugbar' => \Barryvdh\Debugbar\Facade::class
