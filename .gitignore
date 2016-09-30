@@ -2,7 +2,6 @@
 /vendor
 /bin
 /node_modules
-/public/storage
 Homestead.yaml
 Homestead.json
 _ide_helper.php
@@ -17,12 +16,8 @@ public/uploads/*
 resources/assets/bower
 resources/views/modules/*
 
-storage/laravel-backups/
-storage/laravel-backups/*
-storage/app
-storage/app/*
-storage/logs
-storage/logs/*
+storage/*
+!storage/.gitkeep
 
 # Dotenv
 .env
@@ -49,6 +44,9 @@ database/database.sqlite
 database/testing.sqlite
 :memory:
 
+# Codeception
+tests/_output/*
+
 # Deployer
 deployer/shared
 !deployer/shared/production/.env.example
@@ -56,11 +54,13 @@ deployer/shared
 !deployer/shared/staging/.env.example
 !deployer/shared/staging/.env.staging.example
 !deployer/shared/testing/.env.example
+deployer/shared/testing/.env.testing
 !deployer/shared/testing/.env.testing.example
 deployer/release
 deployer/releases
 deploy.yml
 deployer/current
+
 # Files
 database/migrations/2016_06_16_110839_create_media_table.php
 # Pages
@@ -71,5 +71,3 @@ database/migrations/2016_04_04_174738_create_table_pages.php
 database/migrations/2016_03_14_122839_alter_users_table_remove_name_add_first_name_and_last_name.php
 database/migrations/2016_03_23_150432_alter_users_table_to_add_soft_delete.php
 database/migrations/2016_03_30_203434_alter_roles_table_add_unchangeable_bool.php
-
-tests/_output/*
