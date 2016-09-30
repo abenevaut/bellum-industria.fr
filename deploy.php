@@ -37,6 +37,7 @@ task('cms:initialize', function ()
 		'storage/framework/sessions',
 		'storage/framework/views',
 		'storage/logs',
+		'storage/medias',
 		'vendor'
 	]);
 
@@ -46,24 +47,20 @@ task('cms:initialize', function ()
 		{
 			// Composer options
 			env('composer_options', 'install --no-dev --prefer-dist --optimize-autoloader --no-progress --no-interaction');
-
 			// Laravel & CMS shared file
 			set('shared_files', ['production/.env', 'production/.env.production']);
-
 			break;
 		}
 		case 'staging':
 		{
 			// Laravel & CMS shared file
 			set('shared_files', ['staging/.env', 'staging/.env.staging']);
-
 			break;
 		}
 		case 'testing':
 		{
 			// Laravel & CMS shared file
 			set('shared_files', ['staging/.env', 'staging/.env.testing']);
-
 			break;
 		}
 	}
