@@ -14,6 +14,11 @@ set('keep_releases', 5);
 
 set('repository', 'git@gitlab.com:cvepdb/cms.git');
 
+env('release_name', date('Y-m-d_H-i-s'));
+
+set('http_user', 'cvepdb-www');
+set('writable_use_sudo', false);
+
 task('cms:initialize', function ()
 {
 	$server_name = \Deployer\Task\Context::get()
@@ -42,7 +47,10 @@ task('cms:initialize', function ()
 	]);
 
 	// Laravel & CMS shared file
-	set('shared_files', []);
+	set('shared_files', [
+		$server_name . '/.env',
+		$server_name . '/.env.' . $server_name
+	]);
 
 	switch ($server_name)
 	{
@@ -62,22 +70,72 @@ task('cms:initialize', function ()
 
 task('cms:prepare', function ()
 {
-	run("cd {{release_path}} && cd resources/themes/adminlte/assets && bower install && cd -");
-	run("cd {{release_path}} && cd resources/themes/lumen/assets && bower install && cd -");
-	run("cd {{release_path}} && php artisan cms:module:publish");
-	run("cd {{release_path}} && php artisan cms:module:publish-migration");
-	run("cd {{release_path}} && php artisan cms:theme:publish");
+	run("cd {{deploy_path}}/current/resources/themes/adminlte/assets && bower install && cd -");
+	run("cd {{deploy_path}}/current/resources/themes/lumen/assets && bower install && cd -");
+	run("php {{deploy_path}}/current/artisan cms:module:publish");
+	run("php {{deploy_path}}/current/artisan cms:module:publish-migration");
+	run("php {{deploy_path}}/current/artisan cms:theme:publish");
 })->desc('Prepare project');
 
+task('cms:uploads_env_files', function ()
+{
+	$sharedPath = "{{deploy_path}}/shared";
+
+	foreach (get('shared_files') as $file)
+	{
+		$basefilename = basename($file);
+
+		// Send file to host
+		upload(__DIR__ . '/deployer/shared/' . $file, $sharedPath . '/' . $basefilename);
+		// Remove from source.
+		run("if [ -f $(echo {{release_path}}/$basefilename) ]; then rm -rf {{release_path}}/$basefilename; fi");
+		// Symlink shared dir to release dir
+		run("ln -nfs $sharedPath/$basefilename {{release_path}}/$basefilename");
+	}
+})->desc('Uploads environment files');
+
+task('cms:shared', function ()
+{
+	$sharedPath = "{{deploy_path}}/shared";
+
+	foreach (get('shared_dirs') as $dir)
+	{
+		// Remove from source.
+		run("if [ -d $(echo {{release_path}}/$dir) ]; then rm -rf {{release_path}}/$dir; fi");
+		// Create shared dir if it does not exist.
+		run("mkdir -p $sharedPath/$dir");
+		// Create path to shared dir in release dir if it does not exist.
+		// (symlink will not create the path and will fail otherwise)
+		run("mkdir -p `dirname {{release_path}}/$dir`");
+		// Symlink shared dir to release dir
+		run("ln -nfs $sharedPath/$dir {{release_path}}/$dir");
+	}
+})->desc('Creating symlinks for shared files');
+
+task('deploy:up', function ()
+{
+	$output = run('if [ -d $(echo {{deploy_path}}/current/) ]; then php {{deploy_path}}/current/artisan up; fi');
+	writeln('<info>' . $output . '</info>');
+})->desc('Disable maintenance mode');
+
+task('deploy:down', function ()
+{
+	$output = run('if [ -d $(echo {{deploy_path}}/current/) ]; then php {{deploy_path}}/current/artisan down; fi');
+	writeln('<error>' . $output . '</error>');
+})->desc('Enable maintenance mode');
+
 task('deploy', [
+	'deploy:down',
 	'cms:initialize',
 	'deploy:prepare',
 	'deploy:release',
 	'deploy:update_code',
-	'deploy:shared',
+	'cms:shared',
+	'cms:uploads_env_files',
 	'deploy:symlink',
 	'deploy:writable',
 	'deploy:vendors',
 	'cms:prepare',
-	'cleanup'
+	'cleanup',
+	'deploy:up'
 ])->desc('Deploy your project');
