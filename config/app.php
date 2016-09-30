@@ -178,8 +178,6 @@ return [
 
 //		Zizaco\Entrust\EntrustServiceProvider::class,
 		Prettus\Repository\Providers\RepositoryServiceProvider::class,
-		Barryvdh\Debugbar\ServiceProvider::class,
-		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 //		Barryvdh\DomPDF\ServiceProvider::class,
 //		Collective\Bus\BusServiceProvider::class,
 		Maatwebsite\Excel\ExcelServiceProvider::class,
@@ -190,9 +188,7 @@ return [
 		Spatie\Backup\BackupServiceProvider::class,
 		Pingpong\Menus\MenusServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
-		Barryvdh\Debugbar\ServiceProvider::class,
 		Antennaio\Codeception\DbDumpServiceProvider::class,
-		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 		Maatwebsite\Excel\ExcelServiceProvider::class,
 		Pingpong\Menus\MenusServiceProvider::class,
 		Pingpong\Widget\WidgetServiceProvider::class,
