@@ -39,8 +39,7 @@ task('cms:initialize', function ()
 		'storage/framework/sessions',
 		'storage/framework/views',
 		'storage/logs',
-		'storage/medias',
-		'vendor'
+		'storage/medias'
 	]);
 
 	// Laravel & CMS shared file
