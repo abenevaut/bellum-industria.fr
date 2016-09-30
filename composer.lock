@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "47e0fd40b0bd29d68a0b7388fb923263",
-    "content-hash": "1869e9edce0b5f6bae12007d735370f6",
+    "hash": "29d2f83cbcd0e6ad3e45e21a893c6e8f",
+    "content-hash": "101824c9f78baec24d656c4b889d7296",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -166,16 +166,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.19.11",
+            "version": "3.19.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "19bac3bdd7988cbf7f89d5ce8e2748d774e2cde8"
+                "reference": "5d5697c7bc9ab22ce718afb51e5496d0c5cb8778"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/19bac3bdd7988cbf7f89d5ce8e2748d774e2cde8",
-                "reference": "19bac3bdd7988cbf7f89d5ce8e2748d774e2cde8",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5d5697c7bc9ab22ce718afb51e5496d0c5cb8778",
+                "reference": "5d5697c7bc9ab22ce718afb51e5496d0c5cb8778",
                 "shasum": ""
             },
             "require": {
@@ -242,7 +242,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-09-27 19:38:36"
+            "time": "2016-09-29 21:07:49"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -5632,12 +5632,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPOffice/PHPExcel.git",
-                "reference": "1c8c2379ccf5ab9dd7cb46be965821d22173bcf4"
+                "reference": "d3373c97e1bd4fceb0687d2e289998bccda514f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/1c8c2379ccf5ab9dd7cb46be965821d22173bcf4",
-                "reference": "1c8c2379ccf5ab9dd7cb46be965821d22173bcf4",
+                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/d3373c97e1bd4fceb0687d2e289998bccda514f1",
+                "reference": "d3373c97e1bd4fceb0687d2e289998bccda514f1",
                 "shasum": ""
             },
             "require": {
@@ -5686,7 +5686,7 @@
                 "xls",
                 "xlsx"
             ],
-            "time": "2016-08-13 11:16:51"
+            "time": "2016-09-29 20:13:14"
         },
         {
             "name": "pingpong/generators",
@@ -7142,12 +7142,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "e244a04c800fbdf8e90d19ea861452d95bd047a4"
+                "reference": "8019de18df9da6961fb6b1f5adc656e40f8f7ad5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/e244a04c800fbdf8e90d19ea861452d95bd047a4",
-                "reference": "e244a04c800fbdf8e90d19ea861452d95bd047a4",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/8019de18df9da6961fb6b1f5adc656e40f8f7ad5",
+                "reference": "8019de18df9da6961fb6b1f5adc656e40f8f7ad5",
                 "shasum": ""
             },
             "require": {
@@ -7192,7 +7192,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-09-29 00:14:22"
+            "time": "2016-09-29 12:40:20"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -9275,63 +9275,6 @@
             "time": "2016-04-06 13:32:59"
         },
         {
-            "name": "deployphp/recipes",
-            "version": "3.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/deployphp/recipes.git",
-                "reference": "01d1a3b86350903c673eaa562c11e63f30c3b409"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/deployphp/recipes/zipball/01d1a3b86350903c673eaa562c11e63f30c3b409",
-                "reference": "01d1a3b86350903c673eaa562c11e63f30c3b409",
-                "shasum": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Samuel Gordalina",
-                    "email": "samuel.gordalina@gmail.com",
-                    "homepage": "https://gordalina.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Tomas Majer",
-                    "email": "tomasmajer@gmail.com",
-                    "homepage": "http://tomaj.sk",
-                    "role": "Contributor"
-                },
-                {
-                    "name": "Hubert Kowalski",
-                    "email": "h.kowalski@hakger.pl",
-                    "homepage": "https://hakger.pl",
-                    "role": "Contributor"
-                }
-            ],
-            "description": "3rd party deployer recipes",
-            "homepage": "https://github.com/deployphp/recipes",
-            "keywords": [
-                "cachetool",
-                "deploy",
-                "deployer",
-                "deployment",
-                "newrelic",
-                "recipes",
-                "slack"
-            ],
-            "time": "2016-04-12 08:46:40"
-        },
-        {
             "name": "doctrine/instantiator",
             "version": "dev-master",
             "source": {
@@ -9796,60 +9739,6 @@
             "time": "2014-08-10 03:40:12"
         },
         {
-            "name": "herzult/php-ssh",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Herzult/php-ssh.git",
-                "reference": "c56875c7d6a6ef070dee8db2b5e77d6f36a02b55"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Herzult/php-ssh/zipball/c56875c7d6a6ef070dee8db2b5e77d6f36a02b55",
-                "reference": "c56875c7d6a6ef070dee8db2b5e77d6f36a02b55",
-                "shasum": ""
-            },
-            "require": {
-                "ext-ssh2": "*",
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*",
-                "symfony/filesystem": "~2.4"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Ssh": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "The contributors",
-                    "homepage": "http://github.com/Herzult/php-ssh/contributors"
-                },
-                {
-                    "name": "Antoine Hérault",
-                    "homepage": "https://github.com/Herzult"
-                }
-            ],
-            "description": "Provides an object-oriented wrapper for the php ssh2 extension.",
-            "keywords": [
-                "ssh",
-                "ssh2"
-            ],
-            "time": "2016-06-06 06:43:38"
-        },
-        {
             "name": "jakoch/phantomjs-installer",
             "version": "2.1.1",
             "source": {
@@ -10067,12 +9956,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "dc369985a60578ca38f3525e98c1038f84153bc6"
+                "reference": "65d4ca18e15cb02eeb1e5336f884e46b9b905be0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/dc369985a60578ca38f3525e98c1038f84153bc6",
-                "reference": "dc369985a60578ca38f3525e98c1038f84153bc6",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/65d4ca18e15cb02eeb1e5336f884e46b9b905be0",
+                "reference": "65d4ca18e15cb02eeb1e5336f884e46b9b905be0",
                 "shasum": ""
             },
             "require": {
@@ -10124,7 +10013,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2016-09-03 07:05:34"
+            "time": "2016-09-30 12:09:40"
         },
         {
             "name": "myclabs/deep-copy",
@@ -10224,16 +10113,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "9270140b940ff02e58ec577c237274e92cd40cdd"
+                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/9270140b940ff02e58ec577c237274e92cd40cdd",
-                "reference": "9270140b940ff02e58ec577c237274e92cd40cdd",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/8331b5efe816ae05461b7ca1e721c01b46bafb3e",
+                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e",
                 "shasum": ""
             },
             "require": {
@@ -10265,7 +10154,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2016-06-10 09:48:41"
+            "time": "2016-09-30 07:12:33"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -12498,12 +12387,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "c8e96e8c8921bfd6b3985c9f612238f90ca1b8ac"
+                "reference": "94ca4e993e719d271bcfe040be436010a76f835d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/c8e96e8c8921bfd6b3985c9f612238f90ca1b8ac",
-                "reference": "c8e96e8c8921bfd6b3985c9f612238f90ca1b8ac",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/94ca4e993e719d271bcfe040be436010a76f835d",
+                "reference": "94ca4e993e719d271bcfe040be436010a76f835d",
                 "shasum": ""
             },
             "require": {
@@ -12551,7 +12440,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-09-29 00:59:53"
+            "time": "2016-09-30 03:57:16"
         },
         {
             "name": "webmozart/assert",
