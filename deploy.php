@@ -12,7 +12,7 @@ env('local_deploy_path', './deployer');
 // Removes old releases and keeps the last 5
 set('keep_releases', 5);
 
-set('repository', 'git@gitlab.com:cvepdb/site.git');
+set('repository', 'git@gitlab.com:cvepdb/cms.git');
 
 task('cms:initialize', function ()
 {
