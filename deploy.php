@@ -12,9 +12,12 @@ env('local_deploy_path', './deployer');
 // Removes old releases and keeps the last 5
 set('keep_releases', 5);
 
-set('repository', 'git@gitlab.com:cvepdb/cms.git');
+set('repository', 'git@gitlab.com:cvepdb/site.git');
 
 env('release_name', date('Y-m-d_H-i-s'));
+
+set('http_user', 'cvepdb-www');
+set('writable_use_sudo', false);
 
 task('cms:initialize', function ()
 {
