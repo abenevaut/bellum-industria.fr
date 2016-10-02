@@ -60,67 +60,67 @@ return [
 			'strict'                        => false,
 			'engine'                        => null,
 			// laravel-backups
-			'dump_command_path'             => env('BACKUPS_MYSQLDUMP_PATH', '/usr/bin'), // only the path, so without 'mysqldump' or 'pg_dump'
+			'dump_command_path'             => env('DB_MYSQLDUMP_PATH', '/usr/bin'), // only the path, so without 'mysqldump' or 'pg_dump'
 			'dump_command_timeout'          => 60 * 5, // 5 minute timeout
 			'dump_using_single_transaction' => true, // perform dump using a single transaction
 		],
 
 		'testing' => [
 			'driver'      => 'mysql',
-			'host'        => env('CORE_DB_HOST', '127.0.0.1'),
-			'database'    => env('CORE_DB_DATABASE', 'cvepdb_cms_testing'),
-			'username'    => env('CORE_DB_USERNAME', 'cvepdb_testing'),
-			'password'    => env('CORE_DB_PASSWORD', ''),
+			'host'        => env('DB_HOST', '127.0.0.1'),
+			'database'    => env('DB_DATABASE', 'cvepdb_cms_testing'),
+			'username'    => env('DB_USERNAME', 'cvepdb_testing'),
+			'password'    => env('DB_PASSWORD', ''),
+			'unix_socket' => env('DB_SOCKET', ''),
 			'charset'     => 'utf8',
 			'collation'   => 'utf8_unicode_ci',
 			'prefix'      => '',
 			'strict'      => false,
 			'engine'      => null,
-			'unix_socket' => env('CORE_DB_SOCKET', ''),
 		],
 
 		'mysql_multigaming' => [
 			'driver'                        => 'mysql',
-			'host'                          => env('CVEPDB_MMG_DB_HOST', '127.0.0.1'),
-			'database'                      => env('CVEPDB_MMG_DB_DATABASE', 'forge'),
-			'username'                      => env('CVEPDB_MMG_DB_USERNAME', 'forge'),
-			'password'                      => env('CVEPDB_MMG_DB_PASSWORD', ''),
+			'host'                          => env('DB_HOST_MMG', '127.0.0.1'),
+			'database'                      => env('DB_DATABASE_MMG', 'forge'),
+			'username'                      => env('DB_USERNAME_MMG', 'forge'),
+			'password'                      => env('DB_PASSWORD_MMG', ''),
 			'charset'                       => 'utf8',
 			'collation'                     => 'utf8_unicode_ci',
 			'prefix'                        => '',
 			'strict'                        => false,
 			'engine'                        => null,
-			'unix_socket'                   => env('CVEPDB_MMG_DB_UNIX_SOCKET_MMG', ''),
+			'unix_socket'                   => env('DB_UNIX_SOCKET_MMG', ''),
 			// laravel-backups
-			'dump_command_path'             => env('CVEPDB_MMG_MYSQLDUMP_PATH', '/usr/bin'), // only the path, so without 'mysqldump' or 'pg_dump'
+			'dump_command_path'             => env('DB_MYSQLDUMP_PATH_MMG', '/usr/bin'), // only the path, so without 'mysqldump' or 'pg_dump'
 			'dump_command_timeout'          => 60 * 5, // 5 minute timeout
 			'dump_using_single_transaction' => true, // perform dump using a single transaction
 		],
 
 		'testing_multigaming' => [
 			'driver'      => 'mysql',
-			'host'        => env('CVEPDB_MMG_DB_HOST', '127.0.0.1'),
-			'database'    => env('CVEPDB_MMG_DB_DATABASE', 'cvepdb_smwa_testing'),
-			'username'    => env('CVEPDB_MMG_DB_USERNAME', 'cvepdb_testing'),
-			'password'    => env('CVEPDB_MMG_DB_PASSWORD', ''),
+			'host'        => env('DB_HOST_MMG', '127.0.0.1'),
+			'database'    => env('DB_DATABASE_MMG', 'cvepdb_smwa_testing'),
+			'username'    => env('DB_USERNAME_MMG', 'cvepdb_testing'),
+			'password'    => env('DB_PASSWORD_MMG', ''),
 			'charset'     => 'utf8',
 			'collation'   => 'utf8_unicode_ci',
 			'prefix'      => '',
 			'strict'      => false,
 			'engine'      => null,
-			'unix_socket' => env('CVEPDB_MMG_DB_UNIX_SOCKET_MMG', ''),
+			'unix_socket' => env('DB_UNIX_SOCKET_MMG', ''),
 		],
-		
+
 		'pgsql' => [
-			'driver'   => 'pgsql',
-			'host'     => env('DB_HOST', 'localhost'),
-			'port'     => env('DB_PORT', '5432'),
-			'database' => env('DB_DATABASE', 'forge'),
-			'username' => env('DB_USERNAME', 'forge'),
-			'password' => env('DB_PASSWORD', ''),
-			'charset'  => 'utf8',
-			'prefix'   => '',
-			'schema'   => 'public',
+			'driver'                        => 'pgsql',
+			'host'                          => env('DB_HOST', 'localhost'),
+			'port'                          => env('DB_PORT', '5432'),
+			'database'                      => env('DB_DATABASE', 'forge'),
+			'username'                      => env('DB_USERNAME', 'forge'),
+			'password'                      => env('DB_PASSWORD', ''),
+			'charset'                       => 'utf8',
+			'prefix'                        => '',
+			'schema'                        => 'public',
 			// laravel-backups
 			'dump_command_path'             => env('CORE_DB_COMMAND_PATH', '/usr/bin'), // only the path, so without 'mysqldump' or 'pg_dump'
 			'dump_command_timeout'          => 60 * 5, // 5 minute timeout
