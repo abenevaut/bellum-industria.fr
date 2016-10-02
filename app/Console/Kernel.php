@@ -74,7 +74,7 @@ class Kernel extends ConsoleKernel
 			->command('queue:work')
 			->name('[Queue] : run default queue')
 			->withoutOverlapping()
-			->sendOutputTo(storage_path('logs/cron_queue_' . date('Y-m-d_H-i') . '.log'))
+			//->sendOutputTo(storage_path('logs/cron_queue_' . date('Y-m-d_H-i') . '.log'))
 			->everyMinute();
 
 		/*
