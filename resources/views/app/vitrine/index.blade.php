@@ -39,12 +39,12 @@
 			<div class="clear"></div>
 			<hr/>
 			<!-- Begin Portfolio -->
-			<div id="portfolio">
+			<div id="portfolio" class="layout__body-wrapper__content-wrapper__inner__widget-portfolio js-layout__body-wrapper__content-wrapper__inner__widget-portfolio">
 				<h2 class="colored alignleft">Portfolio</h2>
 				{!! Widget::show_projects_categories(5) !!}
+				{!! Widget::show_projects(12) !!}
 			</div>
 			<!-- End Portfolio -->
-			{!! Widget::show_projects(12) !!}
 			<div class="clear"></div>
 		</div>
 		<!-- Begin Inner -->

@@ -16,11 +16,15 @@ class AlterTeamsTable extends Migration
 		{
 			$table->string('tag')
 				->after('name');
+
 			$table->string('website_url')
 				->after('tag');
+
 			$table->boolean('is_cvepdb_team')
 				->after('reference');
+
 		});
+
 	}
 
 	/**
@@ -32,9 +36,11 @@ class AlterTeamsTable extends Migration
 	{
 		Schema::table('teams', function ($table)
 		{
+
 			$table->dropColumn('tag');
 			$table->dropColumn('website_url');
 			$table->dropColumn('is_cvepdb_team');
+
 		});
     }
 }

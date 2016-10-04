@@ -16,13 +16,13 @@ class AlterTeamsTableAddLinkToCountriesTable extends Migration
 		{
 			$table->integer('country_id')
 				->unsigned()
-				->default(76) // france
-				->after('reference');
+				->after('website_url');
 			$table->index('country_id');
-			$table->engine = 'InnoDB';
 			$table->foreign('country_id')
 				->references('id')
-				->on('countries');
+				->on('countries')
+				->onUpdate('cascade')
+				->onDelete('cascade');
 		});
 	}
 
