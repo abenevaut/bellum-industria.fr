@@ -1,7 +1,6 @@
 <?php namespace cms\Domain\Settings\Settings\Repositories;
 
 use CVEPDB\Settings\Facades\Settings as SettingsFacade;
-use cms\Infrastructure\Abstractions\Requests\FormRequestAbstract;
 
 /**
  * Class SettingsRepository
@@ -43,34 +42,6 @@ class SettingsRepository
 	public function delete($key)
 	{
 		SettingsFacade::forget($key);
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function index()
-	{
-		return view('app.backend.settings.index', ['settings' => $this]);
-	}
-
-	/**
-	 * @param FormRequestAbstract $request
-	 *
-	 * @return mixed
-	 */
-	public function store(FormRequestAbstract $request)
-	{
-		$posts = $request->all();
-		unset($posts['_token']);
-
-		$settings_keys = config('settings.form_key_to_settings');
-
-		foreach ($posts as $key => $value)
-		{
-			$this->set($settings_keys[$key], $value);
-		}
-
-		return redirect(route('backend.settings.index'));
 	}
 
 }
