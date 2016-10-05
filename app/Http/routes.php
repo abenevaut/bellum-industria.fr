@@ -13,8 +13,6 @@
 
 Route::group(['middleware' => ['admin'], 'prefix' => 'backend'], function ()
 {
-	Route::resource('settings', '\cms\Http\Controllers\Backend\SettingsController');
-	Route::resource('environments', '\cms\Http\Controllers\Backend\EnvironmentsController');
 });
 
 Route::group(['middleware' => ['ajax'], 'prefix' => 'ajax'], function ()

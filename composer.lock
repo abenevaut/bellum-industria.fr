@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "93e6e814a31b72133c4ff15f1b4b44e7",
-    "content-hash": "bafdf6a0daa441bcc5288ec6d4d5968c",
+    "hash": "4f60bbc4ccb0a26ea6adeefd23bab8d0",
+    "content-hash": "94cb498dec15443f0f4905ea89bb620f",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1131,6 +1131,53 @@
                 "module"
             ],
             "time": "2016-09-04 12:15:23"
+        },
+        {
+            "name": "cvepdb-cms/module-environments",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/cvepdb-cms/module-environments.git",
+                "reference": "6c8b5e1bb0473d094244b8883a89f1084af13824"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-environments/repository/archive.zip?sha=6c8b5e1bb0473d094244b8883a89f1084af13824",
+                "reference": "6c8b5e1bb0473d094244b8883a89f1084af13824",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "Environments"
+            },
+            "autoload": {
+                "psr-4": {
+                    "cms\\Modules\\Environments\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "open"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Environments manager for cvepdb-cms",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "CVEPDB",
+                "cms",
+                "environments",
+                "module"
+            ],
+            "time": "2016-10-05 12:49:43"
         },
         {
             "name": "cvepdb-cms/module-files",
@@ -11610,6 +11657,7 @@
         "pingpong/themes": 20,
         "cvepdb/laravel-addresses": 20,
         "cvepdb/laravel-settings": 20,
+        "cvepdb-cms/module-settings": 20,
         "cvepdb-cms/module-dashboard": 20,
         "cvepdb-cms/module-files": 20,
         "cvepdb-cms/module-installer": 20,
@@ -11620,7 +11668,7 @@
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,
         "artesaos/laravel-linkedin": 20,
-        "cvepdb-cms/module-settings": 20,
+        "cvepdb-cms/module-environments": 20,
         "redcomponent/teststatistics": 20
     },
     "prefer-stable": false,
