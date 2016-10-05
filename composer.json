@@ -77,6 +77,7 @@
         "maatwebsite/excel": "~2.1.0",
         "cvepdb/laravel-addresses": "dev-master",
         "cvepdb/laravel-settings": "dev-master",
+        "cvepdb-cms/module-settings": "dev-master",
         "cvepdb-cms/module-dashboard": "dev-master",
         "cvepdb-cms/module-files": "dev-master",
         "cvepdb-cms/module-installer": "dev-master",
@@ -127,6 +128,7 @@
     "extra": {
         "installer-paths": {
             "modules/{$name}": [
+                "cvepdb-cms/module-settings",
                 "cvepdb-cms/module-installer",
                 "cvepdb-cms/module-dashboard",
                 "cvepdb-cms/module-themes",

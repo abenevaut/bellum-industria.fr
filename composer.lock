@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "913fad3508c5e7515f5c85c20dd366a7",
-    "content-hash": "5e97cb11cf89dfd677958a89964b5b5b",
+    "hash": "93e6e814a31b72133c4ff15f1b4b44e7",
+    "content-hash": "bafdf6a0daa441bcc5288ec6d4d5968c",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1313,6 +1313,53 @@
                 "posts"
             ],
             "time": "2016-08-24 15:56:19"
+        },
+        {
+            "name": "cvepdb-cms/module-settings",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/cvepdb-cms/module-settings.git",
+                "reference": "5529f5badaa66121920d2f1defee968a7b05d747"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-settings/repository/archive.zip?sha=5529f5badaa66121920d2f1defee968a7b05d747",
+                "reference": "5529f5badaa66121920d2f1defee968a7b05d747",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "Settings"
+            },
+            "autoload": {
+                "psr-4": {
+                    "cms\\Modules\\Settings\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "open"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Settings manager for cvepdb-cms",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "CVEPDB",
+                "Settings",
+                "cms",
+                "module"
+            ],
+            "time": "2016-10-05 11:42:16"
         },
         {
             "name": "cvepdb-cms/module-themes",
@@ -11573,6 +11620,7 @@
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,
         "artesaos/laravel-linkedin": 20,
+        "cvepdb-cms/module-settings": 20,
         "redcomponent/teststatistics": 20
     },
     "prefer-stable": false,
