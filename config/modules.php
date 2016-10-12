@@ -24,14 +24,14 @@ return [
 
 	'stubs' => [
 		'enabled'      => false,
-		'path'         => base_path() . '/vendor/pingpong/modules/src/Pingpong/Modules/Commands/stubs',
+		'path'         => base_path('/vendor/cvepdb/laravel-modules/src/Console/stubs'),
 		'files'        => [
 			'start'           => 'start.php',
 			'routes'          => 'Http/routes.php',
 			'json'            => 'module.json',
-			'views/index'     => 'Resources/views/index.blade.php',
-			'views/master'    => 'Resources/views/layouts/master.blade.php',
-			'scaffold/config' => 'Config/config.php',
+			'views/index'     => 'resources/views/index.blade.php',
+			'views/master'    => 'resources/views/layouts/master.blade.php',
+			'scaffold/config' => 'config/config.php',
 			'composer'        => 'composer.json',
 		],
 		'replacements' => [
@@ -137,10 +137,10 @@ return [
 	*/
 
 	'composer' => [
-		'vendor' => 'pingpong-modules',
+		'vendor' => 'cvepdb-cms/module-MODULENAME',
 		'author' => [
-			'name'  => 'Pingpong Labs',
-			'email' => 'pingpong.labs@gmail.com',
+			'name'  => 'Your Name',
+			'email' => 'your@mail.com',
 		],
 	],
 	/*

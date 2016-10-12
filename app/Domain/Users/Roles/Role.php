@@ -1,6 +1,5 @@
 <?php namespace cms\Domain\Users\Roles;
 
-use Phoenix\EloquentMeta\MetaTrait;
 use cms\App\Facades\Environments;
 use cms\Infrastructure\Abstractions\Model\RoleModelAbstract;
 use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
@@ -35,7 +34,6 @@ use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
 class Role extends RoleModelAbstract
 {
 
-	use MetaTrait;
 	use EnvironmentTrait;
 
 	/**

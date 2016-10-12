@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => 'backups',
+    'default' => 'local',
 
     /*
     |--------------------------------------------------------------------------
@@ -43,9 +43,23 @@ return [
 
     'disks' => [
 
-        'backups' => [
+        'local' => [
             'driver' => 'local',
-            'root'   => storage_path('app/default/backups'),
+            'root' => storage_path('app'),
+        ],
+
+        'public' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'visibility' => 'public',
+        ],
+
+        's3' => [
+            'driver' => 's3',
+            'key' => 'your-key',
+            'secret' => 'your-secret',
+            'region' => 'your-region',
+            'bucket' => 'your-bucket',
         ],
 
     ],

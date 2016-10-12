@@ -1,7 +1,6 @@
 <?php namespace cms\Domain\Users\Users;
 
 use Carbon\Carbon;
-use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use CVEPDB\Addresses\Domain\Addresses\Addresses\Traits\AddressableTrait;
 use cms\Infrastructure\Abstractions\Model\LogAuthenticatableModelAbstract;
@@ -50,14 +49,7 @@ class User extends LogAuthenticatableModelAbstract
 {
 
 	use AddressableTrait;
-	use EntrustUserTrait;
 	use EnvironmentTrait;
-
-	use SoftDeletes
-	{
-		SoftDeletes::restore insteadof EntrustUserTrait;
-		EntrustUserTrait::restore as restoreEntrustUserTrait;
-	}
 
 	/**
 	 * The attributes that are mass assignable.
@@ -133,14 +125,6 @@ class User extends LogAuthenticatableModelAbstract
 			return new Carbon($this->birth_date);
 		}
 		return null;
-	}
-
-	/**
-	 * The apikey that belong to the user.
-	 */
-	public function apikey()
-	{
-		return $this->hasOne('cms\Domain\Users\ApiKeys\ApiKey');
 	}
 
 	/**

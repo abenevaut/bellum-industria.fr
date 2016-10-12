@@ -1,7 +1,6 @@
 <?php namespace cms\Domain\Users\Permissions;
 
 use cms\Infrastructure\Abstractions\Model\PermissionModelAbstract;
-use Phoenix\EloquentMeta\MetaTrait;
 
 /**
  * Class Permission
@@ -25,8 +24,6 @@ use Phoenix\EloquentMeta\MetaTrait;
  */
 class Permission extends PermissionModelAbstract
 {
-
-	use MetaTrait;
 
 	/**
 	 * Get the default "belongsToMany" link name, present in Environment model.

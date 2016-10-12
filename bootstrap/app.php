@@ -12,7 +12,7 @@
 */
 
 $app = new Illuminate\Foundation\Application(
-	realpath(__DIR__ . '/../')
+    realpath(__DIR__.'/../')
 );
 
 /*
@@ -27,17 +27,17 @@ $app = new Illuminate\Foundation\Application(
 */
 
 $app->singleton(
-	Illuminate\Contracts\Http\Kernel::class,
-	cms\Http\Kernel::class
+    Illuminate\Contracts\Http\Kernel::class,
+    cms\Http\Kernel::class
 );
 
 $app->singleton(
-	Illuminate\Contracts\Console\Kernel::class,
+    Illuminate\Contracts\Console\Kernel::class,
 	cms\Console\Kernel::class
 );
 
 $app->singleton(
-	Illuminate\Contracts\Debug\ExceptionHandler::class,
+    Illuminate\Contracts\Debug\ExceptionHandler::class,
 	cms\Exceptions\Handler::class
 );
 
@@ -70,7 +70,7 @@ $env = $app->detectEnvironment(function ()
 
 	$dotenv = new \Dotenv\Dotenv(__DIR__ . '/../', '.env' . '.' . getenv('APP_ENV')); // Laravel 5.2
 	$dotenv->overload(); //this is important
-	
+
 });
 
 /*

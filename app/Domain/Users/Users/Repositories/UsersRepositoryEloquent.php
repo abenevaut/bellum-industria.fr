@@ -9,7 +9,6 @@ use cms\Domain\Users\Users\Repositories\UsersRepository;
 use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
 use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
 use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
-use cms\Domain\Users\ApiKeys\Repositories\ApiKeysRepositoryEloquent;
 use cms\Domain\Users\SocialTokens\Repositories\SocialTokenRepositoryEloquent;
 use cms\Domain\Users\Users\Criterias\OnlyTrashedCriteria;
 use cms\Domain\Users\Users\Criterias\WithTrashedCriteria;
@@ -66,28 +65,24 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	protected $r_permissions = null;
 
 	/**
-	 * @var ApiKeysRepositoryEloquent|null
-	 */
-	protected $r_apikey = null;
-
-	/**
 	 * @var SocialTokenRepositoryEloquent|null
 	 */
 	protected $r_social_tokens = null;
 
 	/**
-	 * UserRepositoryEloquent constructor.
+	 * UsersRepositoryEloquent constructor.
 	 *
-	 * @param Application               $app
-	 * @param RolesRepositoryEloquent   $r_roles
-	 * @param ApiKeysRepositoryEloquent $r_apikey
+	 * @param Application                    $app
+	 * @param EnvironmentsRepositoryEloquent $r_environments
+	 * @param RolesRepositoryEloquent        $r_roles
+	 * @param PermissionsRepositoryEloquent  $r_permissions
+	 * @param SocialTokenRepositoryEloquent  $r_social_tokens
 	 */
 	public function __construct(
 		Application $app,
 		EnvironmentsRepositoryEloquent $r_environments,
 		RolesRepositoryEloquent $r_roles,
 		PermissionsRepositoryEloquent $r_permissions,
-		ApiKeysRepositoryEloquent $r_apikey,
 		SocialTokenRepositoryEloquent $r_social_tokens
 	)
 	{
@@ -96,7 +91,6 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 		$this->r_environments = $r_environments;
 		$this->r_roles = $r_roles;
 		$this->r_permissions = $r_permissions;
-		$this->r_apikey = $r_apikey;
 		$this->r_social_tokens = $r_social_tokens;
 	}
 
@@ -298,8 +292,6 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 			'birth_date' => $birth_date,
 		]);
 
-		$this->r_apikey->generate_api_key($user);
-
 		// Always attach client role
 		$this->set_user_roles($user, [
 			RolesRepositoryEloquent::USER
@@ -386,12 +378,6 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 
 		$user->roles()->detach();
 		$user->roles()->attach($role_user);
-
-		/*
-		 * delete api key
-		 */
-
-		$user->apikey()->delete();
 
 		/*
 		 * delete user
