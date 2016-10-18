@@ -1,0 +1,120 @@
+{
+  "name": "laravel/laravel",
+  "description": "The Laravel Framework.",
+  "keywords": [
+    "framework",
+    "laravel"
+  ],
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "php": ">=5.6.4",
+    "composer/composer": "^1.0",
+    "composer/installers": "~1.0",
+    "laravel/framework": "5.3.*",
+    "doctrine/cache": "^1.6",
+    "doctrine/dbal": "~2.3",
+    "nesbot/carbon": "^1.21",
+    "league/fractal": "^0.14.0",
+    "prettus/l5-repository": "^2.1",
+    "spatie/laravel-backup": "3.8.*",
+    "cvepdb/laravel-widgets": "dev-master",
+    "cvepdb/laravel-themes": "dev-master",
+    "cvepdb/laravel-modules": "dev-master",
+    "cvepdb/laravel-menus": "dev-master",
+    "cvepdb/laravel-settings": "dev-master",
+    "cvepdb/laravel-addresses": "dev-master",
+    "cvepdb-cms/module-settings": "dev-master",
+    "cvepdb-cms/module-environments": "dev-master",
+    "cvepdb-cms/module-dashboard": "dev-master",
+    "cvepdb-cms/module-files": "dev-master",
+    "cvepdb-cms/module-installer": "dev-master",
+    "cvepdb-cms/module-themes": "dev-master",
+    "cvepdb-cms/module-users": "dev-master",
+    "cvepdb-cms/theme-adminlte": "dev-master",
+    "cvepdb-cms/theme-lumen": "dev-master"
+  },
+  "require-dev": {
+    "fzaninotto/faker": "~1.4",
+    "mockery/mockery": "0.9.*",
+    "league/factory-muffin": "^3.0",
+    "league/factory-muffin-faker": "^1.0",
+    "codeception/codeception": "2.2.1",
+    "codeception/c3": "2.*",
+    "phpunit/php-code-coverage": "^3",
+    "deployer/deployer": "3.2.*",
+    "site5/phantoman": "^1.1",
+    "jonnyw/php-phantomjs": "^4.3",
+    "jakoch/phantomjs-installer": "^2.1",
+    "captbaritone/mailcatcher-codeception-module": "^1.1",
+    "codeception/phpbuiltinserver": "^1.2",
+    "redcomponent/teststatistics": "dev-master",
+    "blackfire/php-sdk": "^1.5",
+    "antennaio/laravel-codeception-dbdump": "^0.0.5",
+    "squizlabs/php_codesniffer": "*",
+    "pragmarx/laravelcs": "^0.1.0",
+    "sebastian/phpcpd": "*",
+    "barryvdh/laravel-debugbar": "^2.2",
+    "barryvdh/laravel-ide-helper": "^2.1"
+  },
+  "autoload": {
+    "classmap": [
+      "database"
+    ],
+    "psr-4": {
+      "cms\\App\\": "app/App",
+      "cms\\Console\\": "app/Console",
+      "cms\\Domain\\": "app/Domain",
+      "cms\\Exceptions\\": "app/Exceptions",
+      "cms\\Http\\": "app/Http",
+      "cms\\Infrastructure\\": "app/Infrastructure",
+      "cms\\Modules\\": "modules/"
+    },
+    "files": [
+      "app/App/Services/AdminLteNavigationsHelpers.php",
+      "app/App/Services/AdminLtePaginationsHelpers.php",
+      "app/App/Services/MCryptHelpers.php",
+      "app/App/Services/helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "classmap": [
+    ]
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"file_exists('.env.installer') || copy('.env.example', '.env');\""
+    ],
+    "post-create-project-cmd": [
+      "php artisan key:generate"
+    ],
+    "post-install-cmd": [
+      "Illuminate\\Foundation\\ComposerScripts::postInstall",
+      "php artisan optimize"
+    ],
+    "post-update-cmd": [
+      "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+      "php artisan optimize"
+    ]
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "extra": {
+    "installer-paths": {
+      "modules/{$name}": [
+        "cvepdb-cms/module-settings",
+        "cvepdb-cms/module-environments",
+        "cvepdb-cms/module-installer",
+        "cvepdb-cms/module-dashboard",
+        "cvepdb-cms/module-themes",
+        "cvepdb-cms/module-files",
+        "cvepdb-cms/module-users"
+      ],
+      "resources/themes/{$name}": [
+        "cvepdb-cms/theme-adminlte",
+        "cvepdb-cms/theme-lumen"
+      ]
+    }
+  }
+}

@@ -1,7 +1,75 @@
-/node_modules
-/public/storage
+.idea
 /vendor
-/.idea
-Homestead.json
+/bin
+/node_modules
 Homestead.yaml
+Homestead.json
+_ide_helper.php
+.phpstorm.meta.php
+
+public/.tmb/
+public/modules/
+public/themes/
+public/uploads/*
+!public/uploads/.gitkeep
+
+resources/assets/bower
+resources/views/modules/*
+
+storage/*
+!storage/.gitkeep
+
+# Dotenv
 .env
+.env.*
+!.env.example
+!.env.testing
+!.env.codeship
+!.env.travis
+.env.production
+
+# Modules directory
+modules/
+modules/*
+resources/themes
+
+# Tests
+!tests/_data/*
+tests/_output/*
+tests/_support/_generated/*
+
+# Databases
+database/database.sqlite
+database/testing.sqlite
+:memory:
+
+# Codeception
+tests/_output/*
+
+# Deployer
+deployer/shared
+!deployer/shared/production/.env.example
+!deployer/shared/production/.env
+!deployer/shared/production/.env.production.example
+!deployer/shared/staging/.env.example
+!deployer/shared/staging/.env
+!deployer/shared/staging/.env.staging.example
+!deployer/shared/testing/.env.example
+deployer/shared/testing/.env.testing
+!deployer/shared/testing/.env
+!deployer/shared/testing/.env.testing.example
+deployer/release
+deployer/releases
+deploy.yml
+deployer/current
+
+# Files
+database/migrations/2016_06_16_110839_create_media_table.php
+# Pages
+database/migrations/2016_04_04_174738_create_table_pages.php
+# Posts
+# Themes
+# Users
+database/migrations/2016_03_14_122839_alter_users_table_remove_name_add_first_name_and_last_name.php
+database/migrations/2016_03_23_150432_alter_users_table_to_add_soft_delete.php
+database/migrations/2016_03_30_203434_alter_roles_table_add_unchangeable_bool.php
