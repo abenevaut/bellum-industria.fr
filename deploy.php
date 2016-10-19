@@ -12,9 +12,12 @@ env('local_deploy_path', './deployer');
 // Removes old releases and keeps the last 5
 set('keep_releases', 5);
 
-set('repository', 'git@gitlab.com:cvepdb/cms.git');
+set('repository', 'git@gitlab.com:cvepdb/site.git');
 
 env('release_name', date('Y-m-d_H-i-s'));
+
+set('http_user', 'cvepdb-www');
+set('writable_use_sudo', false);
 
 task('cms:initialize', function ()
 {
@@ -68,6 +71,7 @@ task('cms:prepare', function ()
 {
 	run("cd {{deploy_path}}/current/resources/themes/adminlte/assets && bower install && cd -");
 	run("cd {{deploy_path}}/current/resources/themes/lumen/assets && bower install && cd -");
+	run("cd {{deploy_path}}/current/resources/themes/longwave/assets && bower install && cd -");
 	run("php {{deploy_path}}/current/artisan cms:module:publish");
 	run("php {{deploy_path}}/current/artisan cms:module:publish-migration");
 	run("php {{deploy_path}}/current/artisan cms:theme:publish");
@@ -131,7 +135,7 @@ task('deploy', [
 	'deploy:symlink',
 	'deploy:writable',
 	'deploy:vendors',
-	'cms:prepare',
 	'cleanup',
+	'cms:prepare',
 	'deploy:up'
 ])->desc('Deploy your project');

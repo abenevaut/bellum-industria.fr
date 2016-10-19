@@ -1,38 +1,83 @@
 {
-  "name": "laravel/laravel",
-  "description": "The Laravel Framework.",
+  "name": "cvepdb/cms",
+  "description": "A Laravel Framework based CMS.",
   "keywords": [
     "framework",
-    "laravel"
+    "laravel",
+    "cms"
   ],
-  "license": "MIT",
+  "license": "GPL-3.0",
   "type": "project",
   "require": {
-    "php": ">=5.6.4",
-    "composer/composer": "^1.0",
+    "php": ">=5.5.9",
+    "laravel/framework": "5.2.*",
+    "beelab/bowerphp": "0.3.*@beta",
+    "composer/composer": "^1.0@beta",
     "composer/installers": "~1.0",
-    "laravel/framework": "5.3.*",
     "doctrine/cache": "^1.6",
-    "doctrine/dbal": "~2.3",
+    "zizaco/entrust": "5.2.x-dev",
+    "chrisbjr/api-guard": "^3.1",
+    "predis/predis": "^1.0",
+    "creitive/laravel5-breadcrumbs": "^1.0",
+    "laravel/socialite": "^2.0",
+    "jenssegers/raven": "^1.4",
+    "roumen/sitemap": "^2.5",
+    "roumen/feed": "^2.9",
+    "toin0u/geocoder-laravel": "@stable",
     "nesbot/carbon": "^1.21",
-    "league/fractal": "^0.14.0",
     "prettus/l5-repository": "^2.1",
-    "spatie/laravel-backup": "3.8.*",
-    "cvepdb/laravel-widgets": "dev-master",
-    "cvepdb/laravel-themes": "dev-master",
-    "cvepdb/laravel-modules": "dev-master",
-    "cvepdb/laravel-menus": "dev-master",
-    "cvepdb/laravel-settings": "dev-master",
+    "doctrine/dbal": "~2.3",
+    "pingpong/modules": "~2.2",
+    "pingpong/widget": "~2.2",
+    "pingpong/menus": "^2.2",
+    "pingpong/themes": "dev-master",
+    "laravelcollective/html": "5.2.*",
+    "barryvdh/laravel-debugbar": "^2.2",
+    "phoenix/eloquent-meta": "1.4.*",
+    "maatwebsite/excel": "~2.1.0",
     "cvepdb/laravel-addresses": "dev-master",
-    "cvepdb-cms/module-settings": "dev-master",
-    "cvepdb-cms/module-environments": "dev-master",
+    "cvepdb/laravel-settings": "dev-master",
     "cvepdb-cms/module-dashboard": "dev-master",
     "cvepdb-cms/module-files": "dev-master",
     "cvepdb-cms/module-installer": "dev-master",
+    "cvepdb-cms/module-pages": "dev-master",
+    "cvepdb-cms/module-posts": "dev-master",
     "cvepdb-cms/module-themes": "dev-master",
+    "cvepdb-cms/module-servers": "dev-master",
     "cvepdb-cms/module-users": "dev-master",
     "cvepdb-cms/theme-adminlte": "dev-master",
-    "cvepdb-cms/theme-lumen": "dev-master"
+    "cvepdb-cms/theme-lumen": "dev-master",
+    "cvepdb-cms/theme-flatly": "dev-master",
+    "cvepdb-cms/module-clashofclan": "dev-master",
+    "cvepdb-cms/module-steam": "dev-master",
+    "cvepdb-cms/module-csgolounge": "dev-master",
+    "cvepdb-cms/module-teams": "dev-master",
+    "cvepdb/theme-longwave": "dev-master",
+    "cvepdb/module-projects": "dev-master",
+    "cvepdb-cms/module-tournaments": "dev-master",
+    "cvepdb/theme-pages": "dev-master",
+    "league/flysystem": "^1.0",
+    "league/flysystem-aws-s3-v3": "~1.0",
+    "league/flysystem-rackspace": "~1.0",
+    "league/flysystem-dropbox": "^1.0",
+    "spatie/laravel-medialibrary": "^3.16",
+    "barryvdh/laravel-elfinder": "^0.3.7",
+    "aws/aws-php-sns-message-validator": "^1.1",
+    "spatie/laravel-backup": "3.8.*",
+    "maknz/slack": "^1.7",
+    "monolog/monolog": "^1.19",
+    "barryvdh/laravel-ide-helper": "^2.1",
+    "spatie/laravel-glide": "^2.3",
+    "thujohn/twitter": "^2.2",
+    "sammyk/laravel-facebook-sdk": "^3.0",
+    "artesaos/laravel-linkedin": "dev-master",
+    "invisnik/laravel-steam-auth": "^2.0",
+    "xpaw/php-source-query-class": "^1.0",
+    "da-mitchell/steam-api": "^2.1",
+    "toniperic/php-clash-of-clans": "dev-master",
+    "simplepie/simplepie": "^1.4",
+    "vinkla/gitlab": "^2.5",
+    "team-reflex/challonge-php": "^1.0"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
@@ -53,18 +98,18 @@
     "antennaio/laravel-codeception-dbdump": "^0.0.5",
     "squizlabs/php_codesniffer": "*",
     "pragmarx/laravelcs": "^0.1.0",
-    "sebastian/phpcpd": "*",
-    "barryvdh/laravel-debugbar": "^2.2",
-    "barryvdh/laravel-ide-helper": "^2.1"
+    "sebastian/phpcpd": "*"
   },
   "autoload": {
     "classmap": [
       "database"
     ],
     "psr-4": {
-      "cms\\App\\": "app/App",
-      "cms\\Console\\": "app/Console",
       "cms\\Domain\\": "app/Domain",
+      "cms\\App\\": "app/App",
+      "cms\\Vitrine\\": "app/Vitrine",
+      "cms\\Multigaming\\": "app/Multigaming",
+      "cms\\Console\\": "app/Console",
       "cms\\Exceptions\\": "app/Exceptions",
       "cms\\Http\\": "app/Http",
       "cms\\Infrastructure\\": "app/Infrastructure",
@@ -83,10 +128,10 @@
   },
   "scripts": {
     "post-root-package-install": [
-      "php -r \"file_exists('.env.installer') || copy('.env.example', '.env');\""
     ],
     "post-create-project-cmd": [
-      "php artisan key:generate"
+      "php artisan cms:key-generate",
+      "php -r \"file_exists('.env.installer') || copy('.env.example', '.env');\""
     ],
     "post-install-cmd": [
       "Illuminate\\Foundation\\ComposerScripts::postInstall",
@@ -94,26 +139,46 @@
     ],
     "post-update-cmd": [
       "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+      "php artisan clear-compiled",
       "php artisan optimize"
     ]
   },
   "config": {
     "preferred-install": "dist"
   },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://packages.cvepdb.fr"
+    }
+  ],
+  "prefer-stable": false,
+  "minimum-stability": "dev",
   "extra": {
     "installer-paths": {
       "modules/{$name}": [
-        "cvepdb-cms/module-settings",
-        "cvepdb-cms/module-environments",
         "cvepdb-cms/module-installer",
         "cvepdb-cms/module-dashboard",
         "cvepdb-cms/module-themes",
+        "cvepdb-cms/module-navigations",
+        "cvepdb-cms/module-clashofclan",
+        "cvepdb-cms/module-steam",
+        "cvepdb-cms/module-csgolounge",
         "cvepdb-cms/module-files",
-        "cvepdb-cms/module-users"
+        "cvepdb-cms/module-users",
+        "cvepdb-cms/module-posts",
+        "cvepdb-cms/module-teams",
+        "cvepdb-cms/module-pages",
+        "cvepdb-cms/module-servers",
+        "cvepdb/module-projects",
+        "cvepdb-cms/module-tournaments"
       ],
       "resources/themes/{$name}": [
         "cvepdb-cms/theme-adminlte",
-        "cvepdb-cms/theme-lumen"
+        "cvepdb-cms/theme-lumen",
+        "cvepdb-cms/theme-flatly",
+        "cvepdb/theme-longwave",
+        "cvepdb/theme-pages"
       ]
     }
   }
