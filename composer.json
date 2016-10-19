@@ -8,59 +8,6 @@
   ],
   "license": "GPL-3.0",
   "type": "project",
-  "autoload": {
-    "classmap": [
-      "database"
-    ],
-    "psr-4": {
-      "cms\\Domain\\": "app/Domain",
-      "cms\\App\\": "app/App",
-      "cms\\Vitrine\\": "app/Vitrine",
-      "cms\\Multigaming\\": "app/Multigaming",
-      "cms\\Infrastructure\\": "app/Infrastructure",
-      "cms\\Console\\": "app/Console",
-      "cms\\Http\\": "app/Http",
-      "cms\\Exceptions\\": "app/Exceptions",
-      "cms\\Modules\\": "modules/"
-    },
-    "files": [
-      "app/App/Services/AdminLteNavigationsHelpers.php",
-      "app/App/Services/AdminLtePaginationsHelpers.php",
-      "app/App/Services/MCryptHelpers.php",
-      "app/App/Services/helpers.php"
-    ]
-  },
-  "autoload-dev": {
-    "classmap": [
-    ]
-  },
-  "scripts": {
-    "post-root-package-install": [
-    ],
-    "post-create-project-cmd": [
-      "php artisan cms:key-generate"
-    ],
-    "post-install-cmd": [
-      "Illuminate\\Foundation\\ComposerScripts::postInstall",
-      "php artisan optimize"
-    ],
-    "post-update-cmd": [
-      "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-      "php artisan clear-compiled",
-      "php artisan optimize"
-    ]
-  },
-  "config": {
-    "preferred-install": "dist"
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "http://packages.cvepdb.fr"
-    }
-  ],
-  "prefer-stable": false,
-  "minimum-stability": "dev",
   "require": {
     "php": ">=5.5.9",
     "laravel/framework": "5.2.*",
@@ -153,6 +100,60 @@
     "pragmarx/laravelcs": "^0.1.0",
     "sebastian/phpcpd": "*"
   },
+  "autoload": {
+    "classmap": [
+      "database"
+    ],
+    "psr-4": {
+      "cms\\Domain\\": "app/Domain",
+      "cms\\App\\": "app/App",
+      "cms\\Vitrine\\": "app/Vitrine",
+      "cms\\Multigaming\\": "app/Multigaming",
+      "cms\\Console\\": "app/Console",
+      "cms\\Exceptions\\": "app/Exceptions",
+      "cms\\Http\\": "app/Http",
+      "cms\\Infrastructure\\": "app/Infrastructure",
+      "cms\\Modules\\": "modules/"
+    },
+    "files": [
+      "app/App/Services/AdminLteNavigationsHelpers.php",
+      "app/App/Services/AdminLtePaginationsHelpers.php",
+      "app/App/Services/MCryptHelpers.php",
+      "app/App/Services/helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "classmap": [
+    ]
+  },
+  "scripts": {
+    "post-root-package-install": [
+    ],
+    "post-create-project-cmd": [
+      "php artisan cms:key-generate",
+      "php -r \"file_exists('.env.installer') || copy('.env.example', '.env');\""
+    ],
+    "post-install-cmd": [
+      "Illuminate\\Foundation\\ComposerScripts::postInstall",
+      "php artisan optimize"
+    ],
+    "post-update-cmd": [
+      "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+      "php artisan clear-compiled",
+      "php artisan optimize"
+    ]
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://packages.cvepdb.fr"
+    }
+  ],
+  "prefer-stable": false,
+  "minimum-stability": "dev",
   "extra": {
     "installer-paths": {
       "modules/{$name}": [

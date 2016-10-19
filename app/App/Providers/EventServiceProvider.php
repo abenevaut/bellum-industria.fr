@@ -1,6 +1,6 @@
 <?php namespace cms\App\Providers;
 
-use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 /**
@@ -9,35 +9,26 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
  */
 class EventServiceProvider extends ServiceProvider
 {
+    /**
+     * The event listener mappings for the application.
+     *
+     * @var array
+     */
+    protected $listen = [
+        'App\Events\SomeEvent' => [
+            'App\Listeners\EventListener',
+        ],
+    ];
 
-	/**
-	 * The event listener mappings for the application.
-	 *
-	 * @var array
-	 */
-	protected $listen = [
-	];
+    /**
+     * Register any events for your application.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        parent::boot();
 
-	/**
-	 * The subscriber classes to register.
-	 *
-	 * @var array
-	 */
-	protected $subscribe = [
-		'cms\App\Listeners\AuthEventsListener',
-		'cms\App\Listeners\EnvironmentsEventsListener',
-		'cms\App\Listeners\UsersEventsListener'
-	];
-
-	/**
-	 * Register any other events for your application.
-	 *
-	 * @param  \Illuminate\Contracts\Events\Dispatcher $events
-	 *
-	 * @return void
-	 */
-	public function boot(DispatcherContract $events)
-	{
-		parent::boot($events);
-	}
+        //
+    }
 }

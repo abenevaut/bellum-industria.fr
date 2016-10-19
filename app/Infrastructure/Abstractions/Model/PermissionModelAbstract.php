@@ -1,12 +1,12 @@
 <?php namespace cms\Infrastructure\Abstractions\Model;
 
-use Zizaco\Entrust\EntrustPermission;
+use cms\Infrastructure\Abstractions\Model\ModelAbstract;
 
 /**
  * Class PermissionModelAbstract
  * @package cms\Infrastructure\Contracts\Model
  */
-abstract class PermissionModelAbstract extends EntrustPermission
+abstract class PermissionModelAbstract extends ModelAbstract
 {
 
 

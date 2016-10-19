@@ -23,7 +23,6 @@ storage/*
 .env
 .env.*
 !.env.example
-!.env.installer
 !.env.testing
 !.env.codeship
 !.env.travis
