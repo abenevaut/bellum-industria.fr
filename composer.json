@@ -1,11 +1,12 @@
 {
-  "name": "laravel/laravel",
-  "description": "The Laravel Framework.",
+  "name": "cvepdb/cms",
+  "description": "A Laravel Framework based CMS.",
   "keywords": [
     "framework",
-    "laravel"
+    "laravel",
+    "cms"
   ],
-  "license": "MIT",
+  "license": "GPL-3.0",
   "type": "project",
   "require": {
     "php": ">=5.6.4",
@@ -62,12 +63,7 @@
       "database"
     ],
     "psr-4": {
-      "cms\\App\\": "app/App",
-      "cms\\Console\\": "app/Console",
-      "cms\\Domain\\": "app/Domain",
-      "cms\\Exceptions\\": "app/Exceptions",
-      "cms\\Http\\": "app/Http",
-      "cms\\Infrastructure\\": "app/Infrastructure",
+      "cms\\": "app/",
       "cms\\Modules\\": "modules/"
     },
     "files": [
@@ -83,7 +79,7 @@
   },
   "scripts": {
     "post-root-package-install": [
-      "php -r \"file_exists('.env.installer') || copy('.env.example', '.env');\""
+      "php -r \"file_exists('.env.installer') || copy('.env.example', '.env.installer');\""
     ],
     "post-create-project-cmd": [
       "php artisan key:generate"
