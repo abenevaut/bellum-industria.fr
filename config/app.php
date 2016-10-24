@@ -131,68 +131,46 @@ return [
 		Illuminate\Broadcasting\BroadcastServiceProvider::class,
 		Illuminate\Bus\BusServiceProvider::class,
 		Illuminate\Cache\CacheServiceProvider::class,
-		//Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
+		Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
 		Illuminate\Cookie\CookieServiceProvider::class,
 		Illuminate\Database\DatabaseServiceProvider::class,
 		Illuminate\Encryption\EncryptionServiceProvider::class,
-		//Illuminate\Filesystem\FilesystemServiceProvider::class,
+		Illuminate\Filesystem\FilesystemServiceProvider::class,
 		Illuminate\Foundation\Providers\FoundationServiceProvider::class,
 		Illuminate\Hashing\HashServiceProvider::class,
-		//Illuminate\Mail\MailServiceProvider::class,
+		Illuminate\Mail\MailServiceProvider::class,
 		Illuminate\Pagination\PaginationServiceProvider::class,
 		Illuminate\Pipeline\PipelineServiceProvider::class,
 		Illuminate\Queue\QueueServiceProvider::class,
 		Illuminate\Redis\RedisServiceProvider::class,
-		//Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
+		Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
 		Illuminate\Session\SessionServiceProvider::class,
 		Illuminate\Translation\TranslationServiceProvider::class,
 		Illuminate\Validation\ValidationServiceProvider::class,
 		Illuminate\View\ViewServiceProvider::class,
 
 		/*
-		 * Application Service Providers...
+		 * Packages Service Providers...
 		 */
 
-		cms\App\Providers\ConsoleSupportServiceProvider::class,
-		cms\App\Providers\FilesystemServiceProvider::class,
-		cms\App\Providers\MailServiceProvider::class,
-		cms\App\Providers\PasswordResetServiceProvider::class,
+		CVEPDB\Settings\SettingsServiceProvider::class,
+		CVEPDB\Menus\App\Providers\MenusServiceProvider::class,
+		CVEPDB\Modules\App\Providers\ModulesServiceProvider::class,
+		CVEPDB\Themes\App\Providers\ThemesServiceProvider::class,
+		CVEPDB\Widgets\App\Providers\WidgetsServiceProvider::class,
+		Prettus\Repository\Providers\RepositoryServiceProvider::class,
+		Collective\Html\HtmlServiceProvider::class,
+		CVEPDB\Addresses\App\Providers\AddressesServiceProvider::class,
+		Spatie\Backup\BackupServiceProvider::class,
+
+		/*
+		 * Application Service Providers...
+		 */
 
 		cms\App\Providers\AppServiceProvider::class,
 		cms\App\Providers\AuthServiceProvider::class,
 		cms\App\Providers\EventServiceProvider::class,
 		cms\App\Providers\RouteServiceProvider::class,
-
-		cms\App\Providers\EntrustServiceProvider::class,
-		cms\App\Providers\ApiGuardServiceProvider::class,
-		cms\App\Providers\ModulesServiceProvider::class,
-		cms\App\Providers\ThemesServiceProvider::class,
-		cms\App\Providers\PhoenixServiceProvider::class,
-		cms\App\Providers\SettingsServiceProvider::class,
-		cms\App\Providers\EnvironmentServiceProvider::class,
-
-
-		/*
-		 * Packages Service Providers...
-		 */
-
-//		Zizaco\Entrust\EntrustServiceProvider::class,
-		Prettus\Repository\Providers\RepositoryServiceProvider::class,
-//		Barryvdh\DomPDF\ServiceProvider::class,
-//		Collective\Bus\BusServiceProvider::class,
-		Maatwebsite\Excel\ExcelServiceProvider::class,
-		Collective\Html\HtmlServiceProvider::class,
-		Creitive\Breadcrumbs\BreadcrumbsServiceProvider::class,
-//		GrahamCampbell\Flysystem\FlysystemServiceProvider::class,
-		Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
-		Pingpong\Menus\MenusServiceProvider::class,
-		Pingpong\Widget\WidgetServiceProvider::class,
-		CVEPDB\Addresses\App\Providers\AddressesServiceProvider::class,
-		Spatie\Glide\GlideServiceProvider::class,
-		Spatie\Backup\BackupServiceProvider::class,
-		Toin0u\Geocoder\GeocoderServiceProvider::class,
-
-//		"Modules\\Files\\Providers\\ElfinderServiceProvider"
 
 	],
 
@@ -239,33 +217,19 @@ return [
 		'URL'       => Illuminate\Support\Facades\URL::class,
 		'Validator' => Illuminate\Support\Facades\Validator::class,
 		'View'      => Illuminate\Support\Facades\View::class,
+		'Input'     => Illuminate\Support\Facades\Input::class,
 
 		/*
 		 * Packages Aliases
 		 */
 
-		'Entrust'     => Zizaco\Entrust\EntrustFacade::class,
-//		'PDF' => Barryvdh\DomPDF\Facade::class,
-		'Excel'       => Maatwebsite\Excel\Facades\Excel::class,
-		'Form'        => Collective\Html\FormFacade::class,
-		'Html'        => Collective\Html\HtmlFacade::class,
-		'Breadcrumbs' => Creitive\Breadcrumbs\Facades\Breadcrumbs::class,
-//		'Flysystem' => GrahamCampbell\Flysystem\Facades\Flysystem::class,
-		'Menu'        => Pingpong\Menus\MenuFacade::class,
-
-		'Environment'  => cms\App\Facades\Environments::class,
-		'ApiGuardAuth' => \Chrisbjr\ApiGuard\Facades\ApiGuardAuth::class,
-		'Module'       => 'Pingpong\Modules\Facades\Module',
-		'Widget'       => 'Pingpong\Widget\WidgetFacade',
-		'Theme'        => 'Pingpong\Themes\ThemeFacade',
-		'Input'        => Illuminate\Support\Facades\Input::class,
-		'GlideImage'   => Spatie\Glide\GlideImageFacade::class,
-		'Geocoder'     => Toin0u\Geocoder\Facade\Geocoder::class,
-
-		/*
-		 * @deprecated, prefere the use of Log facade : Illuminate\Support\Facades\Log
-		 */
-		// 'Raven'        => Jenssegers\Raven\Facades\Raven::class,
+		'Form'     => Collective\Html\FormFacade::class,
+		'Html'     => Collective\Html\HtmlFacade::class,
+		'Settings' => CVEPDB\Settings\Facades\Settings::class,
+		'Menu'     => CVEPDB\Menus\App\Facades\MenuFacade::class,
+		'Module'   => CVEPDB\Modules\App\Facades\ModulesFacade::class,
+		'Widget'   => CVEPDB\Widgets\App\Facades\WidgetsFacade::class,
+		'Theme'    => CVEPDB\Themes\App\Facades\ThemeFacade::class,
 
 	],
 
