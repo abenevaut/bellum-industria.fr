@@ -117,6 +117,7 @@ class ElFinderDiskRepository extends DiskRepository
 	public function mountElFinderDisk($disk_reference, $options, $environment_reference = null)
 	{
 		$disks = Settings::get('elfinder.disks', [], $environment_reference);
+		$disks = is_null($disks) ? [] : $disks;
 
 		Settings::set(
 			'elfinder.disks',
