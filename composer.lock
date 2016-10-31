@@ -541,12 +541,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@gitlab.com:cvepdb-cms/module-dashboard.git",
+                "url": "https://github.com/cvepdb-cms/module-dashboard.git",
                 "reference": "aa5a87777aa64a66aadb83ec1d1a4f7f3266581b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-dashboard/repository/archive.zip?sha=aa5a87777aa64a66aadb83ec1d1a4f7f3266581b",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-dashboard/zipball/aa5a87777aa64a66aadb83ec1d1a4f7f3266581b",
                 "reference": "aa5a87777aa64a66aadb83ec1d1a4f7f3266581b",
                 "shasum": ""
             },
@@ -588,12 +588,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://gitlab.com/cvepdb-cms/module-environments.git",
+                "url": "https://github.com/cvepdb-cms/module-environments.git",
                 "reference": "b39ca016579325997ae9f6147e1868dfc478c1cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-environments/repository/archive.zip?sha=b39ca016579325997ae9f6147e1868dfc478c1cf",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-environments/zipball/b39ca016579325997ae9f6147e1868dfc478c1cf",
                 "reference": "b39ca016579325997ae9f6147e1868dfc478c1cf",
                 "shasum": ""
             },
@@ -635,12 +635,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://gitlab.com/cvepdb-cms/module-files.git",
+                "url": "https://github.com/cvepdb-cms/module-files.git",
                 "reference": "bc5b647f5c2ae1b4a95d74923eb5bb04bd324e07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-files/repository/archive.zip?sha=bc5b647f5c2ae1b4a95d74923eb5bb04bd324e07",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-files/zipball/bc5b647f5c2ae1b4a95d74923eb5bb04bd324e07",
                 "reference": "bc5b647f5c2ae1b4a95d74923eb5bb04bd324e07",
                 "shasum": ""
             },
@@ -682,12 +682,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://gitlab.com/cvepdb-cms/module-installer.git",
+                "url": "https://github.com/cvepdb-cms/module-installer.git",
                 "reference": "aec80f14f1af633c816168029ace61f6cca15f74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-installer/repository/archive.zip?sha=aec80f14f1af633c816168029ace61f6cca15f74",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-installer/zipball/aec80f14f1af633c816168029ace61f6cca15f74",
                 "reference": "aec80f14f1af633c816168029ace61f6cca15f74",
                 "shasum": ""
             },
@@ -729,12 +729,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://gitlab.com/cvepdb-cms/module-settings.git",
+                "url": "https://github.com/cvepdb-cms/module-settings.git",
                 "reference": "5529f5badaa66121920d2f1defee968a7b05d747"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-settings/repository/archive.zip?sha=5529f5badaa66121920d2f1defee968a7b05d747",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-settings/zipball/5529f5badaa66121920d2f1defee968a7b05d747",
                 "reference": "5529f5badaa66121920d2f1defee968a7b05d747",
                 "shasum": ""
             },
@@ -776,12 +776,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@gitlab.com:cvepdb-cms/module-themes.git",
+                "url": "https://github.com/cvepdb-cms/module-themes.git",
                 "reference": "b6a5280266d6495127e25606ddcfd279feca4acb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-themes/repository/archive.zip?sha=b6a5280266d6495127e25606ddcfd279feca4acb",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-themes/zipball/b6a5280266d6495127e25606ddcfd279feca4acb",
                 "reference": "b6a5280266d6495127e25606ddcfd279feca4acb",
                 "shasum": ""
             },
@@ -831,12 +831,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://gitlab.com/cvepdb-cms/module-users.git",
+                "url": "https://github.com/cvepdb-cms/module-users.git",
                 "reference": "293ed54341677d680a5b96962e12b7c1d3819d58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-users/repository/archive.zip?sha=293ed54341677d680a5b96962e12b7c1d3819d58",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-users/zipball/293ed54341677d680a5b96962e12b7c1d3819d58",
                 "reference": "293ed54341677d680a5b96962e12b7c1d3819d58",
                 "shasum": ""
             },
@@ -878,12 +878,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://gitlab.com/cvepdb-cms/theme-adminlte.git",
+                "url": "https://github.com/cvepdb-cms/theme-adminlte.git",
                 "reference": "6073e630d89c9a8adb1af3f3cb8b4978eb03e132"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-adminlte/repository/archive.zip?sha=6073e630d89c9a8adb1af3f3cb8b4978eb03e132",
+                "url": "https://api.github.com/repos/cvepdb-cms/theme-adminlte/zipball/6073e630d89c9a8adb1af3f3cb8b4978eb03e132",
                 "reference": "6073e630d89c9a8adb1af3f3cb8b4978eb03e132",
                 "shasum": ""
             },
@@ -920,12 +920,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://gitlab.com/cvepdb-cms/theme-lumen.git",
+                "url": "https://github.com/cvepdb-cms/theme-lumen.git",
                 "reference": "768e93bf44205c302e1644a3413455ae41e373ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-lumen/repository/archive.zip?sha=768e93bf44205c302e1644a3413455ae41e373ec",
+                "url": "https://api.github.com/repos/cvepdb-cms/theme-lumen/zipball/768e93bf44205c302e1644a3413455ae41e373ec",
                 "reference": "768e93bf44205c302e1644a3413455ae41e373ec",
                 "shasum": ""
             },
@@ -1163,12 +1163,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@gitlab.com:cvepdb-laravel/settings.git",
+                "url": "https://github.com/CavaENCOREparlerdebits/laravel-settings.git",
                 "reference": "b811bf6937eb9e4a49e4da2bd1f3637dc9121f5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-laravel%2Fsettings/repository/archive.zip?sha=b811bf6937eb9e4a49e4da2bd1f3637dc9121f5b",
+                "url": "https://api.github.com/repos/CavaENCOREparlerdebits/laravel-settings/zipball/b811bf6937eb9e4a49e4da2bd1f3637dc9121f5b",
                 "reference": "b811bf6937eb9e4a49e4da2bd1f3637dc9121f5b",
                 "shasum": ""
             },
@@ -5002,16 +5002,16 @@
         },
         {
             "name": "behat/gherkin",
-            "version": "v4.4.4",
+            "version": "v4.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "cf8cc94647101e02a33d690245896d83d880aea1"
+                "reference": "5c14cff4f955b17d20d088dec1bde61c0539ec74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/cf8cc94647101e02a33d690245896d83d880aea1",
-                "reference": "cf8cc94647101e02a33d690245896d83d880aea1",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/5c14cff4f955b17d20d088dec1bde61c0539ec74",
+                "reference": "5c14cff4f955b17d20d088dec1bde61c0539ec74",
                 "shasum": ""
             },
             "require": {
@@ -5057,7 +5057,7 @@
                 "gherkin",
                 "parser"
             ],
-            "time": "2016-09-18 12:16:14"
+            "time": "2016-10-30 11:50:56"
         },
         {
             "name": "blackfire/php-sdk",
