@@ -92,64 +92,71 @@ class EnvironmentsEventsListener
 	 */
 	public function environmentCreatedEvent(EnvironmentCreatedEvent $event)
 	{
-		/*
-		 * Create environment uploads directory
-		 */
+		$this->environmentCreateDisk($event, 'uploads');
+		$this->environmentCreateDisk($event, 'medias');
+	}
 
-		$disk_key = $event->environment->reference . '_uploads';
+	/**
+	 * @param EnvironmentCreatedEvent $event
+	 */
+	protected function environmentCreateDisk(EnvironmentCreatedEvent $event, $disk_name)
+	{
+		$disk_key = $event->environment->reference . '_' . $disk_name;
 
-		$env_uploads_directory = public_path(
-			'uploads/' . $event->environment->reference . '/uploads'
+		$env_directory = storage_path(
+			$disk_name . '/' . $event->environment->reference
 		);
 
-		if (!File::exists(public_path('uploads')))
+		if (!File::exists(storage_path($disk_name)))
 		{
-			File::makeDirectory(public_path('uploads'), 0777);
+			File::makeDirectory(storage_path($disk_name), 0777);
 		}
 
 		if (!File::exists(
-				public_path('uploads/' . $event->environment->reference)
-		))
+			storage_path($disk_name . '/' . $event->environment->reference)
+		)
+		)
 		{
 			File::makeDirectory(
-				public_path('uploads/' . $event->environment->reference),
+				storage_path($disk_name . '/' . $event->environment->reference),
 				0777
 			);
 		}
 
-		if (!File::exists($env_uploads_directory))
+		if (!File::exists($env_directory))
 		{
-			File::makeDirectory($env_uploads_directory, 0777);
+			File::makeDirectory($env_directory, 0777);
 		}
 
 		/*
-		 * Attach new environment uploads directory to the new env
+		 * Attach new environment directory to the new env
 		 */
 
 		$this->r_disk->setDefaultFileSystemDisk(
 			$disk_key,
 			$event->environment->reference
 		);
+
 		$this->r_disk->addFileSystemDisk(
 			$disk_key,
 			[
-				'driver'     => 'local',
-				'root'       => $env_uploads_directory,
-				'visibility' => 'public',
+				'driver' => 'local',
+				'root'   => $env_directory,
 			],
 			$event->environment->reference
 		);
+
 		$this->r_disk->mountElFinderDisk(
 			$disk_key,
 			[
-				'alias' => $event->environment->name . ' public',
+				'alias' => $event->environment->name . ' ' . $disk_name,
 				'URL'   => null,
 			],
 			$event->environment->reference
 		);
 
 		/**
-		 * Attach new environment uploads directory to the default env
+		 * Attach new environment directory to the default env
 		 */
 
 		if ($event->environment->reference !== EnvironmentsRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE)
@@ -157,16 +164,16 @@ class EnvironmentsEventsListener
 			$this->r_disk->addFileSystemDisk(
 				$disk_key,
 				[
-					'driver'     => 'local',
-					'root'       => $env_uploads_directory,
-					'visibility' => 'public',
+					'driver' => 'local',
+					'root'   => $env_directory,
 				],
 				EnvironmentsRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
 			);
+
 			$this->r_disk->mountElFinderDisk(
 				$disk_key,
 				[
-					'alias'  => $event->environment->name . ' uploads',
+					'alias'  => $event->environment->name . ' ' . $disk_name,
 					'URL'    => null,
 					'access' => [
 						'roles'       => [
@@ -179,92 +186,5 @@ class EnvironmentsEventsListener
 				]
 			);
 		}
-
-		/*
-		 * Create environment medias directory
-		 */
-
-		$disk_key = $event->environment->reference . '_medias';
-
-		$env_medias_directory = storage_path(
-			'medias/' . $event->environment->reference
-		);
-
-		if (!File::exists(storage_path('medias')))
-		{
-			File::makeDirectory(storage_path('medias'), 0777);
-		}
-
-		if (!File::exists(
-			storage_path('medias/' . $event->environment->reference)
-		))
-		{
-			File::makeDirectory(
-				storage_path('medias/' . $event->environment->reference),
-				0777
-			);
-		}
-
-		if (!File::exists($env_medias_directory))
-		{
-			File::makeDirectory($env_medias_directory, 0777);
-		}
-
-		/*
-		 * Attach new environment medias directory to the new env
-		 */
-
-		$this->r_disk->setDefaultFileSystemDisk(
-			$disk_key,
-			$event->environment->reference
-		);
-		$this->r_disk->addFileSystemDisk(
-			$disk_key,
-			[
-				'driver'     => 'local',
-				'root'       => $env_medias_directory,
-			],
-			$event->environment->reference
-		);
-		$this->r_disk->mountElFinderDisk(
-			$disk_key,
-			[
-				'alias' => $event->environment->name . ' medias',
-				'URL'   => null,
-			],
-			$event->environment->reference
-		);
-
-		/**
-		 * Attach new environment medias directory to the default env
-		 */
-
-		if ($event->environment->reference !== EnvironmentsRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE)
-		{
-			$this->r_disk->addFileSystemDisk(
-				$disk_key,
-				[
-					'driver'     => 'local',
-					'root'       => $env_medias_directory,
-				],
-				EnvironmentsRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE
-			);
-			$this->r_disk->mountElFinderDisk(
-				$disk_key,
-				[
-					'alias'  => $event->environment->name . ' medias',
-					'URL'    => null,
-					'access' => [
-						'roles'       => [
-							RolesRepositoryEloquent::ADMIN
-						],
-						'permissions' => [
-							PermissionsRepositoryEloquent::SEE_ENVIRONMENT
-						]
-					]
-				]
-			);
-		}
-
 	}
 }
