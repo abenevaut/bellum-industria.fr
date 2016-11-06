@@ -3,6 +3,7 @@
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /**
  * Class Handler
@@ -10,7 +11,9 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
  */
 class Handler extends ExceptionHandler
 {
-    /**
+	private $requested_uri = null;
+
+	/**
      * A list of the exception types that should not be reported.
      *
      * @var array
@@ -46,7 +49,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+		$this->requested_uri = $request->getRequestUri();
+
+		return parent::render($request, $exception);
     }
 
     /**
@@ -58,10 +63,48 @@ class Handler extends ExceptionHandler
      */
     protected function unauthenticated($request, AuthenticationException $exception)
     {
-        if ($request->expectsJson()) {
+		$this->requested_uri = $request->getRequestUri();
+
+        if ($request->expectsJson())
+        {
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
 
+		if (!strncmp($this->requested_uri, '/backend', strlen('/backend')))
+		{
+			return redirect()->guest('backend/login');
+		}
+
         return redirect()->guest('login');
     }
+
+	/**
+	 * Render the given HttpException.
+	 *
+	 * @param HttpException $e
+	 *
+	 * @return \Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response
+	 */
+	protected function renderHttpException(HttpException $e)
+	{
+		$status = $e->getStatusCode();
+		$view = "errors.{$status}";
+
+		if (cmsview($view))
+		{
+			return response()
+				->view(
+					cmsview_prefix($view) . $view,
+					[
+						'exception' => $e
+					],
+					$status,
+					$e->getHeaders()
+				);
+		}
+		else
+		{
+			return $this->convertExceptionToResponse($e);
+		}
+	}
 }
