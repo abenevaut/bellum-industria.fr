@@ -17,10 +17,11 @@ class Kernel extends HttpKernel
 	protected $middlewareGroups = [
 		'web'       => [
 			\cms\Http\Middleware\EncryptCookies::class,
-			\cms\Http\Middleware\VerifyCsrfToken::class,
 			\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
 			\Illuminate\Session\Middleware\StartSession::class,
 			\Illuminate\View\Middleware\ShareErrorsFromSession::class,
+			\cms\Http\Middleware\VerifyCsrfToken::class,
+			\Illuminate\Routing\Middleware\SubstituteBindings::class,
 			'CMSLocale',
 			'CMSInstalled',
 			'UserImpersonate',
@@ -30,11 +31,14 @@ class Kernel extends HttpKernel
 			'APIResponseHeaderJsCVEPDBMiddleware',
 		],
 		'ajax'      => [
+
+
+
 		],
 		'user'      => [
 
 			'auth',
-			// 'role:admin',
+			// 'role:user',
 
 			'CMSLocale',
 			'CMSInstalled',
@@ -48,7 +52,6 @@ class Kernel extends HttpKernel
 			'CMSLocale',
 			'CMSInstalled'
 		],
-
 		'installer' => [
 			'CMSLocale',
 			'CMSAllowInstallation'

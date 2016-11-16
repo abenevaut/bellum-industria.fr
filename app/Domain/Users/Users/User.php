@@ -2,9 +2,11 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Notifications\Notifiable;
 use CVEPDB\Addresses\Domain\Addresses\Addresses\Traits\AddressableTrait;
 use cms\Infrastructure\Abstractions\Model\LogAuthenticatableModelAbstract;
 use cms\App\Facades\Environments;
+use cms\App\Services\Notifications\Users\Users\ResetPassword;
 use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
 use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
 
@@ -26,7 +28,6 @@ use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
  * @property-read string $full_name
  * @property-read bool $is_admin
  * @property-read \Carbon\Carbon $birth_date_carbon
- * @property-read \cms\Domain\Users\ApiKeys\ApiKey $apikey
  * @property-read \Illuminate\Database\Eloquent\Collection|\cms\Domain\Users\SocialTokens\SocialToken[] $tokens
  * @property-read \Illuminate\Database\Eloquent\Collection|\cms\Domain\Environments\Environments\Environment[] $environments
  * @property-read \Illuminate\Database\Eloquent\Collection|\cms\Domain\Users\Roles\Role[] $roles
@@ -50,6 +51,8 @@ class User extends LogAuthenticatableModelAbstract
 
 	use AddressableTrait;
 	use EnvironmentTrait;
+	use SoftDeletes;
+	use Notifiable;
 
 	/**
 	 * The attributes that are mass assignable.
@@ -76,6 +79,16 @@ class User extends LogAuthenticatableModelAbstract
 	];
 
 	/**
+	 * The attributes that should be mutated to dates.
+	 *
+	 * @var array
+	 */
+	protected $dates = [
+		'deleted_at'
+	];
+
+
+	/**
 	 * Get the default "belongsToMany" link name, present in Environment model.
 	 *
 	 * @return string
@@ -83,6 +96,18 @@ class User extends LogAuthenticatableModelAbstract
 	protected static function getBelongsToManyEnvironmentName()
 	{
 		return 'users';
+	}
+
+	/**
+	 * Send the password reset notification.
+	 *
+	 * @param  string $token
+	 *
+	 * @return void
+	 */
+	public function sendPasswordResetNotification($token)
+	{
+		$this->notify(new ResetPassword($token));
 	}
 
 	/**
