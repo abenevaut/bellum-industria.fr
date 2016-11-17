@@ -159,7 +159,6 @@ return [
 		CVEPDB\Menus\App\Providers\MenusServiceProvider::class,
 		CVEPDB\Modules\App\Providers\ModulesServiceProvider::class,
 		CVEPDB\Settings\SettingsServiceProvider::class,
-		CVEPDB\Themes\App\Providers\ThemesServiceProvider::class,
 		CVEPDB\Widgets\App\Providers\WidgetsServiceProvider::class,
 		Prettus\Repository\Providers\RepositoryServiceProvider::class,
 		Spatie\Backup\BackupServiceProvider::class,
