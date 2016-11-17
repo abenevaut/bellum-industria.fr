@@ -33,10 +33,7 @@ class RolesCriteria extends CriteriaAbstract
 	{
 		if (count($this->roles))
 		{
-			return $model->leftJoin('role_user AS uc_roles_ru', 'users.id', '=', 'uc_roles_ru.user_id')
-				->leftJoin('roles AS uc_roles_r', 'uc_roles_r.id', '=', 'uc_roles_ru.role_id')
-				->whereIn('uc_roles_r.id', $this->roles)
-				->groupBy('users.id');
+			return $model->whereIn('role', $this->roles);
 		}
 
 		return $model;

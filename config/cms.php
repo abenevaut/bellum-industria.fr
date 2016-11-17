@@ -1,20 +1,20 @@
 <?php
 
 return [
-	'version'   => '0.1.0',
-	'site'      => [
+	'version'         => '0.1.0',
+	'site'            => [
 		'name'        => env('APP_SITE_NAME'),
 		'description' => env('APP_SITE_DESCRIPTION'),
 	],
-	'uri'       => [
+	'uri'             => [
 		'backend'   => env('APP_URI_BACKEND', 'backend'),
 		'installer' => env('APP_URI_INSTALLER', 'installer'),
 	],
-	'languages' => [
+	'languages'       => [
 		'fr',
 		'en'
 	],
-	'backend'   => [
+	'backend'         => [
 		'menus' => [
 			'header'  => [
 				// Presenter to display admin CMS header menu
@@ -29,10 +29,14 @@ return [
 			],
 		],
 	],
-	'mail'      => [
+	'mail'            => [
 		'mailwatch' => '',
 	],
-	'licenses'  => [
+	/*
+	 * When generation a random password, we use this length
+	 */
+	'password_length' => 8,
+	'licenses'        => [
 		'cvepdb' => [
 			'name' => '#CVEPDB',
 			'url'  => 'http://cvepdb.fr',

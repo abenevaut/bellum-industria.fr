@@ -18,6 +18,21 @@ class User extends LogAuthenticatableModelAbstract
 	use EnvironmentTrait;
 	use SoftDeletes;
 
+	/*
+	 * Roles
+	 */
+
+	const ROLE_ADMIN = 'admin';
+	const ROLE_USER = 'user';
+
+	/*
+	 * Civilities
+	 */
+
+	const CIVILITY_MADAM = 'madam';
+	const CIVILITY_MISS = 'miss';
+	const CIVILITY_MISTER = 'mister';
+
 	/**
 	 * The attributes that are mass assignable.
 	 *
@@ -29,6 +44,7 @@ class User extends LogAuthenticatableModelAbstract
 		'last_name',
 		'email',
 		'birth_date',
+		'role',
 		'password',
 	];
 
@@ -69,7 +85,11 @@ class User extends LogAuthenticatableModelAbstract
 	 */
 	public function getFullNameAttribute()
 	{
-		return ucfirst(strtolower($this->first_name)) . " " . ucfirst(strtolower($this->last_name));
+		return sprintf(
+			'%s %s',
+			ucfirst(strtolower($this->first_name)),
+			ucfirst(strtolower($this->last_name))
+		);
 	}
 
 	/**
@@ -80,14 +100,30 @@ class User extends LogAuthenticatableModelAbstract
 	public function getIsAdminAttribute()
 	{
 		return $this
-			->roles()
 			->where(function ($query)
 			{
-				$query->where('name', '=', RolesRepositoryEloquent::ADMIN);
+				$query->where('role', '=', self::ROLE_ADMIN);
 			})
 			->first()
-				? true
-				: false;
+			? true
+			: false;
+	}
+
+	/**
+	 * Is user mutator to obtain a variable "is_user".
+	 *
+	 * @return bool
+	 */
+	public function getIsUserAttribute()
+	{
+		return $this
+			->where(function ($query)
+			{
+				$query->where('role', '=', self::ROLE_USER);
+			})
+			->first()
+			? true
+			: false;
 	}
 
 	/**
@@ -101,6 +137,7 @@ class User extends LogAuthenticatableModelAbstract
 		{
 			return new Carbon($this->birth_date);
 		}
+
 		return null;
 	}
 
@@ -117,27 +154,8 @@ class User extends LogAuthenticatableModelAbstract
 	 */
 	public function environments()
 	{
-		return $this->belongsToMany('cms\Domain\Environments\Environments\Environment');
+		return $this->belongsToMany(
+			'cms\Domain\Environments\Environments\Environment'
+		);
 	}
-
-	/**
-	 * The roles that belong to the user.
-	 */
-	public function roles()
-	{
-		return $this->belongsToMany('cms\Domain\Users\Roles\Role')
-			->join('environment_user', 'role_user.user_id', '=', 'environment_user.user_id')
-			->where('environment_user.environment_id', '=', Environments::currentId())
-			->join('environment_role', 'role_user.role_id', '=', 'environment_role.role_id')
-			->where('environment_role.environment_id', '=', Environments::currentId());
-	}
-
-	/**
-	 * The roles that belong to the user for every environments.
-	 */
-	public function _roles()
-	{
-		return $this->belongsToMany('cms\Domain\Users\Roles\Role');
-	}
-
 }
