@@ -158,7 +158,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 		if ($id == Auth::user()->id)
 		{
 			throw new \Exception(
-				trans('domain/users.findanddelete.you_can_not_delete_your_account')
+				trans('users.findanddelete.you_can_not_delete_your_account')
 			);
 		}
 
@@ -377,29 +377,5 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 		}
 
 		return false;
-	}
-
-	/**
-	 * Allow to send the reset password link by mail via PasswordBroker.
-	 *
-	 * @param integer $user_id The user ID
-	 *
-	 * @return mixed
-	 */
-	public function sendResetPasswordLink($user_id)
-	{
-		$broker = null;
-
-		$user = $this->find($user_id);
-
-		return Password::broker($broker)->sendResetLink(
-			[
-				'email' => $user->email
-			],
-			function (Message $message)
-			{
-				$message->subject(trans('passwords.mail_reset_password_title'));
-			}
-		);
 	}
 }
