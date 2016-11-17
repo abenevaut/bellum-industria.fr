@@ -3,8 +3,6 @@
 use Illuminate\Support\Facades\Auth;
 use cms\App\Facades\Environments;
 use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
-use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
-use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
 
 if (!function_exists('slugify'))
 {
@@ -136,71 +134,14 @@ if (!function_exists('cmsinstalled'))
 	}
 }
 
-if (!function_exists('cmsuser_can_see_env'))
+if (!function_exists('settings'))
 {
-	/**
-	 * Is the current user able to see environments?
-	 *
-	 * @return bool
-	 */
-	function cmsuser_can_see_env()
-	{
-		return Auth::check()
-		&& (EnvironmentsRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === Environments::current())
-		&& (
-			(
-				Auth::user()->hasRole(RolesRepositoryEloquent::ADMIN)
-				|| Auth::user()->hasPermission(PermissionsRepositoryEloquent::ACCESS_ADMIN_PANEL)
-			)
-			|| Auth::user()->hasPermission(PermissionsRepositoryEloquent::SEE_ENVIRONMENT)
-		);
-	}
-}
-
-if (!function_exists('cmsuser_can_manage_env_items'))
-{
-	/**
-	 * Is the current user able to manage environments items?
-	 *
-	 * @return bool
-	 */
-	function cmsuser_can_manage_env_items()
-	{
-		return Auth::check()
-		&& (EnvironmentsRepositoryEloquent::DEFAULT_ENVIRONMENT_REFERENCE === Environments::current())
-		&& (
-			(
-				Auth::user()->hasRole(RolesRepositoryEloquent::ADMIN)
-				|| Auth::user()->hasPermission(PermissionsRepositoryEloquent::ACCESS_ADMIN_PANEL)
-			)
-			|| Auth::user()->hasPermission(PermissionsRepositoryEloquent::MANAGE_ENVIRONMENT_ITEMS)
-		);
-	}
-}
-
-if (!function_exists('cmsuser_is_admin'))
-{
-	/**
-	 * Is the current user able to access administration?
-	 *
-	 * @return bool
-	 */
-	function cmsuser_is_admin()
-	{
-		return Auth::check()
-		&& (
-			Auth::user()->hasRole(RolesRepositoryEloquent::ADMIN)
-			|| Auth::user()->hasPermission(PermissionsRepositoryEloquent::ACCESS_ADMIN_PANEL)
-		);
-	}
-}
-
-if (! function_exists('settings')) {
 	/**
 	 * Get / set the specified configuration value.
 	 *
-	 * @param  string  $key
+	 * @param  string $key
 	 * @param  mixed  $default
+	 *
 	 * @return mixed
 	 */
 	function settings($key, $default = null)

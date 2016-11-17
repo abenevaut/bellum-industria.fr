@@ -5,10 +5,10 @@ use CVEPDB\Settings\Facades\Settings;
 use cms\Infrastructure\Abstractions\Services\Mails\MailServiceAbstract;
 
 /**
- * Class MailSendService
+ * Class MailService
  * @package cms\App\Services\Mails
  */
-abstract class MailSendService extends MailServiceAbstract
+abstract class MailService extends MailServiceAbstract
 {
 
 	/**
@@ -18,8 +18,6 @@ abstract class MailSendService extends MailServiceAbstract
 	 * @param string $view Blade path view
 	 * @param string $subject Mail subject
 	 * @param array  $data Blade template data
-	 *
-	 * @return mixed
 	 */
 	public function emailTo($emails, $view, $subject, $data = [])
 	{
@@ -40,4 +38,28 @@ abstract class MailSendService extends MailServiceAbstract
 		});
 	}
 
+	/**
+	 * @param array $emails All emails to send the message
+	 * @param string $view Blade path view
+	 * @param string $subject Mail subject
+	 * @param array $data Blade template data
+	 */
+	public function queueAndSendTo(array $emails, $view, $subject, $data = [])
+	{
+		Mail::queue($view, $data, function ($message) use ($emails, $subject)
+		{
+			$mailfrom = Settings::get('mail.from.address');
+			$mailname = Settings::get('mail.from.name');
+			$mailwatch = Settings::get('cms.mail.mailwatch');
+
+			$message->to($emails)
+				->from($mailfrom, $mailname)
+				->subject($subject);
+
+			if (!is_null($mailwatch) && !empty($mailwatch))
+			{
+				$message->bcc($mailwatch);
+			}
+		});
+	}
 }

@@ -7,8 +7,6 @@ use Illuminate\Container\Container as Application;
 use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
 use cms\Domain\Users\Users\Repositories\UsersRepository;
 use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
-use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
-use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
 use cms\Domain\Users\SocialTokens\Repositories\SocialTokenRepositoryEloquent;
 use cms\Domain\Users\Users\Criterias\OnlyTrashedCriteria;
 use cms\Domain\Users\Users\Criterias\WithTrashedCriteria;
@@ -30,15 +28,15 @@ use cms\Domain\Users\Users\User;
 class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements UsersRepository
 {
 
-	public $fields = [
-		'users.id',
-		'users.civility',
-		'users.first_name',
-		'users.last_name',
-		'users.email',
-		'users.birth_date',
-		'users.deleted_at'
-	];
+	/**
+	 * @var EnvironmentsRepositoryEloquent|null
+	 */
+	protected $r_environments = null;
+
+	/**
+	 * @var SocialTokenRepositoryEloquent|null
+	 */
+	protected $r_social_tokens = null;
 
 	/**
 	 * @var array Civilities available to fill civility field in users table.
@@ -50,47 +48,21 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	];
 
 	/**
-	 * @var EnvironmentsRepositoryEloquent|null
-	 */
-	protected $r_environments = null;
-
-	/**
-	 * @var RolesRepositoryEloquent|null
-	 */
-	protected $r_roles = null;
-
-	/**
-	 * @var PermissionsRepositoryEloquent|null
-	 */
-	protected $r_permissions = null;
-
-	/**
-	 * @var SocialTokenRepositoryEloquent|null
-	 */
-	protected $r_social_tokens = null;
-
-	/**
 	 * UsersRepositoryEloquent constructor.
 	 *
 	 * @param Application                    $app
 	 * @param EnvironmentsRepositoryEloquent $r_environments
-	 * @param RolesRepositoryEloquent        $r_roles
-	 * @param PermissionsRepositoryEloquent  $r_permissions
 	 * @param SocialTokenRepositoryEloquent  $r_social_tokens
 	 */
 	public function __construct(
 		Application $app,
 		EnvironmentsRepositoryEloquent $r_environments,
-		RolesRepositoryEloquent $r_roles,
-		PermissionsRepositoryEloquent $r_permissions,
 		SocialTokenRepositoryEloquent $r_social_tokens
 	)
 	{
 		parent::__construct($app);
 
 		$this->r_environments = $r_environments;
-		$this->r_roles = $r_roles;
-		$this->r_permissions = $r_permissions;
 		$this->r_social_tokens = $r_social_tokens;
 	}
 
@@ -292,11 +264,6 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 			'birth_date' => $birth_date,
 		]);
 
-		// Always attach client role
-		$this->set_user_roles($user, [
-			RolesRepositoryEloquent::USER
-		]);
-
 		event(new NewUserCreatedEvent($user));
 
 		return $user;
@@ -327,11 +294,6 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 			$birth_date
 		);
 
-		$this->set_user_roles($user, [
-			RolesRepositoryEloquent::USER,
-			RolesRepositoryEloquent::ADMIN
-		]);
-
 		event(new NewAdminCreatedEvent($user));
 
 		return $user;
@@ -354,30 +316,6 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 		}
 
 		$user = $this->find($user_id);
-		$role_admin = $this->r_roles->role_exists(RolesRepositoryEloquent::ADMIN);
-		$role_user = $this->r_roles->role_exists(RolesRepositoryEloquent::USER);
-
-		if (
-			$user->roles->contains($role_admin->id)
-			&& 1 === $this->r_roles->count_users_by_roles([
-				RolesRepositoryEloquent::ADMIN
-			])
-		)
-		{
-			throw new \Exception(
-				sprintf(
-					trans('domain/users.findanddelete.this_is_the_last_user_admin'),
-					$user->full_name
-				)
-			);
-		}
-
-		/*
-		 * delete all roles except user; in case the user was re-activated
-		 */
-
-		$user->roles()->detach();
-		$user->roles()->attach($role_user);
 
 		/*
 		 * delete user
@@ -405,34 +343,6 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 				->each(function ($env) use (&$user)
 				{
 					$user->environments()->attach($env->id);
-				});
-		}
-
-		return $user;
-	}
-
-	/**
-	 * @param \cms\Domain\Users\Users\User $user
-	 * @param array                        $roles
-	 *
-	 * @return mixed
-	 */
-	public function set_user_roles(User $user, array $roles = [])
-	{
-		if (count($roles) > 0)
-		{
-
-			// xABE Todo : add role(s) for selected environment(s)
-
-			$roles_rows = $this->r_roles
-				->findWhereIn('name', $roles);
-
-			$user->roles()->detach();
-
-			$roles_rows
-				->each(function ($role) use (&$user)
-				{
-					$user->roles()->attach($role->id);
 				});
 		}
 

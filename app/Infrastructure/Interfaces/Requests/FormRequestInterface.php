@@ -2,7 +2,7 @@
 
 /**
  * Interface FormRequestInterface
- * @package cms\Infrastructure\Requests
+ * @package cms\Infrastructure\Interfaces\Requests
  */
 interface FormRequestInterface
 {
@@ -20,5 +20,4 @@ interface FormRequestInterface
 	 * @return array
 	 */
 	public function rules();
-
 }

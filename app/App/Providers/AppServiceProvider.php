@@ -26,28 +26,53 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-		if ($this->app->environment('local'))
+		if (!$this->app->environment('production'))
 		{
 			if (config('app.debug'))
 			{
-				$this->app->register(\Antennaio\Codeception\DbDumpServiceProvider::class);
-				$this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
+				// Antennaio\Codeception
+				$this
+					->app
+					->register(
+						\Antennaio\Codeception\DbDumpServiceProvider::class
+					);
+
+				// Barryvdh\Debugbar
+				$this
+					->app
+					->register(
+						\Barryvdh\Debugbar\ServiceProvider::class
+					);
+
 				AliasLoader::getInstance([
 					'Debugbar' => \Barryvdh\Debugbar\Facade::class
 				])
 					->register();
-
-//				if (!is_null(config('sentry.dsn')))
-//				{
-//					$this->app->register(\Sentry\SentryLaravel\SentryLaravelServiceProvider::class);
-//					AliasLoader::getInstance([
-//						'Sentry' => \Sentry\SentryLaravel\SentryFacade::class
-//					])
-//						->register();
-//				}
 			}
 
-			$this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+			if ($this->app->environment('local'))
+			{
+				$this
+					->app
+					->register(
+						\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
+					);
+			}
 		}
+
+//		if (!is_null(config('sentry.dsn')))
+//		{
+//			// Sentry\SentryLaravel
+//			$this
+//				->app
+//				->register(
+//					\Sentry\SentryLaravel\SentryLaravelServiceProvider::class
+//				);
+//
+//			AliasLoader::getInstance([
+//				'Sentry' => \Sentry\SentryLaravel\SentryFacade::class
+//			])
+//				->register();
+//		}
     }
 }

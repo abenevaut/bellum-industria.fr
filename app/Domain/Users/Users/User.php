@@ -2,49 +2,14 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Notifications\Notifiable;
 use CVEPDB\Addresses\Domain\Addresses\Addresses\Traits\AddressableTrait;
 use cms\Infrastructure\Abstractions\Model\LogAuthenticatableModelAbstract;
 use cms\App\Facades\Environments;
-use cms\App\Services\Notifications\Users\Users\ResetPassword;
-use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
 use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
 
 /**
  * Class User
- *
  * @package cms\Domain\Users\Users
- * @property int $id
- * @property string $civility
- * @property string $first_name
- * @property string $last_name
- * @property string $email
- * @property string $birth_date
- * @property string $password
- * @property string $remember_token
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
- * @property string $deleted_at
- * @property-read string $full_name
- * @property-read bool $is_admin
- * @property-read \Carbon\Carbon $birth_date_carbon
- * @property-read \Illuminate\Database\Eloquent\Collection|\cms\Domain\Users\SocialTokens\SocialToken[] $tokens
- * @property-read \Illuminate\Database\Eloquent\Collection|\cms\Domain\Environments\Environments\Environment[] $environments
- * @property-read \Illuminate\Database\Eloquent\Collection|\cms\Domain\Users\Roles\Role[] $roles
- * @property-read \Illuminate\Database\Eloquent\Collection|\cms\Domain\Users\Roles\Role[] $_roles
- * @property-read \Illuminate\Database\Eloquent\Collection|\CVEPDB\Addresses\Domain\Addresses\Addresses\Address[] $address
- * @method static \Illuminate\Database\Query\Builder|\cms\Domain\Users\Users\User whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\cms\Domain\Users\Users\User whereCivility($value)
- * @method static \Illuminate\Database\Query\Builder|\cms\Domain\Users\Users\User whereFirstName($value)
- * @method static \Illuminate\Database\Query\Builder|\cms\Domain\Users\Users\User whereLastName($value)
- * @method static \Illuminate\Database\Query\Builder|\cms\Domain\Users\Users\User whereEmail($value)
- * @method static \Illuminate\Database\Query\Builder|\cms\Domain\Users\Users\User whereBirthDate($value)
- * @method static \Illuminate\Database\Query\Builder|\cms\Domain\Users\Users\User wherePassword($value)
- * @method static \Illuminate\Database\Query\Builder|\cms\Domain\Users\Users\User whereRememberToken($value)
- * @method static \Illuminate\Database\Query\Builder|\cms\Domain\Users\Users\User whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\cms\Domain\Users\Users\User whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\cms\Domain\Users\Users\User whereDeletedAt($value)
- * @mixin \Eloquent
  */
 class User extends LogAuthenticatableModelAbstract
 {
@@ -52,7 +17,6 @@ class User extends LogAuthenticatableModelAbstract
 	use AddressableTrait;
 	use EnvironmentTrait;
 	use SoftDeletes;
-	use Notifiable;
 
 	/**
 	 * The attributes that are mass assignable.
@@ -96,18 +60,6 @@ class User extends LogAuthenticatableModelAbstract
 	protected static function getBelongsToManyEnvironmentName()
 	{
 		return 'users';
-	}
-
-	/**
-	 * Send the password reset notification.
-	 *
-	 * @param  string $token
-	 *
-	 * @return void
-	 */
-	public function sendPasswordResetNotification($token)
-	{
-		$this->notify(new ResetPassword($token));
 	}
 
 	/**

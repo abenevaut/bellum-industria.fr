@@ -1,13 +1,17 @@
 <?php namespace CVEPDB\Contracts\Services\SMS;
 
 /**
- *
+ * Interface SMSService
+ * @package CVEPDB\Contracts\Services\SMS
  */
 interface SMSService
 {
-    /**
-     * @param string $message
-     * @return mixed
-     */
-    public function send($message);
+
+	/**
+	 * @param $number
+	 * @param $message
+	 *
+	 * @return mixed
+	 */
+    public function sendTo(array $numbers = [], $message);
 }
