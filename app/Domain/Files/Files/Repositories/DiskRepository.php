@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Filesystem\FilesystemAdapter;
-use CVEPDB\Settings\Facades\Settings;
 
 /**
  * Class DiskRepository
@@ -22,7 +21,7 @@ class DiskRepository
 		$environment_reference = null
 	)
 	{
-		Settings::set(
+		\Settings::set(
 			'filesystems.default',
 			$disk_name,
 			$environment_reference
@@ -40,7 +39,7 @@ class DiskRepository
 		$environment_reference = null
 	)
 	{
-		Settings::set(
+		\Settings::set(
 			'filesystems.cloud',
 			$disk_name,
 			$environment_reference
@@ -58,8 +57,8 @@ class DiskRepository
 	 */
 	public function addFileSystemDisk($disk_reference, $options, $environment_reference = null)
 	{
-		$disks = Settings::get('filesystems.disks', [], $environment_reference);
-		Settings::set(
+		$disks = \Settings::get('filesystems.disks', [], $environment_reference);
+		\Settings::set(
 			'filesystems.disks',
 			$disks + [$disk_reference => $options],
 			$environment_reference

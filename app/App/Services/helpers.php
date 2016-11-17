@@ -146,6 +146,6 @@ if (!function_exists('settings'))
 	 */
 	function settings($key, $default = null)
 	{
-		return \CVEPDB\Settings\Facades\Settings::get($key, $default);
+		return \Settings::get($key, $default);
 	}
 }

@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Container\Container as Application;
-use CVEPDB\Settings\Facades\Settings;
 use cms\Infrastructure\Abstractions\Requests\FormRequestAbstract;
 use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
 //use Core\Criterias\OnlyTrashedCriteria;
@@ -11,7 +10,6 @@ use cms\Domain\Environments\Environments\Environment;
 use cms\Domain\Environments\Environments\Events\EnvironmentCreatedEvent;
 use cms\Domain\Environments\Environments\Events\EnvironmentDeletedEvent;
 use cms\Domain\Environments\Environments\Events\EnvironmentUpdatedEvent;
-use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
 use cms\Domain\Environments\Environments\Presenters\EnvironmentListPresenter;
 
 /**
@@ -22,27 +20,6 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 {
 
 	const DEFAULT_ENVIRONMENT_REFERENCE = 'default';
-
-	/**
-	 * @var RolesRepositoryEloquent|null
-	 */
-	protected $r_roles = null;
-
-	/**
-	 * UserRepositoryEloquent constructor.
-	 *
-	 * @param Application            $app
-	 * @param RolesRepositoryEloquent $r_roles
-	 */
-	public function __construct(
-		Application $app,
-		RolesRepositoryEloquent $r_roles
-	)
-	{
-		parent::__construct($app);
-
-		$this->r_roles = $r_roles;
-	}
 
 	/**
 	 * Specify Model class name
@@ -196,7 +173,7 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 		$this->filterShowWithTrashed();
 
 		$envs = $this
-			->paginate(Settings::get('app.pagination'));
+			->paginate(\Settings::get('app.pagination'));
 
 		return cmsview(
 			'app.backend.environments.index',

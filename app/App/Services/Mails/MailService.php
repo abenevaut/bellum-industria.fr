@@ -1,7 +1,6 @@
 <?php namespace cms\App\Services\Mails;
 
 use Illuminate\Support\Facades\Mail;
-use CVEPDB\Settings\Facades\Settings;
 use cms\Infrastructure\Abstractions\Services\Mails\MailServiceAbstract;
 
 /**
@@ -23,9 +22,9 @@ abstract class MailService extends MailServiceAbstract
 	{
 		Mail::send($view, $data, function ($message) use ($emails, $subject)
 		{
-			$mailfrom = Settings::get('mail.from.address');
-			$mailname = Settings::get('mail.from.name');
-			$mailwatch = Settings::get('cms.mail.mailwatch');
+			$mailfrom = \Settings::get('mail.from.address');
+			$mailname = \Settings::get('mail.from.name');
+			$mailwatch = \Settings::get('cms.mail.mailwatch');
 
 			$message->to($emails)
 				->from($mailfrom, $mailname)
@@ -48,9 +47,9 @@ abstract class MailService extends MailServiceAbstract
 	{
 		Mail::queue($view, $data, function ($message) use ($emails, $subject)
 		{
-			$mailfrom = Settings::get('mail.from.address');
-			$mailname = Settings::get('mail.from.name');
-			$mailwatch = Settings::get('cms.mail.mailwatch');
+			$mailfrom = \Settings::get('mail.from.address');
+			$mailname = \Settings::get('mail.from.name');
+			$mailwatch = \Settings::get('cms.mail.mailwatch');
 
 			$message->to($emails)
 				->from($mailfrom, $mailname)

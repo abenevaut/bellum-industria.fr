@@ -154,14 +154,14 @@ return [
 		 * Packages Service Providers...
 		 */
 
-		CVEPDB\Settings\SettingsServiceProvider::class,
+		Collective\Html\HtmlServiceProvider::class,
+		CVEPDB\Addresses\App\Providers\AddressesServiceProvider::class,
 		CVEPDB\Menus\App\Providers\MenusServiceProvider::class,
 		CVEPDB\Modules\App\Providers\ModulesServiceProvider::class,
+		CVEPDB\Settings\SettingsServiceProvider::class,
 		CVEPDB\Themes\App\Providers\ThemesServiceProvider::class,
 		CVEPDB\Widgets\App\Providers\WidgetsServiceProvider::class,
 		Prettus\Repository\Providers\RepositoryServiceProvider::class,
-		Collective\Html\HtmlServiceProvider::class,
-		CVEPDB\Addresses\App\Providers\AddressesServiceProvider::class,
 		Spatie\Backup\BackupServiceProvider::class,
 
 		/*
@@ -228,11 +228,11 @@ return [
 
 		'Form'     => Collective\Html\FormFacade::class,
 		'Html'     => Collective\Html\HtmlFacade::class,
-		'Settings' => CVEPDB\Settings\Facades\Settings::class,
 		'Menu'     => CVEPDB\Menus\App\Facades\MenuFacade::class,
 		'Module'   => CVEPDB\Modules\App\Facades\ModulesFacade::class,
-		'Widget'   => CVEPDB\Widgets\App\Facades\WidgetsFacade::class,
+		'Settings' => CVEPDB\Settings\Facades\Settings::class,
 		'Theme'    => CVEPDB\Themes\App\Facades\ThemeFacade::class,
+		'Widget'   => CVEPDB\Widgets\App\Facades\WidgetsFacade::class,
 
 	],
 

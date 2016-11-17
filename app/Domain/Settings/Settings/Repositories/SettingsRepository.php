@@ -1,7 +1,5 @@
 <?php namespace cms\Domain\Settings\Settings\Repositories;
 
-use CVEPDB\Settings\Facades\Settings as SettingsFacade;
-
 /**
  * Class SettingsRepository
  * @package cms\Domain\Settings\Settings\Repositories
@@ -14,7 +12,7 @@ class SettingsRepository
 	 */
 	public function all()
 	{
-		$settings = SettingsFacade::getAll();
+		$settings = \Settings::getAll();
 
 		return $settings;
 	}
@@ -25,7 +23,7 @@ class SettingsRepository
 	 */
 	public function set($key, $data)
 	{
-		SettingsFacade::set($key, $data);
+		\Settings::set($key, $data);
 	}
 
 	/**
@@ -33,7 +31,7 @@ class SettingsRepository
 	 */
 	public function get($key)
 	{
-		return SettingsFacade::get($key);
+		return \Settings::get($key);
 	}
 
 	/**
@@ -41,7 +39,6 @@ class SettingsRepository
 	 */
 	public function delete($key)
 	{
-		SettingsFacade::forget($key);
+		\Settings::forget($key);
 	}
-
 }
