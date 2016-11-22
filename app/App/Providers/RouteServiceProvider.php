@@ -36,8 +36,21 @@ class RouteServiceProvider extends ServiceProvider
 	 */
 	public function map()
 	{
-		$this->mapApiRoutes();
-		$this->mapWebRoutes();
+		if (file_exists(base_path('app/apps.json')))
+		{
+			$apps = json_decode(file_get_contents(base_path('app/apps.json')));
+
+			foreach ($apps->apps as $app)
+			{
+				Route::group([
+					'middleware' => 'web',
+					'namespace' => "cms\\$app\Http\Controllers"
+				], function ($router) use ($app)
+				{
+					require base_path("app/$app/Http/routes.php");
+				});
+			}
+		}
 	}
 
 	/**
