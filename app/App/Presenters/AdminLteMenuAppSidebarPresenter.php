@@ -1,6 +1,7 @@
 <?php namespace cms\App\Presenters;
 
 use Illuminate\Support\Facades\Request;
+use CVEPDB\Menus\Domain\Menus\Items\MenuItem;
 use cms\Infrastructure\Abstractions\Presenters\NavigationPresenterAbstract;
 
 /**
@@ -21,7 +22,7 @@ class AdminLteMenuAppSidebarPresenter extends NavigationPresenterAbstract
 	/**
 	 * {@inheritdoc }.
 	 */
-	public function getActiveState($item, $state = 'active')
+	public function getActiveState(MenuItem $item, $state = 'active')
 	{
 		return (
 			$item->isActive()
@@ -34,7 +35,7 @@ class AdminLteMenuAppSidebarPresenter extends NavigationPresenterAbstract
 	/**
 	 * {@inheritdoc }.
 	 */
-	public function getMenuWithDropDownWrapper($item)
+	public function getMenuWithDropDownWrapper(MenuItem $item)
 	{
 		return '<li class="treeview ' . $this->getActiveStateOnChild($item) . '"><a href="#">'
 		. $item->getIcon() . '<span>' . $item->title

@@ -143,7 +143,7 @@ if (!function_exists('adminlte_menu_sidebar'))
 
 				$menu->header(trans('global.settings'));
 
-				if (cmsuser_can_see_env())
+				if (\Gate::allows('super-administrator'))
 				{
 					$menu->route(
 						'backend.environments.index',

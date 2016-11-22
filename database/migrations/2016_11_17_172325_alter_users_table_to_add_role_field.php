@@ -14,7 +14,16 @@ class AlterUsersTableToAddRoleField extends Migration
     public function up()
     {
 		Schema::table('users', function ($table) {
-			$table->enum('role', ['user', 'admin'])->after('birth_date');
+			$table->enum(
+				'role',
+				[
+					'user',
+					'moderator',
+					'admin',
+					'super-administrator'
+				]
+			)
+				->after('birth_date');
 		});
 	}
 

@@ -542,12 +542,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-dashboard.git",
-                "reference": "5b86ff520e04b7faf34d54f8f8e0d6c86119b3c3"
+                "reference": "7916d200afea107b3abcabbd3b3b603ce7171c55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-dashboard/zipball/5b86ff520e04b7faf34d54f8f8e0d6c86119b3c3",
-                "reference": "5b86ff520e04b7faf34d54f8f8e0d6c86119b3c3",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-dashboard/zipball/7916d200afea107b3abcabbd3b3b603ce7171c55",
+                "reference": "7916d200afea107b3abcabbd3b3b603ce7171c55",
                 "shasum": ""
             },
             "require": {
@@ -581,7 +581,7 @@
                 "dashboard",
                 "module"
             ],
-            "time": "2016-11-17 19:39:31"
+            "time": "2016-11-22 16:49:56"
         },
         {
             "name": "cvepdb-cms/module-environments",
