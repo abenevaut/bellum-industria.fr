@@ -14,9 +14,7 @@ set('keep_releases', 5);
 
 set('repository', 'git@gitlab.com:cvepdb/site.git');
 
-env('release_name', date('Y-m-d_H-i-s'));
-
-set('http_user', 'cvepdb-www');
+//set('http_user', 'cvepdb-www');
 set('writable_use_sudo', false);
 
 task('cms:initialize', function ()
@@ -60,7 +58,6 @@ task('cms:initialize', function ()
 			break;
 		}
 		case 'staging':
-		case 'testing':
 		{
 			break;
 		}
@@ -72,9 +69,9 @@ task('cms:prepare', function ()
 	run("cd {{deploy_path}}/current/resources/themes/adminlte/assets && bower install && cd -");
 	run("cd {{deploy_path}}/current/resources/themes/lumen/assets && bower install && cd -");
 	run("cd {{deploy_path}}/current/resources/themes/longwave/assets && bower install && cd -");
-	run("php {{deploy_path}}/current/artisan cms:module:publish");
-	run("php {{deploy_path}}/current/artisan cms:module:publish-migration");
-	run("php {{deploy_path}}/current/artisan cms:theme:publish");
+	run("php {{deploy_path}}/current/artisan module:publish");
+	run("php {{deploy_path}}/current/artisan module:publish-migration");
+	run("php {{deploy_path}}/current/artisan theme:publish");
 })->desc('Prepare project');
 
 task('cms:uploads_env_files', function ()

@@ -11,17 +11,17 @@
 |
 */
 
-Route::group(['middleware' => ['web'], 'domain' => env('CVEPDB_MULTIGAMING_DOMAIN')], function ()
+Route::group(['domain' => env('CVEPDB_MULTIGAMING_DOMAIN')], function ()
 {
 
-	Route::get('/', ['as' => 'home', 'uses' => '\cms\Multigaming\Http\Controllers\IndexController@index']);
-	Route::get('boutique', '\cms\Multigaming\Http\Controllers\IndexController@boutique');
-	Route::get('challenge', '\cms\Multigaming\Http\Controllers\IndexController@challenge');
-	Route::get('message-of-the-day', '\cms\Multigaming\Http\Controllers\IndexController@messageoftheday');
-	Route::get('ranks', '\cms\Multigaming\Http\Controllers\IndexController@ranks');
-//	Route::get('announcements', '\cms\Multigaming\Http\Controllers\IndexController@announcements');
+	Route::get('/', ['as' => 'home', 'uses' => 'IndexController@index']);
+	Route::get('boutique', 'IndexController@boutique');
+	Route::get('challenge', 'IndexController@challenge');
+	Route::get('message-of-the-day', 'IndexController@messageoftheday');
+	Route::get('ranks', 'IndexController@ranks');
+//	Route::get('announcements', 'IndexController@announcements');
 
-	Route::resource('mcontact', '\cms\Multigaming\Http\Controllers\ContactController');
+	Route::resource('mcontact', 'ContactController');
 
 	/*
 	 * Auth
@@ -29,17 +29,17 @@ Route::group(['middleware' => ['web'], 'domain' => env('CVEPDB_MULTIGAMING_DOMAI
 
 //	Route::group(['prefix' => 'auth'], function ()
 //	{
-//		Route::get('login', '\cms\Multigaming\Http\Controllers\AuthController@login');
+//		Route::get('login', 'AuthController@login');
 //		// Route::get('login_battlenet', '\App\Multigaming\Http\Controllers\AuthController@login_battlenet');
-//		Route::get('logout', '\cms\Multigaming\Http\Controllers\AuthController@logout');
+//		Route::get('logout', 'AuthController@logout');
 //	});
 
 	/*
 	 * Sitemaps
 	 */
 
-	Route::get('sitemap.xml', '\cms\Multigaming\Http\Controllers\IndexController@sitemap');
-	Route::get('sitemap-multigaming-teams.xml', ['as' => 'teams.sitemap', 'uses' => '\cms\Multigaming\Http\Controllers\TeamController@sitemap']);
-	Route::get('sitemap-multigaming-coc.xml', ['as' => 'coc.sitemap', 'uses' => '\cms\Multigaming\Http\Controllers\TeamController@sitemapcoc']);
+	Route::get('sitemap.xml', 'IndexController@sitemap');
+	Route::get('sitemap-multigaming-teams.xml', ['as' => 'teams.sitemap', 'uses' => 'TeamController@sitemap']);
+	Route::get('sitemap-multigaming-coc.xml', ['as' => 'coc.sitemap', 'uses' => 'TeamController@sitemapcoc']);
 
 });
