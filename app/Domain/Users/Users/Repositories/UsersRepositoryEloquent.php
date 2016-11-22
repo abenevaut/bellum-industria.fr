@@ -4,11 +4,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Container\Container as Application;
+use Illuminate\Support\Str;
 use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
 use cms\Domain\Users\Users\Repositories\UsersRepository;
 use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
-use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
-use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
 use cms\Domain\Users\SocialTokens\Repositories\SocialTokenRepositoryEloquent;
 use cms\Domain\Users\Users\Criterias\OnlyTrashedCriteria;
 use cms\Domain\Users\Users\Criterias\WithTrashedCriteria;
@@ -30,39 +29,10 @@ use cms\Domain\Users\Users\User;
 class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements UsersRepository
 {
 
-	public $fields = [
-		'users.id',
-		'users.civility',
-		'users.first_name',
-		'users.last_name',
-		'users.email',
-		'users.birth_date',
-		'users.deleted_at'
-	];
-
-	/**
-	 * @var array Civilities available to fill civility field in users table.
-	 */
-	protected $civilities = [
-		'madam'  => 'global.madam',
-		'miss'   => 'global.miss',
-		'mister' => 'global.mister',
-	];
-
 	/**
 	 * @var EnvironmentsRepositoryEloquent|null
 	 */
 	protected $r_environments = null;
-
-	/**
-	 * @var RolesRepositoryEloquent|null
-	 */
-	protected $r_roles = null;
-
-	/**
-	 * @var PermissionsRepositoryEloquent|null
-	 */
-	protected $r_permissions = null;
 
 	/**
 	 * @var SocialTokenRepositoryEloquent|null
@@ -70,27 +40,38 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	protected $r_social_tokens = null;
 
 	/**
+	 * @var array Roles available to fill role field in users table.
+	 */
+	protected $roles = [
+		User::ROLE_ADMIN => 'global.admin',
+		User::ROLE_USER  => 'global.user',
+	];
+
+	/**
+	 * @var array Civilities available to fill civility field in users table.
+	 */
+	protected $civilities = [
+		User::CIVILITY_MADAM  => 'global.madam',
+		User::CIVILITY_MISS   => 'global.miss',
+		User::CIVILITY_MISTER => 'global.mister',
+	];
+
+	/**
 	 * UsersRepositoryEloquent constructor.
 	 *
 	 * @param Application                    $app
 	 * @param EnvironmentsRepositoryEloquent $r_environments
-	 * @param RolesRepositoryEloquent        $r_roles
-	 * @param PermissionsRepositoryEloquent  $r_permissions
 	 * @param SocialTokenRepositoryEloquent  $r_social_tokens
 	 */
 	public function __construct(
 		Application $app,
 		EnvironmentsRepositoryEloquent $r_environments,
-		RolesRepositoryEloquent $r_roles,
-		PermissionsRepositoryEloquent $r_permissions,
 		SocialTokenRepositoryEloquent $r_social_tokens
 	)
 	{
 		parent::__construct($app);
 
 		$this->r_environments = $r_environments;
-		$this->r_roles = $r_roles;
-		$this->r_permissions = $r_permissions;
 		$this->r_social_tokens = $r_social_tokens;
 	}
 
@@ -102,6 +83,18 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	public function model()
 	{
 		return User::class;
+	}
+
+	/**
+	 * @return \Illuminate\Support\Collection
+	 */
+	public function getRolesList()
+	{
+		return collect($this->roles)
+			->map(function ($translation_key, $role_key)
+			{
+				return trans($translation_key);
+			});
 	}
 
 	/**
@@ -162,31 +155,18 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 */
 	public function delete($id)
 	{
-		$user = parent::delete($id);
+		if ($id == Auth::user()->id)
+		{
+			throw new \Exception(
+				trans('users.findanddelete.you_can_not_delete_your_account')
+			);
+		}
 
-		event(new UserDeletedEvent($id));
+		$user = $this->find($id);
 
-		return $user;
-	}
+		event(new UserDeletedEvent($user));
 
-	/**
-	 * Get the list of all user, active and soft deleted users.
-	 *
-	 * @return \Illuminate\Database\Eloquent\Collection|static[]
-	 */
-	public function allWithTrashed()
-	{
-		return User::withTrashed()->get();
-	}
-
-	/**
-	 * Get only user that was soft deleted.
-	 *
-	 * @return \Illuminate\Database\Eloquent\Collection|static[]
-	 */
-	public function onlyTrashed()
-	{
-		return User::onlyTrashed()->get();
+		return parent::delete($id);
 	}
 
 	/**
@@ -268,6 +248,18 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	}
 
 	/**
+	 * Generate a random password, based on 'cms.password_length' length.
+	 *
+	 * @return string
+	 */
+	public function generateUserPassword()
+	{
+		return Str::random(
+			\Settings::get('cms.password_length')
+		);
+	}
+
+	/**
 	 * Create a new user with role RoleRepository::USER.
 	 *
 	 * @param string $first_name
@@ -276,12 +268,13 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 *
 	 * @return mixed
 	 */
-	public function create_user(
+	public function createNewUser(
 		$civility,
 		$first_name,
 		$last_name,
 		$email,
-		$birth_date = '0000-00-00'
+		$birth_date = '0000-00-00',
+		$role = User::ROLE_USER
 	)
 	{
 		$user = $this->create([
@@ -290,11 +283,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 			'last_name'  => $last_name,
 			'email'      => $email,
 			'birth_date' => $birth_date,
-		]);
-
-		// Always attach client role
-		$this->set_user_roles($user, [
-			RolesRepositoryEloquent::USER
+			'role'       => $role,
 		]);
 
 		event(new NewUserCreatedEvent($user));
@@ -311,7 +300,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 *
 	 * @return mixed
 	 */
-	public function create_admin(
+	public function createNewAdmin(
 		$civility,
 		$first_name,
 		$last_name,
@@ -319,71 +308,18 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 		$birth_date = '0000-00-00'
 	)
 	{
-		$user = $this->create_user(
+		$user = $this->createNewUser(
 			$civility,
 			$first_name,
 			$last_name,
 			$email,
-			$birth_date
+			$birth_date,
+			User::ROLE_ADMIN
 		);
-
-		$this->set_user_roles($user, [
-			RolesRepositoryEloquent::USER,
-			RolesRepositoryEloquent::ADMIN
-		]);
 
 		event(new NewAdminCreatedEvent($user));
 
 		return $user;
-	}
-
-	/**
-	 * Find user by ID and soft delete him.
-	 *
-	 * @param integer $user_id The user ID
-	 *
-	 * @throws \Exception
-	 */
-	public function findAndDelete($user_id)
-	{
-		if ($user_id == Auth::user()->id)
-		{
-			throw new \Exception(
-				trans('domain/users.findanddelete.you_can_not_delete_your_account')
-			);
-		}
-
-		$user = $this->find($user_id);
-		$role_admin = $this->r_roles->role_exists(RolesRepositoryEloquent::ADMIN);
-		$role_user = $this->r_roles->role_exists(RolesRepositoryEloquent::USER);
-
-		if (
-			$user->roles->contains($role_admin->id)
-			&& 1 === $this->r_roles->count_users_by_roles([
-				RolesRepositoryEloquent::ADMIN
-			])
-		)
-		{
-			throw new \Exception(
-				sprintf(
-					trans('domain/users.findanddelete.this_is_the_last_user_admin'),
-					$user->full_name
-				)
-			);
-		}
-
-		/*
-		 * delete all roles except user; in case the user was re-activated
-		 */
-
-		$user->roles()->detach();
-		$user->roles()->attach($role_user);
-
-		/*
-		 * delete user
-		 */
-
-		$this->delete($user_id);
 	}
 
 	/**
@@ -392,11 +328,12 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 *
 	 * @return mixed
 	 */
-	public function set_user_environments(User $user, array $environments_reference = [])
+	public function setUserEnvironments(User $user, array $environments_reference = [])
 	{
 		if (count($environments_reference) > 0)
 		{
-			$environments_rows = $this->r_environments
+			$environments_rows = $this
+				->r_environments
 				->findWhereIn('reference', $environments_reference);
 
 			$user->environments()->detach();
@@ -405,34 +342,6 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 				->each(function ($env) use (&$user)
 				{
 					$user->environments()->attach($env->id);
-				});
-		}
-
-		return $user;
-	}
-
-	/**
-	 * @param \cms\Domain\Users\Users\User $user
-	 * @param array                        $roles
-	 *
-	 * @return mixed
-	 */
-	public function set_user_roles(User $user, array $roles = [])
-	{
-		if (count($roles) > 0)
-		{
-
-			// xABE Todo : add role(s) for selected environment(s)
-
-			$roles_rows = $this->r_roles
-				->findWhereIn('name', $roles);
-
-			$user->roles()->detach();
-
-			$roles_rows
-				->each(function ($role) use (&$user)
-				{
-					$user->roles()->attach($role->id);
 				});
 		}
 
@@ -450,7 +359,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 * @event cms\Domain\Users\Users\Events\UserUpdatedEvent
 	 * @return bool
 	 */
-	public function set_user_password($user_id, $old_password, $new_password, $force = false)
+	public function setUserPassword($user_id, $old_password, $new_password, $force = false)
 	{
 		$user = $this->find($user_id);
 
@@ -469,29 +378,4 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 
 		return false;
 	}
-
-	/**
-	 * Allow to send the reset password link by mail via PasswordBroker.
-	 *
-	 * @param integer $user_id The user ID
-	 *
-	 * @return mixed
-	 */
-	public function send_reset_password_link($user_id)
-	{
-		$broker = null;
-
-		$user = $this->find($user_id);
-
-		return Password::broker($broker)->sendResetLink(
-			[
-				'email' => $user->email
-			],
-			function (Message $message)
-			{
-				$message->subject(trans('passwords.mail_reset_password_title'));
-			}
-		);
-	}
-
 }

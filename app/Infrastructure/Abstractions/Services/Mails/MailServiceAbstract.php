@@ -1,6 +1,5 @@
 <?php namespace cms\Infrastructure\Abstractions\Services\Mails;
 
-use CVEPDB\Settings\Facades\Settings;
 use Illuminate\Support\Facades\Mail;
 use cms\Infrastructure\Interfaces\Services\Mails\MailServiceInterface;
 
@@ -16,20 +15,30 @@ abstract class MailServiceAbstract implements MailServiceInterface
      * @param string $view Blade path view
      * @param string $subject Mail subject
      * @param array $data Blade template data
-     * @return mixed
      */
-    public function emailTo($emails, $view, $subject, $data = [])
+    public function sendTo(array $emails, $view, $subject, $data = [])
     {
         Mail::send($view, $data, function($message) use ($emails, $subject) {
             $message->to($emails)
-                ->from(Settings::get('mail.from.address'))
+                ->from(config('mail.from.address'))
+                ->bcc(config('cms.mail.mailwatch'))
                 ->subject($subject);
-
-			if ($mailwatch = Settings::get('cms.mail.mailwatch'))
-			{
-				$message->bcc($mailwatch);
-			}
         });
     }
 
+	/**
+	 * @param array $emails All emails to send the message
+	 * @param string $view Blade path view
+	 * @param string $subject Mail subject
+	 * @param array $data Blade template data
+	 */
+	public function queueAndSendTo(array $emails, $view, $subject, $data = [])
+	{
+		Mail::queue($view, $data, function($message) use ($emails, $subject) {
+			$message->to($emails)
+				->from(config('mail.from.address'))
+				->bcc(config('cms.mail.mailwatch'))
+				->subject($subject);
+		});
+	}
 }

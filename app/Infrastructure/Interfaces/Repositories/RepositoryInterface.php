@@ -8,5 +8,5 @@ use Prettus\Repository\Contracts\RepositoryInterface as PrettusRepositoryInterfa
  */
 interface RepositoryInterface extends PrettusRepositoryInterface
 {
-	//
+
 }

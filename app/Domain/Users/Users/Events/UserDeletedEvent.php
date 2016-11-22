@@ -15,20 +15,20 @@ class UserDeletedEvent extends EventAbstract
 	use SerializesModels;
 
 	/**
-	 * The current user ID.
+	 * The current user.
 	 *
-	 * @var int
+	 * @var User|null
 	 */
-	public $user_id = 0;
+	public $user = null;
 
 	/**
-	 * UserDeletedEvent constructor.
+	 * UserCreatedEvent constructor.
 	 *
-	 * @param $id
+	 * @param User $user
 	 */
-	public function __construct($id)
+	public function __construct(User $user)
 	{
-		$this->user_id = $id;
+		$this->user = $user;
 	}
 
 	/**
