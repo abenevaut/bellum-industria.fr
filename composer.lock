@@ -1061,12 +1061,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/CavaENCOREparlerdebits/menus.git",
-                "reference": "de627c263153ad4b1bb871c5426e6e67ba1668b3"
+                "reference": "390f0aec6a766f18049d255afb3d31728fea75fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CavaENCOREparlerdebits/menus/zipball/de627c263153ad4b1bb871c5426e6e67ba1668b3",
-                "reference": "de627c263153ad4b1bb871c5426e6e67ba1668b3",
+                "url": "https://api.github.com/repos/CavaENCOREparlerdebits/menus/zipball/390f0aec6a766f18049d255afb3d31728fea75fe",
+                "reference": "390f0aec6a766f18049d255afb3d31728fea75fe",
                 "shasum": ""
             },
             "require": {
@@ -1106,7 +1106,7 @@
                 "navigation",
                 "pingpong"
             ],
-            "time": "2016-10-12 11:02:44"
+            "time": "2016-11-22 16:35:47"
         },
         {
             "name": "cvepdb/laravel-modules",
