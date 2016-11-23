@@ -266,14 +266,14 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 * @param string $last_name
 	 * @param string $email
 	 *
-	 * @return mixed
+	 * @return \cms\Domain\Users\Users\User
 	 */
 	public function createNewUser(
 		$civility,
 		$first_name,
 		$last_name,
 		$email,
-		$birth_date = '0000-00-00',
+		$birth_date = NULL,
 		$role = User::ROLE_USER
 	)
 	{
@@ -298,14 +298,14 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 * @param string $last_name
 	 * @param string $email
 	 *
-	 * @return mixed
+	 * @return \cms\Domain\Users\Users\User
 	 */
 	public function createNewAdmin(
 		$civility,
 		$first_name,
 		$last_name,
 		$email,
-		$birth_date = '0000-00-00'
+		$birth_date = NULL
 	)
 	{
 		$user = $this->createNewUser(

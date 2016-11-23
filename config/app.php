@@ -159,7 +159,6 @@ return [
 		CVEPDB\Menus\App\Providers\MenusServiceProvider::class,
 		CVEPDB\Modules\App\Providers\ModulesServiceProvider::class,
 		CVEPDB\Settings\SettingsServiceProvider::class,
-		CVEPDB\Widgets\App\Providers\WidgetsServiceProvider::class,
 		Prettus\Repository\Providers\RepositoryServiceProvider::class,
 		Spatie\Backup\BackupServiceProvider::class,
 
@@ -172,6 +171,7 @@ return [
 		// cms\App\Providers\BroadcastServiceProvider::class,
 		cms\App\Providers\EventServiceProvider::class,
 		cms\App\Providers\RouteServiceProvider::class,
+		cms\App\Providers\WidgetsServiceProvider::class,
 
 	],
 
@@ -231,7 +231,6 @@ return [
 		'Module'   => CVEPDB\Modules\App\Facades\ModulesFacade::class,
 		'Settings' => CVEPDB\Settings\Facades\Settings::class,
 		'Theme'    => CVEPDB\Themes\App\Facades\ThemeFacade::class,
-		'Widget'   => CVEPDB\Widgets\App\Facades\WidgetsFacade::class,
 
 	],
 

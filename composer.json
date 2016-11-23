@@ -27,7 +27,6 @@
     "cvepdb/laravel-addresses": "dev-master",
     "cvepdb-cms/module-settings": "dev-master",
     "cvepdb-cms/module-environments": "dev-master",
-    "cvepdb-cms/module-dashboard": "dev-master",
     "cvepdb-cms/module-files": "dev-master",
     "cvepdb-cms/module-installer": "dev-master",
     "cvepdb-cms/module-themes": "dev-master",
@@ -67,8 +66,8 @@
       "cms\\Modules\\": "modules/"
     },
     "files": [
-      "app/App/Services/AdminLteNavigationsHelpers.php",
-      "app/App/Services/AdminLtePaginationsHelpers.php",
+      "app/App/Services/BackendNavigationsHelpers.php",
+      "app/App/Services/BackendPaginationsHelpers.php",
       "app/App/Services/MCryptHelpers.php",
       "app/App/Services/helpers.php"
     ]
@@ -102,7 +101,6 @@
         "cvepdb-cms/module-settings",
         "cvepdb-cms/module-environments",
         "cvepdb-cms/module-installer",
-        "cvepdb-cms/module-dashboard",
         "cvepdb-cms/module-themes",
         "cvepdb-cms/module-files",
         "cvepdb-cms/module-users"

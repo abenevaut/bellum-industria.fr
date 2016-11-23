@@ -14,8 +14,12 @@ return [
 		'fr',
 		'en'
 	],
+	'frontend' => [
+		'home_route' => 'users.my-profile',
+	],
 	'backend'         => [
-		'menus' => [
+		'home_route' => 'backend.dashboard.index',
+		'menus'      => [
 			'header'  => [
 				// Presenter to display admin CMS header menu
 				'presenters' => [

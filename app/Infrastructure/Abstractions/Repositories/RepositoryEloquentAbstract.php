@@ -42,7 +42,7 @@ abstract class RepositoryEloquentAbstract extends BaseRepository implements Repo
 
 		if ($this->model instanceof Builder)
 		{
-			$results = $this->model->get($columns)->count();
+			$results = $this->model->count();
 		}
 		else
 		{

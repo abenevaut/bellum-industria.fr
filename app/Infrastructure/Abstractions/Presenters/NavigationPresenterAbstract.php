@@ -1,13 +1,13 @@
 <?php namespace cms\Infrastructure\Abstractions\Presenters;
 
-use Pingpong\Menus\Presenters\Presenter;
-use Pingpong\Menus\MenuItem;
+use CVEPDB\Menus\Infrastructure\Abstractions\Presenters\PresenterAbstract;
+use CVEPDB\Menus\Domain\Menus\Items\MenuItem;
 
 /**
  * Class NavigationPresenterAbstract
  * @package cms\Infrastructure\Abstractions\Presenters
  */
-abstract class NavigationPresenterAbstract  extends Presenter
+abstract class NavigationPresenterAbstract extends PresenterAbstract
 {
 
 	/**
@@ -29,7 +29,7 @@ abstract class NavigationPresenterAbstract  extends Presenter
 	/**
 	 * {@inheritdoc }.
 	 */
-	public function getMenuWithoutDropdownWrapper($item)
+	public function getMenuWithoutDropdownWrapper(MenuItem $item)
 	{
 		return '<li class="' . $this->getActiveState($item) . '"><a href="' . $item->getUrl() . '" ' . $item->getAttributes() . '>' . $item->getIcon() . ' <span>' . $item->title . '</span></a></li>' . PHP_EOL;
 	}
@@ -37,7 +37,7 @@ abstract class NavigationPresenterAbstract  extends Presenter
 	/**
 	 * {@inheritdoc }.
 	 */
-	public function getActiveState($item, $state = 'active')
+	public function getActiveState(MenuItem $item, $state = 'active')
 	{
 		return $item->isActive() ? $state : null;
 	}
@@ -45,12 +45,12 @@ abstract class NavigationPresenterAbstract  extends Presenter
 	/**
 	 * Get active state on child items.
 	 *
-	 * @param        $item
-	 * @param string $state
+	 * @param MenuItem $item
+	 * @param string   $state
 	 *
 	 * @return null|string
 	 */
-	public function getActiveStateOnChild($item, $state = 'active')
+	public function getActiveStateOnChild(MenuItem $item, $state = 'active')
 	{
 		return $item->hasActiveOnChild() ? $state : null;
 	}
@@ -66,7 +66,7 @@ abstract class NavigationPresenterAbstract  extends Presenter
 	/**
 	 * {@inheritdoc }.
 	 */
-	public function getHeaderWrapper($item)
+	public function getHeaderWrapper(MenuItem $item)
 	{
 		return '<li class="header">' . $item->title . '</li>';
 	}
@@ -74,7 +74,7 @@ abstract class NavigationPresenterAbstract  extends Presenter
 	/**
 	 * {@inheritdoc }.
 	 */
-	public function getMenuWithDropDownWrapper($item)
+	public function getMenuWithDropDownWrapper(MenuItem $item)
 	{
 		return '<li class="dropdown">
 		<a href="#" class="dropdown-toggle" data-toggle="dropdown"> ' . $item->getIcon() . ' ' . $item->title . '  <span class="caret"></span></a>
@@ -84,11 +84,11 @@ abstract class NavigationPresenterAbstract  extends Presenter
 	/**
 	 * Get multilevel menu wrapper.
 	 *
-	 * @param \Pingpong\Menus\MenuItem $item
+	 * @param \CVEPDB\Menus\Domain\Menus\Items\MenuItem $item
 	 *
 	 * @return string`
 	 */
-	public function getMultiLevelDropdownWrapper($item)
+	public function getMultiLevelDropdownWrapper(MenuItem $item)
 	{
 		return PHP_EOL;
 	}
