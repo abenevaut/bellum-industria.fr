@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use cms\Domain\Users\Users\User;
 
 class AlterUsersTableToAddRoleField extends Migration
 {
@@ -17,10 +18,10 @@ class AlterUsersTableToAddRoleField extends Migration
 			$table->enum(
 				'role',
 				[
-					'user',
-					'moderator',
-					'admin',
-					'super-administrator'
+					User::ROLE_USER,
+					User::ROLE_MODERATOR,
+					User::ROLE_ADMIN,
+					User::ROLE_SUPERADMIN
 				]
 			)
 				->after('birth_date');

@@ -1,7 +1,6 @@
 <?php namespace cms\Domain\Dashboard\Settings\Repositories;
 
 use Illuminate\Support\Collection;
-use Pingpong\Modules\Facades\Module;
 use cms\Domain\Settings\Settings\Repositories\SettingsRepository as ParentSettingsRepository;
 
 /**
@@ -59,6 +58,7 @@ class SettingsRepository extends ParentSettingsRepository
 	{
 		$widgets = [];
 		$widgets_collection = $this->get($this->setting_key);
+
 		if (!is_null($widgets_collection))
 		{
 			$widgets = $widgets_collection->where(
@@ -79,6 +79,7 @@ class SettingsRepository extends ParentSettingsRepository
 	{
 		$widgets = [];
 		$widgets_collection = $this->get($this->setting_key);
+
 		if (!is_null($widgets_collection))
 		{
 			$widgets = $widgets_collection->where(
@@ -105,6 +106,7 @@ class SettingsRepository extends ParentSettingsRepository
 		$widgets_collection = $this->get($this->setting_key);
 		if (!is_null($widgets_collection))
 		{
+
 			$widgets_collection = $widgets_collection
 				->map(function ($item, $key) use ($widgets)
 				{
@@ -114,11 +116,13 @@ class SettingsRepository extends ParentSettingsRepository
 					}
 					else
 					{
-						$item['status'] = self::DASHBOARD_WIDGET_STATUS_INACTIVE;
+						$item['status']
+							= self::DASHBOARD_WIDGET_STATUS_INACTIVE;
 					}
 
 					return $item;
 				});
+
 			$this->set($this->setting_key, $widgets_collection);
 		}
 	}
@@ -146,7 +150,7 @@ class SettingsRepository extends ParentSettingsRepository
 		// List used to remove widget
 		$listed_widgets = [];
 
-		foreach (Module::getOrdered() as $module)
+		foreach (\Module::getOrdered() as $module)
 		{
 
 			$module_name = $module->name;
@@ -162,8 +166,13 @@ class SettingsRepository extends ParentSettingsRepository
 			{
 				foreach ($module_widgets_list as $widget)
 				{
+
+					$is_widget_in_list = $widgets_collection
+						->where('name', $widget)
+						->count();
+
 					// If widget don't exists in the list, we add it
-					if (0 == $widgets_collection->where('name', $widget)->count())
+					if (0 == $is_widget_in_list)
 					{
 						$widgets_collection->push([
 							'name'   => $widget,
@@ -184,9 +193,9 @@ class SettingsRepository extends ParentSettingsRepository
 				->map(function ($item, $key) use ($listed_widgets, $module_name)
 				{
 					return !in_array($item['name'], $listed_widgets)
-						&& $module_name === $item['module']
-							? $key
-							: null;
+					&& $module_name === $item['module']
+						? $key
+						: null;
 				});
 
 			if ($deleted_widgets->count())
@@ -197,6 +206,7 @@ class SettingsRepository extends ParentSettingsRepository
 				}
 			}
 		}
+
 		$this->set($this->setting_key, $widgets_collection);
 	}
 }

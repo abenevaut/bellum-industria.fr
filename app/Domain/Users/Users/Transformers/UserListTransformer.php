@@ -143,7 +143,7 @@ class UserListTransformer extends TransformerAbstract
 		 * List environment(s) linked to the user.
 		 */
 
-		if (\Gate::allows('super-administrator'))
+		if (cms_is_superadmin())
 		{
 			foreach ($user->environments as $env)
 			{

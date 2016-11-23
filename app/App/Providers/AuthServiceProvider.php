@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use cms\Domain\Users\Users\User;
 
 /**
  * Class AuthServiceProvider
@@ -27,19 +28,24 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-		Gate::define('super-administrator', function ($user)
+		Gate::define(User::ROLE_SUPERADMIN, function ($user)
 		{
-			return true; //$user->isSuperAdmin();
+			return $user->is_super_administrator;
 		});
 
-		Gate::define('administrator', function ($user)
+		Gate::define(User::ROLE_ADMIN, function ($user)
 		{
-			return true; //$user->isAdmin();
+			return $user->is_administrator;
 		});
 
-		Gate::define('moderator', function ($user)
+		Gate::define(User::ROLE_MODERATOR, function ($user)
 		{
-			return true; //$user->isModerator();
+			return $user->is_moderator;
+		});
+
+		Gate::define(User::ROLE_USER, function ($user)
+		{
+			return $user->is_user;
 		});
     }
 }

@@ -161,7 +161,7 @@ if (!function_exists('backend_menu_sidebar'))
 
 				$menu->header(trans('global.settings'));
 
-				if (\Gate::allows('super-administrator'))
+				if (cms_is_superadmin())
 				{
 					$menu->route(
 						'backend.environments.index',

@@ -22,7 +22,9 @@ class User extends LogAuthenticatableModelAbstract
 	 * Roles
 	 */
 
-	const ROLE_ADMIN = 'admin';
+	const ROLE_SUPERADMIN = 'super-administrator';
+	const ROLE_ADMIN = 'administrator';
+	const ROLE_MODERATOR = 'moderator';
 	const ROLE_USER = 'user';
 
 	/*
@@ -93,20 +95,52 @@ class User extends LogAuthenticatableModelAbstract
 	}
 
 	/**
-	 * Is admin mutator to obtain a variable "is_admin".
+	 * Is super-administrator mutator to obtain a variable
+	 * "is_super_administrator".
 	 *
 	 * @return bool
 	 */
-	public function getIsAdminAttribute()
+	public function getIsSuperAdministratorAttribute()
 	{
-		return $this
-			->where(function ($query)
-			{
-				$query->where('role', '=', self::ROLE_ADMIN);
-			})
-			->first()
-			? true
-			: false;
+		return in_array(
+			$this->role,
+			[
+				self::ROLE_SUPERADMIN,
+			]
+		);
+	}
+
+	/**
+	 * Is administrator mutator to obtain a variable "is_administrator".
+	 *
+	 * @return bool
+	 */
+	public function getIsAdministratorAttribute()
+	{
+		return in_array(
+			$this->role,
+			[
+				self::ROLE_SUPERADMIN,
+				self::ROLE_ADMIN,
+			]
+		);
+	}
+
+	/**
+	 * Is moderator mutator to obtain a variable "is_moderator".
+	 *
+	 * @return bool
+	 */
+	public function getIsModeratorAttribute()
+	{
+		return in_array(
+			$this->role,
+			[
+				self::ROLE_SUPERADMIN,
+				self::ROLE_ADMIN,
+				self::ROLE_MODERATOR,
+			]
+		);
 	}
 
 	/**
@@ -116,14 +150,15 @@ class User extends LogAuthenticatableModelAbstract
 	 */
 	public function getIsUserAttribute()
 	{
-		return $this
-			->where(function ($query)
-			{
-				$query->where('role', '=', self::ROLE_USER);
-			})
-			->first()
-			? true
-			: false;
+		return in_array(
+			$this->role,
+			[
+				self::ROLE_SUPERADMIN,
+				self::ROLE_ADMIN,
+				self::ROLE_MODERATOR,
+				self::ROLE_USER,
+			]
+		);
 	}
 
 	/**

@@ -134,18 +134,54 @@ if (!function_exists('cmsinstalled'))
 	}
 }
 
-if (!function_exists('settings'))
+if (!function_exists('cms_is_superadmin'))
 {
 	/**
-	 * Get / set the specified configuration value.
-	 *
-	 * @param  string $key
-	 * @param  mixed  $default
-	 *
-	 * @return mixed
+	 * @return boolean
 	 */
-	function settings($key, $default = null)
+	function cms_is_superadmin()
 	{
-		return \Settings::get($key, $default);
+		return \Gate::allows(
+			\cms\Domain\Users\Users\User::ROLE_SUPERADMIN
+		);
+	}
+}
+
+if (!function_exists('cms_is_admin'))
+{
+	/**
+	 * @return boolean
+	 */
+	function cms_is_admin()
+	{
+		return \Gate::allows(
+			\cms\Domain\Users\Users\User::ROLE_ADMIN
+		);
+	}
+}
+
+if (!function_exists('cms_is_moderator'))
+{
+	/**
+	 * @return boolean
+	 */
+	function cms_is_moderator()
+	{
+		return \Gate::allows(
+			\cms\Domain\Users\Users\User::ROLE_MODERATOR
+		);
+	}
+}
+
+if (!function_exists('cms_is_user'))
+{
+	/**
+	 * @return boolean
+	 */
+	function cms_is_user()
+	{
+		return \Gate::allows(
+			\cms\Domain\Users\Users\User::ROLE_USER
+		);
 	}
 }
