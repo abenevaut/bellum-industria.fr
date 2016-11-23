@@ -16,6 +16,7 @@ class AlterUsersTableToAddCivilityAndBirthdate extends Migration
 			$table->enum('civility', ['madam', 'miss', 'mister'])
 				->after('id');
 			$table->date('birth_date')
+				->nullable()
 				->after('email');
 		});
 	}

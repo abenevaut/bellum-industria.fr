@@ -2,14 +2,14 @@
 
 use Illuminate\Support\Facades\Request;
 
-if (!function_exists('adminlte_pagination'))
+if (!function_exists('backend_pagination'))
 {
 	/**
-	 * Display the pagination of AdminLte theme.
+	 * Helper to display the pagination in Backend theme.
 	 *
 	 * @return string
 	 */
-	function adminlte_pagination($nb_rows, $total_row, $current_page, $per_page = 15)
+	function backend_pagination($nb_rows, $total_row, $current_page, $per_page = 15)
 	{
 		return with(
 			new \cms\App\Presenters\AdminLtePaginationPresenter(

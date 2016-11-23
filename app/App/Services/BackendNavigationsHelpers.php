@@ -1,13 +1,13 @@
 <?php
 
-if (!function_exists('adminlte_menu_header'))
+if (!function_exists('backend_menu_header'))
 {
 	/**
-	 * Display the header menu of AdminLte theme.
+	 * Helper to display the header menu in Backend theme.
 	 *
 	 * @return string
 	 */
-	function adminlte_menu_header()
+	function backend_menu_header()
 	{
 		$modules_list = \Module::getOrdered();
 
@@ -16,13 +16,22 @@ if (!function_exists('adminlte_menu_header'))
 			function ($menu) use ($modules_list)
 			{
 
-				$menu->url(
-					'/',
+				$menu->route(
+					\Settings::get('cms.backend.home_route'),
+					trans('menus.dashboard'),
+					[],
+					[
+						'icon' => 'fa fa-dashboard',
+					]
+				);
+
+				$menu->route(
+					\Settings::get('cms.frontend.home_route'),
 					trans('menus.view_website'),
 					[],
 					[
 						'icon'   => 'fa fa-globe',
-						'target' => '_blank'
+						'target' => '_blank',
 					]
 				);
 
@@ -35,7 +44,7 @@ if (!function_exists('adminlte_menu_header'))
 						foreach ($modules_list as $module)
 						{
 							$config_base_tag = strtolower($module->name) . '.admin.sidebar.shortcuts.';
-							$route = \Config::get($config_base_tag . 'route');
+							$route = \Settings::get($config_base_tag . 'route');
 
 							if (!is_null($route))
 							{
@@ -49,7 +58,7 @@ if (!function_exists('adminlte_menu_header'))
 									$module->name,
 									[],
 									[
-										'icon' => \Config::get($config_base_tag . 'icon')
+										'icon' => \Settings::get($config_base_tag . 'icon')
 									]
 								);
 
@@ -73,14 +82,14 @@ if (!function_exists('adminlte_menu_header'))
 	}
 }
 
-if (!function_exists('adminlte_menu_front_mobile'))
+if (!function_exists('backend_menu_front_mobile'))
 {
 	/**
-	 * Display the header menu of AdminLte theme for mobile on front layout.
+	 * Helper to display the header menu in backend theme for mobile.
 	 *
 	 * @return string
 	 */
-	function adminlte_menu_front_mobile()
+	function backend_menu_mobile()
 	{
 		\Menu::create(
 			'header_navigation_mobile',
@@ -88,11 +97,11 @@ if (!function_exists('adminlte_menu_front_mobile'))
 			{
 
 				$menu->route(
-					'home',
-					trans('navigation.home'),
+					\Settings::get('cms.backend.home_route'),
+					trans('menus.dashboard'),
 					[],
 					[
-						'icon' => 'fa fa-dashboard'
+						'icon' => 'fa fa-dashboard',
 					]
 				);
 
@@ -106,14 +115,14 @@ if (!function_exists('adminlte_menu_front_mobile'))
 	}
 }
 
-if (!function_exists('adminlte_menu_sidebar'))
+if (!function_exists('backend_menu_sidebar'))
 {
 	/**
-	 * Display the sidebar menu of AdminLte theme on app layout.
+	 * Helper to display the sidebar menu in backend theme.
 	 *
 	 * @return string
 	 */
-	function adminlte_menu_sidebar()
+	function backend_menu_sidebar()
 	{
 		$modules_list = \Module::getOrdered();
 
@@ -121,12 +130,21 @@ if (!function_exists('adminlte_menu_sidebar'))
 			'sidebar_navigation',
 			function ($menu) use ($modules_list)
 			{
+				$menu->route(
+					\Settings::get('cms.backend.home_route'),
+					trans('menus.dashboard'),
+					[],
+					[
+						'icon' => 'fa fa-dashboard',
+					]
+				);
+
 				$menu->header(trans('menus.main_navigation'));
 
 				foreach ($modules_list as $module)
 				{
 					$config_base_tag = strtolower($module->name) . '.admin.sidebar.menu.';
-					$route = \Config::get($config_base_tag . 'route');
+					$route = \Settings::get($config_base_tag . 'route');
 
 					if (!is_null($route))
 					{
@@ -135,7 +153,7 @@ if (!function_exists('adminlte_menu_sidebar'))
 							$module->name,
 							[],
 							[
-								'icon' => \Config::get($config_base_tag . 'icon')
+								'icon' => \Settings::get($config_base_tag . 'icon')
 							]
 						);
 					}
@@ -160,20 +178,10 @@ if (!function_exists('adminlte_menu_sidebar'))
 					function ($submenu) use ($modules_list)
 					{
 
-
-						$submenu->route(
-							'backend.settings.index',
-							trans('global.general'),
-							[],
-							[
-								'icon' => 'fa fa-gear'
-							]
-						);
-
 						foreach ($modules_list as $module)
 						{
 							$config_base_tag = strtolower($module->name) . '.admin.sidebar.settings.';
-							$route = \Config::get($config_base_tag . 'route');
+							$route = \Settings::get($config_base_tag . 'route');
 
 							if (!is_null($route))
 							{
@@ -182,7 +190,7 @@ if (!function_exists('adminlte_menu_sidebar'))
 									$module->name,
 									[],
 									[
-										'icon' => \Config::get($config_base_tag . 'icon')
+										'icon' => \Settings::get($config_base_tag . 'icon')
 									]
 								);
 							}
