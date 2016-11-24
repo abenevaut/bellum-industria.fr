@@ -40,6 +40,7 @@
     "cvepdb-cms/theme-adminlte": "dev-master",
     "cvepdb-cms/theme-lumen": "dev-master",
     "barryvdh/laravel-elfinder": "^0.3.8",
+    "simplepie/simplepie": "^1.4",
     "cvepdb-cms/module-clashofclan" : "dev-master",
     "toniperic/php-clash-of-clans": "dev-master",
     "cvepdb-cms/module-csgolounge" : "dev-master",

@@ -6,7 +6,7 @@
  */
 class StammRepository
 {
-    private $laravel_db_config_name = 'mysql_multigaming';
+    private $laravel_db_config_name = 'mysql_smwa';
 
     private $stamm_db_name = 'cvepdb_smwa';
 

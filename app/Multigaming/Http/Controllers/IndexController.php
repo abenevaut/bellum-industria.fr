@@ -86,19 +86,27 @@ class IndexController extends FrontendController
 		}
 
 		$team_bot = $this->teams->findByField('reference', 'bots')->first();
-		foreach ($team_bot->users as $user)
+
+		if (!is_null($team_bot))
 		{
-			$user->steam_summaries = $this->steam->playerSummaries(
-				$user->tokens->where('provider', 'steam')->first()->token
-			);
+			foreach ($team_bot->users as $user)
+			{
+				$user->steam_summaries = $this->steam->playerSummaries(
+					$user->tokens->where('provider', 'steam')->first()->token
+				);
+			}
 		}
 
 		$team_bellumindustria = $this->teams->findByField('reference', 'bellum-industria')->first();
-		foreach ($team_bellumindustria->users as $user)
+
+		if (!is_null($team_bellumindustria))
 		{
-			$user->steam_summaries = $this->steam->playerSummaries(
-				$user->tokens->where('provider', 'steam')->first()->token
-			);
+			foreach ($team_bellumindustria->users as $user)
+			{
+				$user->steam_summaries = $this->steam->playerSummaries(
+					$user->tokens->where('provider', 'steam')->first()->token
+				);
+			}
 		}
 
 		//$this->test();
@@ -147,7 +155,7 @@ class IndexController extends FrontendController
 		return view(
 			'app.multigaming.ranks',
 			[
-				'ranks'        => $ranks,
+				'ranks' => $ranks,
 			]
 		);
 	}

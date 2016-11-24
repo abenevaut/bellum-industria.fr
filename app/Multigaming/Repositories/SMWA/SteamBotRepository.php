@@ -6,7 +6,7 @@
  */
 class SteamBotRepository
 {
-    private $laravel_db_config_name = 'mysql_multigaming';
+    private $laravel_db_config_name = 'mysql_smwa';
 
     private $steambot_tables_prefix = 'steambot_';
 

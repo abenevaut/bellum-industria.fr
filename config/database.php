@@ -70,6 +70,20 @@ return [
 			'dump_using_single_transaction' => true, // perform dump using a single transaction
         ],
 
+		'mysql_smwa' => [
+			'driver' => 'mysql',
+			'host' => env('DB_SMWA_HOST', 'localhost'),
+			'port' => env('DB_SMWA_PORT', '3306'),
+			'database' => env('DB_SMWA_DATABASE', 'forge'),
+			'username' => env('DB_SMWA_USERNAME', 'forge'),
+			'password' => env('DB_SMWA_PASSWORD', ''),
+			'charset' => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix' => '',
+			'strict' => true,
+			'engine' => null,
+		],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', 'localhost'),
