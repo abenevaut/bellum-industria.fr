@@ -13,6 +13,6 @@
 
 Route::group(['middleware' => ['web']], function() {
 	Route::get('/', function() {
-		return redirect(route(\Config::get('cms.frontend.home_route')));
+		return redirect(route(cms_route_frontend()));
 	});
 });
