@@ -1,5 +1,6 @@
 <?php namespace cms\Http;
 
+use cms\Http\Middleware\AuthenticatedUserHasRole;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 /**
@@ -15,46 +16,47 @@ class Kernel extends HttpKernel
 	 * @var array
 	 */
 	protected $middlewareGroups = [
-		'web'       => [
+		'web'                 => [
 			\cms\Http\Middleware\EncryptCookies::class,
 			\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
 			\Illuminate\Session\Middleware\StartSession::class,
 			\Illuminate\View\Middleware\ShareErrorsFromSession::class,
 			\cms\Http\Middleware\VerifyCsrfToken::class,
 			\Illuminate\Routing\Middleware\SubstituteBindings::class,
-			'CMSLocale',
-			'CMSInstalled',
-			'UserImpersonate',
+			\cms\Modules\Installer\Http\Middleware\CMSInstalled::class,
+			\cms\Http\Middleware\SetLocaleMiddleware::class,
+			\cms\Modules\Users\Http\Middleware\UserImpersonate::class,
 		],
-		'api'       => [
+		'api'                 => [
 			'throttle:60,1',
-			'APIResponseHeaderJsCVEPDBMiddleware',
 		],
-		'ajax'      => [
-
-
-
+		'ajax'                => [
+			//
 		],
-		'user'      => [
-
+		'super-administrator' => [
 			'auth',
-			// 'role:user',
-
-			'CMSLocale',
-			'CMSInstalled',
-			'UserImpersonate',
+			'role:super-administrator',
 		],
-		'admin'     => [
-
+		'administrator'       => [
 			'auth',
-			// 'role:admin',
-
-			'CMSLocale',
-			'CMSInstalled'
+			'role:administrator',
 		],
-		'installer' => [
-			'CMSLocale',
-			'CMSAllowInstallation'
+		'moderator'           => [
+			'auth',
+			'role:moderator',
+		],
+		'user'                => [
+			'auth',
+			'role:user',
+		],
+		'installer'           => [
+			\cms\Http\Middleware\EncryptCookies::class,
+			\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+			\Illuminate\Session\Middleware\StartSession::class,
+			\Illuminate\View\Middleware\ShareErrorsFromSession::class,
+			\cms\Http\Middleware\VerifyCsrfToken::class,
+			\Illuminate\Routing\Middleware\SubstituteBindings::class,
+			\cms\Modules\Installer\Http\Middleware\CMSAllowInstallation::class,
 		]
 	];
 
@@ -83,10 +85,6 @@ class Kernel extends HttpKernel
 		'can'        => \Illuminate\Auth\Middleware\Authorize::class,
 		'guest'      => \cms\Http\Middleware\RedirectIfAuthenticated::class,
 		'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-
-		'UserImpersonate'      => \cms\Modules\Users\Http\Middleware\UserImpersonate::class,
-		'CMSAllowInstallation' => \cms\Modules\Installer\Http\Middleware\CMSAllowInstallation::class,
-		'CMSInstalled'         => \cms\Modules\Installer\Http\Middleware\CMSInstalled::class,
-		'CMSLocale'            => \cms\Http\Middleware\SetLocaleMiddleware::class,
+		'role'       => \cms\Http\Middleware\AuthenticatedUserHasRole::class,
 	];
 }

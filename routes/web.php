@@ -10,3 +10,9 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+
+Route::group(['middleware' => ['web']], function() {
+	Route::get('/', function() {
+		return redirect(route(cms_route_frontend()));
+	});
+});
