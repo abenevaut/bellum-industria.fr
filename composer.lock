@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "02f542f29f53930ecf8d9094e129b1cc",
-    "content-hash": "8b087fa3d101c0fb4aa7bad41084a41a",
+    "hash": "02f725febaf25cb3480b65247d605bf9",
+    "content-hash": "5a47f0a7f5b98556652af97088b08356",
     "packages": [
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -645,6 +645,100 @@
             "time": "2016-09-28 07:17:45"
         },
         {
+            "name": "cvepdb-cms/module-clashofclan",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/module-clashofclan.git",
+                "reference": "ea70fa3937d8311b52942a24d155a5c09da4a071"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-clashofclan/repository/archive.zip?sha=ea70fa3937d8311b52942a24d155a5c09da4a071",
+                "reference": "ea70fa3937d8311b52942a24d155a5c09da4a071",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9",
+                "toniperic/php-clash-of-clans": "dev-master"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "ClashOfClan"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Modules\\ClashOfClan\\": ""
+                }
+            },
+            "license": [
+                "open"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Clash of Clan module for #CVEPDB CMS",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "CMS",
+                "CVEPDB",
+                "Clash of Clan",
+                "module"
+            ],
+            "time": "2016-09-20 14:48:01"
+        },
+        {
+            "name": "cvepdb-cms/module-csgolounge",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/module-csgolounge.git",
+                "reference": "722bca30935d7a7e421cfc8898b9f446d0118abe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-csgolounge/repository/archive.zip?sha=722bca30935d7a7e421cfc8898b9f446d0118abe",
+                "reference": "722bca30935d7a7e421cfc8898b9f446d0118abe",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "CsgoLounge"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Modules\\CsgoLounge\\": ""
+                }
+            },
+            "license": [
+                "copyright"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "CSGO Lounge module for #CVEPDB CMS",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "CMS",
+                "CSGO",
+                "CSGO Lounge",
+                "CVEPDB",
+                "module"
+            ],
+            "time": "2016-09-01 21:46:23"
+        },
+        {
             "name": "cvepdb-cms/module-environments",
             "version": "dev-master",
             "source": {
@@ -787,6 +881,51 @@
             "time": "2016-11-24 11:37:36"
         },
         {
+            "name": "cvepdb-cms/module-servers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/module-servers.git",
+                "reference": "23c172c5a91e27dcfd3eda74e1b66ec11f0fd6f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-servers/repository/archive.zip?sha=23c172c5a91e27dcfd3eda74e1b66ec11f0fd6f8",
+                "reference": "23c172c5a91e27dcfd3eda74e1b66ec11f0fd6f8",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "Servers"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Modules\\Servers\\": ""
+                }
+            },
+            "license": [
+                "copyright"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Servers on #CVEPDB CMS",
+            "keywords": [
+                "CMS",
+                "CVEPDB",
+                "Servers",
+                "module"
+            ],
+            "time": "2016-11-23 22:07:16"
+        },
+        {
             "name": "cvepdb-cms/module-settings",
             "version": "dev-master",
             "source": {
@@ -832,6 +971,100 @@
                 "module"
             ],
             "time": "2016-11-24 11:37:58"
+        },
+        {
+            "name": "cvepdb-cms/module-steam",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/module-steam.git",
+                "reference": "6b090c8d18ca9a508aa50ece46c5fa915ddbc60f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-steam/repository/archive.zip?sha=6b090c8d18ca9a508aa50ece46c5fa915ddbc60f",
+                "reference": "6b090c8d18ca9a508aa50ece46c5fa915ddbc60f",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "da-mitchell/steam-api": "^2.1",
+                "invisnik/laravel-steam-auth": "^2.0",
+                "php": ">=5.5.9",
+                "xpaw/php-source-query-class": "^1.0"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "Steam"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Modules\\Steam\\": ""
+                }
+            },
+            "license": [
+                "open"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Steam module for #CVEPDB CMS",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "CMS",
+                "CVEPDB",
+                "Steam",
+                "module"
+            ],
+            "time": "2016-09-27 14:29:19"
+        },
+        {
+            "name": "cvepdb-cms/module-teams",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/module-teams.git",
+                "reference": "d5b25603b1c3bff521e5ee0d31b70cfc951b78cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-teams/repository/archive.zip?sha=d5b25603b1c3bff521e5ee0d31b70cfc951b78cc",
+                "reference": "d5b25603b1c3bff521e5ee0d31b70cfc951b78cc",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "Teams"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Modules\\Teams\\": ""
+                }
+            },
+            "license": [
+                "copyright"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Teams on #CVEPDB CMS",
+            "keywords": [
+                "CMS",
+                "CVEPDB",
+                "Teams",
+                "module"
+            ],
+            "time": "2016-09-20 14:47:43"
         },
         {
             "name": "cvepdb-cms/module-themes",
@@ -888,6 +1121,52 @@
                 "themes"
             ],
             "time": "2016-11-24 11:37:27"
+        },
+        {
+            "name": "cvepdb-cms/module-tournaments",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/module-tournaments.git",
+                "reference": "232d3fd0d1e72148003a3d3226c8239383113b62"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-tournaments/repository/archive.zip?sha=232d3fd0d1e72148003a3d3226c8239383113b62",
+                "reference": "232d3fd0d1e72148003a3d3226c8239383113b62",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9",
+                "team-reflex/challonge-php": "^1.0"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "Tournaments"
+            },
+            "autoload": {
+                "psr-4": {
+                    "cms\\Modules\\Tournaments\\": ""
+                }
+            },
+            "license": [
+                "copyright"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Tournaments on #CVEPDB CMS",
+            "keywords": [
+                "CMS",
+                "CVEPDB",
+                "Tournaments",
+                "module"
+            ],
+            "time": "2016-09-25 20:47:23"
         },
         {
             "name": "cvepdb-cms/module-users",
@@ -1419,6 +1698,102 @@
                 "widgets"
             ],
             "time": "2016-10-10 11:14:33"
+        },
+        {
+            "name": "cvepdb/theme-longwave",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:cvepdb-cms/theme-longwave.git",
+                "reference": "76fb31821486d989b92ea521f14c212149691a45"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=76fb31821486d989b92ea521f14c212149691a45",
+                "reference": "76fb31821486d989b92ea521f14c212149691a45",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "longwave"
+            },
+            "license": [
+                "copyright"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@cvepdb.fr"
+                }
+            ],
+            "description": "Theme longwave for #CVEPDB CMS",
+            "homepage": "http://cavaencoreparlerdebits.fr",
+            "keywords": [
+                "CMS",
+                "CVEPDB",
+                "Theme",
+                "longwave"
+            ],
+            "time": "2016-11-24 11:15:05"
+        },
+        {
+            "name": "da-mitchell/steam-api",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DaMitchell/steam-api-php.git",
+                "reference": "c004d4eecfeaf85d48a262b820934deebce82678"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DaMitchell/steam-api-php/zipball/c004d4eecfeaf85d48a262b820934deebce82678",
+                "reference": "c004d4eecfeaf85d48a262b820934deebce82678",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.1",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Steam\\": "src/Steam"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Mitchell",
+                    "email": "danmitchellster@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP wrapper for the steam web API",
+            "homepage": "https://github.com/DaMitchell/steam-api-php",
+            "keywords": [
+                "api",
+                "counter strike",
+                "csgo",
+                "dota",
+                "steam"
+            ],
+            "time": "2015-12-28 17:42:46"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2333,6 +2708,52 @@
                 "watermark"
             ],
             "time": "2016-09-01 17:04:03"
+        },
+        {
+            "name": "invisnik/laravel-steam-auth",
+            "version": "v2.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/invisnik/laravel-steam-auth.git",
+                "reference": "7b8dfc787a57bdee7ee9d089ca70075421a6c89b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/invisnik/laravel-steam-auth/zipball/7b8dfc787a57bdee7ee9d089ca70075421a6c89b",
+                "reference": "7b8dfc787a57bdee7ee9d089ca70075421a6c89b",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2",
+                "laravel/framework": "5.*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Invisnik\\LaravelSteamAuth\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Brytkov",
+                    "email": "invis.nik@gmail.com"
+                }
+            ],
+            "description": "Laravel Steam Auth",
+            "keywords": [
+                "auth",
+                "laravel",
+                "steam"
+            ],
+            "time": "2016-11-07 19:26:26"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -4956,6 +5377,84 @@
             "time": "2016-11-03 08:04:31"
         },
         {
+            "name": "team-reflex/challonge-php",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/teamreflex/ChallongePHP.git",
+                "reference": "2cf1372c16319c007e317c0df4dc765813100183"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/teamreflex/ChallongePHP/zipball/2cf1372c16319c007e317c0df4dc765813100183",
+                "reference": "2cf1372c16319c007e317c0df4dc765813100183",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Reflex\\Challonge\\": "src/Challonge"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Ward",
+                    "email": "kairu@team-reflex.com"
+                }
+            ],
+            "description": "Unofficial API to interface with the bracket generator Challonge.",
+            "time": "2016-01-17 06:42:25"
+        },
+        {
+            "name": "toniperic/php-clash-of-clans",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/toniperic/php-clash-of-clans.git",
+                "reference": "f65d0fe9dc5dfdd970d23602e4839a1ba1df5575"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/toniperic/php-clash-of-clans/zipball/f65d0fe9dc5dfdd970d23602e4839a1ba1df5575",
+                "reference": "f65d0fe9dc5dfdd970d23602e4839a1ba1df5575",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.1",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "php-vcr/php-vcr": "^1.2",
+                "php-vcr/phpunit-testlistener-vcr": "^1.1",
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ClashOfClans\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Toni Peric",
+                    "email": "toni.peric@hotmail.com"
+                }
+            ],
+            "description": "PHP wrapper for querying the Supercell Clash of Clans API",
+            "time": "2016-08-04 23:16:51"
+        },
+        {
             "name": "vierbergenlars/php-semver",
             "version": "3.0.1",
             "source": {
@@ -5056,6 +5555,48 @@
                 "environment"
             ],
             "time": "2016-09-01 10:05:43"
+        },
+        {
+            "name": "xpaw/php-source-query-class",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xPaw/PHP-Source-Query.git",
+                "reference": "e798d8f7c2cdbfdd6496a8cd4574be32504c3338"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xPaw/PHP-Source-Query/zipball/e798d8f7c2cdbfdd6496a8cd4574be32504c3338",
+                "reference": "e798d8f7c2cdbfdd6496a8cd4574be32504c3338",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xPaw\\SourceQuery\\": "SourceQuery/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "description": "PHP library to query and send RCON commands to servers based on \"Source Engine Query\" protocol",
+            "homepage": "https://github.com/xPaw/PHP-Source-Query",
+            "keywords": [
+                "ark",
+                "counter-strike",
+                "csgo",
+                "gmod",
+                "minecraft",
+                "rcon",
+                "rust",
+                "starbound",
+                "team fortress"
+            ],
+            "time": "2015-10-11 10:10:35"
         }
     ],
     "packages-dev": [
@@ -9101,6 +9642,14 @@
         "cvepdb-cms/module-users": 20,
         "cvepdb-cms/theme-adminlte": 20,
         "cvepdb-cms/theme-lumen": 20,
+        "cvepdb-cms/module-clashofclan": 20,
+        "toniperic/php-clash-of-clans": 20,
+        "cvepdb-cms/module-csgolounge": 20,
+        "cvepdb-cms/module-servers": 20,
+        "cvepdb-cms/module-steam": 20,
+        "cvepdb-cms/module-teams": 20,
+        "cvepdb-cms/module-tournaments": 20,
+        "cvepdb/theme-longwave": 20,
         "redcomponent/teststatistics": 20
     },
     "prefer-stable": false,

@@ -8,6 +8,12 @@
   ],
   "license": "GPL-3.0",
   "type": "project",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://packages.cvepdb.fr"
+    }
+  ],
   "require": {
     "php": ">=5.6.4",
     "composer/composer": "^1.0",
@@ -33,7 +39,18 @@
     "cvepdb-cms/module-users": "dev-master",
     "cvepdb-cms/theme-adminlte": "dev-master",
     "cvepdb-cms/theme-lumen": "dev-master",
-    "barryvdh/laravel-elfinder": "^0.3.8"
+    "barryvdh/laravel-elfinder": "^0.3.8",
+    "cvepdb-cms/module-clashofclan" : "dev-master",
+    "toniperic/php-clash-of-clans": "dev-master",
+    "cvepdb-cms/module-csgolounge" : "dev-master",
+    "cvepdb-cms/module-servers" : "dev-master",
+    "cvepdb-cms/module-steam" : "dev-master",
+    "invisnik/laravel-steam-auth": "^2.0",
+    "xpaw/php-source-query-class": "^1.0",
+    "da-mitchell/steam-api": "^2.1",
+    "cvepdb-cms/module-teams" : "dev-master",
+    "cvepdb-cms/module-tournaments" : "dev-master",
+    "cvepdb/theme-longwave" : "dev-master"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
@@ -104,11 +121,18 @@
         "cvepdb-cms/module-installer",
         "cvepdb-cms/module-themes",
         "cvepdb-cms/module-files",
-        "cvepdb-cms/module-users"
+        "cvepdb-cms/module-users",
+        "cvepdb-cms/module-clashofclan",
+        "cvepdb-cms/module-csgolounge",
+        "cvepdb-cms/module-servers",
+        "cvepdb-cms/module-steam",
+        "cvepdb-cms/module-teams",
+        "cvepdb-cms/module-tournaments"
       ],
       "resources/themes/{$name}": [
         "cvepdb-cms/theme-adminlte",
-        "cvepdb-cms/theme-lumen"
+        "cvepdb-cms/theme-lumen",
+        "cvepdb/theme-longwave"
       ]
     }
   }
