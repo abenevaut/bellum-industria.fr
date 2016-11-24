@@ -895,12 +895,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-users.git",
-                "reference": "dba795937b214ba1f409c76b2ff951ed0a668224"
+                "reference": "a517866217ca01caf6c3101d95b34a20d4714bda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-users/zipball/dba795937b214ba1f409c76b2ff951ed0a668224",
-                "reference": "dba795937b214ba1f409c76b2ff951ed0a668224",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-users/zipball/a517866217ca01caf6c3101d95b34a20d4714bda",
+                "reference": "a517866217ca01caf6c3101d95b34a20d4714bda",
                 "shasum": ""
             },
             "require": {
@@ -934,7 +934,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2016-11-24 11:37:47"
+            "time": "2016-11-24 12:12:33"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
