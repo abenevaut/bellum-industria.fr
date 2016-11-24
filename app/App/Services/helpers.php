@@ -185,3 +185,35 @@ if (!function_exists('cms_is_user'))
 		);
 	}
 }
+
+if (!function_exists('cms_route_frontend'))
+{
+	/**
+	 * @return string
+	 */
+	function cms_route_frontend()
+	{
+		if (false === env('CMS_INSTALLED', false))
+		{
+			return \Config::get('cms.frontend.home_route');
+		}
+
+		return \Settings::get('cms.frontend.home_route');
+	}
+}
+
+if (!function_exists('cms_route_backend'))
+{
+	/**
+	 * @return string
+	 */
+	function cms_route_backend()
+	{
+		if (false === env('CMS_INSTALLED', false))
+		{
+			return \Config::get('cms.backend.home_route');
+		}
+
+		return \Settings::get('cms.backend.home_route');
+	}
+}

@@ -17,7 +17,7 @@ if (!function_exists('backend_menu_header'))
 			{
 
 				$menu->route(
-					\Settings::get('cms.backend.home_route'),
+					cms_route_backend(),
 					trans('menus.dashboard'),
 					[],
 					[
@@ -26,7 +26,7 @@ if (!function_exists('backend_menu_header'))
 				);
 
 				$menu->route(
-					\Settings::get('cms.frontend.home_route'),
+					cms_route_frontend(),
 					trans('menus.view_website'),
 					[],
 					[
@@ -97,7 +97,7 @@ if (!function_exists('backend_menu_front_mobile'))
 			{
 
 				$menu->route(
-					\Settings::get('cms.backend.home_route'),
+					cms_route_backend(),
 					trans('menus.dashboard'),
 					[],
 					[
@@ -131,7 +131,7 @@ if (!function_exists('backend_menu_sidebar'))
 			function ($menu) use ($modules_list)
 			{
 				$menu->route(
-					\Settings::get('cms.backend.home_route'),
+					cms_route_backend(),
 					trans('menus.dashboard'),
 					[],
 					[
