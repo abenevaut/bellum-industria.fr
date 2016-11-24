@@ -16,7 +16,7 @@ class Kernel extends HttpKernel
 	 * @var array
 	 */
 	protected $middlewareGroups = [
-		'web'   => [
+		'web'                 => [
 			\cms\Http\Middleware\EncryptCookies::class,
 			\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
 			\Illuminate\Session\Middleware\StartSession::class,
@@ -25,32 +25,31 @@ class Kernel extends HttpKernel
 			\Illuminate\Routing\Middleware\SubstituteBindings::class,
 			\cms\Modules\Installer\Http\Middleware\CMSInstalled::class,
 			\cms\Http\Middleware\SetLocaleMiddleware::class,
-			\cms\Http\Middleware\AuthenticatedUserHasRole::class,
 			\cms\Modules\Users\Http\Middleware\UserImpersonate::class,
 		],
-		'api'   => [
+		'api'                 => [
 			'throttle:60,1',
 		],
-		'ajax'  => [
+		'ajax'                => [
 			//
 		],
 		'super-administrator' => [
 			'auth',
 			'role:super-administrator',
 		],
-		'administrator' => [
+		'administrator'       => [
 			'auth',
 			'role:administrator',
 		],
-		'moderator' => [
+		'moderator'           => [
 			'auth',
 			'role:moderator',
 		],
-		'user'  => [
+		'user'                => [
 			'auth',
 			'role:user',
 		],
-		'installer' => [
+		'installer'           => [
 			\cms\Http\Middleware\EncryptCookies::class,
 			\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
 			\Illuminate\Session\Middleware\StartSession::class,
@@ -80,11 +79,12 @@ class Kernel extends HttpKernel
 	 * @var array
 	 */
 	protected $routeMiddleware = [
-		'auth'                 => \Illuminate\Auth\Middleware\Authenticate::class,
-		'auth.basic'           => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-		'bindings'             => \Illuminate\Routing\Middleware\SubstituteBindings::class,
-		'can'                  => \Illuminate\Auth\Middleware\Authorize::class,
-		'guest'                => \cms\Http\Middleware\RedirectIfAuthenticated::class,
-		'throttle'             => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+		'auth'       => \Illuminate\Auth\Middleware\Authenticate::class,
+		'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+		'bindings'   => \Illuminate\Routing\Middleware\SubstituteBindings::class,
+		'can'        => \Illuminate\Auth\Middleware\Authorize::class,
+		'guest'      => \cms\Http\Middleware\RedirectIfAuthenticated::class,
+		'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+		'role'       => \cms\Http\Middleware\AuthenticatedUserHasRole::class,
 	];
 }
