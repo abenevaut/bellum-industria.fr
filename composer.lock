@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "02f725febaf25cb3480b65247d605bf9",
-    "content-hash": "5a47f0a7f5b98556652af97088b08356",
+    "hash": "66ff39ff1f9ed1301e406f265c1658aa",
+    "content-hash": "90a5d3f04da58cfbc8d2b5c325b3fe82",
     "packages": [
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -650,12 +650,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-clashofclan.git",
-                "reference": "ea70fa3937d8311b52942a24d155a5c09da4a071"
+                "reference": "32a1f08c626e649da54e051a2a7c132d23cae303"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-clashofclan/repository/archive.zip?sha=ea70fa3937d8311b52942a24d155a5c09da4a071",
-                "reference": "ea70fa3937d8311b52942a24d155a5c09da4a071",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-clashofclan/repository/archive.zip?sha=32a1f08c626e649da54e051a2a7c132d23cae303",
+                "reference": "32a1f08c626e649da54e051a2a7c132d23cae303",
                 "shasum": ""
             },
             "require": {
@@ -689,7 +689,7 @@
                 "Clash of Clan",
                 "module"
             ],
-            "time": "2016-09-20 14:48:01"
+            "time": "2016-11-24 16:38:37"
         },
         {
             "name": "cvepdb-cms/module-csgolounge",
@@ -978,12 +978,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-steam.git",
-                "reference": "6b090c8d18ca9a508aa50ece46c5fa915ddbc60f"
+                "reference": "b35b5194a6a0ad95f900456bf3e4a8e018d3d3aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-steam/repository/archive.zip?sha=6b090c8d18ca9a508aa50ece46c5fa915ddbc60f",
-                "reference": "6b090c8d18ca9a508aa50ece46c5fa915ddbc60f",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-steam/repository/archive.zip?sha=b35b5194a6a0ad95f900456bf3e4a8e018d3d3aa",
+                "reference": "b35b5194a6a0ad95f900456bf3e4a8e018d3d3aa",
                 "shasum": ""
             },
             "require": {
@@ -1019,7 +1019,7 @@
                 "Steam",
                 "module"
             ],
-            "time": "2016-09-27 14:29:19"
+            "time": "2016-11-24 17:03:11"
         },
         {
             "name": "cvepdb-cms/module-teams",
@@ -1027,12 +1027,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-teams.git",
-                "reference": "d5b25603b1c3bff521e5ee0d31b70cfc951b78cc"
+                "reference": "0f840a381a4024452af8bf097dba5860908a4a66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-teams/repository/archive.zip?sha=d5b25603b1c3bff521e5ee0d31b70cfc951b78cc",
-                "reference": "d5b25603b1c3bff521e5ee0d31b70cfc951b78cc",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-teams/repository/archive.zip?sha=0f840a381a4024452af8bf097dba5860908a4a66",
+                "reference": "0f840a381a4024452af8bf097dba5860908a4a66",
                 "shasum": ""
             },
             "require": {
@@ -1064,7 +1064,7 @@
                 "Teams",
                 "module"
             ],
-            "time": "2016-09-20 14:47:43"
+            "time": "2016-11-24 16:38:17"
         },
         {
             "name": "cvepdb-cms/module-themes",
@@ -1128,12 +1128,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/module-tournaments.git",
-                "reference": "232d3fd0d1e72148003a3d3226c8239383113b62"
+                "reference": "98cc2e0e1241406d757366832c53f8d2a3ec8269"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-tournaments/repository/archive.zip?sha=232d3fd0d1e72148003a3d3226c8239383113b62",
-                "reference": "232d3fd0d1e72148003a3d3226c8239383113b62",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Fmodule-tournaments/repository/archive.zip?sha=98cc2e0e1241406d757366832c53f8d2a3ec8269",
+                "reference": "98cc2e0e1241406d757366832c53f8d2a3ec8269",
                 "shasum": ""
             },
             "require": {
@@ -1166,7 +1166,7 @@
                 "Tournaments",
                 "module"
             ],
-            "time": "2016-09-25 20:47:23"
+            "time": "2016-11-24 16:38:25"
         },
         {
             "name": "cvepdb-cms/module-users",
@@ -4323,6 +4323,60 @@
                 "phra"
             ],
             "time": "2015-10-13 18:44:15"
+        },
+        {
+            "name": "simplepie/simplepie",
+            "version": "1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/simplepie/simplepie.git",
+                "reference": "9b775e88ba1128fa14c69ff94ab954d86067de2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/simplepie/simplepie/zipball/9b775e88ba1128fa14c69ff94ab954d86067de2a",
+                "reference": "9b775e88ba1128fa14c69ff94ab954d86067de2a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SimplePie": "library"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Parman",
+                    "homepage": "http://ryanparman.com/",
+                    "role": "Creator, alumnus developer"
+                },
+                {
+                    "name": "Geoffrey Sneddon",
+                    "homepage": "http://gsnedders.com/",
+                    "role": "Alumnus developer"
+                },
+                {
+                    "name": "Ryan McCue",
+                    "email": "me@ryanmccue.info",
+                    "homepage": "http://ryanmccue.info/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple Atom/RSS parsing library for PHP",
+            "homepage": "http://simplepie.org/",
+            "keywords": [
+                "atom",
+                "feeds",
+                "rss"
+            ],
+            "time": "2016-06-14 05:48:16"
         },
         {
             "name": "spatie/db-dumper",
