@@ -71,6 +71,7 @@ task('cms:prepare', function ()
 	run("php {{deploy_path}}/current/artisan cms:module:publish");
 	run("php {{deploy_path}}/current/artisan cms:module:publish-migration");
 	run("php {{deploy_path}}/current/artisan cms:theme:publish");
+	run("cd {{deploy_path}}/shared/storage/framework/cache && rm settings.json && cd -");
 })->desc('Prepare project');
 
 task('cms:uploads_env_files', function ()
