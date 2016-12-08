@@ -1,13 +1,12 @@
 <?php namespace cms\Domain\Dashboard\Settings\Repositories;
 
 use Illuminate\Support\Collection;
-use cms\Domain\Settings\Settings\Repositories\SettingsRepository as ParentSettingsRepository;
 
 /**
  * Class SettingsRepository
  * @package cms\Domain\Dashboard\Settings\Repositories
  */
-class SettingsRepository extends ParentSettingsRepository
+class SettingsRepository
 {
 
 	const DASHBOARD_WIDGET_STATUS_ACTIVE = 'active';
@@ -46,7 +45,7 @@ class SettingsRepository extends ParentSettingsRepository
 	 */
 	public function allWidgets()
 	{
-		return $this->get($this->setting_key);
+		return \Settings::get($this->setting_key);
 	}
 
 	/**
@@ -57,7 +56,7 @@ class SettingsRepository extends ParentSettingsRepository
 	public function activeWidgets()
 	{
 		$widgets = [];
-		$widgets_collection = $this->get($this->setting_key);
+		$widgets_collection = \Settings::get($this->setting_key);
 
 		if (!is_null($widgets_collection))
 		{
@@ -78,7 +77,7 @@ class SettingsRepository extends ParentSettingsRepository
 	public function inactiveWidgets()
 	{
 		$widgets = [];
-		$widgets_collection = $this->get($this->setting_key);
+		$widgets_collection = \Settings::get($this->setting_key);
 
 		if (!is_null($widgets_collection))
 		{
@@ -103,7 +102,7 @@ class SettingsRepository extends ParentSettingsRepository
 			$widgets = [];
 		}
 
-		$widgets_collection = $this->get($this->setting_key);
+		$widgets_collection = \Settings::get($this->setting_key);
 		if (!is_null($widgets_collection))
 		{
 
@@ -123,7 +122,7 @@ class SettingsRepository extends ParentSettingsRepository
 					return $item;
 				});
 
-			$this->set($this->setting_key, $widgets_collection);
+			\Settings::set($this->setting_key, $widgets_collection);
 		}
 	}
 
@@ -141,7 +140,7 @@ class SettingsRepository extends ParentSettingsRepository
 		 * Current available widgets list
 		 */
 
-		$widgets_collection = $this->get($this->setting_key);
+		$widgets_collection = \Settings::get($this->setting_key);
 		if (is_null($widgets_collection))
 		{
 			$widgets_collection = new Collection;
@@ -207,6 +206,6 @@ class SettingsRepository extends ParentSettingsRepository
 			}
 		}
 
-		$this->set($this->setting_key, $widgets_collection);
+		\Settings::set($this->setting_key, $widgets_collection);
 	}
 }
