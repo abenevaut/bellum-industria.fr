@@ -1,4 +1,5 @@
-[![build status](https://gitlab.com/cvepdb/cms/badges/master/build.svg)](https://gitlab.com/cvepdb/cms/commits/master)
+[![build status](https://gitlab.com/cvepdb-cms/cms/badges/master/build.svg)](https://gitlab.com/cvepdb-cms/cms/commits/master)
+[![Build Status](https://travis-ci.org/cvepdb-cms/cms.svg?branch=master)](https://travis-ci.org/cvepdb-cms/cms)
 [![Latest Stable Version](https://poser.pugx.org/cvepdb/cms/v/stable.svg)](https://packagist.org/packages/cvepdb/cms)
 [![Latest Unstable Version](https://poser.pugx.org/cvepdb/cms/v/unstable.svg)](https://packagist.org/packages/cvepdb/cms)
 [![License](https://poser.pugx.org/cvepdb/cms/license.svg)](https://packagist.org/packages/cvepdb/cms)

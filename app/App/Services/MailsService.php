@@ -1,13 +1,13 @@
-<?php namespace cms\App\Services\Mails;
+<?php namespace cms\App\Services;
 
 use Illuminate\Support\Facades\Mail;
 use cms\Infrastructure\Abstractions\Services\Mails\MailServiceAbstract;
 
 /**
- * Class MailService
- * @package cms\App\Services\Mails
+ * Class MailsService
+ * @package cms\App\Services
  */
-abstract class MailService extends MailServiceAbstract
+abstract class MailsService extends MailServiceAbstract
 {
 
 	/**

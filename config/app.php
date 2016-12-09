@@ -158,7 +158,6 @@ return [
 		CVEPDB\Addresses\App\Providers\AddressesServiceProvider::class,
 		CVEPDB\Menus\App\Providers\MenusServiceProvider::class,
 		CVEPDB\Modules\App\Providers\ModulesServiceProvider::class,
-		CVEPDB\Settings\SettingsServiceProvider::class,
 		Prettus\Repository\Providers\RepositoryServiceProvider::class,
 		Spatie\Backup\BackupServiceProvider::class,
 

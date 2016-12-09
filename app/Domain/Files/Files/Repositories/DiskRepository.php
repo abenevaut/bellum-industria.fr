@@ -21,11 +21,11 @@ class DiskRepository
 		$environment_reference = null
 	)
 	{
-		\Settings::set(
-			'filesystems.default',
-			$disk_name,
-			$environment_reference
-		);
+		\Settings::setEnvironment($environment_reference)
+			->set(
+				'filesystems.default',
+				$disk_name
+			);
 	}
 
 	/**
@@ -39,11 +39,11 @@ class DiskRepository
 		$environment_reference = null
 	)
 	{
-		\Settings::set(
-			'filesystems.cloud',
-			$disk_name,
-			$environment_reference
-		);
+		\Settings::setEnvironment($environment_reference)
+			->set(
+				'filesystems.cloud',
+				$disk_name
+			);
 	}
 
 	/**
@@ -57,12 +57,13 @@ class DiskRepository
 	 */
 	public function addFileSystemDisk($disk_reference, $options, $environment_reference = null)
 	{
-		$disks = \Settings::get('filesystems.disks', [], $environment_reference);
-		\Settings::set(
-			'filesystems.disks',
-			$disks + [$disk_reference => $options],
-			$environment_reference
-		);
-	}
+		$disks = \Settings::setEnvironment($environment_reference)
+			->get('filesystems.disks', []);
 
+		\Settings::setEnvironment($environment_reference)
+			->set(
+				'filesystems.disks',
+				$disks + [$disk_reference => $options]
+			);
+	}
 }

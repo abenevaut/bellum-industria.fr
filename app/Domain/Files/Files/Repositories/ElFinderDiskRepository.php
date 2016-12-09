@@ -21,7 +21,8 @@ class ElFinderDiskRepository extends DiskRepository
 	 */
 	public function getElFinderRoots($environment_reference = null)
 	{
-		return (array)\Settings::get('elfinder.roots', [], $environment_reference);
+		return (array)\Settings::setEnvironment($environment_reference)
+			->get('elfinder.roots', []);
 	}
 
 	/**
@@ -35,7 +36,8 @@ class ElFinderDiskRepository extends DiskRepository
 		$environment_reference = null
 	)
 	{
-		$directories = \Settings::get('elfinder.dir', [], $environment_reference);
+		$directories = \Settings::setEnvironment($environment_reference)
+			->get('elfinder.dir', []);
 
 		if (empty($directories))
 		{
@@ -46,11 +48,11 @@ class ElFinderDiskRepository extends DiskRepository
 			$directories = [$directories];
 		}
 
-		\Settings::set(
-			'elfinder.dir',
-			$directories + [$new_directory],
-			$environment_reference
-		);
+		\Settings::setEnvironment($environment_reference)
+			->set(
+				'elfinder.dir',
+				$directories + [$new_directory]
+			);
 	}
 
 	/**
@@ -61,11 +63,15 @@ class ElFinderDiskRepository extends DiskRepository
 	 */
 	public function unmountElFinderDirectory($directory, $environment_reference = null)
 	{
-		$directories = \Settings::get('elfinder.dir', [], $environment_reference);
+		$directories = \Settings::setEnvironment($environment_reference)
+			->get('elfinder.dir', []);
 		unset($directories[array_search($directory, $directories)]);
 
-		\Settings::forget('elfinder.dir', $environment_reference);
-		\Settings::set('elfinder.dir', $directories, $environment_reference);
+		\Settings::setEnvironment($environment_reference)
+			->forget('elfinder.dir');
+
+		\Settings::setEnvironment($environment_reference)
+			->set('elfinder.dir', $directories);
 	}
 
 	/**
@@ -77,7 +83,8 @@ class ElFinderDiskRepository extends DiskRepository
 	 */
 	public function getElFinderDirectories($environment_reference = null)
 	{
-		return \Settings::get('elfinder.dir', [], $environment_reference);
+		return \Settings::setEnvironment($environment_reference)
+			->get('elfinder.dir', []);
 	}
 
 	/**
@@ -115,14 +122,16 @@ class ElFinderDiskRepository extends DiskRepository
 	 */
 	public function mountElFinderDisk($disk_reference, $options, $environment_reference = null)
 	{
-		$disks = \Settings::get('elfinder.disks', [], $environment_reference);
+		$disks = \Settings::resetEnvironment()
+			->get('elfinder.disks', []);
+
 		$disks = is_null($disks) ? [] : $disks;
 
-		\Settings::set(
-			'elfinder.disks',
-			$disks + [$disk_reference => $options],
-			$environment_reference
-		);
+		\Settings::setEnvironment($environment_reference)
+			->set(
+				'elfinder.disks',
+				$disks + [$disk_reference => $options]
+			);
 	}
 
 	/**
@@ -134,11 +143,14 @@ class ElFinderDiskRepository extends DiskRepository
 	 */
 	public function unmountElFinderDisk($disk_reference, $environment_reference = null)
 	{
-		$disks = \Settings::get('elfinder.disks', [], $environment_reference);
+		$disks = \Settings::setEnvironment($environment_reference)
+			->get('elfinder.disks', [], $environment_reference);
 		unset($disks[$disk_reference]);
 
-		\Settings::forget('elfinder.disks', $environment_reference);
-		\Settings::set('elfinder.disks', $disks, $environment_reference);
+		\Settings::setEnvironment($environment_reference)
+			->forget('elfinder.disks', $environment_reference);
+		\Settings::setEnvironment($environment_reference)
+			->set('elfinder.disks', $disks, $environment_reference);
 	}
 
 	/**
@@ -150,7 +162,8 @@ class ElFinderDiskRepository extends DiskRepository
 	 */
 	public function getElFinderDisks($environment_reference = null)
 	{
-		return (array)\Settings::get('elfinder.disks', [], $environment_reference);
+		return (array)\Settings::setEnvironment($environment_reference)
+			->get('elfinder.disks', []);
 	}
 
 	/**
@@ -202,11 +215,11 @@ class ElFinderDiskRepository extends DiskRepository
 	protected function isElFinderDiskRestricted($root)
 	{
 		return is_array($root)
-		&& array_key_exists('access', $root)
-		&& (
-			array_key_exists('roles', $root['access'])
-			|| array_key_exists('permissions', $root['access'])
-		);
+			&& array_key_exists('access', $root)
+			&& (
+				array_key_exists('roles', $root['access'])
+				|| array_key_exists('permissions', $root['access'])
+			);
 	}
 
 	/**
@@ -220,7 +233,7 @@ class ElFinderDiskRepository extends DiskRepository
 	protected function isElFinderDiskCouldBeMount($root)
 	{
 		return Auth::user()->hasRole($root['access']['roles'])
-		|| Auth::user()->hasRole($root['access']['permissions']);
+			|| Auth::user()->hasRole($root['access']['permissions']);
 	}
 
 	/**

@@ -11,18 +11,18 @@ use cms\Domain\Environments\Environments\Environment;
 class EnvironmentsTableSeeder extends Seeder
 {
 
-    public function run()
-    {
-        Model::unguard();
+	public function run()
+	{
+		Model::unguard();
 
-        //DB::table('environments')->truncate();
+		//DB::table('environments')->truncate();
 
-        Environment::create([
-            'name' => 'Default',
-            'reference' => 'default',
-            'domain' => 'localhost'
-        ]);
+		Environment::create([
+			'name'      => 'Default',
+			'reference' => 'default',
+			'domain'    => 'localhost'
+		]);
 
-        Model::reguard();
-    }
+		Model::reguard();
+	}
 }
