@@ -15,7 +15,9 @@ abstract class NavigationPresenterAbstract extends PresenterAbstract
 	 */
 	public function getOpenTagWrapper()
 	{
-		return PHP_EOL . '<ul class="nav navbar-nav hidden-xs hidden-md">' . PHP_EOL;
+		return PHP_EOL
+			. '<ul class="nav navbar-nav hidden-xs hidden-md">'
+			. PHP_EOL;
 	}
 
 	/**
@@ -31,7 +33,10 @@ abstract class NavigationPresenterAbstract extends PresenterAbstract
 	 */
 	public function getMenuWithoutDropdownWrapper(MenuItem $item)
 	{
-		return '<li class="' . $this->getActiveState($item) . '"><a href="' . $item->getUrl() . '" ' . $item->getAttributes() . '>' . $item->getIcon() . ' <span>' . $item->title . '</span></a></li>' . PHP_EOL;
+		return '<li class="' . $this->getActiveState($item) . '"><a href="'
+			. $item->getUrl() . '" ' . $item->getAttributes() . '>'
+			. $item->getIcon() . ' <span>' . $item->title
+			. '</span></a></li>' . PHP_EOL;
 	}
 
 	/**
@@ -76,9 +81,10 @@ abstract class NavigationPresenterAbstract extends PresenterAbstract
 	 */
 	public function getMenuWithDropDownWrapper(MenuItem $item)
 	{
-		return '<li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown"> ' . $item->getIcon() . ' ' . $item->title . '  <span class="caret"></span></a>
-		<ul class="dropdown-menu" role="menu">' . $this->getChildMenuItems($item) . '</ul></li>' . PHP_EOL;
+		return '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> '
+			. $item->getIcon() . ' ' . $item->title
+			. '  <span class="caret"></span></a><ul class="dropdown-menu" role="menu">'
+			. $this->getChildMenuItems($item) . '</ul></li>' . PHP_EOL;
 	}
 
 	/**
@@ -92,5 +98,4 @@ abstract class NavigationPresenterAbstract extends PresenterAbstract
 	{
 		return PHP_EOL;
 	}
-
 }

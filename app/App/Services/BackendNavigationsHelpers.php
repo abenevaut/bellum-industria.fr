@@ -35,44 +35,63 @@ if (!function_exists('backend_menu_header'))
 					]
 				);
 
-				$menu->dropdown(
-					trans('global.shortcuts'),
-					function ($submenu) use ($modules_list)
-					{
-						$i = 0;
-
-						foreach ($modules_list as $module)
+				if (cms_is_admin())
+				{
+					$menu->dropdown(
+						trans('global.shortcuts'),
+						function ($submenu) use ($modules_list)
 						{
-							$config_base_tag = strtolower($module->name) . '.admin.sidebar.shortcuts.';
-							$route = \Settings::get($config_base_tag . 'route');
+							$i = 0;
 
-							if (!is_null($route))
+							foreach ($modules_list as $module)
 							{
-								if ($i)
+								$is_allowed_to_display = true;
+
+								$config_base_tag = strtolower($module->name) . '.admin.sidebar.shortcuts.';
+								$route = \Settings::get($config_base_tag . 'route');
+								$roles = \Settings::get($config_base_tag . 'roles');
+
+								if (!empty($roles))
 								{
-									$submenu->divider();
+									$is_allowed_to_display = false;
+
+									foreach ($roles as $role)
+									{
+										if (\Gate::allows($role))
+										{
+											$is_allowed_to_display = true;
+											break;
+										}
+									}
 								}
 
-								$submenu->route(
-									$route,
-									$module->name,
-									[],
-									[
-										'icon' => \Settings::get($config_base_tag . 'icon')
-									]
-								);
+								if (!is_null($route) && $is_allowed_to_display)
+								{
+									if ($i)
+									{
+										$submenu->divider();
+									}
 
-								$i++;
+									$submenu->route(
+										$route,
+										$module->name,
+										[],
+										[
+											'icon' => \Settings::get($config_base_tag . 'icon')
+										]
+									);
+
+									$i++;
+								}
 							}
-						}
 
-					},
-					[],
-					[
-						'icon' => 'fa fa-fast-forward'
-					]
-				);
-
+						},
+						[],
+						[
+							'icon' => 'fa fa-fast-forward'
+						]
+					);
+				}
 			});
 
 		return \Menu::render(
@@ -143,10 +162,27 @@ if (!function_exists('backend_menu_sidebar'))
 
 				foreach ($modules_list as $module)
 				{
+					$is_allowed_to_display = true;
+
 					$config_base_tag = strtolower($module->name) . '.admin.sidebar.menu.';
 					$route = \Settings::get($config_base_tag . 'route');
+					$roles = \Settings::get($config_base_tag . 'roles');
 
-					if (!is_null($route))
+					if (!empty($roles))
+					{
+						$is_allowed_to_display = false;
+
+						foreach ($roles as $role)
+						{
+							if (\Gate::allows($role))
+							{
+								$is_allowed_to_display = true;
+								break;
+							}
+						}
+					}
+
+					if (!is_null($route) && $is_allowed_to_display)
 					{
 						$menu->route(
 							$route,
@@ -159,48 +195,68 @@ if (!function_exists('backend_menu_sidebar'))
 					}
 				}
 
-				$menu->header(trans('global.settings'));
-
-				if (cms_is_superadmin())
+				if (cms_is_admin())
 				{
-					$menu->route(
-						'backend.environments.index',
-						trans('global.environment_s'),
+					$menu->header(trans('global.settings'));
+
+					if (cms_is_superadmin())
+					{
+						$menu->route(
+							'backend.environments.index',
+							trans('global.environment_s'),
+							[],
+							[
+								'icon' => 'fa fa-cubes'
+							]
+						);
+					}
+
+					$menu->dropdown(
+						trans('global.settings'),
+						function ($submenu) use ($modules_list)
+						{
+
+							foreach ($modules_list as $module)
+							{
+								$is_allowed_to_display = true;
+
+								$config_base_tag = strtolower($module->name) . '.admin.sidebar.settings.';
+								$route = \Settings::get($config_base_tag . 'route');
+								$roles = \Settings::get($config_base_tag . 'roles');
+
+								if (!empty($roles))
+								{
+									$is_allowed_to_display = false;
+
+									foreach ($roles as $role)
+									{
+										if (\Gate::allows($role))
+										{
+											$is_allowed_to_display = true;
+											break;
+										}
+									}
+								}
+
+								if (!is_null($route) && $is_allowed_to_display)
+								{
+									$submenu->route(
+										$route,
+										$module->name,
+										[],
+										[
+											'icon' => \Settings::get($config_base_tag . 'icon')
+										]
+									);
+								}
+							}
+						},
 						[],
 						[
-							'icon' => 'fa fa-cubes'
+							'icon' => 'fa fa-gears'
 						]
 					);
 				}
-
-				$menu->dropdown(
-					trans('global.settings'),
-					function ($submenu) use ($modules_list)
-					{
-
-						foreach ($modules_list as $module)
-						{
-							$config_base_tag = strtolower($module->name) . '.admin.sidebar.settings.';
-							$route = \Settings::get($config_base_tag . 'route');
-
-							if (!is_null($route))
-							{
-								$submenu->route(
-									$route,
-									$module->name,
-									[],
-									[
-										'icon' => \Settings::get($config_base_tag . 'icon')
-									]
-								);
-							}
-						}
-					},
-					[],
-					[
-						'icon' => 'fa fa-gears'
-					]
-				);
 			});
 
 		return \Menu::render(

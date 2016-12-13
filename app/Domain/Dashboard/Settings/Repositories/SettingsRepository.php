@@ -28,6 +28,8 @@ class SettingsRepository
 	public function setSettingKey($setting_key)
 	{
 		$this->setting_key = $setting_key;
+
+		return $this;
 	}
 
 	/**
@@ -36,6 +38,8 @@ class SettingsRepository
 	public function setModuleSettingKey($module_setting_key)
 	{
 		$this->module_setting_key = $module_setting_key;
+
+		return $this;
 	}
 
 	/**
