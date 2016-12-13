@@ -180,10 +180,27 @@ if (!function_exists('backend_menu_sidebar'))
 
 						foreach ($modules_list as $module)
 						{
+							$is_allowed_to_display = true;
+
 							$config_base_tag = strtolower($module->name) . '.admin.sidebar.settings.';
 							$route = \Settings::get($config_base_tag . 'route');
+							$roles = \Settings::get($config_base_tag . 'roles');
 
-							if (!is_null($route))
+							if (!empty($roles))
+							{
+								$is_allowed_to_display = false;
+
+								foreach ($roles as $role)
+								{
+									if (\Gate::allows($role))
+									{
+										$is_allowed_to_display = true;
+										break;
+									}
+								}
+							}
+
+							if (!is_null($route) && $is_allowed_to_display)
 							{
 								$submenu->route(
 									$route,
