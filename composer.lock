@@ -650,12 +650,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-environments.git",
-                "reference": "d0b9087de408b96789b53590f60b6faee155165a"
+                "reference": "a3aaadf04327313d1e087ec1f22e4a2160a701c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-environments/zipball/d0b9087de408b96789b53590f60b6faee155165a",
-                "reference": "d0b9087de408b96789b53590f60b6faee155165a",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-environments/zipball/a3aaadf04327313d1e087ec1f22e4a2160a701c4",
+                "reference": "a3aaadf04327313d1e087ec1f22e4a2160a701c4",
                 "shasum": ""
             },
             "require": {
@@ -689,7 +689,7 @@
                 "environments",
                 "module"
             ],
-            "time": "2016-12-08 19:44:25"
+            "time": "2016-12-13 12:06:53"
         },
         {
             "name": "cvepdb-cms/module-files",
@@ -697,12 +697,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-files.git",
-                "reference": "4e417fa43a7fbdf6d89114a64604cd154effe1c2"
+                "reference": "56027578dbe0ffd12ae20489b2b0dcab8fa6824a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-files/zipball/4e417fa43a7fbdf6d89114a64604cd154effe1c2",
-                "reference": "4e417fa43a7fbdf6d89114a64604cd154effe1c2",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-files/zipball/56027578dbe0ffd12ae20489b2b0dcab8fa6824a",
+                "reference": "56027578dbe0ffd12ae20489b2b0dcab8fa6824a",
                 "shasum": ""
             },
             "require": {
@@ -737,7 +737,7 @@
                 "files",
                 "module"
             ],
-            "time": "2016-12-08 19:44:39"
+            "time": "2016-12-13 12:07:03"
         },
         {
             "name": "cvepdb-cms/module-installer",
@@ -792,12 +792,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-settings.git",
-                "reference": "7a0c2f2de4cb5e11e08fedcff8014713572668cc"
+                "reference": "4986f59ccecb347b15c633c09b83f270d043b417"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-settings/zipball/7a0c2f2de4cb5e11e08fedcff8014713572668cc",
-                "reference": "7a0c2f2de4cb5e11e08fedcff8014713572668cc",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-settings/zipball/4986f59ccecb347b15c633c09b83f270d043b417",
+                "reference": "4986f59ccecb347b15c633c09b83f270d043b417",
                 "shasum": ""
             },
             "require": {
@@ -831,7 +831,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2016-12-08 19:44:31"
+            "time": "2016-12-13 11:32:18"
         },
         {
             "name": "cvepdb-cms/module-themes",
@@ -839,12 +839,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-themes.git",
-                "reference": "132ac16524b7fc6a04d2ac4e7d52b36aa1b9593c"
+                "reference": "4e2a6575b73c3f37afac537d87bd7dafe28e6622"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-themes/zipball/132ac16524b7fc6a04d2ac4e7d52b36aa1b9593c",
-                "reference": "132ac16524b7fc6a04d2ac4e7d52b36aa1b9593c",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-themes/zipball/4e2a6575b73c3f37afac537d87bd7dafe28e6622",
+                "reference": "4e2a6575b73c3f37afac537d87bd7dafe28e6622",
                 "shasum": ""
             },
             "require": {
@@ -887,7 +887,7 @@
                 "module",
                 "themes"
             ],
-            "time": "2016-11-24 11:37:27"
+            "time": "2016-12-13 11:32:47"
         },
         {
             "name": "cvepdb-cms/module-users",
@@ -895,12 +895,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-users.git",
-                "reference": "2efc980868f9fbe53fbfa1843572157178d240a1"
+                "reference": "30743ea660df29e216a114b4f5d5ed4a764b75c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-users/zipball/2efc980868f9fbe53fbfa1843572157178d240a1",
-                "reference": "2efc980868f9fbe53fbfa1843572157178d240a1",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-users/zipball/30743ea660df29e216a114b4f5d5ed4a764b75c2",
+                "reference": "30743ea660df29e216a114b4f5d5ed4a764b75c2",
                 "shasum": ""
             },
             "require": {
@@ -934,7 +934,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2016-12-08 19:44:45"
+            "time": "2016-12-13 12:28:49"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -4017,16 +4017,16 @@
         },
         {
             "name": "studio-42/elfinder",
-            "version": "2.1.18",
+            "version": "2.1.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "4f8b5564d9dfaaa4b3693a5d09b20129c147a791"
+                "reference": "8f89bea1611b5bb003490c4c686288f72855d052"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/4f8b5564d9dfaaa4b3693a5d09b20129c147a791",
-                "reference": "4f8b5564d9dfaaa4b3693a5d09b20129c147a791",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/8f89bea1611b5bb003490c4c686288f72855d052",
+                "reference": "8f89bea1611b5bb003490c4c686288f72855d052",
                 "shasum": ""
             },
             "require": {
@@ -4071,7 +4071,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-11-21 12:44:59"
+            "time": "2016-12-10 01:13:42"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5169,16 +5169,16 @@
         },
         {
             "name": "barryvdh/laravel-ide-helper",
-            "version": "v2.2.1",
+            "version": "v2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "28af7cd19ca41cc0c63dd1de2b46c2b84d31c463"
+                "reference": "105f14a50d0959a0e80004a15b3350fdf78f9623"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/28af7cd19ca41cc0c63dd1de2b46c2b84d31c463",
-                "reference": "28af7cd19ca41cc0c63dd1de2b46c2b84d31c463",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/105f14a50d0959a0e80004a15b3350fdf78f9623",
+                "reference": "105f14a50d0959a0e80004a15b3350fdf78f9623",
                 "shasum": ""
             },
             "require": {
@@ -5231,7 +5231,7 @@
                 "phpstorm",
                 "sublime"
             ],
-            "time": "2016-07-04 11:52:48"
+            "time": "2016-11-15 08:21:23"
         },
         {
             "name": "barryvdh/reflection-docblock",
