@@ -33,7 +33,11 @@
     "cvepdb-cms/module-users": "dev-master",
     "cvepdb-cms/theme-adminlte": "dev-master",
     "cvepdb-cms/theme-lumen": "dev-master",
-    "barryvdh/laravel-elfinder": "^0.3.8"
+    "barryvdh/laravel-elfinder": "^0.3.8",
+    "dropbox-php/dropbox-php": "^1.0",
+    "nao-pon/flysystem-google-drive": "~1.1",
+    "google/apiclient": "~2.0@rc",
+    "nao-pon/elfinder-flysystem-driver-ext": "^1.0"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
