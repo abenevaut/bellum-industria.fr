@@ -180,6 +180,8 @@ class ElFinderDiskRepository extends DiskRepository
 		$roots = [];
 		$disks = $this->getElFinderDisks($environment_reference);
 
+		dd($disks);
+
 		foreach ($disks as $disk_name => $options)
 		{
 			if (is_string($options))

@@ -9,21 +9,29 @@ if (!function_exists('backend_pagination'))
 	 *
 	 * @return string
 	 */
-	function backend_pagination($nb_rows, $total_row, $current_page, $per_page = 15)
+	function backend_pagination(
+		$nb_rows,
+		$total_row,
+		$current_page,
+		$per_page = 15,
+		$page_name = 'page'
+	)
 	{
-		return with(
-			new \cms\App\Presenters\AdminLtePaginationPresenter(
-				new \Illuminate\Pagination\LengthAwarePaginator(
-					$nb_rows,
-					$total_row,
-					$per_page,
-					$current_page,
-					[
-						'path' => Request::url(),
-						'query' => Request::query(),
-					]
-				)
-			)
-		)->render();
+		$paginator = new \Illuminate\Pagination\LengthAwarePaginator(
+			$nb_rows,
+			$total_row,
+			$per_page,
+			$current_page,
+			[
+				'path'  => Request::url(),
+				'query' => Request::query(),
+			]
+		);
+
+		$current_theme = \Theme::getCurrent();
+
+		return $paginator
+			->setPageName($page_name)
+			->render($current_theme . '::partials.pagination');
 	}
 }
