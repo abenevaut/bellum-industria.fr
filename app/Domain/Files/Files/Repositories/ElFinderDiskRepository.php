@@ -1,8 +1,7 @@
 <?php namespace cms\Domain\Files\Files\Repositories;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Filesystem\FilesystemAdapter;
-use cms\Domain\Files\Files\Repositories\DiskRepository;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class ElFinderDiskRepository
@@ -180,8 +179,6 @@ class ElFinderDiskRepository extends DiskRepository
 		$roots = [];
 		$disks = $this->getElFinderDisks($environment_reference);
 
-		dd($disks);
-
 		foreach ($disks as $disk_name => $options)
 		{
 			if (is_string($options))
@@ -234,8 +231,12 @@ class ElFinderDiskRepository extends DiskRepository
 	 */
 	protected function isElFinderDiskCouldBeMount($root)
 	{
-		return Auth::user()->hasRole($root['access']['roles'])
-			|| Auth::user()->hasRole($root['access']['permissions']);
+		$is_allowed = collect($root['access']['roles'])
+			->filter(function($role) {
+				return Gate::allows($role);
+			});
+
+		return $is_allowed->count();
 	}
 
 	/**
