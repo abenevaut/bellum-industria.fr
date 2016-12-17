@@ -6,9 +6,10 @@ job_build:
   stage: build
   only:
   - master
-  script:
+  before_script:
   - composer before-test
   - composer install
+  script:
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
   - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
   - php artisan theme:publish
