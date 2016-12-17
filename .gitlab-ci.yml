@@ -6,11 +6,8 @@ job_build:
   stage: build
   only:
   - master
-  - staging
-  - development
   script:
-  - chmod -R 777 storage
-  - chmod -R 777 public/uploads
+  - mkdir -p storage && chmod -R 777 storage
   - composer install
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
   - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
@@ -27,11 +24,8 @@ job_tests_linux: # Run tests suites
   stage: test
   only:
   - master
-  - staging
-  - development
   before_script:
-  - chmod -R 777 storage
-  - chmod -R 777 public/uploads
+  - mkdir -p storage && chmod -R 777 storage
   - composer install
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
   - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
@@ -64,12 +58,10 @@ job_tests_linux: # Run tests suites
 job_tests_windows_firefox: # Run tests suites
   stage: test
   only:
-  - staging
-  - development
+  - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - chmod -R 777 storage
-  - chmod -R 777 public/uploads
   - call composer install
   - cd resources\themes\adminlte\assets
   - call npm install
@@ -101,12 +93,10 @@ job_tests_windows_firefox: # Run tests suites
 job_tests_windows_ie9: # Run tests suites
   stage: test
   only:
-  - staging
-  - development
+  - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - chmod -R 777 storage
-  - chmod -R 777 public/uploads
   - call composer install
   - cd resources\themes\adminlte\assets
   - call npm install
@@ -138,12 +128,10 @@ job_tests_windows_ie9: # Run tests suites
 job_tests_windows_ie11: # Run tests suites
   stage: test
   only:
-  - staging
-  - development
+  - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - chmod -R 777 storage
-  - chmod -R 777 public/uploads
   - call composer install
   - cd resources\themes\adminlte\assets
   - call npm install
@@ -175,12 +163,10 @@ job_tests_windows_ie11: # Run tests suites
 job_tests_windows_chrome: # Run tests suites
   stage: test
   only:
-  - staging
-  - development
+  - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - chmod -R 777 storage
-  - chmod -R 777 public/uploads
   - call composer install
   - cd resources\themes\adminlte\assets
   - call npm install
@@ -212,7 +198,7 @@ job_tests_windows_chrome: # Run tests suites
 job_cs: # CodeStyle
   stage: test
   only:
-  - development
+  - master
   before_script:
   - composer install
   script:
@@ -227,7 +213,7 @@ job_cs: # CodeStyle
 job_cs_duplicated: # CodeStyle - Looking for duplicated code
   stage: test
   only:
-  - development
+  - master
   before_script:
   - composer install
   script:
@@ -242,7 +228,7 @@ job_cs_duplicated: # CodeStyle - Looking for duplicated code
 job_ci_dump: # ContinuousIntegration - try to dump Db
   stage: test
   only:
-  - development
+  - master
   script:
   - composer install
   - php artisan codeception:dbdump testing --dump tests/_data/empty.sql --empty-database --no-seeding
@@ -257,7 +243,7 @@ job_ci_dump: # ContinuousIntegration - try to dump Db
 job_ci_backup: # ContinuousIntegration - try to backup website
   stage: test
   only:
-  - development
+  - master
   script:
   - composer install
   - mkdir -p storage/apps/default/backups
