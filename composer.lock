@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f9193005444c2ab3a75d1adf8c51ca43",
-    "content-hash": "511e0d0c66bb7c7aff844ab7ef332524",
+    "hash": "596be0b47e57e52a79d6c5b7dc1df24f",
+    "content-hash": "0954704abd6d4148f3cb6aa4099d0534",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -730,12 +730,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-environments.git",
-                "reference": "0a505aad5860963b4d93dd34524a6580a3e355c1"
+                "reference": "308fc1f23fe3e27a4473f5881170163ba37594a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-environments/zipball/0a505aad5860963b4d93dd34524a6580a3e355c1",
-                "reference": "0a505aad5860963b4d93dd34524a6580a3e355c1",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-environments/zipball/308fc1f23fe3e27a4473f5881170163ba37594a5",
+                "reference": "308fc1f23fe3e27a4473f5881170163ba37594a5",
                 "shasum": ""
             },
             "require": {
@@ -769,7 +769,7 @@
                 "environments",
                 "module"
             ],
-            "time": "2016-12-16 17:39:17"
+            "time": "2016-12-16 23:25:10"
         },
         {
             "name": "cvepdb-cms/module-files",
@@ -777,17 +777,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-files.git",
-                "reference": "5acebafa0aa531740273f4949722987fc9795a02"
+                "reference": "b4f6e538c8707571e8f3f14cac81ece85763212d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-files/zipball/5acebafa0aa531740273f4949722987fc9795a02",
-                "reference": "5acebafa0aa531740273f4949722987fc9795a02",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-files/zipball/b4f6e538c8707571e8f3f14cac81ece85763212d",
+                "reference": "b4f6e538c8707571e8f3f14cac81ece85763212d",
                 "shasum": ""
             },
             "require": {
                 "barryvdh/laravel-elfinder": "^0.3.8",
                 "composer/installers": "~1.0",
+                "dropbox-php/dropbox-php": "^1.0",
+                "google/apiclient": "~2.0@rc",
+                "league/flysystem-aws-s3-v3": "~1.0",
+                "nao-pon/elfinder-flysystem-driver-ext": "^1.0",
+                "nao-pon/flysystem-google-drive": "~1.1",
                 "php": ">=5.5.9"
             },
             "type": "laravel-library",
@@ -817,7 +822,7 @@
                 "files",
                 "module"
             ],
-            "time": "2016-12-16 17:57:36"
+            "time": "2016-12-16 23:25:18"
         },
         {
             "name": "cvepdb-cms/module-installer",
@@ -825,12 +830,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-installer.git",
-                "reference": "75d5fa936b843994fd74a9fe22e64e5bce321a0c"
+                "reference": "e0bb588b5c5f35497637090f69a01df8a5aac127"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-installer/zipball/75d5fa936b843994fd74a9fe22e64e5bce321a0c",
-                "reference": "75d5fa936b843994fd74a9fe22e64e5bce321a0c",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-installer/zipball/e0bb588b5c5f35497637090f69a01df8a5aac127",
+                "reference": "e0bb588b5c5f35497637090f69a01df8a5aac127",
                 "shasum": ""
             },
             "require": {
@@ -864,7 +869,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-12-08 19:44:55"
+            "time": "2016-12-16 23:27:37"
         },
         {
             "name": "cvepdb-cms/module-settings",
