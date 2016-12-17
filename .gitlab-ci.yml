@@ -8,6 +8,7 @@ job_build:
   - master
   script:
   - mkdir -p storage && chmod -R 777 storage
+  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - composer install
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
   - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
@@ -26,6 +27,7 @@ job_tests_linux: # Run tests suites
   - master
   before_script:
   - mkdir -p storage && chmod -R 777 storage
+  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - composer install
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
   - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
@@ -61,7 +63,8 @@ job_tests_windows_firefox: # Run tests suites
   - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
-  - chmod -R 777 storage
+  - mkdir -p storage && chmod -R 777 storage
+  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - call composer install
   - cd resources\themes\adminlte\assets
   - call npm install
@@ -96,7 +99,8 @@ job_tests_windows_ie9: # Run tests suites
   - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
-  - chmod -R 777 storage
+  - mkdir -p storage && chmod -R 777 storage
+  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - call composer install
   - cd resources\themes\adminlte\assets
   - call npm install
@@ -131,7 +135,8 @@ job_tests_windows_ie11: # Run tests suites
   - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
-  - chmod -R 777 storage
+  - mkdir -p storage && chmod -R 777 storage
+  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - call composer install
   - cd resources\themes\adminlte\assets
   - call npm install
@@ -166,7 +171,8 @@ job_tests_windows_chrome: # Run tests suites
   - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
-  - chmod -R 777 storage
+  - mkdir -p storage && chmod -R 777 storage
+  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - call composer install
   - cd resources\themes\adminlte\assets
   - call npm install
@@ -200,6 +206,7 @@ job_cs: # CodeStyle
   only:
   - master
   before_script:
+  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - composer install
   script:
   - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ core
@@ -215,6 +222,7 @@ job_cs_duplicated: # CodeStyle - Looking for duplicated code
   only:
   - master
   before_script:
+  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - composer install
   script:
   - bin/phpcpd core
@@ -230,6 +238,7 @@ job_ci_dump: # ContinuousIntegration - try to dump Db
   only:
   - master
   script:
+  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - composer install
   - php artisan codeception:dbdump testing --dump tests/_data/empty.sql --empty-database --no-seeding
   - php artisan codeception:dbdump testing --dump tests/_data/testing.sql --empty-database --seeder-class TestingSeeder
@@ -245,6 +254,7 @@ job_ci_backup: # ContinuousIntegration - try to backup website
   only:
   - master
   script:
+  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - composer install
   - mkdir -p storage/apps/default/backups
   - php artisan backup:run
