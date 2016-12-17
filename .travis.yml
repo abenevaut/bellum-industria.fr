@@ -5,7 +5,12 @@ php:
 
 before_script:
   - mysql -e 'CREATE DATABASE cvepdb_cms_testing;'
-  - mkdir -p storage && chmod -R 777 storage
+  - mkdir -p storage/app
+  - mkdir -p storage/logs
+  - mkdir -p storage/framework/cache
+  - mkdir -p storage/framework/sessions
+  - mkdir -p storage/framework/views
+  - chmod -R 777 storage
   - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - composer install --prefer-dist --no-interaction --optimize-autoloader
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -

@@ -7,7 +7,12 @@ job_build:
   only:
   - master
   script:
-  - mkdir -p storage && chmod -R 777 storage
+  - mkdir -p storage/app
+  - mkdir -p storage/logs
+  - mkdir -p storage/framework/cache
+  - mkdir -p storage/framework/sessions
+  - mkdir -p storage/framework/views
+  - chmod -R 777 storage
   - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - composer install
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
@@ -26,7 +31,12 @@ job_tests_linux: # Run tests suites
   only:
   - master
   before_script:
-  - mkdir -p storage && chmod -R 777 storage
+  - mkdir -p storage/app
+  - mkdir -p storage/logs
+  - mkdir -p storage/framework/cache
+  - mkdir -p storage/framework/sessions
+  - mkdir -p storage/framework/views
+  - chmod -R 777 storage
   - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - composer install
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
@@ -63,7 +73,12 @@ job_tests_windows_firefox: # Run tests suites
   - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
-  - mkdir -p storage && chmod -R 777 storage
+  - mkdir -p storage/app
+  - mkdir -p storage/logs
+  - mkdir -p storage/framework/cache
+  - mkdir -p storage/framework/sessions
+  - mkdir -p storage/framework/views
+  - chmod -R 777 storage
   - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - call composer install
   - cd resources\themes\adminlte\assets
@@ -99,7 +114,12 @@ job_tests_windows_ie9: # Run tests suites
   - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
-  - mkdir -p storage && chmod -R 777 storage
+  - mkdir -p storage/app
+  - mkdir -p storage/logs
+  - mkdir -p storage/framework/cache
+  - mkdir -p storage/framework/sessions
+  - mkdir -p storage/framework/views
+  - chmod -R 777 storage
   - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - call composer install
   - cd resources\themes\adminlte\assets
@@ -135,7 +155,12 @@ job_tests_windows_ie11: # Run tests suites
   - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
-  - mkdir -p storage && chmod -R 777 storage
+  - mkdir -p storage/app
+  - mkdir -p storage/logs
+  - mkdir -p storage/framework/cache
+  - mkdir -p storage/framework/sessions
+  - mkdir -p storage/framework/views
+  - chmod -R 777 storage
   - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - call composer install
   - cd resources\themes\adminlte\assets
@@ -171,7 +196,12 @@ job_tests_windows_chrome: # Run tests suites
   - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
-  - mkdir -p storage && chmod -R 777 storage
+  - mkdir -p storage/app
+  - mkdir -p storage/logs
+  - mkdir -p storage/framework/cache
+  - mkdir -p storage/framework/sessions
+  - mkdir -p storage/framework/views
+  - chmod -R 777 storage
   - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - call composer install
   - cd resources\themes\adminlte\assets
@@ -206,6 +236,12 @@ job_cs: # CodeStyle
   only:
   - master
   before_script:
+  - mkdir -p storage/app
+  - mkdir -p storage/logs
+  - mkdir -p storage/framework/cache
+  - mkdir -p storage/framework/sessions
+  - mkdir -p storage/framework/views
+  - chmod -R 777 storage
   - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - composer install
   script:
@@ -222,6 +258,12 @@ job_cs_duplicated: # CodeStyle - Looking for duplicated code
   only:
   - master
   before_script:
+  - mkdir -p storage/app
+  - mkdir -p storage/logs
+  - mkdir -p storage/framework/cache
+  - mkdir -p storage/framework/sessions
+  - mkdir -p storage/framework/views
+  - chmod -R 777 storage
   - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - composer install
   script:
@@ -238,6 +280,12 @@ job_ci_dump: # ContinuousIntegration - try to dump Db
   only:
   - master
   script:
+  - mkdir -p storage/app
+  - mkdir -p storage/logs
+  - mkdir -p storage/framework/cache
+  - mkdir -p storage/framework/sessions
+  - mkdir -p storage/framework/views
+  - chmod -R 777 storage
   - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
   - composer install
   - php artisan codeception:dbdump testing --dump tests/_data/empty.sql --empty-database --no-seeding
