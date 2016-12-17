@@ -5,13 +5,7 @@ php:
 
 before_script:
   - mysql -e 'CREATE DATABASE cvepdb_cms_testing;'
-  - mkdir -p storage/app
-  - mkdir -p storage/logs
-  - mkdir -p storage/framework/cache
-  - mkdir -p storage/framework/sessions
-  - mkdir -p storage/framework/views
-  - chmod -R 777 storage
-  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
+  - composer before-test
   - composer install --prefer-dist --no-interaction --optimize-autoloader
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
   - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
@@ -21,15 +15,4 @@ before_script:
   - echo "extension = xdebug.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 script:
-  - vendor/bin/codecept run -g core api
-  - vendor/bin/codecept run --env=installer -g installer api
-  - vendor/bin/codecept run -g installed api
-  - vendor/bin/codecept run -g core functional --coverage
-  - vendor/bin/codecept run --env=installer -g installer functional --coverage
-  - vendor/bin/codecept run -g installed functional --coverage
-  - vendor/bin/codecept run -g core unit --coverage
-  - vendor/bin/codecept run --env=installer -g installer unit --coverage
-  - vendor/bin/codecept run -g installed unit --coverage
-  - vendor/bin/codecept run -g core acceptance
-  - vendor/bin/codecept run --env=installer -g installer acceptance
-  - vendor/bin/codecept run -g installed acceptance
+  - composer test

@@ -7,13 +7,7 @@ job_build:
   only:
   - master
   script:
-  - mkdir -p storage/app
-  - mkdir -p storage/logs
-  - mkdir -p storage/framework/cache
-  - mkdir -p storage/framework/sessions
-  - mkdir -p storage/framework/views
-  - chmod -R 777 storage
-  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
+  - composer before-test
   - composer install
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
   - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
@@ -31,13 +25,7 @@ job_tests_linux: # Run tests suites
   only:
   - master
   before_script:
-  - mkdir -p storage/app
-  - mkdir -p storage/logs
-  - mkdir -p storage/framework/cache
-  - mkdir -p storage/framework/sessions
-  - mkdir -p storage/framework/views
-  - chmod -R 777 storage
-  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
+  - composer before-test
   - composer install
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
   - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
@@ -45,20 +33,7 @@ job_tests_linux: # Run tests suites
   - php artisan module:publish
   - php artisan module:publish-migration
   script:
-  - vendor/bin/codecept run --env=installer -g installer api
-  - vendor/bin/codecept run --env=installer -g installer functional --coverage
-  - vendor/bin/codecept run --env=installer -g installer unit --coverage #
-  - vendor/bin/codecept run --env=installer -g installer acceptance #
-  - echo 'testing' > .env
-  - cp tests/_data/.env.testing .
-  - vendor/bin/codecept run -g core api
-  - vendor/bin/codecept run -g core functional --coverage
-  - vendor/bin/codecept run -g core unit --coverage
-  - vendor/bin/codecept run -g core acceptance #
-  - vendor/bin/codecept run -g installed api
-  - vendor/bin/codecept run -g installed functional --coverage
-  - vendor/bin/codecept run -g installed unit --coverage
-  - vendor/bin/codecept run -g installed acceptance #
+  - composer test
   when: on_success
   tags:
   - php7
@@ -73,13 +48,7 @@ job_tests_windows_firefox: # Run tests suites
   - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
-  - mkdir -p storage/app
-  - mkdir -p storage/logs
-  - mkdir -p storage/framework/cache
-  - mkdir -p storage/framework/sessions
-  - mkdir -p storage/framework/views
-  - chmod -R 777 storage
-  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
+  - composer before-test
   - call composer install
   - cd resources\themes\adminlte\assets
   - call npm install
@@ -93,11 +62,7 @@ job_tests_windows_firefox: # Run tests suites
   - php artisan module:publish
   - php artisan module:publish-migration
   script:
-  - call bin\codecept run --env=installer,firefox -g installer acceptance #
-  - echo 'testing' > .env
-  - cp tests/_data/.env.testing .
-  - call bin\codecept run --env=firefox -g core acceptance
-  - call bin\codecept run --env=firefox -g installed acceptance
+  - composer test-windows-firefox
   when: on_success
   tags:
   - php7
@@ -114,13 +79,7 @@ job_tests_windows_ie9: # Run tests suites
   - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
-  - mkdir -p storage/app
-  - mkdir -p storage/logs
-  - mkdir -p storage/framework/cache
-  - mkdir -p storage/framework/sessions
-  - mkdir -p storage/framework/views
-  - chmod -R 777 storage
-  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
+  - composer before-test
   - call composer install
   - cd resources\themes\adminlte\assets
   - call npm install
@@ -134,11 +93,7 @@ job_tests_windows_ie9: # Run tests suites
   - php artisan module:publish
   - php artisan module:publish-migration
   script:
-  - call bin\codecept run --env=installer,ie -g installer acceptance
-  - echo 'testing' > .env
-  - cp tests/_data/.env.testing .
-  - call bin\codecept run --env=ie -g core acceptance
-  - call bin\codecept run --env=ie -g installed acceptance
+  - composer test-windows-ie
   when: on_success
   tags:
   - php7
@@ -155,13 +110,7 @@ job_tests_windows_ie11: # Run tests suites
   - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
-  - mkdir -p storage/app
-  - mkdir -p storage/logs
-  - mkdir -p storage/framework/cache
-  - mkdir -p storage/framework/sessions
-  - mkdir -p storage/framework/views
-  - chmod -R 777 storage
-  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
+  - composer before-test
   - call composer install
   - cd resources\themes\adminlte\assets
   - call npm install
@@ -175,11 +124,7 @@ job_tests_windows_ie11: # Run tests suites
   - php artisan module:publish
   - php artisan module:publish-migration
   script:
-  - call bin\codecept run --env=installer,ie -g installer acceptance
-  - echo 'testing' > .env
-  - cp tests/_data/.env.testing .
-  - call bin\codecept run --env=ie -g core acceptance
-  - call bin\codecept run --env=ie -g installed acceptance
+  - composer test-windows-ie
   when: on_success
   tags:
   - php7
@@ -196,13 +141,7 @@ job_tests_windows_chrome: # Run tests suites
   - master
   before_script:
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
-  - mkdir -p storage/app
-  - mkdir -p storage/logs
-  - mkdir -p storage/framework/cache
-  - mkdir -p storage/framework/sessions
-  - mkdir -p storage/framework/views
-  - chmod -R 777 storage
-  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
+  - composer before-test
   - call composer install
   - cd resources\themes\adminlte\assets
   - call npm install
@@ -216,11 +155,7 @@ job_tests_windows_chrome: # Run tests suites
   - php artisan module:publish
   - php artisan module:publish-migration
   script:
-  - call bin\codecept run --env=installer,chrome -g installer acceptance
-  - echo 'testing' > .env
-  - cp tests/_data/.env.testing .
-  - call bin\codecept run --env=chrome -g core acceptance
-  - call bin\codecept run --env=chrome -g installed acceptance
+  - composer test-windows-chrome
   when: on_success
   tags:
   - php7
@@ -236,16 +171,10 @@ job_cs: # CodeStyle
   only:
   - master
   before_script:
-  - mkdir -p storage/app
-  - mkdir -p storage/logs
-  - mkdir -p storage/framework/cache
-  - mkdir -p storage/framework/sessions
-  - mkdir -p storage/framework/views
-  - chmod -R 777 storage
-  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
+  - composer before-test
   - composer install
   script:
-  - bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ core
+  - composer test-phpcs
   when: always
   allow_failure: true
   tags:
@@ -258,16 +187,10 @@ job_cs_duplicated: # CodeStyle - Looking for duplicated code
   only:
   - master
   before_script:
-  - mkdir -p storage/app
-  - mkdir -p storage/logs
-  - mkdir -p storage/framework/cache
-  - mkdir -p storage/framework/sessions
-  - mkdir -p storage/framework/views
-  - chmod -R 777 storage
-  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
+  - composer before-test
   - composer install
   script:
-  - bin/phpcpd core
+  - composer test-phpcs-duplicated
   when: always
   allow_failure: true
   tags:
@@ -279,15 +202,10 @@ job_ci_dump: # ContinuousIntegration - try to dump Db
   stage: test
   only:
   - master
-  script:
-  - mkdir -p storage/app
-  - mkdir -p storage/logs
-  - mkdir -p storage/framework/cache
-  - mkdir -p storage/framework/sessions
-  - mkdir -p storage/framework/views
-  - chmod -R 777 storage
-  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
+  before_script:
+  - composer before-test
   - composer install
+  script:
   - php artisan codeception:dbdump testing --dump tests/_data/empty.sql --empty-database --no-seeding
   - php artisan codeception:dbdump testing --dump tests/_data/testing.sql --empty-database --seeder-class TestingSeeder
   when: always
@@ -301,10 +219,11 @@ job_ci_backup: # ContinuousIntegration - try to backup website
   stage: test
   only:
   - master
-  script:
-  - php -r "file_exists('.env.installer') || copy('.env.example', '.env.installer');"
+  before_script:
+  - composer before-test
   - composer install
-  - mkdir -p storage/apps/default/backups
+  - mkdir -p storage/apps/default/backups && chmod 777 storage/apps/default/backups
+  script:
   - php artisan backup:run
   when: always
   allow_failure: true
