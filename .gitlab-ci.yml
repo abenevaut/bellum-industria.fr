@@ -17,9 +17,9 @@ job_build:
   - composer install
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
   - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
-  - php artisan cms:theme:publish
-  - php artisan cms:module:publish
-  - php artisan cms:module:publish-migration
+  - php artisan theme:publish
+  - php artisan module:publish
+  - php artisan module:publish-migration
   tags:
   - php7
   - nodejs
@@ -41,9 +41,9 @@ job_tests_linux: # Run tests suites
   - composer install
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
   - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
-  - php artisan cms:theme:publish
-  - php artisan cms:module:publish
-  - php artisan cms:module:publish-migration
+  - php artisan theme:publish
+  - php artisan module:publish
+  - php artisan module:publish-migration
   script:
   - bin/codecept run --env=installer -g installer api
   - bin/codecept run --env=installer -g installer functional --coverage
@@ -89,9 +89,9 @@ job_tests_windows_firefox: # Run tests suites
   - call npm install
   - call gulp bower
   - cd ../../../..
-  - php artisan cms:theme:publish
-  - php artisan cms:module:publish
-  - php artisan cms:module:publish-migration
+  - php artisan theme:publish
+  - php artisan module:publish
+  - php artisan module:publish-migration
   script:
   - call bin\codecept run --env=installer,firefox -g installer acceptance #
   - echo 'testing' > .env
@@ -130,9 +130,9 @@ job_tests_windows_ie9: # Run tests suites
   - call npm install
   - call gulp bower
   - cd ../../../..
-  - php artisan cms:theme:publish
-  - php artisan cms:module:publish
-  - php artisan cms:module:publish-migration
+  - php artisan theme:publish
+  - php artisan module:publish
+  - php artisan module:publish-migration
   script:
   - call bin\codecept run --env=installer,ie -g installer acceptance
   - echo 'testing' > .env
@@ -171,9 +171,9 @@ job_tests_windows_ie11: # Run tests suites
   - call npm install
   - call gulp bower
   - cd ../../../..
-  - php artisan cms:theme:publish
-  - php artisan cms:module:publish
-  - php artisan cms:module:publish-migration
+  - php artisan theme:publish
+  - php artisan module:publish
+  - php artisan module:publish-migration
   script:
   - call bin\codecept run --env=installer,ie -g installer acceptance
   - echo 'testing' > .env
@@ -212,9 +212,9 @@ job_tests_windows_chrome: # Run tests suites
   - call npm install
   - call gulp bower
   - cd ../../../..
-  - php artisan cms:theme:publish
-  - php artisan cms:module:publish
-  - php artisan cms:module:publish-migration
+  - php artisan theme:publish
+  - php artisan module:publish
+  - php artisan module:publish-migration
   script:
   - call bin\codecept run --env=installer,chrome -g installer acceptance
   - echo 'testing' > .env
