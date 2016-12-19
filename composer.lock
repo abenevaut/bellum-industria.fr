@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "596be0b47e57e52a79d6c5b7dc1df24f",
+    "hash": "d7eee6b4f319c736f2a56c53819747b5",
     "content-hash": "0954704abd6d4148f3cb6aa4099d0534",
     "packages": [
         {
@@ -1027,12 +1027,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/theme-adminlte.git",
-                "reference": "e01885ea768c27188486857e5166296b6edf0890"
+                "reference": "0ba3c39996211809f15e194d61b8bb60f1ea3827"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/theme-adminlte/zipball/e01885ea768c27188486857e5166296b6edf0890",
-                "reference": "e01885ea768c27188486857e5166296b6edf0890",
+                "url": "https://api.github.com/repos/cvepdb-cms/theme-adminlte/zipball/0ba3c39996211809f15e194d61b8bb60f1ea3827",
+                "reference": "0ba3c39996211809f15e194d61b8bb60f1ea3827",
                 "shasum": ""
             },
             "require": {
@@ -1061,7 +1061,7 @@
                 "cms",
                 "theme"
             ],
-            "time": "2016-12-16 17:58:29"
+            "time": "2016-12-18 20:25:39"
         },
         {
             "name": "cvepdb-cms/theme-lumen",
