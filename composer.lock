@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d7eee6b4f319c736f2a56c53819747b5",
-    "content-hash": "0954704abd6d4148f3cb6aa4099d0534",
+    "hash": "194a2e327b38bfc150e92f29664d747b",
+    "content-hash": "d3d8802603492b939a320fa5b1043752",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1027,12 +1027,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/theme-adminlte.git",
-                "reference": "0ba3c39996211809f15e194d61b8bb60f1ea3827"
+                "reference": "529534017717b49081bbe98654249a09ced4cbc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/theme-adminlte/zipball/0ba3c39996211809f15e194d61b8bb60f1ea3827",
-                "reference": "0ba3c39996211809f15e194d61b8bb60f1ea3827",
+                "url": "https://api.github.com/repos/cvepdb-cms/theme-adminlte/zipball/529534017717b49081bbe98654249a09ced4cbc4",
+                "reference": "529534017717b49081bbe98654249a09ced4cbc4",
                 "shasum": ""
             },
             "require": {
@@ -1061,7 +1061,7 @@
                 "cms",
                 "theme"
             ],
-            "time": "2016-12-18 20:25:39"
+            "time": "2016-12-19 17:08:44"
         },
         {
             "name": "cvepdb-cms/theme-lumen",
@@ -1069,12 +1069,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/theme-lumen.git",
-                "reference": "a7884c07ed00ba590c8770afca8b2274d924796a"
+                "reference": "e324b3ea86f7ec2702e0c8b054e5d93ada2c9cd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/theme-lumen/zipball/a7884c07ed00ba590c8770afca8b2274d924796a",
-                "reference": "a7884c07ed00ba590c8770afca8b2274d924796a",
+                "url": "https://api.github.com/repos/cvepdb-cms/theme-lumen/zipball/e324b3ea86f7ec2702e0c8b054e5d93ada2c9cd8",
+                "reference": "e324b3ea86f7ec2702e0c8b054e5d93ada2c9cd8",
                 "shasum": ""
             },
             "require": {
@@ -1103,7 +1103,7 @@
                 "lumen",
                 "theme"
             ],
-            "time": "2016-12-08 19:45:21"
+            "time": "2016-12-19 18:31:12"
         },
         {
             "name": "cvepdb/laravel-addresses",
@@ -3476,6 +3476,53 @@
                 "twitter"
             ],
             "time": "2016-08-17 00:36:58"
+        },
+        {
+            "name": "league/pipeline",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/pipeline.git",
+                "reference": "27dc18166c30d6429c75d1320f41e8238c59c3d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/pipeline/zipball/27dc18166c30d6429c75d1320f41e8238c59c3d4",
+                "reference": "27dc18166c30d6429c75d1320f41e8238c59c3d4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "^1.0",
+                "phpspec/phpspec": "^2.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\Pipeline\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "A plug and play pipeline implementation.",
+            "keywords": [
+                "composition",
+                "design pattern",
+                "pattern",
+                "pipeline",
+                "sequential"
+            ],
+            "time": "2016-10-13 20:53:39"
         },
         {
             "name": "monolog/monolog",
