@@ -83,6 +83,8 @@ if (!function_exists('cmsview'))
 		}
 		catch (\InvalidArgumentException $e)
 		{
+			// xABE Todo : Here if we use an empty string, the view is loaded
+			// xABE Todo : from /resources/views - Add a settings to allow this.
 			$current_prefix = $current_module;
 		}
 
