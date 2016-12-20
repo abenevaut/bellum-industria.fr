@@ -140,10 +140,10 @@
       "call bin\\codecept run --env=chrome -g installed acceptance"
     ],
     "test-phpcs": [
-      "vendor/bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ core"
+      "vendor/bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ app"
     ],
     "test-phpcs-duplicated": [
-      "vendor/bin/phpcpd core"
+      "vendor/bin/phpcpd app"
     ]
   },
   "config": {
