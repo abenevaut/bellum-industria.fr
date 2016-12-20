@@ -10,8 +10,6 @@ job_build:
   - composer before-test
   - composer install
   script:
-  - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
-  - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
@@ -28,8 +26,6 @@ job_tests_linux: # Run tests suites
   before_script:
   - composer before-test
   - composer install
-  - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
-  - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
@@ -51,14 +47,6 @@ job_tests_windows_firefox: # Run tests suites
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - composer before-test
   - call composer install
-  - cd resources\themes\adminlte\assets
-  - call npm install
-  - call gulp sass
-  - cd ../../../..
-  - cd resources\themes\lumen\assets
-  - call npm install
-  - call gulp bower
-  - cd ../../../..
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
@@ -82,14 +70,6 @@ job_tests_windows_ie9: # Run tests suites
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - composer before-test
   - call composer install
-  - cd resources\themes\adminlte\assets
-  - call npm install
-  - call gulp sass
-  - cd ../../../..
-  - cd resources\themes\lumen\assets
-  - call npm install
-  - call gulp bower
-  - cd ../../../..
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
@@ -113,14 +93,6 @@ job_tests_windows_ie11: # Run tests suites
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - composer before-test
   - call composer install
-  - cd resources\themes\adminlte\assets
-  - call npm install
-  - call gulp sass
-  - cd ../../../..
-  - cd resources\themes\lumen\assets
-  - call npm install
-  - call gulp bower
-  - cd ../../../..
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
@@ -144,14 +116,6 @@ job_tests_windows_chrome: # Run tests suites
   - git config --global url."https://gitlab.com/".insteadOf "git@gitlab.com:"
   - composer before-test
   - call composer install
-  - cd resources\themes\adminlte\assets
-  - call npm install
-  - call gulp sass
-  - cd ../../../..
-  - cd resources\themes\lumen\assets
-  - call npm install
-  - call gulp bower
-  - cd ../../../..
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration

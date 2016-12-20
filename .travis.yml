@@ -7,8 +7,6 @@ before_script:
   - mysql -e 'CREATE DATABASE cvepdb_cms_testing;'
   - composer before-test
   - composer install --prefer-dist --no-interaction --optimize-autoloader
-  - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
-  - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
   - php artisan theme:publish
   - php artisan module:publish
   - php artisan module:publish-migration
