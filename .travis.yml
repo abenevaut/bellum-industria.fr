@@ -1,17 +1,11 @@
 language: php
 
 php:
-  - 5.6
   - 7
-
-#addons:
-#  ssh_known_hosts:
-#  - gitlab.com
 
 before_script:
   - mysql -e 'CREATE DATABASE cvepdb_cms_testing;'
-  - chmod -R 777 storage
-  - chmod -R 777 public/uploads
+  - composer before-test
   - composer install --prefer-dist --no-interaction --optimize-autoloader
   - cd resources/themes/adminlte/assets && npm install && gulp sass && cd -
   - cd resources/themes/lumen/assets && npm install && gulp bower && cd -
@@ -21,15 +15,4 @@ before_script:
   - echo "extension = xdebug.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 script:
-  - bin/codecept run -g core api
-  - bin/codecept run --env=installer -g installer api
-  - bin/codecept run -g installed api
-  - bin/codecept run -g core functional --coverage
-  - bin/codecept run --env=installer -g installer functional --coverage
-  - bin/codecept run -g installed functional --coverage
-  - bin/codecept run -g core unit --coverage
-  - bin/codecept run --env=installer -g installer unit --coverage #
-  - bin/codecept run -g installed unit --coverage
-  - bin/codecept run -g core acceptance #
-  - bin/codecept run --env=installer -g installer acceptance #
-  - bin/codecept run -g installed acceptance #
+  - composer test

@@ -248,23 +248,6 @@ class ElFinderDiskRepository extends DiskRepository
 	 */
 	protected function elFinderMountDisk($disk_name, $options)
 	{
-		$access = 'cms\Domain\Files\Files\Access\DontShowFilesStartingWithDot::checkAccess';
-
-		if (
-			is_array($options)
-			&& array_key_exists('access', $options)
-			&& array_key_exists('readonly', $options['access'])
-			&& $options['access']['readonly']
-		)
-		{
-			$access = 'cms\Domain\Files\Files\Access\ReadOnly::checkAccess';
-		}
-
-		if (array_key_exists('access', $options))
-		{
-			unset($options['access']);
-		}
-
 		$disk = app('filesystem')->disk($disk_name);
 
 		if ($disk instanceof FilesystemAdapter)
@@ -273,7 +256,9 @@ class ElFinderDiskRepository extends DiskRepository
 				'driver'        => 'Flysystem',
 				'filesystem'    => $disk->getDriver(),
 				'alias'         => $disk_name,
-				'accessControl' => $access,
+//				'uploadDeny'    => ['all'],
+//				'uploadAllow'   => ['image', 'text/plain'],
+//				'uploadOrder'   => ['deny', 'allow'],
 			];
 
 			return array_merge($defaults, $options);

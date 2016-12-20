@@ -40,6 +40,11 @@
     "cvepdb-cms/theme-adminlte": "dev-master",
     "cvepdb-cms/theme-lumen": "dev-master",
     "barryvdh/laravel-elfinder": "^0.3.8",
+    "dropbox-php/dropbox-php": "^1.0",
+    "nao-pon/flysystem-google-drive": "~1.1",
+    "google/apiclient": "~2.0@rc",
+    "nao-pon/elfinder-flysystem-driver-ext": "^1.0",
+    "league/pipeline": "^0.3.0",
     "simplepie/simplepie": "^1.4",
     "cvepdb-cms/module-clashofclan" : "dev-master",
     "toniperic/php-clash-of-clans": "dev-master",
@@ -109,6 +114,54 @@
     "post-update-cmd": [
       "Illuminate\\Foundation\\ComposerScripts::postUpdate",
       "php artisan optimize"
+    ],
+    "before-test": [
+      "mkdir -p storage/app",
+      "mkdir -p storage/logs",
+      "mkdir -p storage/framework/cache",
+      "mkdir -p storage/framework/sessions",
+      "mkdir -p storage/framework/views",
+      "chmod -R 777 storage",
+      "php -r \"file_exists('.env.installer') || copy('.env.example', '.env.installer');\""
+    ],
+    "test": [
+      "vendor/bin/codecept run --env=installer -g installer api",
+      "vendor/bin/codecept run --env=installer -g installer functional --coverage",
+      "vendor/bin/codecept run --env=installer -g installer unit --coverage",
+      "vendor/bin/codecept run --env=installer -g installer acceptance",
+      "echo 'testing' > .env && cp tests/_data/.env.testing .",
+      "vendor/bin/codecept run -g core api",
+      "vendor/bin/codecept run -g core functional --coverage",
+      "vendor/bin/codecept run -g core unit --coverage",
+      "vendor/bin/codecept run -g core acceptance",
+      "vendor/bin/codecept run -g installed api",
+      "vendor/bin/codecept run -g installed functional --coverage",
+      "vendor/bin/codecept run -g installed unit --coverage",
+      "vendor/bin/codecept run -g installed acceptance"
+    ],
+    "test-windows-firefox": [
+      "call bin\\codecept run --env=installer,firefox -g installer acceptance",
+      "echo 'testing' > .env && cp tests/_data/.env.testing .",
+      "call bin\\codecept run --env=firefox -g core acceptance",
+      "call bin\\codecept run --env=firefox -g installed acceptance"
+    ],
+    "test-windows-ie": [
+      "call bin\\codecept run --env=installer,ie -g installer acceptance",
+      "echo 'testing' > .env && cp tests/_data/.env.testing .",
+      "call bin\\codecept run --env=ie -g core acceptance",
+      "call bin\\codecept run --env=ie -g installed acceptance"
+    ],
+    "test-windows-chrome": [
+      "call bin\\codecept run --env=installer,chrome -g installer acceptance",
+      "echo 'testing' > .env && cp tests/_data/.env.testing .",
+      "call bin\\codecept run --env=chrome -g core acceptance",
+      "call bin\\codecept run --env=chrome -g installed acceptance"
+    ],
+    "test-phpcs": [
+      "vendor/bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ core"
+    ],
+    "test-phpcs-duplicated": [
+      "vendor/bin/phpcpd core"
     ]
   },
   "config": {
