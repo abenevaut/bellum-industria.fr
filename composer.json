@@ -57,9 +57,9 @@
     "redcomponent/teststatistics": "dev-master",
     "blackfire/php-sdk": "^1.5",
     "antennaio/laravel-codeception-dbdump": "^0.0.5",
-    "squizlabs/php_codesniffer": "*",
+    "squizlabs/php_codesniffer": "^2.7",
     "pragmarx/laravelcs": "^0.1.0",
-    "sebastian/phpcpd": "*",
+    "sebastian/phpcpd": "^2.0",
     "barryvdh/laravel-debugbar": "^2.2",
     "barryvdh/laravel-ide-helper": "^2.1"
   },

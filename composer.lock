@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "194a2e327b38bfc150e92f29664d747b",
-    "content-hash": "d3d8802603492b939a320fa5b1043752",
+    "hash": "a40583a0bea441460c6571d587b1239f",
+    "content-hash": "4d4446cf166fce42e18d69dae5189f4a",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1027,12 +1027,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/theme-adminlte.git",
-                "reference": "529534017717b49081bbe98654249a09ced4cbc4"
+                "reference": "f8be7f374ba6f0ef50a77b88ea723a583591f38e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/theme-adminlte/zipball/529534017717b49081bbe98654249a09ced4cbc4",
-                "reference": "529534017717b49081bbe98654249a09ced4cbc4",
+                "url": "https://api.github.com/repos/cvepdb-cms/theme-adminlte/zipball/f8be7f374ba6f0ef50a77b88ea723a583591f38e",
+                "reference": "f8be7f374ba6f0ef50a77b88ea723a583591f38e",
                 "shasum": ""
             },
             "require": {
@@ -1061,7 +1061,7 @@
                 "cms",
                 "theme"
             ],
-            "time": "2016-12-19 17:08:44"
+            "time": "2016-12-20 13:49:44"
         },
         {
             "name": "cvepdb-cms/theme-lumen",
