@@ -38,7 +38,8 @@
     "nao-pon/flysystem-google-drive": "~1.1",
     "google/apiclient": "~2.0@rc",
     "nao-pon/elfinder-flysystem-driver-ext": "^1.0",
-    "league/pipeline": "^0.3.0"
+    "league/pipeline": "^0.3.0",
+    "league/glide": "^1.2"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

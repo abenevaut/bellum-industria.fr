@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a40583a0bea441460c6571d587b1239f",
-    "content-hash": "4d4446cf166fce42e18d69dae5189f4a",
+    "hash": "347a880f53416845535553e6eae32c0b",
+    "content-hash": "9c76226f86a767285f9921d1ad9929ee",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -3413,6 +3413,67 @@
                 "rest"
             ],
             "time": "2016-07-21 09:56:14"
+        },
+        {
+            "name": "league/glide",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/glide.git",
+                "reference": "93bfc82142c62bf3d18420cc6c0fc0b1a8f82274"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/glide/zipball/93bfc82142c62bf3d18420cc6c0fc0b1a8f82274",
+                "reference": "93bfc82142c62bf3d18420cc6c0fc0b1a8f82274",
+                "shasum": ""
+            },
+            "require": {
+                "intervention/image": "^2.1",
+                "league/flysystem": "^1.0",
+                "php": "^5.4 | ^7.0",
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/php-token-stream": "^1.4",
+                "phpunit/phpunit": "~4.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Glide\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Reinink",
+                    "email": "jonathan@reinink.ca",
+                    "homepage": "http://reinink.ca"
+                }
+            ],
+            "description": "Wonderfully easy on-demand image manipulation library with an HTTP based API.",
+            "homepage": "http://glide.thephpleague.com",
+            "keywords": [
+                "ImageMagick",
+                "editing",
+                "gd",
+                "image",
+                "imagick",
+                "league",
+                "manipulation",
+                "processing"
+            ],
+            "time": "2016-11-14 16:36:03"
         },
         {
             "name": "league/oauth1-client",
