@@ -39,6 +39,8 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 	public function filterShowWithTrashed()
 	{
 //		$this->pushCriteria(new WithTrashedCriteria());
+
+		return $this;
 	}
 
 	/**
@@ -49,6 +51,8 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 	public function filterShowOnlyTrashed()
 	{
 //		$this->pushCriteria(new OnlyTrashedCriteria());
+
+		return $this;
 	}
 
 	/**
@@ -142,28 +146,6 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 	}
 
 	/**
-	 * Allow to link default roles Admin and User to an environment.
-	 *
-	 * @param Environment $env
-	 */
-	public function link_default_roles_with(Environment $env)
-	{
-		$this->link_roles_with(
-			$env,
-			[
-				$this->r_roles
-					->findByField('name', RolesRepositoryEloquent::ADMIN)
-					->first()
-					->id,
-				$this->r_roles
-					->findByField('name', RolesRepositoryEloquent::USER)
-					->first()
-					->id,
-			]
-		);
-	}
-
-	/**
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function indexBackEnd()
@@ -195,8 +177,6 @@ class EnvironmentsRepositoryEloquent extends RepositoryEloquentAbstract implemen
 			'reference' => $request->get('reference'),
 			'domain'    => $request->get('domain'),
 		]);
-
-		$this->link_default_roles_with($environment);
 
 		$this->link_users_with(
 			$environment,

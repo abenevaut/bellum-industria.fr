@@ -45,6 +45,7 @@
     "google/apiclient": "~2.0@rc",
     "nao-pon/elfinder-flysystem-driver-ext": "^1.0",
     "league/pipeline": "^0.3.0",
+    "league/glide": "^1.2",
     "simplepie/simplepie": "^1.4",
     "cvepdb-cms/module-clashofclan" : "dev-master",
     "toniperic/php-clash-of-clans": "dev-master",
