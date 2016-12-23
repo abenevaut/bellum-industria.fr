@@ -60,19 +60,19 @@ class AppServiceProvider extends ServiceProvider
 			}
 		}
 
-//		if (!is_null(config('sentry.dsn')))
-//		{
-//			// Sentry\SentryLaravel
-//			$this
-//				->app
-//				->register(
-//					\Sentry\SentryLaravel\SentryLaravelServiceProvider::class
-//				);
-//
-//			AliasLoader::getInstance([
-//				'Sentry' => \Sentry\SentryLaravel\SentryFacade::class
-//			])
-//				->register();
-//		}
+		if (!is_null(config('sentry.dsn')))
+		{
+			// Sentry\SentryLaravel
+			$this
+				->app
+				->register(
+					\Sentry\SentryLaravel\SentryLaravelServiceProvider::class
+				);
+
+			AliasLoader::getInstance([
+				'Sentry' => \Sentry\SentryLaravel\SentryFacade::class
+			])
+				->register();
+		}
     }
 }
