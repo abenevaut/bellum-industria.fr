@@ -50,7 +50,7 @@ If you discover a security vulnerability within #CVEPDB CMS, please send an e-ma
 [Antoine Benevaut](mailto:antoine@cvepdb.fr), Consultant freelance & Web developer.
 [\#CVEPDB](http://cvepdb.fr/)
 
-# License [Copyleft](https://gitlab.com/cvepdb/cms/wikis/license)
+# License [Copyleft](https://github.com/cvepdb-cms/cms/wiki/License)
 
 Copyright (C) 2016  Antoine Benevaut
 
