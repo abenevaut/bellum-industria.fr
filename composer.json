@@ -73,7 +73,6 @@
     "site5/phantoman": "^1.1",
     "jonnyw/php-phantomjs": "^4.3",
     "jakoch/phantomjs-installer": "^2.1",
-    "captbaritone/mailcatcher-codeception-module": "^1.1",
     "codeception/phpbuiltinserver": "^1.2",
     "redcomponent/teststatistics": "dev-master",
     "blackfire/php-sdk": "^1.5",
@@ -101,6 +100,9 @@
   },
   "autoload-dev": {
     "classmap": [
+    ],
+    "files": [
+        "tests/_support/MailTracking.php"
     ]
   },
   "scripts": {
