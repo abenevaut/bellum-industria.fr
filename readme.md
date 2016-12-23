@@ -39,7 +39,7 @@ Get website package from ~~[this link (currently not available)](https://gitlab.
 - Modules developments
    - The CMS module way
    - [The Classic App way](the-classic-app-way)
-- [License](license)
+- [License](https://github.com/cvepdb-cms/cms/wiki/License)
 
 # Security Vulnerabilities
 
