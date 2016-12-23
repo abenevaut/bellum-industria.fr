@@ -64,6 +64,13 @@ return [
             'prefix' => '',
             'strict' => true,
             'engine' => null,
+			// laravel-backups
+			// only the path, so without 'mysqldump' or 'pg_dump'
+			'dump_command_path' => env('BACKUPS_MYSQLDUMP_PATH', '/usr/bin'),
+			// 5 minute timeout
+			'dump_command_timeout' => 60 * 5,
+			// perform dump using a single transaction
+			'dump_using_single_transaction' => true,
         ],
 
         'pgsql' => [
