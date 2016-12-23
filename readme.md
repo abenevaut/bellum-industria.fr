@@ -6,7 +6,7 @@
 [![Total Downloads](https://poser.pugx.org/cvepdb/cms/downloads.svg)](https://packagist.org/packages/cvepdb/cms)
 [![Monthly Downloads](https://poser.pugx.org/cvepdb/cms/d/monthly)](https://packagist.org/packages/cvepdb/cms)
 
-[![Copyleft](http://www.gnu.org/graphics/gplv3-127x51.png)](license)
+[![Copyleft](http://www.gnu.org/graphics/gplv3-127x51.png)](https://github.com/cvepdb-cms/cms/wiki/License)
 
 # [\#CVEPDB](http://cvepdb.fr/) CMS
 
