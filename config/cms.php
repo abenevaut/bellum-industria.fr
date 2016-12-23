@@ -15,7 +15,7 @@ return [
 		'en'
 	],
 	'frontend' => [
-		'home_route' => 'users.my-profile',
+		'home_route' => 'home',
 	],
 	'backend'         => [
 		'home_route' => 'backend.dashboard.index',

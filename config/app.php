@@ -167,7 +167,7 @@ return [
 
 		cms\App\Providers\AppServiceProvider::class,
 		cms\App\Providers\AuthServiceProvider::class,
-		// cms\App\Providers\BroadcastServiceProvider::class,
+		cms\App\Providers\BroadcastServiceProvider::class,
 		cms\App\Providers\EventServiceProvider::class,
 		cms\App\Providers\RouteServiceProvider::class,
 		cms\App\Providers\WidgetsServiceProvider::class,

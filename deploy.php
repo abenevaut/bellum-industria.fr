@@ -66,8 +66,6 @@ task('cms:initialize', function ()
 
 task('cms:prepare', function ()
 {
-	run("cd {{deploy_path}}/current/resources/themes/adminlte/assets && bower install && cd -");
-	run("cd {{deploy_path}}/current/resources/themes/lumen/assets && bower install && cd -");
 	run("cd {{deploy_path}}/current/resources/themes/longwave/assets && bower install && cd -");
 	run("php {{deploy_path}}/current/artisan module:publish");
 	run("php {{deploy_path}}/current/artisan module:publish-migration");
