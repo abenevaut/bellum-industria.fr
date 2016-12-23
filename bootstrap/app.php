@@ -12,7 +12,7 @@
 */
 
 $app = new Illuminate\Foundation\Application(
-    realpath(__DIR__.'/../')
+    realpath(__DIR__ . '/../')
 );
 
 /*
@@ -54,7 +54,6 @@ $app->singleton(
 
 $env = $app->detectEnvironment(function ()
 {
-
 	$environmentPath = __DIR__ . '/../.env';
 
 	if (file_exists($environmentPath))
@@ -68,9 +67,11 @@ $env = $app->detectEnvironment(function ()
 
 	putenv('APP_ENV=' . $setEnv);
 
-	$dotenv = new \Dotenv\Dotenv(__DIR__ . '/../', '.env' . '.' . getenv('APP_ENV')); // Laravel 5.2
-	$dotenv->overload(); //this is important
-
+	$dotenv = new \Dotenv\Dotenv(
+		__DIR__ . '/../',
+		'.env' . '.' . getenv('APP_ENV')
+	);
+	$dotenv->overload();
 });
 
 /*
