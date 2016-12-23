@@ -37,6 +37,9 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+		if (!is_null(config('sentry.dsn')) && $this->shouldReport($exception)) {
+			app('sentry')->captureException($exception);
+		}
         parent::report($exception);
     }
 

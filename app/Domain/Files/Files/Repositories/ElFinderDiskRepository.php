@@ -232,7 +232,8 @@ class ElFinderDiskRepository extends DiskRepository
 	protected function isElFinderDiskCouldBeMount($root)
 	{
 		$is_allowed = collect($root['access']['roles'])
-			->filter(function($role) {
+			->filter(function ($role)
+			{
 				return Gate::allows($role);
 			});
 
@@ -253,15 +254,16 @@ class ElFinderDiskRepository extends DiskRepository
 		if ($disk instanceof FilesystemAdapter)
 		{
 			$defaults = [
-				'driver'        => 'Flysystem',
-				'filesystem'    => $disk->getDriver(),
-				'alias'         => $disk_name,
+				'driver'     => 'Flysystem',
+				'filesystem' => $disk->getDriver(),
+				'alias'      => $disk_name,
+				'tmbPath'    => storage_path($options['tmbPath']),
 //				'uploadDeny'    => ['all'],
 //				'uploadAllow'   => ['image', 'text/plain'],
 //				'uploadOrder'   => ['deny', 'allow'],
 			];
 
-			return array_merge($defaults, $options);
+			return array_merge($options, $defaults);
 		}
 
 		throw new \Exception('Disk : ' . $disk_name . ' unmountable!');
