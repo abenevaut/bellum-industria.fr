@@ -45,7 +45,7 @@ Get website package from ~~[this link (currently not available)](https://gitlab.
 
 If you discover a security vulnerability within #CVEPDB CMS, please send an e-mail to our contact mailbox at [Contact#CVEPDB](mailto:contact@cvepdb.fr).
 
-# Who i am
+# Who am i
 
 [Antoine Benevaut](mailto:antoine@cvepdb.fr), Consultant freelance & Web developer.
 [\#CVEPDB](http://cvepdb.fr/)
