@@ -14,7 +14,7 @@
 
 ## Download your website
 
-Get website package from ~~[this link (currently not available)](https://gitlab.com/cvepdb/cms/repository/archive.zip?ref=master)~~.
+Get website package from ~~[this link (currently not available)](https://github.com/cvepdb-cms/cms/releases/latest)~~.
 - unzip
 - send files to your host
     - note that your webserver have to point to the "public" directory
@@ -23,13 +23,13 @@ Get website package from ~~[this link (currently not available)](https://gitlab.
 
 ## Web developers section
 
-- [Installation process for developers](installation)
-    - [Unit testing](unit-testing)
+- [Installation process for developers](https://github.com/cvepdb-cms/cms/wiki/installation)
+    - [Unit testing](https://github.com/cvepdb-cms/cms/wiki/unit-testing)
 - Configuration
    - Parameters
    - Environments
-   - [CRON](install-cron)
-- [Console commands](console-commands)
+   - [CRON](https://github.com/cvepdb-cms/cms/wiki/install-cron)
+- [Console commands](https://github.com/cvepdb-cms/cms/wiki/console-commands)
 - Modules
    - Users management
    - Files management
@@ -38,7 +38,7 @@ Get website package from ~~[this link (currently not available)](https://gitlab.
    - Themes management
 - Modules developments
    - The CMS module way
-   - [The Classic App way](the-classic-app-way)
+   - [The Classic App way](https://github.com/cvepdb-cms/cms/wiki/the-classic-app-way)
 - [License](https://github.com/cvepdb-cms/cms/wiki/License)
 
 # Security Vulnerabilities
