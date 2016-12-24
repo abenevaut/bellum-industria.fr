@@ -20,6 +20,7 @@ use cms\Domain\Users\Users\Events\UserUpdatedEvent;
 use cms\Domain\Users\Users\Events\UserDeletedEvent;
 use cms\Domain\Users\Users\Events\NewUserCreatedEvent;
 use cms\Domain\Users\Users\Events\NewAdminCreatedEvent;
+use cms\Domain\Users\Users\Events\NewSuperAdminCreatedEvent;
 use cms\Domain\Users\Users\User;
 
 /**
@@ -260,13 +261,16 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	}
 
 	/**
-	 * Create a new user with role RoleRepository::USER.
+	 * Create a new user with role User::ROLE_USER.
 	 *
-	 * @param string $first_name
-	 * @param string $last_name
-	 * @param string $email
+	 * @param        $civility
+	 * @param        $first_name
+	 * @param        $last_name
+	 * @param        $email
+	 * @param null   $birth_date
+	 * @param string $role
 	 *
-	 * @return \cms\Domain\Users\Users\User
+	 * @return User
 	 */
 	public function createNewUser(
 		$civility,
@@ -292,13 +296,15 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	}
 
 	/**
-	 * Create a new user with role RoleRepository::ADMIN.
+	 * Create a new user with role User::ROLE_ADMIN.
 	 *
-	 * @param string $first_name
-	 * @param string $last_name
-	 * @param string $email
+	 * @param      $civility
+	 * @param      $first_name
+	 * @param      $last_name
+	 * @param      $email
+	 * @param null $birth_date
 	 *
-	 * @return \cms\Domain\Users\Users\User
+	 * @return User
 	 */
 	public function createNewAdmin(
 		$civility,
@@ -318,6 +324,39 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 		);
 
 		event(new NewAdminCreatedEvent($user));
+
+		return $user;
+	}
+
+	/**
+	 * Create a new user with role User::ROLE_SUPERADMIN.
+	 *
+	 * @param      $civility
+	 * @param      $first_name
+	 * @param      $last_name
+	 * @param      $email
+	 * @param null $birth_date
+	 *
+	 * @return User
+	 */
+	public function createNewSuperAdmin(
+		$civility,
+		$first_name,
+		$last_name,
+		$email,
+		$birth_date = NULL
+	)
+	{
+		$user = $this->createNewUser(
+			$civility,
+			$first_name,
+			$last_name,
+			$email,
+			$birth_date,
+			User::ROLE_SUPERADMIN
+		);
+
+		event(new NewSuperAdminCreatedEvent($user));
 
 		return $user;
 	}
