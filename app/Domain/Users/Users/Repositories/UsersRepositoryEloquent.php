@@ -330,7 +330,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 
 	/**
 	 * Create a new user with role User::ROLE_SUPERADMIN.
-	 * 
+	 *
 	 * @param      $civility
 	 * @param      $first_name
 	 * @param      $last_name
