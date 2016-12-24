@@ -60,7 +60,7 @@ class AppServiceProvider extends ServiceProvider
 			}
 		}
 
-		if (!is_null(config('sentry.dsn')))
+		if (class_exists(\Sentry\SentryLaravel\SentryFacade::class) && !is_null(config('sentry.dsn')))
 		{
 			// Sentry\SentryLaravel
 			$this
