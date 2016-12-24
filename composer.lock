@@ -831,12 +831,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-installer.git",
-                "reference": "af9d6f06a269fabc083f6af68ebfff5292e5dc92"
+                "reference": "bef5c16680f8803a9599f525504a0676d70cf675"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-installer/zipball/af9d6f06a269fabc083f6af68ebfff5292e5dc92",
-                "reference": "af9d6f06a269fabc083f6af68ebfff5292e5dc92",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-installer/zipball/bef5c16680f8803a9599f525504a0676d70cf675",
+                "reference": "bef5c16680f8803a9599f525504a0676d70cf675",
                 "shasum": ""
             },
             "require": {
@@ -870,7 +870,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2016-12-24 13:07:46"
+            "time": "2016-12-24 13:41:11"
         },
         {
             "name": "cvepdb-cms/module-settings",
