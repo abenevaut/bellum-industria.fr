@@ -1791,12 +1791,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:cvepdb-cms/theme-longwave.git",
-                "reference": "76fb31821486d989b92ea521f14c212149691a45"
+                "reference": "4fd9e1e6d2c4ff55dcd5447540c4807cb134a810"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=76fb31821486d989b92ea521f14c212149691a45",
-                "reference": "76fb31821486d989b92ea521f14c212149691a45",
+                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=4fd9e1e6d2c4ff55dcd5447540c4807cb134a810",
+                "reference": "4fd9e1e6d2c4ff55dcd5447540c4807cb134a810",
                 "shasum": ""
             },
             "require": {
@@ -1824,7 +1824,7 @@
                 "Theme",
                 "longwave"
             ],
-            "time": "2016-11-24 11:15:05"
+            "time": "2016-12-26 17:19:17"
         },
         {
             "name": "da-mitchell/steam-api",
