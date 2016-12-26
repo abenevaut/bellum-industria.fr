@@ -21,7 +21,7 @@ Route::group(['domain' => env('CVEPDB_MULTIGAMING_DOMAIN')], function ()
 	Route::get('ranks', 'IndexController@ranks');
 //	Route::get('announcements', 'IndexController@announcements');
 
-	Route::resource('mcontact', 'ContactController');
+	Route::resource('contact', 'ContactController');
 
 	/*
 	 * Auth
