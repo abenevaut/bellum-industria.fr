@@ -1,4 +1,4 @@
-@extends('longwave::layouts.default')
+@extends('longwave::layouts.multigaming_default')
 
 @section('js')
 	<script type="text/javascript" src="{{ asset('themes/longwave/js/vitrine/contact.js') }}"></script>
@@ -101,7 +101,7 @@
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
 		<!-- Begin Inner -->
 		<div class="layout__body-wrapper__content-wrapper__inner">
-			@include('longwave::partials.share_inline')
+			@include('longwave::partials.multigaming.share_inline')
 			<div class="clear"></div>
 		</div>
 		<!-- Begin Inner -->

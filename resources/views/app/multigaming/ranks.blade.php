@@ -1,4 +1,4 @@
-@extends('longwave::layouts.default')
+@extends('longwave::layouts.multigaming_default')
 
 @section('head')
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
@@ -128,7 +128,7 @@
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--odd">
 		<!-- Begin Inner -->
 		<div class="layout__body-wrapper__content-wrapper__inner">
-			@include('longwave::partials.share_inline')
+			@include('longwave::partials.multigaming.share_inline')
 			<div class="clear"></div>
 		</div>
 		<!-- Begin Inner -->

@@ -1,4 +1,4 @@
-@extends('longwave::layouts.default')
+@extends('longwave::layouts.multigaming_default')
 
 @section('content')
 
@@ -269,7 +269,7 @@
 		<div class="layout__body-wrapper__content-wrapper__inner">
 
 
-			@include('longwave::partials.share_inline')
+			@include('longwave::partials.multigaming.share_inline')
 
 
 		</div>

@@ -1,4 +1,4 @@
-@extends('longwave::layouts.default')
+@extends('longwave::layouts.multigaming_default')
 
 @section('head')
 	<link rel="stylesheet" href="{{ asset('assets/app/css/index_csgotrades.css') }}">
@@ -521,7 +521,7 @@
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even">
 		<!-- Begin Inner -->
 		<div class="layout__body-wrapper__content-wrapper__inner">
-			@include('longwave::partials.share_inline')
+			@include('longwave::partials.multigaming.share_inline')
 		</div>
 		<!-- Begin Inner -->
 	</div>

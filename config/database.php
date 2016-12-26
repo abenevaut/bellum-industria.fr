@@ -87,6 +87,34 @@ return [
 			'engine' => null,
 		],
 
+		'mysql_steambot' => [
+			'driver' => 'mysql',
+			'host' => env('DB_STEAMBOT_HOST', 'localhost'),
+			'port' => env('DB_STEAMBOT_PORT', '3306'),
+			'database' => env('DB_STEAMBOT_DATABASE', 'forge'),
+			'username' => env('DB_STEAMBOT_USERNAME', 'forge'),
+			'password' => env('DB_STEAMBOT_PASSWORD', ''),
+			'charset' => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix' => '',
+			'strict' => true,
+			'engine' => null,
+		],
+
+		'mysql_ebot' => [
+			'driver' => 'mysql',
+			'host' => env('DB_EBOT_HOST', 'localhost'),
+			'port' => env('DB_EBOT_PORT', '3306'),
+			'database' => env('DB_EBOT_DATABASE', 'forge'),
+			'username' => env('DB_EBOT_USERNAME', 'forge'),
+			'password' => env('DB_EBOT_PASSWORD', ''),
+			'charset' => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix' => '',
+			'strict' => true,
+			'engine' => null,
+		],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', 'localhost'),

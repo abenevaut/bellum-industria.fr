@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Cache;
 use cms\Multigaming\Repositories\SMWA\StammRepository;
 use cms\Multigaming\Repositories\SMWA\SteamBotRepository;
 use cms\Infrastructure\Abstractions\Controllers\FrontendController;
-use cms\Domain\Settings\Settings\Repositories\SettingsRepository;
 use cms\Modules\Steam\Domain\Steam\Steam\Repositories\SteamRepository;
 use cms\Modules\Teams\Domain\Teams\Teams\Repositories\TeamsRepositoryEloquent;
 
@@ -15,11 +14,9 @@ use cms\Modules\Teams\Domain\Teams\Teams\Repositories\TeamsRepositoryEloquent;
 class IndexController extends FrontendController
 {
 
-
 	/*
 	 * https://steamcommunity.com/groups/Bellum-Industria/memberslistxml/?xml=1
 	 */
-
 
 	/**
 	 * @var SteamRepository|null
@@ -41,11 +38,16 @@ class IndexController extends FrontendController
 	 */
 	protected $r_steambot = null;
 
+	/**
+	 * IndexController constructor.
+	 *
+	 * @param SteamRepository         $r_steam
+	 * @param StammRepository         $r_stamm
+	 * @param TeamsRepositoryEloquent $r_team
+	 * @param SteamBotRepository      $r_steambot
+	 */
 	public function __construct(
-		SettingsRepository $r_settings,
-
 		SteamRepository $r_steam,
-
 		StammRepository $r_stamm,
 		TeamsRepositoryEloquent $r_team,
 		SteamBotRepository $r_steambot
