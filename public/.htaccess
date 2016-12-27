@@ -3,7 +3,10 @@
         Options -MultiViews
     </IfModule>
 
-    RewriteEngine On
+    RewriteEngine on
+
+    RewriteCond %{HTTP_HOST} ^bellum-industria.fr [NC]
+    RewriteRule ^(.*)$ http://www.bellum-industria.fr/$1 [L,R=301,NC]
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
