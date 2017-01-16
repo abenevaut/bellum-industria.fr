@@ -59,7 +59,9 @@
     "cvepdb-cms/module-tournaments" : "dev-master",
     "cvepdb/theme-longwave" : "dev-master",
     "predis/predis": "^1.1",
-    "pusher/pusher-php-server": "^2.6"
+    "pusher/pusher-php-server": "^2.6",
+    "malc0mn/vultr-api-client": "^1.0",
+    "laravelcollective/remote": "^5.3.0"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
