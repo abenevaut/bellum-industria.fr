@@ -2,13 +2,8 @@
 
 use cms\Infrastructure\Abstractions\Controllers\FrontendController;
 use cms\Multigaming\Http\Requests\ContactFormRequest;
-use cms\Vitrine\Repositories\LogContact;
 use cms\Multigaming\Services\MailContactService;
 
-/**
- * Class ContactController
- * @package cms\Vitrine\Http\Controllers
- */
 class ContactController extends FrontendController
 {
 
@@ -22,9 +17,7 @@ class ContactController extends FrontendController
 	 *
 	 * @param MailContactService $s_mailer
 	 */
-	public function __construct(
-		MailContactService $s_mailer
-	)
+	public function __construct(MailContactService $s_mailer)
 	{
 		$this->s_mailer = $s_mailer;
 	}
@@ -48,18 +41,17 @@ class ContactController extends FrontendController
 	 */
 	public function store(ContactFormRequest $request)
 	{
-		$m_contacts = new LogContact();
-		$m_contacts->first_name = $request->get('first_name');
-		$m_contacts->last_name = $request->get('last_name');
-		$m_contacts->email = $request->get('email');
-		$m_contacts->subject = $request->get('subject');
-		$m_contacts->message = $request->get('message');
-//		$m_contacts->save();
+		$this
+			->s_mailer
+			->send(
+				$request->get('first_name'),
+				$request->get('last_name'),
+				$request->get('email'),
+				$request->get('subject'),
+				$request->get('message')
+			);
 
-		$this->s_mailer->send($m_contacts);
-
-		return redirect('mcontact')
+		return redirect('contact')
 			->with('message-success', 'Thanks for contacting us!');
 	}
-
 }

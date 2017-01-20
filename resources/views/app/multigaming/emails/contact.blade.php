@@ -1,4 +1,4 @@
-@extends('longwave::emails.layouts.clip')
+@extends('longwave::emails.layouts.multigaming_clip')
 
 @section('content')
 	<table bgcolor="#cdcdc8" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -37,7 +37,7 @@
 													{{ trans('cvepdb/multigaming/emails/emails.contact_form') }}
 												</td>
 											</tr>
-										@include('longwave::emails.partials.clip_signature')
+										@include('longwave::emails.partials.multigaming.clip_signature')
 										<!--end content-->
 										</tbody>
 									</table>

@@ -1,12 +1,7 @@
 <?php namespace cms\Multigaming\Services;
 
 use cms\App\Services\MailsService;
-use cms\Multigaming\Repositories\LogContact;
 
-/**
- * Class MailContactService
- * @package cms\Multigaming\Services
- */
 class MailContactService extends MailsService
 {
 
@@ -15,18 +10,23 @@ class MailContactService extends MailsService
 	 * @param string $view
 	 * @param array  $data
 	 */
-	public function send(LogContact $contact)
+	public function send(
+		$first_name,
+		$last_name,
+		$email,
+		$subject,
+		$message
+	)
 	{
 		$this->emailTo(
-			$contact->email,
+			[$email],
 			'app.multigaming.emails.contact',
-			trans('cvepdb/multigaming/emails/emails.contact_title') . $contact->subject,
+			trans('cvepdb/multigaming/emails/emails.contact_title') . $subject,
 			[
-				'name'         => $contact->last_name . ' ' . $contact->first_name,
-				'user_subject' => $contact->subject,
-				'user_message' => $contact->subject,
+				'name'         => $last_name . ' ' . $first_name,
+				'user_subject' => $subject,
+				'user_message' => $message,
 			]
 		);
 	}
-
 }

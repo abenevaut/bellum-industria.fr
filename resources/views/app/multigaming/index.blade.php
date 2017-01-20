@@ -1,4 +1,4 @@
-@extends('longwave::layouts.multigaming_default')
+@extends('longwave::layouts.' . Environments::current())
 
 @section('head')
 	<link rel="stylesheet" href="{{ asset('assets/app/css/index_csgotrades.css') }}">

@@ -1,4 +1,4 @@
-@extends('longwave::layouts.multigaming_boutique')
+@extends('longwave::layouts.' . Environments::current() . '_boutique')
 
 @section('content')
     <div id="myShop" style="background-color:white;"><a href="//shop.spreadshirt.de/cvepdb">cvepdb</a></div>

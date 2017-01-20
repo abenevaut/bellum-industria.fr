@@ -1,4 +1,4 @@
-@extends('longwave::layouts.multigaming_default')
+@extends('longwave::layouts.' . Environments::current())
 
 @section('content')
 

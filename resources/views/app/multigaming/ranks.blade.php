@@ -1,4 +1,4 @@
-@extends('longwave::layouts.multigaming_default')
+@extends('longwave::layouts.' . Environments::current())
 
 @section('head')
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">

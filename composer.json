@@ -61,7 +61,9 @@
     "predis/predis": "^1.1",
     "pusher/pusher-php-server": "^2.6",
     "malc0mn/vultr-api-client": "^1.0",
-    "laravelcollective/remote": "^5.3.0"
+    "laravelcollective/remote": "^5.3.0",
+    "riari/laravel-forum": "~4.0",
+    "riari/laravel-forum-frontend": "~1.0"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

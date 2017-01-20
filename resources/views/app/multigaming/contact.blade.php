@@ -1,4 +1,4 @@
-@extends('longwave::layouts.multigaming_default')
+@extends('longwave::layouts.' . Environments::current())
 
 @section('js')
 	<script type="text/javascript" src="{{ asset('themes/longwave/js/vitrine/contact.js') }}"></script>
