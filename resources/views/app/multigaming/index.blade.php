@@ -25,7 +25,7 @@
 
 
 
-				<a href="#" title="My teams"><i class="icon-user-1"></i></a>
+				{{--<a href="#" title="My teams"><i class="icon-user-1"></i></a>--}}
 
 
 
