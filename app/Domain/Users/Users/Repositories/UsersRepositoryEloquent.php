@@ -1,9 +1,8 @@
 <?php namespace cms\Domain\Users\Users\Repositories;
 
+use Illuminate\Container\Container as Application;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Container\Container as Application;
 use Illuminate\Support\Str;
 use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
 use cms\Domain\Users\Users\Repositories\UsersRepository;
@@ -23,10 +22,6 @@ use cms\Domain\Users\Users\Events\NewAdminCreatedEvent;
 use cms\Domain\Users\Users\Events\NewSuperAdminCreatedEvent;
 use cms\Domain\Users\Users\User;
 
-/**
- * Class UsersRepositoryEloquent
- * @package cms\Domain\Users\Users\Repositories
- */
 class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements UsersRepository
 {
 
@@ -41,20 +36,22 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	protected $r_social_tokens = null;
 
 	/**
-	 * @var array Roles available to fill role field in users table.
-	 */
-	protected $roles = [
-		User::ROLE_ADMIN => 'global.admin',
-		User::ROLE_USER  => 'global.user',
-	];
-
-	/**
 	 * @var array Civilities available to fill civility field in users table.
 	 */
 	protected $civilities = [
-		User::CIVILITY_MADAM  => 'global.madam',
-		User::CIVILITY_MISS   => 'global.miss',
-		User::CIVILITY_MISTER => 'global.mister',
+		User::CIVILITY_MADAM  => 'global.' . User::CIVILITY_MADAM,
+		User::CIVILITY_MISS   => 'global.' . User::CIVILITY_MISS,
+		User::CIVILITY_MISTER => 'global.' . User::CIVILITY_MISTER,
+	];
+
+	/**
+	 * @var array Roles available to fill role field in users table.
+	 */
+	protected $roles = [
+		User::ROLE_SUPERADMIN => 'global.' . User::ROLE_SUPERADMIN,
+		User::ROLE_ADMIN      => 'global.' . User::ROLE_ADMIN,
+		User::ROLE_MODERATOR  => 'global.' . User::ROLE_MODERATOR,
+		User::ROLE_USER       => 'global.' . User::ROLE_USER,
 	];
 
 	/**
@@ -84,30 +81,6 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	public function model()
 	{
 		return User::class;
-	}
-
-	/**
-	 * @return \Illuminate\Support\Collection
-	 */
-	public function getRolesList()
-	{
-		return collect($this->roles)
-			->map(function ($translation_key, $role_key)
-			{
-				return trans($translation_key);
-			});
-	}
-
-	/**
-	 * @return \Illuminate\Support\Collection
-	 */
-	public function getCivilitiesList()
-	{
-		return collect($this->civilities)
-			->map(function ($translation_key, $civility_key)
-			{
-				return trans($translation_key);
-			});
 	}
 
 	/**
@@ -176,10 +149,16 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 * @param string $name The user last name or user first name
 	 *
 	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 * @return $this
 	 */
 	public function filterUserName($name)
 	{
-		$this->pushCriteria(new UserNameLikeCriteria($name));
+		if (!is_null($name) && !empty($name))
+		{
+			$this->pushCriteria(new UserNameLikeCriteria($name));
+		}
+
+		return $this;
 	}
 
 	/**
@@ -188,10 +167,16 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 * @param string $email The user email
 	 *
 	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 * @return $this
 	 */
 	public function filterEmail($email)
 	{
-		$this->pushCriteria(new EmailLikeCriteria($email));
+		if (!is_null($email) && !empty($email))
+		{
+			$this->pushCriteria(new EmailLikeCriteria($email));
+		}
+
+		return $this;
 	}
 
 	/**
@@ -200,35 +185,43 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 * @param array $roles the list of roles IDs
 	 *
 	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 * @return $this
 	 */
 	public function filterRoles($roles = [])
 	{
-		$roles = array_filter($roles);
-
 		if (count($roles))
 		{
+			$roles = array_filter($roles);
 			$this->pushCriteria(new RolesCriteria($roles));
 		}
+
+		return $this;
 	}
 
 	/**
 	 * Display all users with trashed users.
 	 *
 	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 * @return $this
 	 */
 	public function filterShowWithTrashed()
 	{
 		$this->pushCriteria(new WithTrashedCriteria());
+
+		return $this;
 	}
 
 	/**
 	 * Display only trashed user.
 	 *
 	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 * @return $this
 	 */
 	public function filterShowOnlyTrashed()
 	{
 		$this->pushCriteria(new OnlyTrashedCriteria());
+
+		return $this;
 	}
 
 	/**
@@ -237,15 +230,45 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 * @param array $envs the list of environment IDs
 	 *
 	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 * @return $this
 	 */
 	public function filterEnvironments($envs = [])
 	{
-		$envs = array_filter($envs);
-
 		if (count($envs))
 		{
+			$envs = array_filter($envs);
 			$this->pushCriteria(new EnvironmentsCriteria($envs));
 		}
+
+		return $this;
+	}
+
+	/**
+	 * @return \Illuminate\Support\Collection
+	 */
+	public function getRolesList()
+	{
+		return collect($this->roles)
+			->map(
+				function ($translation_key)
+				{
+					return trans($translation_key);
+				}
+			);
+	}
+
+	/**
+	 * @return \Illuminate\Support\Collection
+	 */
+	public function getCivilitiesList()
+	{
+		return collect($this->civilities)
+			->map(
+				function ($translation_key)
+				{
+					return trans($translation_key);
+				}
+			);
 	}
 
 	/**
@@ -277,7 +300,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 		$first_name,
 		$last_name,
 		$email,
-		$birth_date = NULL,
+		$birth_date = null,
 		$role = User::ROLE_USER
 	)
 	{
@@ -311,7 +334,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 		$first_name,
 		$last_name,
 		$email,
-		$birth_date = NULL
+		$birth_date = null
 	)
 	{
 		$user = $this->createNewUser(
@@ -344,7 +367,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 		$first_name,
 		$last_name,
 		$email,
-		$birth_date = NULL
+		$birth_date = null
 	)
 	{
 		$user = $this->createNewUser(

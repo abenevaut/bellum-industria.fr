@@ -30,7 +30,11 @@ class UserListTransformer extends TransformerAbstract
 			'full_name'        => $user->full_name,
 			'email'            => $user->email,
 			'birth_date'       => $birth_date,
-			'apikey'           => !is_null($user->apikey) ? $user->apikey->key : '',
+			'apikey'           => (
+				(!is_null($user->apikey))
+					? $user->apikey->key
+					: ''
+			),
 			'deleted_at'       => $user->deleted_at,
 			'role'             => $user->role,
 			'environments'     => [],
@@ -133,7 +137,6 @@ class UserListTransformer extends TransformerAbstract
 				}
 			}
 		}
-
 
 		/*
 		 * List environment(s) linked to the user.

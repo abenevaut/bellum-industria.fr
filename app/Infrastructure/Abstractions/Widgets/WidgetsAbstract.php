@@ -2,10 +2,6 @@
 
 use cms\Infrastructure\Interfaces\Widgets\WidgetsInterface;
 
-/**
- * Class WidgetsAbstract
- * @package cms\Infrastructure\Abstractions\Widgets
- */
 abstract class WidgetsAbstract implements WidgetsInterface
 {
 
