@@ -15,6 +15,10 @@
 	</style>
 @endsection
 
+@section('js')
+	{!! Widget::google_analytics('UA-91882126-1') !!}
+@endsection
+
 @section('content')
 	<!-- Begin Gray Wrapper -->
 	<div class="layout__body-wrapper__content-wrapper layout__body-wrapper__content-wrapper--even layout__body-wrapper__content-wrapper--intro">
