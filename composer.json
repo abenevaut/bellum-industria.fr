@@ -11,7 +11,7 @@
   "repositories": [
     {
       "type": "composer",
-      "url": "http://packages.cvepdb.fr"
+      "url": "http://packages.benevaut.fr"
     }
   ],
   "require": {
@@ -28,7 +28,7 @@
     "cvepdb/laravel-widgets": "dev-master",
     "cvepdb/laravel-themes": "dev-master",
     "cvepdb/laravel-modules": "dev-master",
-    "cvepdb/laravel-menus": "dev-master",
+    "cvepdb/laravel-menus": "2.3.1",
     "cvepdb/laravel-settings": "dev-master",
     "cvepdb/laravel-addresses": "dev-master",
     "cvepdb-cms/module-settings": "dev-master",

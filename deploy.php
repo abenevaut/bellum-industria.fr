@@ -10,11 +10,11 @@ set('ssh_type', 'ext-ssh2');
 env('local_deploy_path', './deployer');
 
 // Removes old releases and keeps the last 5
-set('keep_releases', 5);
+set('keep_releases', 2);
 
-set('repository', 'git@gitlab.com:cvepdb/site.git');
+set('repository', 'git@gitlab.com:cvepdb/bellum-industria.git');
 
-//set('http_user', 'cvepdb-www');
+set('http_user', 'www');
 set('writable_use_sudo', false);
 
 task('cms:initialize', function ()
@@ -119,7 +119,7 @@ task('deploy:down', function ()
 })->desc('Enable maintenance mode');
 
 task('deploy', [
-	'deploy:down',
+//	'deploy:down',
 	'cms:initialize',
 	'deploy:prepare',
 	'deploy:release',
@@ -131,5 +131,5 @@ task('deploy', [
 	'deploy:vendors',
 	'cleanup',
 	'cms:prepare',
-	'deploy:up'
+//	'deploy:up'
 ])->desc('Deploy your project');

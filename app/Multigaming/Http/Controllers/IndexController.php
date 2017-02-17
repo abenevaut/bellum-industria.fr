@@ -64,8 +64,8 @@ class IndexController extends FrontendController
 
 	public function index()
 	{
-		$this->title = 'Multigaming#CVEPDB.fr';
-		$this->description = 'Multigaming#CVEPDB.fr';
+		$this->title = 'www.bellum-industria.fr';
+		$this->description = 'www.bellum-industria.fr';
 
 		$trades = [];
 		$team_bot = [];

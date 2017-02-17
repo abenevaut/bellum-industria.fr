@@ -44,7 +44,9 @@
 						@endif">
 							<a href="#tab-{{ slugify($server_key) }}" >
 								@if ('sm_multigaming_csgo_1' == $server_key)
-									CS:Go
+									CS:Go : retakes scene
+								@elseif ('sm_multigaming_csgo_3' == $server_key)
+									CS:Go : funny scene
 								@elseif ('sm_multigaming_css_1' == $server_key)
 									CS:Source
 								@endif
