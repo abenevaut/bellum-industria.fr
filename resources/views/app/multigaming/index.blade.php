@@ -1,4 +1,4 @@
-@extends('longwave::layouts.' . Environments::current())
+@extends('bellumindustria::layouts.index')
 
 @section('head')
 	<link rel="stylesheet" href="{{ asset('assets/app/css/index_csgotrades.css') }}">
@@ -13,10 +13,6 @@
 			margin-bottom: 4px;
 		}
 	</style>
-@endsection
-
-@section('js')
-	{!! Widget::google_analytics('UA-91882126-1') !!}
 @endsection
 
 @section('content')

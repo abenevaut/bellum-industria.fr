@@ -14,6 +14,6 @@ return [
 	'title' => 'Contact',
 
 	'address_title'   => 'Contact information',
-	'address_mail'    => 'multigaming@cvepdb.fr',
+	'address_mail'    => 'contact@bellum-industria.fr',
 
 ];
