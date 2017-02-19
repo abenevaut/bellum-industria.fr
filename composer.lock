@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "17a63ff652a45b2862447b1f2dfcfc5a",
-    "content-hash": "90d00ca7b7996d009ddf5dd11a5635dd",
+    "hash": "244f890f6b368888acc705d29d803ce3",
+    "content-hash": "38623663a148248e49eb6537f0d19b08",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.22.6",
+            "version": "3.22.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "011cabd6e7755a8671fb338951d53abc5d24deef"
+                "reference": "eea83aaac2b6c86f72a5c85c54d1839b70d4fd21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/011cabd6e7755a8671fb338951d53abc5d24deef",
-                "reference": "011cabd6e7755a8671fb338951d53abc5d24deef",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/eea83aaac2b6c86f72a5c85c54d1839b70d4fd21",
+                "reference": "eea83aaac2b6c86f72a5c85c54d1839b70d4fd21",
                 "shasum": ""
             },
             "require": {
@@ -85,7 +85,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-02-17 00:07:30"
+            "time": "2017-02-17 20:09:40"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -268,6 +268,46 @@
                 "package"
             ],
             "time": "2016-05-24 14:29:06"
+        },
+        {
+            "name": "bellum-industria/theme-bellumindustria",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:bellum-industria/theme-bellumindustria.git",
+                "reference": "4ec7b05faf47d51eafb806dbf79aba17935395b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/bellum-industria%2Ftheme-bellumindustria/repository/archive.zip?sha=4ec7b05faf47d51eafb806dbf79aba17935395b8",
+                "reference": "4ec7b05faf47d51eafb806dbf79aba17935395b8",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "laravel-library",
+            "extra": {
+                "installer-name": "bellumindustria"
+            },
+            "license": [
+                "copyright"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Benevaut",
+                    "email": "antoine@bellum-industria.fr"
+                }
+            ],
+            "description": "Theme bellumindustria for www.bellum-industria.fr",
+            "homepage": "http://www.bellum-industria.fr",
+            "keywords": [
+                "CMS",
+                "Theme",
+                "bellumindustria"
+            ],
+            "time": "2017-02-18 16:19:47"
         },
         {
             "name": "camspiers/json-pretty",
@@ -1789,47 +1829,6 @@
                 "widgets"
             ],
             "time": "2016-10-10 11:14:33"
-        },
-        {
-            "name": "cvepdb/theme-longwave",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@gitlab.com:cvepdb-cms/theme-longwave.git",
-                "reference": "f82d75dee589d2fce36335b2a9754686dc5eff7d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/cvepdb-cms%2Ftheme-longwave/repository/archive.zip?sha=f82d75dee589d2fce36335b2a9754686dc5eff7d",
-                "reference": "f82d75dee589d2fce36335b2a9754686dc5eff7d",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "~1.0",
-                "php": ">=5.5.9"
-            },
-            "type": "laravel-library",
-            "extra": {
-                "installer-name": "longwave"
-            },
-            "license": [
-                "copyright"
-            ],
-            "authors": [
-                {
-                    "name": "Antoine Benevaut",
-                    "email": "antoine@cvepdb.fr"
-                }
-            ],
-            "description": "Theme longwave for #CVEPDB CMS",
-            "homepage": "http://cavaencoreparlerdebits.fr",
-            "keywords": [
-                "CMS",
-                "CVEPDB",
-                "Theme",
-                "longwave"
-            ],
-            "time": "2017-01-20 20:37:41"
         },
         {
             "name": "da-mitchell/steam-api",
@@ -10801,7 +10800,7 @@
         "cvepdb-cms/module-steam": 20,
         "cvepdb-cms/module-teams": 20,
         "cvepdb-cms/module-tournaments": 20,
-        "cvepdb/theme-longwave": 20,
+        "bellum-industria/theme-bellumindustria": 20,
         "redcomponent/teststatistics": 20
     },
     "prefer-stable": false,

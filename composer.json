@@ -57,7 +57,7 @@
     "da-mitchell/steam-api": "^2.1",
     "cvepdb-cms/module-teams" : "dev-master",
     "cvepdb-cms/module-tournaments" : "dev-master",
-    "cvepdb/theme-longwave" : "dev-master",
+    "bellum-industria/theme-bellumindustria" : "dev-master",
     "predis/predis": "^1.1",
     "pusher/pusher-php-server": "^2.6",
     "malc0mn/vultr-api-client": "^1.0",
@@ -195,7 +195,7 @@
       "resources/themes/{$name}": [
         "cvepdb-cms/theme-adminlte",
         "cvepdb-cms/theme-lumen",
-        "cvepdb/theme-longwave"
+        "bellum-industria/theme-bellumindustria"
       ]
     }
   }
