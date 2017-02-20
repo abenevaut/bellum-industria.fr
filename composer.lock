@@ -275,12 +275,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:bellum-industria/theme-bellumindustria.git",
-                "reference": "4ec7b05faf47d51eafb806dbf79aba17935395b8"
+                "reference": "b947f3710e9fb196d34df18960100183644398e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v3/projects/bellum-industria%2Ftheme-bellumindustria/repository/archive.zip?sha=4ec7b05faf47d51eafb806dbf79aba17935395b8",
-                "reference": "4ec7b05faf47d51eafb806dbf79aba17935395b8",
+                "url": "https://gitlab.com/api/v3/projects/bellum-industria%2Ftheme-bellumindustria/repository/archive.zip?sha=b947f3710e9fb196d34df18960100183644398e5",
+                "reference": "b947f3710e9fb196d34df18960100183644398e5",
                 "shasum": ""
             },
             "require": {
@@ -307,7 +307,7 @@
                 "Theme",
                 "bellumindustria"
             ],
-            "time": "2017-02-18 16:19:47"
+            "time": "2017-02-19 21:08:29"
         },
         {
             "name": "camspiers/json-pretty",
@@ -6840,16 +6840,16 @@
         },
         {
             "name": "barryvdh/laravel-ide-helper",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "555d3e37009bdb78f5d8bcea6eb8a816529a5cfa"
+                "reference": "25c8de637ddf79567d721c1856616be01db7b960"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/555d3e37009bdb78f5d8bcea6eb8a816529a5cfa",
-                "reference": "555d3e37009bdb78f5d8bcea6eb8a816529a5cfa",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/25c8de637ddf79567d721c1856616be01db7b960",
+                "reference": "25c8de637ddf79567d721c1856616be01db7b960",
                 "shasum": ""
             },
             "require": {
@@ -6872,7 +6872,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
@@ -6902,7 +6902,7 @@
                 "phpstorm",
                 "sublime"
             ],
-            "time": "2017-02-13 19:20:12"
+            "time": "2017-02-20 12:54:53"
         },
         {
             "name": "barryvdh/reflection-docblock",
