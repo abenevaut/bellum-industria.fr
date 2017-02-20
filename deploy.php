@@ -119,7 +119,7 @@ task('deploy:down', function ()
 })->desc('Enable maintenance mode');
 
 task('deploy', [
-//	'deploy:down',
+	'deploy:down',
 	'cms:initialize',
 	'deploy:prepare',
 	'deploy:release',
@@ -131,5 +131,5 @@ task('deploy', [
 	'deploy:vendors',
 	'cleanup',
 	'cms:prepare',
-//	'deploy:up'
+	'deploy:up'
 ])->desc('Deploy your project');
