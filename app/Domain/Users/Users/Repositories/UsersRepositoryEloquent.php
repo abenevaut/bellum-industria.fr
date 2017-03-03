@@ -179,7 +179,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 */
 	public function filterUserName($name)
 	{
-		$this->pushCriteria(new UserNameLikeCriteria($name));
+		return $this->pushCriteria(new UserNameLikeCriteria($name));
 	}
 
 	/**
@@ -191,7 +191,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 */
 	public function filterEmail($email)
 	{
-		$this->pushCriteria(new EmailLikeCriteria($email));
+		return $this->pushCriteria(new EmailLikeCriteria($email));
 	}
 
 	/**
@@ -203,12 +203,17 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 */
 	public function filterRoles($roles = [])
 	{
-		$roles = array_filter($roles);
-
-		if (count($roles))
+		if (!empty($roles))
 		{
-			$this->pushCriteria(new RolesCriteria($roles));
+			$roles = array_filter($roles);
+
+			if (count($roles))
+			{
+				return $this->pushCriteria(new RolesCriteria($roles));
+			}
 		}
+
+		return $this;
 	}
 
 	/**
@@ -218,7 +223,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 */
 	public function filterShowWithTrashed()
 	{
-		$this->pushCriteria(new WithTrashedCriteria());
+		return $this->pushCriteria(new WithTrashedCriteria());
 	}
 
 	/**
@@ -228,7 +233,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 */
 	public function filterShowOnlyTrashed()
 	{
-		$this->pushCriteria(new OnlyTrashedCriteria());
+		return $this->pushCriteria(new OnlyTrashedCriteria());
 	}
 
 	/**
@@ -244,8 +249,10 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 
 		if (count($envs))
 		{
-			$this->pushCriteria(new EnvironmentsCriteria($envs));
+			return $this->pushCriteria(new EnvironmentsCriteria($envs));
 		}
+
+		return $this;
 	}
 
 	/**
