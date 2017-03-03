@@ -52,6 +52,7 @@
     "cvepdb-cms/module-csgolounge" : "dev-master",
     "cvepdb-cms/module-servers" : "dev-master",
     "cvepdb-cms/module-steam" : "dev-master",
+    "cvepdb-cms/module-teamspeak" : "dev-master",
     "invisnik/laravel-steam-auth": "^2.0",
     "xpaw/php-source-query-class": "^1.0",
     "da-mitchell/steam-api": "^2.1",
@@ -190,7 +191,8 @@
         "cvepdb-cms/module-servers",
         "cvepdb-cms/module-steam",
         "cvepdb-cms/module-teams",
-        "cvepdb-cms/module-tournaments"
+        "cvepdb-cms/module-tournaments",
+        "cvepdb-cms/module-teamspeak"
       ],
       "resources/themes/{$name}": [
         "cvepdb-cms/theme-adminlte",
