@@ -8,7 +8,7 @@ class StammRepository
 {
     private $laravel_db_config_name = 'mysql_smwa';
 
-    private $stamm_db_name = 'bellumindustria_smwa';
+    private $stamm_db_name = 'bellumindustria_production_smwa';
 
     private $stamm_tables_prefix = 'sm_multigaming_';
 

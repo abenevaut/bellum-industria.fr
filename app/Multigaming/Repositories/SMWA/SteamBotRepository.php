@@ -6,7 +6,7 @@
  */
 class SteamBotRepository
 {
-    private $laravel_db_config_name = 'mysql_steambot';
+    private $laravel_db_config_name = 'bellumindustria_production_steambot';
 
     private $steambot_tables_prefix = 'steambot_';
 
