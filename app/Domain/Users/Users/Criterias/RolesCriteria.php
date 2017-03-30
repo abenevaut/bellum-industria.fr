@@ -3,6 +3,10 @@
 use Prettus\Repository\Contracts\RepositoryInterface;
 use cms\Infrastructure\Abstractions\Criterias\CriteriaAbstract;
 
+/**
+ * Class RolesCriteria
+ * @package cms\Domain\Users\Users\Criterias
+ */
 class RolesCriteria extends CriteriaAbstract
 {
 

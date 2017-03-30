@@ -2,10 +2,15 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use CVEPDB\Addresses\Domain\Addresses\Addresses\Traits\AddressableTrait;
+use ABENEVAUT\Addresses\Domain\Addresses\Addresses\Traits\AddressableTrait;
 use cms\Infrastructure\Abstractions\Model\LogAuthenticatableModelAbstract;
+use cms\App\Facades\Environments;
 use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
 
+/**
+ * Class User
+ * @package cms\Domain\Users\Users
+ */
 class User extends LogAuthenticatableModelAbstract
 {
 
@@ -169,16 +174,6 @@ class User extends LogAuthenticatableModelAbstract
 		}
 
 		return null;
-	}
-
-	/**
-	 *
-	 */
-	public static function bootAddressableTrait()
-	{
-		static::deleted(function ($entity) {
-			// Do nothing during deletion
-		});
 	}
 
 	/**

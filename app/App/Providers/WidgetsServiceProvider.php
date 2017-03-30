@@ -1,8 +1,8 @@
 <?php namespace cms\App\Providers;
 
 use Illuminate\Foundation\AliasLoader;
-use CVEPDB\Widgets\App\Providers\WidgetsServiceProvider as CVEPDBWidgetsServiceProvider;
-use CVEPDB\Widgets\Domain\Widgets\Widgets\Repositories\WidgetsRepository;
+use ABENEVAUT\Widgets\App\Providers\WidgetsServiceProvider as CVEPDBWidgetsServiceProvider;
+use ABENEVAUT\Widgets\Domain\Widgets\Widgets\Repositories\WidgetsRepository;
 
 /**
  * Class WidgetsServiceProvider
@@ -23,7 +23,7 @@ class WidgetsServiceProvider extends CVEPDBWidgetsServiceProvider
 	 */
 	public function register()
 	{
-		$this->app['widgets'] = $this->app->share(function ($app)
+		$this->app->singleton('widgets', function ($app)
 		{
 			$blade = $app['view']
 				->getEngineResolver()
@@ -36,7 +36,7 @@ class WidgetsServiceProvider extends CVEPDBWidgetsServiceProvider
 		$this->app->booting(function ()
 		{
 			AliasLoader::getInstance()
-				->alias('Widget', 'CVEPDB\Widgets\App\Facades\WidgetsFacade');
+				->alias('Widget', 'ABENEVAUT\Widgets\App\Facades\WidgetsFacade');
 
 			$file = app_path('App/Widgets/widgets.php');
 

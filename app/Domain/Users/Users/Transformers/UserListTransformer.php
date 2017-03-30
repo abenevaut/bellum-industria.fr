@@ -3,6 +3,10 @@
 use League\Fractal\TransformerAbstract;
 use cms\Domain\Users\Users\User;
 
+/**
+ * Class UserListTransformer
+ * @package cms\Domain\Users\Users\Transformers
+ */
 class UserListTransformer extends TransformerAbstract
 {
 
@@ -30,13 +34,10 @@ class UserListTransformer extends TransformerAbstract
 			'full_name'        => $user->full_name,
 			'email'            => $user->email,
 			'birth_date'       => $birth_date,
-			'apikey'           => (
-				(!is_null($user->apikey))
-					? $user->apikey->key
-					: ''
-			),
+			'apikey'           => !is_null($user->apikey) ? $user->apikey->key : '',
 			'deleted_at'       => $user->deleted_at,
-			'role'             => $user->role,
+			'roles'            => [],
+			'roles_ids'        => [],
 			'environments'     => [],
 			'environments_ids' => [],
 			'addresses'        => [
@@ -159,6 +160,20 @@ class UserListTransformer extends TransformerAbstract
 		else
 		{
 			unset($data['environments']);
+		}
+
+		/*
+		 * List role(s) linked to the user.
+		 */
+
+		foreach ($user->roles as $role)
+		{
+			$data['roles_ids'][] = $role->id;
+
+			$data['roles'][] = [
+				'id'           => $role->id,
+				'display_name' => trans($role->display_name),
+			];
 		}
 
 		return $data;
