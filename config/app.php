@@ -155,9 +155,9 @@ return [
 		 */
 
 		Collective\Html\HtmlServiceProvider::class,
-		CVEPDB\Addresses\App\Providers\AddressesServiceProvider::class,
-		CVEPDB\Menus\App\Providers\MenusServiceProvider::class,
-		CVEPDB\Modules\App\Providers\ModulesServiceProvider::class,
+		ABENEVAUT\Addresses\App\Providers\AddressesServiceProvider::class,
+		ABENEVAUT\Menus\App\Providers\MenusServiceProvider::class,
+		ABENEVAUT\Modules\App\Providers\ModulesServiceProvider::class,
 		Prettus\Repository\Providers\RepositoryServiceProvider::class,
 		Spatie\Backup\BackupServiceProvider::class,
 
@@ -226,10 +226,10 @@ return [
 
 		'Form'     => Collective\Html\FormFacade::class,
 		'Html'     => Collective\Html\HtmlFacade::class,
-		'Menu'     => CVEPDB\Menus\App\Facades\MenuFacade::class,
-		'Module'   => CVEPDB\Modules\App\Facades\ModulesFacade::class,
-		'Settings' => CVEPDB\Settings\Facades\Settings::class,
-		'Theme'    => CVEPDB\Themes\App\Facades\ThemeFacade::class,
+		'Menu'     => ABENEVAUT\Menus\App\Facades\MenuFacade::class,
+		'Module'   => ABENEVAUT\Modules\App\Facades\ModulesFacade::class,
+		'Settings' => ABENEVAUT\Settings\App\Facades\SettingsFacade::class,
+		'Theme'    => ABENEVAUT\Themes\App\Facades\ThemeFacade::class,
 
 	],
 
