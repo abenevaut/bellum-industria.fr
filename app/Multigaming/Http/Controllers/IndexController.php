@@ -64,61 +64,61 @@ class IndexController extends FrontendController
 
 	public function index()
 	{
-		$this->title = 'www.bellum-industria.fr';
-		$this->description = 'www.bellum-industria.fr';
-
-		$trades = [];
-		$team_bot = [];
-		$team_bellumindustria = [];
-
-		$trades = $this->r_steambot->lastTrades();
-		foreach ($trades as $key => $trade)
-		{
-			if (is_null($trade->json))
-			{
-				unset($trades[$key]);
-			}
-			else
-			{
-				$trades[$key]->json = json_decode($trade->json);
-				$trades[$key]->trader = $this->steam->playerSummaries(
-					$trade->steam_id_trader
-				);
-			}
-		}
-
-		$team_bot = $this->teams->findByField('reference', 'bots')->first();
-
-		if (!is_null($team_bot))
-		{
-			foreach ($team_bot->users as $user)
-			{
-				$user->steam_summaries = $this->steam->playerSummaries(
-					$user->tokens->where('provider', 'steam')->first()->token
-				);
-			}
-		}
-
-		$team_bellumindustria = $this->teams->findByField('reference', 'bellum-industria')->first();
-
-		if (!is_null($team_bellumindustria))
-		{
-			foreach ($team_bellumindustria->users as $user)
-			{
-				$user->steam_summaries = $this->steam->playerSummaries(
-					$user->tokens->where('provider', 'steam')->first()->token
-				);
-			}
-		}
+//		$this->title = 'www.bellum-industria.fr';
+//		$this->description = 'www.bellum-industria.fr';
+//
+//		$trades = [];
+//		$team_bot = [];
+//		$team_bellumindustria = [];
+//
+//		$trades = $this->r_steambot->lastTrades();
+//		foreach ($trades as $key => $trade)
+//		{
+//			if (is_null($trade->json))
+//			{
+//				unset($trades[$key]);
+//			}
+//			else
+//			{
+//				$trades[$key]->json = json_decode($trade->json);
+//				$trades[$key]->trader = $this->steam->playerSummaries(
+//					$trade->steam_id_trader
+//				);
+//			}
+//		}
+//
+//		$team_bot = $this->teams->findByField('reference', 'bots')->first();
+//
+//		if (!is_null($team_bot))
+//		{
+//			foreach ($team_bot->users as $user)
+//			{
+//				$user->steam_summaries = $this->steam->playerSummaries(
+//					$user->tokens->where('provider', 'steam')->first()->token
+//				);
+//			}
+//		}
+//
+//		$team_bellumindustria = $this->teams->findByField('reference', 'bellum-industria')->first();
+//
+//		if (!is_null($team_bellumindustria))
+//		{
+//			foreach ($team_bellumindustria->users as $user)
+//			{
+//				$user->steam_summaries = $this->steam->playerSummaries(
+//					$user->tokens->where('provider', 'steam')->first()->token
+//				);
+//			}
+//		}
 
 		//$this->test();
 
 		return view(
 			'app.multigaming.index',
 			[
-				'team_bot'             => $team_bot,
-				'team_bellumindustria' => $team_bellumindustria,
-				'trades'               => $trades,
+				'team_bot'             => $team_bot = [],
+				'team_bellumindustria' => $team_bellumindustria = [],
+				'trades'               => $trades = [],
 			]
 		);
 	}
