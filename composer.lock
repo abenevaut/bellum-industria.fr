@@ -401,16 +401,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.24.9",
+            "version": "3.25.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "26212252dcd0f9b9b7b19702577d0b0b364888df"
+                "reference": "8fc5e41cd5d4b965c552f52ac0efa726838c6f89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/26212252dcd0f9b9b7b19702577d0b0b364888df",
-                "reference": "26212252dcd0f9b9b7b19702577d0b0b364888df",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/8fc5e41cd5d4b965c552f52ac0efa726838c6f89",
+                "reference": "8fc5e41cd5d4b965c552f52ac0efa726838c6f89",
                 "shasum": ""
             },
             "require": {
@@ -477,7 +477,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-03-28T20:19:24+00:00"
+            "time": "2017-03-31T00:04:32+00:00"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -4272,12 +4272,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "81b0a37d0b1bda5fe5446542a1204b2bfe8d6b1b"
+                "reference": "c02d75b37ee904117346646d19a85ef9b9defbcb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/81b0a37d0b1bda5fe5446542a1204b2bfe8d6b1b",
-                "reference": "81b0a37d0b1bda5fe5446542a1204b2bfe8d6b1b",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/c02d75b37ee904117346646d19a85ef9b9defbcb",
+                "reference": "c02d75b37ee904117346646d19a85ef9b9defbcb",
                 "shasum": ""
             },
             "require": {
@@ -4322,7 +4322,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2017-03-30T14:41:00+00:00"
+            "time": "2017-03-31T08:05:06+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4775,12 +4775,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "9a07038280118d43492d3df3a6a888700285253d"
+                "reference": "d95c776e4d51b86c249cc26ec69cdf9bbdcbdcc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/9a07038280118d43492d3df3a6a888700285253d",
-                "reference": "9a07038280118d43492d3df3a6a888700285253d",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/d95c776e4d51b86c249cc26ec69cdf9bbdcbdcc8",
+                "reference": "d95c776e4d51b86c249cc26ec69cdf9bbdcbdcc8",
                 "shasum": ""
             },
             "require": {
@@ -4852,7 +4852,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-25T14:07:47+00:00"
+            "time": "2017-03-30T12:49:17+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -6986,12 +6986,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c4ebb68af6e68179eb2381603ad35032622894cf"
+                "reference": "1502e0ef6d5a8e5c7627f5e6bb4e852e4f6042e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c4ebb68af6e68179eb2381603ad35032622894cf",
-                "reference": "c4ebb68af6e68179eb2381603ad35032622894cf",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1502e0ef6d5a8e5c7627f5e6bb4e852e4f6042e9",
+                "reference": "1502e0ef6d5a8e5c7627f5e6bb4e852e4f6042e9",
                 "shasum": ""
             },
             "require": {
@@ -7060,7 +7060,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-20T17:41:26+00:00"
+            "time": "2017-03-31T14:59:49+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -7382,16 +7382,16 @@
         },
         {
             "name": "react/dns",
-            "version": "v0.4.6",
+            "version": "v0.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/dns.git",
-                "reference": "a4c32f0021c742a1781c445270cb29a2d4b76fed"
+                "reference": "e09ca286e3e18fea93317315dd7fc59d7963af8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/dns/zipball/a4c32f0021c742a1781c445270cb29a2d4b76fed",
-                "reference": "a4c32f0021c742a1781c445270cb29a2d4b76fed",
+                "url": "https://api.github.com/repos/reactphp/dns/zipball/e09ca286e3e18fea93317315dd7fc59d7963af8a",
+                "reference": "e09ca286e3e18fea93317315dd7fc59d7963af8a",
                 "shasum": ""
             },
             "require": {
@@ -7399,7 +7399,7 @@
                 "react/cache": "~0.4.0|~0.3.0",
                 "react/promise": "~2.1|~1.2",
                 "react/promise-timer": "~1.1",
-                "react/socket": "^0.5 || ^0.4.4",
+                "react/socket": "^0.7 || ^0.6 || ^0.5 || ^0.4.4",
                 "react/stream": "^0.6 || ^0.5 || ^0.4.5"
             },
             "require-dev": {
@@ -7420,7 +7420,7 @@
                 "dns",
                 "dns-resolver"
             ],
-            "time": "2017-03-11T13:46:09+00:00"
+            "time": "2017-03-31T16:21:48+00:00"
         },
         {
             "name": "react/event-loop",
@@ -9083,12 +9083,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "76ae7f27e17ab4e5e177d8f9aa6c116d56fe47df"
+                "reference": "bd17d508c08e7862f4a7630ce49eaff66237039e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/76ae7f27e17ab4e5e177d8f9aa6c116d56fe47df",
-                "reference": "76ae7f27e17ab4e5e177d8f9aa6c116d56fe47df",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/bd17d508c08e7862f4a7630ce49eaff66237039e",
+                "reference": "bd17d508c08e7862f4a7630ce49eaff66237039e",
                 "shasum": ""
             },
             "require": {
@@ -9130,7 +9130,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-22T19:08:11+00:00"
+            "time": "2017-03-30T07:16:02+00:00"
         },
         {
             "name": "theseer/fdomdocument",
