@@ -2,7 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use CVEPDB\Addresses\Domain\Addresses\Addresses\Traits\AddressableTrait;
+use ABENEVAUT\Addresses\Domain\Addresses\Addresses\Traits\AddressableTrait;
 use cms\Infrastructure\Abstractions\Model\LogAuthenticatableModelAbstract;
 use cms\App\Facades\Environments;
 use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;

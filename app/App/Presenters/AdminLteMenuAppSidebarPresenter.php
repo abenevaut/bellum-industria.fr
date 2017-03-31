@@ -1,7 +1,7 @@
 <?php namespace cms\App\Presenters;
 
 use Illuminate\Support\Facades\Request;
-use CVEPDB\Menus\Domain\Menus\Items\MenuItem;
+use ABENEVAUT\Menus\Domain\Menus\Items\MenuItem;
 use cms\Infrastructure\Abstractions\Presenters\NavigationPresenterAbstract;
 
 /**

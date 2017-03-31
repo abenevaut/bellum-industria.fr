@@ -1,7 +1,7 @@
 <?php namespace cms\Infrastructure\Abstractions\Presenters;
 
-use CVEPDB\Menus\Infrastructure\Abstractions\Presenters\PresenterAbstract;
-use CVEPDB\Menus\Domain\Menus\Items\MenuItem;
+use ABENEVAUT\Menus\Infrastructure\Abstractions\Presenters\PresenterAbstract;
+use ABENEVAUT\Menus\Domain\Menus\Items\MenuItem;
 
 /**
  * Class NavigationPresenterAbstract

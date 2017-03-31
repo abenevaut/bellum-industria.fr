@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use CVEPDB\Addresses\Domain\Addresses\Countries\Country;
-use CVEPDB\Addresses\Domain\Addresses\States\State;
-use CVEPDB\Addresses\Domain\Addresses\Addresses\Repositories\Iso3166;
+use ABENEVAUT\Addresses\Domain\Addresses\Countries\Country;
+use ABENEVAUT\Addresses\Domain\Addresses\States\State;
+use ABENEVAUT\Addresses\Domain\Addresses\Addresses\Repositories\Iso3166;
 
 /**
  * Class StatesSeeder

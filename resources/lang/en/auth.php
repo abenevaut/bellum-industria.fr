@@ -28,4 +28,7 @@ return [
 	'message_success_provider_loggedin' => 'You have successfully logged in.',
 	'message_error_provider_loggedin' => 'You didn\'t successfully logged in.',
 	'message_success_provider_register_and_loggedin' => 'You have successfully registered and logged in.',
+
+	'middleware_has_not_role_error' => 'You can not access this page',
+	
 ];
