@@ -3,10 +3,6 @@
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\Gate;
 
-/**
- * Class ElFinderDiskRepository
- * @package cms\Domain\Files\Files\Repositories
- */
 class ElFinderDiskRepository extends DiskRepository
 {
 
@@ -20,7 +16,7 @@ class ElFinderDiskRepository extends DiskRepository
 	 */
 	public function getElFinderRoots($environment_reference = null)
 	{
-		return (array)\Settings::setEnvironment($environment_reference)
+		return (array)\Settings::setDomain($environment_reference)
 			->get('elfinder.roots', []);
 	}
 
@@ -35,7 +31,7 @@ class ElFinderDiskRepository extends DiskRepository
 		$environment_reference = null
 	)
 	{
-		$directories = \Settings::setEnvironment($environment_reference)
+		$directories = \Settings::setDomain($environment_reference)
 			->get('elfinder.dir', []);
 
 		if (empty($directories))
@@ -47,7 +43,7 @@ class ElFinderDiskRepository extends DiskRepository
 			$directories = [$directories];
 		}
 
-		\Settings::setEnvironment($environment_reference)
+		\Settings::setDomain($environment_reference)
 			->set(
 				'elfinder.dir',
 				$directories + [$new_directory]
@@ -62,14 +58,14 @@ class ElFinderDiskRepository extends DiskRepository
 	 */
 	public function unmountElFinderDirectory($directory, $environment_reference = null)
 	{
-		$directories = \Settings::setEnvironment($environment_reference)
+		$directories = \Settings::setDomain($environment_reference)
 			->get('elfinder.dir', []);
 		unset($directories[array_search($directory, $directories)]);
 
-		\Settings::setEnvironment($environment_reference)
+		\Settings::setDomain($environment_reference)
 			->forget('elfinder.dir');
 
-		\Settings::setEnvironment($environment_reference)
+		\Settings::setDomain($environment_reference)
 			->set('elfinder.dir', $directories);
 	}
 
@@ -82,7 +78,7 @@ class ElFinderDiskRepository extends DiskRepository
 	 */
 	public function getElFinderDirectories($environment_reference = null)
 	{
-		return \Settings::setEnvironment($environment_reference)
+		return \Settings::setDomain($environment_reference)
 			->get('elfinder.dir', []);
 	}
 
@@ -121,12 +117,12 @@ class ElFinderDiskRepository extends DiskRepository
 	 */
 	public function mountElFinderDisk($disk_reference, $options, $environment_reference = null)
 	{
-		$disks = \Settings::resetEnvironment()
+		$disks = \Settings::resetDomain()
 			->get('elfinder.disks', []);
 
 		$disks = is_null($disks) ? [] : $disks;
 
-		\Settings::setEnvironment($environment_reference)
+		\Settings::setDomain($environment_reference)
 			->set(
 				'elfinder.disks',
 				$disks + [$disk_reference => $options]
@@ -142,13 +138,13 @@ class ElFinderDiskRepository extends DiskRepository
 	 */
 	public function unmountElFinderDisk($disk_reference, $environment_reference = null)
 	{
-		$disks = \Settings::setEnvironment($environment_reference)
+		$disks = \Settings::setDomain($environment_reference)
 			->get('elfinder.disks', [], $environment_reference);
 		unset($disks[$disk_reference]);
 
-		\Settings::setEnvironment($environment_reference)
+		\Settings::setDomain($environment_reference)
 			->forget('elfinder.disks', $environment_reference);
-		\Settings::setEnvironment($environment_reference)
+		\Settings::setDomain($environment_reference)
 			->set('elfinder.disks', $disks, $environment_reference);
 	}
 
@@ -161,7 +157,7 @@ class ElFinderDiskRepository extends DiskRepository
 	 */
 	public function getElFinderDisks($environment_reference = null)
 	{
-		return (array)\Settings::setEnvironment($environment_reference)
+		return (array)\Settings::setDomain($environment_reference)
 			->get('elfinder.disks', []);
 	}
 

@@ -3,10 +3,6 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Filesystem\FilesystemAdapter;
 
-/**
- * Class DiskRepository
- * @package cms\Domain\Files\Files\Repositories
- */
 class DiskRepository
 {
 
@@ -21,7 +17,7 @@ class DiskRepository
 		$environment_reference = null
 	)
 	{
-		\Settings::setEnvironment($environment_reference)
+		\Settings::setDomain($environment_reference)
 			->set(
 				'filesystems.default',
 				$disk_name
@@ -39,7 +35,7 @@ class DiskRepository
 		$environment_reference = null
 	)
 	{
-		\Settings::setEnvironment($environment_reference)
+		\Settings::setDomain($environment_reference)
 			->set(
 				'filesystems.cloud',
 				$disk_name
@@ -57,10 +53,10 @@ class DiskRepository
 	 */
 	public function addFileSystemDisk($disk_reference, $options, $environment_reference = null)
 	{
-		$disks = \Settings::setEnvironment($environment_reference)
+		$disks = \Settings::setDomain($environment_reference)
 			->get('filesystems.disks', []);
 
-		\Settings::setEnvironment($environment_reference)
+		\Settings::setDomain($environment_reference)
 			->set(
 				'filesystems.disks',
 				$disks + [$disk_reference => $options]
