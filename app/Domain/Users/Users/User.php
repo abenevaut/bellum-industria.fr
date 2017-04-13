@@ -3,13 +3,8 @@
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use cms\Infrastructure\Abstractions\Model\LogAuthenticatableModelAbstract;
-use cms\App\Facades\Environments;
 use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
 
-/**
- * Class User
- * @package cms\Domain\Users\Users
- */
 class User extends LogAuthenticatableModelAbstract
 {
 
@@ -73,8 +68,7 @@ class User extends LogAuthenticatableModelAbstract
 	 *
 	 * @return string
 	 */
-	protected static function getBelongsToManyEnvironmentName()
-	{
+	protected static function getBelongsToManyEnvironmentName() {
 		return 'users';
 	}
 
@@ -83,8 +77,7 @@ class User extends LogAuthenticatableModelAbstract
 	 *
 	 * @return string
 	 */
-	public function getFullNameAttribute()
-	{
+	public function getFullNameAttribute() {
 		return sprintf(
 			'%s %s',
 			ucfirst(strtolower($this->first_name)),
@@ -98,8 +91,7 @@ class User extends LogAuthenticatableModelAbstract
 	 *
 	 * @return bool
 	 */
-	public function getIsSuperAdministratorAttribute()
-	{
+	public function getIsSuperAdministratorAttribute() {
 		return in_array(
 			$this->role,
 			[
@@ -113,8 +105,7 @@ class User extends LogAuthenticatableModelAbstract
 	 *
 	 * @return bool
 	 */
-	public function getIsAdministratorAttribute()
-	{
+	public function getIsAdministratorAttribute() {
 		return in_array(
 			$this->role,
 			[
@@ -129,8 +120,7 @@ class User extends LogAuthenticatableModelAbstract
 	 *
 	 * @return bool
 	 */
-	public function getIsModeratorAttribute()
-	{
+	public function getIsModeratorAttribute() {
 		return in_array(
 			$this->role,
 			[
@@ -146,8 +136,7 @@ class User extends LogAuthenticatableModelAbstract
 	 *
 	 * @return bool
 	 */
-	public function getIsUserAttribute()
-	{
+	public function getIsUserAttribute() {
 		return in_array(
 			$this->role,
 			[
@@ -164,8 +153,7 @@ class User extends LogAuthenticatableModelAbstract
 	 *
 	 * @return \Carbon\Carbon
 	 */
-	public function getBirthDateCarbonAttribute()
-	{
+	public function getBirthDateCarbonAttribute() {
 		if (strcmp("0000-00-00", $this->birth_date))
 		{
 			return new Carbon($this->birth_date);
@@ -177,16 +165,14 @@ class User extends LogAuthenticatableModelAbstract
 	/**
 	 * Social tokens that belong to the user.
 	 */
-	public function tokens()
-	{
+	public function tokens() {
 		return $this->hasMany('cms\Domain\Users\SocialTokens\SocialToken');
 	}
 
 	/**
 	 * Environments that belong to the user.
 	 */
-	public function environments()
-	{
+	public function environments() {
 		return $this->belongsToMany(
 			'cms\Domain\Environments\Environments\Environment'
 		);

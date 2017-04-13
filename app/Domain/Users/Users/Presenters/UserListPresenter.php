@@ -3,10 +3,6 @@
 use cms\Domain\Users\Users\Transformers\UserListTransformer;
 use cms\Infrastructure\Abstractions\Presenters\FractalPresenterAbstract;
 
-/**
- * Class UserListPresenter
- * @package Core\Domain\Users\Presenters
- */
 class UserListPresenter extends FractalPresenterAbstract
 {
 
@@ -15,8 +11,7 @@ class UserListPresenter extends FractalPresenterAbstract
 	 *
 	 * @return UserListTransformer
 	 */
-	public function getTransformer()
-	{
+	public function getTransformer() {
 		return new UserListTransformer();
 	}
 }

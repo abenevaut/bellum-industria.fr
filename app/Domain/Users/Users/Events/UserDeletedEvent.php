@@ -5,10 +5,6 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use cms\Infrastructure\Abstractions\Events\EventAbstract;
 use cms\Domain\Users\Users\User;
 
-/**
- * Class UserDeletedEvent
- * @package cms\Domain\Users\Users\Events
- */
 class UserDeletedEvent extends EventAbstract
 {
 
@@ -26,8 +22,7 @@ class UserDeletedEvent extends EventAbstract
 	 *
 	 * @param User $user
 	 */
-	public function __construct(User $user)
-	{
+	public function __construct(User $user) {
 		$this->user = $user;
 	}
 
@@ -36,8 +31,7 @@ class UserDeletedEvent extends EventAbstract
 	 *
 	 * @return array
 	 */
-	public function broadcastOn()
-	{
+	public function broadcastOn() {
 		return [];
 	}
 }

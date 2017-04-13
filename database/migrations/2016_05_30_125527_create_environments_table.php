@@ -16,19 +16,18 @@ class CreateEnvironmentsTable extends Migration
 		Schema::create('environments', function (Blueprint $table)
 		{
 			$table->increments('id');
-			$table->timestamps();
-
-			$table->string('name')
+			$table
+				->string('name')
 				->index();
-
-			$table->string('reference')
+			$table
+				->string('reference')
 				->index()
 				->unique('reference');
-
-			$table->string('domain')
+			$table
+				->string('domain')
 				->index()
 				->unique('domain');
-
+			$table->timestamps();
 			$table->softDeletes();
 		});
 	}

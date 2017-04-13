@@ -3,10 +3,6 @@
 use Prettus\Repository\Contracts\RepositoryInterface;
 use cms\Infrastructure\Abstractions\Criterias\CriteriaAbstract;
 
-/**
- * Class EnvironmentsCriteria
- * @package cms\Domain\Users\Users\Criterias
- */
 class EnvironmentsCriteria extends CriteriaAbstract
 {
 
@@ -18,8 +14,7 @@ class EnvironmentsCriteria extends CriteriaAbstract
 	/**
 	 * @param array $envs
 	 */
-	public function __construct($envs = [])
-	{
+	public function __construct($envs = []) {
 		$this->envs = array_filter($envs);
 	}
 
@@ -29,8 +24,7 @@ class EnvironmentsCriteria extends CriteriaAbstract
 	 *
 	 * @return mixed
 	 */
-	public function apply($model, RepositoryInterface $repository)
-	{
+	public function apply($model, RepositoryInterface $repository) {
 		if (count($this->envs))
 		{
 			return $model

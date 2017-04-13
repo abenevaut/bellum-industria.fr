@@ -3,10 +3,6 @@
 use Prettus\Repository\Contracts\RepositoryInterface;
 use cms\Infrastructure\Abstractions\Criterias\CriteriaAbstract;
 
-/**
- * Class OnlyTrashedCriteria
- * @package cms\Domain\Users\Users\Criterias
- */
 class OnlyTrashedCriteria extends CriteriaAbstract
 {
 
@@ -18,8 +14,7 @@ class OnlyTrashedCriteria extends CriteriaAbstract
 	/**
 	 * @param string $emails
 	 */
-	public function __construct($emails = '')
-	{
+	public function __construct($emails = '') {
 		$this->emails = $emails;
 	}
 
@@ -29,9 +24,7 @@ class OnlyTrashedCriteria extends CriteriaAbstract
 	 *
 	 * @return mixed
 	 */
-	public function apply($model, RepositoryInterface $repository)
-	{
+	public function apply($model, RepositoryInterface $repository) {
 		return $model->onlyTrashed();
 	}
-
 }

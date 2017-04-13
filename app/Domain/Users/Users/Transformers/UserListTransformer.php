@@ -3,10 +3,6 @@
 use League\Fractal\TransformerAbstract;
 use cms\Domain\Users\Users\User;
 
-/**
- * Class UserListTransformer
- * @package cms\Domain\Users\Users\Transformers
- */
 class UserListTransformer extends TransformerAbstract
 {
 
@@ -15,8 +11,7 @@ class UserListTransformer extends TransformerAbstract
 	 *
 	 * @return array
 	 */
-	public function transform(User $user)
-	{
+	public function transform(User $user) {
 		$primary_address = $user->flaggedAddress('primary');
 
 		$birth_date = $user->birth_date_carbon;

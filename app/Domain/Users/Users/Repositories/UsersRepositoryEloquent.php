@@ -1,9 +1,8 @@
 <?php namespace cms\Domain\Users\Users\Repositories;
 
+use Illuminate\Container\Container as Application;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Container\Container as Application;
 use Illuminate\Support\Str;
 use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
 use cms\Domain\Users\Users\Repositories\UsersRepository;
@@ -23,10 +22,6 @@ use cms\Domain\Users\Users\Events\NewAdminCreatedEvent;
 use cms\Domain\Users\Users\Events\NewSuperAdminCreatedEvent;
 use cms\Domain\Users\Users\User;
 
-/**
- * Class UsersRepositoryEloquent
- * @package cms\Domain\Users\Users\Repositories
- */
 class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements UsersRepository
 {
 
@@ -179,7 +174,12 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 */
 	public function filterUserName($name)
 	{
-		return $this->pushCriteria(new UserNameLikeCriteria($name));
+		if (!empty($name))
+		{
+			$this->pushCriteria(new UserNameLikeCriteria($name));
+		}
+
+		return $this;
 	}
 
 	/**
@@ -191,7 +191,12 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 */
 	public function filterEmail($email)
 	{
-		return $this->pushCriteria(new EmailLikeCriteria($email));
+		if (!empty($email))
+		{
+			return $this->pushCriteria(new EmailLikeCriteria($email));
+		}
+
+		return $this;
 	}
 
 	/**
@@ -245,14 +250,18 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 */
 	public function filterEnvironments($envs = [])
 	{
-		$envs = array_filter($envs);
-
-		if (count($envs))
-		{
-			return $this->pushCriteria(new EnvironmentsCriteria($envs));
+		if (
+			\Gate::denies('super-administrator')
+			|| empty($envs)
+		) {
+			$envs = [
+				\Environments::currentId()
+			];
 		}
 
-		return $this;
+		$envs = array_filter($envs);
+
+		return $this->pushCriteria(new EnvironmentsCriteria($envs));
 	}
 
 	/**

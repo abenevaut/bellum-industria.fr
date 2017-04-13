@@ -17,12 +17,24 @@ class CreateEnvironmentUserTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('environment_id')->unsigned();
 
-            $table->foreign('user_id')->references('id')->on('users')
-                ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('environment_id')->references('id')->on('environments')
-                ->onUpdate('cascade')->onDelete('cascade');
+            $table
+				->foreign('user_id')
+				->references('id')
+				->on('users')
+                ->onUpdate('cascade')
+				->onDelete('cascade');
 
-            $table->primary(['user_id', 'environment_id']);
+            $table
+				->foreign('environment_id')
+				->references('id')
+				->on('environments')
+                ->onUpdate('cascade')
+				->onDelete('cascade');
+
+            $table->primary([
+            	'user_id',
+				'environment_id'
+			]);
         });
     }
 
