@@ -10,13 +10,13 @@ class ElFinderDiskRepository extends DiskRepository
 	 * Get elfinder.roots settings.
 	 * https://github.com/Studio-42/elFinder/wiki/Multiple-Roots
 	 *
-	 * @param string $environment_reference
+	 * @param string $domain_reference
 	 *
 	 * @return mixed
 	 */
-	public function getElFinderRoots($environment_reference = null)
+	public function getElFinderRoots($domain_reference = null)
 	{
-		return (array)\Settings::setDomain($environment_reference)
+		return (array)\Settings::setDomain($domain_reference)
 			->get('elfinder.roots', []);
 	}
 
@@ -24,14 +24,14 @@ class ElFinderDiskRepository extends DiskRepository
 	 * Allow to mount an elFinder disk based on a directory path.
 	 *
 	 * @param string $new_directory The directory path
-	 * @param string $environment_reference
+	 * @param string $domain_reference
 	 */
 	public function mountElFinderDirectory(
 		$new_directory,
-		$environment_reference = null
+		$domain_reference = null
 	)
 	{
-		$directories = \Settings::setDomain($environment_reference)
+		$directories = \Settings::setDomain($domain_reference)
 			->get('elfinder.dir', []);
 
 		if (empty($directories))
@@ -43,7 +43,7 @@ class ElFinderDiskRepository extends DiskRepository
 			$directories = [$directories];
 		}
 
-		\Settings::setDomain($environment_reference)
+		\Settings::setDomain($domain_reference)
 			->set(
 				'elfinder.dir',
 				$directories + [$new_directory]
@@ -54,31 +54,31 @@ class ElFinderDiskRepository extends DiskRepository
 	 * Allow to unmount an elFinder disk based on a directory path.
 	 *
 	 * @param string $directory The directory path
-	 * @param string $environment_reference
+	 * @param string $domain_reference
 	 */
-	public function unmountElFinderDirectory($directory, $environment_reference = null)
+	public function unmountElFinderDirectory($directory, $domain_reference = null)
 	{
-		$directories = \Settings::setDomain($environment_reference)
+		$directories = \Settings::setDomain($domain_reference)
 			->get('elfinder.dir', []);
 		unset($directories[array_search($directory, $directories)]);
 
-		\Settings::setDomain($environment_reference)
+		\Settings::setDomain($domain_reference)
 			->forget('elfinder.dir');
 
-		\Settings::setDomain($environment_reference)
+		\Settings::setDomain($domain_reference)
 			->set('elfinder.dir', $directories);
 	}
 
 	/**
 	 * Get the list of all directories path based disks.
 	 *
-	 * @param null $environment_reference
+	 * @param null $domain_reference
 	 *
 	 * @return array
 	 */
-	public function getElFinderDirectories($environment_reference = null)
+	public function getElFinderDirectories($domain_reference = null)
 	{
-		return \Settings::setDomain($environment_reference)
+		return \Settings::setDomain($domain_reference)
 			->get('elfinder.dir', []);
 	}
 
@@ -86,14 +86,14 @@ class ElFinderDiskRepository extends DiskRepository
 	 * Return the list of mountable directories available for elFinder.
 	 * The list is required by the elFinder connector.
 	 *
-	 * @param null $environment_reference
+	 * @param null $domain_reference
 	 *
 	 * @return array
 	 */
-	public function getMountableElFinderDirectoriesList($environment_reference = null)
+	public function getMountableElFinderDirectoriesList($domain_reference = null)
 	{
 		$roots = [];
-		$dirs = $this->getElFinderDirectories($environment_reference);
+		$dirs = $this->getElFinderDirectories($domain_reference);
 
 		foreach ($dirs as $dir)
 		{
@@ -113,16 +113,16 @@ class ElFinderDiskRepository extends DiskRepository
 	 *
 	 * @param string $disk_reference
 	 * @param array  $options
-	 * @param string $environment_reference
+	 * @param string $domain_reference
 	 */
-	public function mountElFinderDisk($disk_reference, $options, $environment_reference = null)
+	public function mountElFinderDisk($disk_reference, $options, $domain_reference = null)
 	{
 		$disks = \Settings::resetDomain()
 			->get('elfinder.disks', []);
 
 		$disks = is_null($disks) ? [] : $disks;
 
-		\Settings::setDomain($environment_reference)
+		\Settings::setDomain($domain_reference)
 			->set(
 				'elfinder.disks',
 				$disks + [$disk_reference => $options]
@@ -134,30 +134,30 @@ class ElFinderDiskRepository extends DiskRepository
 	 * configuration.
 	 *
 	 * @param string $disk_reference
-	 * @param string $environment_reference
+	 * @param string $domain_reference
 	 */
-	public function unmountElFinderDisk($disk_reference, $environment_reference = null)
+	public function unmountElFinderDisk($disk_reference, $domain_reference = null)
 	{
-		$disks = \Settings::setDomain($environment_reference)
-			->get('elfinder.disks', [], $environment_reference);
+		$disks = \Settings::setDomain($domain_reference)
+			->get('elfinder.disks', [], $domain_reference);
 		unset($disks[$disk_reference]);
 
-		\Settings::setDomain($environment_reference)
-			->forget('elfinder.disks', $environment_reference);
-		\Settings::setDomain($environment_reference)
-			->set('elfinder.disks', $disks, $environment_reference);
+		\Settings::setDomain($domain_reference)
+			->forget('elfinder.disks', $domain_reference);
+		\Settings::setDomain($domain_reference)
+			->set('elfinder.disks', $disks, $domain_reference);
 	}
 
 	/**
 	 * Get the list of all disks based on file system disk configuration.
 	 *
-	 * @param string $environment_reference
+	 * @param string $domain_reference
 	 *
 	 * @return array
 	 */
-	public function getElFinderDisks($environment_reference = null)
+	public function getElFinderDisks($domain_reference = null)
 	{
-		return (array)\Settings::setDomain($environment_reference)
+		return (array)\Settings::setDomain($domain_reference)
 			->get('elfinder.disks', []);
 	}
 
@@ -165,15 +165,15 @@ class ElFinderDiskRepository extends DiskRepository
 	 * Return the list of mountable disks available for elFinder.
 	 * The list is required by the elFinder connector.
 	 *
-	 * @param null $environment_reference
+	 * @param null $domain_reference
 	 *
 	 * @return array
 	 * @throws \Exception
 	 */
-	public function getMountableElFinderDisksList($environment_reference = null)
+	public function getMountableElFinderDisksList($domain_reference = null)
 	{
 		$roots = [];
-		$disks = $this->getElFinderDisks($environment_reference);
+		$disks = $this->getElFinderDisks($domain_reference);
 
 		foreach ($disks as $disk_name => $options)
 		{
