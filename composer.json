@@ -20,7 +20,6 @@
     "league/fractal": "0.15.0",
     "spatie/laravel-backup": "4.6.6",
     "prettus/l5-repository": "2.6.6",
-    "abenevaut/laravel-addresses": "5.4.0",
     "abenevaut/laravel-menus": "5.4.0",
     "abenevaut/laravel-widgets": "5.4.x-dev",
     "abenevaut/laravel-themes": "5.4.x-dev",
@@ -28,8 +27,8 @@
     "abenevaut/laravel-settings": "5.4.x-dev",
     "cvepdb-cms/module-settings": "dev-master",
     "cvepdb-cms/module-environments": "5.4.x-dev",
-    "cvepdb-cms/module-files": "5.4.x-dev",
-    "cvepdb-cms/module-installer": "5.4.x-dev",
+    "cvepdb-cms/module-files": "dev-master",
+    "cvepdb-cms/module-installer": "dev-master",
     "cvepdb-cms/module-themes": "5.4.x-dev",
     "cvepdb-cms/module-users": "5.4.x-dev",
     "cvepdb-cms/theme-adminlte": "dev-master",
@@ -75,7 +74,6 @@
     "files": [
       "app/App/Services/BackendNavigationsHelpers.php",
       "app/App/Services/BackendPaginationsHelpers.php",
-      "app/App/Services/MCryptHelpers.php",
       "app/App/Services/helpers.php"
     ]
   },

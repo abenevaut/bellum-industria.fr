@@ -155,7 +155,6 @@ return [
 		 */
 
 		Collective\Html\HtmlServiceProvider::class,
-		ABENEVAUT\Addresses\App\Providers\AddressesServiceProvider::class,
 		ABENEVAUT\Menus\App\Providers\MenusServiceProvider::class,
 		ABENEVAUT\Modules\App\Providers\ModulesServiceProvider::class,
 		Prettus\Repository\Providers\RepositoryServiceProvider::class,

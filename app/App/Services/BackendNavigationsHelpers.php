@@ -7,13 +7,12 @@ if (!function_exists('backend_menu_header'))
 	 *
 	 * @return string
 	 */
-	function backend_menu_header()
-	{
+	function backend_menu_header() {
 		$modules_list = \Module::getOrdered();
 
 		\Menu::create(
 			'header_navigation',
-			function ($menu) use ($modules_list)
+			function($menu) use ($modules_list)
 			{
 
 				$menu->route(
@@ -39,7 +38,7 @@ if (!function_exists('backend_menu_header'))
 				{
 					$menu->dropdown(
 						trans('global.shortcuts'),
-						function ($submenu) use ($modules_list)
+						function($submenu) use ($modules_list)
 						{
 							$i = 0;
 
@@ -108,11 +107,10 @@ if (!function_exists('backend_menu_front_mobile'))
 	 *
 	 * @return string
 	 */
-	function backend_menu_mobile()
-	{
+	function backend_menu_mobile() {
 		\Menu::create(
 			'header_navigation_mobile',
-			function ($menu)
+			function($menu)
 			{
 
 				$menu->route(
@@ -141,13 +139,12 @@ if (!function_exists('backend_menu_sidebar'))
 	 *
 	 * @return string
 	 */
-	function backend_menu_sidebar()
-	{
+	function backend_menu_sidebar() {
 		$modules_list = \Module::getOrdered();
 
 		\Menu::create(
 			'sidebar_navigation',
-			function ($menu) use ($modules_list)
+			function($menu) use ($modules_list)
 			{
 				$menu->route(
 					cms_route_backend(),
@@ -213,7 +210,7 @@ if (!function_exists('backend_menu_sidebar'))
 
 					$menu->dropdown(
 						trans('global.settings'),
-						function ($submenu) use ($modules_list)
+						function($submenu) use ($modules_list)
 						{
 
 							foreach ($modules_list as $module)

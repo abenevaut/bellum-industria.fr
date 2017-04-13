@@ -3,10 +3,6 @@
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;
 
-/**
- * Class BroadcastServiceProvider
- * @package cms\App\Providers
- */
 class BroadcastServiceProvider extends ServiceProvider
 {
     /**

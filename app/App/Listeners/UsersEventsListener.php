@@ -6,10 +6,6 @@ use cms\Domain\Users\Users\Events\UserUpdatedEvent;
 use cms\Domain\Users\Users\Events\UserDeletedEvent;
 use cms\Domain\Users\Users\Events\NewUserRegisteredEvent;
 
-/**
- * Class UserEventsListener
- * @package cms\App\Listeners
- */
 class UsersEventsListener
 {
 
@@ -18,8 +14,7 @@ class UsersEventsListener
 	 *
 	 * @param  \Illuminate\Events\Dispatcher $events
 	 */
-	public function subscribe($events)
-	{
+	public function subscribe($events) {
 		$events->listen(
 			'cms\Domain\Users\Users\Events\UserCreatedEvent',
 			'cms\App\Listeners\UsersEventsListener@handleUserCreatedEvent'
@@ -43,8 +38,7 @@ class UsersEventsListener
 	 *
 	 * @param UserCreatedEvent $event
 	 */
-	public function handleUserCreatedEvent(UserCreatedEvent $event)
-	{
+	public function handleUserCreatedEvent(UserCreatedEvent $event) {
 		session()->flash('message-success', trans('users.message_created_success'));
 	}
 
@@ -53,8 +47,7 @@ class UsersEventsListener
 	 *
 	 * @param UserUpdatedEvent $event
 	 */
-	public function handleUserUpdatedEvent(UserUpdatedEvent $event)
-	{
+	public function handleUserUpdatedEvent(UserUpdatedEvent $event) {
 		session()->flash('message-success', trans('users.message_updated_success'));
 	}
 
@@ -63,8 +56,7 @@ class UsersEventsListener
 	 *
 	 * @param UserDeletedEvent $event
 	 */
-	public function handleUserDeletedEvent(UserDeletedEvent $event)
-	{
+	public function handleUserDeletedEvent(UserDeletedEvent $event) {
 		session()->flash('message-success', trans('users.message_deleted_success'));
 	}
 
@@ -73,9 +65,7 @@ class UsersEventsListener
 	 *
 	 * @param EnvironmentCreatedEvent $event
 	 */
-	public function newUserRegisteredEvent(NewUserRegisteredEvent $event)
-	{
+	public function newUserRegisteredEvent(NewUserRegisteredEvent $event) {
 		session()->flash('message-success', trans('auth.message_success_register'));
 	}
-
 }

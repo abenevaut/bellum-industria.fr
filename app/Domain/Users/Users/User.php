@@ -2,7 +2,6 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use ABENEVAUT\Addresses\Domain\Addresses\Addresses\Traits\AddressableTrait;
 use cms\Infrastructure\Abstractions\Model\LogAuthenticatableModelAbstract;
 use cms\App\Facades\Environments;
 use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
@@ -14,7 +13,6 @@ use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
 class User extends LogAuthenticatableModelAbstract
 {
 
-	use AddressableTrait;
 	use EnvironmentTrait;
 	use SoftDeletes;
 
