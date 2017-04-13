@@ -7,7 +7,7 @@ class DomainsCriteria extends CriteriaAbstract
 {
 
 	/**
-	 * @var array envs list of environment IDs
+	 * @var array envs list of domain IDs
 	 */
 	private $envs = [];
 
@@ -28,9 +28,9 @@ class DomainsCriteria extends CriteriaAbstract
 		if (count($this->envs))
 		{
 			return $model
-				->join('environment_user AS uc_environments_eu', 'users.id', '=', 'uc_environments_eu.user_id')
-				->join('environments AS uc_environments_e1', 'uc_environments_e1.id', '=', 'uc_environments_eu.environment_id')
-				->whereIn('uc_environments_e1.id', $this->envs)
+				->join('domain_user AS uc_domains_eu', 'users.id', '=', 'uc_domains_eu.user_id')
+				->join('domains AS uc_domains_e1', 'uc_domains_e1.id', '=', 'uc_domains_eu.domain_id')
+				->whereIn('uc_domains_e1.id', $this->envs)
 				->groupBy('users.id');
 		}
 

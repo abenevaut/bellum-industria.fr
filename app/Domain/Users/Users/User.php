@@ -64,11 +64,11 @@ class User extends LogAuthenticatableModelAbstract
 
 
 	/**
-	 * Get the default "belongsToMany" link name, present in Environment model.
+	 * Get the default "belongsToMany" link name, present in Domain model.
 	 *
 	 * @return string
 	 */
-	protected static function getBelongsToManyEnvironmentName() {
+	protected static function getBelongsToManyDomainName() {
 		return 'users';
 	}
 
@@ -173,7 +173,7 @@ class User extends LogAuthenticatableModelAbstract
 	/**
 	 * Domains that belong to the user.
 	 */
-	public function environments() {
+	public function domains() {
 		return $this
 			->belongsToMany('cms\Domain\Domains\Domains\Domain');
 	}

@@ -28,7 +28,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	/**
 	 * @var DomainsRepositoryEloquent|null
 	 */
-	protected $r_environments = null;
+	protected $r_domains = null;
 
 	/**
 	 * @var SocialTokenRepositoryEloquent|null
@@ -56,18 +56,18 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 * UsersRepositoryEloquent constructor.
 	 *
 	 * @param Application                    $app
-	 * @param DomainsRepositoryEloquent $r_environments
+	 * @param DomainsRepositoryEloquent $r_domains
 	 * @param SocialTokenRepositoryEloquent  $r_social_tokens
 	 */
 	public function __construct(
 		Application $app,
-		DomainsRepositoryEloquent $r_environments,
+		DomainsRepositoryEloquent $r_domains,
 		SocialTokenRepositoryEloquent $r_social_tokens
 	)
 	{
 		parent::__construct($app);
 
-		$this->r_environments = $r_environments;
+		$this->r_domains = $r_domains;
 		$this->r_social_tokens = $r_social_tokens;
 	}
 
@@ -244,24 +244,24 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	/**
 	 * Filter users by environments.
 	 *
-	 * @param array $envs the list of environment IDs
+	 * @param array $domains the list of domain IDs
 	 *
 	 * @throws \Prettus\Repository\Exceptions\RepositoryException
 	 */
-	public function filterDomains($envs = [])
+	public function filterDomains($domains = [])
 	{
 		if (
 			\Gate::denies('super-administrator')
-			|| empty($envs)
+			|| empty($domains)
 		) {
-			$envs = [
+			$domains = [
 				\Domains::currentId()
 			];
 		}
 
-		$envs = array_filter($envs);
+		$domains = array_filter($domains);
 
-		return $this->pushCriteria(new DomainsCriteria($envs));
+		return $this->pushCriteria(new DomainsCriteria($domains));
 	}
 
 	/**
@@ -388,7 +388,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 		if (count($environments_reference) > 0)
 		{
 			$environments_rows = $this
-				->r_environments
+				->r_domains
 				->findWhereIn('reference', $environments_reference);
 
 			$user->environments()->detach();
@@ -396,7 +396,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 			$environments_rows
 				->each(function ($env) use (&$user)
 				{
-					$user->environments()->attach($env->id);
+					$user->domains()->attach($env->id);
 				});
 		}
 

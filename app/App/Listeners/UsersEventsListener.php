@@ -1,6 +1,6 @@
 <?php namespace cms\App\Listeners;
 
-use cms\Domain\Domains\Domains\Events\EnvironmentCreatedEvent;
+use cms\Domain\Domains\Domains\Events\DomainCreatedEvent;
 use cms\Domain\Users\Users\Events\UserCreatedEvent;
 use cms\Domain\Users\Users\Events\UserUpdatedEvent;
 use cms\Domain\Users\Users\Events\UserDeletedEvent;
@@ -63,7 +63,7 @@ class UsersEventsListener
 	/**
 	 * Handle newUserRegisteredEvent events.
 	 *
-	 * @param EnvironmentCreatedEvent $event
+	 * @param DomainCreatedEvent $event
 	 */
 	public function newUserRegisteredEvent(NewUserRegisteredEvent $event) {
 		session()->flash('message-success', trans('auth.message_success_register'));

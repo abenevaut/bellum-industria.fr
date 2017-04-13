@@ -10,7 +10,7 @@ class DiskRepository
 	 * Set a file system disk as the default file system.
 	 *
 	 * @param string $disk_name
-	 * @param string $domain_reference Default: the current environment
+	 * @param string $domain_reference Default: the current domain
 	 */
 	public function setDefaultFileSystemDisk(
 		$disk_name,
@@ -28,7 +28,7 @@ class DiskRepository
 	 * Set a cloud system as the default cloud system.
 	 *
 	 * @param string $disk_name
-	 * @param string $domain_reference Default: the current environment
+	 * @param string $domain_reference Default: the current domain
 	 */
 	public function setDefaultCloudSystemDisk(
 		$disk_name,
