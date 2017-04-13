@@ -3,12 +3,12 @@
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use cms\Infrastructure\Abstractions\Model\LogAuthenticatableModelAbstract;
-use cms\Domain\Environments\Environments\Traits\EnvironmentTrait;
+use cms\Domain\Domains\Domains\Traits\DomainTrait;
 
 class User extends LogAuthenticatableModelAbstract
 {
 
-	use EnvironmentTrait;
+	use DomainTrait;
 	use SoftDeletes;
 
 	/*
@@ -166,15 +166,15 @@ class User extends LogAuthenticatableModelAbstract
 	 * Social tokens that belong to the user.
 	 */
 	public function tokens() {
-		return $this->hasMany('cms\Domain\Users\SocialTokens\SocialToken');
+		return $this
+			->hasMany('cms\Domain\Users\SocialTokens\SocialToken');
 	}
 
 	/**
-	 * Environments that belong to the user.
+	 * Domains that belong to the user.
 	 */
 	public function environments() {
-		return $this->belongsToMany(
-			'cms\Domain\Environments\Environments\Environment'
-		);
+		return $this
+			->belongsToMany('cms\Domain\Domains\Domains\Domain');
 	}
 }

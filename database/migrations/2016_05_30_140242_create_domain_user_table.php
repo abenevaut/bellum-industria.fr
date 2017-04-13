@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEnvironmentUserTable extends Migration
+class CreateDomainUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateEnvironmentUserTable extends Migration
     public function up()
     {
         // Create table for associating roles to users (Many-to-Many)
-        Schema::create('environment_user', function (Blueprint $table) {
+        Schema::create('domain_user', function (Blueprint $table) {
+
             $table->integer('user_id')->unsigned();
-            $table->integer('environment_id')->unsigned();
+            $table->integer('domain_id')->unsigned();
 
             $table
 				->foreign('user_id')
@@ -25,15 +26,15 @@ class CreateEnvironmentUserTable extends Migration
 				->onDelete('cascade');
 
             $table
-				->foreign('environment_id')
+				->foreign('domain_id')
 				->references('id')
-				->on('environments')
+				->on('domains')
                 ->onUpdate('cascade')
 				->onDelete('cascade');
 
             $table->primary([
             	'user_id',
-				'environment_id'
+				'domain_id'
 			]);
         });
     }
@@ -45,6 +46,6 @@ class CreateEnvironmentUserTable extends Migration
      */
     public function down()
     {
-        Schema::drop('environment_user');
+        Schema::drop('domain_user');
     }
 }

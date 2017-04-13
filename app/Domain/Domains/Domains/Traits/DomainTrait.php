@@ -1,21 +1,17 @@
-<?php namespace cms\Domain\Environments\Environments\Traits;
+<?php namespace cms\Domain\Domains\Domains\Traits;
 
 use Illuminate\Database\Eloquent\Model;
-use cms\Domain\Environments\Environments\Environment;
+use cms\Domain\Domains\Domains\Domain;
 
-/**
- * Class EnvironmentTrait
- * @package cms\Domain\Environments\Environments\Traits
- */
-trait EnvironmentTrait
+trait DomainTrait
 {
 
 	/**
 	 * Automatically boot with Model, and register Events handler.
 	 */
-	protected static function bootEnvironmentTrait()
+	protected static function bootDomainTrait()
 	{
-		foreach (static::setEnvironmentEvents() as $eventName)
+		foreach (static::setDomainEvents() as $eventName)
 		{
 			static::$eventName(
 				function (Model $model) use ($eventName)
@@ -28,10 +24,12 @@ trait EnvironmentTrait
 							case 'created':
 							{
 
-								$env = Environment::where('domain', $_SERVER['HTTP_HOST'])
+								$env = Domain::where('domain', $_SERVER['HTTP_HOST'])
 									->firstOrFail();
 
-								$env->{static::getBelongsToManyEnvironmentName()}()->attach($model->id);
+								$env
+									->{static::getBelongsToManyDomainName()}()
+									->attach($model->id);
 
 								break;
 							}
@@ -54,7 +52,7 @@ trait EnvironmentTrait
 	 *
 	 * @return array
 	 */
-	protected static function setEnvironmentEvents()
+	protected static function setDomainEvents()
 	{
 		return [
 			'created',
@@ -62,11 +60,11 @@ trait EnvironmentTrait
 	}
 
 	/**
-	 * Get the default "belongsToMany" link name, present in Environment model.
+	 * Get the default "belongsToMany" link name, present in Domain model.
 	 *
 	 * @return string
 	 */
-	protected static function getBelongsToManyEnvironmentName()
+	protected static function getBelongsToManyDomainName()
 	{
 		return 'users';
 	}

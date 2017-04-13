@@ -1,6 +1,6 @@
 <?php namespace cms\App\Listeners;
 
-use cms\Domain\Environments\Environments\Events\EnvironmentCreatedEvent;
+use cms\Domain\Domains\Domains\Events\EnvironmentCreatedEvent;
 use cms\Domain\Users\Users\Events\UserCreatedEvent;
 use cms\Domain\Users\Users\Events\UserUpdatedEvent;
 use cms\Domain\Users\Users\Events\UserDeletedEvent;

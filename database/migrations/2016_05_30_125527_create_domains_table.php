@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEnvironmentsTable extends Migration
+class CreateDomainsTable extends Migration
 {
 
 	/**
@@ -13,21 +13,26 @@ class CreateEnvironmentsTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('environments', function (Blueprint $table)
+		Schema::create('domains', function (Blueprint $table)
 		{
 			$table->increments('id');
+
 			$table
 				->string('name')
 				->index();
+
 			$table
 				->string('reference')
 				->index()
 				->unique('reference');
+
 			$table
 				->string('domain')
 				->index()
 				->unique('domain');
+
 			$table->timestamps();
+
 			$table->softDeletes();
 		});
 	}
@@ -39,6 +44,6 @@ class CreateEnvironmentsTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('environments');
+		Schema::drop('domains');
 	}
 }

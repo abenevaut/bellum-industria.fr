@@ -3,7 +3,7 @@
 use Prettus\Repository\Contracts\RepositoryInterface;
 use cms\Infrastructure\Abstractions\Criterias\CriteriaAbstract;
 
-class EnvironmentsCriteria extends CriteriaAbstract
+class DomainsCriteria extends CriteriaAbstract
 {
 
 	/**

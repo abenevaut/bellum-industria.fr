@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-use cms\App\Facades\Environments;
-use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
+use cms\App\Facades\Domains;
+use cms\Domain\Domains\Domains\Repositories\DomainsRepositoryEloquent;
 
 if (!function_exists('slugify'))
 {

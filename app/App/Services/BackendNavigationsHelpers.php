@@ -199,8 +199,8 @@ if (!function_exists('backend_menu_sidebar'))
 					if (cms_is_superadmin())
 					{
 						$menu->route(
-							'backend.environments.index',
-							trans('global.environment_s'),
+							'backend.domains.index',
+							trans('global.domain_s'),
 							[],
 							[
 								'icon' => 'fa fa-cubes'

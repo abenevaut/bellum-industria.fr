@@ -1,10 +1,10 @@
-<?php namespace cms\Domain\Environments\Environments;
+<?php namespace cms\Domain\Domains\Domains;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use cms\Domain\Logs\Logs\Traits\LogTrait;
 
-class Environment extends Model
+class Domain extends Model
 {
 
 	use SoftDeletes;
@@ -15,7 +15,7 @@ class Environment extends Model
 	 *
 	 * @var string
 	 */
-	protected $table = 'environments';
+	protected $table = 'domains';
 
 	protected $fillable = [
 		'id',
