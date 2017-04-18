@@ -242,7 +242,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	}
 
 	/**
-	 * Filter users by environments.
+	 * Filter users by domains.
 	 *
 	 * @param array $domains the list of domain IDs
 	 *
@@ -379,21 +379,21 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 
 	/**
 	 * @param \cms\Domain\Users\Users\User $user
-	 * @param array                        $environments_reference
+	 * @param array                        $domains_reference
 	 *
 	 * @return mixed
 	 */
-	public function setUserDomains(User $user, array $environments_reference = [])
+	public function setUserDomains(User $user, array $domains_reference = [])
 	{
-		if (count($environments_reference) > 0)
+		if (count($domains_reference) > 0)
 		{
-			$environments_rows = $this
+			$domains_rows = $this
 				->r_domains
-				->findWhereIn('reference', $environments_reference);
+				->findWhereIn('reference', $domains_reference);
 
-			$user->environments()->detach();
+			$user->domains()->detach();
 
-			$environments_rows
+			$domains_rows
 				->each(function ($env) use (&$user)
 				{
 					$user->domains()->attach($env->id);
