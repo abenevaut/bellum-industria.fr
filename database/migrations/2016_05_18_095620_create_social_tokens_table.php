@@ -19,16 +19,21 @@ class CreateSocialTokensTable extends Migration
 		Schema::create('social_tokens', function (Blueprint $table)
 		{
 			$table->string('provider');
-			$table->timestamps();
 			$table->string('token')->index();
 			$table->integer('user_id')->unsigned()->index();
+			$table->timestamps();
 
-			$table->foreign('user_id')
-				->references('id')->on('users')
+			$table
+				->foreign('user_id')
+				->references('id')
+				->on('users')
 				->onUpdate('cascade')
 				->onDelete('cascade');
 
-			$table->primary(['user_id', 'token']);
+			$table->primary([
+				'user_id',
+				'token'
+			]);
 		});
 	}
 

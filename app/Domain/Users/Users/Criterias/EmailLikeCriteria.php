@@ -3,10 +3,6 @@
 use Prettus\Repository\Contracts\RepositoryInterface;
 use cms\Infrastructure\Abstractions\Criterias\CriteriaAbstract;
 
-/**
- * Class EmailLikeCriteria
- * @package cms\Domain\Users\Users\Criterias
- */
 class EmailLikeCriteria extends CriteriaAbstract
 {
 
@@ -18,8 +14,7 @@ class EmailLikeCriteria extends CriteriaAbstract
 	/**
 	 * @param string $emails
 	 */
-	public function __construct($emails = '')
-	{
+	public function __construct($emails = '') {
 		$this->emails = $emails;
 	}
 
@@ -29,8 +24,7 @@ class EmailLikeCriteria extends CriteriaAbstract
 	 *
 	 * @return mixed
 	 */
-	public function apply($model, RepositoryInterface $repository)
-	{
+	public function apply($model, RepositoryInterface $repository) {
 		return $model->where('email', 'LIKE', '%' . $this->emails . '%');
 	}
 }

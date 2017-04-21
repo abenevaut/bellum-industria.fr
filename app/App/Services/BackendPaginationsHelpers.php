@@ -15,8 +15,7 @@ if (!function_exists('backend_pagination'))
 		$current_page,
 		$per_page = 15,
 		$page_name = 'page'
-	)
-	{
+	) {
 		$paginator = new \Illuminate\Pagination\LengthAwarePaginator(
 			$nb_rows,
 			$total_row,

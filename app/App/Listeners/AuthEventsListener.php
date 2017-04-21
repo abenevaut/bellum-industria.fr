@@ -7,10 +7,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
 
-/**
- * Class AuthEventsListener
- * @package cms\App\Listeners
- */
 class AuthEventsListener
 {
 
@@ -19,8 +15,7 @@ class AuthEventsListener
 	 *
 	 * @param  \Illuminate\Events\Dispatcher $events
 	 */
-	public function subscribe($events)
-	{
+	public function subscribe($events) {
 		$events->listen(
 			'Illuminate\Auth\Events\Login',
 			'cms\App\Listeners\AuthEventsListener@handleLoginEvent'
@@ -36,8 +31,7 @@ class AuthEventsListener
 	 *
 	 * @param \Illuminate\Auth\Events\Login $event
 	 */
-	public function handleLoginEvent(Login $event)
-	{
+	public function handleLoginEvent(Login $event) {
 		session()->flash('message-success', trans('auth.login_message_success'));
 	}
 
@@ -46,9 +40,7 @@ class AuthEventsListener
 	 *
 	 * @param \Illuminate\Auth\Events\Logout $event
 	 */
-	public function handleLogoutEvent(Logout $event)
-	{
+	public function handleLogoutEvent(Logout $event) {
 		session()->flash('message-success', trans('auth.logout_message_success'));
 	}
-
 }

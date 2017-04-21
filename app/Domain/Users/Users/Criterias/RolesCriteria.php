@@ -3,10 +3,6 @@
 use Prettus\Repository\Contracts\RepositoryInterface;
 use cms\Infrastructure\Abstractions\Criterias\CriteriaAbstract;
 
-/**
- * Class RolesCriteria
- * @package cms\Domain\Users\Users\Criterias
- */
 class RolesCriteria extends CriteriaAbstract
 {
 
@@ -18,8 +14,7 @@ class RolesCriteria extends CriteriaAbstract
 	/**
 	 * @param array $roles
 	 */
-	public function __construct($roles = [])
-	{
+	public function __construct($roles = []) {
 		$this->roles = array_filter($roles);
 	}
 
@@ -29,8 +24,7 @@ class RolesCriteria extends CriteriaAbstract
 	 *
 	 * @return mixed
 	 */
-	public function apply($model, RepositoryInterface $repository)
-	{
+	public function apply($model, RepositoryInterface $repository) {
 		if (count($this->roles))
 		{
 			return $model->whereIn('role', $this->roles);

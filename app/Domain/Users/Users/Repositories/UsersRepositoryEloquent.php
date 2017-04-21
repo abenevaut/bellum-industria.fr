@@ -1,20 +1,19 @@
 <?php namespace cms\Domain\Users\Users\Repositories;
 
+use Illuminate\Container\Container as Application;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Container\Container as Application;
 use Illuminate\Support\Str;
 use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
 use cms\Domain\Users\Users\Repositories\UsersRepository;
-use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
+use cms\Domain\Domains\Domains\Repositories\DomainsRepositoryEloquent;
 use cms\Domain\Users\SocialTokens\Repositories\SocialTokenRepositoryEloquent;
 use cms\Domain\Users\Users\Criterias\OnlyTrashedCriteria;
 use cms\Domain\Users\Users\Criterias\WithTrashedCriteria;
 use cms\Domain\Users\Users\Criterias\EmailLikeCriteria;
 use cms\Domain\Users\Users\Criterias\UserNameLikeCriteria;
 use cms\Domain\Users\Users\Criterias\RolesCriteria;
-use cms\Domain\Users\Users\Criterias\EnvironmentsCriteria;
+use cms\Domain\Users\Users\Criterias\DomainsCriteria;
 use cms\Domain\Users\Users\Events\UserCreatedEvent;
 use cms\Domain\Users\Users\Events\UserUpdatedEvent;
 use cms\Domain\Users\Users\Events\UserDeletedEvent;
@@ -23,17 +22,13 @@ use cms\Domain\Users\Users\Events\NewAdminCreatedEvent;
 use cms\Domain\Users\Users\Events\NewSuperAdminCreatedEvent;
 use cms\Domain\Users\Users\User;
 
-/**
- * Class UsersRepositoryEloquent
- * @package cms\Domain\Users\Users\Repositories
- */
 class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements UsersRepository
 {
 
 	/**
-	 * @var EnvironmentsRepositoryEloquent|null
+	 * @var DomainsRepositoryEloquent|null
 	 */
-	protected $r_environments = null;
+	protected $r_domains = null;
 
 	/**
 	 * @var SocialTokenRepositoryEloquent|null
@@ -61,18 +56,18 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 * UsersRepositoryEloquent constructor.
 	 *
 	 * @param Application                    $app
-	 * @param EnvironmentsRepositoryEloquent $r_environments
+	 * @param DomainsRepositoryEloquent $r_domains
 	 * @param SocialTokenRepositoryEloquent  $r_social_tokens
 	 */
 	public function __construct(
 		Application $app,
-		EnvironmentsRepositoryEloquent $r_environments,
+		DomainsRepositoryEloquent $r_domains,
 		SocialTokenRepositoryEloquent $r_social_tokens
 	)
 	{
 		parent::__construct($app);
 
-		$this->r_environments = $r_environments;
+		$this->r_domains = $r_domains;
 		$this->r_social_tokens = $r_social_tokens;
 	}
 
@@ -179,7 +174,12 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 */
 	public function filterUserName($name)
 	{
-		return $this->pushCriteria(new UserNameLikeCriteria($name));
+		if (!empty($name))
+		{
+			$this->pushCriteria(new UserNameLikeCriteria($name));
+		}
+
+		return $this;
 	}
 
 	/**
@@ -191,7 +191,12 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 */
 	public function filterEmail($email)
 	{
-		return $this->pushCriteria(new EmailLikeCriteria($email));
+		if (!empty($email))
+		{
+			return $this->pushCriteria(new EmailLikeCriteria($email));
+		}
+
+		return $this;
 	}
 
 	/**
@@ -237,22 +242,26 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	}
 
 	/**
-	 * Filter users by environments.
+	 * Filter users by domains.
 	 *
-	 * @param array $envs the list of environment IDs
+	 * @param array $domains the list of domain IDs
 	 *
 	 * @throws \Prettus\Repository\Exceptions\RepositoryException
 	 */
-	public function filterEnvironments($envs = [])
+	public function filterDomains($domains = [])
 	{
-		$envs = array_filter($envs);
-
-		if (count($envs))
-		{
-			return $this->pushCriteria(new EnvironmentsCriteria($envs));
+		if (
+			\Gate::denies('super-administrator')
+			|| empty($domains)
+		) {
+			$domains = [
+				\Domains::currentId()
+			];
 		}
 
-		return $this;
+		$domains = array_filter($domains);
+
+		return $this->pushCriteria(new DomainsCriteria($domains));
 	}
 
 	/**
@@ -370,24 +379,24 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 
 	/**
 	 * @param \cms\Domain\Users\Users\User $user
-	 * @param array                        $environments_reference
+	 * @param array                        $domains_reference
 	 *
 	 * @return mixed
 	 */
-	public function setUserEnvironments(User $user, array $environments_reference = [])
+	public function setUserDomains(User $user, array $domains_reference = [])
 	{
-		if (count($environments_reference) > 0)
+		if (count($domains_reference) > 0)
 		{
-			$environments_rows = $this
-				->r_environments
-				->findWhereIn('reference', $environments_reference);
+			$domains_rows = $this
+				->r_domains
+				->findWhereIn('reference', $domains_reference);
 
-			$user->environments()->detach();
+			$user->domains()->detach();
 
-			$environments_rows
+			$domains_rows
 				->each(function ($env) use (&$user)
 				{
-					$user->environments()->attach($env->id);
+					$user->domains()->attach($env->id);
 				});
 		}
 

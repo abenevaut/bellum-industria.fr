@@ -3,10 +3,6 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Filesystem\FilesystemAdapter;
 
-/**
- * Class DiskRepository
- * @package cms\Domain\Files\Files\Repositories
- */
 class DiskRepository
 {
 
@@ -14,14 +10,14 @@ class DiskRepository
 	 * Set a file system disk as the default file system.
 	 *
 	 * @param string $disk_name
-	 * @param string $environment_reference Default: the current environment
+	 * @param string $domain_reference Default: the current domain
 	 */
 	public function setDefaultFileSystemDisk(
 		$disk_name,
-		$environment_reference = null
+		$domain_reference = null
 	)
 	{
-		\Settings::setEnvironment($environment_reference)
+		\Settings::setDomain($domain_reference)
 			->set(
 				'filesystems.default',
 				$disk_name
@@ -32,14 +28,14 @@ class DiskRepository
 	 * Set a cloud system as the default cloud system.
 	 *
 	 * @param string $disk_name
-	 * @param string $environment_reference Default: the current environment
+	 * @param string $domain_reference Default: the current domain
 	 */
 	public function setDefaultCloudSystemDisk(
 		$disk_name,
-		$environment_reference = null
+		$domain_reference = null
 	)
 	{
-		\Settings::setEnvironment($environment_reference)
+		\Settings::setDomain($domain_reference)
 			->set(
 				'filesystems.cloud',
 				$disk_name
@@ -53,14 +49,14 @@ class DiskRepository
 	 * @param string $disk_reference The disk name
 	 * @param array  $options Based on Laravel file system
 	 *     https://laravel.com/docs/master/filesystem
-	 * @param string $environment_reference
+	 * @param string $domain_reference
 	 */
-	public function addFileSystemDisk($disk_reference, $options, $environment_reference = null)
+	public function addFileSystemDisk($disk_reference, $options, $domain_reference = null)
 	{
-		$disks = \Settings::setEnvironment($environment_reference)
+		$disks = \Settings::setDomain($domain_reference)
 			->get('filesystems.disks', []);
 
-		\Settings::setEnvironment($environment_reference)
+		\Settings::setDomain($domain_reference)
 			->set(
 				'filesystems.disks',
 				$disks + [$disk_reference => $options]

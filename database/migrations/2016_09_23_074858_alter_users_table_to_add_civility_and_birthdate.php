@@ -13,11 +13,8 @@ class AlterUsersTableToAddCivilityAndBirthdate extends Migration
     public function up()
     {
 		Schema::table('users', function ($table) {
-			$table->enum('civility', ['madam', 'miss', 'mister'])
-				->after('id');
-			$table->date('birth_date')
-				->nullable()
-				->after('email');
+			$table->enum('civility', ['madam', 'miss', 'mister'])->after('id');
+			$table->date('birth_date')->nullable()->after('email');
 		});
 	}
 

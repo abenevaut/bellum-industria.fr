@@ -3,10 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
-/**
- * Class RouteServiceProvider
- * @package cms\App\Providers
- */
 class RouteServiceProvider extends ServiceProvider
 {
 
@@ -24,8 +20,7 @@ class RouteServiceProvider extends ServiceProvider
 	 *
 	 * @return void
 	 */
-	public function boot()
-	{
+	public function boot() {
 		parent::boot();
 	}
 
@@ -34,8 +29,7 @@ class RouteServiceProvider extends ServiceProvider
 	 *
 	 * @return void
 	 */
-	public function map()
-	{
+	public function map() {
 		if (file_exists(base_path('app/apps.json')))
 		{
 			$apps = json_decode(file_get_contents(base_path('app/apps.json')));
@@ -44,8 +38,8 @@ class RouteServiceProvider extends ServiceProvider
 			{
 				Route::group([
 					'middleware' => 'web',
-					'namespace' => "cms\\$app\Http\Controllers"
-				], function ($router) use ($app)
+					'namespace'  => "cms\\$app\Http\Controllers"
+				], function($router) use ($app)
 				{
 					require base_path("app/$app/Http/routes.php");
 				});
@@ -63,12 +57,11 @@ class RouteServiceProvider extends ServiceProvider
 	 *
 	 * @return void
 	 */
-	protected function mapWebRoutes()
-	{
+	protected function mapWebRoutes() {
 		Route::group([
 			'middleware' => 'web',
 			'namespace'  => $this->namespace,
-		], function ($router)
+		], function($router)
 		{
 			require base_path('routes/web.php');
 		});
@@ -81,13 +74,12 @@ class RouteServiceProvider extends ServiceProvider
 	 *
 	 * @return void
 	 */
-	protected function mapApiRoutes()
-	{
+	protected function mapApiRoutes() {
 		Route::group([
 			'middleware' => 'api',
 			'namespace'  => $this->namespace,
 			'prefix'     => 'api',
-		], function ($router)
+		], function($router)
 		{
 			require base_path('routes/api.php');
 		});

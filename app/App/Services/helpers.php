@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-use cms\App\Facades\Environments;
-use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
+use cms\App\Facades\Domains;
+use cms\Domain\Domains\Domains\Repositories\DomainsRepositoryEloquent;
 
 if (!function_exists('slugify'))
 {
@@ -11,8 +11,7 @@ if (!function_exists('slugify'))
 	 *
 	 * @return bool|mixed|string
 	 */
-	function slugify($text)
-	{
+	function slugify($text) {
 		// replace non letter or digits by -
 		$text = preg_replace('~[^\\pL\d]+~u', '-', $text);
 
@@ -44,8 +43,7 @@ if (!function_exists('css_file_rev'))
 	 *
 	 * @return mixed
 	 */
-	function css_file_rev($file)
-	{
+	function css_file_rev($file) {
 		$current_theme = \Theme::getCurrent();
 		$list = json_decode(\File::get(base_path() . '/public/themes/' . $current_theme . '/rev/css.manifest.json'));
 
@@ -68,8 +66,7 @@ if (!function_exists('cmsview'))
 		$data = [],
 		$current_module = null,
 		$view_prefix = null
-	)
-	{
+	) {
 		if (is_null($view_prefix))
 		{
 			$view_prefix = \Theme::getCurrent() . '::';
@@ -101,8 +98,7 @@ if (!function_exists('cmsview_prefix'))
 	 *
 	 * @return null|string
 	 */
-	function cmsview_prefix($view, $view_prefix = null, $current_module = null)
-	{
+	function cmsview_prefix($view, $view_prefix = null, $current_module = null) {
 		if (is_null($view_prefix))
 		{
 			$view_prefix = \Theme::getCurrent() . '::';
@@ -130,8 +126,7 @@ if (!function_exists('cmsinstalled'))
 	 *
 	 * @return bool True if CMS installed
 	 */
-	function cmsinstalled()
-	{
+	function cmsinstalled() {
 		return env('APP_INSTALLED', false);
 	}
 }
@@ -141,8 +136,7 @@ if (!function_exists('cms_is_superadmin'))
 	/**
 	 * @return boolean
 	 */
-	function cms_is_superadmin()
-	{
+	function cms_is_superadmin() {
 		return \Gate::allows(
 			\cms\Domain\Users\Users\User::ROLE_SUPERADMIN
 		);
@@ -154,8 +148,7 @@ if (!function_exists('cms_is_admin'))
 	/**
 	 * @return boolean
 	 */
-	function cms_is_admin()
-	{
+	function cms_is_admin() {
 		return \Gate::allows(
 			\cms\Domain\Users\Users\User::ROLE_ADMIN
 		);
@@ -167,8 +160,7 @@ if (!function_exists('cms_is_moderator'))
 	/**
 	 * @return boolean
 	 */
-	function cms_is_moderator()
-	{
+	function cms_is_moderator() {
 		return \Gate::allows(
 			\cms\Domain\Users\Users\User::ROLE_MODERATOR
 		);
@@ -180,8 +172,7 @@ if (!function_exists('cms_is_user'))
 	/**
 	 * @return boolean
 	 */
-	function cms_is_user()
-	{
+	function cms_is_user() {
 		return \Gate::allows(
 			\cms\Domain\Users\Users\User::ROLE_USER
 		);
@@ -193,8 +184,7 @@ if (!function_exists('cms_route_frontend'))
 	/**
 	 * @return string
 	 */
-	function cms_route_frontend()
-	{
+	function cms_route_frontend() {
 		if (false === env('CMS_INSTALLED', false))
 		{
 			return \Config::get('cms.frontend.home_route');
@@ -209,8 +199,7 @@ if (!function_exists('cms_route_backend'))
 	/**
 	 * @return string
 	 */
-	function cms_route_backend()
-	{
+	function cms_route_backend() {
 		if (false === env('CMS_INSTALLED', false))
 		{
 			return \Config::get('cms.backend.home_route');

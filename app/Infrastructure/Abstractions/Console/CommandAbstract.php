@@ -2,10 +2,6 @@
 
 use Illuminate\Console\Command;
 
-/**
- * Class CommandAbstract
- * @package cms\Infrastructure\Abstractions\Console
- */
 abstract class CommandAbstract extends Command
 {
 
@@ -16,5 +12,4 @@ abstract class CommandAbstract extends Command
 	{
 		$this->line("<comment>" . config('cms.licenses.phpcli') . "</comment>\n");
 	}
-
 }

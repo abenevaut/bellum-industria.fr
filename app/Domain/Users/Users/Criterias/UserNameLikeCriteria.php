@@ -3,10 +3,6 @@
 use Prettus\Repository\Contracts\RepositoryInterface;
 use cms\Infrastructure\Abstractions\Criterias\CriteriaAbstract;
 
-/**
- * Class UserNameLikeCriteria
- * @package cms\Domain\Users\Users\Criterias
- */
 class UserNameLikeCriteria extends CriteriaAbstract
 {
 
@@ -18,8 +14,7 @@ class UserNameLikeCriteria extends CriteriaAbstract
 	/**
 	 * @param string $name
 	 */
-	public function __construct($name = '')
-	{
+	public function __construct($name = '') {
 		$this->name = $name;
 	}
 
@@ -29,11 +24,11 @@ class UserNameLikeCriteria extends CriteriaAbstract
 	 *
 	 * @return mixed
 	 */
-	public function apply($model, RepositoryInterface $repository)
-	{
-		return $model->where(function ($query)
+	public function apply($model, RepositoryInterface $repository) {
+		return $model->where(function($query)
 		{
-			$query->where('first_name', 'LIKE', '%' . $this->name . '%')
+			$query
+				->where('first_name', 'LIKE', '%' . $this->name . '%')
 				->orwhere('last_name', 'LIKE', '%' . $this->name . '%');
 		});
 	}

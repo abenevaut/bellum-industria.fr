@@ -3,10 +3,6 @@
 use League\Fractal\TransformerAbstract;
 use cms\Domain\Users\Users\User;
 
-/**
- * Class UserListTransformer
- * @package cms\Domain\Users\Users\Transformers
- */
 class UserListTransformer extends TransformerAbstract
 {
 
@@ -15,8 +11,7 @@ class UserListTransformer extends TransformerAbstract
 	 *
 	 * @return array
 	 */
-	public function transform(User $user)
-	{
+	public function transform(User $user) {
 		$primary_address = $user->flaggedAddress('primary');
 
 		$birth_date = $user->birth_date_carbon;
@@ -38,8 +33,8 @@ class UserListTransformer extends TransformerAbstract
 			'deleted_at'       => $user->deleted_at,
 			'roles'            => [],
 			'roles_ids'        => [],
-			'environments'     => [],
-			'environments_ids' => [],
+			'domains'     => [],
+			'domains_ids' => [],
 			'addresses'        => [
 				'primary' => [
 					'country_id'    => null,
@@ -140,26 +135,26 @@ class UserListTransformer extends TransformerAbstract
 		}
 
 		/*
-		 * List environment(s) linked to the user.
+		 * List domain(s) linked to the user.
 		 */
 
 		if (cms_is_superadmin())
 		{
-			foreach ($user->environments as $env)
+			foreach ($user->domains as $domain)
 			{
-				$data['environments_ids'][] = $env->id;
+				$data['domains_ids'][] = $domain->id;
 
-				$data['environments'][] = [
-					'id'        => $env->id,
-					'name'      => $env->name,
-					'reference' => $env->reference,
-					'domain'    => $env->domain,
+				$data['domains'][] = [
+					'id'        => $domain->id,
+					'name'      => $domain->name,
+					'reference' => $domain->reference,
+					'domain'    => $domain->domain,
 				];
 			}
 		}
 		else
 		{
-			unset($data['environments']);
+			unset($data['domains']);
 		}
 
 		/*

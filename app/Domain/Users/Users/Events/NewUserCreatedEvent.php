@@ -5,10 +5,6 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use cms\Infrastructure\Abstractions\Events\EventAbstract;
 use cms\Domain\Users\Users\User;
 
-/**
- * Class NewUserCreatedEvent
- * @package cms\Domain\Users\Users\Events
- */
 class NewUserCreatedEvent extends EventAbstract
 {
 
@@ -26,8 +22,7 @@ class NewUserCreatedEvent extends EventAbstract
 	 *
 	 * @param User $user
 	 */
-	public function __construct(User $user)
-	{
+	public function __construct(User $user) {
 		$this->user = $user;
 	}
 
@@ -36,8 +31,7 @@ class NewUserCreatedEvent extends EventAbstract
 	 *
 	 * @return array
 	 */
-	public function broadcastOn()
-	{
+	public function broadcastOn() {
 		return [];
 	}
 }

@@ -3,29 +3,24 @@
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\AliasLoader;
 
-/**
- * Class AppServiceProvider
- * @package cms\App\Providers
- */
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
 
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
+	/**
+	 * Bootstrap any application services.
+	 *
+	 * @return void
+	 */
+	public function boot() {
+		//
+	}
+
+	/**
+	 * Register any application services.
+	 *
+	 * @return void
+	 */
+	public function register() {
 		if (!$this->app->environment('production'))
 		{
 			if (config('app.debug'))
@@ -60,19 +55,19 @@ class AppServiceProvider extends ServiceProvider
 			}
 		}
 
-//		if (class_exists(\Sentry\SentryLaravel\SentryFacade::class) && !is_null(config('sentry.dsn')))
-//		{
-//			// Sentry\SentryLaravel
-//			$this
-//				->app
-//				->register(
-//					\Sentry\SentryLaravel\SentryLaravelServiceProvider::class
-//				);
-//
-//			AliasLoader::getInstance([
-//				'Sentry' => \Sentry\SentryLaravel\SentryFacade::class
-//			])
-//				->register();
-//		}
-    }
+		//		if (class_exists(\Sentry\SentryLaravel\SentryFacade::class) && !is_null(config('sentry.dsn')))
+		//		{
+		//			// Sentry\SentryLaravel
+		//			$this
+		//				->app
+		//				->register(
+		//					\Sentry\SentryLaravel\SentryLaravelServiceProvider::class
+		//				);
+		//
+		//			AliasLoader::getInstance([
+		//				'Sentry' => \Sentry\SentryLaravel\SentryFacade::class
+		//			])
+		//				->register();
+		//		}
+	}
 }

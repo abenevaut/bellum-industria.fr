@@ -5,10 +5,6 @@ use cms\Infrastructure\Abstractions\Repositories\RepositoryEloquentAbstract;
 use cms\Domain\Users\SocialTokens\Repositories\SocialTokenRepository;
 use cms\Domain\Users\SocialTokens\SocialToken;
 
-/**
- * Class SocialTokenRepositoryEloquent
- * @package Core\Domain\Users\Repositories
- */
 class SocialTokenRepositoryEloquent extends RepositoryEloquentAbstract implements SocialTokenRepository
 {
 
@@ -17,17 +13,14 @@ class SocialTokenRepositoryEloquent extends RepositoryEloquentAbstract implement
 	 *
 	 * @return string
 	 */
-	public function model()
-	{
+	public function model() {
 		return SocialToken::class;
 	}
 
 	/**
 	 * Boot up the repository, pushing criteria
 	 */
-	public function boot()
-	{
+	public function boot() {
 		$this->pushCriteria(app(RequestCriteria::class));
 	}
-
 }
