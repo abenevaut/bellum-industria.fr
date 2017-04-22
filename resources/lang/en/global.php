@@ -60,4 +60,5 @@ return [
 	'administrator'       => 'Administrator',
 	'moderator'           => 'Moderator',
 	'user'                => 'User',
+	'reactivate'           => 'Reactivate',
 ];
