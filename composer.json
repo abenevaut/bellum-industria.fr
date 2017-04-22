@@ -50,6 +50,7 @@
     "codeception/c3": "2.0.10",
     "phpunit/php-code-coverage": "4.0.7",
     "deployer/deployer": "4.2.1",
+    "deployer/recipes": "4.0.7",
     "site5/phantoman": "1.1.7",
     "jonnyw/php-phantomjs": "4.5.1",
     "jakoch/phantomjs-installer": "^2.1",
