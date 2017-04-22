@@ -1,7 +1,9 @@
 <?php namespace cms\Console;
 
+use League\Pipeline\Pipeline;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use cms\Console\ScheduledStages\QueueWorkScheduledStages;
 
 class Kernel extends ConsoleKernel
 {
@@ -23,11 +25,9 @@ class Kernel extends ConsoleKernel
 	 * @return void
 	 */
 	protected function schedule(Schedule $schedule) {
-		$schedule
-			->command('queue:work')
-			->name('[CRON] : process queue')
-			->withoutOverlapping()
-			->everyMinute();
+		(new Pipeline)
+			->pipe(new QueueWorkScheduledStages)
+			->process($schedule);
 	}
 
 	/**
