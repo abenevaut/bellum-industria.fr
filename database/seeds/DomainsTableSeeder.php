@@ -3,12 +3,12 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
-use cms\Domain\Environments\Environments\Environment;
+use cms\Domain\Domains\Domains\Domain;
 
 /**
- * Class EnvironmentsTableSeeder
+ * Class DomainsTableSeeder
  */
-class EnvironmentsTableSeeder extends Seeder
+class DomainsTableSeeder extends Seeder
 {
 
 	public function run()
@@ -17,7 +17,7 @@ class EnvironmentsTableSeeder extends Seeder
 
 		//DB::table('environments')->truncate();
 
-		Environment::create([
+		Domain::create([
 			'name'      => 'Default',
 			'reference' => 'default',
 			'domain'    => 'localhost'

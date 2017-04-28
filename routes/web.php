@@ -23,14 +23,4 @@ Route::group(['middleware' => ['web']], function() {
 Route::group(['prefix' => 'ajax', 'as' => 'ajax.', 'namespace' => 'Ajax'], function ()
 {
 
-	/**
-	 * ADDRESSES ROUTES
-	 */
-
-	Route::group(['prefix' => 'addresses', 'as' => 'addresses.'], function ()
-	{
-		Route::resource('states', '\CVEPDB\Addresses\Http\Controllers\States\AjaxStatesController');
-		Route::resource('substates', '\CVEPDB\Addresses\Http\Controllers\SubStates\AjaxSubStatesController');
-	});
-
 });

@@ -70,11 +70,10 @@
     ],
     "psr-4": {
       "cms\\": "app/",
-      "cms\\Modules\\": "modules/"
+      "cms\\Modules\\": "modules/",
+      "cms\\Themes\\": "resources/themes/"
     },
     "files": [
-      "app/App/Services/BackendNavigationsHelpers.php",
-      "app/App/Services/BackendPaginationsHelpers.php",
       "app/App/Services/helpers.php"
     ]
   },
