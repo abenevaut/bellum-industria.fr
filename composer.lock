@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d303bd937422ad41b7e84ff9ba5dcfbc",
+    "content-hash": "6c04349ad61ed0a5922c89141b49d88e",
     "packages": [
         {
             "name": "abenevaut/laravel-generators",
@@ -954,16 +954,16 @@
         },
         {
             "name": "cvepdb-cms/module-files",
-            "version": "dev-master",
+            "version": "5.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-files.git",
-                "reference": "747a95c49f7b7fe629db222d0273f45e283c11fe"
+                "reference": "f45e6bb32743918229902309e16886403a61acc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-files/zipball/747a95c49f7b7fe629db222d0273f45e283c11fe",
-                "reference": "747a95c49f7b7fe629db222d0273f45e283c11fe",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-files/zipball/f45e6bb32743918229902309e16886403a61acc9",
+                "reference": "f45e6bb32743918229902309e16886403a61acc9",
                 "shasum": ""
             },
             "require": {
@@ -1004,20 +1004,20 @@
                 "files",
                 "module"
             ],
-            "time": "2017-04-12T12:00:55+00:00"
+            "time": "2017-04-18T15:43:57+00:00"
         },
         {
             "name": "cvepdb-cms/module-installer",
-            "version": "dev-master",
+            "version": "5.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-installer.git",
-                "reference": "4c372b614b11dccca4adc76431ec6b28fd83d534"
+                "reference": "57d2ff917974e1e08ee75a3d3a9481b2e09709f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-installer/zipball/4c372b614b11dccca4adc76431ec6b28fd83d534",
-                "reference": "4c372b614b11dccca4adc76431ec6b28fd83d534",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-installer/zipball/57d2ff917974e1e08ee75a3d3a9481b2e09709f2",
+                "reference": "57d2ff917974e1e08ee75a3d3a9481b2e09709f2",
                 "shasum": ""
             },
             "require": {
@@ -1051,20 +1051,20 @@
                 "installer",
                 "module"
             ],
-            "time": "2017-04-12T12:00:08+00:00"
+            "time": "2017-04-18T15:44:29+00:00"
         },
         {
             "name": "cvepdb-cms/module-settings",
-            "version": "dev-master",
+            "version": "5.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-settings.git",
-                "reference": "471925b1a54812cbcd90cda7d5c9070af875d6f6"
+                "reference": "dcbada14a2f2d284abf54958f8cf3090d76b000f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-settings/zipball/471925b1a54812cbcd90cda7d5c9070af875d6f6",
-                "reference": "471925b1a54812cbcd90cda7d5c9070af875d6f6",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-settings/zipball/dcbada14a2f2d284abf54958f8cf3090d76b000f",
+                "reference": "dcbada14a2f2d284abf54958f8cf3090d76b000f",
                 "shasum": ""
             },
             "require": {
@@ -1098,7 +1098,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2016-12-16T17:39:06+00:00"
+            "time": "2017-04-18T15:43:43+00:00"
         },
         {
             "name": "cvepdb-cms/module-themes",
