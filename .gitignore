@@ -18,6 +18,15 @@ resources/views/modules/*
 
 storage/*
 !storage/.gitkeep
+!storage/**/.gitignore
+/public/hot
+/public/storage
+/storage/*.key
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+
 
 # Dotenv
 .env
