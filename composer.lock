@@ -958,12 +958,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-files.git",
-                "reference": "f45e6bb32743918229902309e16886403a61acc9"
+                "reference": "d5a7b9939d628dcdac121bad3b689141cecdb8c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-files/zipball/f45e6bb32743918229902309e16886403a61acc9",
-                "reference": "f45e6bb32743918229902309e16886403a61acc9",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-files/zipball/d5a7b9939d628dcdac121bad3b689141cecdb8c2",
+                "reference": "d5a7b9939d628dcdac121bad3b689141cecdb8c2",
                 "shasum": ""
             },
             "require": {
@@ -1004,7 +1004,7 @@
                 "files",
                 "module"
             ],
-            "time": "2017-04-18T15:43:57+00:00"
+            "time": "2017-05-02T20:13:01+00:00"
         },
         {
             "name": "cvepdb-cms/module-installer",
@@ -1012,12 +1012,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-installer.git",
-                "reference": "57d2ff917974e1e08ee75a3d3a9481b2e09709f2"
+                "reference": "ac4947cf8388992683cf7ceaf53e2927d4356eb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-installer/zipball/57d2ff917974e1e08ee75a3d3a9481b2e09709f2",
-                "reference": "57d2ff917974e1e08ee75a3d3a9481b2e09709f2",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-installer/zipball/ac4947cf8388992683cf7ceaf53e2927d4356eb7",
+                "reference": "ac4947cf8388992683cf7ceaf53e2927d4356eb7",
                 "shasum": ""
             },
             "require": {
@@ -1051,7 +1051,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2017-04-18T15:44:29+00:00"
+            "time": "2017-05-02T20:11:50+00:00"
         },
         {
             "name": "cvepdb-cms/module-settings",
@@ -1162,12 +1162,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-users.git",
-                "reference": "b7753525293e6ddf9108a5d7d623068c6d92f04b"
+                "reference": "2ba5d5146533006c799dae80c1478e4d3856e8e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-users/zipball/b7753525293e6ddf9108a5d7d623068c6d92f04b",
-                "reference": "b7753525293e6ddf9108a5d7d623068c6d92f04b",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-users/zipball/2ba5d5146533006c799dae80c1478e4d3856e8e8",
+                "reference": "2ba5d5146533006c799dae80c1478e4d3856e8e8",
                 "shasum": ""
             },
             "require": {
@@ -1201,7 +1201,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2017-04-28T20:37:46+00:00"
+            "time": "2017-05-02T20:13:30+00:00"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -1209,12 +1209,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/theme-adminlte.git",
-                "reference": "bf4d43bc99ac097ac84c4bee2ac932a688c588dc"
+                "reference": "d9aec18f27df2e172efd74cefbc7659bc7ae1690"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/theme-adminlte/zipball/bf4d43bc99ac097ac84c4bee2ac932a688c588dc",
-                "reference": "bf4d43bc99ac097ac84c4bee2ac932a688c588dc",
+                "url": "https://api.github.com/repos/cvepdb-cms/theme-adminlte/zipball/d9aec18f27df2e172efd74cefbc7659bc7ae1690",
+                "reference": "d9aec18f27df2e172efd74cefbc7659bc7ae1690",
                 "shasum": ""
             },
             "require": {
@@ -1243,7 +1243,7 @@
                 "cms",
                 "theme"
             ],
-            "time": "2017-04-28T20:40:52+00:00"
+            "time": "2017-05-02T20:21:38+00:00"
         },
         {
             "name": "cvepdb-cms/theme-lumen",
