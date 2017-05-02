@@ -19,19 +19,6 @@ return [
 	],
 	'backend'         => [
 		'home_route' => 'backend.dashboard.index',
-		'menus'      => [
-			'header'  => [
-				// Presenter to display admin CMS header menu
-				'presenters' => [
-					'web'    => '\cms\Themes\AdminLTE\Presenters\AdminLteMenuAppHeaderPresenter',
-					'mobile' => '\cms\Themes\AdminLTE\Presenters\AdminLteMenuFrontHeaderPresenter'
-				]
-			],
-			'sidebar' => [
-				// Presenter to display admin CMS sidebar
-				'presenters' => '\cms\Themes\AdminLTE\Presenters\AdminLteMenuAppSidebarPresenter',
-			],
-		],
 	],
 	'mail'            => [
 		'mailwatch' => '',
