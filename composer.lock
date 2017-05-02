@@ -911,12 +911,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-domains.git",
-                "reference": "ec3edf80a458b3466546a550e6e2935439ea6bb9"
+                "reference": "bee75e347b117b9da068efe4afcc1742ccc82dce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-domains/zipball/ec3edf80a458b3466546a550e6e2935439ea6bb9",
-                "reference": "ec3edf80a458b3466546a550e6e2935439ea6bb9",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-domains/zipball/bee75e347b117b9da068efe4afcc1742ccc82dce",
+                "reference": "bee75e347b117b9da068efe4afcc1742ccc82dce",
                 "shasum": ""
             },
             "require": {
@@ -950,7 +950,7 @@
                 "domains",
                 "module"
             ],
-            "time": "2017-04-18T15:42:05+00:00"
+            "time": "2017-04-28T20:40:20+00:00"
         },
         {
             "name": "cvepdb-cms/module-files",
