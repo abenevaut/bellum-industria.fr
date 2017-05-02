@@ -78,6 +78,11 @@ class DomainsRepositoryEloquent extends RepositoryEloquentAbstract implements Do
 		return $domain;
 	}
 
+	/**
+	 * @param $domain_id
+	 *
+	 * @return mixed
+	 */
 	public function reactivate($domain_id)
 	{
 		$domain = $this
