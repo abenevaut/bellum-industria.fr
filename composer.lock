@@ -1106,12 +1106,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-themes.git",
-                "reference": "d3fd7242203fe1b88ee4d272fc439b8bc7e6f41c"
+                "reference": "ee2d9afb76abce1fd7b3f09a48d7e546c10ef09a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-themes/zipball/d3fd7242203fe1b88ee4d272fc439b8bc7e6f41c",
-                "reference": "d3fd7242203fe1b88ee4d272fc439b8bc7e6f41c",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-themes/zipball/ee2d9afb76abce1fd7b3f09a48d7e546c10ef09a",
+                "reference": "ee2d9afb76abce1fd7b3f09a48d7e546c10ef09a",
                 "shasum": ""
             },
             "require": {
@@ -1154,7 +1154,7 @@
                 "module",
                 "themes"
             ],
-            "time": "2017-04-12T11:59:11+00:00"
+            "time": "2017-04-28T20:36:45+00:00"
         },
         {
             "name": "cvepdb-cms/module-users",
@@ -1162,12 +1162,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-users.git",
-                "reference": "7c0398793c9f058ff888222871b33fec2a410022"
+                "reference": "b7753525293e6ddf9108a5d7d623068c6d92f04b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-users/zipball/7c0398793c9f058ff888222871b33fec2a410022",
-                "reference": "7c0398793c9f058ff888222871b33fec2a410022",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-users/zipball/b7753525293e6ddf9108a5d7d623068c6d92f04b",
+                "reference": "b7753525293e6ddf9108a5d7d623068c6d92f04b",
                 "shasum": ""
             },
             "require": {
@@ -1201,7 +1201,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2017-04-12T11:59:01+00:00"
+            "time": "2017-04-28T20:37:46+00:00"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -1209,12 +1209,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/theme-adminlte.git",
-                "reference": "23c0019cc4c68d0a1fe3a1675eb4350f221cb23c"
+                "reference": "bf4d43bc99ac097ac84c4bee2ac932a688c588dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/theme-adminlte/zipball/23c0019cc4c68d0a1fe3a1675eb4350f221cb23c",
-                "reference": "23c0019cc4c68d0a1fe3a1675eb4350f221cb23c",
+                "url": "https://api.github.com/repos/cvepdb-cms/theme-adminlte/zipball/bf4d43bc99ac097ac84c4bee2ac932a688c588dc",
+                "reference": "bf4d43bc99ac097ac84c4bee2ac932a688c588dc",
                 "shasum": ""
             },
             "require": {
@@ -1243,7 +1243,7 @@
                 "cms",
                 "theme"
             ],
-            "time": "2016-12-20T23:33:41+00:00"
+            "time": "2017-04-28T20:40:52+00:00"
         },
         {
             "name": "cvepdb-cms/theme-lumen",
