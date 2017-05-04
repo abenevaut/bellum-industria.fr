@@ -1,10 +1,10 @@
 <?php namespace cms\App\Listeners;
 
-use cms\Domain\Domains\Domains\Events\DomainCreatedEvent;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use cms\Domain\Users\Users\Events\UserCreatedEvent;
 use cms\Domain\Users\Users\Events\UserUpdatedEvent;
 use cms\Domain\Users\Users\Events\UserDeletedEvent;
-use cms\Domain\Users\Users\Events\NewUserRegisteredEvent;
 
 class UsersEventsListener
 {
@@ -36,36 +36,27 @@ class UsersEventsListener
 	/**
 	 * Handle created event.
 	 *
-	 * @param UserCreatedEvent $event
+	 * @param \cms\Domain\Users\Users\Events\UserCreatedEvent $event
 	 */
 	public function handleUserCreatedEvent(UserCreatedEvent $event) {
-		session()->flash('message-success', trans('users.message_created_success'));
+		// implement
 	}
 
 	/**
 	 * Handle updated event.
 	 *
-	 * @param UserUpdatedEvent $event
+	 * @param \cms\Domain\Users\Users\Events\UserUpdatedEvent $event
 	 */
 	public function handleUserUpdatedEvent(UserUpdatedEvent $event) {
-		session()->flash('message-success', trans('users.message_updated_success'));
+		// implement
 	}
 
 	/**
 	 * Handle deleted event.
 	 *
-	 * @param UserDeletedEvent $event
+	 * @param \cms\Domain\Users\Users\Events\UserDeletedEvent $event
 	 */
 	public function handleUserDeletedEvent(UserDeletedEvent $event) {
-		session()->flash('message-success', trans('users.message_deleted_success'));
-	}
-
-	/**
-	 * Handle newUserRegisteredEvent events.
-	 *
-	 * @param DomainCreatedEvent $event
-	 */
-	public function newUserRegisteredEvent(NewUserRegisteredEvent $event) {
-		session()->flash('message-success', trans('auth.message_success_register'));
+		// implement
 	}
 }
