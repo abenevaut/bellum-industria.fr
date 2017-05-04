@@ -264,5 +264,4 @@ class ElFinderDiskRepository extends DiskRepository
 
 		throw new \Exception('Disk : ' . $disk_name . ' unmountable!');
 	}
-
 }
