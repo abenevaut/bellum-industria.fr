@@ -5,6 +5,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use cms\Domain\Users\Users\Events\UserCreatedEvent;
 use cms\Domain\Users\Users\Events\UserUpdatedEvent;
 use cms\Domain\Users\Users\Events\UserDeletedEvent;
+use cms\Domain\Users\Users\Events\NewSuperAdminCreatedEvent;
+use cms\Domain\Users\Users\Events\NewAdminCreatedEvent;
+use cms\Domain\Users\Users\Events\NewUserCreatedEvent;
 
 class UsersEventsListener
 {
@@ -28,13 +31,21 @@ class UsersEventsListener
 			'cms\App\Listeners\UsersEventsListener@handleUserDeletedEvent'
 		);
 		$events->listen(
-			'cms\Domain\Users\Users\Events\NewUserRegisteredEvent',
-			'cms\App\Listeners\UsersEventsListener@newUserRegisteredEvent'
+			'cms\Domain\Users\Users\Events\NewSuperAdminCreatedEvent',
+			'cms\App\Listeners\UsersEventsListener@handleNewSuperAdminCreatedEvent'
+		);
+		$events->listen(
+			'cms\Domain\Users\Users\Events\NewAdminCreatedEvent',
+			'cms\App\Listeners\UsersEventsListener@handleNewAdminCreatedEvent'
+		);
+		$events->listen(
+			'cms\Domain\Users\Users\Events\NewUserCreatedEvent',
+			'cms\App\Listeners\UsersEventsListener@handleNewUserCreatedEvent'
 		);
 	}
 
 	/**
-	 * Handle created event.
+	 * Handle created user event.
 	 *
 	 * @param \cms\Domain\Users\Users\Events\UserCreatedEvent $event
 	 */
@@ -43,20 +54,47 @@ class UsersEventsListener
 	}
 
 	/**
-	 * Handle updated event.
+	 * Handle updated user event.
 	 *
-	 * @param \cms\Domain\Users\Users\Events\UserUpdatedEvent $event
+	 * @param UserUpdatedEvent $event
 	 */
 	public function handleUserUpdatedEvent(UserUpdatedEvent $event) {
 		// implement
 	}
 
 	/**
-	 * Handle deleted event.
+	 * Handle deleted user event.
 	 *
-	 * @param \cms\Domain\Users\Users\Events\UserDeletedEvent $event
+	 * @param UserDeletedEvent $event
 	 */
 	public function handleUserDeletedEvent(UserDeletedEvent $event) {
+		// implement
+	}
+
+	/**
+	 * Handle new super admin created event.
+	 *
+	 * @param NewSuperAdminCreatedEvent $event
+	 */
+	public function handleNewSuperAdminCreatedEvent(NewSuperAdminCreatedEvent $event) {
+		// implement
+	}
+
+	/**
+	 * Handle new admin created event.
+	 *
+	 * @param NewAdminCreatedEvent $event
+	 */
+	public function handleNewAdminCreatedEvent(NewAdminCreatedEvent $event) {
+		// implement
+	}
+
+	/**
+	 * Handle new user created event.
+	 *
+	 * @param NewUserCreatedEvent $event
+	 */
+	public function handleNewUserCreatedEvent(NewUserCreatedEvent $event) {
 		// implement
 	}
 }

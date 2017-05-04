@@ -18,6 +18,16 @@ class EventServiceProvider extends ServiceProvider
 	];
 
 	/**
+	 * The subscriber classes to register.
+	 *
+	 * @var array
+	 */
+	protected $subscribe = [
+		'cms\App\Listeners\AuthEventsListener',
+		'cms\App\Listeners\UsersEventsListener',
+	];
+
+	/**
 	 * Register any events for your application.
 	 *
 	 * @return void
