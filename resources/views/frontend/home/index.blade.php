@@ -429,21 +429,22 @@
 										{{--</div>--}}
 										{{--<div class="meta">--}}
 											{{--<i class="fa fa-heart-o"></i>--}}
-											{{--<span>15</span></div>--}}
+											{{--<span>15</span>--}}
+										{{--</div>--}}
 									{{--</div>--}}
 
-									<div class="caption">
+									<div class="caption" style="border-width: 1px 1px 1px 1px;">
 										<h3 class="card-title">
-											<a href="https://twitter.com/{{ $tweet['user']['screen_name'] }}">
-												{!! '@' . $tweet['user']['screen_name'] !!}
+											<a href="https://twitter.com/{{ $tweet->user->screen_name }}">
+												{!! '@' . $tweet->user->screen_name !!}
 											</a>
 										</h3>
 										<p>
-											{!! $tweet['text'] !!}
+											{!! $tweet->text !!}
 										</p>
 										<ul>
 											<li>
-												<i class="fa fa-calendar-o"></i> {{ $tweet['created_at'] }}
+												<i class="fa fa-calendar-o"></i> {{ $tweet->created_at }}
 											</li>
 										</ul>
 									</div>
