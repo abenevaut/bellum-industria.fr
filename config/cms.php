@@ -19,19 +19,6 @@ return [
 	],
 	'backend'         => [
 		'home_route' => 'backend.dashboard.index',
-		'menus'      => [
-			'header'  => [
-				// Presenter to display admin CMS header menu
-				'presenters' => [
-					'web'    => '\cms\App\Presenters\AdminLteMenuAppHeaderPresenter',
-					'mobile' => '\cms\App\Presenters\AdminLteMenuFrontHeaderPresenter'
-				]
-			],
-			'sidebar' => [
-				// Presenter to display admin CMS sidebar
-				'presenters' => '\cms\App\Presenters\AdminLteMenuAppSidebarPresenter',
-			],
-		],
 	],
 	'mail'            => [
 		'mailwatch' => '',
@@ -43,7 +30,7 @@ return [
 	'licenses'        => [
 		'cvepdb' => [
 			'name' => '#CVEPDB',
-			'url'  => 'http://cvepdb.fr',
+			'url'  => 'https://cvepdb.fr',
 		],
 		'phpcli' => '#CVEPDB CMS  Copyright (C) 2016  Antoine Benevaut
 

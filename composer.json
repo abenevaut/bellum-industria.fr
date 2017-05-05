@@ -24,10 +24,10 @@
     "abenevaut/laravel-themes": "5.4.x-dev",
     "abenevaut/laravel-modules": "5.4.x-dev",
     "abenevaut/laravel-settings": "5.4.x-dev",
-    "cvepdb-cms/module-settings": "dev-master",
+    "cvepdb-cms/module-settings": "5.4.x-dev",
     "cvepdb-cms/module-environments": "5.4.x-dev",
-    "cvepdb-cms/module-files": "dev-master",
-    "cvepdb-cms/module-installer": "dev-master",
+    "cvepdb-cms/module-files": "5.4.x-dev",
+    "cvepdb-cms/module-installer": "5.4.x-dev",
     "cvepdb-cms/module-themes": "5.4.x-dev",
     "cvepdb-cms/module-users": "5.4.x-dev",
     "cvepdb-cms/theme-adminlte": "dev-master",
@@ -68,6 +68,7 @@
     "codeception/c3": "2.0.10",
     "phpunit/php-code-coverage": "4.0.7",
     "deployer/deployer": "4.2.1",
+    "deployer/recipes": "4.0.7",
     "site5/phantoman": "1.1.7",
     "jonnyw/php-phantomjs": "4.5.1",
     "jakoch/phantomjs-installer": "^2.1",
@@ -87,11 +88,10 @@
     ],
     "psr-4": {
       "cms\\": "app/",
-      "cms\\Modules\\": "modules/"
+      "cms\\Modules\\": "modules/",
+      "cms\\Themes\\": "resources/themes/"
     },
     "files": [
-      "app/App/Services/BackendNavigationsHelpers.php",
-      "app/App/Services/BackendPaginationsHelpers.php",
       "app/App/Services/helpers.php"
     ]
   },
@@ -104,7 +104,7 @@
   },
   "scripts": {
     "post-root-package-install": [
-      "php -r \"file_exists('.env.installer') || copy('.env.example', '.env.installer');\""
+      "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
     ],
     "post-create-project-cmd": [
       "php artisan key:generate"

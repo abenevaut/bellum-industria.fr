@@ -15,7 +15,7 @@ class TestingSeeder extends Seeder
 	public function run()
 	{
 		Model::unguard();
-        $this->call('EnvironmentsTableSeeder');
+        $this->call('DomainsTableSeeder');
 		$this->call('cms\Modules\Users\Database\Seeders\TestingSeeder');
 		Model::reguard();
 	}

@@ -24,7 +24,7 @@ return [
 
 	'stubs' => [
 		'enabled'      => false,
-		'path'         => base_path('/vendor/cvepdb/laravel-modules/src/Console/stubs'),
+		'path'         => base_path('/vendor/abenevaut/laravel-modules/src/Console/stubs'),
 		'files'        => [
 			'start'           => 'start.php',
 			'routes'          => 'Http/routes.php',

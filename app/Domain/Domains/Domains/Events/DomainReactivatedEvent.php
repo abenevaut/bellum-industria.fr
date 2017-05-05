@@ -5,7 +5,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use cms\Infrastructure\Abstractions\Events\EventAbstract;
 use cms\Domain\Domains\Domains\Domain;
 
-class DomainDeletedEvent extends EventAbstract
+class DomainReactivatedEvent extends EventAbstract
 {
 
 	use SerializesModels;
@@ -18,7 +18,7 @@ class DomainDeletedEvent extends EventAbstract
 	public $domain = null;
 
 	/**
-	 * DomainDeletedEvent constructor.
+	 * DomainReactivatedEvent constructor.
 	 *
 	 * @param Domain $domain
 	 */

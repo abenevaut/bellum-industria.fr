@@ -18,7 +18,7 @@ class DomainUpdatedEvent extends EventAbstract
 	public $domain = null;
 
 	/**
-	 * DomainCreatedEvent constructor.
+	 * DomainUpdatedEvent constructor.
 	 *
 	 * @param Domain $domain
 	 */

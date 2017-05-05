@@ -3,10 +3,6 @@
 use ABENEVAUT\Menus\Infrastructure\Abstractions\Presenters\PresenterAbstract;
 use ABENEVAUT\Menus\Domain\Menus\Items\MenuItem;
 
-/**
- * Class NavigationPresenterAbstract
- * @package cms\Infrastructure\Abstractions\Presenters
- */
 abstract class NavigationPresenterAbstract extends PresenterAbstract
 {
 

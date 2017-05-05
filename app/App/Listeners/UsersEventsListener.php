@@ -1,10 +1,13 @@
 <?php namespace cms\App\Listeners;
 
-use cms\Domain\Domains\Domains\Events\DomainCreatedEvent;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use cms\Domain\Users\Users\Events\UserCreatedEvent;
 use cms\Domain\Users\Users\Events\UserUpdatedEvent;
 use cms\Domain\Users\Users\Events\UserDeletedEvent;
-use cms\Domain\Users\Users\Events\NewUserRegisteredEvent;
+use cms\Domain\Users\Users\Events\NewSuperAdminCreatedEvent;
+use cms\Domain\Users\Users\Events\NewAdminCreatedEvent;
+use cms\Domain\Users\Users\Events\NewUserCreatedEvent;
 
 class UsersEventsListener
 {
@@ -28,44 +31,70 @@ class UsersEventsListener
 			'cms\App\Listeners\UsersEventsListener@handleUserDeletedEvent'
 		);
 		$events->listen(
-			'cms\Domain\Users\Users\Events\NewUserRegisteredEvent',
-			'cms\App\Listeners\UsersEventsListener@newUserRegisteredEvent'
+			'cms\Domain\Users\Users\Events\NewSuperAdminCreatedEvent',
+			'cms\App\Listeners\UsersEventsListener@handleNewSuperAdminCreatedEvent'
+		);
+		$events->listen(
+			'cms\Domain\Users\Users\Events\NewAdminCreatedEvent',
+			'cms\App\Listeners\UsersEventsListener@handleNewAdminCreatedEvent'
+		);
+		$events->listen(
+			'cms\Domain\Users\Users\Events\NewUserCreatedEvent',
+			'cms\App\Listeners\UsersEventsListener@handleNewUserCreatedEvent'
 		);
 	}
 
 	/**
-	 * Handle created event.
+	 * Handle created user event.
 	 *
-	 * @param UserCreatedEvent $event
+	 * @param \cms\Domain\Users\Users\Events\UserCreatedEvent $event
 	 */
 	public function handleUserCreatedEvent(UserCreatedEvent $event) {
-		session()->flash('message-success', trans('users.message_created_success'));
+		// implement
 	}
 
 	/**
-	 * Handle updated event.
+	 * Handle updated user event.
 	 *
 	 * @param UserUpdatedEvent $event
 	 */
 	public function handleUserUpdatedEvent(UserUpdatedEvent $event) {
-		session()->flash('message-success', trans('users.message_updated_success'));
+		// implement
 	}
 
 	/**
-	 * Handle deleted event.
+	 * Handle deleted user event.
 	 *
 	 * @param UserDeletedEvent $event
 	 */
 	public function handleUserDeletedEvent(UserDeletedEvent $event) {
-		session()->flash('message-success', trans('users.message_deleted_success'));
+		// implement
 	}
 
 	/**
-	 * Handle newUserRegisteredEvent events.
+	 * Handle new super admin created event.
 	 *
-	 * @param DomainCreatedEvent $event
+	 * @param NewSuperAdminCreatedEvent $event
 	 */
-	public function newUserRegisteredEvent(NewUserRegisteredEvent $event) {
-		session()->flash('message-success', trans('auth.message_success_register'));
+	public function handleNewSuperAdminCreatedEvent(NewSuperAdminCreatedEvent $event) {
+		// implement
+	}
+
+	/**
+	 * Handle new admin created event.
+	 *
+	 * @param NewAdminCreatedEvent $event
+	 */
+	public function handleNewAdminCreatedEvent(NewAdminCreatedEvent $event) {
+		// implement
+	}
+
+	/**
+	 * Handle new user created event.
+	 *
+	 * @param NewUserCreatedEvent $event
+	 */
+	public function handleNewUserCreatedEvent(NewUserCreatedEvent $event) {
+		// implement
 	}
 }

@@ -10,7 +10,7 @@ return [
 
 	'cache' => [
 		'enabled'  => false,
-		'key'      => 'pingpong.themes',
+		'key'      => 'cms.themes',
 		'lifetime' => 86400,
 	],
 

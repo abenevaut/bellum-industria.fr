@@ -7,6 +7,7 @@ use cms\Domain\Domains\Domains\Domain;
 use cms\Domain\Domains\Domains\Events\DomainCreatedEvent;
 use cms\Domain\Domains\Domains\Events\DomainDeletedEvent;
 use cms\Domain\Domains\Domains\Events\DomainUpdatedEvent;
+use cms\Domain\Domains\Domains\Events\DomainReactivatedEvent;
 use cms\Domain\Domains\Domains\Presenters\DomainListPresenter;
 
 class DomainsRepositoryEloquent extends RepositoryEloquentAbstract implements DomainsRepository
@@ -21,28 +22,6 @@ class DomainsRepositoryEloquent extends RepositoryEloquentAbstract implements Do
 	 */
 	public function model() {
 		return Domain::class;
-	}
-
-	/**
-	 * Display all users with trashed users.
-	 *
-	 * @throws \Prettus\Repository\Exceptions\RepositoryException
-	 */
-	public function filterShowWithTrashed() {
-		//		return $this->pushCriteria(new WithTrashedCriteria());
-
-		return $this;
-	}
-
-	/**
-	 * Display only trashed user.
-	 *
-	 * @throws \Prettus\Repository\Exceptions\RepositoryException
-	 */
-	public function filterShowOnlyTrashed() {
-		//		return $this->pushCriteria(new OnlyTrashedCriteria());
-
-		return $this;
 	}
 
 	/**
@@ -66,13 +45,14 @@ class DomainsRepositoryEloquent extends RepositoryEloquentAbstract implements Do
 	 * Update Domain and fire event "DomainUpdatedEvent".
 	 *
 	 * @param array   $attributes
-	 * @param integer $user_id
+	 * @param integer $domain_id
 	 *
 	 * @event cms\Domain\Domains\Domains\Events\DomainUpdatedEvent
 	 * @return \cms\Domain\Domains\Domains\Domain
 	 */
-	public function update(array $attributes, $user_id) {
-		$domain = parent::update($attributes, $user_id);
+	public function update(array $attributes, $domain_id) {
+
+		$domain = parent::update($attributes, $domain_id);
 
 		event(new DomainUpdatedEvent($domain));
 
@@ -82,17 +62,39 @@ class DomainsRepositoryEloquent extends RepositoryEloquentAbstract implements Do
 	/**
 	 * Delete Domain and fire event "DomainDeletedEvent".
 	 *
-	 * @param integer $user_id
+	 * @param integer $domain_id
 	 *
 	 * @event cms\Domain\Domains\Domains\Events\DomainDeletedEvent
 	 * @return int
 	 */
-	public function delete($user_id) {
-		$env = $this->find($user_id);
+	public function delete($domain_id) {
 
-		$domain = parent::delete($user_id);
+		$env = $this->find($domain_id);
+
+		$domain = parent::delete($domain_id);
 
 		event(new DomainDeletedEvent($env));
+
+		return $domain;
+	}
+
+	/**
+	 * @param $domain_id
+	 *
+	 * @return mixed
+	 */
+	public function reactivate($domain_id)
+	{
+		$domain = $this
+			->scopeQuery(function($model)
+			{
+				return $model->onlyTrashed();
+			})
+			->find($domain_id);
+
+		$domain->restore();
+
+		event(new DomainReactivatedEvent($domain));
 
 		return $domain;
 	}
@@ -134,17 +136,16 @@ class DomainsRepositoryEloquent extends RepositoryEloquentAbstract implements Do
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function indexBackEnd() {
-		$this->setPresenter(new DomainListPresenter());
 
-		$this->filterShowWithTrashed();
-
-		$envs = $this
+		$domains = $this
+			->setPresenter(new DomainListPresenter())
+			->filterShowWithTrashed()
 			->paginate(\Settings::get('app.pagination'));
 
 		return cmsview(
 			'app.backend.Domains.index',
 			[
-				'Domains' => $envs
+				'Domains' => $domains
 			]
 		);
 	}

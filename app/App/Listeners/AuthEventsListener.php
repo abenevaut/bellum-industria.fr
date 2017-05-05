@@ -32,7 +32,7 @@ class AuthEventsListener
 	 * @param \Illuminate\Auth\Events\Login $event
 	 */
 	public function handleLoginEvent(Login $event) {
-		session()->flash('message-success', trans('auth.login_message_success'));
+		// implement
 	}
 
 	/**
@@ -41,6 +41,6 @@ class AuthEventsListener
 	 * @param \Illuminate\Auth\Events\Logout $event
 	 */
 	public function handleLogoutEvent(Logout $event) {
-		session()->flash('message-success', trans('auth.logout_message_success'));
+		// implement
 	}
 }
