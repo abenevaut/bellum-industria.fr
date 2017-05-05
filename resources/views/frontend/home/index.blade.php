@@ -467,6 +467,15 @@
 				</div>
 
 
+				<div class="background-image margin-top-40" style="background-image: url(https://img.youtube.com/vi/gzzllYEvlP8/maxresdefault.jpg);">
+					<span class="background-overlay"></span>
+					<div class="container">
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/gzzllYEvlP8?rel=0&amp;showinfo=0" allowfullscreen=""></iframe>
+						</div>
+					</div>
+				</div>
+
 			</section>
 		</div>
 		<!-- /#wrapper -->
@@ -476,47 +485,12 @@
 			<div class="container">
 				<div class="widget row">
 					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-						<h4 class="title">About GameForest</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit. Donec pharetra mattis arcu, a congue leo
-							malesuada eu. Nam nec mauris ut odio tristique
-							varius et eu metus. Quisque massa purus, aliquet
-							quis blandit et, <br/> <br/>mollis sed lorem. Sed
-							vel tincidunt elit. Phasellus at varius odio, sit
-							amet fermentum mauris.</p>
+						<h4 class="title">Bellum Industria</h4>
+						<p>Communauté de joueurs fun #CSGO #H1Z1KotK #RocketLeague #PayDay2</p>
 					</div>
-
 					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-						<h4 class="title">Categories</h4>
-						<div class="row">
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<ul class="nav">
-									<li><a href="#">Playstation 4</a></li>
-									<li><a href="#">XBOX ONE</a></li>
-									<li><a href="#">PC</a></li>
-									<li><a href="#">PS3</a></li>
-								</ul>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<ul class="nav">
-									<li><a href="#">Gaming</a></li>
-									<li><a href="#">Portfolio</a></li>
-									<li><a href="#">Videos</a></li>
-									<li><a href="#">Reviews</a></li>
-								</ul>
-							</div>
-						</div>
 					</div>
-
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-						<h4 class="title">Email Newsletters</h4>
-						<p>Subscribe to our newsletter and get notification when
-							new games are available.</p>
-						<form method="post" class="btn-inline form-inverse">
-							<input type="text" class="form-control" placeholder="Email..."/>
-							<button type="submit" class="btn btn-link">
-								<i class="fa fa-envelope"></i></button>
-						</form>
 					</div>
 				</div>
 			</div>
@@ -524,20 +498,13 @@
 			<div class="footer-bottom">
 				<div class="container">
 					<ul class="list-inline">
-						<li>
-							<a href="#" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="Follow us on Twitter"><i class="fa fa-twitter"></i></a>
-						</li>
-						<li>
-							<a href="#" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="Follow us on Facebook"><i class="fa fa-facebook"></i></a>
-						</li>
-						<li>
-							<a href="#" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="Follow us on Google"><i class="fa fa-google-plus"></i></a>
-						</li>
-						<li>
-							<a href="#" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="Follow us on Steam"><i class="fa fa-steam"></i></a>
-						</li>
+						<li><a href="https://twitter.com/bellumindustria" target="_blank" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="" data-original-title="Follow us on Twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="https://www.facebook.com/bellumindustria" target="_blank" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="" data-original-title="Follow us on Facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="https://steamcommunity.com/groups/bellumindustria" target="_blank" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="" data-original-title="Follow us on Steam"><i class="fa fa-steam"></i></a></li>
+						<li><a href="https://www.youtube.com/channel/UCSBq3Ozx_nY6eQ4RJDvxSCA" target="_blank" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="" data-original-title="Follow us on Youtube"><i class="fa fa-youtube-square"></i></a></li>
+						<li><a href="https://twitch.tv/bellumindustria" target="_blank" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="" data-original-title="Follow us on Twitch.tv"><i class="fa fa-twitch"></i></a></li>
 					</ul>
-					&copy; 2016 Gameforest. All rights reserved.
+					© 2017 www.bellum-industria.fr. All rights reserved.
 				</div>
 			</div>
 		</footer>

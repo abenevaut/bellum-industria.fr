@@ -22,7 +22,7 @@ class HomeController extends Controller
 		$tweets = collect($tweets)
 			->map(function($tweet)
 			{
-				
+
 				$tweet->created_at = (new Carbon($tweet->created_at))
 					->format('m/d/Y H\hi');
 
