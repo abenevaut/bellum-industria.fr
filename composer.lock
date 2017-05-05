@@ -353,16 +353,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.26.5",
+            "version": "3.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "5fd52d91aa168134f13a57df7fbf7d1f7b7a85ca"
+                "reference": "23fd97c5bc4aaa923b994f8876c86574ed84f27d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5fd52d91aa168134f13a57df7fbf7d1f7b7a85ca",
-                "reference": "5fd52d91aa168134f13a57df7fbf7d1f7b7a85ca",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/23fd97c5bc4aaa923b994f8876c86574ed84f27d",
+                "reference": "23fd97c5bc4aaa923b994f8876c86574ed84f27d",
                 "shasum": ""
             },
             "require": {
@@ -429,7 +429,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-04-28T23:15:22+00:00"
+            "time": "2017-05-04T22:43:46+00:00"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -911,12 +911,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-domains.git",
-                "reference": "bee75e347b117b9da068efe4afcc1742ccc82dce"
+                "reference": "25d9e5cb49f5fcea6a4e4bceae5f1a44be01e802"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-domains/zipball/bee75e347b117b9da068efe4afcc1742ccc82dce",
-                "reference": "bee75e347b117b9da068efe4afcc1742ccc82dce",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-domains/zipball/25d9e5cb49f5fcea6a4e4bceae5f1a44be01e802",
+                "reference": "25d9e5cb49f5fcea6a4e4bceae5f1a44be01e802",
                 "shasum": ""
             },
             "require": {
@@ -950,7 +950,7 @@
                 "domains",
                 "module"
             ],
-            "time": "2017-04-28T20:40:20+00:00"
+            "time": "2017-05-04T20:32:32+00:00"
         },
         {
             "name": "cvepdb-cms/module-files",
@@ -958,12 +958,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-files.git",
-                "reference": "d5a7b9939d628dcdac121bad3b689141cecdb8c2"
+                "reference": "31b0e5373adf984b70132eee63cb29934d18fb11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-files/zipball/d5a7b9939d628dcdac121bad3b689141cecdb8c2",
-                "reference": "d5a7b9939d628dcdac121bad3b689141cecdb8c2",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-files/zipball/31b0e5373adf984b70132eee63cb29934d18fb11",
+                "reference": "31b0e5373adf984b70132eee63cb29934d18fb11",
                 "shasum": ""
             },
             "require": {
@@ -1004,7 +1004,7 @@
                 "files",
                 "module"
             ],
-            "time": "2017-05-02T20:13:01+00:00"
+            "time": "2017-05-04T20:42:05+00:00"
         },
         {
             "name": "cvepdb-cms/module-installer",
@@ -1012,12 +1012,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-installer.git",
-                "reference": "ac4947cf8388992683cf7ceaf53e2927d4356eb7"
+                "reference": "a62f13341602dbd37491756d71dbc9d0664bf831"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-installer/zipball/ac4947cf8388992683cf7ceaf53e2927d4356eb7",
-                "reference": "ac4947cf8388992683cf7ceaf53e2927d4356eb7",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-installer/zipball/a62f13341602dbd37491756d71dbc9d0664bf831",
+                "reference": "a62f13341602dbd37491756d71dbc9d0664bf831",
                 "shasum": ""
             },
             "require": {
@@ -1051,7 +1051,7 @@
                 "installer",
                 "module"
             ],
-            "time": "2017-05-02T20:11:50+00:00"
+            "time": "2017-05-04T20:34:22+00:00"
         },
         {
             "name": "cvepdb-cms/module-settings",
@@ -1162,12 +1162,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvepdb-cms/module-users.git",
-                "reference": "2ba5d5146533006c799dae80c1478e4d3856e8e8"
+                "reference": "ae516c5f4e27a9b5f0836073bb0dbb78358a031d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvepdb-cms/module-users/zipball/2ba5d5146533006c799dae80c1478e4d3856e8e8",
-                "reference": "2ba5d5146533006c799dae80c1478e4d3856e8e8",
+                "url": "https://api.github.com/repos/cvepdb-cms/module-users/zipball/ae516c5f4e27a9b5f0836073bb0dbb78358a031d",
+                "reference": "ae516c5f4e27a9b5f0836073bb0dbb78358a031d",
                 "shasum": ""
             },
             "require": {
@@ -1201,7 +1201,7 @@
                 "cms",
                 "module"
             ],
-            "time": "2017-05-02T20:13:30+00:00"
+            "time": "2017-05-04T20:33:53+00:00"
         },
         {
             "name": "cvepdb-cms/theme-adminlte",
@@ -2133,12 +2133,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "859befb5b0d96246558594b20a929ecff8a918c9"
+                "reference": "56bf6c1cc3e1b24691f10a09321516d4790cecbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/859befb5b0d96246558594b20a929ecff8a918c9",
-                "reference": "859befb5b0d96246558594b20a929ecff8a918c9",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/56bf6c1cc3e1b24691f10a09321516d4790cecbd",
+                "reference": "56bf6c1cc3e1b24691f10a09321516d4790cecbd",
                 "shasum": ""
             },
             "require": {
@@ -2190,7 +2190,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2017-05-03T23:32:45+00:00"
+            "time": "2017-05-04T23:22:10+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -4224,12 +4224,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "47a61f5ee55c1a3737959fa49b16f1e156db8a2b"
+                "reference": "e835f9972c239f1318d72f4f9e824a303ff42e08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/47a61f5ee55c1a3737959fa49b16f1e156db8a2b",
-                "reference": "47a61f5ee55c1a3737959fa49b16f1e156db8a2b",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/e835f9972c239f1318d72f4f9e824a303ff42e08",
+                "reference": "e835f9972c239f1318d72f4f9e824a303ff42e08",
                 "shasum": ""
             },
             "require": {
@@ -4274,7 +4274,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2017-05-04T14:32:55+00:00"
+            "time": "2017-05-05T06:05:38+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6380,12 +6380,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "cbdeba00d0c99139a8242ea02f3b3a14f7c4c860"
+                "reference": "b0dbb5808c0873c129f32862e17b8a70882e69c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/cbdeba00d0c99139a8242ea02f3b3a14f7c4c860",
-                "reference": "cbdeba00d0c99139a8242ea02f3b3a14f7c4c860",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/b0dbb5808c0873c129f32862e17b8a70882e69c2",
+                "reference": "b0dbb5808c0873c129f32862e17b8a70882e69c2",
                 "shasum": ""
             },
             "require": {
@@ -6433,7 +6433,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2017-03-05T07:17:18+00:00"
+            "time": "2017-05-04T18:31:47+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -9198,12 +9198,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "a083db55c242ed30451467c802633cddbad198ed"
+                "reference": "324ab87d2fd371a52077732f7d08c2bbd65d5b05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/a083db55c242ed30451467c802633cddbad198ed",
-                "reference": "a083db55c242ed30451467c802633cddbad198ed",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/324ab87d2fd371a52077732f7d08c2bbd65d5b05",
+                "reference": "324ab87d2fd371a52077732f7d08c2bbd65d5b05",
                 "shasum": ""
             },
             "require": {
@@ -9252,7 +9252,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-04-26T18:47:34+00:00"
+            "time": "2017-05-05T13:59:56+00:00"
         },
         {
             "name": "webmozart/assert",
