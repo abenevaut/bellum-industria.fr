@@ -27,7 +27,7 @@ Get website package from ~~[this link (currently not available)](https://github.
     - [Unit testing](https://github.com/cvepdb-cms/cms/wiki/unit-testing)
 - Configuration
    - Parameters
-   - Environments
+   - Domains
    - [CRON](https://github.com/cvepdb-cms/cms/wiki/install-cron)
 - [Console commands](https://github.com/cvepdb-cms/cms/wiki/console-commands)
 - Modules
