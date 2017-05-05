@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Gameforest - Responsive Gaming HTML Theme</title>
+	
+	<!-- CORE CSS -->
+	<link href="../html/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../html/css/theme.css" rel="stylesheet">
+	
+	<!-- PLUGINS -->
+	<link href="../html/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/theme.css" rel="stylesheet">
+	<link href="css/prettify.css" rel="stylesheet">
+</head>
+
+<body>
+	<section class="bg-primary padding-40">
+		<div class="container text-center">
+			<div class="row col-lg-8 col-lg-offset-2">
+				<h2 class="font-size-30 color-white font-weight-300 font-open-sans"><i class="fa fa-folder-open-o margin-right-10"></i> Gameforest HTML Theme Documentation</h2>
+			</div>
+		</div>
+	</section>
+		
+	<section class="bg-white no-padding hidden-xs border-bottom-1 border-grey-300" style="height: 54px">
+		<div class="tab-select sticky text-center">
+			<div class="container">
+				<ul class="nav nav-tabs" role="tablist">
+					<li><a href="#html"><i class="fa fa-html5 margin-right-10"></i>A) HTML Structure</a></li>
+					<li><a href="#css"><i class="fa fa-css3 margin-right-10"></i>B) CSS Files</a></li>
+					<li><a href="#javascript"><i class="fa fa-code margin-right-10"></i>C) JavaScript</a></li>
+					<li><a href="#credits"><i class="fa fa-coffee margin-right-10"></i>D) Credits</a></li>
+					<li><a href="#support"><i class="fa fa-heart margin-right-10"></i>E) Support</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+				
+	<section class="bg-grey-100 padding-50 relative border-bottom-1 border-grey-300">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<p class="text-center">Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/yakuzi#contact" target="_blank" class="bold">here</a>.</p>		
+				</div>
+			</div>
+		</div>
+	</section>
+				
+				
+	<section id="html" class="padding-extra-lg border-bottom-1 border-grey-300">	
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="title">
+						<h4 class=""><i class="fa fa-html5"></i> A) HTML Structure</h4>
+						<p>This theme is built on latest bootstrap which is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web. Learn more about bootstrap <a href="http://getbootstrap.com/" target="_blank">here</a>.</p>
+					</div>
+				</div>
+			</div>
+			
+			<h4 class="page-header">HTML Head</h4>
+			<p class=" margin-bottom-30">If you would like to load new plugin files then add your new plugins css or any css file after &lt;!-- PLUGINS --&gt; tag or before &lt;/head&gt;</p>
+					
+			<pre class="prettyprint linenums margin-bottom-60">
+&lt;!-- META --&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;
+&lt;meta name="description" content=""&gt;
+&lt;meta name="author" content=""&gt;
+&lt;meta name="theme-color" content="#141619"&gt;
+
+&lt;title&gt;Gameforest - Responsive Gaming HTML Theme&lt;/title&gt;
+	
+&lt;!-- FAVICON --&gt;
+&lt;link rel="shortcut icon" href="img/favicon.ico"&gt;
+	
+&lt;!-- CORE CSS --&gt;
+&lt;link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;link href="css/theme.min.css" rel="stylesheet"&gt;
+&lt;link href="css/custom.css" rel="stylesheet"&gt; 
+&lt;link href="css/helpers.min.css" rel="stylesheet"&gt;
+&lt;link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'&gt; 
+    
+&lt;!-- PLUGINS --&gt;
+&lt;link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"&gt;
+&lt;link href="plugins/ionicons/css/ionicons.min.css" rel="stylesheet"&gt;
+&lt;link href="plugins/animate/animate.min.css" rel="stylesheet"&gt;
+&lt;link href="plugins/animate/animate.delay.css" rel="stylesheet"&gt;</pre>
+
+		<h4 class="page-header">HTML Separators</h4>
+		<p class=" margin-bottom-30">All of the information within the main content area is nested within a div with an id of "wrapper". The footer's content is within a html5 tag "footer". Here is the structure.</p>
+			
+		<pre class="prettyprint linenums margin-bottom-60">
+&lt;header&gt;
+....
+&lt;/header&gt;
+
+&lt;div id="wrapper"&gt;
+....
+&lt;/div&gt;
+
+&lt;footer&gt;
+....
+&lt;/footer&gt;
+</pre>
+		</div>
+	</section>
+			
+	<section id="css" class="bg-grey-100 padding-extra-lg border-bottom-1 border-grey-300">	
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="title no-padding-top">
+						<h4 class=""><i class="fa fa-css3"></i> B) CSS Files</h4>
+						<p class="text-center margin-top-30">I used several CSS files in this theme (all css files are imported in html files - like index.html). If you would like to use plugins css then you need to call before &lt;/head&gt;.</p>
+					</div>
+				</div>
+			</div>
+			
+			<h4 class="page-header">CSS structure</h4>
+			<p class=" margin-bottom-30">Main css files like theme.css are located in css folder.</p>
+					
+			<pre class="prettyprint"><span class="pln">html</span><span class="pun">/</span><span class="pln">
+</span><span class="pun">├──</span><span class="pln"> css</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> theme.css</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> theme.min.css</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> custom.css</span>
+<span class="pun">├──</span><span class="pln"> js</span>
+<span class="pun">├──</span><span class="pln"> img</span>
+<span class="pun">├──</span><span class="pln"> plugins</span>
+</pre>
+		<p class="margin-bottom-60">If you would like to edit a specific section of the site, simply find the appropriate label in the CSS file, and then scroll down until you find the appropriate style that needs to be edited.</p>
+
+		</div>
+	</section>
+	
+	<section id="javascript" class="padding-extra-lg border-bottom-1 border-grey-300">	
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="title no-padding-top">
+						<h4 class=""><i class="fa fa-code"></i> C) javaScript</h4>
+						<p class="text-center margin-top-30">This theme imports several Javascript files from plugins folder.</p>
+					</div>
+				</div>
+			</div>
+			
+			<h4 class="page-header">Plugins</h4>
+			<p class="margin-bottom-30">Main js files like core.js are located in plugins folder. Minified and not compressed versions of js files are included too in this theme.</p>
+					
+			<pre class="prettyprint margin-bottom-60"><span class="pln">html</span><span class="pun">/</span><span class="pln">
+<span class="pun">├──</span><span class="pln"> img</span>
+<span class="pun">├──</span><span class="pln"> plugins</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> animate/</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> boostrap/</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> countdown/</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> easypiechart/</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> ekko-lightbox/</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> font-awesome/</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> gmaps/</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> ionicons/</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> isotope/</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> jquery/</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> masonry/</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> twitter/</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> owl-carousel/</span>
+<span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> core.js</span>
+</pre>
+		<p class="margin-bottom-30">Most of the animation in theme is carried out from the customs scripts. There are a few functions worth looking over.</p>
+		
+		<pre class="prettyprint linenums">&lt;script&gt;
+(function($) {
+&quot;use strict&quot;;
+	var owl = $(&quot;.owl-carousel&quot;);
+			 
+	owl.owlCarousel({
+		items : 4, //4 items above 1000px browser width
+		itemsDesktop : [1000,3], //3 items between 1000px and 0
+		itemsTablet: [600,1], //1 items between 600 and 0
+		itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
+	});
+			 
+	$(&quot;.next&quot;).click(function(){
+		owl.trigger('owl.next');
+		return false;
+	})
+	$(&quot;.prev&quot;).click(function(){
+		owl.trigger('owl.prev');
+		return false;
+	})
+})(jQuery);
+&lt;/script&gt;</pre>
+		</div>
+	</section>
+	
+	<section id="credits" class="padding-extra-lg">	
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="title no-padding-top">
+						<h4 class=""><i class="fa fa-coffee"></i> D) Credits</h4>
+						<p class="text-center margin-top-30">I used several plugins and these files are located in plugins folder.</p>
+					</div>
+				</div>
+			</div>
+			
+			<h4 class="page-header">Plugins</h4>
+			<p class="margin-bottom-30">Available theme plugins. Each plugins can be find in plugins folder.</p>
+				
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th class="padding-20">Plugin Name</th>
+						<th class="padding-20">Version</th>
+						<th class="padding-20 hidden-xs">Folder Name</th>
+						<th class="padding-20">Documentation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="padding-left-20">jQuery</td>
+						<td class="padding-left-20">3.1.0</td>
+						<td class="padding-left-20 hidden-xs">jquery</td>
+						<td class="padding-left-20"><a href="http://api.jquery.com" target="_blank">jQuery</a></td>         
+					</tr>
+					<tr>
+						<td class="padding-left-20">Bootstrap</td>
+						<td class="padding-left-20">3.3.7</td>
+						<td class="padding-left-20 hidden-xs">bootstrap</td>
+						<td class="padding-left-20"><a href="http://getbootstrap.com" target="_blank">Bootstrap</a></td>         
+					</tr>
+					<tr>
+						<td class="padding-left-20">Countdown</td>
+						<td class="padding-left-20">2.1.0</td>
+						<td class="padding-left-20 hidden-xs">countdown</td>
+						<td class="padding-left-20"><a href="http://hilios.github.io/jQuery.countdown/" target="_blank">Countdown</a></td>         
+					</tr>
+					<tr>
+						<td class="padding-left-20">Easypiechart</td>
+						<td class="padding-left-20">2.1.7</td>
+						<td class="padding-left-20 hidden-xs">easypiechart</td>
+						<td class="padding-left-20"><a href="https://rendro.github.io/easy-pie-chart" target="_blank">Easypiechart</a></td>         
+					</tr>
+					<tr>
+						<td class="padding-left-20">Ekko Lightbox</td>
+						<td class="padding-left-20">4.1.0</td>
+						<td class="padding-left-20 hidden-xs">ekko-lightbox</td>
+						<td class="padding-left-20"><a href="http://ashleydw.github.io/lightbox" target="_blank">Ekko Lightbox</a></td>         
+					</tr>
+					<tr>
+						<td class="padding-left-20">FontAwesome</td>
+						<td class="padding-left-20">4.6.3</td>
+						<td class="padding-left-20 hidden-xs">font-awesome</td>
+						<td class="padding-left-20"><a href="http://fontawesome.io" target="_blank">FontAwesome</a></td>         
+					</tr>
+					<tr>
+						<td class="padding-left-20">Gmaps</td>
+						<td class="padding-left-20">0.4.22</td>
+						<td class="padding-left-20 hidden-xs">gmaps</td>
+						<td class="padding-left-20"><a href="http://hpneo.github.io/gmaps" target="_blank">Gmaps</a></td>         
+					</tr>
+					<tr>
+						<td class="padding-left-20">Ionicons</td>
+						<td class="padding-left-20">2.0.1</td>
+						<td class="padding-left-20 hidden-xs">ionicons</td>
+						<td class="padding-left-20"><a href="http://ionicons.com" target="_blank">Ionicons</a></td>         
+					</tr>
+					<tr>
+						<td class="padding-left-20">Masonry</td>
+						<td class="padding-left-20">4.1.0</td>
+						<td class="padding-left-20 hidden-xs">masonry</td>
+						<td class="padding-left-20"><a href="http://masonry.desandro.com" target="_blank">Masonry</a></td>         
+					</tr>
+					<tr>
+						<td class="padding-left-20">Owl Carousel</td>
+						<td class="padding-left-20">1.3.3</td>
+						<td class="padding-left-20 hidden-xs">owl-carousel</td>
+						<td class="padding-left-20"><a href="http://owlgraphic.com/owlcarousel" target="_blank">Owl Carousel</a></td>         
+					</tr>
+					<tr>
+						<td class="padding-left-20">Twitter Post Fetcher</td>
+						<td class="padding-left-20">15.0</td>
+						<td class="padding-left-20 hidden-xs">twitter</td>
+						<td class="padding-left-20"><a href="https://github.com/jasonmayes/Twitter-Post-Fetcher" target="_blank">Twitter</a></td>         
+					</tr>
+					<tr>
+						<td class="padding-left-20">Summernote</td>
+						<td class="padding-left-20">0.8.2</td>
+						<td class="padding-left-20 hidden-xs">summernote</td>
+						<td class="padding-left-20"><a href="http://summernote.org/" target="_blank">Summernote</a></td>         
+					</tr>
+				</tbody>
+			</table>
+			
+			<p class="margin-bottom-20 margin-top-60">Fonts Used</p>
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th class="padding-20">Font Name</th>
+						<th class="padding-20">Font Url</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="padding-left-20">Roboto</td>
+						<td class="padding-left-20"><a href="https://www.google.com/fonts/specimen/Roboto" target="_blank">Roboto</a></td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<h4 class="page-header margin-top-60">Changelog</h4>
+			<p class="margin-bottom-30">Recent updates for gameforest theme.</p>
+			
+			<p class="no-margin-bottom bold">Version 3.5.1</p>
+			<p class="margin-bottom-20">Fixed bugs.</p>
+			<pre class="prettyprint">
+   // List of new elements
+   // ------------------------------------------------ 
+      [new] grid class renamed to masonry-item
+	  
+   // List of fixed elements
+   // ------------------------------------------------ 
+      [fixed] ionicons loaded on forums
+      [fixed] open navbar icon fixed on responsive view
+      [fixed] ekko-lightbox fixed and new skin
+      [fixed] profile page on responsive view
+	</pre>
+	
+	
+			<p class="no-margin-bottom bold">Version 3.5</p>
+			<p class="margin-bottom-20">New css structure & updated plugins.</p>
+			<pre class="prettyprint">
+			
+   // List of new elements
+   // ------------------------------------------------ 
+      [new] css structure
+      [new] header color
+      [new] gallery image filter
+      [new] subitle renamed to promo
+      [new] bigger hero
+      [new] updated cards with more padding space
+      [new] tooltips color
+      [new] added search input to icon elements
+	  
+   // List of fixed elements
+   // ------------------------------------------------ 
+      [fixed] gallery image load problem
+	  
+   // List of updated plugins
+   // ------------------------------------------------ 
+      [updated] jquery from 1.11.1 to 3.1.0
+      [updated] masonry from 4.0.0 to 4.1.0
+      [updated] bootstrap from 3.3.6 to 3.3.7
+      [updated] animate from 3.5.0 to 3.5.1
+      [updated] summernote from 0.8.1 to 0.8.2
+      [updated] ekko-lightbox from 4.0.0 to 4.1.0
+	  
+	  
+   // List of removed lines
+   // ------------------------------------------------ 
+      [removed] core.js from plugins folder & moved to js folder
+      [removed] helpers.css
+      [removed] isotope filter
+      [removed] box shadow from textimonials
+	</pre>
+	
+			<p class="no-margin-bottom bold">Version 3.4.1</p>
+			<p class="margin-bottom-20">Cleaner typography, navigation & sections.</p>
+			<pre class="prettyprint">
+			
+   // List of new elements
+   // ------------------------------------------------ 
+      [new] cleaner typography
+      [new] bigger padding for sections
+      [new] updated header navigation & dropdowns
+      [new] updated gallery page
+      [new] new hero height
+      [new] updated lightbox style
+      [new] darker modal backdrop
+      [new] updated elements
+      [new] updated social icons
+      [new] new pagination style
+      [new] smaller search input in header
+      [new] updated contact page
+      [new] updated videos page
+	  
+	  
+   // List of updated plugins
+   // ------------------------------------------------ 
+      [updated] font-awesome from 4.5.0 to 4.6.3
+	  
+	  
+   // List of removed lines
+   // ------------------------------------------------ 
+      [removed] category list from navigation
+      [removed] card-hover class
+	</pre>
+			
+			
+			<p class="no-margin-bottom bold">Version 3.4</p>
+			<p class="margin-bottom-20">Included new page layouts. Createad blocks, forums & lot of new elements etc...</p>
+			<pre class="prettyprint">
+			
+   // List of new elements
+   // ------------------------------------------------ 
+      [new] added summernote text editor plugin
+      [new] home magazine 2 layout
+      [new] home magazine 3 layout
+      [new] blog post with disquss
+      [new] games page layout
+      [new] added filter to games page
+      [new] reviews page layout
+      [new] videos blocks added
+      [new] added carousel to home videos
+      [new] added forums
+      [new] added blog timeline
+      [new] recent posts widget
+      [new] new hero element
+	  
+   // List of fixed elements
+   // ------------------------------------------------ 
+      [fixed] font load problem on local host
+      [fixed] responsive problem at magazine layout
+   
+	  
+   // List of updated plugins
+   // ------------------------------------------------ 
+      [updated] twitter post fetcher from 14.0 to 15.0
+	  
+	  
+   // List of removed lines
+   // ------------------------------------------------ 
+      [removed] timeline page was removed
+	</pre>
+			
+			<p class="no-margin-bottom bold">Version 3.3</p>
+			<p class="margin-bottom-20">I created new elements and added new plugins. Be careful with updating to 3.3 from 3.2 because file structure & classes changed.</p>
+			<pre class="prettyprint">
+			
+   // List of new elements
+   // ------------------------------------------------ 
+      [new] cleaner typography
+      [new] redesigned pages
+      [new] added ken burn effects to carousel
+      [new] added custom.css 
+      [new] added cards
+      [new] added home-videos layout
+      [new] updated category dropdown menu
+      [new] updated heros
+      [new] new login panel
+      [new] new register panel
+      [new] new widgets
+      [new] updated modals
+      [new] added countdown plugin
+      [new] new nav dropdown effect
+	  
+	  
+   // List of changed elements
+   // ------------------------------------------------ 
+      [changed] style.css was renamed to theme.css
+      [changed] .nav-likes class was renamed to .nav-dropdown
+      [changed] features.html files was renamed to elements.html
+	  
+   
+   // List of updated plugins
+   // ------------------------------------------------ 
+      [updated] bootstrap from 3.3.5 to 3.3.6
+      [updated] ekko lightbox from 3.3.3 to 4.0.0
+      [updated] fontawesome from 4.4.0 to 4.5.0
+      [updated] masonry from 3.3.2 to 4.0.0
+      [updated] twitter post fetcher from 5.0 to 14.0
+	  
+	  
+   // List of removed lines
+   // ------------------------------------------------ 
+      [removed] .entry-post class is not available anymore.
+      [removed] .box class was removed
+      [removed] holder.js from core.js
+      [removed] open sans font is not included anymore
+      [removed] removed roboto from theme.css
+	</pre>
+			
+			<p class=" margin-top-60">Demo images are <span class="bold">not</span> included in this theme and belongs to <a href="http://patrickbrownart.com" class="bold" target="_blank">Patrick Brown</a>.</p>
+		</div>
+	</section>
+	
+	<section id="support" class="padding-extra-lg bg-grey-100 border-top-1 border-bottom-1 border-grey-300">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="title no-padding-top">
+						<h4><i class="fa fa-heart-o"></i> E) Support</h4>
+						<p class="text-center margin-top-30 no-margin-bottom">Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the item page and asking your question in the "Comments" section.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+			
+	<div class="relative height-50">
+		<div class="col-lg-12 text-center no-padding-xs">
+			<img src="img/employer.png" alt="" style="position: absolute; left: 0; right: 0; margin: -50px auto 0 auto;" />
+		</div>
+	</div>
+	
+	<section class="bg-primary padding-40 margin-top-60">
+		<div class="container text-center">
+			<h2 class="font-size-26 color-white font-weight-300 font-open-sans">If you would like to help my work then don't forget to rate this item!</h2>
+			<a href="http://themeforest.net/downloads" target="-blank" class="btn btn-white btn-outline margin-top-30">Rate now<i class="fa fa-thumbs-up margin-left-10"></i></a>
+		</div>
+	</section>
+	
+	<!-- Javascript -->
+	<script src="../html/plugins/jquery/jquery-3.1.0.min.js"></script>
+	<script src="../html/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/prettify.js"></script>
+	<script>
+	(function($) {
+	"use strict";
+		$(window).scroll(function(){
+			if ($(this).scrollTop() > 113) {
+				$('body').addClass('fixed-tab');
+			} else {
+				$('body').removeClass('fixed-tab');
+			}
+		});
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+  
+	})(jQuery);
+	</script>
+</body>
+</html>

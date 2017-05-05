@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fr',
 
     /*
     |--------------------------------------------------------------------------
@@ -120,7 +120,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
@@ -171,11 +171,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        bellumindustria\App\Providers\AppServiceProvider::class,
+		bellumindustria\App\Providers\AuthServiceProvider::class,
+        // bellumindustria\App\Providers\BroadcastServiceProvider::class,
+		bellumindustria\App\Providers\EventServiceProvider::class,
+		bellumindustria\App\Providers\RouteServiceProvider::class,
 
     ],
 

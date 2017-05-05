@@ -1,0 +1,28 @@
+a {
+	color: #2776dc; 
+}
+a:hover {
+	color: #2b2b2b;
+}
+header {
+	background-color: #2776dc; 
+}
+header ul li a {
+	color: #FFF;
+	font-weight: 300;
+}
+.fixed-tab .tab-select.sticky {
+	top: 0;
+}
+.page-header {
+	margin: 40px 0 0 0;
+}
+section {
+	padding: 70px 0;
+}
+table { 
+	font-size: 14px;
+}
+table a {
+	font-weight: 500;
+}
