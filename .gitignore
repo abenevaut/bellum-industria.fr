@@ -90,6 +90,7 @@ database/migrations/2016_07_10_084343_CreateCsgoLoungVictories.php
 database/migrations/2016_07_11_134758_CreateTeamsTable.php
 database/migrations/2016_07_11_141157_CreateDomainTeamTable.php
 database/migrations/2016_07_11_144934_CreateTeamUserTable.php
+database/migrations/2016_09_11_114622_AlterTeamsTable.php
 # Servers
 database/migrations/2016_09_18_134758_CreateServersTable.php
 database/migrations/2016_09_18_141157_CreateDomainServerTable.php
