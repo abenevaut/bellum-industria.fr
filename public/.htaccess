@@ -8,6 +8,12 @@
     RewriteCond %{HTTP:HTTPS} !on
     RewriteRule (.*) https://%{SERVER_NAME}/$1 [QSA,L,R=301]
 
+    # Option 2: To rewrite "domain.com -> www.domain.com" uncomment the following lines.
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+    RewriteCond %{HTTP_HOST} (.+)$ [NC]
+    RewriteRule ^(.*)$ http://www.%1/$1 [R=301,L]
+
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)/$ /$1 [L,R=301]
