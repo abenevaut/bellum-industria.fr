@@ -6,7 +6,7 @@
 @section('js')
 	<script src="plugins/masonry/imagesloaded.pkgd.min.js"></script>
 	<script src="plugins/masonry/masonry.pkgd.min.js"></script>
-	<script src="http://maps.google.com/maps/api/js?sensor=true&key={{ env('BI_GOOGLE_API_KEY_JS') }}"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=true&key={{ env('BI_GOOGLE_API_KEY') }}"></script>
 	<script src="plugins/gmaps/prettify.js"></script>
 	<script src="plugins/gmaps/gmaps.js"></script>
 	<script>
@@ -45,7 +45,7 @@
 			<div class="page-header">
 				<div class="page-title">Contactez nous</div>
 				<ol class="breadcrumb">
-					<li><a href="{{ route('frontend.home') }}">Home</a></li>
+					<li><a href="{{ route('frontend.home') }}">Accueil</a></li>
 					<li><a href="{{ route('frontend.contacts') }}" class="active">Contacts</a></li>
 				</ol>
 			</div>
@@ -93,7 +93,5 @@
 			</div>
 		</div>
 	</section>
-
-
 
 @endsection
