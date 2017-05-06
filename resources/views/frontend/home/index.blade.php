@@ -159,17 +159,17 @@
 	<section class="padding-top-15 padding-bottom-10 youtube-carousel" style="display:none;">
 		<div class="owl-carousel owl-video"></div>
 		<div class="row">
-			<div class="col-md-1">&nbsp;</div>
-			<div class="col-md-4" style="text-align: left;">
+			<div class="col-lg-1 col-md-1 hidden-sm hidden-xs">&nbsp;</div>
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: left;">
 				<a href="#" class="prev carousel-btn"><i class="fa fa-angle-left"></i> Vidéo précedente</a>
 			</div>
-			<div class="col-md-2" style="text-align: center;">
+			<div class="col-lg-2 col-md-2 hidden-sm hidden-xs" style="text-align: center;">
 				<a href="https://www.youtube.com/channel/UCSBq3Ozx_nY6eQ4RJDvxSCA" class="carousel-btn" target="_blank" data-toggle="tooltip" title="" data-original-title="Follow us on Youtube"><i class="fa fa-youtube-square"></i></a>
 			</div>
-			<div class="col-md-4" style="text-align: right;">
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: right;">
 				<a href="#" class="next carousel-btn">Vidéo suivante <i class="fa fa-angle-right"></i></a>
 			</div>
-			<div class="col-md-1">&nbsp;</div>
+			<div class="col-lg-1 col-md-1 hidden-sm hidden-xs">&nbsp;</div>
 		</div>
 	</section>
 
