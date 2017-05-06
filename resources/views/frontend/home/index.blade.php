@@ -4,7 +4,7 @@
 	<link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
 
 	<style>
-		.youtube-carousel .btn {
+		.youtube-carousel .carousel-btn {
 			font-size: 25px;
 			font-weight: 100;
 		}
@@ -161,13 +161,13 @@
 		<div class="row">
 			<div class="col-md-1">&nbsp;</div>
 			<div class="col-md-4" style="text-align: left;">
-				<a href="#" class="prev btn"><i class="fa fa-angle-left"></i> Vidéo précedente</a>
+				<a href="#" class="prev carousel-btn"><i class="fa fa-angle-left"></i> Vidéo précedente</a>
 			</div>
 			<div class="col-md-2" style="text-align: center;">
-				<a href="https://www.youtube.com/channel/UCSBq3Ozx_nY6eQ4RJDvxSCA" class="btn" target="_blank" data-toggle="tooltip" title="" data-original-title="Follow us on Youtube"><i class="fa fa-youtube-square"></i></a>
+				<a href="https://www.youtube.com/channel/UCSBq3Ozx_nY6eQ4RJDvxSCA" class="carousel-btn" target="_blank" data-toggle="tooltip" title="" data-original-title="Follow us on Youtube"><i class="fa fa-youtube-square"></i></a>
 			</div>
 			<div class="col-md-4" style="text-align: right;">
-				<a href="#" class="next btn">Vidéo suivante <i class="fa fa-angle-right"></i></a>
+				<a href="#" class="next carousel-btn">Vidéo suivante <i class="fa fa-angle-right"></i></a>
 			</div>
 			<div class="col-md-1">&nbsp;</div>
 		</div>
