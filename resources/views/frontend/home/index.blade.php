@@ -64,7 +64,7 @@
 	<section class="border-bottom-1 border-grey-300 padding-10">
 		<div class="container">
 			<ol class="breadcrumb">
-				<li><a href="{{ route('frontend.home') }}">Home</a></li>
+				<li><a href="{{ route('frontend.home') }}" class="active">Home</a></li>
 			</ol>
 		</div>
 	</section>

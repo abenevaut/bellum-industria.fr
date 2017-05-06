@@ -152,9 +152,9 @@
 					{{--</li>--}}
 					{{--<li><a href="videos-single.html">Videos--}}
 					{{--Post</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="contact.html">Contact</a>--}}
-					{{--</li>--}}
+					<li>
+						<a href="{{ route('frontend.contacts') }}">Contact</a>
+					</li>
 					{{--</ul>--}}
 					{{--</li>--}}
 					{{--<li class="col-md-6">--}}

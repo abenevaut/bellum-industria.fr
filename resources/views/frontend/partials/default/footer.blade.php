@@ -9,10 +9,22 @@
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+				<h4 class="title">Navigations</h4>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<ul class="nav">
+							<li><a href="{{ route('frontend.contacts') }}">Contact</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<ul class="nav">
+							{{--<li><a href="#">Gaming</a></li>--}}
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-
 	<div class="footer-bottom">
 		<div class="container">
 			<ul class="list-inline">

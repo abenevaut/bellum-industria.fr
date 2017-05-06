@@ -15,5 +15,6 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend'], function ()
 {
 
 	Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+	Route::get('contacts', ['as' => 'contacts', 'uses' => 'ContactsController@index']);
 
 });
