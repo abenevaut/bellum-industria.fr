@@ -33,7 +33,10 @@
 				<a href="{{ route('frontend.home') }}" class="logo"><img src="img/logo.png" alt=""></a>
 				<nav>
 					<div class="nav-control">
-						{{--<ul>--}}
+						<ul>
+
+							<li><a href="{{ route('frontend.home') }}">Bellum Industria</a></li>
+
 							{{--<li class="dropdown">--}}
 								{{--<a href="#" class="dropdown-toggle">Home</a>--}}
 								{{--<ul class="dropdown-menu default">--}}
@@ -340,7 +343,7 @@
 							{{--<li><a href="videos.html">Videos</a></li>--}}
 							{{--<li><a href="gallery.html">Gallery</a></li>--}}
 							{{--<li><a href="contact.html">Contact</a></li>--}}
-						{{--</ul>--}}
+						</ul>
 					</div>
 				</nav>
 				<div class="nav-right">
@@ -467,15 +470,16 @@
 				</div>
 
 
-				<div class="background-image margin-top-40" style="background-image: url(https://img.youtube.com/vi/gzzllYEvlP8/maxresdefault.jpg);">
-					<span class="background-overlay"></span>
-					<div class="container">
-						<div class="embed-responsive embed-responsive-16by9">
-							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/gzzllYEvlP8?rel=0&amp;showinfo=0" allowfullscreen=""></iframe>
-						</div>
+
+			</section>
+
+			<section class="background-image youtube-background" style="display:none;">
+				<span class="background-overlay"></span>
+				<div class="container">
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe class="embed-responsive-item" src="" allowfullscreen=""></iframe>
 					</div>
 				</div>
-
 			</section>
 		</div>
 		<!-- /#wrapper -->
@@ -524,6 +528,25 @@
 					$($container).masonry({
 						itemSelector: '.post-grid',
 						columnWidth: '.post-grid'
+					});
+				});
+
+				$(document).ready(function() {
+					$.ajax({
+						type: "GET",
+						url: "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCSBq3Ozx_nY6eQ4RJDvxSCA&maxResults=1&order=date&type=video&key=AIzaSyDAQVnhST_6ZHw8jbQrAqFoQiXxvwTBRm0",
+						cache: false,
+						dataType: 'jsonp',
+						success: function (data) {
+//							console.log(data);
+
+							var last_video = data.items[0];
+							var $ytb_background = $('.youtube-background');
+
+							$ytb_background.css('background-image', 'url(https://img.youtube.com/vi/' + last_video.id.videoId + '/maxresdefault.jpg)');
+							$ytb_background.find('.embed-responsive-item').attr('src', 'https://www.youtube.com/embed/' + last_video.id.videoId + '?rel=0&amp;showinfo=0');
+							$ytb_background.show();
+						}
 					});
 				});
 			})(jQuery);
