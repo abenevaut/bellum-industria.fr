@@ -46,7 +46,7 @@
 				<div class="page-title">Contactez nous</div>
 				<ol class="breadcrumb">
 					<li><a href="{{ route('frontend.home') }}">Accueil</a></li>
-					<li><a href="{{ route('frontend.contacts') }}" class="active">Contacts</a></li>
+					<li><a href="{{ route('frontend.contacts') }}" class="active">Contact</a></li>
 				</ol>
 			</div>
 		</div>
