@@ -168,6 +168,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
 		Thujohn\Twitter\TwitterServiceProvider::class,
+		Alaouy\Youtube\YoutubeServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -231,6 +232,7 @@ return [
          * Package Aliases...
          */
 		'Twitter' => Thujohn\Twitter\Facades\Twitter::class,
+		'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
 
     ],
 

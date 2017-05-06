@@ -9,7 +9,14 @@ use bellumindustria\Http\Controllers\Controller;
 class HomeController extends Controller
 {
 
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
 	public function index() {
+
+		/*
+		 * Tweets
+		 */
 
 		$tweets = \Twitter::getUserTimeline(
 			[
@@ -31,10 +38,27 @@ class HomeController extends Controller
 				return $tweet;
 			});
 
+		/**
+		 * Youtube
+		 */
+
+		// Get channel data by channel name, return an STD PHP object
+//		$channel = \Youtube::getChannelByName(env('BI_YOUTUBE_CHANNEL_ID'));
+//
+//		dd($channel);
+
+//		$ytbVideos = \Youtube::listChannelVideos(
+//			env('BI_YOUTUBE_CHANNEL_ID'),
+//			10
+//		);
+//
+//		dd($ytbVideos);
+
 		return view(
 			'frontend.home.index',
 			[
 				'tweets' => $tweets,
+//				'ytbVideos' => $ytbVideos,
 			]
 		);
 	}
