@@ -2,6 +2,13 @@
 
 @section('css')
 	<link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+
+	<style>
+		.youtube-carousel .btn {
+			font-size: 25px;
+			font-weight: 100;
+		}
+	</style>
 @endsection
 
 @section('js')
@@ -38,7 +45,6 @@
 						$ytb_background.css('background-image', 'url(https://img.youtube.com/vi/' + last_video.id.videoId + '/maxresdefault.jpg)');
 						$ytb_background.find('.embed-responsive-item').attr('src', 'https://www.youtube.com/embed/' + last_video.id.videoId + '?rel=0&amp;showinfo=0');
 						$.each(data.items, function(index, item) {
-							console.log(item);
 							carousel.append(
 								'<div class="card card-video">' +
 								'<div class="card-img">' +
@@ -52,11 +58,19 @@
 						// start carousel
 						carousel.owlCarousel({
 							autoPlay: true,
-							nav:true,
+							nav: true,
 							items : 6, //4 items above 1000px browser width
 							itemsDesktop : [1600,3], //3 items between 1000px and 0
 							itemsTablet: [940,1], //1 items between 600 and 0
 							itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
+						});
+						$(".next").click(function(){
+							carousel.trigger('owl.next');
+							return false;
+						});
+						$(".prev").click(function(){
+							carousel.trigger('owl.prev');
+							return false;
 						});
 						$('.youtube-carousel-load-video').click(function() {
 							$ytb_background.css('background-image', 'url(https://img.youtube.com/vi/' + $(this).attr('data-video_id') + '/maxresdefault.jpg)');
@@ -143,7 +157,19 @@
 	</section>
 
 	<section class="padding-top-15 padding-bottom-10 youtube-carousel" style="display:none;">
-		<div class="owl-carousel owl-video">
+		<div class="owl-carousel owl-video"></div>
+		<div class="row">
+			<div class="col-md-1">&nbsp;</div>
+			<div class="col-md-4" style="text-align: left;">
+				<a href="#" class="prev btn"><i class="fa fa-angle-left"></i> Vidéo précedente</a>
+			</div>
+			<div class="col-md-2" style="text-align: center;">
+				<a href="https://www.youtube.com/channel/UCSBq3Ozx_nY6eQ4RJDvxSCA" class="btn" target="_blank" data-toggle="tooltip" title="" data-original-title="Follow us on Youtube"><i class="fa fa-youtube-square"></i></a>
+			</div>
+			<div class="col-md-4" style="text-align: right;">
+				<a href="#" class="next btn">Vidéo suivante <i class="fa fa-angle-right"></i></a>
+			</div>
+			<div class="col-md-1">&nbsp;</div>
 		</div>
 	</section>
 
