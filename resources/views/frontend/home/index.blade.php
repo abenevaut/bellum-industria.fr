@@ -8,6 +8,19 @@
 			font-size: 25px;
 			font-weight: 100;
 		}
+		.card .card-xs-gesture {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			width: 40px;
+			height: 40px;
+			background-color: black;
+			background-size: 30px 33px;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-image: url(img/handgestures/scroll-horizontal.png);
+			border-radius: 80px;
+		}
 	</style>
 @endsection
 
@@ -51,6 +64,7 @@
 								'<a href="javascript:void(0);" class="youtube-carousel-load-video" data-video_id="'+item.id.videoId+'">' +
 								'<img src="https://img.youtube.com/vi/' + item.id.videoId + '/maxresdefault.jpg" alt=""></a>' +
 								'<div class="time">' + item.snippet.title + '</div>' +
+								'<div class="card-xs-gesture hidden-lg hidden-md hidden-sm"></div>' +
 								'</div>' +
 								'</div>'
 							);

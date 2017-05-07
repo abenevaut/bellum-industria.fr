@@ -6,7 +6,8 @@
 			<div class="nav-control">
 				<ul>
 
-					<li><a href="{{ route('frontend.home') }}">Bellum Industria</a></li>
+					<li><a href="{{ route('frontend.home') }}">Bellum
+							Industria</a></li>
 
 					{{--<li class="dropdown">--}}
 					{{--<a href="#" class="dropdown-toggle">Home</a>--}}
@@ -182,134 +183,137 @@
 					{{--</ul>--}}
 					{{--</li>--}}
 					{{--<li class="dropdown mega-dropdown">--}}
-					{{--<a href="#">Elements</a>--}}
-					{{--<ul class="dropdown-menu mega-dropdown-menu row" style="background-image: url(img/content/menu.png);">--}}
-					{{--<li class="col-md-3">--}}
-					{{--<ul>--}}
-					{{--<li class="dropdown-header">--}}
-					{{--Typography--}}
-					{{--</li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-typography.html"><i class="fa fa-text-height"></i>--}}
-					{{--General Typography</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-blockquote.html"><i class="fa fa-quote-left"></i>--}}
-					{{--Blockquote</a></li>--}}
-					{{--<li><a href="elements-helpers.html"><i class="fa fa-square-o"></i>--}}
-					{{--Helper Classes</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-testimonials.html"><i class="fa fa-bullhorn"></i>--}}
-					{{--Testimonials</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-grids.html"><i class="fa fa-th-large"></i>--}}
-					{{--Grid Layouts</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-alerts.html"><i class="fa fa-bell-o"></i>--}}
-					{{--Alert & Messages</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-labels.html"><i class="fa fa-bookmark-o"></i>--}}
-					{{--Labels & Badges</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-media.html"><i class="fa fa-image"></i>--}}
-					{{--Audio, Videos & Images</a>--}}
-					{{--</li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-pagers.html"><i class="fa fa-ellipsis-h"></i>--}}
-					{{--Pagination & Pagers</a></li>--}}
-					{{--</ul>--}}
-					{{--</li>--}}
-					{{--<li class="col-md-3">--}}
-					{{--<ul>--}}
-					{{--<li class="dropdown-header">Button &--}}
-					{{--Icons--}}
-					{{--</li>--}}
-					{{--<li><a href="elements-buttons.html"><i class="fa fa-flash"></i>--}}
-					{{--General Buttons</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-social-buttons.html"><i class="fa fa-thumbs-o-up"></i>--}}
-					{{--Social Buttons</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-glyphicons.html"><i class="fa fa-chevron-circle-right"></i>--}}
-					{{--Glyphicons</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-fontawesome.html"><i class="fa fa-chevron-circle-right"></i>--}}
-					{{--FontAwesome</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-ionicons.html"><i class="fa fa-chevron-circle-right"></i>--}}
-					{{--IonIcons</a></li>--}}
-					{{--<li class="dropdown-header">--}}
-					{{--Components--}}
-					{{--</li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-media-objects.html"><i class="fa fa-align-justify"></i>--}}
-					{{--Media Objects</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-page-headers.html"><i class="fa fa-align-justify"></i>--}}
-					{{--Page headers</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-wells.html"><i class="fa fa-align-justify"></i>--}}
-					{{--Wells</a></li>--}}
-					{{--</ul>--}}
-					{{--</li>--}}
-					{{--<li class="col-md-3">--}}
-					{{--<ul>--}}
-					{{--<li class="dropdown-header">Default--}}
-					{{--Elements--}}
-					{{--</li>--}}
-					{{--<li><a href="elements-widgets.html"><i class="fa fa-th"></i>--}}
-					{{--Widgets</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-sections.html"><i class="fa fa-th"></i>--}}
-					{{--Sections</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-thumbnails.html"><i class="fa fa-file-o"></i>--}}
-					{{--Thumbnails</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-cards.html"><i class="fa fa-sticky-note-o"></i>--}}
-					{{--Cards</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-tabs.html"><i class="fa fa-external-link"></i>--}}
-					{{--Accordion & Tabs</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-timeline.html"><i class="fa fa-th-large"></i>--}}
-					{{--Timeline</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-tables.html"><i class="fa fa-th"></i>--}}
-					{{--Tables</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-progress.html"><i class="fa fa-arrows-h"></i>--}}
-					{{--Progress Bars</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-panels.html"><i class="fa fa-th"></i>--}}
-					{{--Panels</a></li>--}}
-					{{--</ul>--}}
-					{{--</li>--}}
-					{{--<li class="col-md-3">--}}
-					{{--<ul>--}}
-					{{--<li class="dropdown-header">Forms &--}}
-					{{--Info--}}
-					{{--</li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-forms.html"><i class="fa fa-align-justify"></i>--}}
-					{{--Form Elements</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-form-layouts.html"><i class="fa fa-align-justify"></i>--}}
-					{{--Form Layouts</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-modals.html"><i class="fa fa-external-link"></i>--}}
-					{{--Modals</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-carousel.html"><i class="fa fa-arrows"></i>--}}
-					{{--Carousel Examples</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-charts.html"><i class="fa fa-bar-chart-o"></i>--}}
-					{{--Charts & Countdowns</a></li>--}}
-					{{--<li>--}}
-					{{--<a href="elements-google-maps.html"><i class="fa fa-map-marker"></i>--}}
-					{{--Google Maps</a></li>--}}
-					{{--</ul>--}}
-					{{--</li>--}}
-					{{--</ul>--}}
+						{{--<a href="#">Elements</a>--}}
+						{{--<ul class="dropdown-menu mega-dropdown-menu row" style="background-image: url(img/content/menu.png);">--}}
+							{{--<li class="col-md-3">--}}
+								{{--<ul>--}}
+									{{--<li class="dropdown-header">--}}
+										{{--Typography--}}
+									{{--</li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-typography.html"><i class="fa fa-text-height"></i>--}}
+											{{--General Typography</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-blockquote.html"><i class="fa fa-quote-left"></i>--}}
+											{{--Blockquote</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-helpers.html"><i class="fa fa-square-o"></i>--}}
+											{{--Helper Classes</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-testimonials.html"><i class="fa fa-bullhorn"></i>--}}
+											{{--Testimonials</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-grids.html"><i class="fa fa-th-large"></i>--}}
+											{{--Grid Layouts</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-alerts.html"><i class="fa fa-bell-o"></i>--}}
+											{{--Alert & Messages</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-labels.html"><i class="fa fa-bookmark-o"></i>--}}
+											{{--Labels & Badges</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-media.html"><i class="fa fa-image"></i>--}}
+											{{--Audio, Videos & Images</a>--}}
+									{{--</li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-pagers.html"><i class="fa fa-ellipsis-h"></i>--}}
+											{{--Pagination & Pagers</a></li>--}}
+								{{--</ul>--}}
+							{{--</li>--}}
+							{{--<li class="col-md-3">--}}
+								{{--<ul>--}}
+									{{--<li class="dropdown-header">Button &--}}
+										{{--Icons--}}
+									{{--</li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-buttons.html"><i class="fa fa-flash"></i>--}}
+											{{--General Buttons</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-social-buttons.html"><i class="fa fa-thumbs-o-up"></i>--}}
+											{{--Social Buttons</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-glyphicons.html"><i class="fa fa-chevron-circle-right"></i>--}}
+											{{--Glyphicons</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-fontawesome.html"><i class="fa fa-chevron-circle-right"></i>--}}
+											{{--FontAwesome</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-ionicons.html"><i class="fa fa-chevron-circle-right"></i>--}}
+											{{--IonIcons</a></li>--}}
+									{{--<li class="dropdown-header">--}}
+										{{--Components--}}
+									{{--</li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-media-objects.html"><i class="fa fa-align-justify"></i>--}}
+											{{--Media Objects</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-page-headers.html"><i class="fa fa-align-justify"></i>--}}
+											{{--Page headers</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-wells.html"><i class="fa fa-align-justify"></i>--}}
+											{{--Wells</a></li>--}}
+								{{--</ul>--}}
+							{{--</li>--}}
+							{{--<li class="col-md-3">--}}
+								{{--<ul>--}}
+									{{--<li class="dropdown-header">Default--}}
+										{{--Elements--}}
+									{{--</li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-widgets.html"><i class="fa fa-th"></i>--}}
+											{{--Widgets</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-sections.html"><i class="fa fa-th"></i>--}}
+											{{--Sections</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-thumbnails.html"><i class="fa fa-file-o"></i>--}}
+											{{--Thumbnails</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-cards.html"><i class="fa fa-sticky-note-o"></i>--}}
+											{{--Cards</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-tabs.html"><i class="fa fa-external-link"></i>--}}
+											{{--Accordion & Tabs</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-timeline.html"><i class="fa fa-th-large"></i>--}}
+											{{--Timeline</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-tables.html"><i class="fa fa-th"></i>--}}
+											{{--Tables</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-progress.html"><i class="fa fa-arrows-h"></i>--}}
+											{{--Progress Bars</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-panels.html"><i class="fa fa-th"></i>--}}
+											{{--Panels</a></li>--}}
+								{{--</ul>--}}
+							{{--</li>--}}
+							{{--<li class="col-md-3">--}}
+								{{--<ul>--}}
+									{{--<li class="dropdown-header">Forms &--}}
+										{{--Info--}}
+									{{--</li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-forms.html"><i class="fa fa-align-justify"></i>--}}
+											{{--Form Elements</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-form-layouts.html"><i class="fa fa-align-justify"></i>--}}
+											{{--Form Layouts</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-modals.html"><i class="fa fa-external-link"></i>--}}
+											{{--Modals</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-carousel.html"><i class="fa fa-arrows"></i>--}}
+											{{--Carousel Examples</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-charts.html"><i class="fa fa-bar-chart-o"></i>--}}
+											{{--Charts & Countdowns</a></li>--}}
+									{{--<li>--}}
+										{{--<a href="elements-google-maps.html"><i class="fa fa-map-marker"></i>--}}
+											{{--Google Maps</a></li>--}}
+								{{--</ul>--}}
+							{{--</li>--}}
+						{{--</ul>--}}
 					{{--</li>--}}
 					{{--<li><a href="videos.html">Videos</a></li>--}}
 					{{--<li><a href="gallery.html">Gallery</a></li>--}}
