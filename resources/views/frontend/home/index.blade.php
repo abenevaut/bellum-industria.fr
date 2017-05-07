@@ -2,7 +2,6 @@
 
 @section('css')
 	<link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
-
 	<style>
 		.youtube-carousel .carousel-btn {
 			font-size: 25px;
