@@ -158,7 +158,7 @@
 
 	<section class="padding-top-15 padding-bottom-10 youtube-carousel" style="display:none;">
 		<div class="owl-carousel owl-video"></div>
-		<div class="row">
+		<div>
 			<div class="col-lg-1 col-md-1 hidden-sm hidden-xs">&nbsp;</div>
 			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: left;">
 				<a href="#" class="prev carousel-btn"><i class="fa fa-angle-left"></i> Vidéo précedente</a>
