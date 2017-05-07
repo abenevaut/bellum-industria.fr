@@ -14,7 +14,7 @@
 			right: 10px;
 			width: 40px;
 			height: 40px;
-			background-color: black;
+			background-color: rgba(0,0,0, 0.8);
 			background-size: 30px 33px;
 			background-repeat: no-repeat;
 			background-position: center;
