@@ -68,4 +68,15 @@ mix
 			'resources/assets/js/frontend/home/index.js'
 		],
 		'public/js/frontend/home/index.js'
+	)
+	/**
+	 * Frontend contacts
+	 */
+	.js(
+		[
+			'resources/assets/plugins/gmaps/gmaps.js',
+			'resources/assets/plugins/gmaps/prettify.js',
+			'resources/assets/js/frontend/contacts/index.js'
+		],
+		'public/js/frontend/contacts/index.js'
 	);

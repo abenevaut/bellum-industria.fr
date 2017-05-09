@@ -4,37 +4,8 @@
 @endsection
 
 @section('js')
-	<script src="plugins/masonry/imagesloaded.pkgd.min.js"></script>
-	<script src="plugins/masonry/masonry.pkgd.min.js"></script>
 	<script src="http://maps.google.com/maps/api/js?sensor=true&key={{ env('BI_GOOGLE_API_KEY') }}"></script>
-	<script src="plugins/gmaps/prettify.js"></script>
-	<script src="plugins/gmaps/gmaps.js"></script>
-	<script>
-		(function ($) {
-			"use strict";
-			var $container = $('.masonry');
-			var map;
-			$($container).imagesLoaded(function () {
-				$($container).masonry({
-					itemSelector: '.post-grid',
-					columnWidth: '.post-grid'
-				});
-			});
-			$(document).ready(function() {
-				prettyPrint();
-				var map = new GMaps({
-					div: '#map',
-					scrollwheel: false,
-					lat: 48.8566,
-					lng: 2.3522
-				});
-				var marker = map.addMarker({
-					lat: 48.8566,
-					lng: 2.3522
-				});
-			});
-		})(jQuery);
-	</script>
+	<script src="{{ elixir('js/frontend/contacts/index.js') }}"></script>
 @endsection
 
 @section('content')
