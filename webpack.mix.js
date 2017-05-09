@@ -44,7 +44,7 @@ mix
 	 */
 	.styles(
 		[
-			'resources/assets/plugins/animate/animate.min.css',
+			'resources/assets/plugins/animate/animate.css',
 			'resources/assets/css/theme.css',
 			'resources/assets/css/custom.css'
 		],
@@ -62,9 +62,9 @@ mix
 	)
 	.js(
 		[
-			'resources/assets/bower/imagesloaded/imagesloaded.pkgd.min.js',
-			'resources/assets/bower/masonry/dist/masonry.pkgd.min.js',
-			'resources/assets/bower/owl-carousel/owl-carousel/owl.carousel.min.js',
+			'resources/assets/bower/masonry/dist/masonry.pkgd.js',
+			'resources/assets/bower/imagesloaded/imagesloaded.pkgd.js',
+			'resources/assets/bower/owl-carousel/owl-carousel/owl.carousel.js',
 			'resources/assets/js/frontend/home/index.js'
 		],
 		'public/js/frontend/home/index.js'
