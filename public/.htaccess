@@ -5,8 +5,8 @@
 
     RewriteEngine On
 
-    #RewriteCond %{HTTP:HTTPS} !on
-    #RewriteRule (.*) https://%{SERVER_NAME}/$1 [QSA,L,R=301]
+    RewriteCond %{HTTP:HTTPS} !on
+    RewriteRule (.*) https://%{SERVER_NAME}/$1 [QSA,L,R=301]
 
     # Option 2: To rewrite "domain.com -> www.domain.com" uncomment the following lines.
     RewriteCond %{HTTPS} !=on
