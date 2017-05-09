@@ -1,8 +1,8 @@
 {
   "/js/frontend/contacts/index.js": "/js/frontend/contacts/index.js",
-  "/js/frontend/home/index.js": "/js/frontend/home/index.js",
   "/js/frontend/layouts/core.js": "/js/frontend/layouts/core.js",
   "/js/frontend/layouts/googleanalytics.js": "/js/frontend/layouts/googleanalytics.js",
+  "/js/frontend/home/index.js": "/js/frontend/home/index.js",
   "/css/frontend/layouts/core.css": "/css/frontend/layouts/core.css",
   "/css/frontend/layouts/default.css": "/css/frontend/layouts/default.css",
   "/css/frontend/home/index.css": "/css/frontend/home/index.css"
