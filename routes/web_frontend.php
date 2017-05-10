@@ -14,7 +14,18 @@
 Route::group(['as' => 'frontend.', 'namespace' => 'Frontend'], function ()
 {
 
+	/**
+	 * Home
+	 */
 	Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
-	Route::get('contacts', ['as' => 'contacts', 'uses' => 'ContactsController@index']);
 
+	Route::group(['prefix' => 'frontend'], function ()
+	{
+
+		/**
+		 * Contacts
+		 */
+		Route::resource('contacts', 'ContactsController');
+
+	});
 });

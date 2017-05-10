@@ -10,14 +10,14 @@
 
 @section('content')
 
-	<section class="hero" style="background-image: url(img/cover/cover.jpg);">
+	<section class="hero" style="background-image: url(/img/cover/cover.jpg);">
 		<div class="hero-bg-primary"></div>
 		<div class="container">
 			<div class="page-header">
 				<div class="page-title">Contactez nous</div>
 				<ol class="breadcrumb">
 					<li><a href="{{ route('frontend.home') }}">Accueil</a></li>
-					<li><a href="{{ route('frontend.contacts') }}" class="active">Contact</a></li>
+					<li><a href="{{ route('frontend.contacts.index') }}" class="active">Contact</a></li>
 				</ol>
 			</div>
 		</div>
@@ -40,26 +40,26 @@
 			<div class="row">
 				<div class="col-lg-7">
 					<div class="title">
-						<h4><i class="fa fa-envelope"></i> Lets Get In Touch!</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis facilisis justo.</p>
+						<h4><i class="fa fa-envelope"></i> Contactez nous</h4>
+						<p>remarques, reproches, idées, donnez nous votre avis</p>
 					</div>
-					<form>
+					{!! Form::open(['route' => ['frontend.contacts.store'], 'method' => 'POST']) !!}
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Email" required>
+							<input type="text" class="form-control" placeholder="Courriel" name="email" value="{{ old('email') }}">
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Subject" required>
+							<input type="text" class="form-control" placeholder="Sujet" name="subject" value="{{ old('subject') }}">
 						</div>
 						<div class="form-group">
-							<textarea class="form-control" rows="7" placeholder="Message"></textarea>
+							<textarea class="form-control" rows="7" placeholder="Message" name="message">{{ old('message') }}</textarea>
 						</div>
 						<div class="text-center margin-top-30">
-							<button type="button" class="btn btn-primary btn-lg btn-rounded btn-shadow">Send Message</button>
+							<button type="button" class="btn btn-primary btn-lg btn-rounded btn-shadow">Envoyez votre message</button>
 						</div>
-					</form>
+					{!! Form::close() !!}
 				</div>
 				<div class="col-lg-5 height-300">
-					<img src="img/content/contact.jpg" class="image-right" alt="">
+					<img src="/img/content/contact.jpg" class="image-right" alt="">
 				</div>
 			</div>
 		</div>

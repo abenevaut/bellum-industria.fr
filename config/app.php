@@ -168,6 +168,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
 		Thujohn\Twitter\TwitterServiceProvider::class,
+		Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -231,6 +232,8 @@ return [
          * Package Aliases...
          */
 		'Twitter' => Thujohn\Twitter\Facades\Twitter::class,
+		'Form' => Collective\Html\FormFacade::class,
+		'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

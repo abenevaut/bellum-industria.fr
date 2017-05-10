@@ -26,8 +26,8 @@ mix
 	)
 	.scripts(
 		[
-			'resources/assets/bower/jquery/dist/jquery.js',
-			'resources/assets/bower/bootstrap/dist/js/bootstrap.js',
+			//'resources/assets/bower/jquery/dist/jquery.js',
+			//'resources/assets/bower/bootstrap/dist/js/bootstrap.js',
 			'resources/assets/js/core.js',
 			'resources/assets/js/app.js'
 		],
@@ -74,6 +74,7 @@ mix
 	 */
 	.scripts(
 		[
+			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
 			'resources/assets/plugins/gmaps/gmaps.js',
 			'resources/assets/plugins/gmaps/prettify.js',
 			'resources/assets/js/frontend/contacts/index.js'
