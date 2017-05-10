@@ -2,10 +2,10 @@
 
 namespace bellumindustria\Http\Controllers\Auth;
 
-use bellumindustria\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
 
-class ForgotPasswordController extends Controller
+class ForgotPasswordController extends ControllerAbstract
 {
     /*
     |--------------------------------------------------------------------------

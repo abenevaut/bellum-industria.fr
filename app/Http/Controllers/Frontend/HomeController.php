@@ -3,10 +3,10 @@
 namespace bellumindustria\Http\Controllers\Frontend;
 
 use Carbon\Carbon;
+use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
 use bellumindustria\App\Services\TwitterTextFormatter;
-use bellumindustria\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class HomeController extends ControllerAbstract
 {
 
 	/**

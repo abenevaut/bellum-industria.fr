@@ -2,10 +2,10 @@
 
 namespace bellumindustria\Http\Controllers\Auth;
 
-use bellumindustria\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
 
-class ResetPasswordController extends Controller
+class ResetPasswordController extends ControllerAbstract
 {
     /*
     |--------------------------------------------------------------------------

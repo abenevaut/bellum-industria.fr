@@ -2,9 +2,10 @@
 
 namespace bellumindustria\Http\Controllers\Frontend;
 
-use bellumindustria\Http\Controllers\Controller;
+use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use bellumindustria\Http\Request\Frontend\Contacts\ContactRequest;
 
-class ContactsController extends Controller
+class ContactsController extends ControllerAbstract
 {
 
 	/**
@@ -21,8 +22,11 @@ class ContactsController extends Controller
 	/**
 	 *
 	 */
-	public function store()
+	public function store(ContactRequest $request)
 	{
+
+		dd($request->all());
+
 		redirect(route('frontend.contacts'));
 	}
 }

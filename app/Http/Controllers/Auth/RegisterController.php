@@ -2,12 +2,12 @@
 
 namespace bellumindustria\Http\Controllers\Auth;
 
-use bellumindustria\User;
-use bellumindustria\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use bellumindustria\Domain\Users\Users\User;
 
-class RegisterController extends Controller
+class RegisterController extends ControllerAbstract
 {
     /*
     |--------------------------------------------------------------------------

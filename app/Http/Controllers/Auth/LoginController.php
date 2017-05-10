@@ -2,10 +2,10 @@
 
 namespace bellumindustria\Http\Controllers\Auth;
 
-use bellumindustria\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
 
-class LoginController extends Controller
+class LoginController extends ControllerAbstract
 {
     /*
     |--------------------------------------------------------------------------
