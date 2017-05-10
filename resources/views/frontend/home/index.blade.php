@@ -1,7 +1,7 @@
 @extends('frontend.layouts.default')
 
 @section('css')
-	<link href="{{ elixir('css/frontend/home/index.css') }}" rel="stylesheet">
+	<link href="{{ mix('css/frontend/home/index.css') }}" rel="stylesheet">
 @endsection
 
 @section('js')
@@ -9,7 +9,7 @@
 		bellumindustria.BI_YOUTUBE_CHANNEL_ID = "{{ env('BI_YOUTUBE_CHANNEL_ID') }}";
 		bellumindustria.BI_GOOGLE_API_KEY = "{{ env('BI_GOOGLE_API_KEY') }}";
 	</script>
-	<script src="{{ elixir('js/frontend/home/index.js') }}"></script>
+	<script src="{{ mix('js/frontend/home/index.js') }}"></script>
 @endsection
 
 @section('content')

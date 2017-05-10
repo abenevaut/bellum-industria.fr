@@ -87,8 +87,7 @@ AppException = function () {
 
 	_app = {
 		environment: null,
-		token: null,
-		screen_size: null
+		token: null
 	};
 
 	/**
@@ -603,16 +602,14 @@ AppException = function () {
 		 */
 		baseValidationForSirenAndSiret: function (number, size) {
 
-			if (isNaN(number) || number.length != size)
-			{
+			if (isNaN(number) || number.length != size) {
 				return false;
 			}
 
 			var bal = 0;
 			var total = 0;
 
-			for (var i = size - 1; i >= 0; i--)
-			{
+			for (var i = size - 1; i >= 0; i--) {
 				var step = (number.charCodeAt(i) - 48) * (bal + 1);
 				total += (step > 9) ? step - 9 : step;
 				bal = 1 - bal;
@@ -627,8 +624,7 @@ AppException = function () {
 		 * @param siren
 		 * @returns {*}
 		 */
-		isValidSiren: function(siren)
-		{
+		isValidSiren: function (siren) {
 			return _app.checks.baseValidationForSirenAndSiret(siren, 9);
 		},
 
@@ -638,8 +634,7 @@ AppException = function () {
 		 * @param siren
 		 * @returns {*}
 		 */
-		isValidSiret: function(siren)
-		{
+		isValidSiret: function (siren) {
 			return _app.checks.baseValidationForSirenAndSiret(siren, 14);
 		}
 

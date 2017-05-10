@@ -5,7 +5,7 @@
 
 @section('js')
 	<script src="http://maps.google.com/maps/api/js?sensor=true&key={{ env('BI_GOOGLE_API_KEY') }}"></script>
-	<script src="{{ elixir('js/frontend/contacts/index.js') }}"></script>
+	<script src="{{ mix('js/frontend/contacts/index.js') }}"></script>
 @endsection
 
 @section('content')

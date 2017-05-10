@@ -7,7 +7,7 @@
 <title>@section('title', 'www.bellum-industria.fr')</title>
 <meta name="description" content="www.bellum-industria.fr">
 <meta name="author" content="Antoine Benevaut <antoine@bellum-industria.fr>">
-<link href="{{ elixir('css/frontend/layouts/core.css') }}" rel="stylesheet">
+<link href="{{ mix('css/frontend/layouts/core.css') }}" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
-<link href="{{ elixir('css/frontend/layouts/default.css') }}" rel="stylesheet">
+<link href="{{ mix('css/frontend/layouts/default.css') }}" rel="stylesheet">
 @yield('css')

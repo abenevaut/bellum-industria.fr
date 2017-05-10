@@ -1,10 +1,10 @@
 {
-  "/mix.js": "/mix.js",
-  "/css/frontend/layouts/core.css": "/css/frontend/layouts/core.css",
-  "/js/frontend/layouts/core.js": "/js/frontend/layouts/core.js",
-  "/js/frontend/layouts/googleanalytics.js": "/js/frontend/layouts/googleanalytics.js",
-  "/css/frontend/layouts/default.css": "/css/frontend/layouts/default.css",
-  "/css/frontend/home/index.css": "/css/frontend/home/index.css",
-  "/js/frontend/home/index.js": "/js/frontend/home/index.js",
-  "/js/frontend/contacts/index.js": "/js/frontend/contacts/index.js"
+  "/mix.js": "/mix.2c859f2861cff8603409.js",
+  "/css/frontend/layouts/core.css": "/css/frontend/layouts/core.fce9c4b9d91930489f2892d435fd1f87.css",
+  "/js/frontend/layouts/core.js": "/js/frontend/layouts/core.3631043680bc8c860faefe171b9c62a0.js",
+  "/js/frontend/layouts/googleanalytics.js": "/js/frontend/layouts/googleanalytics.3364efbf1bdcf236d561ded86602e2db.js",
+  "/css/frontend/layouts/default.css": "/css/frontend/layouts/default.084adcc34946795b9b778e5d69bd09a2.css",
+  "/css/frontend/home/index.css": "/css/frontend/home/index.aea9852ddb18d19eb50c657af6a65d27.css",
+  "/js/frontend/home/index.js": "/js/frontend/home/index.24fd1f33ba1ed426c0b1715bf00c71dd.js",
+  "/js/frontend/contacts/index.js": "/js/frontend/contacts/index.6b78a1ff94029e1978ab2f25eaf89531.js"
 }

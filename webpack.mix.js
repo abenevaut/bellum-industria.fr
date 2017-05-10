@@ -83,6 +83,6 @@ mix
 		'public/js/frontend/contacts/index.js'
 	);
 
-//if (mix.config.inProduction) {
-//	mix.version();
-//}
+if (mix.config.inProduction) {
+	mix.version();
+}
