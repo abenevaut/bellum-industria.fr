@@ -12,11 +12,7 @@ class ContactsController extends ControllerAbstract
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function index() {
-		return view(
-			'frontend.contacts.index',
-			[
-			]
-		);
+		return view('frontend.contacts.index');
 	}
 
 	/**
@@ -27,6 +23,6 @@ class ContactsController extends ControllerAbstract
 
 		dd($request->all());
 
-		redirect(route('frontend.contacts'));
+		redirect(route('frontend.contacts.index'));
 	}
 }
