@@ -1,0 +1,17 @@
+.youtube-carousel .carousel-btn {
+	font-size: 25px;
+	font-weight: 100;
+}
+.card .card-xs-gesture {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	background-color: rgba(0,0,0, 0.8);
+	background-size: 30px 33px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url(/img/handgestures/scroll-horizontal.png);
+	border-radius: 80px;
+}
