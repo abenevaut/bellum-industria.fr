@@ -35,6 +35,14 @@
 		init_validation: function () {
 			$("form").validate({
 				rules: {
+					first_name: {
+						required: true,
+						maxlength: 255
+					},
+					last_name: {
+						required: true,
+						maxlength: 255
+					},
 					subject: {
 						required: true,
 						maxlength: 255
