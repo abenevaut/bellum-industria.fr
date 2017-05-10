@@ -26,8 +26,8 @@ mix
 	)
 	.scripts(
 		[
-			//'resources/assets/bower/jquery/dist/jquery.js',
-			//'resources/assets/bower/bootstrap/dist/js/bootstrap.js',
+			'resources/assets/bower/jquery/dist/jquery.js',
+			'resources/assets/bower/bootstrap/dist/js/bootstrap.js',
 			'resources/assets/js/core.js',
 			'resources/assets/js/app.js'
 		],

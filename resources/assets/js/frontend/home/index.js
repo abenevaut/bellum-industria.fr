@@ -5,21 +5,9 @@
 
 	_script = {
 		/**
-		 *
-		 */
-		BI_YOUTUBE_CHANNEL_ID: null,
-		/**
-		 *
-		 */
-		BI_GOOGLE_API_KEY: null,
-		/**
 		 * Run script
 		 */
 		init: function () {
-
-			_script.BI_YOUTUBE_CHANNEL_ID = $('input[name="BI_YOUTUBE_CHANNEL_ID"]').val();
-			_script.BI_GOOGLE_API_KEY = $('input[name="BI_GOOGLE_API_KEY"]').val();
-
 			_script.init_carousel();
 			_script.init_youtube();
 			_script.init_twitch();
@@ -46,7 +34,7 @@
 
 			$.ajax({
 				type: "GET",
-				url: "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=" + _script.BI_YOUTUBE_CHANNEL_ID + "&maxResults=8&order=date&type=video&key=" + _script.BI_GOOGLE_API_KEY,
+				url: "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=" + bellumindustria.BI_YOUTUBE_CHANNEL_ID + "&maxResults=8&order=date&type=video&key=" + bellumindustria.BI_GOOGLE_API_KEY,
 				cache: false,
 				dataType: 'jsonp',
 				success: function (data) {

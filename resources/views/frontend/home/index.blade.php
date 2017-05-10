@@ -5,13 +5,14 @@
 @endsection
 
 @section('js')
+	<script>
+		bellumindustria.BI_YOUTUBE_CHANNEL_ID = "{{ env('BI_YOUTUBE_CHANNEL_ID') }}";
+		bellumindustria.BI_GOOGLE_API_KEY = "{{ env('BI_GOOGLE_API_KEY') }}";
+	</script>
 	<script src="{{ elixir('js/frontend/home/index.js') }}"></script>
 @endsection
 
 @section('content')
-
-	<input type="hidden" name="BI_YOUTUBE_CHANNEL_ID" value="{{ env('BI_YOUTUBE_CHANNEL_ID') }}">
-	<input type="hidden" name="BI_GOOGLE_API_KEY" value="{{ env('BI_GOOGLE_API_KEY') }}">
 
 	<section class="border-bottom-1 border-grey-300 padding-10">
 		<div class="container">
