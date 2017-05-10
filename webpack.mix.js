@@ -29,15 +29,10 @@ mix
 			'resources/assets/bower/jquery/dist/jquery.js',
 			'resources/assets/bower/bootstrap/dist/js/bootstrap.js',
 			'resources/assets/js/core.js',
-			'resources/assets/js/app.js'
-		],
-		'public/js/frontend/layouts/core.js'
-	)
-	.scripts(
-		[
+			'resources/assets/js/app.js',
 			'resources/assets/js/googleanalytics.js'
 		],
-		'public/js/frontend/layouts/googleanalytics.js'
+		'public/js/frontend/layouts/core.js'
 	)
 	/**
 	 * Default layout
