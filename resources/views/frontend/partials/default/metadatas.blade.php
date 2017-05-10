@@ -7,6 +7,7 @@
 <title>@section('title', 'www.bellum-industria.fr')</title>
 <meta name="description" content="www.bellum-industria.fr">
 <meta name="author" content="Antoine Benevaut <antoine@bellum-industria.fr>">
+<base href="{{ env('APP_URL') }}">
 <link href="{{ mix('css/frontend/layouts/core.css') }}" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
 <link href="{{ mix('css/frontend/layouts/default.css') }}" rel="stylesheet">
