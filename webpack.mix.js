@@ -46,6 +46,15 @@ mix
 		'public/css/frontend/layouts/default.css'
 	)
 	/**
+	 * Default layout
+	 */
+	.styles(
+		[
+			'resources/assets/css/emails_theme.css'
+		],
+		'public/css/frontend/layouts/emails_theme.css'
+	)
+	/**
 	 * Frontend home
 	 */
 	.styles(

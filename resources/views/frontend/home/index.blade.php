@@ -23,6 +23,9 @@
 	</section>
 
 	<section class="bg-grey-50 border-bottom-1 border-grey-300 padding-top-40 padding-bottom-40 padding-top-sm-30">
+
+		{{--@include('frontend.partials.default.alerts')--}}
+
 		<div class="container">
 			<div class="headline">
 				<h4><i class="fa fa-twitter"></i> Tweets</h4>

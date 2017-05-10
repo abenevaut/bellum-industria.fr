@@ -23,9 +23,11 @@ class ContactRequest extends RequestAbstract
 	 */
 	public function rules() {
 		$rules = [
-			'email'   => 'required|email',
-			'subject' => 'required',
-			'message' => 'required',
+			'first_name' => 'required',
+			'last_name'  => 'required',
+			'email'      => 'required|email',
+			'subject'    => 'required',
+			'message'    => 'required',
 		];
 
 		return $rules;

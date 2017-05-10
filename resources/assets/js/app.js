@@ -722,4 +722,4 @@ window.setTimeout(function () {
 	$(".alert").not('.alert-module').fadeTo(200, 0).slideUp(500, function () {
 		$(this).remove();
 	});
-}, 4000);
+}, 8000);
