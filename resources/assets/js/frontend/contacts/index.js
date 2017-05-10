@@ -89,7 +89,7 @@
 		}
 	};
 
-	$(D).ready(function () {
+	$(D).bind('APP_READY', function () {
 		_script.init();
 	});
 })(jQuery, document, window);

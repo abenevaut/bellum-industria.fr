@@ -54,7 +54,7 @@
 							<textarea class="form-control" rows="7" placeholder="Message" name="message">{{ old('message') }}</textarea>
 						</div>
 						<div class="text-center margin-top-30">
-							<button type="button" class="btn btn-primary btn-lg btn-rounded btn-shadow">Envoyez votre message</button>
+							<button type="submit" class="btn btn-primary btn-lg btn-rounded btn-shadow">Envoyez votre message</button>
 						</div>
 					{!! Form::close() !!}
 				</div>
