@@ -26,8 +26,8 @@ mix
 	)
 	.scripts(
 		[
-			'resources/assets/bower/jquery/dist/jquery.js',
-			'resources/assets/bower/bootstrap/dist/js/bootstrap.js',
+			//'resources/assets/bower/jquery/dist/jquery.js',
+			//'resources/assets/bower/bootstrap/dist/js/bootstrap.js',
 			'resources/assets/js/core.js',
 			'resources/assets/js/app.js'
 		],
@@ -79,5 +79,8 @@ mix
 			'resources/assets/js/frontend/contacts/index.js'
 		],
 		'public/js/frontend/contacts/index.js'
-	)
-	.version();
+	);
+
+//if (mix.config.inProduction) {
+//	mix.version();
+//}

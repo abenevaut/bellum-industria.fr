@@ -720,8 +720,8 @@ AppException = function () {
 })(jQuery, window, document);
 
 // Save Apcdna instance
-var apcdna = $.app;
-apcdna.debug('Apcdna JS App object running...');
+var bellumindustria = $.app;
+bellumindustria.debug('Bellum-Industria JS App object running...');
 
 window.setTimeout(function () {
 	$(".alert").not('.alert-module').fadeTo(200, 0).slideUp(500, function () {
