@@ -35,10 +35,10 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-		if (!app()->environment('local') && $this->shouldReport($e))
+		if (!app()->environment('local') && $this->shouldReport($exception))
 		{
 			// bind the event ID for Feedback
-			$this->sentryID = app('sentry')->captureException($e);
+			$this->sentryID = app('sentry')->captureException($exception);
 		}
         parent::report($exception);
     }
@@ -52,7 +52,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-		if (!app()->environment('local') && $this->shouldReport($e))
+		if (!app()->environment('local') && $this->shouldReport($exception))
 		{
 			return response()
 				->view(
