@@ -13,6 +13,10 @@
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<ul class="nav">
 							<li><a href="{{ route('frontend.home') }}">Accueil</a></li>
+							@if (!Auth::check())
+								<li><a href="{{ route('login') }}">Connexion</a></li>
+								<li><a href="{{ route('register') }}">Créer un compte</a></li>
+							@endif
 							<li><a href="{{ route('frontend.contacts.index') }}">Contact</a></li>
 						</ul>
 					</div>
@@ -34,7 +38,7 @@
 				<li><a href="https://www.youtube.com/channel/UCSBq3Ozx_nY6eQ4RJDvxSCA" target="_blank" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="" data-original-title="Follow us on Youtube"><i class="fa fa-youtube-square"></i></a></li>
 				<li><a href="https://twitch.tv/bellumindustria" target="_blank" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="" data-original-title="Follow us on Twitch.tv"><i class="fa fa-twitch"></i></a></li>
 			</ul>
-			© 2017 www.bellum-industria.fr. All rights reserved.
+			© 2016-{{ date('Y') }} <a href="{{ url('/') }}">www.bellum-industria.fr</a>. All rights reserved.
 		</div>
 	</div>
 </footer>
