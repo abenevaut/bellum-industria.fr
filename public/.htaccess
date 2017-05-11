@@ -158,6 +158,11 @@ AddType image/x-icon .ico
 </ifModule>
 
 <IfModule mod_headers.c>
+
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|js)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+
         Header unset ETag
 
         # http://www.samaxes.com/2008/04/htaccess-gzip-and-cache-your-site-for-faster-loading-and-bandwidth-saving/
