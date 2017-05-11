@@ -43,7 +43,7 @@
 				</div>
 			@else
 				<div class="nav-profile dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><img src="/img/avatar.png" alt=""> <span>Mon espace</span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><img src="/img/user/avatar.png" alt=""> <span>Mon espace</span></a>
 					<ul class="dropdown-menu">
 						<li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i> Connexion</a></li>
 						<li><a href="{{ route('register') }}"><i class="fa fa-pencil-square-o"></i> Créer un compte</a></li>
