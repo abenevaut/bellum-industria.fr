@@ -170,6 +170,7 @@ return [
 		Thujohn\Twitter\TwitterServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
 		Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
+		Laravel\Socialite\SocialiteServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
@@ -236,6 +237,7 @@ return [
 		'Form'         => Collective\Html\FormFacade::class,
 		'Html'         => Collective\Html\HtmlFacade::class,
 		'Sentry'       => Sentry\SentryLaravel\SentryFacade::class,
+		'Socialite'    => Laravel\Socialite\Facades\Socialite::class,
 
 	],
 

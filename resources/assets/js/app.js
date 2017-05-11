@@ -714,9 +714,9 @@ AppException = function () {
 
 })(jQuery, window, document);
 
-// Save Apcdna instance
+// Save Bellum Industria instance
 var bellumindustria = $.app;
-bellumindustria.debug('Bellum-Industria JS App object running...');
+bellumindustria.debug('Bellum Industria JS App object running...');
 
 window.setTimeout(function () {
 	$(".alert").not('.alert-module').fadeTo(200, 0).slideUp(500, function () {

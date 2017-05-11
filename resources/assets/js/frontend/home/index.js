@@ -8,11 +8,14 @@
 		 * Run script
 		 */
 		init: function () {
+			bellumindustria.debug('index.js > init');
+
 			_script.init_carousel();
 			_script.init_youtube();
 			_script.init_twitch();
 		},
 		init_carousel: function () {
+			bellumindustria.debug('index.js > init_carousel');
 
 			var $container = $('.masonry');
 
@@ -24,6 +27,8 @@
 			});
 		},
 		init_youtube: function () {
+			bellumindustria.debug('index.js > init_youtube');
+
 			/**
 			 * Youtube
 			 */
@@ -91,6 +96,8 @@
 		 *
 		 */
 		init_twitch: function () {
+			bellumindustria.debug('index.js > init_twitch');
+
 //				$.ajax({
 //					url: 'https://api.twitch.tv/kraken/streams/bellumindustria',
 //					dataType: 'jsonp',

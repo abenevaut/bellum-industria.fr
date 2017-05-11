@@ -8,6 +8,7 @@
 		 * Run script
 		 */
 		init: function () {
+			bellumindustria.debug('index.js > init');
 
 			prettyPrint();
 
@@ -18,6 +19,8 @@
 		 *
 		 */
 		init_gmap: function () {
+			bellumindustria.debug('index.js > init_gmap');
+
 			var map = new GMaps({
 				div: '#map',
 				scrollwheel: false,
@@ -33,6 +36,8 @@
 		 *
 		 */
 		init_validation: function () {
+			bellumindustria.debug('index.js > init_validation');
+
 			$("form").validate({
 				rules: {
 					first_name: {
