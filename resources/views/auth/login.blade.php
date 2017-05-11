@@ -7,11 +7,15 @@
             background-color: #666666;
             border-color: rgba(0, 0, 0, 0.2);
         }
+        .btn-steam:hover {
+            color: #fff;
+            background-color: #585858;
+            border-color: rgba(0, 0, 0, 0.2);
+        }
     </style>
 @endsection
 
 @section('content')
-
 
     <section class="hero hero-panel" style="background-image: url(/img/cover/cover-login.jpg);">
         <div class="hero-bg"></div>
@@ -61,7 +65,7 @@
                                 <div class="form-group" style="padding-bottom: 30px">
                                     <div class="checkbox checkbox-primary">
                                         <input type="checkbox" id="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        <label for="checkbox">Remember me</label>
+                                        <label for="checkbox">Se souvenir de moi</label>
                                     </div>
                                 </div>
 
