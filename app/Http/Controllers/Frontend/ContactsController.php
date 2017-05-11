@@ -71,10 +71,6 @@ class ContactsController extends ControllerAbstract
 						config('mail.from.address'),
 						config('mail.from.name')
 					)
-					->bcc(
-						config('mail.from.address'),
-						config('mail.from.name')
-					)
 					->subject($request->get('subject'));
 			});
 
