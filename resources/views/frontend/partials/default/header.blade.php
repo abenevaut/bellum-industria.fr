@@ -17,8 +17,37 @@
 			</div>
 		</nav>
 		<div class="nav-right">
-			<div class="nav-profile dropdown"></div>
-			<div class="nav-dropdown dropdown"></div>
+			@if (Auth::check())
+				<div class="nav-profile dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><img src="img/user/avatar.jpg" alt=""> <span>Nathan Drake</span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+						<li><a href="#"><i class="fa fa-heart"></i> Likes <span class="label label-info">32</span></a></li>
+						<li><a href="#"><i class="fa fa-gamepad"></i> Games</a></li>
+						<li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+						<li class="divider"></li>
+						<li><a href="login.html"><i class="fa fa-power-off"></i> Sign Out</a></li>
+					</ul>
+				</div>
+				<div class="nav-dropdown dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i> <span class="label label-danger">3</span></a>
+					<ul class="dropdown-menu">
+						<li class="dropdown-header"><i class="fa fa-bell"></i> You have 5 new games</li>
+						<li><a href="#">Alien Isolation</a></li>
+						<li><a href="#">Witcher 3 <span class="label label-success">XBOX</span></a></li>
+						<li><a href="#">Last of Us</a></li>
+						<li><a href="#">Uncharted 4 <span class="label label-primary">PS4</span></a></li>
+						<li><a href="#">GTA 5 <span class="label label-warning">PC</span></a></li>
+						<li class="dropdown-footer"><a href="#">View all games</a></li>
+					</ul>
+				</div>
+			@else
+
+				<a href="{{ route('login') }}">Connexion</a>
+
+				<a href="{{ route('register') }}">Créer un compte</a>
+
+			@endif
 			{{--<a href="#" data-toggle="modal-search"><i class="fa fa-search"></i></a>--}}
 		</div>
 	</div>
