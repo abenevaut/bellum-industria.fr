@@ -58,6 +58,7 @@ class ContactsController extends ControllerAbstract
 			[
 				'first_name' => $request->get('first_name'),
 				'last_name'  => $request->get('last_name'),
+				'email'      => $request->get('email'),
 				'body'       => $request->get('message'),
 			],
 			function($message) use ($request)
