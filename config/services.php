@@ -36,15 +36,15 @@ return [
     ],
 
 	'facebook' => [
-		'client_id' => 'your-github-app-id',
-		'client_secret' => 'your-github-app-secret',
-		'redirect' => 'http://your-callback-url',
+		'client_id' => env('FACEBOOK_CONSUMER_KEY'),
+		'client_secret' => env('FACEBOOK_CONSUMER_SECRET'),
+		'redirect' => env('FACEBOOK_API_CALLBACK'),
 	],
 
 	'twitter' => [
-		'client_id' => 'your-github-app-id',
-		'client_secret' => 'your-github-app-secret',
-		'redirect' => 'http://your-callback-url',
+		'client_id' => env('TWITTER_CONSUMER_KEY'),
+		'client_secret' => env('TWITTER_CONSUMER_SECRET'),
+		'redirect' => env('TWITTER_API_CALLBACK'),
 	],
 
 ];

@@ -3,7 +3,10 @@
 namespace bellumindustria\Http\Controllers\Auth;
 
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Invisnik\LaravelSteamAuth\SteamAuth;
 use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends ControllerAbstract
 {
@@ -27,13 +30,91 @@ class LoginController extends ControllerAbstract
      */
     protected $redirectTo = '/home';
 
+	/**
+	 * @var SteamAuth
+	 */
+	private $steam;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(SteamAuth $steam)
     {
-        $this->middleware('guest')->except('logout');
+        $this
+			->middleware('guest')
+			->except('logout');
+
+		$this->steam = $steam;
     }
+
+	/**
+	 * Redirect the user to the OAuth Provider.
+	 *
+	 * @return Response
+	 */
+	public function redirectToProvider($provider)
+	{
+		return Socialite::driver($provider)->redirect();
+	}
+
+	/**
+	 * Obtain the user information from provider.
+	 *
+	 * @return Response
+	 */
+	public function handleProviderCallback($provider)
+	{
+		$user = Socialite::driver($provider)->user();
+
+		dd($user);
+
+		$authUser = $this->findOrCreateUser($user, $provider);
+		Auth::login($authUser, true);
+
+		return redirect($this->redirectTo);
+	}
+
+	/**
+	 * Redirect the user to the OAuth Steam.
+	 *
+	 * @return Response
+	 */
+	public function redirectToSteam()
+	{
+		return $this->steam->redirect(); // redirect to Steam login page
+	}
+
+	/**
+	 * Obtain the user information from steam provider.
+	 *
+	 * @return Response
+	 */
+	public function handleSteamCallback()
+	{
+		if ($this->steam->validate()) {
+
+			$info = $this->steam->getUserInfo();
+
+			dd($info);
+
+			if (!is_null($info)) {
+				$user = User::where('steamid', $info->steamID64)->first();
+				if (is_null($user)) {
+					$user = User::create([
+						'username' => $info->personaname,
+						'avatar'   => $info->avatarfull,
+						'steamid'  => $info->steamID64
+					]);
+				}
+
+				Auth::login($user, true);
+
+				return redirect('/'); // redirect to site
+			}
+		}
+
+		return abort(403);
+	}
 }

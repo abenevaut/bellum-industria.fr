@@ -37,4 +37,10 @@ Route::group(['namespace' => 'Auth'], function ()
 		Route::get('reset/{token}', ['as' => 'reset-token', 'uses' => 'ResetPasswordController@showResetForm']);
 		Route::post('reset', 'ResetPasswordController@reset');
 	});
+
+	Route::get('auth/steam', 'LoginController@redirectToSteam');
+	Route::get('auth/steam/callback', 'LoginController@handleSteamCallback');
+
+	Route::get('auth/{provider}', 'LoginController@redirectToProvider');
+	Route::get('auth/{provider}/callback', 'LoginController@handleProviderCallback');
 });

@@ -28,10 +28,10 @@
                         </div>
                         <div class="panel-body">
 
-                            <a class="btn btn-block btn-social btn-steam"><i class="fa fa-steam"></i> Se connecter avec Steam</a>
-                            <a class="btn btn-block btn-social btn-facebook"><i class="fa fa-facebook"></i> Se connecter avec Facebook</a>
-                            <a class="btn btn-block btn-social btn-twitter"><i class="fa fa-twitter"></i> Se connecter avec Twitter</a>
-                            <a class="btn btn-block btn-social btn-google-plus"><i class="fa fa-google-plus"></i> Se connecter avec Google</a>
+                            <a class="btn btn-block btn-social btn-steam" href="{{ url('auth/steam') }}"><i class="fa fa-steam"></i> Se connecter avec Steam</a>
+                            <a class="btn btn-block btn-social btn-facebook" href="{{ url('auth/facebook') }}"><i class="fa fa-facebook"></i> Se connecter avec Facebook</a>
+                            <a class="btn btn-block btn-social btn-twitter" href="{{ url('auth/twitter') }}"><i class="fa fa-twitter"></i> Se connecter avec Twitter</a>
+                            {{--<a class="btn btn-block btn-social btn-google-plus" href="{{ url('auth/google') }}"><i class="fa fa-google-plus"></i> Se connecter avec Google</a>--}}
 
                             <div class="separator"><span>ou</span></div>
 

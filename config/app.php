@@ -171,6 +171,7 @@ return [
 		Collective\Html\HtmlServiceProvider::class,
 		Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
 		Laravel\Socialite\SocialiteServiceProvider::class,
+		Invisnik\LaravelSteamAuth\SteamServiceProvider::class,
 
 		/*
 		 * Application Service Providers...

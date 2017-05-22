@@ -19,6 +19,9 @@ class User extends Authenticatable
         'last_name',
 		'email',
 		'password',
+		'facebook_token',
+		'steam_token',
+		'twitter_token',
     ];
 
     /**
