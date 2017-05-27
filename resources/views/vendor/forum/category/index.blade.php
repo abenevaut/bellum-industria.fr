@@ -8,9 +8,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#">Pages</a></li>
-                        <li class="active">Forums</li>
+                        <li><a href="{{ route('frontend.home') }}">Accueil</a></li>
+                        <li class="active"><a href="{{ route('forum.index') }}">Forums</a></li>
                     </ol>
                 </div>
             </div>
