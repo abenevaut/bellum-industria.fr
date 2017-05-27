@@ -180,7 +180,7 @@ return [
 		 */
 		bellumindustria\App\Providers\AppServiceProvider::class,
 		bellumindustria\App\Providers\AuthServiceProvider::class,
-		// bellumindustria\App\Providers\BroadcastServiceProvider::class,
+		bellumindustria\App\Providers\BroadcastServiceProvider::class,
 		bellumindustria\App\Providers\EventServiceProvider::class,
 		bellumindustria\App\Providers\RouteServiceProvider::class,
 
