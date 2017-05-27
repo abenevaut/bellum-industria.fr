@@ -172,6 +172,8 @@ return [
 		Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
 		Laravel\Socialite\SocialiteServiceProvider::class,
 		Invisnik\LaravelSteamAuth\SteamServiceProvider::class,
+		Riari\Forum\ForumServiceProvider::class,
+		Riari\Forum\Frontend\ForumFrontendServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
