@@ -1,6 +1,6 @@
 <?php
 
-namespace panacea\Domain\Users\Users\Events;
+namespace bellumindustria\Domain\Users\Profiles\Events;
 
 use bellumindustria\Infractucture\Contracts\Events\EventAbstract;
 use bellumindustria\Domain\Users\Profiles\Profile;

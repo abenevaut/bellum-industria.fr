@@ -2,9 +2,17 @@
 
 namespace bellumindustria\Domain\Users\Profiles\Repositories;
 
-use bellumindustria\Infrastructure\Contracts\Repositories\RepositoryEloquentAbstract;
-use bellumindustria\Domain\Users\Profiles\Repositories\ProfilesRepositoryInterface;
-use bellumindustria\Domain\Users\Profiles\Profile;
+use bellumindustria\Infrastructure\Contracts\{
+	Repositories\RepositoryEloquentAbstract,
+	Request\RequestAbstract
+};
+use bellumindustria\Domain\Users\Profiles\{
+	Profile,
+	Repositories\ProfilesRepositoryInterface,
+	Events\ProfileCreatedEvent,
+	Events\ProfileUpdatedEvent,
+	Events\ProfileDeletedEvent,
+};
 
 class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements ProfilesRepositoryInterface
 {
@@ -20,158 +28,55 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
 	}
 
 	/**
-	 * Create user and fire event "UserCreatedEvent".
+	 * Create user and fire event "ProfileCreatedEvent".
 	 *
 	 * @param array $attributes
 	 *
-	 * @event bellumindustria\Domain\Users\Users\Events\UserUpdatedEvent
-	 * @return \bellumindustria\Domain\Users\Users\Profile
+	 * @event bellumindustria\Domain\Users\Profiles\Events\ProfileUpdatedEvent
+	 * @return \bellumindustria\Domain\Users\Profiles\Profile
 	 */
 	public function create(array $attributes)
 	{
-		$user = parent::create($attributes);
+		$profile = parent::create($attributes);
 
-		event(new UserCreatedEvent($user));
+		event(new ProfileCreatedEvent($profile));
 
-		return $user;
+		return $profile;
 	}
 
 	/**
-	 * Update user and fire event "UserUpdatedEvent".
+	 * Update user and fire event "ProfileUpdatedEvent".
 	 *
 	 * @param array   $attributes
-	 * @param integer $user_id
+	 * @param integer $profile_id
 	 *
-	 * @event bellumindustria\Domain\Users\Users\Events\UserUpdatedEvent
-	 * @return \bellumindustria\Domain\Users\Users\Profile
+	 * @event bellumindustria\Domain\Users\Profiles\Events\ProfileUpdatedEvent
+	 * @return \bellumindustria\Domain\Users\Profiles\Profile
 	 */
-	public function update(array $attributes, $user_id)
+	public function update(array $attributes, $profile_id)
 	{
-		$user = parent::update($attributes, $user_id);
+		$profile = parent::update($attributes, $profile_id);
 
-		event(new UserUpdatedEvent($user));
+		event(new ProfileUpdatedEvent($profile));
 
-		return $user;
+		return $profile;
 	}
 
 	/**
-	 * Delete user and fire event "UserDeletedEvent".
+	 * Delete user and fire event "ProfileDeletedEvent".
 	 *
 	 * @param array   $attributes
 	 * @param integer $id
 	 *
-	 * @event bellumindustria\Domain\Users\Users\Events\UserDeletedEvent
+	 * @event bellumindustria\Domain\Users\Profiles\Events\ProfileDeletedEvent
 	 * @return int
 	 */
 	public function delete($id)
 	{
-		$user = parent::delete($id);
+		$profile = $this->find($id);
 
-		event(new UserDeletedEvent($id));
+		event(new ProfileDeletedEvent($profile));
 
-		return $user;
-	}
-
-	/**
-	 * Get the list of all user, active and soft deleted users.
-	 *
-	 * @return \Illuminate\Database\Eloquent\Collection|static[]
-	 */
-	public function allWithTrashed()
-	{
-		return Profile::withTrashed()->get();
-	}
-
-	/**
-	 * Get only user that was soft deleted.
-	 *
-	 * @return \Illuminate\Database\Eloquent\Collection
-	 */
-	public function onlyTrashed()
-	{
-		return Profile::onlyTrashed()->get();
-	}
-
-	/**
-	 * Filter users by roles id.
-	 *
-	 * @param array $roles Role(s) array
-	 *
-	 * @throws \Prettus\Repository\Exceptions\RepositoryException
-	 */
-	public function filterByRoles($roles = [])
-	{
-		if (!is_null($roles) && !empty($roles) && is_array($roles))
-		{
-			$this->pushCriteria(new InRolesCriteria($roles));
-		}
-
-		return $this;
-	}
-
-	/**
-	 * Filter users to show super-admin user only to others super-admins.
-	 *
-	 * @param bool $isCurrentUserSuperAdmin Is the current user a super-admin
-	 *
-	 * @throws \Prettus\Repository\Exceptions\RepositoryException
-	 */
-	public function filterByRoleSuperAdmin($isCurrentUserSuperAdmin = false)
-	{
-		if (is_bool($isCurrentUserSuperAdmin))
-		{
-			$this
-				->pushCriteria(
-					new IsCurrentUserSuperAdmin($isCurrentUserSuperAdmin)
-				);
-		}
-
-		return $this;
-	}
-
-	/**
-	 * Filter users by name.
-	 *
-	 * @param string $name The user last name or user first name
-	 *
-	 * @throws \Prettus\Repository\Exceptions\RepositoryException
-	 */
-	public function filterByName($name)
-	{
-		if (!is_null($name) && !empty($name))
-		{
-			$this->pushCriteria(new NameLikeCriteria($name));
-		}
-
-		return $this;
-	}
-
-	/**
-	 * Filter users by emails.
-	 *
-	 * @param string $email The user email
-	 *
-	 * @throws \Prettus\Repository\Exceptions\RepositoryException
-	 */
-	public function filterByEmail($email)
-	{
-		if (!is_null($email) && !empty($email))
-		{
-			$this->pushCriteria(new EmailLikeCriteria($email));
-		}
-
-		return $this;
-	}
-
-	/**
-	 * @return \Illuminate\Support\Collection
-	 */
-	public function getCivilitiesList()
-	{
-		return collect($this->civilities)
-			->map(function ($translation_key, $civility_key)
-			{
-				return trans($translation_key);
-			});
+		return parent::delete($profile->id);
 	}
 }

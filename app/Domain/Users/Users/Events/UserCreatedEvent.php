@@ -9,19 +9,16 @@ class UserCreatedEvent extends EventAbstract
 {
 
 	/**
-	 * The current user.
-	 *
 	 * @var User|null
 	 */
 	public $user = null;
 
 	/**
-	 * TrainingCreatedEvent constructor.
+	 * UserCreatedEvent constructor.
 	 *
-	 * @param User $training
+	 * @param User $user
 	 */
-	public function __construct(User $user)
-	{
+	public function __construct(User $user) {
 		$this->user = $user;
 	}
 }

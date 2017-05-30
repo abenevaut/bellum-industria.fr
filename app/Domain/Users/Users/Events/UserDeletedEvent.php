@@ -1,6 +1,6 @@
 <?php
 
-namespace panacea\Domain\Users\Users\Events;
+namespace bellumindustria\Domain\Users\Users\Events;
 
 use bellumindustria\Infractucture\Contracts\Events\EventAbstract;
 use bellumindustria\Domain\Users\Users\User;
@@ -9,19 +9,16 @@ class UserDeletedEvent extends EventAbstract
 {
 
 	/**
-	 * The current user.
-	 *
-	 * @var integer|null
+	 * @var User|null
 	 */
-	public $user_id = null;
+	public $user = null;
 
 	/**
-	 * TrainingDeletedEvent constructor.
+	 * UserDeletedEvent constructor.
 	 *
-	 * @param integer $training
+	 * @param User $user
 	 */
-	public function __construct($user_id)
-	{
-		$this->user_id = $user_id;
+	public function __construct(User $user) {
+		$this->user = $user;
 	}
 }
