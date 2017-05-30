@@ -13,7 +13,7 @@ use bellumindustria\Domain\Users\Users\{
 	Events\UserUpdatedEvent,
 	Events\UserDeletedEvent,
 	Presenters\UsersListPresenter,
-	Criterias\EmailLikeCriteria,
+	Criterias\EmailLikeCriteria
 };
 
 class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements UsersRepositoryInterface

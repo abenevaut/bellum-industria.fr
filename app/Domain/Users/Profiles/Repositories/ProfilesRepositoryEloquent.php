@@ -11,7 +11,7 @@ use bellumindustria\Domain\Users\Profiles\{
 	Repositories\ProfilesRepositoryInterface,
 	Events\ProfileCreatedEvent,
 	Events\ProfileUpdatedEvent,
-	Events\ProfileDeletedEvent,
+	Events\ProfileDeletedEvent
 };
 
 class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements ProfilesRepositoryInterface
