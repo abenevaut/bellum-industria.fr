@@ -2,11 +2,17 @@
 
 namespace bellumindustria\Domain\Users\Users\Repositories;
 
-use bellumindustria\Infrastructure\Contracts\{
+use Illuminate\
+{
+	Support\Facades\Validator
+};
+use bellumindustria\Infrastructure\Contracts\
+{
 	Repositories\RepositoryEloquentAbstract,
 	Request\RequestAbstract
 };
-use bellumindustria\Domain\Users\Users\{
+use bellumindustria\Domain\Users\Users\
+{
 	User,
 	Repositories\UsersRepositoryInterface,
 	Events\UserCreatedEvent,
@@ -24,8 +30,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 *
 	 * @return string
 	 */
-	public function model()
-	{
+	public function model() {
 		return User::class;
 	}
 
@@ -37,8 +42,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 * @event bellumindustria\Domain\Users\Users\Events\UserUpdatedEvent
 	 * @return \bellumindustria\Domain\Users\Users\User
 	 */
-	public function create(array $attributes)
-	{
+	public function create(array $attributes) {
 		$user = parent::create($attributes);
 
 		event(new UserCreatedEvent($user));
@@ -55,8 +59,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 * @event bellumindustria\Domain\Users\Users\Events\UserUpdatedEvent
 	 * @return \bellumindustria\Domain\Users\Users\User
 	 */
-	public function update(array $attributes, $user_id)
-	{
+	public function update(array $attributes, $user_id) {
 		$user = parent::update($attributes, $user_id);
 
 		event(new UserUpdatedEvent($user));
@@ -73,8 +76,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 * @event bellumindustria\Domain\Users\Users\Events\UserDeletedEvent
 	 * @return int
 	 */
-	public function delete($id)
-	{
+	public function delete($id) {
 		$user = $this->find($id);
 
 		event(new UserDeletedEvent($user));
@@ -83,19 +85,65 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	}
 
 	/**
+	 * Get a validator for an incoming registration request.
+	 *
+	 * @param array $data Incoming data from registration form
+	 *
+	 * @return \Illuminate\Contracts\Validation\Validator
+	 * @seealso bellumindustria\Http\Controllers\Auth\RegisterController
+	 * @seealso authRegistration
+	 */
+	public function authRegistrationValidator(array $data) {
+		return Validator::make(
+			$data,
+			[
+				'email'    => 'required|string|email|max:255|unique:users',
+				'password' => 'required|string|min:6|confirmed',
+			]
+		);
+	}
+
+	/**
+	 * Create a new user instance after a valid registration.
+	 *
+	 * @param array $data Incoming data from registration form
+	 *
+	 * @return User
+	 * @seealso bellumindustria\Http\Controllers\Auth\RegisterController
+	 * @seealso authRegistrationValidator
+	 */
+	public function authRegistration(array $data) {
+
+		$new_user = $this
+			->create($data);
+
+		return $new_user;
+	}
+
+	/**
 	 * Filter users by emails.
 	 *
-	 * @param string $email The user email
+	 * @param string $email
 	 *
-	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 * @return $this
 	 */
-	public function filterByEmail($email)
-	{
+	public function filterByEmail($email) {
+
 		if (!is_null($email) && !empty($email))
 		{
 			$this->pushCriteria(new EmailLikeCriteria($email));
 		}
 
 		return $this;
+	}
+
+	/**
+	 * Show the application registration form.
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|\Illuminate\Http\Response
+	 * @seealso bellumindustria\Http\Controllers\Auth\RegisterController
+	 */
+	public function frontendShowRegistrationForm() {
+		return view('auth.register');
 	}
 }

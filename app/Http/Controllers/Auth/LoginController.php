@@ -2,70 +2,74 @@
 
 namespace bellumindustria\Http\Controllers\Auth;
 
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\{
+	Foundation\Auth\AuthenticatesUsers,
+	Support\Facades\Auth
+};
 use Invisnik\LaravelSteamAuth\SteamAuth;
-use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
 use Laravel\Socialite\Facades\Socialite;
+use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
 
 class LoginController extends ControllerAbstract
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
 
-    use AuthenticatesUsers;
+	/*
+	|--------------------------------------------------------------------------
+	| Login Controller
+	|--------------------------------------------------------------------------
+	|
+	| This controller handles authenticating users for the application and
+	| redirecting them to your home screen. The controller uses a trait
+	| to conveniently provide its functionality to your applications.
+	|
+	*/
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+	use AuthenticatesUsers;
+
+	/**
+	 * Where to redirect users after login.
+	 *
+	 * @var string
+	 */
+	protected $redirectTo = '/';
 
 	/**
 	 * @var SteamAuth
 	 */
 	private $steam;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct(SteamAuth $steam)
-    {
-        $this
+	/**
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
+	public function __construct(SteamAuth $steam) {
+		$this
 			->middleware('guest')
 			->except('logout');
 
 		$this->steam = $steam;
-    }
+	}
 
 	/**
 	 * Redirect the user to the OAuth Provider.
 	 *
-	 * @return Response
+	 * @param $provider
+	 *
+	 * @return mixed
 	 */
-	public function redirectToProvider($provider)
-	{
+	public function redirectToProvider($provider) {
 		return Socialite::driver($provider)->redirect();
 	}
 
 	/**
 	 * Obtain the user information from provider.
 	 *
-	 * @return Response
+	 * @param $provider
+	 *
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
 	 */
-	public function handleProviderCallback($provider)
-	{
+	public function handleProviderCallback($provider) {
 		$user = Socialite::driver($provider)->user();
 
 		dd($user);
@@ -81,8 +85,7 @@ class LoginController extends ControllerAbstract
 	 *
 	 * @return Response
 	 */
-	public function redirectToSteam()
-	{
+	public function redirectToSteam() {
 		return $this->steam->redirect(); // redirect to Steam login page
 	}
 
@@ -91,17 +94,19 @@ class LoginController extends ControllerAbstract
 	 *
 	 * @return Response
 	 */
-	public function handleSteamCallback()
-	{
-		if ($this->steam->validate()) {
+	public function handleSteamCallback() {
+		if ($this->steam->validate())
+		{
 
 			$info = $this->steam->getUserInfo();
 
 			dd($info);
 
-			if (!is_null($info)) {
+			if (!is_null($info))
+			{
 				$user = User::where('steamid', $info->steamID64)->first();
-				if (is_null($user)) {
+				if (is_null($user))
+				{
 					$user = User::create([
 						'username' => $info->personaname,
 						'avatar'   => $info->avatarfull,

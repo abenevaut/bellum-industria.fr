@@ -4,10 +4,12 @@ namespace bellumindustria\Domain\Users\Users;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use bellumindustria\Domain\Users\Profiles\Traits\ProfileableTrait;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use ProfileableTrait;
 
     /**
      * The attributes that are mass assignable.

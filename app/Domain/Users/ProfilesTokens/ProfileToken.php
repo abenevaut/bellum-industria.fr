@@ -8,6 +8,13 @@ class ProfileToken extends ModelAbstract
 {
 
 	/**
+	 * The table associated with the model.
+	 *
+	 * @var string
+	 */
+	protected $table = 'profiles_tokens';
+
+	/**
 	 * The attributes that are mass assignable.
 	 *
 	 * @var array
@@ -26,4 +33,12 @@ class ProfileToken extends ModelAbstract
 	 */
 	protected $hidden = [
 	];
+
+	/**
+	 * @return mixed
+	 */
+	public function profile() {
+		return $this
+			->belongsTo('bellumindustria\Domain\Users\Profiles\Profile');
+	}
 }

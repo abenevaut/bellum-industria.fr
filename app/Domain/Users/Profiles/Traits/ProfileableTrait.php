@@ -2,7 +2,7 @@
 
 namespace bellumindustria\Domain\Users\Profiles\Traits;
 
-//use bellumindustria\Domain\Users\Profiles\Repositories\ProfilesRepositoryEloquent;
+use bellumindustria\Domain\Users\Profiles\Repositories\ProfilesRepositoryEloquent;
 use bellumindustria\Domain\Users\Profiles\Profile;
 
 trait ProfileableTrait
@@ -38,27 +38,26 @@ trait ProfileableTrait
 	 *
 	 * @return mixed
 	 */
-	//	public function addProfile($parameters = [], $emails = [], $phones = []) {
-	//		return app(ProfilesRepositoryEloquent::class)
-	//			->createProfileFromTrait($this, $parameters, $emails, $phones);
-	//	}
+	public function addProfile($parameters = [], $emails = [], $phones = []) {
+		return app(ProfilesRepositoryEloquent::class)
+			->createProfileFromTrait($this, $parameters, $emails, $phones);
+	}
 
 	/**
 	 * @param array $parameters
 	 *
 	 * @return mixed
 	 */
-	//	public function updateProfile($parameters = [], $emails = [], $phones = []) {
-	//		return app(ProfilesRepositoryEloquent::class)
-	//			->updateProfileFromTrait($this, $parameters, $emails, $phones);
-	//	}
+	public function updateProfile($parameters = [], $emails = [], $phones = []) {
+		return app(ProfilesRepositoryEloquent::class)
+			->updateProfileFromTrait($this, $parameters, $emails, $phones);
+	}
 
 	/**
 	 * @return mixed
 	 */
-	//	public function deleteProfile() {
-	//		return app(ProfilesRepositoryEloquent::class)
-	//			->deleteProfileFromTrait($this);
-	//	}
-
+	public function deleteProfile() {
+		return app(ProfilesRepositoryEloquent::class)
+			->deleteProfileFromTrait($this);
+	}
 }
