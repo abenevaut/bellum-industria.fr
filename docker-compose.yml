@@ -1,0 +1,210 @@
+version: '2'
+
+services:
+
+### Applications Code Container #############################
+
+    applications:
+      image: tianon/true
+      volumes:
+        - ./:/var/www
+
+### Workspace Utilities Container ###########################
+
+    workspace:
+      build:
+        context: ./laradock/workspace
+        args:
+          - INSTALL_XDEBUG=true
+          - INSTALL_BLACKFIRE=true
+          - INSTALL_SOAP=false
+          - INSTALL_MONGO=false
+          - INSTALL_MSSQL=false
+          - INSTALL_NODE=true
+          - INSTALL_YARN=false
+          - INSTALL_DRUSH=false
+          - INSTALL_AEROSPIKE=false
+          - INSTALL_V8JS=false
+          - COMPOSER_GLOBAL_INSTALL=false
+          - INSTALL_WORKSPACE_SSH=false
+          - INSTALL_LARAVEL_ENVOY=false
+          - INSTALL_LARAVEL_INSTALLER=false
+          - INSTALL_DEPLOYER=true
+          - INSTALL_LINUXBREW=false
+          - INSTALL_MC=false
+          - PUID=1000
+          - PGID=1000
+          - NODE_VERSION=stable
+          - YARN_VERSION=latest
+          - TZ=CEST
+          - BLACKFIRE_CLIENT_ID="99418e16-66cb-447c-903b-58f9eb2ab884"
+          - BLACKFIRE_CLIENT_TOKEN="521bd8b65dbe3d75613afb3646cf4ca236de45581d698637dc007c60b830345a"
+        dockerfile: "Dockerfile-71"
+      volumes_from:
+        - applications
+      extra_hosts:
+        - "dockerhost:10.0.75.1"
+      ports:
+        - "2201:22"
+      tty: true
+      networks:
+        - frontend
+        - backend
+
+### PHP-FPM Container #######################################
+
+    php-fpm:
+      build:
+        context: ./laradock/php-fpm
+        args:
+          - INSTALL_XDEBUG=false
+          - INSTALL_BLACKFIRE=false
+          - INSTALL_SOAP=false
+          - INSTALL_MONGO=false
+          - INSTALL_MSSQL=false
+          - INSTALL_ZIP_ARCHIVE=false
+          - INSTALL_BCMATH=false
+          - INSTALL_PHPREDIS=false
+          - INSTALL_MEMCACHED=false
+          - INSTALL_OPCACHE=false
+          - INSTALL_EXIF=false
+          - INSTALL_AEROSPIKE=false
+          - INSTALL_MYSQLI=false
+          - INSTALL_TOKENIZER=false
+          - INSTALL_INTL=false
+          - INSTALL_GHOSTSCRIPT=false
+          - INSTALL_LDAP=false
+          - INSTALL_SWOOLE=false
+        dockerfile: "Dockerfile-71"
+      volumes_from:
+        - applications
+      volumes:
+        - ./laradock/php-fpm/php71.ini:/usr/local/etc/php/php.ini
+      expose:
+        - "9001"
+      depends_on:
+        - workspace
+      extra_hosts:
+        - "dockerhost:10.0.75.1"
+      environment:
+        - PHP_IDE_CONFIG="serverName=laradock"
+      networks:
+        - backend
+
+### PHP Worker Container #####################################
+
+    php-worker:
+      build:
+        context: ./laradock/php-worker
+      volumes_from:
+        - applications
+      depends_on:
+        - workspace
+      extra_hosts:
+        - "dockerhost:10.0.75.1"
+      networks:
+        - backend
+      command: php artisan queue:work
+
+### Blackfire Container #################################
+
+    blackfire:
+      image: blackfire/blackfire
+      environment:
+        - BLACKFIRE_SERVER_ID="c4b092fd-8fd4-43af-9fd7-92234882ad37"
+        - BLACKFIRE_SERVER_TOKEN="ef4d168dadee934319dc4654fb462000a7167291d9aae708c78f515bc508b7a7"
+      depends_on:
+        - php-fpm
+      networks:
+        - backend
+
+### Apache Server Container #################################
+
+    apache2:
+      build:
+        context: ./laradock/apache2
+        args:
+          - PHP_SOCKET="php-fpm:9001"
+      volumes_from:
+        - applications
+      volumes:
+        - ./logs/apache2:/var/log/apache2
+        - ./laradock/apache2/sites:/etc/apache2/sites-available
+      ports:
+        - "8001:80"
+        - "4431:443"
+      depends_on:
+        - php-fpm
+      networks:
+        - frontend
+        - backend
+
+### MySQL Container #########################################
+
+    mysql:
+      build:
+        context: ./laradock/mysql
+      environment:
+        - MYSQL_DATABASE=default
+        - MYSQL_USER=default
+        - MYSQL_PASSWORD=secret
+        - MYSQL_ROOT_PASSWORD=root
+      volumes:
+        - ./laradock-data/mysql:/var/lib/mysql
+        - ./laradock/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      ports:
+        - "3301:3306"
+      networks:
+        - backend
+
+### Redis Container #########################################
+
+    redis:
+      build: ./laradock/redis
+      volumes:
+        - ./laradock-data/redis:/data
+      ports:
+        - "6301:6379"
+      networks:
+        - backend
+
+### Selenium Container ########################################
+
+    selenium:
+      build: ./laradock/selenium
+      ports:
+        - "4001:4444"
+      volumes:
+        - /dev/shm:/dev/shm
+      networks:
+        - frontend
+
+### Laravel Echo Server #######################################
+    laravel-echo-server:
+      build:
+        context: ./laradock/laravel-echo-server
+      volumes:
+        - ./laradock/laravel-echo-server/laravel-echo-server.json:/app/laravel-echo-server.json:ro
+      ports:
+        - "6001:6001"
+      links:
+        - redis
+      networks:
+        - frontend
+        - backend
+
+### Networks Setup ############################################
+
+networks:
+  frontend:
+    driver: "bridge"
+  backend:
+    driver: "bridge"
+
+### Volumes Setup #############################################
+
+volumes:
+  mysql:
+    driver: "local"
+  redis:
+    driver: "local"
