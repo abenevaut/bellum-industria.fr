@@ -56,8 +56,11 @@ require 'recipe/laravel.php';
 	'deploy:lock',
 	'deploy:release',
 	'deploy:update_code',
+	'bellumindustriafr:build-docker',
+	'bellumindustriafr:start-docker',
+	'bellumindustriafr:composer-docker',
 	'deploy:shared',
-	'deploy:vendors',
+	// 'deploy:vendors',
 	'deploy:writable',
 	'artisan:storage:link',
 	'artisan:view:clear',
@@ -68,9 +71,6 @@ require 'recipe/laravel.php';
 	'deploy:symlink',
 	'deploy:unlock',
 	'cleanup',
-	'bellumindustriafr:build-docker',
-	'bellumindustriafr:start-docker',
-	'bellumindustriafr:composer-docker',
 	'bellumindustriafr:migrate-docker',
 	'success'
 ])->desc('Deploy www.bellum-industria.fr on server');
