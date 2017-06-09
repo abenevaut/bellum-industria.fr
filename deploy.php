@@ -5,7 +5,7 @@ require 'recipe/laravel.php';
 
 \Deployer\inventory('deploy.yml');
 \Deployer\set('keep_releases', 5);
-\Deployer\set('repository', 'git@gitlab.com:42antoine/benevaut.fr.git');
+\Deployer\set('repository', 'git@gitlab.com:cvepdb/bellum-industria.git');
 \Deployer\set('branch', 'master');
 \Deployer\set('writable_use_sudo', true);
 
@@ -32,20 +32,20 @@ require 'recipe/laravel.php';
 	'storage/logs',
 ]);
 
-\Deployer\task('benevautfr:build-docker', function() {
-	\Deployer\run("docker-compose --project-name benevaut -f {{current_path}}/docker-compose.yml build apache2 php-fpm php-worker mysql redis");
+\Deployer\task('bellumindustriafr:build-docker', function() {
+	\Deployer\run("docker-compose --project-name bellumindustria -f {{current_path}}/docker-compose.yml build apache2 php-fpm php-worker mysql redis");
 });
 
-\Deployer\task('benevautfr:start-docker', function() {
-	\Deployer\run("docker-compose --project-name benevaut -f {{current_path}}/docker-compose.yml up -d apache2 php-fpm php-worker mysql redis");
+\Deployer\task('bellumindustriafr:start-docker', function() {
+	\Deployer\run("docker-compose --project-name bellumindustria -f {{current_path}}/docker-compose.yml up -d apache2 php-fpm php-worker mysql redis");
 });
 
-\Deployer\task('benevautfr:composer-docker', function() {
-	\Deployer\run("docker-compose --project-name benevaut -f {{current_path}}/docker-compose.yml exec -T workspace composer install");
+\Deployer\task('bellumindustriafr:composer-docker', function() {
+	\Deployer\run("docker-compose --project-name bellumindustria -f {{current_path}}/docker-compose.yml exec -T workspace composer install");
 });
 
-\Deployer\task('benevautfr:migrate-docker', function() {
-	\Deployer\run("docker-compose --project-name benevaut -f {{current_path}}/docker-compose.yml exec -T workspace php /var/www/artisan migrate");
+\Deployer\task('bellumindustriafr:migrate-docker', function() {
+	\Deployer\run("docker-compose --project-name bellumindustria -f {{current_path}}/docker-compose.yml exec -T workspace php /var/www/artisan migrate");
 });
 
 /**
@@ -68,9 +68,9 @@ require 'recipe/laravel.php';
 	'deploy:symlink',
 	'deploy:unlock',
 	'cleanup',
-	'benevautfr:build-docker',
-	'benevautfr:start-docker',
-	'benevautfr:composer-docker',
-	'benevautfr:migrate-docker',
+	'bellumindustriafr:build-docker',
+	'bellumindustriafr:start-docker',
+	'bellumindustriafr:composer-docker',
+	'bellumindustriafr:migrate-docker',
 	'success'
-])->desc('Deploy www.benevaut.fr on server');
+])->desc('Deploy www.bellum-industria.fr on server');
