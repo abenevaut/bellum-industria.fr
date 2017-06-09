@@ -25,7 +25,7 @@ test_website:
   after_script:
     - docker-compose --project-name cibellumindustria -f docker-compose-ci.yml stop
     - docker-compose --project-name cibellumindustria -f docker-compose-ci.yml rm -f
-    - sudo rm -r storage/docker
+    - sudo rm -r vendor storage/docker
 
 deploy_website:
   stage: deploy
@@ -43,4 +43,4 @@ deploy_website:
   after_script:
     - docker-compose --project-name cibellumindustria -f docker-compose-ci.yml stop
     - docker-compose --project-name cibellumindustria -f docker-compose-ci.yml rm -f
-    - sudo rm -r storage/docker
+    - sudo rm -r vendor
