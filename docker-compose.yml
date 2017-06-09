@@ -37,8 +37,8 @@ services:
           - NODE_VERSION=stable
           - YARN_VERSION=latest
           - TZ=CEST
-          - BLACKFIRE_CLIENT_ID="12d34f88-4284-4984-9955-54ee54e66807"
-          - BLACKFIRE_CLIENT_TOKEN="f85722c6d341a20855ca8521d0e1a14748b664bd49a05aa4c807651baf19bf27"
+          - BLACKFIRE_CLIENT_ID="99418e16-66cb-447c-903b-58f9eb2ab884"
+          - BLACKFIRE_CLIENT_TOKEN="521bd8b65dbe3d75613afb3646cf4ca236de45581d698637dc007c60b830345a"
         dockerfile: "Dockerfile-71"
       volumes_from:
         - applications
@@ -63,7 +63,7 @@ services:
           - INSTALL_MONGO=false
           - INSTALL_MSSQL=false
           - INSTALL_ZIP_ARCHIVE=false
-          - INSTALL_BCMATH=true
+          - INSTALL_BCMATH=false
           - INSTALL_PHPREDIS=false
           - INSTALL_MEMCACHED=false
           - INSTALL_OPCACHE=false
@@ -111,8 +111,8 @@ services:
     blackfire:
       image: blackfire/blackfire
       environment:
-        - BLACKFIRE_SERVER_ID="895eb00b-f29c-4737-a3c4-53c73d0d81bb"
-        - BLACKFIRE_SERVER_TOKEN="07ad3ec63e1dba518a6fe22a5c2cc9c190ef519f216126c0b80817c3d3fe0798"
+        - BLACKFIRE_SERVER_ID="c4b092fd-8fd4-43af-9fd7-92234882ad37"
+        - BLACKFIRE_SERVER_TOKEN="ef4d168dadee934319dc4654fb462000a7167291d9aae708c78f515bc508b7a7"
       depends_on:
         - php-fpm
       networks:
