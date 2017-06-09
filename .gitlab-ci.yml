@@ -1,0 +1,46 @@
+image: docker:latest
+
+stages:
+  - test
+  - deploy
+
+variables:
+  GIT_SSL_NO_VERIFY: "true"
+  GIT_SUBMODULE_STRATEGY: recursive
+
+test_website:
+  stage: test
+  tags:
+    - docker
+    - docker-compose
+  before_script:
+    - docker info
+    - cp .env.example .env
+    - docker-compose --project-name cibellumindustria -f docker-compose-ci.yml up -d apache2 php-fpm php-worker mysql redis blackfire
+    - docker-compose --project-name cibellumindustria -f docker-compose-ci.yml exec -T workspace php /usr/local/bin/composer install
+    - docker-compose --project-name cibellumindustria -f docker-compose-ci.yml exec -T workspace php /var/www/artisan key:generate
+    - docker-compose --project-name cibellumindustria -f docker-compose-ci.yml exec -T workspace php /var/www/artisan migrate
+  script:
+    - docker-compose --project-name cibellumindustria -f docker-compose-ci.yml exec -T workspace php /var/www/vendor/bin/phpunit
+  after_script:
+    - docker-compose --project-name cibellumindustria -f docker-compose-ci.yml stop
+    - docker-compose --project-name cibellumindustria -f docker-compose-ci.yml rm -f
+    - sudo rm -r storage/docker
+
+deploy_website:
+  stage: deploy
+  only:
+    - master
+  tags:
+    - docker
+    - docker-compose
+  before_script:
+    - cp deploy.yml.example deploy.yml
+    - docker-compose --project-name cibellumindustria -f docker-compose-ci.yml up -d workspace
+    - docker-compose --project-name cibellumindustria -f docker-compose-ci.yml exec -T workspace php /usr/local/bin/composer install
+  script:
+    - composer deploy
+  after_script:
+    - docker-compose --project-name cibellumindustria -f docker-compose-ci.yml stop
+    - docker-compose --project-name cibellumindustria -f docker-compose-ci.yml rm -f
+    - sudo rm -r storage/docker

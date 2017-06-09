@@ -1,7 +1,7 @@
 ## Docker
 
 ```shell
-$> docker-compose --project-name bellumindustria up -d apache2 php-fpm php-worker mysql redis blackfire
+$> docker-compose --project-name bellumindustria up -d apache2 php-fpm php-worker mysql redis blackfire mailhog
 $> docker-compose --project-name bellumindustria exec workspace bash
 $> docker-compose --project-name bellumindustria exec workspace composer install
 $> docker-compose --project-name bellumindustria exec workspace php /var/www/artisan migrate

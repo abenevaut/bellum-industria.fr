@@ -10,5 +10,6 @@ Homestead.yaml
 npm-debug.log
 .env
 resources/assets/bower
-laradock-data/
-laradock-data/*
+deploy.yml
+storage/docker/
+storage/docker/*
