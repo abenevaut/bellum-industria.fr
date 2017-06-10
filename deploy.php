@@ -5,7 +5,7 @@ require 'recipe/laravel.php';
 
 \Deployer\inventory('deploy.yml');
 \Deployer\set('keep_releases', 5);
-\Deployer\set('repository', 'git@gitlab.com:cvepdb/bellum-industria.git');
+\Deployer\set('repository', 'git@gitlab.com:bellum-industria/www.git');
 \Deployer\set('branch', 'master');
 \Deployer\set('writable_use_sudo', true);
 
