@@ -1,3 +1,5 @@
+[![build status](https://gitlab.com/bellum-industria/www/badges/master/build.svg)](https://gitlab.com/bellum-industria/www/commits/master)
+
 ## Docker
 
 ```shell
