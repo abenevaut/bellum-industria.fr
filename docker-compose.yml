@@ -156,6 +156,7 @@ services:
         - "3301:3306"
       networks:
         - backend
+        - bellumindustria_lan
 
 ### Redis Container #########################################
 
@@ -167,6 +168,7 @@ services:
         - "6301:6379"
       networks:
         - backend
+        - bellumindustria_lan
 
 ### Selenium Container ########################################
 
@@ -210,6 +212,8 @@ networks:
     driver: "bridge"
   backend:
     driver: "bridge"
+  bellumindustria_lan: # docker network create -d bridge bellumindustria_lan
+    external: true
 
 ### Volumes Setup #############################################
 

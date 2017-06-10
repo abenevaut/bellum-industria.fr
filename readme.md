@@ -1,6 +1,7 @@
 ## Docker
 
 ```shell
+$> docker network create -d bridge bellumindustria
 $> docker-compose --project-name bellumindustria up -d apache2 php-fpm php-worker mysql redis blackfire mailhog
 $> docker-compose --project-name bellumindustria exec workspace bash
 $> docker-compose --project-name bellumindustria exec workspace composer install
