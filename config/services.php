@@ -47,4 +47,12 @@ return [
 		'redirect' => env('TWITTER_API_CALLBACK'),
 	],
 
+	'google_api' => [
+		'key' => env('BI_GOOGLE_API_KEY')
+	],
+
+	'youtube' => [
+		'key' => env('BI_YOUTUBE_CHANNEL_ID')
+	],
+
 ];

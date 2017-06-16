@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<meta name="environment" content="{{ env('APP_ENV') }}">
+<meta name="environment" content="{{ config('app.env') }}">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -20,7 +20,7 @@
 </title>
 <meta name="description" content="www.bellum-industria.fr">
 <meta name="author" content="Antoine Benevaut <antoine@bellum-industria.fr>">
-<base href="{{ env('APP_URL') }}">
+<base href="{{ config('app.url') }}">
 <link href="{{ mix('css/frontend/layouts/core.css') }}" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
 <link href="{{ mix('css/frontend/layouts/default.css') }}" rel="stylesheet">

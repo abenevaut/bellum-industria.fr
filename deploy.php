@@ -42,6 +42,9 @@ require 'recipe/laravel.php';
 
 \Deployer\task('bellumindustriafr:composer-docker', function() {
 	\Deployer\run("docker-compose --project-name bellumindustria -f {{current_path}}/docker-compose.yml exec -T workspace composer install");
+	\Deployer\run("docker-compose --project-name benevaut -f {{current_path}}/docker-compose.yml exec -T workspace php artisan optimize");
+	\Deployer\run("docker-compose --project-name benevaut -f {{current_path}}/docker-compose.yml exec -T workspace php artisan route:cache");
+	\Deployer\run("docker-compose --project-name benevaut -f {{current_path}}/docker-compose.yml exec -T workspace php artisan config:cache");
 });
 
 \Deployer\task('bellumindustriafr:migrate-docker', function() {

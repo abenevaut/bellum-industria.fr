@@ -6,8 +6,8 @@
 
 @section('js')
 	<script>
-		bellumindustria.BI_YOUTUBE_CHANNEL_ID = "{{ env('BI_YOUTUBE_CHANNEL_ID') }}";
-		bellumindustria.BI_GOOGLE_API_KEY = "{{ env('BI_GOOGLE_API_KEY') }}";
+		bellumindustria.BI_YOUTUBE_CHANNEL_ID = "{{ config('services.youtube.key') }}";
+		bellumindustria.BI_GOOGLE_API_KEY = "{{ config('services.google_api.key') }}";
 	</script>
 	<script src="{{ mix('js/frontend/home/index.js') }}"></script>
 @endsection

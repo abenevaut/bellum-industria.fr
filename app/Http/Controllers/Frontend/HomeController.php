@@ -43,12 +43,12 @@ class HomeController extends ControllerAbstract
 		 */
 
 		// Get channel data by channel name, return an STD PHP object
-//		$channel = \Youtube::getChannelByName(env('BI_YOUTUBE_CHANNEL_ID'));
+//		$channel = \Youtube::getChannelByName(config('services.youtube.key'));
 //
 //		dd($channel);
 
 //		$ytbVideos = \Youtube::listChannelVideos(
-//			env('BI_YOUTUBE_CHANNEL_ID'),
+//			config('services.youtube.key'),
 //			10
 //		);
 //

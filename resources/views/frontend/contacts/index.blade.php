@@ -4,7 +4,7 @@
 @endsection
 
 @section('js')
-	<script src="//maps.google.com/maps/api/js?key={{ env('BI_GOOGLE_API_KEY') }}"></script>
+	<script src="//maps.google.com/maps/api/js?key={{ config('services.google_api.key') }}"></script>
 	<script src="{{ mix('js/frontend/contacts/index.js') }}"></script>
 @endsection
 

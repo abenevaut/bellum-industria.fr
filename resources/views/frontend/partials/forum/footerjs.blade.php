@@ -66,7 +66,7 @@
 <script>
 	window.fbAsyncInit = function() {
 		FB.init({
-			appId      : '{{ env('FACEBOOK_CONSUMER_KEY') }}',
+			appId      : '{{ config('services.facebook.client_id') }}',
 			xfbml      : true,
 			version    : 'v2.9'
 		});
