@@ -37,8 +37,8 @@ services:
           - NODE_VERSION=stable
           - YARN_VERSION=latest
           - TZ=CEST
-          - BLACKFIRE_CLIENT_ID="99418e16-66cb-447c-903b-58f9eb2ab884"
-          - BLACKFIRE_CLIENT_TOKEN="521bd8b65dbe3d75613afb3646cf4ca236de45581d698637dc007c60b830345a"
+          - BLACKFIRE_CLIENT_ID=99418e16-66cb-447c-903b-58f9eb2ab884
+          - BLACKFIRE_CLIENT_TOKEN=521bd8b65dbe3d75613afb3646cf4ca236de45581d698637dc007c60b830345a
         dockerfile: "Dockerfile-71"
       volumes_from:
         - applications
@@ -104,15 +104,15 @@ services:
         - "dockerhost:10.0.75.1"
       networks:
         - backend
-      command: php artisan queue:work
+      command: php /var/www/artisan queue:work
 
 ### Blackfire Container #################################
 
     blackfire:
       image: blackfire/blackfire
       environment:
-        - BLACKFIRE_SERVER_ID="c4b092fd-8fd4-43af-9fd7-92234882ad37"
-        - BLACKFIRE_SERVER_TOKEN="ef4d168dadee934319dc4654fb462000a7167291d9aae708c78f515bc508b7a7"
+        - BLACKFIRE_SERVER_ID=c4b092fd-8fd4-43af-9fd7-92234882ad37
+        - BLACKFIRE_SERVER_TOKEN=ef4d168dadee934319dc4654fb462000a7167291d9aae708c78f515bc508b7a7
       depends_on:
         - php-fpm
       networks:

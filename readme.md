@@ -3,7 +3,7 @@
 ## Docker
 
 ```shell
-$> docker network create -d bridge bellumindustria
+$> docker network create -d bridge bellumindustria_lan
 $> docker-compose --project-name bellumindustria up -d apache2 php-fpm php-worker mysql redis blackfire mailhog
 $> docker-compose --project-name bellumindustria exec workspace bash
 $> docker-compose --project-name bellumindustria exec workspace composer install
@@ -12,4 +12,8 @@ $> docker-compose --project-name bellumindustria exec workspace php /var/www/ven
 $> docker-compose --project-name bellumindustria stop
 $> docker-compose --project-name bellumindustria rm
 $> docker-compose --project-name bellumindustria rm -f
+```
+
+```shell
+$> docker network create -d bridge cibellumindustria_lan
 ```
