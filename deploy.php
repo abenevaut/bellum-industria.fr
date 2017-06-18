@@ -45,9 +45,9 @@ require 'recipe/laravel.php';
 });
 
 \Deployer\task('bellumindustriafr:docker:artisan-optimize', function() {
-	\Deployer\run("docker-compose --project-name benevaut -f {{current_path}}/docker-compose.yml exec -T workspace php /var/www/artisan optimize");
-	\Deployer\run("docker-compose --project-name benevaut -f {{current_path}}/docker-compose.yml exec -T workspace php /var/www/artisan route:cache");
-	\Deployer\run("docker-compose --project-name benevaut -f {{current_path}}/docker-compose.yml exec -T workspace php /var/www/artisan config:cache");
+	\Deployer\run("docker-compose --project-name bellumindustria -f {{current_path}}/docker-compose.yml exec -T workspace php /var/www/artisan optimize");
+	\Deployer\run("docker-compose --project-name bellumindustria -f {{current_path}}/docker-compose.yml exec -T workspace php /var/www/artisan route:cache");
+	\Deployer\run("docker-compose --project-name bellumindustria -f {{current_path}}/docker-compose.yml exec -T workspace php /var/www/artisan config:cache");
 });
 
 \Deployer\task('bellumindustriafr:docker:artisan-migrate', function() {
