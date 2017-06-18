@@ -58,7 +58,7 @@ services:
         context: ./laradock/php-fpm
         args:
           - INSTALL_XDEBUG=false
-          - INSTALL_BLACKFIRE=false
+          - INSTALL_BLACKFIRE=true
           - INSTALL_SOAP=false
           - INSTALL_MONGO=false
           - INSTALL_MSSQL=false
