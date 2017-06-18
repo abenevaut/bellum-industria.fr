@@ -13,7 +13,3 @@ $> docker-compose --project-name bellumindustria stop
 $> docker-compose --project-name bellumindustria rm
 $> docker-compose --project-name bellumindustria rm -f
 ```
-
-```shell
-$> docker network create -d bridge cibellumindustria_lan
-```
