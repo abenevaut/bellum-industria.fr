@@ -12,6 +12,5 @@
   "devDependencies": {
     "laravel-mix": "0.*"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

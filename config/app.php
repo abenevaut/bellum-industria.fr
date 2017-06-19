@@ -174,6 +174,7 @@ return [
 		Invisnik\LaravelSteamAuth\SteamServiceProvider::class,
 		Riari\Forum\ForumServiceProvider::class,
 		Riari\Forum\Frontend\ForumFrontendServiceProvider::class,
+		Spatie\Sitemap\SitemapServiceProvider::class,
 
 		/*
 		 * Application Service Providers...

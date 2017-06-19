@@ -18,6 +18,7 @@
         "riari/laravel-forum": "~4.0",
         "riari/laravel-forum-frontend": "~1.0",
         "sentry/sentry-laravel": "^0.7.0",
+        "spatie/laravel-sitemap": "^2.2",
         "thujohn/twitter": "^2.2"
     },
     "require-dev": {
@@ -75,6 +76,12 @@
         ],
         "deploy-unlock": [
             "vendor/bin/dep deploy:unlock production"
+        ],
+        "docker": [
+            "docker-compose --project-name bellumindustria up -d apache2 php-fpm php-worker mysql redis blackfire mailhog"
+        ],
+        "docker-stop": [
+            "docker-compose --project-name bellumindustria stop"
         ]
     },
     "config": {

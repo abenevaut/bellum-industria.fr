@@ -17,6 +17,7 @@ require 'recipe/laravel.php';
 // Laravel shared file
 \Deployer\set('shared_files', [
 	'.env',
+	'public/sitemap.xml',
 ]);
 
 // Laravel writable dirs
@@ -75,7 +76,7 @@ require 'recipe/laravel.php';
 	'bellumindustriafr:docker:build',
 	'bellumindustriafr:docker:start',
 	'bellumindustriafr:docker:composer-install',
-	'bellumindustriafr:docker:artisan-optimize',
+//	'bellumindustriafr:docker:artisan-optimize',
 	'bellumindustriafr:docker:artisan-migrate',
 	'deploy:unlock',
 	'cleanup',
