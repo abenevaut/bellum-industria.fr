@@ -1,5 +1,9 @@
 @extends('backend.layouts.dashboard')
 
+@section('js')
+	<script src="{{ mix('js/backend/layouts/dashboard.js') }}" type="text/javascript"></script>
+@endsection
+
 @section('content')
 	<!-- START ROW -->
 	<div class="row">

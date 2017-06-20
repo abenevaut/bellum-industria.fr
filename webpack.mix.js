@@ -76,24 +76,11 @@ mix
 			'resources/assets/plugins/select2/js/select2.full.min.js',
 			'resources/assets/plugins/classie/classie.js',
 			'resources/assets/plugins/switchery/js/switchery.min.js',
-			'resources/assets/plugins/nvd3/lib/d3.v3.js',
-			'resources/assets/plugins/nvd3/nv.d3.min.js',
-			'resources/assets/plugins/nvd3/src/utils.js',
-			'resources/assets/plugins/nvd3/src/tooltip.js',
-			'resources/assets/plugins/nvd3/src/interactiveLayer.js',
-			'resources/assets/plugins/nvd3/src/models/axis.js',
-			'resources/assets/plugins/nvd3/src/models/line.js',
-			'resources/assets/plugins/nvd3/src/models/lineWithFocusChart.js',
-			'resources/assets/plugins/mapplic/js/hammer.js',
-			'resources/assets/plugins/mapplic/js/jquery.mousewheel.js',
-			'resources/assets/plugins/mapplic/js/mapplic.js',
-			'resources/assets/plugins/rickshaw/rickshaw.min.js',
 			'resources/assets/plugins/jquery-metrojs/MetroJs.min.js',
 			'resources/assets/plugins/jquery-sparkline/jquery.sparkline.min.js',
 			'resources/assets/plugins/skycons/skycons.js',
 			'resources/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js',
-			'resources/assets/js/backend/layouts/pages.min.js',
-			'resources/assets/js/backend/layouts/dashboard.js',
+			'resources/assets/js/backend/layouts/pages.js',
 			'resources/assets/js/backend/layouts/scripts.js'
 		],
 		'public/js/backend/layouts/dashboard.js'
@@ -149,6 +136,27 @@ mix
 			'resources/assets/js/frontend/contacts/index.js'
 		],
 		'public/js/frontend/contacts/index.js'
+	)
+	/**
+	 * Backend dashboard
+	 */
+	.scripts(
+		[
+			'resources/assets/plugins/nvd3/lib/d3.v3.js',
+			'resources/assets/plugins/nvd3/nv.d3.min.js',
+			'resources/assets/plugins/nvd3/src/utils.js',
+			'resources/assets/plugins/nvd3/src/tooltip.js',
+			'resources/assets/plugins/nvd3/src/interactiveLayer.js',
+			'resources/assets/plugins/nvd3/src/models/axis.js',
+			'resources/assets/plugins/nvd3/src/models/line.js',
+			'resources/assets/plugins/nvd3/src/models/lineWithFocusChart.js',
+			'resources/assets/plugins/mapplic/js/hammer.js',
+			'resources/assets/plugins/mapplic/js/jquery.mousewheel.js',
+			'resources/assets/plugins/mapplic/js/mapplic.js',
+			'resources/assets/plugins/rickshaw/rickshaw.min.js',
+			'resources/assets/js/backend/dashboard/dashboard.js'
+		],
+		'public/js/backend/dashboard/dashboard.js'
 	);
 
 if (mix.config.inProduction) {
