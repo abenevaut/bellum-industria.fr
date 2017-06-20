@@ -37,7 +37,9 @@ mix
 	/**
 	 * Dashboard backend layouts - pages
 	 */
-	//.copyDirectory('resources/assets/bower/font-awesome/fonts', 'public/css/frontend/fonts')
+	.copyDirectory('resources/assets/css/backend/layouts/fonts', 'public/css/backend/layouts/fonts')
+	.copyDirectory('resources/assets/css/backend/layouts/ico', 'public/css/backend/layouts/ico')
+	.copyDirectory('resources/assets/css/backend/layouts/img', 'public/css/backend/layouts/img')
 	.copyDirectory('resources/assets/plugins/codrops-dialogFx', 'public/plugins/codrops-dialogFx')
 	.styles(
 		[
