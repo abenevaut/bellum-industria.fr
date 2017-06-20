@@ -39,7 +39,7 @@ mix
 	 */
 	.copyDirectory('resources/assets/css/backend/layouts/fonts', 'public/css/backend/fonts')
 	.copyDirectory('resources/assets/css/backend/layouts/ico', 'public/css/backend/layouts/ico')
-	.copyDirectory('resources/assets/css/backend/layouts/img', 'public/css/backend/layouts/img')
+	.copyDirectory('resources/assets/css/backend/layouts/img', 'public/css/backend/img')
 	.copyDirectory('resources/assets/plugins/codrops-dialogFx', 'public/plugins/codrops-dialogFx')
 	.copyDirectory('resources/assets/plugins/font-awesome/fonts', 'public/css/backend/fonts')
 	.styles(
@@ -142,19 +142,20 @@ mix
 	 */
 	.scripts(
 		[
-			'resources/assets/plugins/nvd3/lib/d3.v3.js',
-			'resources/assets/plugins/nvd3/nv.d3.min.js',
-			'resources/assets/plugins/nvd3/src/utils.js',
-			'resources/assets/plugins/nvd3/src/tooltip.js',
-			'resources/assets/plugins/nvd3/src/interactiveLayer.js',
-			'resources/assets/plugins/nvd3/src/models/axis.js',
-			'resources/assets/plugins/nvd3/src/models/line.js',
-			'resources/assets/plugins/nvd3/src/models/lineWithFocusChart.js',
-			'resources/assets/plugins/mapplic/js/hammer.js',
-			'resources/assets/plugins/mapplic/js/jquery.mousewheel.js',
-			'resources/assets/plugins/mapplic/js/mapplic.js',
-			'resources/assets/plugins/rickshaw/rickshaw.min.js',
+			//'resources/assets/plugins/nvd3/lib/d3.v3.js',
+			//'resources/assets/plugins/nvd3/nv.d3.min.js',
+			//'resources/assets/plugins/nvd3/src/utils.js',
+			//'resources/assets/plugins/nvd3/src/tooltip.js',
+			//'resources/assets/plugins/nvd3/src/interactiveLayer.js',
+			//'resources/assets/plugins/nvd3/src/models/axis.js',
+			//'resources/assets/plugins/nvd3/src/models/line.js',
+			//'resources/assets/plugins/nvd3/src/models/lineWithFocusChart.js',
+			//'resources/assets/plugins/mapplic/js/hammer.js',
+			//'resources/assets/plugins/mapplic/js/jquery.mousewheel.js',
+			//'resources/assets/plugins/mapplic/js/mapplic.js',
+			//'resources/assets/plugins/rickshaw/rickshaw.min.js',
 			'resources/assets/js/backend/dashboard/dashboard.js'
+			//'resources/assets/js/backend/layouts/demo.js'
 		],
 		'public/js/backend/dashboard/dashboard.js'
 	);
