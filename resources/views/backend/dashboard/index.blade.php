@@ -1,7 +1,11 @@
 @extends('backend.layouts.dashboard')
 
+@section('css')
+	<link class="main-stylesheet" href="{{ mix('css/backend/dashboard/dashboard.css') }}" rel="stylesheet" type="text/css" />
+@endsection
+
 @section('js')
-	<script src="{{ mix('js/backend/layouts/dashboard.js') }}" type="text/javascript"></script>
+	<script src="{{ mix('js/backend/dashboard/dashboard.js') }}" type="text/javascript"></script>
 @endsection
 
 @section('content')
@@ -10,6 +14,31 @@
 
 
 
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+{{--
+
+ /* ============================================================
+     * Dashboard
+     * Generates widgets in the dashboard
+     * For DEMO purposes only. Extract what you need.
+     * ============================================================ */
+
+ --}}
 
 
 

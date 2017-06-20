@@ -2,12 +2,13 @@
   "/mix.js": "/mix.2c859f2861cff8603409.js",
   "/css/frontend/layouts/core.css": "/css/frontend/layouts/core.fce9c4b9d91930489f2892d435fd1f87.css",
   "/js/frontend/layouts/core.js": "/js/frontend/layouts/core.5b241bde9e5e624f921aefb791210260.js",
-  "/css/backend/layouts/dashboard.css": "/css/backend/layouts/dashboard.2f60a5a019bf1b0b8c5605290322bce0.css",
+  "/css/backend/layouts/dashboard.css": "/css/backend/layouts/dashboard.7d11c148032b6a82921c25b530dbc329.css",
   "/js/backend/layouts/dashboard.js": "/js/backend/layouts/dashboard.6e8987dc058ed724c6f8989b68d765f6.js",
   "/css/frontend/layouts/default.css": "/css/frontend/layouts/default.084adcc34946795b9b778e5d69bd09a2.css",
   "/css/frontend/layouts/emails_theme.css": "/css/frontend/layouts/emails_theme.811cd97f2328b567bae83114f38016f6.css",
   "/css/frontend/home/index.css": "/css/frontend/home/index.aea9852ddb18d19eb50c657af6a65d27.css",
   "/js/frontend/home/index.js": "/js/frontend/home/index.999c4db1154fadd614884cc82bd2c03a.js",
   "/js/frontend/contacts/index.js": "/js/frontend/contacts/index.f412ac1dd95b43c130f411cf7a404461.js",
-  "/js/backend/dashboard/dashboard.js": "/js/backend/dashboard/dashboard.6e77be1b968826adba0c99ed72b5bb2b.js"
+  "/js/backend/dashboard/dashboard.js": "/js/backend/dashboard/dashboard.4f22a45d306c4cdfa5c7fa561f99d801.js",
+  "/css/backend/dashboard/dashboard.css": "/css/backend/dashboard/dashboard.af999c44e2c208b630a2e16eb4d29619.css"
 }

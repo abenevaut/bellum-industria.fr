@@ -50,9 +50,6 @@ mix
 			'resources/assets/plugins/jquery-scrollbar/jquery.scrollbar.css',
 			'resources/assets/plugins/select2/css/select2.min.css',
 			'resources/assets/plugins/switchery/css/switchery.min.css',
-			'resources/assets/plugins/nvd3/nv.d3.min.css',
-			'resources/assets/plugins/mapplic/css/mapplic.css',
-			'resources/assets/plugins/rickshaw/rickshaw.min.css',
 			'resources/assets/plugins/bootstrap-datepicker/css/datepicker3.css',
 			'resources/assets/plugins/jquery-metrojs/MetroJs.css',
 			'resources/assets/css/backend/layouts/pages-icons.css',
@@ -158,6 +155,14 @@ mix
 			//'resources/assets/js/backend/layouts/demo.js'
 		],
 		'public/js/backend/dashboard/dashboard.js'
+	)
+	.styles(
+		[
+			'resources/assets/plugins/nvd3/nv.d3.min.css',
+			'resources/assets/plugins/mapplic/css/mapplic.css',
+			'resources/assets/plugins/rickshaw/rickshaw.min.css'
+		],
+		'public/css/backend/dashboard/dashboard.css'
 	);
 
 if (mix.config.inProduction) {

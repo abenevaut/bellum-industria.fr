@@ -1,11 +1,16 @@
-/* ============================================================
- * Dashboard
- * Generates widgets in the dashboard
- * For DEMO purposes only. Extract what you need.
- * ============================================================ */
 (function($) {
 
     'use strict';
+
+
+
+
+    /* ============================================================
+     * Dashboard
+     * Generates widgets in the dashboard
+     * For DEMO purposes only. Extract what you need.
+     * ============================================================ */
+
 
     //$(document).ready(function() {
 	//
