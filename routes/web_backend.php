@@ -10,3 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::group(['as' => 'backend.', 'prefix' => 'backend', 'namespace' => 'Backend'], function() {
+
+		/**
+		 * Home
+		 */
+		Route::get('/', ['as' => 'home', 'uses' => 'DashboardController@index']);
+
+});

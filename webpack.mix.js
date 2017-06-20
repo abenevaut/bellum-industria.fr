@@ -12,9 +12,9 @@ const {mix} = require('laravel-mix');
  */
 
 mix
-	/**
-	 * Core frontend layouts
-	 */
+/**
+ * Core frontend layouts - gameforest
+ */
 	.copyDirectory('resources/assets/img', 'public/img')
 	.copyDirectory('resources/assets/bower/font-awesome/fonts', 'public/css/frontend/fonts')
 	.styles(
@@ -35,7 +35,68 @@ mix
 		'public/js/frontend/layouts/core.js'
 	)
 	/**
-	 * Default layout
+	 * Dashboard backend layouts - pages
+	 */
+	//.copyDirectory('resources/assets/bower/font-awesome/fonts', 'public/css/frontend/fonts')
+	.copyDirectory('resources/assets/plugins/codrops-dialogFx', 'public/plugins/codrops-dialogFx')
+	.styles(
+		[
+			'resources/assets/plugins/pace/pace-theme-flash.css',
+			'resources/assets/plugins/bootstrapv3/css/bootstrap.min.css',
+			'resources/assets/plugins/font-awesome/css/font-awesome.css',
+			'resources/assets/plugins/jquery-scrollbar/jquery.scrollbar.css',
+			'resources/assets/plugins/select2/css/select2.min.css',
+			'resources/assets/plugins/switchery/css/switchery.min.css',
+			'resources/assets/plugins/nvd3/nv.d3.min.css',
+			'resources/assets/plugins/mapplic/css/mapplic.css',
+			'resources/assets/plugins/rickshaw/rickshaw.min.css',
+			'resources/assets/plugins/bootstrap-datepicker/css/datepicker3.css',
+			'resources/assets/plugins/jquery-metrojs/MetroJs.css',
+			'resources/assets/css/backend/layouts/pages-icons.css',
+			'resources/assets/css/backend/layouts/pages.css'
+		],
+		'public/css/backend/layouts/dashboard.css'
+	)
+	.scripts(
+		[
+			'resources/assets/plugins/pace/pace.min.js',
+			'resources/assets/plugins/jquery/jquery-1.11.1.min.js',
+			'resources/assets/plugins/modernizr.custom.js',
+			'resources/assets/plugins/jquery-ui/jquery-ui.min.js',
+			'resources/assets/plugins/bootstrapv3/js/bootstrap.min.js',
+			'resources/assets/plugins/jquery/jquery-easy.js',
+			'resources/assets/plugins/jquery-unveil/jquery.unveil.min.js',
+			'resources/assets/plugins/jquery-bez/jquery.bez.min.js',
+			'resources/assets/plugins/jquery-ios-list/jquery.ioslist.min.js',
+			'resources/assets/plugins/jquery-actual/jquery.actual.min.js',
+			'resources/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js',
+			'resources/assets/plugins/select2/js/select2.full.min.js',
+			'resources/assets/plugins/classie/classie.js',
+			'resources/assets/plugins/switchery/js/switchery.min.js',
+			'resources/assets/plugins/nvd3/lib/d3.v3.js',
+			'resources/assets/plugins/nvd3/nv.d3.min.js',
+			'resources/assets/plugins/nvd3/src/utils.js',
+			'resources/assets/plugins/nvd3/src/tooltip.js',
+			'resources/assets/plugins/nvd3/src/interactiveLayer.js',
+			'resources/assets/plugins/nvd3/src/models/axis.js',
+			'resources/assets/plugins/nvd3/src/models/line.js',
+			'resources/assets/plugins/nvd3/src/models/lineWithFocusChart.js',
+			'resources/assets/plugins/mapplic/js/hammer.js',
+			'resources/assets/plugins/mapplic/js/jquery.mousewheel.js',
+			'resources/assets/plugins/mapplic/js/mapplic.js',
+			'resources/assets/plugins/rickshaw/rickshaw.min.js',
+			'resources/assets/plugins/jquery-metrojs/MetroJs.min.js',
+			'resources/assets/plugins/jquery-sparkline/jquery.sparkline.min.js',
+			'resources/assets/plugins/skycons/skycons.js',
+			'resources/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js',
+			'resources/assets/js/backend/layouts/pages.min.js',
+			'resources/assets/js/backend/layouts/dashboard.js',
+			'resources/assets/js/backend/layouts/scripts.js'
+		],
+		'public/js/backend/layouts/dashboard.js'
+	)
+	/**
+	 * Default layout - gameforest
 	 */
 	.styles(
 		[
@@ -46,7 +107,7 @@ mix
 		'public/css/frontend/layouts/default.css'
 	)
 	/**
-	 * Default layout
+	 * Default emails layout
 	 */
 	.styles(
 		[

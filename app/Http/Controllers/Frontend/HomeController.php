@@ -31,7 +31,7 @@ class HomeController extends ControllerAbstract
 			{
 
 				$tweet->created_at = (new Carbon($tweet->created_at))
-					->format('m/d/Y H\hi');
+					->format('d/m/Y H\hi');
 
 				$tweet->text = TwitterTextFormatter::format_text($tweet);
 
