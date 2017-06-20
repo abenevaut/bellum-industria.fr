@@ -37,10 +37,11 @@ mix
 	/**
 	 * Dashboard backend layouts - pages
 	 */
-	.copyDirectory('resources/assets/css/backend/layouts/fonts', 'public/css/backend/layouts/fonts')
+	.copyDirectory('resources/assets/css/backend/layouts/fonts', 'public/css/backend/fonts')
 	.copyDirectory('resources/assets/css/backend/layouts/ico', 'public/css/backend/layouts/ico')
 	.copyDirectory('resources/assets/css/backend/layouts/img', 'public/css/backend/layouts/img')
 	.copyDirectory('resources/assets/plugins/codrops-dialogFx', 'public/plugins/codrops-dialogFx')
+	.copyDirectory('resources/assets/plugins/font-awesome/fonts', 'public/css/backend/fonts')
 	.styles(
 		[
 			'resources/assets/plugins/pace/pace-theme-flash.css',

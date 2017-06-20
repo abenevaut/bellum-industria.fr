@@ -5,7 +5,7 @@
 		<!-- BEGIN Overlay Header !-->
 		<div class="container-fluid">
 			<!-- BEGIN Overlay Logo !-->
-			<img class="overlay-brand" src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+			<img class="overlay-brand" src="/img/logo.png" alt="logo" data-src="/img/logo.png" data-src-retina="/img/logo_2x.png" width="78" height="22">
 			<!-- END Overlay Logo !-->
 			<!-- BEGIN Overlay Close !-->
 			<a href="#" class="close-icon-light overlay-close text-black fs-16">
@@ -45,7 +45,7 @@
 							<!-- BEGIN Search Result Item Thumbnail !-->
 							<div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
 								<div>
-									<img width="50" height="50" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
+									<img width="50" height="50" src="/img/profiles/avatar.jpg" data-src="/img/profiles/avatar.jpg" data-src-retina="/img/profiles/avatar2x.jpg" alt="">
 								</div>
 							</div>
 							<!-- END Search Result Item Thumbnail !-->

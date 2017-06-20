@@ -364,7 +364,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/1x.jpg" data-src="assets/img/profiles/1.jpg" src="assets/img/profiles/1x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/1x.jpg" data-src="/img/profiles/1.jpg" src="/img/profiles/1x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -384,7 +384,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/2x.jpg" data-src="assets/img/profiles/2.jpg" src="assets/img/profiles/2x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/2x.jpg" data-src="/img/profiles/2.jpg" src="/img/profiles/2x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -399,7 +399,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/3x.jpg" data-src="assets/img/profiles/3.jpg" src="assets/img/profiles/3x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/3x.jpg" data-src="/img/profiles/3.jpg" src="/img/profiles/3x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -419,7 +419,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/4x.jpg" data-src="assets/img/profiles/4.jpg" src="assets/img/profiles/4x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/4x.jpg" data-src="/img/profiles/4.jpg" src="/img/profiles/4x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -434,7 +434,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/5x.jpg" data-src="assets/img/profiles/5.jpg" src="assets/img/profiles/5x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/5x.jpg" data-src="/img/profiles/5.jpg" src="/img/profiles/5x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -454,7 +454,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/6x.jpg" data-src="assets/img/profiles/6.jpg" src="assets/img/profiles/6x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/6x.jpg" data-src="/img/profiles/6.jpg" src="/img/profiles/6x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -469,7 +469,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/7x.jpg" data-src="assets/img/profiles/7.jpg" src="assets/img/profiles/7x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/7x.jpg" data-src="/img/profiles/7.jpg" src="/img/profiles/7x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -489,7 +489,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/8x.jpg" data-src="assets/img/profiles/8.jpg" src="assets/img/profiles/8x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/8x.jpg" data-src="/img/profiles/8.jpg" src="/img/profiles/8x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -504,7 +504,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/9x.jpg" data-src="assets/img/profiles/9.jpg" src="assets/img/profiles/9x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/9x.jpg" data-src="/img/profiles/9.jpg" src="/img/profiles/9x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -519,7 +519,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/1x.jpg" data-src="assets/img/profiles/1.jpg" src="assets/img/profiles/1x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/1x.jpg" data-src="/img/profiles/1.jpg" src="/img/profiles/1x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -534,7 +534,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/2x.jpg" data-src="assets/img/profiles/2.jpg" src="assets/img/profiles/2x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/2x.jpg" data-src="/img/profiles/2.jpg" src="/img/profiles/2x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -549,7 +549,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/3x.jpg" data-src="assets/img/profiles/3.jpg" src="assets/img/profiles/3x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/3x.jpg" data-src="/img/profiles/3.jpg" src="/img/profiles/3x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -569,7 +569,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/4x.jpg" data-src="assets/img/profiles/4.jpg" src="assets/img/profiles/4x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/4x.jpg" data-src="/img/profiles/4.jpg" src="/img/profiles/4x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -589,7 +589,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/5x.jpg" data-src="assets/img/profiles/5.jpg" src="assets/img/profiles/5x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/5x.jpg" data-src="/img/profiles/5.jpg" src="/img/profiles/5x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -604,7 +604,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/6x.jpg" data-src="assets/img/profiles/6.jpg" src="assets/img/profiles/6x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/6x.jpg" data-src="/img/profiles/6.jpg" src="/img/profiles/6x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -624,7 +624,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/7x.jpg" data-src="assets/img/profiles/7.jpg" src="assets/img/profiles/7x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/7x.jpg" data-src="/img/profiles/7.jpg" src="/img/profiles/7x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -644,7 +644,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/8x.jpg" data-src="assets/img/profiles/8.jpg" src="assets/img/profiles/8x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/8x.jpg" data-src="/img/profiles/8.jpg" src="/img/profiles/8x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -664,7 +664,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/9x.jpg" data-src="assets/img/profiles/9.jpg" src="assets/img/profiles/9x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/9x.jpg" data-src="/img/profiles/9.jpg" src="/img/profiles/9x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -679,7 +679,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/1x.jpg" data-src="assets/img/profiles/1.jpg" src="assets/img/profiles/1x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/1x.jpg" data-src="/img/profiles/1.jpg" src="/img/profiles/1x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -694,7 +694,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/2x.jpg" data-src="assets/img/profiles/2.jpg" src="assets/img/profiles/2x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/2x.jpg" data-src="/img/profiles/2.jpg" src="/img/profiles/2x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -709,7 +709,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/3x.jpg" data-src="assets/img/profiles/3.jpg" src="assets/img/profiles/3x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/3x.jpg" data-src="/img/profiles/3.jpg" src="/img/profiles/3x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -729,7 +729,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/4x.jpg" data-src="assets/img/profiles/4.jpg" src="assets/img/profiles/4x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/4x.jpg" data-src="/img/profiles/4.jpg" src="/img/profiles/4x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -744,7 +744,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/5x.jpg" data-src="assets/img/profiles/5.jpg" src="assets/img/profiles/5x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/5x.jpg" data-src="/img/profiles/5.jpg" src="/img/profiles/5x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -759,7 +759,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/6x.jpg" data-src="assets/img/profiles/6.jpg" src="assets/img/profiles/6x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/6x.jpg" data-src="/img/profiles/6.jpg" src="/img/profiles/6x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -774,7 +774,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/7x.jpg" data-src="assets/img/profiles/7.jpg" src="assets/img/profiles/7x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/7x.jpg" data-src="/img/profiles/7.jpg" src="/img/profiles/7x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -789,7 +789,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/8x.jpg" data-src="assets/img/profiles/8.jpg" src="assets/img/profiles/8x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/8x.jpg" data-src="/img/profiles/8.jpg" src="/img/profiles/8x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -804,7 +804,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/9x.jpg" data-src="assets/img/profiles/9.jpg" src="assets/img/profiles/9x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/9x.jpg" data-src="/img/profiles/9.jpg" src="/img/profiles/9x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -825,7 +825,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/1x.jpg" data-src="assets/img/profiles/1.jpg" src="assets/img/profiles/1x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/1x.jpg" data-src="/img/profiles/1.jpg" src="/img/profiles/1x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -845,7 +845,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/2x.jpg" data-src="assets/img/profiles/2.jpg" src="assets/img/profiles/2x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/2x.jpg" data-src="/img/profiles/2.jpg" src="/img/profiles/2x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -865,7 +865,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/3x.jpg" data-src="assets/img/profiles/3.jpg" src="assets/img/profiles/3x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/3x.jpg" data-src="/img/profiles/3.jpg" src="/img/profiles/3x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -880,7 +880,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/4x.jpg" data-src="assets/img/profiles/4.jpg" src="assets/img/profiles/4x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/4x.jpg" data-src="/img/profiles/4.jpg" src="/img/profiles/4x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -895,7 +895,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/5x.jpg" data-src="assets/img/profiles/5.jpg" src="assets/img/profiles/5x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/5x.jpg" data-src="/img/profiles/5.jpg" src="/img/profiles/5x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -915,7 +915,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/6x.jpg" data-src="assets/img/profiles/6.jpg" src="assets/img/profiles/6x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/6x.jpg" data-src="/img/profiles/6.jpg" src="/img/profiles/6x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -930,7 +930,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/7x.jpg" data-src="assets/img/profiles/7.jpg" src="assets/img/profiles/7x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/7x.jpg" data-src="/img/profiles/7.jpg" src="/img/profiles/7x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -945,7 +945,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/8x.jpg" data-src="assets/img/profiles/8.jpg" src="assets/img/profiles/8x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/8x.jpg" data-src="/img/profiles/8.jpg" src="/img/profiles/8x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -965,7 +965,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/9x.jpg" data-src="assets/img/profiles/9.jpg" src="assets/img/profiles/9x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/9x.jpg" data-src="/img/profiles/9.jpg" src="/img/profiles/9x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -980,7 +980,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/1x.jpg" data-src="assets/img/profiles/1.jpg" src="assets/img/profiles/1x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/1x.jpg" data-src="/img/profiles/1.jpg" src="/img/profiles/1x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -995,7 +995,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/2x.jpg" data-src="assets/img/profiles/2.jpg" src="assets/img/profiles/2x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/2x.jpg" data-src="/img/profiles/2.jpg" src="/img/profiles/2x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1010,7 +1010,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/3x.jpg" data-src="assets/img/profiles/3.jpg" src="assets/img/profiles/3x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/3x.jpg" data-src="/img/profiles/3.jpg" src="/img/profiles/3x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1030,7 +1030,7 @@
 									<a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/4x.jpg" data-src="assets/img/profiles/4.jpg" src="assets/img/profiles/4x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="/img/profiles/4x.jpg" data-src="/img/profiles/4.jpg" src="/img/profiles/4x.jpg" class="col-top">
                         </span>
                         </span>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1074,7 +1074,7 @@
 						<!-- BEGIN From Them Message  !-->
 						<div class="message clearfix">
 							<div class="profile-img-wrapper m-t-5 inline">
-								<img class="col-top" width="30" height="30" src="assets/img/profiles/avatar_small.jpg" alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg">
+								<img class="col-top" width="30" height="30" src="/img/profiles/avatar_small.jpg" alt="" data-src="/img/profiles/avatar_small.jpg" data-src-retina="/img/profiles/avatar_small2x.jpg">
 							</div>
 							<div class="chat-bubble from-them">
 								Hey
@@ -1098,7 +1098,7 @@
 						<!-- BEGIN From Them Message  !-->
 						<div class="message clearfix">
 							<div class="profile-img-wrapper m-t-5 inline">
-								<img class="col-top" width="30" height="30" src="assets/img/profiles/avatar_small.jpg" alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg">
+								<img class="col-top" width="30" height="30" src="/img/profiles/avatar_small.jpg" alt="" data-src="/img/profiles/avatar_small.jpg" data-src-retina="/img/profiles/avatar_small2x.jpg">
 							</div>
 							<div class="chat-bubble from-them">
 								Yea
