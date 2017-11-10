@@ -18,7 +18,7 @@
 <meta name="copyright" content="{{ config('metadata.copyright') }}" />
 <meta name="application-name" content="{{ config('metadata.application-name') }}" />
 <meta property="og:site_name" content="{{ config('metadata.application-name') }}"/>
-<meta property="og:title" content="@yield('title', config('app.title'))"/>
+<meta property="og:title" content="@yield('title', config('app.name'))"/>
 <meta property="og:image" content="@yield('image', asset(config('metadata.image')))" />
 <meta property="og:description" content="@yield('description', config('metadata.description'))" />
 @section('type')
@@ -27,7 +27,7 @@
 <meta property="og:url" content="{{ URL::current() }}"/>
 <meta property="fb:app_id" content="{{ config('metadata.fb_app_id') }}"/>
 <meta property="fb:admins" content="{{ config('metadata.fb_page_id') }}"/>
-<meta name="twitter:title" content="@yield('title', config('app.title'))" />
+<meta name="twitter:title" content="@yield('title', config('app.name'))" />
 <meta name="twitter:description" content="@yield('description', config('metadata.description'))" />
 <meta name="twitter:image" content="@yield('image', asset(config('metadata.image')))" />
 <meta name="twitter:card" content="@yield('card', config('metadata.card'))" />
