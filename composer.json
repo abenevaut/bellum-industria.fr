@@ -56,12 +56,12 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
+            "php artisan optimize",
+            "php artisan sitemap:generate"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize",
-            "php artisan sitemap:generate"
+            "php artisan optimize"
         ],
         "tests:phpunit": [
             "docker-compose --project-name benevaut exec -T workspace php /var/www/vendor/bin/phpunit"
