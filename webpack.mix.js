@@ -178,7 +178,7 @@ if (mix.config.inProduction) {
 				to: 'img/'
 			}]),
 			new ImageminPlugin({
-				test: /\.(jpe?g|png|gif|svg)$/i,
+				test: /\.(jpe?g|png|gif)$/i, // |svg
 				pngquant: {
 					quality: '65-80'
 				},
