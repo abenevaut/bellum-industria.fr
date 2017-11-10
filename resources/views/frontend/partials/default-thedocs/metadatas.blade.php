@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>@yield('title', config('metadata`.title'))</title>
+<title>@yield('title', config('app.name'))</title>
 <meta name="description" content="@yield('description', config('metadata.description'))" />
 <meta name="keywords" content="@yield('keywords', config('metadata.keywords'))" />
 <meta name="author" content="{{ config('metadata.author') }}" />

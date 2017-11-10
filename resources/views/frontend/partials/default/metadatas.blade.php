@@ -11,7 +11,7 @@
 <link href="{{ asset('/img/apple-touch-icon-57x57-precomposed.png') }}?v1" rel="apple-touch-icon" type="image/x-icon" />
 <link href="{{ asset('/img/apple-touch-icon-72x72-precomposed.png') }}?v1" rel="apple-touch-icon" type="image/x-icon" />
 <link href="{{ asset('/img/apple-touch-icon-114x114-precomposed.png') }}?v1" rel="apple-touch-icon" type="image/x-icon" />
-<title>@yield('title', config('metadata`.title'))</title>
+<title>@yield('title', config('app.name'))</title>
 <meta name="description" content="@yield('description', config('metadata.description'))" />
 <meta name="keywords" content="@yield('keywords', config('metadata.keywords'))" />
 <meta name="author" content="{{ config('metadata.author') }}" />
