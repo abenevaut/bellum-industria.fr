@@ -12,5 +12,4 @@ npm-debug.log
 resources/assets/bower
 deploy.yml
 storage/docker/
-storage/docker/*
 public/sitemap.xml

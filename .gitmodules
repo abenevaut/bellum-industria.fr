@@ -1,6 +1,3 @@
 [submodule "laradock"]
 	path = laradock
 	url = https://github.com/Laradock/laradock.git
-[submodule "resources/assets/js/analyticsjs"]
-	path = resources/assets/js/analyticsjs
-	url = https://github.com/philipwalton/analyticsjs-boilerplate.git
