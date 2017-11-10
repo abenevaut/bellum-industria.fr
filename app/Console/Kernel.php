@@ -2,6 +2,7 @@
 
 namespace bellumindustria\Console;
 
+use bellumindustria\Console\Commands\BellumIndustriaVersionCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,6 +14,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
+    	\bellumindustria\Console\Commands\BellumIndustriaVersionCommand::class,
         \bellumindustria\Console\Commands\Sitemap\GenerateSitemap::class,
     ];
 

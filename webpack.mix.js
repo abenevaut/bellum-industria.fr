@@ -1,3 +1,6 @@
+const ImageminPlugin     = require('imagemin-webpack-plugin').default;
+const CopyWebpackPlugin  = require('copy-webpack-plugin');
+const imageminMozjpeg    = require('imagemin-mozjpeg');
 const {mix} = require('laravel-mix');
 
 /*
@@ -167,4 +170,26 @@ mix
 
 if (mix.config.inProduction) {
 	mix.version();
+	mix.webpackConfig({
+		plugins: [
+			//Compress images
+			new CopyWebpackPlugin([{
+				from: 'resources/assets/img',
+				to: 'img/'
+			}]),
+			new ImageminPlugin({
+				test: /\.(jpe?g|png|gif|svg)$/i,
+				pngquant: {
+					quality: '65-80'
+				},
+				plugins: [
+					imageminMozjpeg({
+						quality: 65,
+						//Set the maximum memory to use in kbytes
+						maxmemory: 1000 * 512
+					})
+				]
+			})
+		]
+	});
 }

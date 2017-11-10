@@ -1,46 +1,50 @@
-image: docker:latest
+image: tmaier/docker-compose:latest
 
 stages:
+  - build
   - test
   - deploy
 
 variables:
-  GIT_SSL_NO_VERIFY: "true"
+  DOCKER_DRIVER: overlay
+  GIT_SSL_NO_VERIFY: "1"
   GIT_SUBMODULE_STRATEGY: recursive
 
-test_website:
+docker-unit:
+  stage: build
+  tags:
+    - docker
+  script:
+    - docker-compose --project-name cibellumindustria build workspace blackfire
+
+style:
+  stage: build
+  tags:
+    - docker
+  before_script:
+    - docker-compose --project-name cibellumindustria up -d workspace
+    - docker-compose --project-name cibellumindustria exec -T workspace npm install
+    - docker-compose --project-name cibellumindustria exec -T workspace npm run bower:install
+  script:
+    - docker-compose --project-name cibellumindustria exec -T workspace npm run production
+  after_script:
+    - docker-compose --project-name cibellumindustria stop
+    - docker-compose --project-name cibellumindustria rm -f
+    - rm -rf vendor storage/docker
+
+unit:
   stage: test
   tags:
     - docker
-    - docker-compose
   before_script:
-    - docker info
     - cp .env.example .env
-    - docker-compose --project-name cibellumindustria up -d apache2 php-fpm php-worker mysql redis blackfire
+    - docker-compose --project-name cibellumindustria build workspace blackfire
+    - docker-compose --project-name cibellumindustria up -d workspace blackfire
     - docker-compose --project-name cibellumindustria exec -T workspace php /usr/local/bin/composer install
     - docker-compose --project-name cibellumindustria exec -T workspace php /var/www/artisan key:generate
-    - docker-compose --project-name cibellumindustria exec -T workspace php /var/www/artisan migrate
   script:
     - docker-compose --project-name cibellumindustria exec -T workspace php /var/www/vendor/bin/phpunit
   after_script:
     - docker-compose --project-name cibellumindustria stop
     - docker-compose --project-name cibellumindustria rm -f
-    - sudo rm -r vendor storage/docker
-
-#deploy_website:
-#  stage: deploy
-#  only:
-#    - master
-#  tags:
-#    - docker
-#    - docker-compose
-#  before_script:
-#    - cp deploy.yml.example deploy.yml
-#    - docker-compose --project-name cibellumindustria up -d workspace
-#    - docker-compose --project-name cibellumindustria exec -T workspace php /usr/local/bin/composer install
-#  script:
-#    - composer deploy
-#  after_script:
-#    - docker-compose --project-name cibellumindustria stop
-#    - docker-compose --project-name cibellumindustria rm -f
-#    - sudo rm -r vendor
+    - rm -rf vendor storage/docker

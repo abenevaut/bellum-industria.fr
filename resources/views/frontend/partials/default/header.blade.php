@@ -10,9 +10,9 @@
 							Bellum Industria
 						</a>
 					</li>
-					<li>
-						<a href="{{ route('forum.index') }}">Forum</a>
-					</li>
+					{{--<li>--}}
+						{{--<a href="{{ route('forum.index') }}">Forum</a>--}}
+					{{--</li>--}}
 					<li>
 						<a href="{{ route('frontend.contacts.index') }}">Contact</a>
 					</li>

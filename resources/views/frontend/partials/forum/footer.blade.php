@@ -38,7 +38,7 @@
 				<li><a href="https://www.youtube.com/channel/UCSBq3Ozx_nY6eQ4RJDvxSCA" target="_blank" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="" data-original-title="Follow us on Youtube"><i class="fa fa-youtube-square"></i></a></li>
 				<li><a href="https://twitch.tv/bellumindustria" target="_blank" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="" data-original-title="Follow us on Twitch.tv"><i class="fa fa-twitch"></i></a></li>
 			</ul>
-			© 2016-{{ date('Y') }} <a href="{{ url('/') }}">www.bellum-industria.fr</a>. All rights reserved.
+			© 2016-{{ date('Y') }} <a href="{{ url('/') }}">www.bellum-industria.fr</a> - {{ config('versiongenerated.version') }}. All rights reserved.
 		</div>
 	</div>
 </footer>

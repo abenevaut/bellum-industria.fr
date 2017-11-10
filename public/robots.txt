@@ -1,2 +1,7 @@
+User-agent: Twitterbot
+Disallow:
+
 User-agent: *
 Disallow:
+
+Sitemap: http://www.bellum-industria.fr/sitemap.xml

@@ -149,31 +149,21 @@ AddType image/x-icon .ico
     BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
     SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip
     Header append Vary User-Agent env=!dont-vary
-
 </ifModule>
 
 <IfModule mod_headers.c>
-
-  <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|js)$">
-    Header set Access-Control-Allow-Origin "*"
-  </FilesMatch>
-
-        Header unset ETag
-
-        # http://www.samaxes.com/2008/04/htaccess-gzip-and-cache-your-site-for-faster-loading-and-bandwidth-saving/
-        Header unset Last-Modified
-
+    Header unset ETag
+    <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|js)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
     <FilesMatch "\.(js|css|xml|gz)$">
         Header append Vary Accept-Encoding
+        # One month
+        Header set Cache-Control "max-age=2628000, public"
     </FilesMatch>
-    <FilesMatch "\.(ico|jpe?g|png|gif|swf)$">
-        Header set Cache-Control "public"
-    </FilesMatch>
-    <FilesMatch "\.(css)$">
-        Header set Cache-Control "public"
-    </FilesMatch>
-    <FilesMatch "\.(js)$">
-        Header set Cache-Control "private"
+    <FilesMatch "\.(ico|jpe?g|png|gif|swf|css|js)$">
+        # One month
+        Header set Cache-Control "max-age=2628000, public"
     </FilesMatch>
     <FilesMatch "\.(x?html?|php)$">
         Header set Cache-Control "private, must-revalidate"

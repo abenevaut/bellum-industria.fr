@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
-    "license": "MIT",
+    "name": "bellum-industria/www",
+    "description": "www.bellum-industria.fr",
+    "keywords": ["bellum", "industria"],
+    "license": "copyright",
     "type": "project",
     "require": {
         "php": ">=5.6.4",
@@ -60,28 +60,29 @@
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
+            "php artisan optimize",
+            "php artisan sitemap:generate"
         ],
-        "test": [
-            "vendor/bin/phpunit"
+        "tests:phpunit": [
+            "docker-compose --project-name benevaut exec -T workspace php /var/www/vendor/bin/phpunit"
         ],
-        "test-phpcs": [
-            "vendor/bin/phpcs --standard=$PWD/vendor/pragmarx/laravelcs/Standards/Laravel/ app"
+        "tests:phpcs": [
+            "docker-compose --project-name benevaut exec -T workspace php /var/www/vendor/bin/phpcs --standard=/var/www/vendor/pragmarx/laravelcs/Standards/Laravel/ app"
         ],
-        "test-phpcs-duplicated": [
-            "vendor/bin/phpcpd app"
+        "tests:duplicated": [
+            "docker-compose --project-name benevaut exec -T workspace php /var/www/vendor/bin/phpcpd app"
         ],
         "deploy": [
-            "vendor/bin/dep deploy production"
+            "vendor/bin/dep -vvv deploy abenevaut.frb.io"
         ],
         "deploy-unlock": [
-            "vendor/bin/dep deploy:unlock production"
+            "vendor/bin/dep deploy:unlock abenevaut.frb.io"
         ],
         "docker": [
-            "docker-compose --project-name bellumindustria up -d apache2 php-fpm php-worker mysql redis blackfire mailhog"
+            "docker-compose --project-name benevaut up -d apache2 php-fpm php-worker mysql redis blackfire mailhog"
         ],
         "docker-stop": [
-            "docker-compose --project-name bellumindustria stop"
+            "docker-compose --project-name benevaut stop"
         ]
     },
     "config": {
