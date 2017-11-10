@@ -5,7 +5,7 @@
 
     RewriteEngine On
 
-    RewriteCond %{HTTP_HOST} belum-industria\.fr$ [NC]
+    RewriteCond %{HTTP_HOST} bellum-industria\.fr$ [NC]
     RewriteCond %{HTTP:X-Forwarded-Port} !=443
     RewriteRule (.*) https://%{HTTP_HOST}/$1 [R=301,L]
 
