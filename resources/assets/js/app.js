@@ -57,24 +57,24 @@ AppException = function () {
 
 	this.stack = current_stack.join("\n");
 
-	this.fileName = (current_stack_tmp != null && current_stack_tmp.length > 1)
+	this.fileName = (current_stack_tmp !== null && current_stack_tmp.length > 1)
 		? current_stack_tmp[1]
 		: "N/A";
 
-	this.lineNumber = (current_stack_tmp != null && current_stack_tmp.length > 1)
+	this.lineNumber = (current_stack_tmp !== null && current_stack_tmp.length > 1)
 		? current_stack_tmp[2]
 		: "N/A";
 
-	this.columnNumber = (current_stack_tmp != null && current_stack_tmp.length > 1)
+	this.columnNumber = (current_stack_tmp !== null && current_stack_tmp.length > 1)
 		? current_stack_tmp[3].replace(')', '')
 		: "N/A";
 
 	this.toString = function () {
 		return this.name + ' : ' + this.fileName
 			+ "\n Msg : \"" + this.message.toString() + "\" "
-			+ "\n File name : " + (this.fileName == 'undefined' ? 'N/A' : this.fileName)
-			+ "\n Line : " + (this.lineNumber == 'undefined' ? 'N/A' : this.lineNumber)
-			+ "\n Column : " + (this.columnNumber == 'undefined' ? 'N/A' : this.columnNumber)
+			+ "\n File name : " + (this.fileName === 'undefined' ? 'N/A' : this.fileName)
+			+ "\n Line : " + (this.lineNumber === 'undefined' ? 'N/A' : this.lineNumber)
+			+ "\n Column : " + (this.columnNumber === 'undefined' ? 'N/A' : this.columnNumber)
 			+ "\n Stack:\n" + this.stack;
 	};
 };
@@ -180,7 +180,7 @@ AppException = function () {
 	 * @seealso https://developers.google.com/chrome-developer-tools/docs/console?hl=fr
 	 */
 	_app.clear_console = function () {
-		if (true == window.debug) {
+		if (true === window.debug) {
 			console.clear();
 		}
 		return window.debug;
@@ -193,10 +193,10 @@ AppException = function () {
 	 * @returns {*}
 	 */
 	_app.exception = function (error) {
-		if (typeof(error) == 'object' && error instanceof AppException) {
+		if (typeof(error) === 'object' && error instanceof AppException) {
 			return _app.error(error.toString());
 		}
-		else if (typeof(error) == 'object' && error instanceof Error) {
+		else if (typeof(error) === 'object' && error instanceof Error) {
 			return _app.error(error.message + '\n' + error.stack);
 		}
 		return _app.error('app.js > _app.exception : error : No correct exception found!');
@@ -281,7 +281,7 @@ AppException = function () {
 		in_array: function (array, p_val) {
 			var l = array.length;
 			for (var i = 0; i < l; ++i) {
-				if (array[i] == p_val) {
+				if (array[i] === p_val) {
 					return true;
 				}
 			}
@@ -345,7 +345,7 @@ AppException = function () {
 		number: function (number, params) {
 			return (Number(number.replace(',', '.'))).toFixed(2);
 
-			if (typeof params == 'undefined') {
+			if (typeof params === 'undefined') {
 				params = {};
 			}
 		},
@@ -368,10 +368,6 @@ AppException = function () {
 			});
 
 			return total;
-
-			if (typeof params == 'undefined') {
-				params = {};
-			}
 		},
 
 		/**
@@ -410,7 +406,7 @@ AppException = function () {
 		 * @private
 		 */
 		_before_diff: function (d1, d2, caller) {
-			if (d1 == null || typeof(d1) == 'undefined') {
+			if (d1 === null || typeof(d1) === 'undefined') {
 				throw new CVEPDBException('app.js > _app.dates.' + caller + ' : error : ' + caller + ' d1 arg is null');
 			}
 			else if (!(d1 instanceof Date)) {
@@ -419,7 +415,7 @@ AppException = function () {
 					+ ' this is an instance of ' + getClassOf(d1)
 				);
 			}
-			else if (d2 == null || typeof(d2) == 'undefined') {
+			else if (d2 === null || typeof(d2) === 'undefined') {
 				throw new CVEPDBException('app.js > _app.dates.' + caller + ' : error : ' + caller + ' d2 arg is null');
 			}
 			else if (!(d2 instanceof Date)) {
@@ -502,7 +498,7 @@ AppException = function () {
 			var dateENArray = current_date.match(_app.dates.rxDatePattern.en);
 
 			if (
-				typeof dateFRArray != 'undefined'
+				typeof dateFRArray !== 'undefined'
 				&& dateFRArray instanceof Array
 				&& dateFRArray.length > 0
 			) {
@@ -510,7 +506,7 @@ AppException = function () {
 				date_obj = new Date(current_date);
 			}
 			else if (
-				typeof dateENArray != 'undefined'
+				typeof dateENArray !== 'undefined'
 				&& dateENArray instanceof Array
 				&& dateENArray.length > 0
 			) {
@@ -576,7 +572,7 @@ AppException = function () {
 		 */
 		isInt: function (n) {
 			n = Number(n);
-			return (typeof(n) == "number") && isFinite(n) && (n % 1 === 0);
+			return (typeof(n) === "number") && isFinite(n) && (n % 1 === 0);
 		},
 
 		/**
@@ -602,7 +598,7 @@ AppException = function () {
 		 */
 		baseValidationForSirenAndSiret: function (number, size) {
 
-			if (isNaN(number) || number.length != size) {
+			if (isNaN(number) || number.length !== size) {
 				return false;
 			}
 
@@ -615,7 +611,7 @@ AppException = function () {
 				bal = 1 - bal;
 			}
 
-			return (total % 10 == 0);
+			return (total % 10 === 0);
 		},
 
 		/**
@@ -680,10 +676,10 @@ AppException = function () {
 	 * @param arg
 	 */
 	_app.unbeforeunload = function (arg) {
-		if (arg == null) {
+		if (arg === null) {
 			W.onbeforeunload = null;
 		}
-		else if (typeof(arg) == "function") {
+		else if (typeof(arg) === "function") {
 			W.onbeforeunload = arg;
 		}
 		else if (typeof(arg) === 'string') {
