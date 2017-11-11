@@ -28,7 +28,7 @@
 
 		<div class="container">
 			<div class="headline">
-				<h4><i class="fa fa-twitter"></i> Tweets</h4>
+				<h1><i class="fa fa-twitter"></i> Tweets</h1>
 				<div class="btn-group pull-right">
 				</div>
 			</div>

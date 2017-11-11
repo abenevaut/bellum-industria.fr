@@ -14,7 +14,7 @@
 						<a href="{{ route('forum.index') }}">Forum</a>
 					</li>
 					<li>
-						<a href="{{ route('frontend.contacts.index') }}">Contact</a>
+						<a href="{{ route('frontend.contact.index') }}">Contact</a>
 					</li>
 				</ul>
 			</div>

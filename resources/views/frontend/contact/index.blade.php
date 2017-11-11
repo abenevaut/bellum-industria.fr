@@ -5,7 +5,7 @@
 
 @section('js')
 	<script src="//maps.google.com/maps/api/js?key={{ config('services.google_api.key') }}"></script>
-	<script src="{{ mix('js/frontend/contacts/index.js') }}"></script>
+	<script src="{{ mix('js/frontend/contact/index.js') }}"></script>
 @endsection
 
 @section('content')
@@ -14,11 +14,11 @@
 		<div class="hero-bg-primary"></div>
 		<div class="container">
 			<div class="page-header">
-				<div class="page-title">Contactez nous</div>
+				<h1 class="page-title">Contactez nous</h1>
 				<ol class="breadcrumb">
 					<li><a href="{{ route('frontend.home') }}">Accueil</a></li>
 					<li>
-						<a href="{{ route('frontend.contacts.index') }}" class="active">Contact</a>
+						<a href="{{ route('frontend.contact.index') }}" class="active">Contact</a>
 					</li>
 				</ol>
 			</div>
@@ -49,7 +49,7 @@
 						<h4><i class="fa fa-envelope"></i> Contactez nous</h4>
 						<p>remarques, reproches, idées, donnez nous votre avis</p>
 					</div>
-					{!! Form::open(['route' => ['frontend.contacts.store'], 'method' => 'POST']) !!}
+					{!! Form::open(['route' => ['frontend.contact.store'], 'method' => 'POST', 'id' => 'form-contact']) !!}
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="Prénom" name="first_name" value="{{ old('first_name') }}">
 					</div>

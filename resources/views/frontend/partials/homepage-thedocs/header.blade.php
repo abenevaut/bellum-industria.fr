@@ -16,7 +16,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li class="active"><a href="{{ route('frontend.home') }}">Accueil</a></li>
 					<li class="active"><a href="{{ route('frontend.documentations.index') }}">Documentations</a></li>
-					<li class="hero"><a href="{{ route('frontend.contacts.index') }}">Contact</a></li>
+					<li class="hero"><a href="{{ route('frontend.contact.index') }}">Contact</a></li>
 				</ul>
 			</div>
 		</div>

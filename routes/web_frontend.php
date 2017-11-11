@@ -22,5 +22,5 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend'], function ()
 	/**
 	 * Contacts
 	 */
-	Route::resource('contacts', 'ContactsController');
+	Route::resource('contact', 'ContactController');
 });

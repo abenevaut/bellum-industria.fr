@@ -8,7 +8,7 @@
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
 					<div class="title">
-						<h4><i class="fa fa-bug"></i> {{ trans('errors.405_title') }}</h4>
+						<h1><i class="fa fa-bug"></i> {{ trans('errors.405_title') }}</h1>
 					</div>
 					<p>{{ trans('errors.405_description') }}</p>
 					@include('frontend.partials.errors.embeded_video')

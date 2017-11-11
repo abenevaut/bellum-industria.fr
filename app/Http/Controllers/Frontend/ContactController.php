@@ -3,17 +3,17 @@
 namespace bellumindustria\Http\Controllers\Frontend;
 
 use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
-use bellumindustria\Http\Request\Frontend\Contacts\ContactRequest;
+use bellumindustria\Http\Request\Frontend\Contact\ContactRequest;
 use Illuminate\Support\Facades\Mail;
 
-class ContactsController extends ControllerAbstract
+class ContactController extends ControllerAbstract
 {
 
 	/**
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function index() {
-		return view('frontend.contacts.index');
+		return view('frontend.contact.index');
 	}
 
 	/**
@@ -26,7 +26,7 @@ class ContactsController extends ControllerAbstract
 		 */
 
 		Mail::send(
-			'frontend.contacts.emails.handshake_mail_to_confirme_reception_to_sender',
+			'frontend.contact.emails.handshake_mail_to_confirme_reception_to_sender',
 			[
 				'first_name' => $request->get('first_name'),
 				'last_name'  => $request->get('last_name'),
@@ -54,7 +54,7 @@ class ContactsController extends ControllerAbstract
 		 */
 
 		Mail::send(
-			'frontend.contacts.emails.handshake_mail_to_administrator',
+			'frontend.contact.emails.handshake_mail_to_administrator',
 			[
 				'first_name' => $request->get('first_name'),
 				'last_name'  => $request->get('last_name'),
@@ -75,7 +75,7 @@ class ContactsController extends ControllerAbstract
 					->subject($request->get('subject'));
 			});
 
-		return redirect(route('frontend.contacts.index'))
+		return redirect(route('frontend.contact.index'))
 			->with('alert-success', 'Votre message à bien été envoyé :)');
 	}
 }

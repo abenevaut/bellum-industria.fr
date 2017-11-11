@@ -125,7 +125,7 @@ mix
 		'public/js/frontend/home/index.js'
 	)
 	/**
-	 * Frontend contacts
+	 * Frontend contact
 	 */
 	.scripts(
 		[
@@ -133,12 +133,13 @@ mix
 			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
 			'resources/assets/plugins/gmaps/gmaps.js',
 			'resources/assets/plugins/gmaps/prettify.js',
-			'resources/assets/js/frontend/contacts/index.js'
+			'resources/assets/js/frontend/layouts/app-validation.js',
+			'resources/assets/js/frontend/contact/index.js'
 		],
-		'public/js/frontend/contacts/index.js'
+		'public/js/frontend/contact/index.js'
 	)
 	/**
-	 * Frontend login
+	 * Auth login
 	 */
 	.scripts(
 		[
@@ -151,7 +152,7 @@ mix
 		'public/js/auth/login/login.js'
 	)
 	/**
-	 * Frontend register
+	 * Auth register
 	 */
 	.scripts(
 		[
@@ -164,7 +165,7 @@ mix
 		'public/js/auth/register/register.js'
 	)
 	/**
-	 * Frontend reset password
+	 * Auth reset password
 	 */
 	.scripts(
 		[

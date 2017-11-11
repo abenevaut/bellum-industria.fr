@@ -1,6 +1,6 @@
 <?php
 
-namespace bellumindustria\Http\Request\Frontend\Contacts;
+namespace bellumindustria\Http\Request\Frontend\Contact;
 
 use bellumindustria\Infrastructure\Contracts\Request\RequestAbstract;
 
