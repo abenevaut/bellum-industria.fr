@@ -11,12 +11,6 @@ if ('production' === bellumindustria.environment)
 		ROLE_ID: 'dimension8'
 	};
 
-	const metrics = {
-		RESPONSE_END_TIME: 'metric1',
-		DOM_LOAD_TIME: 'metric2',
-		WINDOW_LOAD_TIME: 'metric3'
-	};
-
 	function uuid(a) {
 		return a
 			? (a ^ Math.random() * 16 >> a / 4).toString(16)
@@ -107,6 +101,13 @@ if ('production' === bellumindustria.environment)
 	trackErrors();
 
 	function sendNavigationTimingMetrics() {
+
+		const metrics = {
+			RESPONSE_END_TIME: 'metric1',
+			DOM_LOAD_TIME: 'metric2',
+			WINDOW_LOAD_TIME: 'metric3'
+		};
+
 		// Only track performance in supporting browsers.
 		if (!(window.performance && window.performance.timing)) {
 			return;
