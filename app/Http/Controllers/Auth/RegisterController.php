@@ -72,6 +72,7 @@ class RegisterController extends ControllerAbstract
 	protected function create(array $data) {
 		// encrypt password
 		$data['password'] = bcrypt($data['password']);
+		$data['uniqid'] = uniqid();
 		return $this->r_users->authRegistration($data);
 	}
 
