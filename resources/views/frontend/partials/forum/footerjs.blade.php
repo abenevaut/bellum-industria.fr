@@ -1,4 +1,5 @@
 <script src="{{ mix('js/frontend/layouts/core.js') }}"></script>
+<script async src="//cdn.ravenjs.com/3.3.0/raven.min.js"></script>
 <script>
 	var toggle = $('input[type=checkbox][data-toggle-all]');
 	var checkboxes = $('table tbody input[type=checkbox]');
