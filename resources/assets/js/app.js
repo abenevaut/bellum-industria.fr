@@ -155,7 +155,6 @@ AppException = function () {
 		if (true === window.debug) {
 			console.error(string);
 		}
-		_app.sentry.report();
 		return window.debug;
 	};
 
@@ -169,7 +168,6 @@ AppException = function () {
 		if (true === window.debug) {
 			console.warn(string);
 		}
-		_app.sentry.report();
 		return window.debug;
 	};
 
