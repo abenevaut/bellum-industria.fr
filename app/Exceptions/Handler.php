@@ -35,12 +35,16 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-		if (!app()->environment('local') && $this->shouldReport($exception))
-		{
+		if (
+			!app()->environment('local')
+			&& app()->bound('sentry')
+			&& $this->shouldReport($exception)
+		) {
 			// bind the event ID for Feedback
-			$this->sentryID = app('sentry')->captureException($exception);
+			$this->sentryID = app('sentry')
+				->captureException($exception);
 		}
-        parent::report($exception);
+		parent::report($exception);
     }
 
     /**
