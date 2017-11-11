@@ -44,3 +44,19 @@
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
 <link href="{{ mix('css/frontend/layouts/default.css') }}" rel="stylesheet">
 @yield('css')
+<script>
+	const BELLUMINDUSTRIA_VERSION = '{{ config('versiongenerated.version') }}';
+	const BELLUMINDUSTRIA_USER_ID = @if (Auth::check())
+'{{ Auth::user()->uniqid }}'
+@else
+'visitor'
+@endif
+;
+const BELLUMINDUSTRIA_USER_ROLE = @if (Auth::check())
+'administrator'
+@else
+'visitor'
+@endif
+;
+	addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});
+</script>

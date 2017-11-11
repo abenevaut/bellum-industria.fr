@@ -34,3 +34,19 @@
 <link href="{{ asset('/apple-touch-icon-114x114-precomposed.png') }}?v1" rel="apple-touch-icon" type="image/x-icon" />
 <link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 @yield('css')
+<script>
+	const BELLUMINDUSTRIA_VERSION = '{{ config('versiongenerated.version') }}';
+	const BELLUMINDUSTRIA_USER_ID = @if (Auth::check())
+'{{ Auth::user()->uniqid }}'
+@else
+'visitor'
+@endif
+;
+const BELLUMINDUSTRIA_USER_ROLE = @if (Auth::check())
+'administrator'
+@else
+'visitor'
+@endif
+;
+	addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});
+</script>

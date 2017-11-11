@@ -41,8 +41,8 @@ if ('production' === bellumindustria.environment)
 	ga('production.set', 'transport', 'beacon');
 	ga('test.set', 'transport', 'beacon');
 
-	ga('production.set', dimensions.TRACKING_VERSION, ABENEVAUT_VERSION);
-	ga('test.set', dimensions.TRACKING_VERSION, ABENEVAUT_VERSION);
+	ga('production.set', dimensions.TRACKING_VERSION, BELLUMINDUSTRIA_VERSION);
+	ga('test.set', dimensions.TRACKING_VERSION, BELLUMINDUSTRIA_VERSION);
 
 	ga(function() {
 		ga.getByName('production').set(dimensions.CLIENT_ID, ga.getByName('production').get('clientId'));
@@ -69,11 +69,11 @@ if ('production' === bellumindustria.environment)
 		});
 	});
 
-	ga('production.set', dimensions.USER_ID, ABENEVAUT_USER_ID);
-	ga('test.set', dimensions.USER_ID, ABENEVAUT_USER_ID);
+	ga('production.set', dimensions.USER_ID, BELLUMINDUSTRIA_USER_ID);
+	ga('test.set', dimensions.USER_ID, BELLUMINDUSTRIA_USER_ID);
 
-	ga('production.set', dimensions.ROLE_ID, ABENEVAUT_USER_ROLE);
-	ga('test.set', dimensions.ROLE_ID, ABENEVAUT_USER_ROLE);
+	ga('production.set', dimensions.ROLE_ID, BELLUMINDUSTRIA_USER_ROLE);
+	ga('test.set', dimensions.ROLE_ID, BELLUMINDUSTRIA_USER_ROLE);
 
 	function trackError(error, fieldsObj) {
 		if (typeof(fieldsObj) === 'undefined') {
