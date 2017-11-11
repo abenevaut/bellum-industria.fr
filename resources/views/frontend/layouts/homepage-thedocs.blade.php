@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html prefix="bellumindustria: {{ url('/') }}" lang="fr_FR">
 	<head>
 		@include('frontend.partials.homepage-thedocs.metadatas')
 	</head>
