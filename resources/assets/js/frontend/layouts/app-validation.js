@@ -39,9 +39,6 @@
 						else if ($(element).hasClass('ui-spinner-input')) {
 							error.insertAfter($(element).closest('span.ui-spinner').after());
 						}
-						else if ($(element).is('textarea')) {
-							error.insertAfter(element.next());
-						}
 						else if ($(element).attr('type') !== 'hidden') {
 							error.insertAfter(element);
 						}

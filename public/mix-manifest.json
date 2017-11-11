@@ -11,9 +11,9 @@
   "/js/frontend/contacts/index.js": "/js/frontend/contacts/index.8641657074bf99842839be2483b3008f.js",
   "/js/backend/dashboard/dashboard.js": "/js/backend/dashboard/dashboard.4f22a45d306c4cdfa5c7fa561f99d801.js",
   "/css/backend/dashboard/dashboard.css": "/css/backend/dashboard/dashboard.af999c44e2c208b630a2e16eb4d29619.css",
-  "/js/auth/login/login.js": "/js/auth/login/login.4719f26f32b4ddf7c3f7a65c55316763.js",
-  "/js/auth/register/register.js": "/js/auth/register/register.3e64d946d5f21492106de8b08007b27c.js",
-  "/js/auth/reset/reset_password.js": "/js/auth/reset/reset_password.650241132dd97b323b97f243a6847e76.js",
-  "/js/auth/reset/send_email.js": "/js/auth/reset/send_email.060ff0adb963d340bcfcbf9cc28e58c5.js",
-  "/js/frontend/contact/index.js": "/js/frontend/contact/index.47d7d80fd717014ecc856bdc928f0160.js"
+  "/js/auth/login/login.js": "/js/auth/login/login.778341c408c54f46d9c952a123df72d0.js",
+  "/js/auth/register/register.js": "/js/auth/register/register.41a627da39b4f3a795f5c548652f65d9.js",
+  "/js/auth/reset/reset_password.js": "/js/auth/reset/reset_password.765076fc159b86e626f52ca02cb27bb0.js",
+  "/js/auth/reset/send_email.js": "/js/auth/reset/send_email.b24a0c2652b03c79b9971a0cf991f5b8.js",
+  "/js/frontend/contact/index.js": "/js/frontend/contact/index.6e5fe56ee9b2458af7a32b240d0bb02f.js"
 }
