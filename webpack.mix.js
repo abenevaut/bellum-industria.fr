@@ -138,6 +138,55 @@ mix
 		'public/js/frontend/contacts/index.js'
 	)
 	/**
+	 * Frontend login
+	 */
+	.scripts(
+		[
+			'resources/assets/js/app.js',
+			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
+			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
+			'resources/assets/js/frontend/layouts/app-validation.js',
+			'resources/assets/js/auth/login/login.js'
+		],
+		'public/js/auth/login/login.js'
+	)
+	/**
+	 * Frontend register
+	 */
+	.scripts(
+		[
+			'resources/assets/js/app.js',
+			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
+			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
+			'resources/assets/js/frontend/layouts/app-validation.js',
+			'resources/assets/js/auth/register/register.js'
+		],
+		'public/js/auth/register/register.js'
+	)
+	/**
+	 * Frontend reset password
+	 */
+	.scripts(
+		[
+			'resources/assets/js/app.js',
+			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
+			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
+			'resources/assets/js/frontend/layouts/app-validation.js',
+			'resources/assets/js/auth/reset/reset_password.js'
+		],
+		'public/js/auth/reset/reset_password.js'
+	)
+	.scripts(
+		[
+			'resources/assets/js/app.js',
+			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
+			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
+			'resources/assets/js/frontend/layouts/app-validation.js',
+			'resources/assets/js/auth/reset/send_email.js'
+		],
+		'public/js/auth/reset/send_email.js'
+	)
+	/**
 	 * Backend dashboard
 	 */
 	.scripts(

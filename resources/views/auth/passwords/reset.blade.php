@@ -1,76 +1,73 @@
 @extends('frontend.layouts.default')
 
+@section('css')
+    <style>
+        section.hero p {
+            color: #5086a0;
+        }
+        .has-error .help-block {
+            color: #e74c3c;
+        }
+    </style>
+@endsection
+
+@section('js')
+    <script src="{{ mix('js/auth/reset/reset_password.js') }}" type="text/javascript"></script>
+@endsection
+
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
+    <section class="hero hero-panel" style="background-image: url(/img/cover/cover-login.jpg);">
+        <div class="hero-bg"></div>
+        <div class="container relative">
+            <div class="row">
+                <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 pull-none margin-auto">
+                    <div class="panel panel-default panel-login">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">Mot de passe oublié 2</h1>
                         </div>
-                    @endif
+                        <div class="panel-body">
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('password.request') }}">
-                        {{ csrf_field() }}
+                            @if (Session::has('status'))
 
-                        <input type="hidden" name="token" value="{{ $token }}">
+                                <div class="alert alert-success alert-module" role="alert" style="margin-bottom:0px;">
+                                    <p class="pull-left"><b>{{ trans('passwords.reset_password_success_title') }}</b></p>
+                                    <div class="clearfix"></div>
+                                    <p><small>{!! trans(Session::get('status')) !!}</small></p>
+                                </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                                <a href="{{ route('login') }}" class="btn btn-primary btn-cons m-t-10">{{ trans('global.back_home') }}</a>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
+                            @else
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                <div class="alert alert-info alert-module" role="alert">
+                                    <p class="pull-left"><b>Vous avez oublié votre mot de passe ?</b></p>
+                                    <div class="clearfix"></div>
+                                    <p>Cela arrive parfois. Renseignez votre courriel, <b>nous vous enverrons par message éléctronique un lien pour mettre à jour votre mot de passe</b> pour pouvoir accèder de nouveau à votre compte utilisateur</p>
+                                </div>
+
+                                <form role="form" action="{{ route('password.email') }}" method="POST">
+                                    {{ csrf_field() }}
+
+                                    <div class="form-group input-icon-left {{ $errors->has('email') ? 'has-error' : '' }}">
+                                        <i class="fa fa-envelope"></i>
+                                        <input type="email" class="form-control" name="email" placeholder="Email">
+                                        @if ($errors->has('email'))
+                                            <span id="email-error" class="help-block">
+                                        {{ $errors->first('email') }}
                                     </span>
-                                @endif
-                            </div>
+                                        @endif
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary btn-block">Send recovery email</button>
+                                </form>
+                            @endif
                         </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        <div class="panel-footer">
+                            Vous avez déjà un compte ? <a href="{{ route('login') }}">Connectez-vous</a>
                         </div>
-
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Reset Password
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 @endsection

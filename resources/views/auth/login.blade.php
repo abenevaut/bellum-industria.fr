@@ -12,7 +12,14 @@
             background-color: #585858;
             border-color: rgba(0, 0, 0, 0.2);
         }
+        .has-error .help-block {
+            color: #e74c3c;
+        }
     </style>
+@endsection
+
+@section('js')
+    <script src="{{ mix('js/auth/login/login.js') }}" type="text/javascript"></script>
 @endsection
 
 @section('content')
@@ -24,18 +31,18 @@
                 <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 pull-none margin-auto">
                     <div class="panel panel-default panel-login">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-sign-in"></i> Espace de connexion</h3>
+                            <h1 class="panel-title">Espace de connexion</h1>
                         </div>
                         <div class="panel-body">
 
-                            <a class="btn btn-block btn-social btn-steam" href="{{ url('auth/steam') }}"><i class="fa fa-steam"></i> Se connecter avec Steam</a>
-                            <a class="btn btn-block btn-social btn-facebook" href="{{ url('auth/facebook') }}"><i class="fa fa-facebook"></i> Se connecter avec Facebook</a>
-                            <a class="btn btn-block btn-social btn-twitter" href="{{ url('auth/twitter') }}"><i class="fa fa-twitter"></i> Se connecter avec Twitter</a>
+                            {{--<a class="btn btn-block btn-social btn-steam" href="{{ url('auth/steam') }}"><i class="fa fa-steam"></i> Se connecter avec Steam</a>--}}
+                            {{--<a class="btn btn-block btn-social btn-facebook" href="{{ url('auth/facebook') }}"><i class="fa fa-facebook"></i> Se connecter avec Facebook</a>--}}
+                            {{--<a class="btn btn-block btn-social btn-twitter" href="{{ url('auth/twitter') }}"><i class="fa fa-twitter"></i> Se connecter avec Twitter</a>--}}
                             {{--<a class="btn btn-block btn-social btn-google-plus" href="{{ url('auth/google') }}"><i class="fa fa-google-plus"></i> Se connecter avec Google</a>--}}
 
-                            <div class="separator"><span>ou</span></div>
+                            {{--<div class="separator"><span>ou</span></div>--}}
 
-                            <form role="form" method="POST" action="{{ route('login') }}">
+                            <form id="form-login" role="form" method="POST" action="{{ route('login') }}">
                                 {{ csrf_field() }}
 
                                 <div class="form-group input-icon-left {{ $errors->has('email') ? 'has-error' : '' }}">
