@@ -32,8 +32,20 @@ services:
           - INSTALL_DEPLOYER=true
           - INSTALL_LINUXBREW=false
           - INSTALL_MC=false
+          - INSTALL_LDAP=false
+          - INSTALL_IMAP=false
+          - INSTALL_PHPREDIS=false
+          - INSTALL_DRUPAL_CONSOLE=false
+          - INSTALL_SYMFONY=false
+          - INSTALL_PYTHON=false
+          - INSTALL_IMAGE_OPTIMIZERS=false
+          - INSTALL_IMAGEMAGICK=false
+          - INSTALL_TERRAFORM=false
+          - INSTALL_DUSK_DEPS=false
+          - INSTALL_PG_CLIENT=false
           - PUID=1000
           - PGID=1000
+          - CHROME_DRIVER_VERSION=false
           - NODE_VERSION=stable
           - YARN_VERSION=latest
           - TZ=CEST
@@ -67,7 +79,7 @@ services:
           - INSTALL_PHPREDIS=false
           - INSTALL_MEMCACHED=false
           - INSTALL_OPCACHE=false
-          - INSTALL_EXIF=false
+          - INSTALL_EXIF=true
           - INSTALL_AEROSPIKE=false
           - INSTALL_MYSQLI=false
           - INSTALL_TOKENIZER=false
@@ -75,6 +87,10 @@ services:
           - INSTALL_GHOSTSCRIPT=false
           - INSTALL_LDAP=false
           - INSTALL_SWOOLE=false
+          - INSTALL_PGSQL=false
+          - INSTALL_PG_CLIENT=false
+          - INSTALL_IMAGE_OPTIMIZERS=false
+          - INSTALL_IMAGEMAGICK=false
         dockerfile: "Dockerfile-71"
       volumes_from:
         - applications
@@ -87,7 +103,7 @@ services:
       extra_hosts:
         - "dockerhost:10.0.75.1"
       environment:
-        - PHP_IDE_CONFIG="serverName=benevautfr"
+        - PHP_IDE_CONFIG="serverName=bellumindustriafr"
       networks:
         - backend
 
@@ -96,6 +112,9 @@ services:
     php-worker:
       build:
         context: ./laradock/php-worker
+        dockerfile: "Dockerfile-71"
+        args:
+          - INSTALL_PGSQL=false
       volumes_from:
         - applications
       depends_on:
@@ -124,15 +143,17 @@ services:
       build:
         context: ./laradock/apache2
         args:
-          - PHP_SOCKET="php-fpm:9000"
+          - PHP_UPSTREAM_CONTAINER=php-fpm
+          - PHP_UPSTREAM_PORT=9000
+          - PHP_UPSTREAM_TIMEOUT=60
       volumes_from:
         - applications
       volumes:
         - ./storage/docker/apache2/logs:/var/log/apache2
         - ./laradock/apache2/sites:/etc/apache2/sites-available
       ports:
-        - "8001:80"
-        - "4431:443"
+        - "80:80"
+        - "443:443"
       depends_on:
         - php-fpm
       networks:
@@ -144,16 +165,19 @@ services:
     mysql:
       build:
         context: ./laradock/mysql
+        args:
+          - MYSQL_VERSION=5.7
       environment:
         - MYSQL_DATABASE=default
         - MYSQL_USER=default
         - MYSQL_PASSWORD=secret
         - MYSQL_ROOT_PASSWORD=root
+        - TZ=CEST
       volumes:
         - ./storage/docker/mysql:/var/lib/mysql
         - ./laradock/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       ports:
-        - "3301:3306"
+        - "3306:3306"
       networks:
         - backend
 
@@ -164,7 +188,7 @@ services:
       volumes:
         - ./storage/docker/redis:/data
       ports:
-        - "6301:6379"
+        - "6379:6379"
       networks:
         - backend
 
@@ -173,7 +197,7 @@ services:
     selenium:
       build: ./laradock/selenium
       ports:
-        - "4001:4444"
+        - "4444:4444"
       volumes:
         - /dev/shm:/dev/shm
       networks:
@@ -198,7 +222,7 @@ services:
     mailhog:
       build: ./laradock/mailhog
       ports:
-        - "8026:8025"
+        - "8025:8025"
       networks:
         - backend
         - frontend
