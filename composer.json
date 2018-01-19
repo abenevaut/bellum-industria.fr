@@ -5,20 +5,29 @@
     "license": "copyright",
     "type": "project",
     "require": {
-        "php": ">=5.6.4",
+        "php": ">=7.0.0",
+        "barryvdh/laravel-dompdf": "^0.8.1",
+        "barryvdh/laravel-elfinder": "^0.3.11",
         "invisnik/laravel-steam-auth": "^2.3",
-        "laravel/framework": "5.4.*",
+        "laravel-notification-channels/facebook-poster": "^1.1",
+        "laravel-notification-channels/twitter": "^1.0",
+        "laravel/framework": "5.5.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
         "league/fractal": "^0.16.0",
+        "league/glide": "^1.2",
         "madcoda/php-youtube-api": "^1.2",
         "predis/predis": "^1.1",
         "prettus/l5-repository": "^2.6",
+        "pusher/pusher-php-server": "^3.0",
         "riari/laravel-forum": "~4.0",
         "riari/laravel-forum-frontend": "~1.0",
         "sentry/sentry-laravel": "^0.7.0",
-        "spatie/laravel-sitemap": "^2.2",
+        "spatie/laravel-analytics": "^3.4",
+        "spatie/laravel-backup": "^5.1",
+        "spatie/laravel-medialibrary": "^6.6",
+        "spatie/laravel-sitemap": "^3.3",
         "thujohn/twitter": "^2.2"
     },
     "require-dev": {
@@ -26,6 +35,7 @@
         "barryvdh/laravel-ide-helper": "^2.3",
         "blackfire/php-sdk": "^1.8",
         "deployer/deployer": "^5.0",
+        "doctrine/dbal": "^2.6",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/php-code-coverage": "^4.0.4",
@@ -40,7 +50,12 @@
         ],
         "psr-4": {
             "bellumindustria\\": "app/"
-        }
+        },
+        "files": [
+            "app/App/Services/PagesPaginationsHelpers.php",
+            "app/App/Services/HighChartsHelpers.php",
+            "app/App/Services/TimeZonesHelpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -56,8 +71,7 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize",
-            "php artisan sitemap:generate"
+            "php artisan optimize"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
@@ -75,14 +89,29 @@
         "deploy": [
             "vendor/bin/dep -vvv deploy bellumindustria.frb.io"
         ],
-        "deploy-unlock": [
+        "deploy:unlock": [
             "vendor/bin/dep deploy:unlock bellumindustria.frb.io"
         ],
         "docker": [
             "docker-compose --project-name bellumindustria up -d apache2 php-fpm php-worker mysql redis blackfire mailhog"
         ],
+        "docker:migrate": [
+            "docker-compose --project-name bellumindustria exec -T workspace php /var/www/artisan migrate"
+        ],
+        "docker:migrate:rollback": [
+            "docker-compose --project-name bellumindustria exec -T workspace php /var/www/artisan migrate:rollback"
+        ],
+        "docker:backup": [
+            "docker-compose --project-name bellumindustria exec -T workspace php /var/www/artisan backup:run"
+        ],
+        "docker:build": [
+            "docker-compose --project-name bellumindustria build apache2 php-fpm php-worker mysql redis blackfire mailhog"
+        ],
         "docker:stop": [
             "docker-compose --project-name bellumindustria stop"
+        ],
+        "docker:remove": [
+            "docker-compose --project-name bellumindustria rm -f"
         ]
     },
     "config": {
