@@ -1,6 +1,6 @@
-<?php namespace bellumindustria\Infrastructure\Contracts\Repositories;
+<?php namespace abenevaut\Infrastructure\Contracts\Repositories;
 
-use bellumindustria\Infrastructure\Interfaces\Repositories\ResourceInterface;
+use abenevaut\Infrastructure\Interfaces\Repositories\ResourceInterface;
 
 abstract class AbstractResourceRepository implements ResourceInterface
 {

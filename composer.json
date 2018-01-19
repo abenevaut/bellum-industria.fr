@@ -64,25 +64,25 @@
             "php artisan optimize"
         ],
         "tests:phpunit": [
-            "docker-compose --project-name benevaut exec -T workspace php /var/www/vendor/bin/phpunit"
+            "docker-compose --project-name bellumindustria exec -T workspace php /var/www/vendor/bin/phpunit"
         ],
         "tests:phpcs": [
-            "docker-compose --project-name benevaut exec -T workspace php /var/www/vendor/bin/phpcs --standard=/var/www/vendor/pragmarx/laravelcs/Standards/Laravel/ app"
+            "docker-compose --project-name bellumindustria exec -T workspace php /var/www/vendor/bin/phpcs --standard=/var/www/vendor/pragmarx/laravelcs/Standards/Laravel/ app"
         ],
         "tests:duplicated": [
-            "docker-compose --project-name benevaut exec -T workspace php /var/www/vendor/bin/phpcpd app"
+            "docker-compose --project-name bellumindustria exec -T workspace php /var/www/vendor/bin/phpcpd app"
         ],
         "deploy": [
-            "vendor/bin/dep -vvv deploy abenevaut.frb.io"
+            "vendor/bin/dep -vvv deploy bellumindustria.frb.io"
         ],
         "deploy-unlock": [
-            "vendor/bin/dep deploy:unlock abenevaut.frb.io"
+            "vendor/bin/dep deploy:unlock bellumindustria.frb.io"
         ],
         "docker": [
-            "docker-compose --project-name benevaut up -d apache2 php-fpm php-worker mysql redis blackfire mailhog"
+            "docker-compose --project-name bellumindustria up -d apache2 php-fpm php-worker mysql redis blackfire mailhog"
         ],
-        "docker-stop": [
-            "docker-compose --project-name benevaut stop"
+        "docker:stop": [
+            "docker-compose --project-name bellumindustria stop"
         ]
     },
     "config": {

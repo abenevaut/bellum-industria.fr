@@ -23,7 +23,6 @@
 @endsection
 
 @section('content')
-
     <section class="hero hero-panel" style="background-image: url(/img/cover/cover-login.jpg);">
         <div class="hero-bg"></div>
         <div class="container relative">
@@ -44,40 +43,27 @@
 
                             <form id="form-login" role="form" method="POST" action="{{ route('login') }}">
                                 {{ csrf_field() }}
-
                                 <div class="form-group input-icon-left {{ $errors->has('email') ? 'has-error' : '' }}">
                                     <i class="fa fa-envelope"></i>
-
                                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
                                     @if ($errors->has('email'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
+                                        <span class="help-block">{{ $errors->first('email') }}</span>
                                     @endif
                                 </div>
-
                                 <div class="form-group input-icon-left {{ $errors->has('password') ? 'has-error' : '' }}">
                                     <i class="fa fa-lock"></i>
-
                                     <input id="password" type="password" class="form-control" name="password" required>
-
                                     @if ($errors->has('password'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('password') }}</strong>
-                                        </span>
+                                        <span class="help-block">{{ $errors->first('password') }}</span>
                                     @endif
                                 </div>
-
                                 <div class="form-group" style="padding-bottom: 30px">
                                     <div class="checkbox checkbox-primary">
                                         <input type="checkbox" id="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                         <label for="checkbox">Se souvenir de moi</label>
                                     </div>
                                 </div>
-
                                 <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
-
                             </form>
                         </div>
                         <div class="panel-footer">
@@ -90,5 +76,4 @@
             </div>
         </div>
     </section>
-
 @endsection

@@ -1,4 +1,4 @@
-<?php namespace bellumindustria\Infrastructure\Contracts\Controllers;
+<?php namespace abenevaut\Infrastructure\Contracts\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Bus\DispatchesJobs;

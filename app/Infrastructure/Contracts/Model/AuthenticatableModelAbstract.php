@@ -1,4 +1,4 @@
-<?php namespace bellumindustria\Infrastructure\Contracts\Model;
+<?php namespace abenevaut\Infrastructure\Contracts\Model;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Prettus\Repository\Contracts\Transformable;

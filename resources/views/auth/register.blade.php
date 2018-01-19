@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="title">
-                        <h4>La création de compte est indisponible pour le moment</h4>
+                        <h1>La création de compte est indisponible pour le moment</h1>
                     </div>
                     <p>Maintenance en cours de cette page</p>
                     @include('frontend.partials.errors.embeded_video')
@@ -38,7 +38,7 @@
 
                                 {{--@if ($errors->has('name'))--}}
                                     {{--<span class="help-block">--}}
-                                        {{--<strong>{{ $errors->first('name') }}</strong>--}}
+                                        {{--{{ $errors->first('name') }}--}}
                                     {{--</span>--}}
                                 {{--@endif--}}
                             {{--</div>--}}
@@ -52,7 +52,7 @@
 
                                 {{--@if ($errors->has('email'))--}}
                                     {{--<span class="help-block">--}}
-                                        {{--<strong>{{ $errors->first('email') }}</strong>--}}
+                                        {{--{{ $errors->first('email') }}--}}
                                     {{--</span>--}}
                                 {{--@endif--}}
                             {{--</div>--}}
@@ -66,7 +66,7 @@
 
                                 {{--@if ($errors->has('password'))--}}
                                     {{--<span class="help-block">--}}
-                                        {{--<strong>{{ $errors->first('password') }}</strong>--}}
+                                        {{--{{ $errors->first('password') }}--}}
                                     {{--</span>--}}
                                 {{--@endif--}}
                             {{--</div>--}}

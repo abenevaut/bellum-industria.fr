@@ -1,4 +1,4 @@
-<?php namespace bellumindustria\Infrastructure\Contracts\Criterias;
+<?php namespace abenevaut\Infrastructure\Contracts\Criterias;
 
 use Prettus\Repository\Contracts\CriteriaInterface;
 

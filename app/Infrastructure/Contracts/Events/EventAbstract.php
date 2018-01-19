@@ -1,4 +1,4 @@
-<?php namespace bellumindustria\Infractucture\Contracts\Events;
+<?php namespace abenevaut\Infractucture\Contracts\Events;
 
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;

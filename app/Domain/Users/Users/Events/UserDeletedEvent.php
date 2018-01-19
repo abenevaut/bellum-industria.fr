@@ -1,9 +1,9 @@
 <?php
 
-namespace bellumindustria\Domain\Users\Users\Events;
+namespace abenevaut\Domain\Users\Users\Events;
 
-use bellumindustria\Infractucture\Contracts\Events\EventAbstract;
-use bellumindustria\Domain\Users\Users\User;
+use abenevaut\Infractucture\Contracts\Events\EventAbstract;
+use abenevaut\Domain\Users\Users\User;
 
 class UserDeletedEvent extends EventAbstract
 {
@@ -11,14 +11,15 @@ class UserDeletedEvent extends EventAbstract
 	/**
 	 * @var User|null
 	 */
-	public $user = null;
+	public $lead = null;
 
 	/**
-	 * UserDeletedEvent constructor.
+	 * UserUpdatedEvent constructor.
 	 *
-	 * @param User $user
+	 * @param User $lead
 	 */
-	public function __construct(User $user) {
-		$this->user = $user;
+	public function __construct(User $lead)
+	{
+		$this->lead = $lead;
 	}
 }

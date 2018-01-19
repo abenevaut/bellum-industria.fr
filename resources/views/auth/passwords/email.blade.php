@@ -52,9 +52,7 @@
                                         <i class="fa fa-envelope"></i>
                                         <input type="email" class="form-control" name="email" placeholder="Email">
                                         @if ($errors->has('email'))
-                                            <span id="email-error" class="help-block">
-                                        {{ $errors->first('email') }}
-                                    </span>
+                                            <span id="email-error" class="help-block">{{ $errors->first('email') }}</span>
                                         @endif
                                     </div>
 

@@ -23,47 +23,69 @@
                 <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 pull-none margin-auto">
                     <div class="panel panel-default panel-login">
                         <div class="panel-heading">
-                            <h1 class="panel-title">Mot de passe oublié 2</h1>
+                            <h1 class="panel-title">Mettre à jour votre mot de passe</h1>
                         </div>
                         <div class="panel-body">
 
-                            @if (Session::has('status'))
+                            <div class="alert alert-info alert-module" role="alert">
+                                <p class="pull-left"><b>Changer votre mot de passe</b></p>
+                                <div class="clearfix"></div>
+                                <p><small>Remplissez ce formulaire pour mettre à jour votre mot de passe.</small></p>
+                            </div>
 
-                                <div class="alert alert-success alert-module" role="alert" style="margin-bottom:0px;">
-                                    <p class="pull-left"><b>{{ trans('passwords.reset_password_success_title') }}</b></p>
-                                    <div class="clearfix"></div>
-                                    <p><small>{!! trans(Session::get('status')) !!}</small></p>
-                                </div>
+                            <form id="form-register" role="form" action="{{ route('password.email') }}" method="POST">
+                                {{ csrf_field() }}
 
-                                <a href="{{ route('login') }}" class="btn btn-primary btn-cons m-t-10">{{ trans('global.back_home') }}</a>
+                                <input type="hidden" name="token" value="{{ $token }}">
 
-                            @else
-
-                                <div class="alert alert-info alert-module" role="alert">
-                                    <p class="pull-left"><b>Vous avez oublié votre mot de passe ?</b></p>
-                                    <div class="clearfix"></div>
-                                    <p>Cela arrive parfois. Renseignez votre courriel, <b>nous vous enverrons par message éléctronique un lien pour mettre à jour votre mot de passe</b> pour pouvoir accèder de nouveau à votre compte utilisateur</p>
-                                </div>
-
-                                <form role="form" action="{{ route('password.email') }}" method="POST">
-                                    {{ csrf_field() }}
-
-                                    <div class="form-group input-icon-left {{ $errors->has('email') ? 'has-error' : '' }}">
-                                        <i class="fa fa-envelope"></i>
-                                        <input type="email" class="form-control" name="email" placeholder="Email">
-                                        @if ($errors->has('email'))
-                                            <span id="email-error" class="help-block">
-                                        {{ $errors->first('email') }}
-                                    </span>
-                                        @endif
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-default {{ $errors->has('email') ? 'has-error' : '' }} required">
+                                            <label>Courriel</label>
+                                            <input type="text" name="email" placeholder="confirmer votre courriel" class="form-control" required>
+                                            @if ($errors->has('email'))
+                                                <span class="help-block">
+											{{ $errors->first('email') }}
+										</span>
+                                            @endif
+                                        </div>
                                     </div>
+                                </div>
 
-                                    <button type="submit" class="btn btn-primary btn-block">Send recovery email</button>
-                                </form>
-                            @endif
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-default {{ $errors->has('password') ? 'has-error' : '' }} required">
+                                            <label>Mot de passe</label>
+                                            <input type="password" id="password" class="form-control" placeholder="nouveau mot de passe" name="password" required>
+                                            @if ($errors->has('password'))
+                                                <span class="help-block">
+											{{ $errors->first('password') }}
+										</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-default {{ $errors->has('password_confirmation') ? 'has-error' : '' }} required">
+                                            <label>Confirmer le mot de passe</label>
+                                            <input type="password" class="form-control" placeholder="confirmer le nouveau mot de passe" name="password_confirmation" required>
+                                            @if ($errors->has('password_confirmation'))
+                                                <span class="help-block">
+											{{ $errors->first('password_confirmation') }}
+										</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block">Envoyer le lien par courriel</button>
+                            </form>
+
                         </div>
                         <div class="panel-footer">
-                            Vous avez déjà un compte ? <a href="{{ route('login') }}">Connectez-vous</a>
+                            Un problème avec vote compte ? <a href="{{ route('frontend.contact.index') }}">Contactez-nous</a>
                         </div>
                     </div>
                 </div>
