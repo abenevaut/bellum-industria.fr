@@ -185,9 +185,9 @@ mix
 		[
 			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
 			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
-			'resources/assets/plugins/gmaps/gmaps.js',
-			'resources/assets/plugins/gmaps/prettify.js',
-			'resources/assets/js/app-validation.js',
+            'resources/assets/js/app-validation.js',
+			'resources/assets/js/frontend/contact/gmaps.js',
+			'resources/assets/js/frontend/contact/gmaps/prettify.js',
 			'resources/assets/js/frontend/contact/index.js'
 		],
 		'public/assets/js/frontend/contact/index.js'
@@ -199,7 +199,6 @@ mix
 	 */
 	.scripts(
 		[
-			'resources/assets/js/app.js',
 			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
 			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
             'resources/assets/js/app-validation.js',
@@ -214,7 +213,6 @@ mix
 	 */
 	.scripts(
 		[
-			'resources/assets/js/app.js',
 			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
 			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
             'resources/assets/js/app-validation.js',
@@ -229,7 +227,6 @@ mix
 	 */
 	.scripts(
 		[
-			'resources/assets/js/app.js',
 			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
 			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
             'resources/assets/js/app-validation.js',
@@ -239,7 +236,6 @@ mix
 	)
 	.scripts(
 		[
-			'resources/assets/js/app.js',
 			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
 			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
             'resources/assets/js/app-validation.js',

@@ -5,10 +5,6 @@
 @endsection
 
 @section('js')
-	<script>
-		bellumindustria.BI_YOUTUBE_CHANNEL_ID = "{{ config('services.youtube.key') }}";
-		bellumindustria.BI_GOOGLE_API_KEY = "{{ config('services.google_api.key') }}";
-	</script>
 	<script src="{{ mix('assets/js/frontend/home/index.js') }}"></script>
 @endsection
 

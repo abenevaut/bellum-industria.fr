@@ -4,6 +4,8 @@
 <meta name="environment" content="{{ config('app.env') }}">
 <meta name="locale" content="{{ Session::get('locale') }}">
 <meta name="timezone" content="{{ Session::get('timezone') }}">
+<meta name="youtube_channel_id" content="{{ config('services.youtube.key') }}">
+<meta name="google_api_key" content="{{ config('services.google_api.key') }}">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">

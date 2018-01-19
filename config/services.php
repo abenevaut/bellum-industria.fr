@@ -48,11 +48,11 @@ return [
 	],
 
 	'google_api' => [
-		'key' => env('BI_GOOGLE_API_KEY')
+		'key' => env('GOOGLE_API_KEY')
 	],
 
 	'youtube' => [
-		'key' => env('BI_YOUTUBE_CHANNEL_ID')
+		'key' => env('YOUTUBE_CHANNEL_ID')
 	],
 
 ];

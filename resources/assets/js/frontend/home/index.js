@@ -39,7 +39,7 @@
 
 			$.ajax({
 				type: "GET",
-				url: "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=" + bellumindustria.BI_YOUTUBE_CHANNEL_ID + "&maxResults=8&order=date&type=video&key=" + bellumindustria.BI_GOOGLE_API_KEY,
+				url: "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=" + bellumindustria.youtube_channel_id + "&maxResults=8&order=date&type=video&key=" + bellumindustria.google_api_key,
 				cache: false,
 				dataType: 'jsonp',
 				success: function (data) {

@@ -92,7 +92,9 @@ AppException = function () {
         token: null,
         version: null,
         user_id: 'visitor',
-        user_role: 'visitor'
+        user_role: 'visitor',
+        youtube_channel_id: null,
+        google_api_key: null
 	};
 
 	/**
@@ -107,6 +109,8 @@ AppException = function () {
         _app.version = $('meta[name="version"]').attr('content');
         _app.user_id = $('meta[name="user_id"]').attr('content');
         _app.user_role = $('meta[name="user_role"]').attr('content');
+        _app.youtube_channel_id = $('meta[name="youtube_channel_id"]').attr('content');
+        _app.google_api_key = $('meta[name="google_api_key"]').attr('content');
 
 		/*
 		 * Add default token for Ajax query to Laravel.
