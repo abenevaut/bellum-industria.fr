@@ -1,10 +1,10 @@
 <?php
 
-namespace abenevaut\Domain\Users\Users\Transformers;
+namespace bellumindustria\Domain\Users\Users\Transformers;
 
-use abenevaut\Infrastructure\Contracts\Transformers\TransformerAbstract;
-use abenevaut\Domain\Users\Users\User;
-use abenevaut\Domain\Users\Leads\Lead;
+use bellumindustria\Infrastructure\Contracts\Transformers\TransformerAbstract;
+use bellumindustria\Domain\Users\Users\User;
+use bellumindustria\Domain\Users\Leads\Lead;
 
 class UsersListTransformer extends TransformerAbstract
 {

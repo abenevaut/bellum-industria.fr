@@ -1,18 +1,18 @@
-<?php namespace abenevaut\Domain\Users\Users\Notifications;
+<?php namespace bellumindustria\Domain\Users\Users\Notifications;
 
-use abenevaut\Infrastructure\
+use bellumindustria\Infrastructure\
 {
 	Interfaces\Queues\ShouldQueueInterface,
 	Contracts\Queues\QueueableTrait,
 	Contracts\Notifications\Notification
 };
-use abenevaut\App\Notifications\
+use bellumindustria\App\Notifications\
 {
 	Channels\AdministratorMailableChannel,
 	Messages\CustomerMailMessage,
 	Messages\MailableMessage
 };
-use abenevaut\Domain\Users\Users\
+use bellumindustria\Domain\Users\Users\
 {
 	User
 };

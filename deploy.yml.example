@@ -1,6 +1,6 @@
 server-1:
   hostname: localhost
-  user: abenevaut
+  user: bellumindustria
   port: 22
   configFile: ~/.ssh/config
   identityFile: ~/.ssh/id_rsa
@@ -13,4 +13,4 @@ server-1:
   roles:
     - app
     - db
-  deploy_path: /home/abenevaut/www/bellum-industria.fr
+  deploy_path: /home/bellumindustria/www/bellum-industria.fr

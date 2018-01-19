@@ -1,6 +1,6 @@
 <?php
 
-namespace abenevaut\Domain\Socials\Facebook\Repositories;
+namespace bellumindustria\Domain\Socials\Facebook\Repositories;
 
 class FacebookRepository
 {

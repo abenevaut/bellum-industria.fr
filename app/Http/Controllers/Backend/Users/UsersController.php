@@ -1,12 +1,12 @@
-<?php namespace abenevaut\Http\Controllers\Backend;
+<?php namespace bellumindustria\Http\Controllers\Backend\Users;
 
-use abenevaut\Infrastructure\Contracts\Controllers\ControllerAbstract;
-use abenevaut\Http\Request\Backend\Users\Users\
+use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use bellumindustria\Http\Request\Backend\Users\Users\
 {
 	UserFormRequest,
 	UsersFiltersFormRequest
 };
-use abenevaut\Domain\Users\Users\Repositories\UsersRepositoryEloquent;
+use bellumindustria\Domain\Users\Users\Repositories\UsersRepositoryEloquent;
 
 class UsersController extends ControllerAbstract
 {

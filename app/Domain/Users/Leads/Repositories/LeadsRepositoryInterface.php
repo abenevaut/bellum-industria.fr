@@ -1,8 +1,8 @@
 <?php
 
-namespace abenevaut\Domain\Users\Leads\Repositories;
+namespace bellumindustria\Domain\Users\Leads\Repositories;
 
-use abenevaut\Infrastructure\Interfaces\Repositories\RepositoryInterface;
+use bellumindustria\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 
 interface LeadsRepositoryInterface extends RepositoryInterface
 {

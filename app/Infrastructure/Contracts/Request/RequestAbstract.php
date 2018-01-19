@@ -1,4 +1,4 @@
-<?php namespace abenevaut\Infrastructure\Contracts\Request;
+<?php namespace bellumindustria\Infrastructure\Contracts\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 

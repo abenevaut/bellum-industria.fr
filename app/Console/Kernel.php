@@ -14,7 +14,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-    	\bellumindustria\Console\Commands\BellumIndustriaVersionCommand::class,
+		\bellumindustria\Console\Commands\BellumIndustriaProductionPostDeployCommand::class,
+		\bellumindustria\Console\Commands\BellumIndustriaProductionPreDeployCommand::class,
+		\bellumindustria\Console\Commands\BellumIndustriaVersionCommand::class,
         \bellumindustria\Console\Commands\Sitemap\GenerateSitemap::class,
     ];
 

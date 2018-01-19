@@ -1,6 +1,6 @@
 <?php
 
-namespace abenevaut\App\Services;
+namespace bellumindustria\App\Services;
 
 /*
   Copyright 2010 Scott MacVicar

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use abenevaut\Infrastructure\Interfaces\Domain\Users\Users\UserCivilitiesInterface;
+use bellumindustria\Infrastructure\Interfaces\Domain\Users\Users\UserCivilitiesInterface;
 
 class CreateLeadsTable extends Migration
 {

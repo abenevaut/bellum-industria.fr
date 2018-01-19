@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use abenevaut\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface;
+use bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface;
 
 class CreateProvidersTokensTable extends Migration
 {

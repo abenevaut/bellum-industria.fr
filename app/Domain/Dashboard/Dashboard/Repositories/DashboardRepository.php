@@ -1,6 +1,6 @@
-<?php namespace abenevaut\Domain\Dashboard\Dashboard\Repositories;
+<?php namespace bellumindustria\Domain\Dashboard\Dashboard\Repositories;
 
-use abenevaut\Domain\Analytics\GoogleAnalytics\Repositories\GoogleAnalyticsRepository;
+use bellumindustria\Domain\Analytics\GoogleAnalytics\Repositories\GoogleAnalyticsRepository;
 
 class DashboardRepository
 {

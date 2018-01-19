@@ -1,13 +1,13 @@
-<?php namespace abenevaut\Domain\Users\Leads;
+<?php namespace bellumindustria\Domain\Users\Leads;
 
-use abenevaut\Infrastructure\
+use bellumindustria\Infrastructure\
 {
 	Interfaces\Domain\Users\Users\HandshakableInterface,
 	Contracts\Model\ModelAbstract,
 	Contracts\Model\Notifiable,
 	Contracts\Model\IdentifiableTrait
 };
-use abenevaut\Domain\Users\Users\
+use bellumindustria\Domain\Users\Users\
 {
 	User,
 	Traits\HandshakeNotificationTrait,

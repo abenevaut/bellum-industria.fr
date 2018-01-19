@@ -1,13 +1,13 @@
 <?php
 
-namespace abenevaut\Domain\Posts\PostsCategories\Repositories;
+namespace bellumindustria\Domain\Posts\PostsCategories\Repositories;
 
-use abenevaut\Infrastructure\Contracts\
+use bellumindustria\Infrastructure\Contracts\
 {
 	Repositories\RepositoryEloquentAbstract,
 	Request\RequestAbstract
 };
-use abenevaut\Domain\Posts\PostsCategories\
+use bellumindustria\Domain\Posts\PostsCategories\
 {
 	Repositories\PostsCategoriesRepositoryInterface,
 	PostCategory,
@@ -34,8 +34,8 @@ class PostsCategoriesRepositoryEloquent extends RepositoryEloquentAbstract imple
 	 *
 	 * @param array $attributes
 	 *
-	 * @event abenevaut\Domain\Pages\PostCategorysCategories\Events\PostCategoryCreatedEvent
-	 * @return \abenevaut\Domain\Posts\PostsCategories\PostCategory
+	 * @event bellumindustria\Domain\Pages\PostCategorysCategories\Events\PostCategoryCreatedEvent
+	 * @return \bellumindustria\Domain\Posts\PostsCategories\PostCategory
 	 *
 	 * @throws \Prettus\Validator\Exceptions\ValidatorException
 	 */
@@ -54,8 +54,8 @@ class PostsCategoriesRepositoryEloquent extends RepositoryEloquentAbstract imple
 	 * @param array $attributes
 	 * @param integer $id
 	 *
-	 * @event abenevaut\Domain\Pages\PostCategorysCategories\Events\PostCategoryUpdatedEvent
-	 * @return \abenevaut\Domain\Posts\PostsCategories\PostCategory
+	 * @event bellumindustria\Domain\Pages\PostCategorysCategories\Events\PostCategoryUpdatedEvent
+	 * @return \bellumindustria\Domain\Posts\PostsCategories\PostCategory
 	 *
 	 * @throws \Prettus\Validator\Exceptions\ValidatorException
 	 */
@@ -73,8 +73,8 @@ class PostsCategoriesRepositoryEloquent extends RepositoryEloquentAbstract imple
 	 *
 	 * @param integer $id
 	 *
-	 * @event abenevaut\Domain\Pages\PostCategorysCategories\Events\PostCategoryDeletedEvent
-	 * @return \abenevaut\Domain\Posts\PostsCategories\PostCategory
+	 * @event bellumindustria\Domain\Pages\PostCategorysCategories\Events\PostCategoryDeletedEvent
+	 * @return \bellumindustria\Domain\Posts\PostsCategories\PostCategory
 	 */
 	public function delete($id): PostCategory
 	{

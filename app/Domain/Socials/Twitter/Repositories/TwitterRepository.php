@@ -1,10 +1,10 @@
 <?php
 
-namespace abenevaut\Domain\Socials\Twitter\Repositories;
+namespace bellumindustria\Domain\Socials\Twitter\Repositories;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
-use abenevaut\App\Services\TwitterTextFormatter;
+use bellumindustria\App\Services\TwitterTextFormatter;
 
 class TwitterRepository
 {
@@ -22,7 +22,7 @@ class TwitterRepository
 		} else {
 			$tweets = \Twitter::getUserTimeline(
 				[
-					'screen_name' => 'abenevaut',
+					'screen_name' => 'bellumindustria',
 					'count' => 4,
 					'format' => 'object'
 				]

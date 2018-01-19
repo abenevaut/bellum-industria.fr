@@ -8,8 +8,8 @@
 		<p><a class="btn btn-white btn-xl btn-outline" href="#getting_started" role="button">Getting started</a></p>
 	</div>
 	<ul class="social-icons">
-		<li><a href="https://twitter.com/abenevaut" target="_blank"><i class="fa fa-twitter"></i></a></li>
-		<li><a href="https://www.facebook.com/abenevaut" target="_blank"><i class="fa fa-facebook"></i></a></li>
+		<li><a href="https://twitter.com/bellumindustria" target="_blank"><i class="fa fa-twitter"></i></a></li>
+		<li><a href="https://www.facebook.com/bellumindustria" target="_blank"><i class="fa fa-facebook"></i></a></li>
 		<li><a href="https://github.com/42antoine" target="_blank"><i class="fa fa-github"></i></a></li>
 		<li><a href="https://www.linkedin.com/in/antoine-benevaut-53a39b36/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
 	</ul>

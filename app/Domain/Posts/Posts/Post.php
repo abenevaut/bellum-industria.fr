@@ -1,6 +1,6 @@
 <?php
 
-namespace abenevaut\Domain\Posts\Posts;
+namespace bellumindustria\Domain\Posts\Posts;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use abenevaut\Infrastructure\Interfaces\Domain\Locale\LocalesInterface;
+use bellumindustria\Infrastructure\Interfaces\Domain\Locale\LocalesInterface;
 
 class AlterUsersTableToAddLocale extends Migration
 {

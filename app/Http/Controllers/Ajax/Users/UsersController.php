@@ -1,9 +1,12 @@
-<?php namespace abenevaut\Http\Controllers\Ajax\Users;
+<?php namespace bellumindustria\Http\Controllers\Ajax\Users;
 
-use abenevaut\Infrastructure\Contracts\Controllers\ControllerAbstract;
-use abenevaut\Http\Request\Ajax\Users\Users\UsersAjaxList;
-use abenevaut\Http\Request\Ajax\Users\Users\CheckUserEmailFormRequest;
-use abenevaut\Domain\Users\Users\Repositories\UsersRepositoryEloquent;
+use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use bellumindustria\Http\Request\Ajax\Users\
+{
+	Users\UsersAjaxList,
+	Users\CheckUserEmailFormRequest
+};
+use bellumindustria\Domain\Users\Users\Repositories\UsersRepositoryEloquent;
 
 class UsersController extends ControllerAbstract
 {
@@ -21,7 +24,6 @@ class UsersController extends ControllerAbstract
 		$this->r_users = $r_users;
 
 		$this->before();
-		$this->beforeAjax();
 	}
 
 	/**

@@ -1,7 +1,7 @@
-<?php namespace abenevaut\Http\Controllers\Backend;
+<?php namespace bellumindustria\Http\Controllers\Backend;
 
-use abenevaut\Infrastructure\Contracts\Controllers\ControllerAbstract;
-use abenevaut\Domain\Files\Files\Repositories\FilesRepository;
+use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use bellumindustria\Domain\Files\Files\Repositories\FilesRepository;
 
 class FilesController extends ControllerAbstract
 {

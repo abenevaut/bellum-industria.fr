@@ -1,7 +1,7 @@
-<?php namespace abenevaut\Http\Controllers\Backend;
+<?php namespace bellumindustria\Http\Controllers\Backend;
 
-use abenevaut\Infrastructure\Contracts\Controllers\ControllerAbstract;
-use abenevaut\Domain\Posts\PostsCategories\Repositories\PostsCategoriesRepositoryEloquent;
+use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use bellumindustria\Domain\Posts\PostsCategories\Repositories\PostsCategoriesRepositoryEloquent;
 
 class PostsCategoriesController extends ControllerAbstract
 {

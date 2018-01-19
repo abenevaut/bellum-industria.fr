@@ -1,6 +1,6 @@
-<?php namespace abenevaut\Domain\Users\Users;
+<?php namespace bellumindustria\Domain\Users\Users;
 
-use abenevaut\Infrastructure\
+use bellumindustria\Infrastructure\
 {
 	Interfaces\Domain\Users\Users\HandshakableInterface,
 	Interfaces\Domain\Users\Users\UserCivilitiesInterface,
@@ -10,14 +10,14 @@ use abenevaut\Infrastructure\
 	Contracts\Model\Notifiable,
 	Contracts\Model\SoftDeletes
 };
-use abenevaut\Domain\Users\Users\
+use bellumindustria\Domain\Users\Users\
 {
 	Notifications\CreatedAccountByAdministrator,
 	Notifications\ResetPassword,
 	Traits\HandshakeNotificationTrait,
 	Traits\NamableTrait
 };
-use abenevaut\Domain\Users\Leads\
+use bellumindustria\Domain\Users\Leads\
 {
 	Lead
 };

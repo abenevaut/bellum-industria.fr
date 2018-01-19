@@ -1,6 +1,6 @@
 <?php
 
-namespace abenevaut\Domain\Analytics\GoogleAnalytics\Repositories;
+namespace bellumindustria\Domain\Analytics\GoogleAnalytics\Repositories;
 
 class GoogleAnalyticsMeasurementProtocolRepository
 {

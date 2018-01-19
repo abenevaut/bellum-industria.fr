@@ -1,9 +1,9 @@
 <?php
 
-namespace abenevaut\Domain\Users\Leads\Presenters;
+namespace bellumindustria\Domain\Users\Leads\Presenters;
 
-use abenevaut\Infrastructure\Contracts\Presenters\PresenterAbstract;
-use abenevaut\Domain\Users\Leads\Transformers\LeadsListTransformer;
+use bellumindustria\Infrastructure\Contracts\Presenters\PresenterAbstract;
+use bellumindustria\Domain\Users\Leads\Transformers\LeadsListTransformer;
 
 class LeadsListPresenter extends PresenterAbstract
 {

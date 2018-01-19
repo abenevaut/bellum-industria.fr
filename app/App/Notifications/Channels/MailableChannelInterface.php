@@ -1,6 +1,6 @@
 <?php
 
-namespace abenevaut\App\Notifications\Channels;
+namespace bellumindustria\App\Notifications\Channels;
 
 use Illuminate\Notifications\Notification;
 

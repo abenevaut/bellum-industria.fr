@@ -1,6 +1,6 @@
-<?php namespace abenevaut\Http\Request\Backend\Users\Users;
+<?php namespace bellumindustria\Http\Request\Backend\Users\Users;
 
-use abenevaut\Infrastructure\Contracts\Request\RequestAbstract;
+use bellumindustria\Infrastructure\Contracts\Request\RequestAbstract;
 
 class UsersFiltersFormRequest extends RequestAbstract
 {

@@ -1,6 +1,6 @@
-<?php namespace abenevaut\Http\Controllers\Auth;
+<?php namespace bellumindustria\Http\Controllers\Auth;
 
-use abenevaut\Domain\Users\Users\User;
+use bellumindustria\Domain\Users\Users\User;
 
 trait AuthRedirectTrait
 {

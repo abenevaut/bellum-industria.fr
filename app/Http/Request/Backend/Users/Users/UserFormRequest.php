@@ -1,7 +1,7 @@
-<?php namespace abenevaut\Http\Request\Backend\Users\Users;
+<?php namespace bellumindustria\Http\Request\Backend\Users\Users;
 
-use abenevaut\Infrastructure\Contracts\Request\RequestAbstract;
-use abenevaut\Domain\Users\Users\User;
+use bellumindustria\Infrastructure\Contracts\Request\RequestAbstract;
+use bellumindustria\Domain\Users\Users\User;
 
 class UserFormRequest extends RequestAbstract
 {
@@ -36,8 +36,10 @@ class UserFormRequest extends RequestAbstract
 					? ',' . $id
 					: ''
 				),
-			'roles' => 'required|integer|in:' . User::ROLE_ADMINISTRATOR . ',' . User::ROLE_CUSTOMER,
+			'role' => 'required|in:' . User::ROLE_ADMINISTRATOR . ',' . User::ROLE_CUSTOMER . ',' . User::ROLE_ACCOUNTANT,
 			'civility' => 'required|in:' . User::CIVILITY_MADAM . ',' . User::CIVILITY_MISS . ',' . User::CIVILITY_MISTER,
+			'locale' => 'required|in:' . collect(User::LOCALES)->implode(','),
+			'timezone' => 'required|in:' . collect(timezones())->implode(','),
 		];
 
 		return $rules;

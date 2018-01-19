@@ -1,7 +1,7 @@
 @extends('frontend.layouts.default')
 
 @section('css')
-	<link href="{{ mix('css/frontend/home/index.css') }}" rel="stylesheet">
+	<link href="{{ mix('assets/css/frontend/home/index.css') }}" rel="stylesheet">
 @endsection
 
 @section('js')
@@ -9,7 +9,7 @@
 		bellumindustria.BI_YOUTUBE_CHANNEL_ID = "{{ config('services.youtube.key') }}";
 		bellumindustria.BI_GOOGLE_API_KEY = "{{ config('services.google_api.key') }}";
 	</script>
-	<script src="{{ mix('js/frontend/home/index.js') }}"></script>
+	<script src="{{ mix('assets/js/frontend/home/index.js') }}"></script>
 @endsection
 
 @section('content')

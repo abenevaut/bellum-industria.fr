@@ -1,6 +1,6 @@
-<?php namespace abenevaut\Domain\Users\Users\Traits;
+<?php namespace bellumindustria\Domain\Users\Users\Traits;
 
-use abenevaut\Domain\Users\Users\Notifications\HandshakeMailToConfirmReceptionToSender;
+use bellumindustria\Domain\Users\Users\Notifications\HandshakeMailToConfirmReceptionToSender;
 
 /**
  * Trait HandshakeNotificationTrait

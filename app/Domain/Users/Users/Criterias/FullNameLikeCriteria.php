@@ -1,7 +1,7 @@
-<?php namespace abenevaut\Domain\Users\Users\Criterias;
+<?php namespace bellumindustria\Domain\Users\Users\Criterias;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
-use abenevaut\Infrastructure\Contracts\Criterias\CriteriaAbstract;
+use bellumindustria\Infrastructure\Contracts\Criterias\CriteriaAbstract;
 
 class FullNameLikeCriteria extends CriteriaAbstract
 {

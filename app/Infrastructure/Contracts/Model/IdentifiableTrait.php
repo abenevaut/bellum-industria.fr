@@ -1,4 +1,4 @@
-<?php namespace abenevaut\Infrastructure\Contracts\Model;
+<?php namespace bellumindustria\Infrastructure\Contracts\Model;
 
 trait IdentifiableTrait
 {

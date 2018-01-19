@@ -1,4 +1,4 @@
-<?php namespace abenevaut\Infrastructure\Contracts\Presenters;
+<?php namespace bellumindustria\Infrastructure\Contracts\Presenters;
 
 use Prettus\Repository\Presenter\FractalPresenter;
 

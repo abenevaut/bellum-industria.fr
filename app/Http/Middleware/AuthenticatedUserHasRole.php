@@ -1,4 +1,4 @@
-<?php namespace abenevaut\Http\Middleware;
+<?php namespace bellumindustria\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Factory as Auth;

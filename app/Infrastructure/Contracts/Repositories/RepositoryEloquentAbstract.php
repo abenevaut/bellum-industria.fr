@@ -1,13 +1,13 @@
 <?php
 
-namespace abenevaut\Infrastructure\Contracts\Repositories;
+namespace bellumindustria\Infrastructure\Contracts\Repositories;
 
 use Illuminate\Container\Container as Application;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Builder;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use abenevaut\Infrastructure\Interfaces\Repositories\RepositoryInterface;
+use bellumindustria\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 
 abstract class RepositoryEloquentAbstract extends BaseRepository implements RepositoryInterface
 {

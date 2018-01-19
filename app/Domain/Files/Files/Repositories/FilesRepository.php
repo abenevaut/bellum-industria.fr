@@ -1,4 +1,4 @@
-<?php namespace abenevaut\Domain\Files\Files\Repositories;
+<?php namespace bellumindustria\Domain\Files\Files\Repositories;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Filesystem\FilesystemAdapter;

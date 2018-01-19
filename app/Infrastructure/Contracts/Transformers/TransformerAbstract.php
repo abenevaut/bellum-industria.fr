@@ -1,4 +1,4 @@
-<?php namespace abenevaut\Infrastructure\Contracts\Transformers;
+<?php namespace bellumindustria\Infrastructure\Contracts\Transformers;
 
 use League\Fractal\TransformerAbstract as LeagueTransformerAbstract;
 

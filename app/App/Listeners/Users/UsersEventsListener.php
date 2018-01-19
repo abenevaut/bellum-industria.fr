@@ -1,11 +1,11 @@
-<?php namespace abenevaut\App\Listeners\Users;
+<?php namespace bellumindustria\App\Listeners\Users;
 
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use abenevaut\Domain\Users\Users\Events\UserCreatedEvent;
-use abenevaut\Domain\Users\Users\Events\UserUpdatedEvent;
-use abenevaut\Domain\Users\Users\Events\UserDeletedEvent;
-use abenevaut\Domain\Users\Users\Events\UserTriedToDeleteHisOwnAccountEvent;
+use bellumindustria\Domain\Users\Users\Events\UserCreatedEvent;
+use bellumindustria\Domain\Users\Users\Events\UserUpdatedEvent;
+use bellumindustria\Domain\Users\Users\Events\UserDeletedEvent;
+use bellumindustria\Domain\Users\Users\Events\UserTriedToDeleteHisOwnAccountEvent;
 
 class UsersEventsListener
 {
@@ -18,20 +18,20 @@ class UsersEventsListener
 	public function subscribe($events)
 	{
 		$events->listen(
-			'abenevaut\Domain\Users\Users\Events\UserCreatedEvent',
-			'abenevaut\App\Listeners\Users\UsersEventsListener@handleUserCreatedEvent'
+			'bellumindustria\Domain\Users\Users\Events\UserCreatedEvent',
+			'bellumindustria\App\Listeners\Users\UsersEventsListener@handleUserCreatedEvent'
 		);
 		$events->listen(
-			'abenevaut\Domain\Users\Users\Events\UserUpdatedEvent',
-			'abenevaut\App\Listeners\Users\UsersEventsListener@handleUserUpdatedEvent'
+			'bellumindustria\Domain\Users\Users\Events\UserUpdatedEvent',
+			'bellumindustria\App\Listeners\Users\UsersEventsListener@handleUserUpdatedEvent'
 		);
 		$events->listen(
-			'abenevaut\Domain\Users\Users\Events\UserDeletedEvent',
-			'abenevaut\App\Listeners\Users\UsersEventsListener@handleUserDeletedEvent'
+			'bellumindustria\Domain\Users\Users\Events\UserDeletedEvent',
+			'bellumindustria\App\Listeners\Users\UsersEventsListener@handleUserDeletedEvent'
 		);
 		$events->listen(
-			'abenevaut\Domain\Users\Users\Events\UserTriedToDeleteHisOwnAccountEvent',
-			'abenevaut\App\Listeners\Users\UsersEventsListener@handleUserTriedToDeleteHisOwnAccountEventEvent'
+			'bellumindustria\Domain\Users\Users\Events\UserTriedToDeleteHisOwnAccountEvent',
+			'bellumindustria\App\Listeners\Users\UsersEventsListener@handleUserTriedToDeleteHisOwnAccountEventEvent'
 		);
 	}
 

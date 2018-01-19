@@ -1,6 +1,6 @@
-<?php namespace abenevaut\Http\Request\Ajax\Users\Users;
+<?php namespace bellumindustria\Http\Request\Ajax\Users\Users;
 
-use abenevaut\Infrastructure\Contracts\Request\RequestAbstract;
+use bellumindustria\Infrastructure\Contracts\Request\RequestAbstract;
 
 class UsersAjaxList extends RequestAbstract
 {

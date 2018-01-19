@@ -1,7 +1,7 @@
-<?php namespace abenevaut\Domain\Users\Users\Transformers;
+<?php namespace bellumindustria\Domain\Users\Users\Transformers;
 
-use abenevaut\Infrastructure\Contracts\Transformers\TransformerAbstract;
-use abenevaut\Domain\Users\Users\User;
+use bellumindustria\Infrastructure\Contracts\Transformers\TransformerAbstract;
+use bellumindustria\Domain\Users\Users\User;
 
 class AjaxCheckUserEmailTransformer extends TransformerAbstract
 {

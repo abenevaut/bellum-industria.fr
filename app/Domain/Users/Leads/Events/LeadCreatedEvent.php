@@ -1,9 +1,9 @@
 <?php
 
-namespace abenevaut\Domain\Users\Leads\Events;
+namespace bellumindustria\Domain\Users\Leads\Events;
 
-use abenevaut\Infractucture\Contracts\Events\EventAbstract;
-use abenevaut\Domain\Users\Leads\Lead;
+use bellumindustria\Infractucture\Contracts\Events\EventAbstract;
+use bellumindustria\Domain\Users\Leads\Lead;
 
 class LeadCreatedEvent extends EventAbstract
 {

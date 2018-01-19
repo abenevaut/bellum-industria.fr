@@ -1,4 +1,4 @@
-<?php namespace abenevaut\Infrastructure\Interfaces\Repositories;
+<?php namespace bellumindustria\Infrastructure\Interfaces\Repositories;
 
 interface ResourceInterface
 {

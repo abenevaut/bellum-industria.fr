@@ -1,6 +1,6 @@
 <?php
 
-namespace abenevaut\App\Notifications\Messages;
+namespace bellumindustria\App\Notifications\Messages;
 
 use Illuminate\Notifications\Messages\MailMessage;
 

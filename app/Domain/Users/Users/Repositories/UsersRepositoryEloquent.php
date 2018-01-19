@@ -1,15 +1,15 @@
-<?php namespace abenevaut\Domain\Users\Users\Repositories;
+<?php namespace bellumindustria\Domain\Users\Users\Repositories;
 
-use abenevaut\App\Services\
+use bellumindustria\App\Services\
 {
 	HttpCsv
 };
-use abenevaut\Infrastructure\Contracts\
+use bellumindustria\Infrastructure\Contracts\
 {
 	Repositories\RepositoryEloquentAbstract,
 	Request\RequestAbstract
 };
-use abenevaut\Domain\Users\Users\{
+use bellumindustria\Domain\Users\Users\{
 	Repositories\UsersRepositoryInterface,
 	User,
 	Criterias\EmailLikeCriteria,
@@ -21,7 +21,7 @@ use abenevaut\Domain\Users\Users\{
 	Presenters\UsersListPresenter,
 	Presenters\AjaxCheckUserEmailPresenter
 };
-use abenevaut\Domain\Users\Leads\
+use bellumindustria\Domain\Users\Leads\
 {
 	Lead
 };
@@ -44,8 +44,8 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 *
 	 * @param array $attributes
 	 *
-	 * @event abenevaut\Domain\Users\Users\Events\UserCreatedEvent
-	 * @return \abenevaut\Domain\Users\Users\User
+	 * @event bellumindustria\Domain\Users\Users\Events\UserCreatedEvent
+	 * @return \bellumindustria\Domain\Users\Users\User
 	 *
 	 * @throws \Prettus\Validator\Exceptions\ValidatorException
 	 */
@@ -64,8 +64,8 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 * @param array $attributes
 	 * @param integer $id
 	 *
-	 * @event abenevaut\Domain\Users\Users\Events\UserUpdatedEvent
-	 * @return \abenevaut\Domain\Users\Users\User
+	 * @event bellumindustria\Domain\Users\Users\Events\UserUpdatedEvent
+	 * @return \bellumindustria\Domain\Users\Users\User
 	 *
 	 * @throws \Prettus\Validator\Exceptions\ValidatorException
 	 */
@@ -83,8 +83,8 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 *
 	 * @param integer $id
 	 *
-	 * @event abenevaut\Domain\Users\Users\Events\UserDeletedEvent
-	 * @return \abenevaut\Domain\Users\Users\User
+	 * @event bellumindustria\Domain\Users\Users\Events\UserDeletedEvent
+	 * @return \bellumindustria\Domain\Users\Users\User
 	 */
 	public function delete($id): User
 	{

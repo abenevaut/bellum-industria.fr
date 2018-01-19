@@ -1,18 +1,18 @@
 <?php
 
-namespace abenevaut\Domain\Users\Leads\Repositories;
+namespace bellumindustria\Domain\Users\Leads\Repositories;
 
 use Illuminate\Container\Container as Application;
-use abenevaut\Infrastructure\Contracts\
+use bellumindustria\Infrastructure\Contracts\
 {
 	Repositories\RepositoryEloquentAbstract,
 	Request\RequestAbstract
 };
-use abenevaut\Domain\Users\Users\{
+use bellumindustria\Domain\Users\Users\{
 	User,
 	Repositories\UsersRepositoryEloquent
 };
-use abenevaut\Domain\Users\Leads\{
+use bellumindustria\Domain\Users\Leads\{
 	Repositories\LeadsRepositoryInterface,
 	Lead,
 	Criterias\EmailLikeCriteria,
@@ -59,8 +59,8 @@ class LeadsRepositoryEloquent extends RepositoryEloquentAbstract implements Lead
 	 *
 	 * @param array $attributes
 	 *
-	 * @event abenevaut\Domain\Users\Leads\Events\LeadCreatedEvent
-	 * @return \abenevaut\Domain\Users\Leads\Lead
+	 * @event bellumindustria\Domain\Users\Leads\Events\LeadCreatedEvent
+	 * @return \bellumindustria\Domain\Users\Leads\Lead
 	 *
 	 * @throws \Prettus\Validator\Exceptions\ValidatorException
 	 */
@@ -79,8 +79,8 @@ class LeadsRepositoryEloquent extends RepositoryEloquentAbstract implements Lead
 	 * @param array $attributes
 	 * @param integer $id
 	 *
-	 * @event abenevaut\Domain\Users\Leads\Events\LeadUpdatedEvent
-	 * @return \abenevaut\Domain\Users\Leads\Lead
+	 * @event bellumindustria\Domain\Users\Leads\Events\LeadUpdatedEvent
+	 * @return \bellumindustria\Domain\Users\Leads\Lead
 	 *
 	 * @throws \Prettus\Validator\Exceptions\ValidatorException
 	 */
@@ -98,8 +98,8 @@ class LeadsRepositoryEloquent extends RepositoryEloquentAbstract implements Lead
 	 *
 	 * @param integer $id
 	 *
-	 * @event abenevaut\Domain\Users\Leads\Events\LeadDeletedEvent
-	 * @return \abenevaut\Domain\Users\Leads\Lead
+	 * @event bellumindustria\Domain\Users\Leads\Events\LeadDeletedEvent
+	 * @return \bellumindustria\Domain\Users\Leads\Lead
 	 */
 	public function delete($id): Lead
 	{

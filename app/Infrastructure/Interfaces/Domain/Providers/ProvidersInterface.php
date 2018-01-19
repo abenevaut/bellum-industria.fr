@@ -1,6 +1,6 @@
 <?php
 
-namespace abenevaut\Infrastructure\Interfaces\Domain\Providers;
+namespace bellumindustria\Infrastructure\Interfaces\Domain\Providers;
 
 interface ProvidersInterface
 {

@@ -1,4 +1,4 @@
-<?php namespace abenevaut\Infrastructure\Contracts\Jobs;
+<?php namespace bellumindustria\Infrastructure\Contracts\Jobs;
 
 use Illuminate\Bus\Queueable;
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace abenevaut\Domain\Posts\Posts\Repositories;
+namespace bellumindustria\Domain\Posts\Posts\Repositories;
 
-use abenevaut\Infrastructure\Contracts\
+use bellumindustria\Infrastructure\Contracts\
 {
 	Repositories\RepositoryEloquentAbstract,
 	Request\RequestAbstract
 };
-use abenevaut\Domain\Posts\Posts\
+use bellumindustria\Domain\Posts\Posts\
 {
 	Repositories\PostsRepositoryInterface,
 	Post,
@@ -34,8 +34,8 @@ class PostsRepositoryEloquent extends RepositoryEloquentAbstract implements Post
 	 *
 	 * @param array $attributes
 	 *
-	 * @event abenevaut\Domain\Pages\Posts\Events\PostCreatedEvent
-	 * @return \abenevaut\Domain\Posts\Posts\Post
+	 * @event bellumindustria\Domain\Pages\Posts\Events\PostCreatedEvent
+	 * @return \bellumindustria\Domain\Posts\Posts\Post
 	 *
 	 * @throws \Prettus\Validator\Exceptions\ValidatorException
 	 */
@@ -54,8 +54,8 @@ class PostsRepositoryEloquent extends RepositoryEloquentAbstract implements Post
 	 * @param array $attributes
 	 * @param integer $id
 	 *
-	 * @event abenevaut\Domain\Pages\Posts\Events\PostUpdatedEvent
-	 * @return \abenevaut\Domain\Posts\Posts\Post
+	 * @event bellumindustria\Domain\Pages\Posts\Events\PostUpdatedEvent
+	 * @return \bellumindustria\Domain\Posts\Posts\Post
 	 *
 	 * @throws \Prettus\Validator\Exceptions\ValidatorException
 	 */
@@ -73,8 +73,8 @@ class PostsRepositoryEloquent extends RepositoryEloquentAbstract implements Post
 	 *
 	 * @param integer $id
 	 *
-	 * @event abenevaut\Domain\Pages\Posts\Events\PostDeletedEvent
-	 * @return \abenevaut\Domain\Posts\Posts\Post
+	 * @event bellumindustria\Domain\Pages\Posts\Events\PostDeletedEvent
+	 * @return \bellumindustria\Domain\Posts\Posts\Post
 	 */
 	public function delete($id): Post
 	{

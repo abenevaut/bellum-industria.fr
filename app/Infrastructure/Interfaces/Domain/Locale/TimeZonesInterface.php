@@ -1,6 +1,6 @@
 <?php
 
-namespace abenevaut\Infrastructure\Interfaces\Domain\Locale;
+namespace bellumindustria\Infrastructure\Interfaces\Domain\Locale;
 
 interface TimeZonesInterface
 {

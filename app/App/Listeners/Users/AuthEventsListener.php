@@ -1,10 +1,10 @@
-<?php namespace abenevaut\App\Listeners\Users;
+<?php namespace bellumindustria\App\Listeners\Users;
 
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
-use abenevaut\Domain\Users\Users\User;
+use bellumindustria\Domain\Users\Users\User;
 
 class AuthEventsListener
 {
@@ -18,11 +18,11 @@ class AuthEventsListener
 	{
 		$events->listen(
 			'Illuminate\Auth\Events\Login',
-			'abenevaut\App\Listeners\Users\AuthEventsListener@handleLoginEvent'
+			'bellumindustria\App\Listeners\Users\AuthEventsListener@handleLoginEvent'
 		);
 		$events->listen(
 			'Illuminate\Auth\Events\Logout',
-			'abenevaut\App\Listeners\Users\AuthEventsListener@handleLogoutEvent'
+			'bellumindustria\App\Listeners\Users\AuthEventsListener@handleLogoutEvent'
 		);
 	}
 

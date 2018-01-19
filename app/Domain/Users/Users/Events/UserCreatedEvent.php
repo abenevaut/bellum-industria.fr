@@ -1,9 +1,9 @@
 <?php
 
-namespace abenevaut\Domain\Users\Users\Events;
+namespace bellumindustria\Domain\Users\Users\Events;
 
-use abenevaut\Infractucture\Contracts\Events\EventAbstract;
-use abenevaut\Domain\Users\Users\User;
+use bellumindustria\Infractucture\Contracts\Events\EventAbstract;
+use bellumindustria\Domain\Users\Users\User;
 
 class UserCreatedEvent extends EventAbstract
 {

@@ -1,6 +1,6 @@
-<?php namespace abenevaut\Http\Request\Ajax\Users\Users;
+<?php namespace bellumindustria\Http\Request\Ajax\Users\Users;
 
-use abenevaut\Infrastructure\Contracts\Request\RequestAbstract;
+use bellumindustria\Infrastructure\Contracts\Request\RequestAbstract;
 
 class CheckUserEmailFormRequest extends RequestAbstract
 {
@@ -24,7 +24,7 @@ class CheckUserEmailFormRequest extends RequestAbstract
 	{
 		$rules = [
 			'email'       => 'required|max:255',
-			'not_user_id' => 'integer|exists:users,id',
+			'not_user_id' => 'exists:users,uniqid',
 		];
 
 		return $rules;

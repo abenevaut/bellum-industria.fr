@@ -1,8 +1,8 @@
 <?php
 
-namespace abenevaut\Domain\Posts\Posts\Repositories;
+namespace bellumindustria\Domain\Posts\Posts\Repositories;
 
-use abenevaut\Infrastructure\Interfaces\Repositories\RepositoryInterface;
+use bellumindustria\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 
 interface PostsRepositoryInterface extends RepositoryInterface
 {

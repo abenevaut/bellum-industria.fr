@@ -1,7 +1,7 @@
-<?php namespace abenevaut\Http\Controllers\Backend;
+<?php namespace bellumindustria\Http\Controllers\Backend\Users;
 
-use abenevaut\Infrastructure\Contracts\Controllers\ControllerAbstract;
-use abenevaut\Domain\Users\Leads\Repositories\LeadsRepositoryEloquent;
+use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use bellumindustria\Domain\Users\Leads\Repositories\LeadsRepositoryEloquent;
 
 class LeadsController extends ControllerAbstract
 {
@@ -34,14 +34,14 @@ class LeadsController extends ControllerAbstract
 	}
 
 	/**
-	 * Display the specified resource.
+	 * Update the specified resource in storage.
 	 *
-	 * @param integer $id Lead id
+	 * @param integer         $id Lead id
 	 *
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function edit($id)
+	public function update($id)
 	{
-		return $this->r_leads->backendEditWithRedirect($id);
+		return $this->r_leads->backendUpdateWithRedirect($id);
 	}
 }

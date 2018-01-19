@@ -1,6 +1,6 @@
 <?php
 
-namespace abenevaut\Infrastructure\Interfaces\Domain\Users\Profiles;
+namespace bellumindustria\Infrastructure\Interfaces\Domain\Users\Profiles;
 
 interface ProfileFamiliesSituationsInterface
 {

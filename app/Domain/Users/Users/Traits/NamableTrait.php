@@ -1,6 +1,6 @@
 <?php
 
-namespace abenevaut\Domain\Users\Users\Traits;
+namespace bellumindustria\Domain\Users\Users\Traits;
 
 trait NamableTrait
 {

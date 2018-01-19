@@ -1,9 +1,9 @@
 <?php
 
-namespace abenevaut\Domain\Posts\PostsCategories\Events;
+namespace bellumindustria\Domain\Posts\PostsCategories\Events;
 
-use abenevaut\Infractucture\Contracts\Events\EventAbstract;
-use abenevaut\Domain\Posts\PostsCategories\PostCategory;
+use bellumindustria\Infractucture\Contracts\Events\EventAbstract;
+use bellumindustria\Domain\Posts\PostsCategories\PostCategory;
 
 class PostCategoryUpdatedEvent extends EventAbstract
 {

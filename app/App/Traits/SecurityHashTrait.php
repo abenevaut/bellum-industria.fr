@@ -1,6 +1,6 @@
 <?php
 
-namespace abenevaut\App\Traits;
+namespace bellumindustria\App\Traits;
 
 use Illuminate\Support\Facades\Crypt;
 

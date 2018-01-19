@@ -1,4 +1,4 @@
-<?php namespace abenevaut\Domain\Posts\PostsCategories;
+<?php namespace bellumindustria\Domain\Posts\PostsCategories;
 
 use Illuminate\Database\Eloquent\Model;
 

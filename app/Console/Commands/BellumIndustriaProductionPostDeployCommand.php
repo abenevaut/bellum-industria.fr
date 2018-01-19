@@ -1,4 +1,4 @@
-<?php namespace abenevaut\Console\Commands;
+<?php namespace bellumindustria\Console\Commands;
 
 use Illuminate\Console\Command;
 

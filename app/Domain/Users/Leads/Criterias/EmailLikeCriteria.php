@@ -1,7 +1,7 @@
-<?php namespace abenevaut\Domain\Users\Leads\Criterias;
+<?php namespace bellumindustria\Domain\Users\Leads\Criterias;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
-use abenevaut\Infrastructure\Contracts\Criterias\CriteriaAbstract;
+use bellumindustria\Infrastructure\Contracts\Criterias\CriteriaAbstract;
 
 class EmailLikeCriteria extends CriteriaAbstract
 {
