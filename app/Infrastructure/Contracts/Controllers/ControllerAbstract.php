@@ -19,12 +19,4 @@ abstract class ControllerAbstract extends BaseController
 	public function before()
 	{
 	}
-
-	public function beforeAjax()
-	{
-		if (!Request::ajax())
-		{
-			abort(403);
-		}
-	}
 }

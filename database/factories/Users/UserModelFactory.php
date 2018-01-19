@@ -23,7 +23,6 @@ $factory
 			'role' => $faker->randomElement([
 				\abenevaut\Domain\Users\Users\User::ROLE_ADMINISTRATOR,
 				\abenevaut\Domain\Users\Users\User::ROLE_CUSTOMER,
-				\abenevaut\Domain\Users\Users\User::ROLE_ACCOUNTANT,
 			]),
 			'civility' => $faker->randomElement([
 				\abenevaut\Domain\Users\Users\User::CIVILITY_MADAM,
@@ -42,9 +41,6 @@ $factory
 	])
 	->state(abenevaut\Domain\Users\Users\User::class, \abenevaut\Domain\Users\Users\User::ROLE_CUSTOMER, [
 		'role' => \abenevaut\Domain\Users\Users\User::ROLE_CUSTOMER,
-	])
-	->state(abenevaut\Domain\Users\Users\User::class, \abenevaut\Domain\Users\Users\User::ROLE_ACCOUNTANT, [
-		'role' => \abenevaut\Domain\Users\Users\User::ROLE_ACCOUNTANT,
 	])
 	->state(abenevaut\Domain\Users\Users\User::class, \abenevaut\Domain\Users\Users\User::DEFAULT_LOCALE, [
 		'locale' => \abenevaut\Domain\Users\Users\User::DEFAULT_LOCALE,

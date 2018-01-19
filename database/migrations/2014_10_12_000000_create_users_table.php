@@ -19,7 +19,6 @@ class CreateUsersTable extends Migration
             $table->increments('id');
 			$table->string('uniqid', 13)->unique()->index();
 			$table->enum('role', [
-				UserRolesInterface::ROLE_ACCOUNTANT,
 				UserRolesInterface::ROLE_ADMINISTRATOR,
 				UserRolesInterface::ROLE_CUSTOMER,
 			])->default(UserRolesInterface::ROLE_CUSTOMER)->index();
