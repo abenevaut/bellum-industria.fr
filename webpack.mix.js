@@ -15,105 +15,154 @@ const {mix} = require('laravel-mix');
  */
 
 mix
-/**
- * Core frontend layouts - gameforest
- */
-	.copyDirectory('resources/assets/img', 'public/img')
-	.copyDirectory('resources/assets/bower/font-awesome/fonts', 'public/css/frontend/fonts')
+
+	/*
+	 * STARTING LAYOUTS ASSETS COMPILATION - STARTING LAYOUTS ASSETS COMPILATION - STARTING LAYOUTS ASSETS COMPILATION
+	 * STARTING LAYOUTS ASSETS COMPILATION - STARTING LAYOUTS ASSETS COMPILATION - STARTING LAYOUTS ASSETS COMPILATION
+	 * STARTING LAYOUTS ASSETS COMPILATION - STARTING LAYOUTS ASSETS COMPILATION - STARTING LAYOUTS ASSETS COMPILATION
+	 */
+
+	/**
+	 * Core frontend layouts - Gameforest
+	 */
+	.copyDirectory('resources/assets/images', 'public/assets/images')
+	.copyDirectory('resources/assets/bower/font-awesome/fonts', 'public/assets/css/frontend/fonts')
 	.styles(
 		[
 			'resources/assets/bower/bootstrap/dist/css/bootstrap.css',
-			'resources/assets/bower/font-awesome/css/font-awesome.css'
+			'resources/assets/bower/font-awesome/css/font-awesome.css',
+            'resources/assets/plugins/animate/animate.css',
+            'resources/assets/themes/Gameforest/v3.5.1/html/css/theme.css',
+            'resources/assets/themes/Gameforest/v3.5.1/html/css/custom.css'
 		],
-		'public/css/frontend/layouts/core.css'
+		'public/assets/themes/gameforest/css/core-gameforest.css'
 	)
 	.scripts(
 		[
 			'resources/assets/bower/jquery/dist/jquery.js',
 			'resources/assets/bower/bootstrap/dist/js/bootstrap.js',
-			'resources/assets/js/core.js',
+			'resources/assets/themes/Gameforest/v3.5.1/html/js/core.js',
 			'resources/assets/js/app.js',
-			'resources/assets/js/googleanalytics.js'
+			'resources/assets/js/googleanalytics.js',
+            'resources/assets/js/facebooksdk.js'
 		],
-		'public/js/frontend/layouts/core.js'
+		'public/assets/themes/gameforest/js/core-gameforest.js'
 	)
-	/**
-	 * Dashboard backend layouts - pages
+
+
+    /**
+     * Core frontend layouts - TheDocs
+     */
+    .copyDirectory('resources/assets/themes/TheDocs/v1.4.0/Starter-kit/assets/img', 'public/assets/themes/thedocs/img')
+    .copyDirectory('resources/assets/themes/TheDocs/v1.4.0/Starter-kit/assets/fonts', 'public/assets/themes/thedocs/fonts')
+    .styles(
+        [
+            'resources/assets/themes/TheDocs/v1.4.0/Starter-kit/assets/css/theDocs.all.css',
+            'resources/assets/themes/TheDocs/v1.4.0/Starter-kit/assets/css/custom.css'
+        ],
+        'public/assets/themes/thedocs/css/core-thedocs.css'
+    )
+    .scripts(
+        [
+            'resources/assets/themes/TheDocs/v1.4.0/Starter-kit/assets/js/theDocs.all.js',
+            'resources/assets/js/app.js',
+            'resources/assets/js/googleanalytics.js',
+            'resources/assets/js/facebooksdk.js'
+        ],
+        'public/assets/themes/thedocs/js/core-thedocs.js'
+    )
+
+
+    /**
+     * Core backend layouts - Pages
+     */
+    .copyDirectory('resources/assets/themes/Pages/v2.3.0/getting_started/html/pages/fonts/', 'public/assets/themes/pages/fonts')
+    .copyDirectory('resources/assets/bower/font-awesome/fonts/', 'public/assets/themes/pages/fonts')
+    .copyDirectory('resources/assets/themes/Pages/v2.3.0/getting_started/html/pages/ico', 'public/assets/themes/pages/ico')
+    .copyDirectory('resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/img', 'public/assets/themes/pages/img')
+    .copyDirectory('resources/assets/themes/Pages/v2.3.0/getting_started/html/pages/img', 'public/assets/themes/pages/img')
+    .copyDirectory('resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/codrops-dialogFx', 'public/assets/themes/pages/plugins/codrops-dialogFx')
+    .copyDirectory('resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/font-awesome/fonts', 'public/assets/themes/pages/css/fonts')
+    .styles(
+        [
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/pace/pace-theme-flash.css',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/bootstrapv3/css/bootstrap.min.css',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/font-awesome/css/font-awesome.css',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/jquery-scrollbar/jquery.scrollbar.css',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/select2/css/select2.min.css',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/switchery/css/switchery.min.css',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/bootstrap-datepicker/css/datepicker3.css',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/jquery-metrojs/MetroJs.css',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/pages/css/pages-icons.css',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/pages/css/pages.css'
+        ],
+        'public/assets/themes/pages/css/core-pages.css'
+    )
+    .scripts(
+        [
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/pace/pace.min.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/jquery/jquery-1.11.1.min.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/modernizr.custom.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/bootstrapv3/js/bootstrap.min.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/jquery/jquery-easy.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/jquery-unveil/jquery.unveil.min.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/jquery-bez/jquery.bez.min.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/jquery-ios-list/jquery.ioslist.min.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/jquery-actual/jquery.actual.min.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/select2/js/select2.full.min.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/classie/classie.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/switchery/js/switchery.min.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/jquery-metrojs/MetroJs.min.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/jquery-sparkline/jquery.sparkline.min.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/skycons/skycons.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/bootstrap-datepicker/js/locales/bootstrap-datepicker.fr.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/pages/js/pages.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/js/scripts.js',
+            'resources/assets/js/app.js',
+            'resources/assets/js/backend/users/profiles/app-profiles.js',
+            'resources/assets/js/googleanalytics.js',
+            'resources/assets/js/facebooksdk.js'
+        ],
+        'public/assets/themes/pages/js/core-pages.js'
+    )
+
+
+    /**
+     * Default emails layout
+     */
+    .styles(
+        [
+            'resources/assets/css/emails_theme.css'
+        ],
+        'public/assets/css/frontend/layouts/emails_theme.css'
+    )
+
+
+    /**
+     * Overwrite themes assets
+     */
+    .copyDirectory('resources/assets/favicon', 'public')
+    .copyDirectory('resources/assets/images', 'public/assets/images')
+
+
+    /*
+	 * ENDING LAYOUTS ASSETS COMPILATION - ENDING LAYOUTS ASSETS COMPILATION - ENDING LAYOUTS ASSETS COMPILATION
+	 * ENDING LAYOUTS ASSETS COMPILATION - ENDING LAYOUTS ASSETS COMPILATION - ENDING LAYOUTS ASSETS COMPILATION
+	 * ENDING LAYOUTS ASSETS COMPILATION - ENDING LAYOUTS ASSETS COMPILATION - ENDING LAYOUTS ASSETS COMPILATION
 	 */
-	.copyDirectory('resources/assets/css/backend/layouts/fonts', 'public/css/backend/fonts')
-	.copyDirectory('resources/assets/css/backend/layouts/ico', 'public/css/backend/layouts/ico')
-	.copyDirectory('resources/assets/css/backend/layouts/img', 'public/css/backend/img')
-	.copyDirectory('resources/assets/plugins/codrops-dialogFx', 'public/plugins/codrops-dialogFx')
-	.copyDirectory('resources/assets/plugins/font-awesome/fonts', 'public/css/backend/fonts')
-	.styles(
-		[
-			'resources/assets/plugins/pace/pace-theme-flash.css',
-			'resources/assets/plugins/bootstrapv3/css/bootstrap.min.css',
-			'resources/assets/plugins/font-awesome/css/font-awesome.css',
-			'resources/assets/plugins/jquery-scrollbar/jquery.scrollbar.css',
-			'resources/assets/plugins/select2/css/select2.min.css',
-			'resources/assets/plugins/switchery/css/switchery.min.css',
-			'resources/assets/plugins/bootstrap-datepicker/css/datepicker3.css',
-			'resources/assets/plugins/jquery-metrojs/MetroJs.css',
-			'resources/assets/css/backend/layouts/pages-icons.css',
-			'resources/assets/css/backend/layouts/pages.css'
-		],
-		'public/css/backend/layouts/dashboard.css'
-	)
-	.scripts(
-		[
-			'resources/assets/plugins/pace/pace.min.js',
-			'resources/assets/plugins/jquery/jquery-1.11.1.min.js',
-			'resources/assets/plugins/modernizr.custom.js',
-			'resources/assets/plugins/jquery-ui/jquery-ui.min.js',
-			'resources/assets/plugins/bootstrapv3/js/bootstrap.min.js',
-			'resources/assets/plugins/jquery/jquery-easy.js',
-			'resources/assets/plugins/jquery-unveil/jquery.unveil.min.js',
-			'resources/assets/plugins/jquery-bez/jquery.bez.min.js',
-			'resources/assets/plugins/jquery-ios-list/jquery.ioslist.min.js',
-			'resources/assets/plugins/jquery-actual/jquery.actual.min.js',
-			'resources/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js',
-			'resources/assets/plugins/select2/js/select2.full.min.js',
-			'resources/assets/plugins/classie/classie.js',
-			'resources/assets/plugins/switchery/js/switchery.min.js',
-			'resources/assets/plugins/jquery-metrojs/MetroJs.min.js',
-			'resources/assets/plugins/jquery-sparkline/jquery.sparkline.min.js',
-			'resources/assets/plugins/skycons/skycons.js',
-			'resources/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js',
-			'resources/assets/js/backend/layouts/pages.js',
-			'resources/assets/js/backend/layouts/scripts.js'
-		],
-		'public/js/backend/layouts/dashboard.js'
-	)
+
+
 	/**
-	 * Default layout - gameforest
-	 */
-	.styles(
-		[
-			'resources/assets/plugins/animate/animate.css',
-			'resources/assets/css/theme.css',
-			'resources/assets/css/custom.css'
-		],
-		'public/css/frontend/layouts/default.css'
-	)
-	/**
-	 * Default emails layout
-	 */
-	.styles(
-		[
-			'resources/assets/css/emails_theme.css'
-		],
-		'public/css/frontend/layouts/emails_theme.css'
-	)
-	/**
-	 * Frontend home
+	 * Frontend home - Gameforest
 	 */
 	.styles(
 		[
 			'resources/assets/bower/owl-carousel/owl-carousel/owl.carousel.css',
 			'resources/assets/css/frontend/home/index.css'
 		],
-		'public/css/frontend/home/index.css'
+		'public/assets/css/frontend/home/index.css'
 	)
 	.scripts(
 		[
@@ -122,10 +171,12 @@ mix
 			'resources/assets/bower/owl-carousel/owl-carousel/owl.carousel.js',
 			'resources/assets/js/frontend/home/index.js'
 		],
-		'public/js/frontend/home/index.js'
+		'public/assets/js/frontend/home/index.js'
 	)
+
+
 	/**
-	 * Frontend contact
+	 * Frontend contact - Gameforest
 	 */
 	.scripts(
 		[
@@ -136,10 +187,12 @@ mix
 			'resources/assets/js/frontend/layouts/app-validation.js',
 			'resources/assets/js/frontend/contact/index.js'
 		],
-		'public/js/frontend/contact/index.js'
+		'public/assets/js/frontend/contact/index.js'
 	)
+
+
 	/**
-	 * Auth login
+	 * Auth login - Gameforest
 	 */
 	.scripts(
 		[
@@ -149,10 +202,12 @@ mix
 			'resources/assets/js/frontend/layouts/app-validation.js',
 			'resources/assets/js/auth/login/login.js'
 		],
-		'public/js/auth/login/login.js'
+		'public/assets/js/auth/login/login.js'
 	)
+
+
 	/**
-	 * Auth register
+	 * Auth register - Gameforest
 	 */
 	.scripts(
 		[
@@ -162,10 +217,12 @@ mix
 			'resources/assets/js/frontend/layouts/app-validation.js',
 			'resources/assets/js/auth/register/register.js'
 		],
-		'public/js/auth/register/register.js'
+		'public/assets/js/auth/register/register.js'
 	)
+
+
 	/**
-	 * Auth reset password
+	 * Auth reset password - Gameforest
 	 */
 	.scripts(
 		[
@@ -175,7 +232,7 @@ mix
 			'resources/assets/js/frontend/layouts/app-validation.js',
 			'resources/assets/js/auth/reset/reset_password.js'
 		],
-		'public/js/auth/reset/reset_password.js'
+		'public/assets/js/auth/reset/reset_password.js'
 	)
 	.scripts(
 		[
@@ -185,61 +242,183 @@ mix
 			'resources/assets/js/frontend/layouts/app-validation.js',
 			'resources/assets/js/auth/reset/send_email.js'
 		],
-		'public/js/auth/reset/send_email.js'
+		'public/assets/js/auth/reset/send_email.js'
 	)
-	/**
-	 * Backend dashboard
-	 */
-	.scripts(
-		[
-			//'resources/assets/plugins/nvd3/lib/d3.v3.js',
-			//'resources/assets/plugins/nvd3/nv.d3.min.js',
-			//'resources/assets/plugins/nvd3/src/utils.js',
-			//'resources/assets/plugins/nvd3/src/tooltip.js',
-			//'resources/assets/plugins/nvd3/src/interactiveLayer.js',
-			//'resources/assets/plugins/nvd3/src/models/axis.js',
-			//'resources/assets/plugins/nvd3/src/models/line.js',
-			//'resources/assets/plugins/nvd3/src/models/lineWithFocusChart.js',
-			//'resources/assets/plugins/mapplic/js/hammer.js',
-			//'resources/assets/plugins/mapplic/js/jquery.mousewheel.js',
-			//'resources/assets/plugins/mapplic/js/mapplic.js',
-			//'resources/assets/plugins/rickshaw/rickshaw.min.js',
-			'resources/assets/js/backend/dashboard/dashboard.js'
-			//'resources/assets/js/backend/layouts/demo.js'
-		],
-		'public/js/backend/dashboard/dashboard.js'
-	)
-	.styles(
-		[
-			'resources/assets/plugins/nvd3/nv.d3.min.css',
-			'resources/assets/plugins/mapplic/css/mapplic.css',
-			'resources/assets/plugins/rickshaw/rickshaw.min.css'
-		],
-		'public/css/backend/dashboard/dashboard.css'
-	);
+
+
+    /**
+     * Frontend Documentation view - TheDocs
+     */
+    .scripts(
+        [
+            'resources/assets/js/disqus.js'
+        ],
+        'public/assets/js/frontend/documentations/show.js'
+    )
+
+    /**
+     * Backend dashboard - Pages
+     */
+    .scripts(
+        [
+            'resources/assets/js/backend/dashboard/dashboard.js'
+        ],
+        'public/assets/js/backend/dashboard/dashboard.js'
+    )
+    .styles(
+        [
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/nvd3/nv.d3.min.css',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/mapplic/css/mapplic.css',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/rickshaw/rickshaw.min.css'
+        ],
+        'public/assets/css/backend/dashboard/dashboard.css'
+    )
+
+    /**
+     * Backend users - Pages
+     */
+    .scripts(
+        [
+            'resources/assets/bower/inputmask/dist/jquery.inputmask.bundle.js',
+            'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
+            'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
+            'resources/assets/js/app-validation.js',
+            'resources/assets/js/backend/users/users/form.js'
+        ],
+        'public/assets/js/backend/users/users/form.js'
+    )
+    .styles(
+        [
+        ],
+        'public/assets/css/backend/users/users/form.css'
+    )
+
+    /**
+     * Backend users - Pages
+     */
+    .scripts(
+        [
+            'resources/assets/bower/inputmask/dist/jquery.inputmask.bundle.js',
+            'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
+            'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
+            'resources/assets/js/app-validation.js',
+            'resources/assets/js/backend/users/profiles/form.js'
+        ],
+        'public/assets/js/backend/users/profiles/form.js'
+    )
+    .styles(
+        [
+        ],
+        'public/assets/css/backend/users/profiles/form.css'
+    )
+
+
+    /**
+     * Backend login - Pages
+     */
+    .scripts(
+        [
+            'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
+            'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
+            'resources/assets/js/app-validation.js',
+            'resources/assets/js/auth/login/login.js'
+        ],
+        'public/assets/js/auth/login/login.js'
+    )
+
+
+    /**
+     * Backend register - Pages
+     */
+    .scripts(
+        [
+            'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
+            'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
+            'resources/assets/js/app-validation.js',
+            'resources/assets/js/auth/register/register.js'
+        ],
+        'public/assets/js/auth/register/register.js'
+    )
+
+
+    /**
+     * Backend reset password - Pages
+     */
+    .scripts(
+        [
+            'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
+            'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
+            'resources/assets/js/app-validation.js',
+            'resources/assets/js/auth/reset/reset_password.js'
+        ],
+        'public/assets/js/auth/reset/reset_password.js'
+    )
+    .scripts(
+        [
+            'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
+            'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
+            'resources/assets/js/app-validation.js',
+            'resources/assets/js/auth/reset/send_email.js'
+        ],
+        'public/assets/js/auth/reset/send_email.js'
+    )
+
+
+    /**
+     * Backend Files - Pages
+     */
+    .copyDirectory('resources/assets/themes/jQuery-ui-custom/v1.11.4/images', 'public/assets/css/backend/files/files/images')
+    .scripts(
+        [
+            'resources/assets/bower/jquery-ui/jquery-ui.js',
+            'resources/assets/bower/jquery-ui/ui/i18n/datepicker-fr.js'
+        ],
+        'public/assets/js/backend/files/files/index.js'
+    )
+    .scripts(
+        [
+            'resources/assets/themes/jQuery-ui-custom/v1.11.4/jquery-ui.css',
+            'resources/assets/themes/jQuery-ui-custom/v1.11.4/jquery-ui.theme.css'
+        ],
+        'public/assets/css/backend/files/files/index.css'
+    )
+;
 
 if (mix.config.inProduction) {
-	mix.version();
-	mix.webpackConfig({
-		plugins: [
-			//Compress images
-			new CopyWebpackPlugin([{
-				from: 'resources/assets/img',
-				to: 'img/'
-			}]),
-			new ImageminPlugin({
-				test: /\.(jpe?g|png|gif)$/i, // |svg
-				pngquant: {
-					quality: '65-80'
-				},
-				plugins: [
-					imageminMozjpeg({
-						quality: 65,
-						//Set the maximum memory to use in kbytes
-						maxmemory: 1000 * 512
-					})
-				]
-			})
-		]
-	});
+    mix
+        .webpackConfig({
+            plugins: [
+                //Compress images
+                new CopyWebpackPlugin([{
+                    from: 'resources/assets/favicon',
+                    to: ''
+                },{
+                    from: 'resources/assets/images',
+                    to: 'assets/images/'
+                },{
+                    from: 'resources/assets/themes/TheDocs/v1.4.0/Starter-kit/assets/img',
+                    to: 'assets/themes/thedocs/img'
+                },{
+                    from: 'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/img',
+                    to: 'assets/themes/pages/img'
+                },{
+                    from: 'resources/assets/themes/Pages/v2.3.0/getting_started/html/pages/img',
+                    to: 'assets/themes/pages/img'
+                }]),
+                new ImageminPlugin({
+                    test: /\.(jpe?g|png|gif)$/i, // |svg
+                    pngquant: {
+                        quality: '65-80'
+                    },
+                    plugins: [
+                        imageminMozjpeg({
+                            quality: 65,
+                            // Set the maximum memory to use in kbytes
+                            maxmemory: 1000 * 512
+                        })
+                    ]
+                })
+            ]
+        })
+        .version();
 }
