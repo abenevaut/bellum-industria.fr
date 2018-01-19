@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use abenevaut\Infrastructure\Interfaces\Domain\Locale\TimeZonesInterface;
 
-class AlterUsersAddUniqIdColumn extends Migration
+class AlterUsersTableToAddTimezone extends Migration
 {
     /**
      * Run the migrations.
@@ -14,19 +15,19 @@ class AlterUsersAddUniqIdColumn extends Migration
     public function up()
     {
 		Schema::table('users', function (Blueprint $table) {
-			$table->string('uniqid', 13)->after('id')->nullable(false);
+			$table->enum('timezone', timezones())->default(TimeZonesInterface::DEFAULT_TZ)->after('locale')->index();
 		});
-    }
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
 		Schema::table('users', function (Blueprint $table) {
-			$table->dropColumn('uniqid');
+			$table->dropColumn('timezone');
 		});
     }
 }
