@@ -10,7 +10,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{ route('frontend.home') }}"><img src="/img/logo.png" alt="logo"></a>
+				<a class="navbar-brand" href="{{ route('frontend.home') }}"><img src="/assets/images/logo.png" alt="logo"></a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse" aria-expanded="true" role="banner">
 				<ul class="nav navbar-nav navbar-right">
@@ -21,7 +21,7 @@
 			</div>
 		</div>
 	</nav>
-	<div class="banner banner-full-height overlay-black" style="background-image: url(/img/thedocs-banner1-pexels.com.jpeg);">
+	<div class="banner banner-full-height overlay-black" style="background-image: url(/assets/images/thedocs-banner1-pexels.com.jpeg);">
 		@yield('banner')
 	</div>
 </header>

@@ -19,11 +19,11 @@
 @endsection
 
 @section('js')
-    <script src="{{ mix('js/auth/login/login.js') }}" type="text/javascript"></script>
+    <script src="{{ mix('assets/js/auth/login/login.js') }}" type="text/javascript"></script>
 @endsection
 
 @section('content')
-    <section class="hero hero-panel" style="background-image: url(/img/cover/cover-login.jpg);">
+    <section class="hero hero-panel" style="background-image: url(/assets/images/cover/cover-login.jpg);">
         <div class="hero-bg"></div>
         <div class="container relative">
             <div class="row">

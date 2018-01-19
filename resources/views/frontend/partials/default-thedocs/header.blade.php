@@ -16,7 +16,7 @@
 					<span class="icon-bar"></span>
 				</button>
 
-				<a class="navbar-brand" href="index.html"><img src="/img/logo.png" alt="logo"></a>
+				<a class="navbar-brand" href="index.html"><img src="/assets/images/logo.png" alt="logo"></a>
 			</div>
 			<!-- END Toggle buttons and brand -->
 

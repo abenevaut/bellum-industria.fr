@@ -1,14 +1,18 @@
 <meta charset="utf-8">
+<meta name="robots" content="@yield('robots', config('metadata.robots'))">
+<link rel="sitemap" type="application/xml" title="sitemap" href="{{ url('/sitemap.xml') }}" />
 <meta name="environment" content="{{ config('app.env') }}">
+<meta name="locale" content="{{ Session::get('locale') }}">
+<meta name="timezone" content="{{ Session::get('timezone') }}">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link rel="shortcut icon" type="image/x-icon" href="{{ asset('/img/favicon.ico') }}?v1"/>
-<link href="{{ asset('/img/apple-touch-icon.png') }}?v1" rel="apple-touch-icon" type="image/x-icon" />
-<link href="{{ asset('/img/apple-touch-icon-precomposed.png') }}?v1" rel="apple-touch-icon" type="image/x-icon" />
-<link href="{{ asset('/img/apple-touch-icon-57x57-precomposed.png') }}?v1" rel="apple-touch-icon" type="image/x-icon" />
-<link href="{{ asset('/img/apple-touch-icon-72x72-precomposed.png') }}?v1" rel="apple-touch-icon" type="image/x-icon" />
-<link href="{{ asset('/img/apple-touch-icon-114x114-precomposed.png') }}?v1" rel="apple-touch-icon" type="image/x-icon" />
+<link rel="shortcut icon" type="image/x-icon" href="{{ asset('/favicon.ico') }}?v1"/>
+<link href="{{ asset('/apple-touch-icon.png') }}?v1" rel="apple-touch-icon" type="image/x-icon" />
+<link href="{{ asset('/apple-touch-icon-precomposed.png') }}?v1" rel="apple-touch-icon" type="image/x-icon" />
+<link href="{{ asset('/apple-touch-icon-57x57-precomposed.png') }}?v1" rel="apple-touch-icon" type="image/x-icon" />
+<link href="{{ asset('/apple-touch-icon-72x72-precomposed.png') }}?v1" rel="apple-touch-icon" type="image/x-icon" />
+<link href="{{ asset('/apple-touch-icon-114x114-precomposed.png') }}?v1" rel="apple-touch-icon" type="image/x-icon" />
 <title>
 	@if (isset($thread))
 		{{ $thread->title }} -
@@ -40,23 +44,9 @@
 <meta name="twitter:creator" content="{{ config('metadata.twitter_username') }}" />
 <meta name="twitter:site" content="{{ config('metadata.twitter_username') }}" />
 <base href="{{ config('app.url') }}">
-<link href="{{ mix('css/frontend/layouts/core.css') }}" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
-<link href="{{ mix('css/frontend/layouts/default.css') }}" rel="stylesheet">
+<link href="{{ mix('assets/themes/gameforest/css/core-gameforest.css') }}" rel="stylesheet">
 @yield('css')
 <script>
-	const BELLUMINDUSTRIA_VERSION = '{{ config('versiongenerated.version') }}';
-	const BELLUMINDUSTRIA_USER_ID = @if (Auth::check())
-'{{ Auth::user()->uniqid }}'
-@else
-'visitor'
-@endif
-;
-const BELLUMINDUSTRIA_USER_ROLE = @if (Auth::check())
-'administrator'
-@else
-'visitor'
-@endif
-;
 	addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});
 </script>

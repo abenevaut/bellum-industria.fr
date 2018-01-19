@@ -12,7 +12,7 @@
 		new_validator: function ($container, rules, messages) {
 			return $container
 				.validate({
-					lang: abenevaut.locale,
+					lang: bellumindustria.locale,
 					rules: rules,
 					messages: messages,
 					/**
@@ -80,79 +80,6 @@
 					}
 				});
 		},
-        /**
-         *
-         * @param $container
-         * @param rules
-         * @param messages
-         */
-        longwave_new_validator: function ($container, rules, messages) {
-            return $container
-                .validate({
-                    lang: abenevaut.locale,
-                    rules: rules,
-                    messages: messages,
-                    /**
-                     *
-                     */
-                    errorElement: "div",
-                    /**
-                     *
-                     */
-                    errorClass: 'error',
-                    /**
-                     *
-                     */
-                    ignore: [':textarea:hidden.not(".form-control")'],
-                    /**
-                     *
-                     * @param error
-                     * @param element
-                     */
-                    errorPlacement: function (error, element) {
-
-                        if ($(element).hasClass('select2-hidden-accessible')) {
-                            error.insertAfter(element.next());
-                        }
-                        else if ($(element).hasClass('ui-spinner-input')) {
-                            error.insertAfter($(element).closest('span.ui-spinner').after());
-                        }
-                        else if ($(element).is('textarea')) {
-                            error.insertAfter(element);
-                        }
-                        else if ($(element).attr('type') !== 'hidden') {
-                            error.insertAfter(element);
-                        }
-
-                        var current_form_group = $(element).closest("li");
-                        current_form_group.addClass("error");
-                    },
-                    /**
-                     *
-                     * @param element
-                     */
-                    highlight: function (element) { // <-- fires when element has error
-                        var current_form_group = $(element).closest("li");
-                        current_form_group.addClass("error");
-                    },
-                    /**
-                     *
-                     * @param element
-                     */
-                    unhighlight: function (element) { // <-- fires when element is valid
-                        var current_form_group = $(element).closest("li");
-                        current_form_group.removeClass("error");
-                    },
-                    /**
-                     *
-                     * @param element
-                     */
-                    success: function (element) {
-                        var current_form_group = element.closest("li");
-                        current_form_group.removeClass("error");
-                    }
-                });
-        },
 		/**
 		 *
 		 * @param validator
@@ -216,7 +143,7 @@
 })(jQuery, document, window);
 
 // Save Panacéa.form_validation instance
-abenevaut.form_validation = $.form_validation;
+bellumindustria.form_validation = $.form_validation;
 
 /**
  *
@@ -246,13 +173,13 @@ $.validator.addMethod(
 $.validator.addMethod(
     "dateObject",
     function (value, element) {
-        var date = value.toDate(abenevaut.dates.getDatePickerDateFormat());
+        var date = value.toDate(bellumindustria.dates.getDatePickerDateFormat());
         return this.optional(element) || !/Invalid|NaN/.test(new Date(date));
     },
-	abenevaut.string.jsprintf("La date doit être au format : %format%", [
+	bellumindustria.string.jsprintf("La date doit être au format : %format%", [
 		'format'
 	], [
-		abenevaut.dates.getDatePickerDateFormat()
+		bellumindustria.dates.getDatePickerDateFormat()
 	])
 );
 
@@ -290,7 +217,7 @@ $.validator.addMethod(
 $.validator.addMethod(
 	'siret',
 	function (value, element) {
-		return this.optional(element) || abenevaut.checks.isValidSiret(value);
+		return this.optional(element) || bellumindustria.checks.isValidSiret(value);
 	},
 	"Veuillez renseigner un SIRET valide."
 );
@@ -301,7 +228,7 @@ $.validator.addMethod(
 $.validator.addMethod(
     'users_email_exists',
     function (value, element, params) {
-        return abenevaut
+        return bellumindustria
             .form_validation
             .ruleBasedOnPromise(
                 this,

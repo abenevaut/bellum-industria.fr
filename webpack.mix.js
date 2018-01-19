@@ -26,10 +26,11 @@ mix
 	 * Core frontend layouts - Gameforest
 	 */
 	.copyDirectory('resources/assets/images', 'public/assets/images')
-	.copyDirectory('resources/assets/bower/font-awesome/fonts', 'public/assets/css/frontend/fonts')
+	.copyDirectory('resources/assets/bower/font-awesome/fonts', 'public/assets/themes/gameforest/fonts')
 	.styles(
 		[
 			'resources/assets/bower/bootstrap/dist/css/bootstrap.css',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/bootstrap-datepicker/css/datepicker3.css',
 			'resources/assets/bower/font-awesome/css/font-awesome.css',
             'resources/assets/plugins/animate/animate.css',
             'resources/assets/themes/Gameforest/v3.5.1/html/css/theme.css',
@@ -41,6 +42,8 @@ mix
 		[
 			'resources/assets/bower/jquery/dist/jquery.js',
 			'resources/assets/bower/bootstrap/dist/js/bootstrap.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js',
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/bootstrap-datepicker/js/locales/bootstrap-datepicker.fr.js',
 			'resources/assets/themes/Gameforest/v3.5.1/html/js/core.js',
 			'resources/assets/js/app.js',
 			'resources/assets/js/googleanalytics.js',
@@ -184,7 +187,7 @@ mix
 			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
 			'resources/assets/plugins/gmaps/gmaps.js',
 			'resources/assets/plugins/gmaps/prettify.js',
-			'resources/assets/js/frontend/layouts/app-validation.js',
+			'resources/assets/js/app-validation.js',
 			'resources/assets/js/frontend/contact/index.js'
 		],
 		'public/assets/js/frontend/contact/index.js'
@@ -199,7 +202,7 @@ mix
 			'resources/assets/js/app.js',
 			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
 			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
-			'resources/assets/js/frontend/layouts/app-validation.js',
+            'resources/assets/js/app-validation.js',
 			'resources/assets/js/auth/login/login.js'
 		],
 		'public/assets/js/auth/login/login.js'
@@ -214,7 +217,7 @@ mix
 			'resources/assets/js/app.js',
 			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
 			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
-			'resources/assets/js/frontend/layouts/app-validation.js',
+            'resources/assets/js/app-validation.js',
 			'resources/assets/js/auth/register/register.js'
 		],
 		'public/assets/js/auth/register/register.js'
@@ -229,7 +232,7 @@ mix
 			'resources/assets/js/app.js',
 			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
 			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
-			'resources/assets/js/frontend/layouts/app-validation.js',
+            'resources/assets/js/app-validation.js',
 			'resources/assets/js/auth/reset/reset_password.js'
 		],
 		'public/assets/js/auth/reset/reset_password.js'
@@ -239,7 +242,7 @@ mix
 			'resources/assets/js/app.js',
 			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
 			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
-			'resources/assets/js/frontend/layouts/app-validation.js',
+            'resources/assets/js/app-validation.js',
 			'resources/assets/js/auth/reset/send_email.js'
 		],
 		'public/assets/js/auth/reset/send_email.js'

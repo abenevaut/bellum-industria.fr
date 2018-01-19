@@ -5,7 +5,7 @@ return [
     /*
      * Redirect URL after login
      */
-    'redirect_url' => env('STEAM_API_CALLBACK'),
+    'redirect_url' => env('STEAM_CALLBACK_URL'),
 
 	/*
      * API Key (http://steamcommunity.com/dev/apikey)

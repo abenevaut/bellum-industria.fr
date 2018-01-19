@@ -12,7 +12,7 @@
 @endsection
 
 @section('js')
-    <script src="{{ mix('js/auth/reset/send_email.js') }}" type="text/javascript"></script>
+    <script src="{{ mix('assets/js/auth/reset/send_email.js') }}" type="text/javascript"></script>
 @endsection
 
 @section('content')

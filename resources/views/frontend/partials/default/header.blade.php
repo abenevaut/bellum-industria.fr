@@ -1,7 +1,7 @@
 <header>
 	<div class="container">
 		<span class="bar hide"></span>
-		<a href="{{ route('frontend.home') }}" class="logo"><img src="/img/logo.png" alt=""></a>
+		<a href="{{ route('frontend.home') }}" class="logo"><img src="/assets/images/logo.png" alt=""></a>
 		<nav>
 			<div class="nav-control">
 				<ul>
@@ -23,7 +23,7 @@
 			@if (Auth::check())
 				<div class="nav-profile dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-						<img src="/img/user/avatar.png" alt=""> <span>{{ Auth::user()->profile->first_name }}</span>
+						<img src="/assets/images/user/avatar.png" alt=""> <span>{{ Auth::user()->profile->first_name }}</span>
 					</a>
 					<ul class="dropdown-menu">
 						{{--<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>--}}

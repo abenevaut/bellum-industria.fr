@@ -2,6 +2,8 @@
 <meta name="robots" content="@yield('robots', config('metadata.robots'))">
 <link rel="sitemap" type="application/xml" title="sitemap" href="{{ url('/sitemap.xml') }}" />
 <meta name="environment" content="{{ config('app.env') }}">
+<meta name="locale" content="{{ Session::get('locale') }}">
+<meta name="timezone" content="{{ Session::get('timezone') }}">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -38,18 +40,5 @@
 <link href="{{ mix('assets/themes/gameforest/css/core-gameforest.css') }}" rel="stylesheet">
 @yield('css')
 <script>
-	const BELLUMINDUSTRIA_VERSION = '{{ config('versiongenerated.version') }}';
-	const BELLUMINDUSTRIA_USER_ID = @if (Auth::check())
-'{{ Auth::user()->uniqid }}'
-@else
-'visitor'
-@endif
-;
-const BELLUMINDUSTRIA_USER_ROLE = @if (Auth::check())
-'administrator'
-@else
-'visitor'
-@endif
-;
 	addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});
 </script>

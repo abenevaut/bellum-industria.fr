@@ -5,12 +5,12 @@
 
 @section('js')
 	<script src="//maps.google.com/maps/api/js?key={{ config('services.google_api.key') }}"></script>
-	<script src="{{ mix('js/frontend/contact/index.js') }}"></script>
+	<script src="{{ mix('assets/js/frontend/contact/index.js') }}"></script>
 @endsection
 
 @section('content')
 
-	<section class="hero" style="background-image: url(/img/cover/cover.jpg);">
+	<section class="hero" style="background-image: url(/assets/images/cover/cover.jpg);">
 		<div class="hero-bg-primary"></div>
 		<div class="container">
 			<div class="page-header">
@@ -73,7 +73,7 @@
 					{!! Form::close() !!}
 				</div>
 				<div class="col-lg-5 height-300">
-					<img src="/img/content/contact.jpg" class="image-right" alt="">
+					<img src="/assets/images/content/contact.jpg" class="image-right" alt="">
 				</div>
 			</div>
 		</div>

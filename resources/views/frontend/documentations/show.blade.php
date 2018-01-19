@@ -138,7 +138,7 @@
 				<div class="row">
 					<div class="col-md-4">
 						<div class="promo">
-							<img class="bordered" src="assets/img/layout-single1.png" alt="sample1">
+							<img class="bordered" src="/assets/images/layout-single1.png" alt="sample1">
 							<h3>Default</h3>
 							<a class="btn btn-teal" href="layout_single-page-1.html">Demo</a>
 						</div>
@@ -146,7 +146,7 @@
 
 					<div class="col-md-4">
 						<div class="promo">
-							<img class="bordered" src="assets/img/layout-single2.png" alt="sample2">
+							<img class="bordered" src="/assets/images/layout-single2.png" alt="sample2">
 							<h3>Side line</h3>
 							<a class="btn btn-teal" href="layout_single-page-2.html">Demo</a>
 						</div>
@@ -154,7 +154,7 @@
 
 					<div class="col-md-4">
 						<div class="promo">
-							<img class="bordered" src="assets/img/layout-single3.png" alt="sample3">
+							<img class="bordered" src="/assets/images/layout-single3.png" alt="sample3">
 							<h3>Boxed sidebar</h3>
 							<a class="btn btn-teal" href="layout_single-page-3.html">Demo</a>
 						</div>

@@ -43,7 +43,7 @@
 				cache: false,
 				dataType: 'jsonp',
 				success: function (data) {
-					if (data.items.length) {
+					if (typeof(data.items) !== 'undefined' && data.items.length) {
 
 						var last_video = data.items[0];
 

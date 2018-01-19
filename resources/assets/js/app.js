@@ -86,8 +86,13 @@ AppException = function () {
 (function ($, W, D) {
 
 	_app = {
-		environment: null,
-		token: null
+        environment: null,
+        locale: null,
+        timezone: null,
+        token: null,
+        version: null,
+        user_id: 'visitor',
+        user_role: 'visitor'
 	};
 
 	/**
@@ -95,14 +100,33 @@ AppException = function () {
 	 */
 	_app.initialize = function () {
 
-		_app.environment = $('meta[name="environment"]').attr('content');
-		_app.token = $('meta[name="csrf-token"]').attr('content');
+        _app.environment = $('meta[name="environment"]').attr('content');
+        _app.locale = $('meta[name="locale"]').attr('content');
+        _app.timezone = $('meta[name="timezone"]').attr('content');
+        _app.token = $('meta[name="csrf-token"]').attr('content');
+        _app.version = $('meta[name="version"]').attr('content');
+        _app.user_id = $('meta[name="user_id"]').attr('content');
+        _app.user_role = $('meta[name="user_role"]').attr('content');
 
 		/*
 		 * Add default token for Ajax query to Laravel.
 		 */
 
 		$.ajaxSetup({headers: {'X-CSRF-TOKEN': _app.token}});
+
+        /*
+         * Add default locale to date system
+         */
+
+        // Bootstrap dates picker
+        if (typeof($.fn.datepicker) !== 'undefined' && (typeof($.ui) === 'undefined' || (typeof($.ui) !== 'undefined' && typeof($.ui.datepicker) === 'undefined'))) {
+            $.fn.datepicker.defaults.language = _app.locale;
+            $.fn.datepicker.dates['en'].format = 'mm/dd/yyyy';
+        }
+        // jQuery dates picker
+        else if (typeof($.ui) !== 'undefined' && typeof($.ui.datepicker) !== 'undefined') {
+            $.datepicker.setDefaults($.datepicker.regional[_app.locale]);
+        }
 
 		/*
 		 * Define debug mode for JS.
@@ -386,173 +410,134 @@ AppException = function () {
 	 */
 	_app.dates = {
 
-		/**
-		 * Regex patterns for manipulated dates.
-		 */
-		rxDatePattern: {
-			// Date pattern dd/mm/yyyy
-			fr: /^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$/,
-			// Date pattern yyyy-mm-dd
-			en: /^(\d{4})(\/|-)(\d{1,2})(\/|-)(\d{1,2})$/
-		},
+        /**
+         *
+         * @param d1
+         * @param d2
+         * @param caller
+         * @private
+         */
+        _before_diff: function (d1, d2, caller) {
+            if (d1 === null || typeof(d1) === 'undefined') {
+                throw new AppException('app.js > _app.dates.' + caller + ' : error : ' + caller + ' d1 arg is null');
+            }
+            else if (!(d1 instanceof Date)) {
+                throw new AppException(
+                    'app.js > _app.dates.' + caller + ' : error : ' + caller + ' d1 arg is not an instance of Date object'
+                    + ' this is an instance of ' + getClassOf(d1)
+                );
+            }
+            else if (d2 === null || typeof(d2) === 'undefined') {
+                throw new AppException('app.js > _app.dates.' + caller + ' : error : ' + caller + ' d2 arg is null');
+            }
+            else if (!(d2 instanceof Date)) {
+                throw new AppException(
+                    'app.js > _app.dates.' + caller + ' : error : ' + caller + ' d2 arg is not an instance of Date object'
+                    + ' this is an instance of ' + getClassOf(d2)
+                );
+            }
+            _app.debug('app.js > _app.dates.' + caller + ' : success : d1 = ' + d1 + ' && d2 = ' + d2);
+        },
 
-		/**
-		 *
-		 * @param d1
-		 * @param d2
-		 * @param caller
-		 * @private
-		 */
-		_before_diff: function (d1, d2, caller) {
-			if (d1 === null || typeof(d1) === 'undefined') {
-				throw new CVEPDBException('app.js > _app.dates.' + caller + ' : error : ' + caller + ' d1 arg is null');
-			}
-			else if (!(d1 instanceof Date)) {
-				throw new CVEPDBException(
-					'app.js > _app.dates.' + caller + ' : error : ' + caller + ' d1 arg is not an instance of Date object'
-					+ ' this is an instance of ' + getClassOf(d1)
-				);
-			}
-			else if (d2 === null || typeof(d2) === 'undefined') {
-				throw new CVEPDBException('app.js > _app.dates.' + caller + ' : error : ' + caller + ' d2 arg is null');
-			}
-			else if (!(d2 instanceof Date)) {
-				throw new CVEPDBException(
-					'app.js > _app.dates.' + caller + ' : error : ' + caller + ' d2 arg is not an instance of Date object'
-					+ ' this is an instance of ' + getClassOf(d2)
-				);
-			}
-			cvepdb.debug('app.js > _app.dates.' + caller + ' : success : d1 = ' + d1 + ' && d2 = ' + d2);
-		},
+        /**
+         * Two dates days diff.
+         *
+         * @param d1
+         * @param d2
+         * @returns {Number}
+         */
+        diffInDays: function (d1, d2) {
+            _app.dates._before_diff(d1, d2, 'diffInDays');
+            var t2 = d2.getTime();
+            var t1 = d1.getTime();
+            return parseInt((t2 - t1) / (24 * 3600 * 1000));
+        },
 
-		/**
-		 * Two dates days diff.
-		 *
-		 * @param d1
-		 * @param d2
-		 * @returns {Number}
-		 */
-		diffInDays: function (d1, d2) {
-			_app.dates._before_diff(d1, d2, 'diffInDays');
-			var t2 = d2.getTime();
-			var t1 = d1.getTime();
-			return parseInt((t2 - t1) / (24 * 3600 * 1000));
-		},
+        /**
+         * Two dates weeks diff.
+         *
+         * @param d1
+         * @param d2
+         * @returns {Number}
+         */
+        diffInWeeks: function (d1, d2) {
+            _app.dates._before_diff(d1, d2, 'diffInWeeks');
+            var t2 = d2.getTime();
+            var t1 = d1.getTime();
+            return parseInt((t2 - t1) / (24 * 3600 * 1000 * 7));
+        },
 
-		/**
-		 * Two dates weeks diff.
-		 *
-		 * @param d1
-		 * @param d2
-		 * @returns {Number}
-		 */
-		diffInWeeks: function (d1, d2) {
-			_app.dates._before_diff(d1, d2, 'diffInWeeks');
-			var t2 = d2.getTime();
-			var t1 = d1.getTime();
-			return parseInt((t2 - t1) / (24 * 3600 * 1000 * 7));
-		},
+        /**
+         * Two dates months diff.
+         *
+         * @param d1
+         * @param d2
+         * @returns {number}
+         */
+        diffInMonths: function (d1, d2) {
+            _app.dates._before_diff(d1, d2, 'diffInMonths');
+            var d1Y = d1.getFullYear();
+            var d2Y = d2.getFullYear();
+            var d1M = d1.getMonth();
+            var d2M = d2.getMonth();
+            return ((d2M + 12 * d2Y) - (d1M + 12 * d1Y));
+        },
 
-		/**
-		 * Two dates months diff.
-		 *
-		 * @param d1
-		 * @param d2
-		 * @returns {number}
-		 */
-		diffInMonths: function (d1, d2) {
-			_app.dates._before_diff(d1, d2, 'diffInMonths');
-			var d1Y = d1.getFullYear();
-			var d2Y = d2.getFullYear();
-			var d1M = d1.getMonth();
-			var d2M = d2.getMonth();
-			return ((d2M + 12 * d2Y) - (d1M + 12 * d1Y));
-		},
+        /**
+         * Two dates years diff.
+         *
+         * @param d1
+         * @param d2
+         * @returns {number}
+         */
+        diffInYears: function (d1, d2) {
+            _app.dates._before_diff(d1, d2, 'diffInYears');
+            return (d2.getFullYear() - d1.getFullYear());
+        },
 
-		/**
-		 * Two dates years diff.
-		 *
-		 * @param d1
-		 * @param d2
-		 * @returns {number}
-		 */
-		diffInYears: function (d1, d2) {
-			_app.dates._before_diff(d1, d2, 'diffInYears');
-			return (d2.getFullYear() - d1.getFullYear());
-		},
+        /**
+         *
+         * @param date
+         * @returns {string}
+         */
+        getDateObjectAsTimeZonedString: function (date) {
+            return (new Date(date || Date.now())).toLocaleString(_app.locale, {timeZone: _app.timezone});
+        },
 
-		/**
-		 * Convert string date (fr or en) to date object.
-		 *
-		 * @param date string Format 'dd/mm/yyyy' OR 'yyyy-mm-dd'
-		 * @returns {*}
-		 * @throws AppException
-		 */
-		getDateObject: function (date) {
+        /**
+         *
+         * @param date
+         * @returns {string}
+         */
+        getDateFromDateObjectAsTimeZonedString: function (date) {
+            return (new Date(date || Date.now())).toLocaleDateString(_app.locale, {timeZone: _app.timezone});
+        },
 
-			var date_obj = null;
-			var current_date = date;
-			var dateFRArray = current_date.match(_app.dates.rxDatePattern.fr);
-			var dateENArray = current_date.match(_app.dates.rxDatePattern.en);
+        /**
+         *
+         * @param date
+         * @returns {string}
+         */
+        getTimeFromDateObjectAsTimeZonedString: function (date) {
+            return (new Date(date || Date.now())).toLocaleTimeString(_app.locale, {timeZone: _app.timezone});
+        },
 
-			if (
-				typeof dateFRArray !== 'undefined'
-				&& dateFRArray instanceof Array
-				&& dateFRArray.length > 0
-			) {
-				current_date = dateFRArray[5] + '/' + dateFRArray[3] + '/' + dateFRArray[1];
-				date_obj = new Date(current_date);
-			}
-			else if (
-				typeof dateENArray !== 'undefined'
-				&& dateENArray instanceof Array
-				&& dateENArray.length > 0
-			) {
-				current_date = current_date.replace(new RegExp("-", "g"), '/');
-				date_obj = new Date(current_date);
-			}
-			else {
-				throw new AppException(
-					'app.js > _app.dates.getDateObject : error : Invalid date format!'
-				);
-			}
-			return date_obj;
-		},
+        /**
+         *
+         * @param locale
+         */
+        getDatePickerDateFormat: function (locale) {
+            // Bootstrap dates picker
+            if (typeof($.fn.datepicker) !== 'undefined' && (typeof($.ui) === 'undefined' || (typeof($.ui) !== 'undefined' && typeof($.ui.datepicker) === 'undefined'))) {
+                return $.fn.datepicker.dates[locale || _app.locale].format;
+            }
+            // jQuery dates picker
+            else if (typeof($.ui) !== 'undefined' && typeof($.ui.datepicker) !== 'undefined') {
+                return $.datepicker.regional[_app.locale].dateFormat;
+            }
 
-		/**
-		 *
-		 * @param date
-		 * @returns {string}
-		 */
-		getDateObjectAsFRString: function (date) {
-			var d = new Date(date || Date.now()),
-				month = '' + (d.getMonth() + 1),
-				day = '' + d.getDate(),
-				year = d.getFullYear();
-
-			if (month.length < 2) month = '0' + month;
-			if (day.length < 2) day = '0' + day;
-
-			return [day, month, year].join('/');
-		},
-
-		/**
-		 *
-		 * @param date
-		 * @returns {string}
-		 */
-		getDateObjectAsENString: function (date) {
-			var d = new Date(date || Date.now()),
-				month = '' + (d.getMonth() + 1),
-				day = '' + d.getDate(),
-				year = d.getFullYear();
-
-			if (month.length < 2) month = '0' + month;
-			if (day.length < 2) day = '0' + day;
-
-			return [year, month, day].join('-');
-		}
-
+            throw AppException('app.js > getDatePickerDateFormat, no date format defined');
+        }
 	};
 
 	/**
