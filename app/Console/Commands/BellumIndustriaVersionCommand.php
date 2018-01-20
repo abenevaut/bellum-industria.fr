@@ -30,7 +30,7 @@ class BellumIndustriaVersionCommand extends Command
 	/**
 	 * Execute command.
 	 */
-	public function fire() {
+	public function handle() {
 		if (app()->environment('local'))
 		{
 
