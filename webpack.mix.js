@@ -160,6 +160,8 @@ mix
 	/**
 	 * Frontend home - Gameforest
 	 */
+    .copyDirectory('resources/assets/bower/owl-carousel/assets/ico', 'public/assets/css/frontend/home/')
+    .copyDirectory('resources/assets/bower/owl-carousel/assets/img', 'public/assets/css/frontend/home/')
 	.styles(
 		[
 			'resources/assets/bower/owl-carousel/owl-carousel/owl.carousel.css',

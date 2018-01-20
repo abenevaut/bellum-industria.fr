@@ -24,16 +24,18 @@
 		init_gmap: function () {
 			bellumindustria.debug('index.js > init_gmap');
 
-			var map = new GMaps({
-				div: '#map',
-				scrollwheel: false,
-				lat: 48.8566,
-				lng: 2.3522
-			});
-			var marker = map.addMarker({
-				lat: 48.8566,
-				lng: 2.3522
-			});
+            if (typeof google === 'object' && typeof google.maps === 'object') {
+                var map = new GMaps({
+                    div: '#map',
+                    scrollwheel: false,
+                    lat: 48.8566,
+                    lng: 2.3522
+                });
+                var marker = map.addMarker({
+                    lat: 48.8566,
+                    lng: 2.3522
+                });
+            }
 		}
 	};
 
