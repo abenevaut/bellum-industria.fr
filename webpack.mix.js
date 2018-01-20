@@ -99,8 +99,7 @@ mix
             'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/bootstrap-datepicker/css/datepicker3.css',
             'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/jquery-metrojs/MetroJs.css',
             'resources/assets/themes/Pages/v2.3.0/getting_started/html/pages/css/pages-icons.css',
-            'resources/assets/themes/Pages/v2.3.0/getting_started/html/pages/css/pages.css',
-            'resources/assets/css/ribbon.css'
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/pages/css/pages.css'
         ],
         'public/assets/themes/pages/css/core-pages.css'
     )

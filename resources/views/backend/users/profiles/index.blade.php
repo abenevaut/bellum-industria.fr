@@ -69,7 +69,7 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::STEAM]) }}">
-                                            <span class="pull-left"><i class="fa fa-twitter"></i></span>
+                                            <span class="pull-left"><i class="fa fa-steam"></i></span>
                                             <span class="bold">Lier Steam</span>
                                         </a>
                                         <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::TWITTER]) }}">
@@ -83,10 +83,6 @@
                                         <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::GOOGLE]) }}">
                                             <span class="pull-left"><i class="fa fa-google-plus"></i></span>
                                             <span class="bold">Lier Google+</span>
-                                        </a>
-                                        <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::LINKEDIN]) }}">
-                                            <span class="pull-left"><i class="fa fa-linkedin"></i></span>
-                                            <span class="bold">Lier Linkedin</span>
                                         </a>
                                     </div>
                                 </div>

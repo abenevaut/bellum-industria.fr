@@ -89,7 +89,7 @@ class LoginController extends ControllerAbstract
 
 			$providerUser = $this->steam->getUserInfo();
 			$providerUser->id = $providerUser->steamID64;
-			$providerUser->token = null;
+			$providerUser->token = $providerUser->steamID;
 		} else {
 			$providerUser = \Socialite::driver($provider)->user();
 		}
