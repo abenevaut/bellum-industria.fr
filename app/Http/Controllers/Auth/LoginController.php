@@ -2,10 +2,7 @@
 
 namespace bellumindustria\Http\Controllers\Auth;
 
-use Illuminate\{
-	Foundation\Auth\AuthenticatesUsers,
-	Support\Facades\Auth
-};
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Invisnik\LaravelSteamAuth\SteamAuth;
 use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
 use bellumindustria\Http\Controllers\Auth\AuthRedirectTrait;

@@ -1,5 +1,6 @@
 <?php namespace bellumindustria\Domain\Users\Users;
 
+use Lab404\Impersonate\Models\Impersonate;
 use bellumindustria\Infrastructure\
 {
 	Interfaces\Domain\Users\Users\HandshakableInterface,
@@ -36,6 +37,7 @@ class User extends AuthenticatableModelAbstract implements UserCivilitiesInterfa
 	use ProfileableTrait;
 	use TimeStampsTz;
 	use SoftDeletesTz;
+	use Impersonate;
 
 	/**
 	 * The attributes that are mass assignable.
@@ -97,6 +99,26 @@ class User extends AuthenticatableModelAbstract implements UserCivilitiesInterfa
 		$this->notify(new CreatedAccountByAdministrator($this));
 
 		return $this;
+	}
+
+	/**
+	 * Is the user able to impersonated others users ?
+	 *
+	 * @return bool
+	 */
+	public function canImpersonate()
+	{
+		return self::ROLE_ADMINISTRATOR === $this->role;
+	}
+
+	/**
+	 * Is the user able to be impersonated ?
+	 *
+	 * @return bool
+	 */
+	public function canBeImpersonated()
+	{
+		return self::ROLE_ADMINISTRATOR !== $this->role;
 	}
 
 	/**

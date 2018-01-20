@@ -10,6 +10,7 @@
         "barryvdh/laravel-dompdf": "^0.8.1",
         "barryvdh/laravel-elfinder": "^0.3.11",
         "invisnik/laravel-steam-auth": "^2.3",
+        "lab404/laravel-impersonate": "^1.2",
         "laravel-notification-channels/facebook-poster": "^1.1",
         "laravel-notification-channels/twitter": "^1.0",
         "laravel/framework": "5.5.*",
