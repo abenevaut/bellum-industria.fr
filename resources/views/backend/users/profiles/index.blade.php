@@ -68,19 +68,19 @@
                             <div class="col-sm-9">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \abenevaut\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::TWITTER]) }}">
+                                        <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::TWITTER]) }}">
                                             <span class="pull-left"><i class="fa fa-twitter"></i></span>
                                             <span class="bold">Lier Twitter</span>
                                         </a>
-                                        <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \abenevaut\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::FACEBOOK]) }}">
+                                        <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::FACEBOOK]) }}">
                                             <span class="pull-left"><i class="fa fa-facebook"></i></span>
                                             <span class="bold">Lier Facebook</span>
                                         </a>
-                                        <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \abenevaut\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::GOOGLE]) }}">
+                                        <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::GOOGLE]) }}">
                                             <span class="pull-left"><i class="fa fa-google-plus"></i></span>
                                             <span class="bold">Lier Google+</span>
                                         </a>
-                                        <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \abenevaut\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::LINKEDIN]) }}">
+                                        <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::LINKEDIN]) }}">
                                             <span class="pull-left"><i class="fa fa-linkedin"></i></span>
                                             <span class="bold">Lier Linkedin</span>
                                         </a>

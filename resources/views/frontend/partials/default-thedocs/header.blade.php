@@ -22,11 +22,9 @@
 					@if (Auth::check())
 						<li class="hero">
 
-							@if (Gate::allows(\abenevaut\Domain\Users\Users\User::ROLE_ADMINISTRATOR, Auth::user()))
+							@if (Gate::allows(\bellumindustria\Domain\Users\Users\User::ROLE_ADMINISTRATOR, Auth::user()))
 								<a href="{{ route('backend.dashboard.index') }}">
-							@elseif (Gate::allows(\abenevaut\Domain\Users\Users\User::ROLE_ACCOUNTANT, Auth::user()))
-								<a href="{{ route('accountant.files.index') }}">
-							@elseif (Gate::allows(\abenevaut\Domain\Users\Users\User::ROLE_CUSTOMER, Auth::user()))
+							@elseif (Gate::allows(\bellumindustria\Domain\Users\Users\User::ROLE_GAMER, Auth::user()))
 								<a href="{{ route('customer.dashboard.index') }}">
 							@endif
 

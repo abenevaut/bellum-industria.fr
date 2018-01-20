@@ -27,7 +27,7 @@ return [
                  * You can specify individual files as well.
                  */
                 'exclude' => [
-					storage_path('app/abenevaut'),
+					storage_path('app/bellumindustria'),
 					storage_path('app/thumbnails'),
                 ],
 

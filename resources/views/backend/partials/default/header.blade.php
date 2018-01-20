@@ -3,7 +3,7 @@
 	<div class=" pull-left sm-table hidden-xs hidden-sm">
 		<div class="header-inner">
 			<div class="brand inline">
-				<img src="/assets/images/logo-pages.png" alt="logo" data-src="/assets/images/logo-pages.png" data-src-retina="/assets/images/logo-pages_2x.png" width="50" height="40">
+				<img src="/assets/images/logo.png" alt="logo" data-src="/assets/images/logo.png" data-src-retina="/assets/images/logo_2x.png" width="50" height="40">
 			</div>
 			<ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
 				{{--<li class="p-r-15 inline">--}}
@@ -146,7 +146,7 @@
 			<div class="dropdown pull-right">
 				<button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="thumbnail-wrapper d32 circular inline m-t-5">
-                <img src="/assets/images/logo-pages.png" alt="" data-src="/assets/images/logo-pages.png" data-src-retina="/assets/images/logo-pages_2x.png" width="32" height="32">
+                <img src="/assets/images/user/avatar.png" alt="" data-src="/assets/images/user/avatar.png" data-src-retina="/assets/images/user/avatar_2x.png" width="32" height="32">
             </span>
 				</button>
 				<ul class="dropdown-menu profile-dropdown" role="menu">

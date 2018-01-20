@@ -13,7 +13,7 @@
     <div class="pull-center hidden-md hidden-lg">
         <div class="header-inner">
             <div class="brand inline">
-                <img src="/assets/images/logo-pages.png" alt="logo" data-src="/assets/images/logo-pages.png" data-src-retina="/assets/images/logo-pages_2x.png" width="50" height="40">
+                <img src="/assets/images/logo.png" alt="logo" data-src="/assets/images/logo.png" data-src-retina="/assets/images/logo_2x.png" width="50" height="40">
             </div>
         </div>
     </div>

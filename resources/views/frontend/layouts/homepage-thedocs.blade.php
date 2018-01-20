@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html prefix="abenevaut: {{ route('frontend.home') }}" lang="fr_FR">
+<html prefix="bellumindustria: {{ route('frontend.home') }}" lang="fr_FR">
 	<head>
 		@include('frontend.partials.homepage-thedocs.metadatas')
 	</head>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html prefix="abenevaut: {{ url('/') }}" lang="fr_FR">
+<html prefix="bellumindustria: {{ url('/') }}" lang="fr_FR">
 	<head>
 		@include('frontend.partials.default-thedocs.metadatas')
 	</head>

@@ -227,7 +227,7 @@ return [
     */
     'generator'  => [
         'basePath'      => app()->path('Domain'),
-        'rootNamespace' => 'abenevaut\\Domain\\',
+        'rootNamespace' => 'bellumindustria\\Domain\\',
         'stubsOverridePath' => app()->path('Domain'),
         'paths'         => [
             'models'       => 'Entities',

@@ -64,7 +64,7 @@ return [
 	|
 	*/
 
-	'timezone' => 'Europe/Paris',
+	'timezone' => \bellumindustria\Infrastructure\Interfaces\Domain\Locale\TimeZonesInterface::DEFAULT_TZ,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -77,7 +77,7 @@ return [
 	|
 	*/
 
-	'locale' => 'fr',
+	'locale' => \bellumindustria\Infrastructure\Interfaces\Domain\Locale\LocalesInterface::DEFAULT_LOCALE,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -90,7 +90,7 @@ return [
 	|
 	*/
 
-	'fallback_locale' => 'fr',
+	'fallback_locale' => \bellumindustria\Infrastructure\Interfaces\Domain\Locale\LocalesInterface::DEFAULT_LOCALE,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -175,6 +175,11 @@ return [
 		Riari\Forum\ForumServiceProvider::class,
 		Riari\Forum\Frontend\ForumFrontendServiceProvider::class,
 		Spatie\Sitemap\SitemapServiceProvider::class,
+		Barryvdh\Elfinder\ElfinderServiceProvider::class,
+		Spatie\Analytics\AnalyticsServiceProvider::class,
+		Spatie\Backup\BackupServiceProvider::class,
+		NotificationChannels\FacebookPoster\FacebookPosterServiceProvider::class,
+		NotificationChannels\Twitter\TwitterServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
@@ -242,6 +247,7 @@ return [
 		'Html'         => Collective\Html\HtmlFacade::class,
 		'Sentry'       => Sentry\SentryLaravel\SentryFacade::class,
 		'Socialite'    => Laravel\Socialite\Facades\Socialite::class,
+		'Analytics' => Spatie\Analytics\AnalyticsFacade::class,
 
 	],
 

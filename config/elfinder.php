@@ -29,7 +29,7 @@ return array(
 		\bellumindustria\Domain\Users\Users\User::ROLE_ADMINISTRATOR => [
 			'backups' => [
 				'alias' => 'Backups',
-				'accessControl' => 'abenevaut\Domain\Files\Files\Access\ReadOnly::checkAccess'
+				'accessControl' => 'bellumindustria\Domain\Files\Files\Access\ReadOnly::checkAccess'
 			],
 			'documentations' => [
 				'alias' => 'Documentations',

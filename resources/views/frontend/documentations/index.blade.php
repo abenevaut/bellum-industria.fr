@@ -20,10 +20,8 @@
 		</p>
 	</div>
 	<ul class="social-icons">
-		<li><a href="https://twitter.com/abenevaut" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
-		<li><a href="https://www.facebook.com/abenevaut" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
-		<li><a href="https://github.com/42antoine" target="_blank" rel="noopener"><i class="fa fa-github"></i></a></li>
-		<li><a href="https://www.linkedin.com/in/antoine-benevaut-53a39b36/" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a></li>
+		<li><a href="https://twitter.com/bellumindustria" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
+		<li><a href="https://www.facebook.com/bellumindustria" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
 	</ul>
 @endsection
 
@@ -56,22 +54,6 @@
 	<section>
 		<h2 id="packages_list">Packages</h2>
 		<ul class="categorized-view view-col-3">
-			<li>
-				<h5>abenevaut</h5>
-				<a href="https://github.com/abenevaut/support" target="_blank" rel="noopener">support</a>
-				<a href="https://github.com/abenevaut/generators" target="_blank" rel="noopener">generators</a>
-				<a href="https://github.com/abenevaut/modules" target="_blank" rel="noopener">modules</a>
-				<a href="https://github.com/abenevaut/themes" target="_blank" rel="noopener">themes</a>
-				<a href="https://github.com/abenevaut/widget" target="_blank" rel="noopener">widget</a>
-				<a href="https://github.com/abenevaut/laravel-menus" target="_blank" rel="noopener">laravel-menus</a>
-				<a href="https://github.com/abenevaut/laravel-settings" target="_blank" rel="noopener">laravel-settings</a>
-			</li>
-			<li>
-				<h5>42antoine</h5>
-				<a href="https://github.com/42antoine/vagrant-CSS-server" target="_blank" rel="noopener">vagrant-CSS-server</a>
-				<a href="https://github.com/42antoine/vagrant-CSGO-server" target="_blank" rel="noopener">vagrant-CSGO-server</a>
-				<a href="https://github.com/42antoine/vagrant-cppcms" target="_blank" rel="noopener">vagrant-cppcms</a>
-			</li>
 			<li>
 				<h5>bellumindustria</h5>
 				<a href="https://github.com/bellumindustria/docker-teamspeak-server" target="_blank" rel="noopener">docker-teamspeak-server</a>
