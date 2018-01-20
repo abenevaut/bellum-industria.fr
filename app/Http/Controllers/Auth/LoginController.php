@@ -83,7 +83,7 @@ class LoginController extends ControllerAbstract
 	/**
 	 * Redirect the user to the OAuth Steam.
 	 *
-	 * @return Response
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
 	 */
 	public function redirectToSteam() {
 		return $this->steam->redirect(); // redirect to Steam login page
@@ -92,7 +92,7 @@ class LoginController extends ControllerAbstract
 	/**
 	 * Obtain the user information from steam provider.
 	 *
-	 * @return Response
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|void
 	 */
 	public function handleSteamCallback() {
 		if ($this->steam->validate())

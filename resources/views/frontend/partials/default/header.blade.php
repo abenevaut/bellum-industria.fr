@@ -23,7 +23,7 @@
 			@if (Auth::check())
 				<div class="nav-profile dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-						<img src="/assets/images/user/avatar.png" alt=""> <span>{{ Auth::user()->profile->first_name }}</span>
+						<img src="assets/images/user/avatar.png" alt=""> <span>{{ Auth::user()->profile->first_name }}</span>
 					</a>
 					<ul class="dropdown-menu">
 						{{--<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>--}}
@@ -35,8 +35,13 @@
 					</ul>
 				</div>
 			@else
-				<a href="{{ route('register') }}">Créer un compte</a>
-				<a href="{{ route('login') }}"><i class="fa fa-sign-in"></i> Connexion</a>
+				<div class="nav-profile dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><img src="assets/images/user/avatar.png" alt=""> <span>Mon espace</span></a>
+					<ul class="dropdown-menu">
+						<li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i> Connexion</a></li>
+						<li><a href="{{ route('register') }}"><i class="fa fa-pencil-square-o"></i> Créer un compte</a></li>
+					</ul>
+				</div>
 			@endif
 			{{--<a href="#" data-toggle="modal-search"><i class="fa fa-search"></i></a>--}}
 		</div>

@@ -17,10 +17,38 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend'], function ()
 	/**
 	 * Home
 	 */
+
 	Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
 	/**
-	 * Contacts
+	 *
 	 */
-	Route::resource('contact', 'ContactController');
+
+	Route::get('cgu', ['as' => 'cgu', 'uses' => 'AboutController@cgu']);
+	Route::get('terms-of-services', ['as' => 'terms', 'uses' => 'AboutController@terms']);
+
+	/**
+	 *
+	 */
+
+	Route::resource('contact', 'ContactsController');
+
+	/**
+	 *
+	 */
+
+	Route::resource('documentations', 'DocumentationsController');
+	Route::get('documentations{path}', ['as' => 'documentations.file_path', 'uses' => 'DocumentationsController@show'])
+		->where('path', '.+');
+
+	/**
+	 *
+	 */
+
+	Route::resource('medias', 'MediasController');
+	Route::get('medias/documents/{path}', ['as' => 'medias.documents.path', 'uses' => 'MediasController@document'])
+		->where('path', '.+');
+	Route::get('medias/thumbnails/{path}', ['as' => 'medias.documents.path', 'uses' => 'MediasController@thumbnail'])
+		->where('path', '.+');
+
 });

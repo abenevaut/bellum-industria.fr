@@ -5,24 +5,27 @@ use bellumindustria\Infrastructure\
 	Interfaces\Domain\Users\Users\HandshakableInterface,
 	Interfaces\Domain\Users\Users\UserCivilitiesInterface,
 	Interfaces\Domain\Users\Users\UserRolesInterface,
+	Interfaces\Domain\Locale\LocalesInterface,
+	Interfaces\Domain\Locale\TimeZonesInterface,
 	Contracts\Model\AuthenticatableModelAbstract,
 	Contracts\Model\IdentifiableTrait,
 	Contracts\Model\Notifiable,
-	Contracts\Model\SoftDeletes
+	Contracts\Model\SoftDeletes,
+	Contracts\Model\TimeStampsTz,
+	Contracts\Model\SoftDeletesTz
 };
-use bellumindustria\Domain\Users\Users\
+use bellumindustria\Domain\Users\
 {
-	Notifications\CreatedAccountByAdministrator,
-	Notifications\ResetPassword,
-	Traits\HandshakeNotificationTrait,
-	Traits\NamableTrait
-};
-use bellumindustria\Domain\Users\Leads\
-{
-	Lead
+	ProvidersTokens\ProviderToken,
+	Users\Notifications\CreatedAccountByAdministrator,
+	Users\Notifications\ResetPassword,
+	Users\Traits\HandshakeNotificationTrait,
+	Users\Traits\NamableTrait,
+	Profiles\Traits\ProfileableTrait,
+	Leads\Lead
 };
 
-class User extends AuthenticatableModelAbstract implements UserCivilitiesInterface, UserRolesInterface, HandshakableInterface
+class User extends AuthenticatableModelAbstract implements UserCivilitiesInterface, UserRolesInterface, LocalesInterface, TimeZonesInterface, HandshakableInterface
 {
 
 	use Notifiable;
@@ -30,6 +33,9 @@ class User extends AuthenticatableModelAbstract implements UserCivilitiesInterfa
 	use SoftDeletes;
 	use HandshakeNotificationTrait;
 	use NamableTrait;
+	use ProfileableTrait;
+	use TimeStampsTz;
+	use SoftDeletesTz;
 
 	/**
 	 * The attributes that are mass assignable.
@@ -38,6 +44,8 @@ class User extends AuthenticatableModelAbstract implements UserCivilitiesInterfa
 	 */
 	protected $fillable = [
 		'uniqid',
+		'locale',
+		'timezone',
 		'role',
 		'civility',
 		'first_name',
@@ -112,10 +120,28 @@ class User extends AuthenticatableModelAbstract implements UserCivilitiesInterfa
 	}
 
 	/**
+	 * Is the user accountant ?
+	 *
+	 * @return bool
+	 */
+	public function getIsAccountantAttribute()
+	{
+		return self::ROLE_ACCOUNTANT === $this->role;
+	}
+
+	/**
 	 * Get the lead that owns the user.
 	 */
 	public function lead()
 	{
 		return $this->hasOne(Lead::class);
+	}
+
+	/**
+	 * Get the providers with tokens that owns the user.
+	 */
+	public function providers_tokens()
+	{
+		return $this->hasMany(ProviderToken::class);
 	}
 }

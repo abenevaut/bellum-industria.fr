@@ -16,7 +16,7 @@
 @endsection
 
 @section('content')
-    <section class="hero hero-panel" style="background-image: url(/img/cover/cover-login.jpg);">
+    <section class="hero hero-panel" style="background-image: url(/assets/images/cover/cover-login.jpg);">
         <div class="hero-bg"></div>
         <div class="container relative">
             <div class="row">

@@ -23,14 +23,24 @@ class UsersListTransformer extends TransformerAbstract
 			'identifier' => $model->uniqid,
 			'full_name' => $model->full_name,
 			'civility_name' => $model->civility_name,
-			'civility' => $model->civility,
+			'civility' => [
+				'key' => $model->civility,
+				'trans' => trans('users.civility.' . $model->civility)
+			],
 			'first_name' => $model->first_name,
 			'last_name' => $model->last_name,
 			'email' => $model->email,
-			'role' => $model->role,
+			'role' => [
+				'key' => $model->role,
+				'trans' => trans('users.role.' . $model->role)
+			],
 			'lead' => [
 				'is_lead' => false,
 				'id' => 0,
+			],
+			'locale' => [
+				'language' => $model->locale,
+				'timezone' => $model->timezone,
 			],
 		];
 

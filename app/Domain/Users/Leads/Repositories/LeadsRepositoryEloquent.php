@@ -8,19 +8,18 @@ use bellumindustria\Infrastructure\Contracts\
 	Repositories\RepositoryEloquentAbstract,
 	Request\RequestAbstract
 };
-use bellumindustria\Domain\Users\Users\{
-	User,
-	Repositories\UsersRepositoryEloquent
-};
-use bellumindustria\Domain\Users\Leads\{
-	Repositories\LeadsRepositoryInterface,
-	Lead,
-	Criterias\EmailLikeCriteria,
-	Criterias\FullNameLikeCriteria,
-	Events\LeadCreatedEvent,
-	Events\LeadUpdatedEvent,
-	Events\LeadDeletedEvent,
-	Presenters\LeadsListPresenter
+use bellumindustria\Domain\Users\
+{
+	Users\User,
+	Users\Repositories\UsersRepositoryEloquent,
+	Leads\Repositories\LeadsRepositoryInterface,
+	Leads\Lead,
+	Leads\Criterias\EmailLikeCriteria,
+	Leads\Criterias\FullNameLikeCriteria,
+	Leads\Events\LeadCreatedEvent,
+	Leads\Events\LeadUpdatedEvent,
+	Leads\Events\LeadDeletedEvent,
+	Leads\Presenters\LeadsListPresenter
 };
 
 class LeadsRepositoryEloquent extends RepositoryEloquentAbstract implements LeadsRepositoryInterface
@@ -225,22 +224,25 @@ class LeadsRepositoryEloquent extends RepositoryEloquentAbstract implements Lead
 	 * @param RequestAbstract $request
 	 *
 	 * @return \Illuminate\Http\RedirectResponse
-	 *
-	 * @throws \Prettus\Validator\Exceptions\ValidatorException
 	 */
 	public function frontendReceiveLeadFormAndRedirect(RequestAbstract $request)
 	{
-		$this
-			->qualifyLead(
-				$request->get('civility'),
-				$request->get('first_name'),
-				$request->get('last_name'),
-				$request->get('email')
-			)
-			->sendHandshakeMailToConfirmReceptionToSenderNotification(
-				$request->get('subject'),
-				nl2br($request->get('message'))
-			);
+		try {
+			$this
+				->qualifyLead(
+					$request->get('civility'),
+					$request->get('first_name'),
+					$request->get('last_name'),
+					$request->get('email')
+				)
+				->sendHandshakeMailToConfirmReceptionToSenderNotification(
+					$request->get('subject'),
+					nl2br($request->get('message'))
+				);
+		}
+		catch (\Prettus\Validator\Exceptions\ValidatorException $exception) {
+			\Sentry::captureException($exception);
+		}
 
 		return redirect(route('frontend.contact.index'))
 			->with('message-success', trans('frontend/contacts.alert_send_success'));
@@ -265,20 +267,25 @@ class LeadsRepositoryEloquent extends RepositoryEloquentAbstract implements Lead
 	/**
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function backendEditWithRedirect($id)
+	public function backendUpdateWithRedirect($id)
 	{
 		$lead = $this->find($id);
 
 		try {
 			$user = $this
 				->r_users
-				->createUserFromLead($lead)
-				->sendCreatedAccountByAdministratorNotification();
+				->createUser(
+					$lead->civility,
+					$lead->first_name,
+					$lead->last_name,
+					$lead->email
+				)
+			;
 			$lead->user_id = $user->id;
 			$lead->save();
 		}
 		catch (\Prettus\Validator\Exceptions\ValidatorException $exception) {
-
+			\Sentry::captureException($exception);
 		}
 
 		return redirect(route('backend.leads.index'))

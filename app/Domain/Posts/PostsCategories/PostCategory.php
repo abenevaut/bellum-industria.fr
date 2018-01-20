@@ -6,6 +6,13 @@ class PostCategory extends Model
 {
 
 	/**
+	 * The table associated with the model.
+	 *
+	 * @var string
+	 */
+	protected $table = 'posts_categories';
+
+	/**
 	 * The attributes that are mass assignable.
 	 *
 	 * @var array

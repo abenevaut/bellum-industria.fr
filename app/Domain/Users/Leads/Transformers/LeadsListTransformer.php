@@ -3,8 +3,11 @@
 namespace bellumindustria\Domain\Users\Leads\Transformers;
 
 use bellumindustria\Infrastructure\Contracts\Transformers\TransformerAbstract;
-use bellumindustria\Domain\Users\Leads\Lead;
-use bellumindustria\Domain\Users\Users\User;
+use bellumindustria\Domain\Users\
+{
+	Users\User,
+	Leads\Lead
+};
 
 class LeadsListTransformer extends TransformerAbstract
 {

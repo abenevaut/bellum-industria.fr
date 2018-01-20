@@ -147,7 +147,7 @@ mix
 
 
 	/**
-	 * Frontend home - Gameforest
+	 * Frontend Home - Gameforest
 	 */
     .copyDirectory('resources/assets/bower/owl-carousel/assets/ico', 'public/assets/css/frontend/home/')
     .copyDirectory('resources/assets/bower/owl-carousel/assets/img', 'public/assets/css/frontend/home/')
@@ -177,7 +177,7 @@ mix
 			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
 			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
             'resources/assets/js/app-validation.js',
-			'resources/assets/js/frontend/contact/gmaps.js',
+			'resources/assets/js/frontend/contact/gmaps/gmaps.js',
 			'resources/assets/js/frontend/contact/gmaps/prettify.js',
 			'resources/assets/js/frontend/contact/index.js'
 		],

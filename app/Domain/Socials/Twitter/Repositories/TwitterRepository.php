@@ -1,6 +1,4 @@
-<?php
-
-namespace bellumindustria\Domain\Socials\Twitter\Repositories;
+<?php namespace bellumindustria\Domain\Socials\Twitter\Repositories;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -35,7 +33,7 @@ class TwitterRepository
 			->map(function ($tweet) {
 
 				$tweet->created_at = (new Carbon($tweet->created_at))
-					->format('d/m/Y H\hi');
+					->format(trans('global.datetime_format'));
 
 				$tweet->text = TwitterTextFormatter::format_text($tweet);
 

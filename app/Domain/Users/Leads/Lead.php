@@ -5,7 +5,9 @@ use bellumindustria\Infrastructure\
 	Interfaces\Domain\Users\Users\HandshakableInterface,
 	Contracts\Model\ModelAbstract,
 	Contracts\Model\Notifiable,
-	Contracts\Model\IdentifiableTrait
+	Contracts\Model\IdentifiableTrait,
+	Contracts\Model\TimeStampsTz,
+	Contracts\Model\SoftDeletesTz
 };
 use bellumindustria\Domain\Users\Users\
 {
@@ -21,6 +23,8 @@ class Lead extends ModelAbstract implements HandshakableInterface
 	use IdentifiableTrait;
 	use HandshakeNotificationTrait;
 	use NamableTrait;
+	use TimeStampsTz;
+	use SoftDeletesTz;
 
 	/**
 	 * The attributes that are mass assignable.

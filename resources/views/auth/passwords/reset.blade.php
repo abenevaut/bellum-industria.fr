@@ -16,7 +16,7 @@
 @endsection
 
 @section('content')
-    <section class="hero hero-panel" style="background-image: url(/img/cover/cover-login.jpg);">
+    <section class="hero hero-panel" style="background-image: url(/assets/images/cover/cover-login.jpg);">
         <div class="hero-bg"></div>
         <div class="container relative">
             <div class="row">
@@ -45,8 +45,8 @@
                                             <input type="text" name="email" placeholder="confirmer votre courriel" class="form-control" required>
                                             @if ($errors->has('email'))
                                                 <span class="help-block">
-											{{ $errors->first('email') }}
-										</span>
+                                                    {{ $errors->first('email') }}
+                                                </span>
                                             @endif
                                         </div>
                                     </div>
@@ -73,8 +73,8 @@
                                             <input type="password" class="form-control" placeholder="confirmer le nouveau mot de passe" name="password_confirmation" required>
                                             @if ($errors->has('password_confirmation'))
                                                 <span class="help-block">
-											{{ $errors->first('password_confirmation') }}
-										</span>
+                                                    {{ $errors->first('password_confirmation') }}
+                                                </span>
                                             @endif
                                         </div>
                                     </div>

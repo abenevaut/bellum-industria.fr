@@ -11,11 +11,58 @@
 |
 */
 
-Route::group(['as' => 'backend.', 'prefix' => 'backend', 'namespace' => 'Backend'], function() {
+Route::group(
+	[
+		'as' => 'backend.',
+		'namespace' => 'Backend',
+		'prefix' => 'backend',
+		'middleware' => ['auth', 'role:'.\bellumindustria\Domain\Users\Users\User::ROLE_ADMINISTRATOR],
+	], function () {
 
-		/**
-		 * Home
-		 */
-		Route::get('/', ['as' => 'home', 'uses' => 'DashboardController@index']);
+	/**
+	 *
+	 */
+
+	Route::resource('dashboard', 'DashboardController');
+
+	/**
+	 *
+	 */
+
+	Route::group(['namespace' => 'Users'], function () {
+
+		Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
+			Route::resource('profile', 'ProfilesController');
+		});
+
+		Route::resource('leads', 'LeadsController');
+		Route::get('users/export', ['as' => 'users.export', 'uses' => 'UsersController@export']);
+		Route::resource('users', 'UsersController');
+
+	});
+
+	/**
+	 *
+	 */
+
+	Route::group(['prefix' => 'posts', 'as' => 'posts.'], function ()
+	{
+		Route::resource('categories', 'PostsCategoriesController');
+	});
+	Route::resource('posts', 'PostsController');
+
+	/**
+	 *
+	 */
+
+//	Route::resource('bills', 'BillsController');
+
+	/**
+	 *
+	 */
+
+	Route::get('files', ['as' => 'files.index', 'uses' => 'FilesController@index']);
+	Route::get('files/ckeditor', ['as' => 'files.ckeditor', 'uses' => 'FilesController@ckeditor']);
+	Route::any('files/connector', ['as' => 'files.connector', 'uses' => 'FilesController@connector']);
 
 });

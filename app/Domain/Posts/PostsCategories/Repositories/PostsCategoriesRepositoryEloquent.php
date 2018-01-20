@@ -92,13 +92,13 @@ class PostsCategoriesRepositoryEloquent extends RepositoryEloquentAbstract imple
 	 */
 	public function backendIndexView()
 	{
-		$post_categorys = $this
+		$posts_categories = $this
 //			->setPresenter()
 //			->orderBy('published_at', 'desc')
 			->paginate();
 
-		return view('backend.post_categorys.post_categorys.index', [
-			'post_categorys' => $post_categorys,
+		return view('backend.posts.posts_categories.index', [
+			'posts_categories' => $posts_categories,
 		]);
 	}
 }

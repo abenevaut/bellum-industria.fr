@@ -14,12 +14,13 @@ use bellumindustria\Domain\Users\Users\{
 	User,
 	Criterias\EmailLikeCriteria,
 	Criterias\FullNameLikeCriteria,
+	Criterias\WhereUniqIdIsCriteria,
+	Criterias\WhereUniqIdIsDifferentCriteria,
 	Events\UserCreatedEvent,
 	Events\UserUpdatedEvent,
 	Events\UserDeletedEvent,
 	Events\UserTriedToDeleteHisOwnAccountEvent,
-	Presenters\UsersListPresenter,
-	Presenters\AjaxCheckUserEmailPresenter
+	Presenters\UsersListPresenter
 };
 use bellumindustria\Domain\Users\Leads\
 {
@@ -51,6 +52,15 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 */
 	public function create(array $attributes): User
 	{
+		if (!array_key_exists('uniqid', $attributes)) {
+			$attributes['uniqid'] = uniqid();
+		}
+
+		if (!array_key_exists('password', $attributes)) {
+			// temporary password
+			$attributes['password'] = bcrypt(md5(uniqid()));
+		}
+
 		$user = parent::create($attributes);
 
 		event(new UserCreatedEvent($user));
@@ -104,6 +114,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	{
 		return collect([
 			User::ROLE_ADMINISTRATOR => trans('users.role.' . User::ROLE_ADMINISTRATOR),
+			User::ROLE_ACCOUNTANT => trans('users.role.' . User::ROLE_ACCOUNTANT),
 			User::ROLE_CUSTOMER => trans('users.role.' . User::ROLE_CUSTOMER),
 		]);
 	}
@@ -118,6 +129,22 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 			User::CIVILITY_MISS => trans('users.civility.' . User::CIVILITY_MISS),
 			User::CIVILITY_MISTER => trans('users.civility.' . User::CIVILITY_MISTER),
 		]);
+	}
+
+	/**
+	 * @return \Illuminate\Support\Collection
+	 */
+	public function getLocales()
+	{
+		return collect(User::LOCALES);
+	}
+
+	/**
+	 * @return \Illuminate\Support\Collection
+	 */
+	public function getTimezones()
+	{
+		return collect(timezones());
 	}
 
 	/**
@@ -138,6 +165,38 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	public function onlyTrashed()
 	{
 		return User::onlyTrashed()->get();
+	}
+
+	/**
+	 * Filter users by uniqid.
+	 *
+	 * @param string $uniqid The user uniqid
+	 *
+	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 */
+	public function filterByUniqueId($uniqid)
+	{
+		if (!is_null($uniqid) && !empty($uniqid)) {
+			$this->pushCriteria(new WhereUniqIdIsCriteria($uniqid));
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Filter users by uniqid different than the one as argument.
+	 *
+	 * @param string $uniqid The user uniqid
+	 *
+	 * @throws \Prettus\Repository\Exceptions\RepositoryException
+	 */
+	public function filterByUniqueIdDifferentThan($uniqid)
+	{
+		if (!is_null($uniqid) && !empty($uniqid)) {
+			$this->pushCriteria(new WhereUniqIdIsDifferentCriteria($uniqid));
+		}
+
+		return $this;
 	}
 
 	/**
@@ -173,23 +232,27 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	}
 
 	/**
-	 * @param Lead $lead
-	 *
 	 * @return User
 	 *
 	 * @throws \Prettus\Validator\Exceptions\ValidatorException
 	 */
-	public function createUserFromLead(Lead $lead)
+	public function createUser($civility, $first_name, $last_name, $email, $role = User::ROLE_CUSTOMER, $locale = User::DEFAULT_LOCALE, $timezone = User::DEFAULT_TZ)
 	{
 		return $this
-			->create([
-				'uniqid' => uniqid(),
-				'civility' => $lead->civility,
-				'first_name' => $lead->first_name,
-				'last_name' => $lead->last_name,
-				'email' => $lead->email,
-				'password' => bcrypt(md5(uniqid())), // temporary password
-			]);
+			->create(
+				[
+					'civility' => $civility,
+					'first_name' => $first_name,
+					'last_name' => $last_name,
+					'email' => $email,
+					'role' => $role,
+					'locale' => $locale,
+					'timezone' => $timezone
+				]
+			)
+			->addProfile()
+			->sendCreatedAccountByAdministratorNotification()
+		;
 	}
 
 	/**
@@ -234,6 +297,10 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 			[
 				'civilities' => $this->getCivilities(),
 				'roles' => $this->getRoles(),
+				'locales' => $this->getLocales(),
+				'locale' => User::DEFAULT_LOCALE,
+				'timezones' => $this->getTimezones(),
+				'timezone' => User::DEFAULT_TZ,
 			]
 		);
 	}
@@ -247,15 +314,18 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	{
 		try {
 			$this
-				->create([
-					'role' => $request->get('role'),
-					'civility' => $request->get('civility'),
-					'first_name' => $request->get('first_name'),
-					'last_name' => $request->get('last_name'),
-					'email' => $request->get('email'),
-				]);
+				->createUser(
+					$request->get('civility'),
+					$request->get('first_name'),
+					$request->get('last_name'),
+					$request->get('email'),
+					$request->get('role'),
+					$request->get('locale'),
+					$request->get('timezone')
+				)
+			;
 		} catch (\Prettus\Validator\Exceptions\ValidatorException $exception) {
-
+			\Sentry::captureException($exception);
 		}
 
 		return redirect(route('backend.users.index'));
@@ -270,12 +340,15 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	{
 		$user = $this
 			->setPresenter(new UsersListPresenter())
-			->find($id);
+			->find($id)
+		;
 
 		return view('backend.users.users.edit', [
 			'user' => $user,
 			'civilities' => $this->getCivilities(),
-			'roles' => $this->getRoles()
+			'roles' => $this->getRoles(),
+			'locales' => $this->getLocales(),
+			'timezones' => $this->getTimezones(),
 		]);
 	}
 
@@ -298,11 +371,15 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 						'first_name' => $request->get('first_name'),
 						'last_name' => $request->get('last_name'),
 						'email' => $request->get('email'),
+						'locale' => $request->get('locale'),
+						'timezone' => $request->get('timezone'),
 					],
 					$id
-				);
+				)
+				->updateProfile()
+			;
 		} catch (\Prettus\Validator\Exceptions\ValidatorException $exception) {
-
+			\Sentry::captureException($exception);
 		}
 
 		return redirect(route('backend.users.index'));
@@ -343,8 +420,13 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 			trans('users.civility'),
 			trans('users.last_name'),
 			trans('users.first_name'),
+			trans('profiles.family_situation'),
+			trans('profiles.maiden_name'),
+			trans('profiles.birth_date'),
 			trans('global.email'),
 			trans('users.role'),
+			trans('users.locale'),
+			trans('users.timezone'),
 		]);
 
 		$this
@@ -355,8 +437,13 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 					trans('users.civility.' . $model->civility),
 					$model->last_name,
 					$model->first_name,
+					trans('profiles.family_situation.'.$model->profile->family_situation),
+					$model->profile->maiden_name,
+					$model->profile->birth_date_carbon->format(trans('global.date_format')),
 					$model->email,
 					trans('users.role.' . $model->role),
+					$model->locale,
+					$model->timezone,
 				]);
 			});
 
@@ -416,24 +503,19 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	public function ajaxCheckUserEmailJson(RequestAbstract $request)
 	{
 		try {
-			$data = $this
-				->setPresenter(new AjaxCheckUserEmailPresenter())
+			$data['data']['count'] = $this
+				->skipPresenter()
 				->filterByEmail($request->get('email'))
+				->filterByUniqueIdDifferentThan($request->get('not_user_id'))
 				->scopeQuery(function ($model) use ($request) {
-					return $model
-						// we need to return trashed items because email field is
-						// unique. Like this, we make sure to do not validate an
-						// email already existing for a soft deleted user.
-						->withTrashed()
-						->where(function ($query) use ($request) {
-							if ($request->has('not_user_id')) {
-								$query->where('id', '<>', $request->get('not_user_id'));
-							}
-						});
+					// we need to return trashed items because email field is
+					// unique. Like this, we make sure to do not validate an
+					// email already existing for a soft deleted user.
+					return $model->withTrashed();
 				})
-				->paginate();
+				->count();
 		} catch (\Prettus\Repository\Exceptions\RepositoryException $exception) {
-
+			\Sentry::captureException($exception);
 		}
 
 		return response()->json($data);

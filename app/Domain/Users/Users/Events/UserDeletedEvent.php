@@ -11,15 +11,15 @@ class UserDeletedEvent extends EventAbstract
 	/**
 	 * @var User|null
 	 */
-	public $lead = null;
+	public $user = null;
 
 	/**
 	 * UserUpdatedEvent constructor.
 	 *
-	 * @param User $lead
+	 * @param User $user
 	 */
-	public function __construct(User $lead)
+	public function __construct(User $user)
 	{
-		$this->lead = $lead;
+		$this->user = $user;
 	}
 }
