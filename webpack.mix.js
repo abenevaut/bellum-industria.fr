@@ -177,11 +177,11 @@ mix
 			'resources/assets/bower/jquery-validation/dist/jquery.validate.js',
 			'resources/assets/bower/jquery-validation/src/localization/messages_fr.js',
             'resources/assets/js/app-validation.js',
-			'resources/assets/js/frontend/contact/gmaps/gmaps.js',
-			'resources/assets/js/frontend/contact/gmaps/prettify.js',
-			'resources/assets/js/frontend/contact/index.js'
+			'resources/assets/js/frontend/users/leads/gmaps/gmaps.js',
+			'resources/assets/js/frontend/users/leads/gmaps/prettify.js',
+			'resources/assets/js/frontend/users/leads/index.js'
 		],
-		'public/assets/js/frontend/contact/index.js'
+		'public/assets/js/frontend/users/leads/index.js'
 	)
 
 

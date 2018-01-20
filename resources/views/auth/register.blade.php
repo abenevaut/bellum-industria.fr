@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <section class="error-404" style="background-image: url(img/content/404.jpg);">
+    <section class="error-404" style="background-image: url(assets/images/content/404.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">

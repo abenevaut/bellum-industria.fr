@@ -79,6 +79,9 @@
 				.new_validator(
 					_form.validation.form,
 					{
+                        civility: {
+                            required: true
+                        },
 						first_name: {
 							required: true,
 							maxlength: 255
