@@ -4,6 +4,7 @@
 		@include('frontend.partials.default-thedocs.metadatas')
 	</head>
 	<body data-spy="scroll" data-target=".sidebar" data-offset="200">
+		@include('partials.ribbon')
 		@include('frontend.partials.default-thedocs.header')
 		<main class="container">
 			<div class="row">

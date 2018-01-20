@@ -4,6 +4,7 @@
 		@include('frontend.partials.forum.metadatas')
 	</head>
 	<body class="fixed-header">
+		@include('partials.ribbon')
 		@include('frontend.partials.forum.header')
 		<div id="wrapper">
 			@yield('content')

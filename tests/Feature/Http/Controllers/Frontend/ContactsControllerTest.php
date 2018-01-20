@@ -22,7 +22,7 @@ class ContactsControllerTest extends TestCase
     {
 //		$config = new Profile\Configuration();
 
-        $response = $this->get('/contacts');
+        $response = $this->get('/contact');
 
         $response->assertStatus(200);
 

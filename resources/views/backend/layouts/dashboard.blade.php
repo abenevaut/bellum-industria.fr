@@ -4,6 +4,7 @@
 		@include('backend.partials.default.metadatas')
 	</head>
 	<body class="fixed-header dashboard @if (Auth::check() && Auth::user()->profile->is_sidebar_pined) menu-pin @endif">
+		@include('partials.ribbon')
 		@include('backend.partials.default.sidebar')
 		<div class="page-container ">
 			@include('backend.partials.default.header')

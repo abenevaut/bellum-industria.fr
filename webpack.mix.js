@@ -34,7 +34,8 @@ mix
 			'resources/assets/bower/font-awesome/css/font-awesome.css',
             'resources/assets/plugins/animate/animate.css',
             'resources/assets/themes/Gameforest/v3.5.1/html/css/theme.css',
-            'resources/assets/themes/Gameforest/v3.5.1/html/css/custom.css'
+            'resources/assets/themes/Gameforest/v3.5.1/html/css/custom.css',
+            'resources/assets/css/ribbon.css'
 		],
 		'public/assets/themes/gameforest/css/core-gameforest.css'
 	)
@@ -61,7 +62,8 @@ mix
     .styles(
         [
             'resources/assets/themes/TheDocs/v1.4.0/Starter-kit/assets/css/theDocs.all.css',
-            'resources/assets/themes/TheDocs/v1.4.0/Starter-kit/assets/css/custom.css'
+            'resources/assets/themes/TheDocs/v1.4.0/Starter-kit/assets/css/custom.css',
+            'resources/assets/css/ribbon.css'
         ],
         'public/assets/themes/thedocs/css/core-thedocs.css'
     )
@@ -97,7 +99,8 @@ mix
             'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/bootstrap-datepicker/css/datepicker3.css',
             'resources/assets/themes/Pages/v2.3.0/getting_started/html/assets/plugins/jquery-metrojs/MetroJs.css',
             'resources/assets/themes/Pages/v2.3.0/getting_started/html/pages/css/pages-icons.css',
-            'resources/assets/themes/Pages/v2.3.0/getting_started/html/pages/css/pages.css'
+            'resources/assets/themes/Pages/v2.3.0/getting_started/html/pages/css/pages.css',
+            'resources/assets/css/ribbon.css'
         ],
         'public/assets/themes/pages/css/core-pages.css'
     )

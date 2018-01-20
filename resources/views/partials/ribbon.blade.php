@@ -1,0 +1,1 @@
+<div class="corner-ribbon top-left sticky red shadow">Beta</div>

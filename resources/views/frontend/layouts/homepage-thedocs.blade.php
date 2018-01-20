@@ -4,6 +4,7 @@
 		@include('frontend.partials.homepage-thedocs.metadatas')
 	</head>
 	<body>
+		@include('partials.ribbon')
 		@include('frontend.partials.homepage-thedocs.header')
 		<main class="container">
 			<div class="row">
