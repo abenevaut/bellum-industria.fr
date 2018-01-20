@@ -1,4 +1,3 @@
-<!-- Sidebar -->
 <aside class="col-sm-3 sidebar">
 	@section('sidebar')
 		<ul class="nav sidenav dropable sticky">
@@ -24,4 +23,3 @@
 		</ul>
 	@show
 </aside>
-<!-- END Sidebar -->

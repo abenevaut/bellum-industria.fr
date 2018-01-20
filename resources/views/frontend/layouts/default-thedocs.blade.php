@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html prefix="bellumindustria: {{ url('/') }}" lang="fr_FR">
+<html prefix="abenevaut: {{ url('/') }}" lang="fr_FR">
 	<head>
 		@include('frontend.partials.default-thedocs.metadatas')
 	</head>
@@ -10,6 +10,7 @@
 				@include('frontend.partials.default-thedocs.sidebar')
 				<article class="col-sm-9 main-content" role="main">
 					@yield('content')
+					@include('frontend.partials.default-thedocs.share')
 				</article>
 			</div>
 		</main>
