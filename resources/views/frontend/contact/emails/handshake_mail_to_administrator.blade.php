@@ -1,4 +1,4 @@
-@extends('frontend.layouts.emails')
+@extends('emails.layouts.emails')
 
 @section('content')
 	<p>Nouvelle prise de contact : {{ $last_name }} {{ $first_name }} - <a href="mailto:{{ $email }}">{{ $email }}</a></p>

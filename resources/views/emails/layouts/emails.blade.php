@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		@include('frontend.partials.emails.metadatas')
+		@include('emails.partials.emails.metadatas')
 	</head>
 	<body>
 		<table border="0" cellpadding="0" cellspacing="0" class="body">
@@ -17,14 +17,14 @@
 										<tr>
 											<td>
 												@yield('content')
-												@include('frontend.partials.emails.signature')
+												@include('emails.partials.emails.signature')
 											</td>
 										</tr>
 									</table>
 								</td>
 							</tr>
 						</table>
-						@include('frontend.partials.emails.footer')
+						@include('emails.partials.emails.footer')
 					</div>
 				</td>
 				<td>&nbsp;</td>

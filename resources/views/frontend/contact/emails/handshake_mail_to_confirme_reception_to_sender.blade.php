@@ -1,4 +1,4 @@
-@extends('frontend.layouts.emails')
+@extends('emails.layouts.emails')
 
 @section('content')
 	<p>{{ $last_name }} {{ $first_name }}</p>

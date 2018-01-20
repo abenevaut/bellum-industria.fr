@@ -133,17 +133,6 @@ mix
 
 
     /**
-     * Default emails layout
-     */
-    .styles(
-        [
-            'resources/assets/css/emails_theme.css'
-        ],
-        'public/assets/css/frontend/layouts/emails_theme.css'
-    )
-
-
-    /**
      * Overwrite themes assets
      */
     .copyDirectory('resources/assets/favicon', 'public')
