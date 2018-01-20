@@ -98,67 +98,6 @@
 			</li>
 
 			<li class="@if (
-			Route::currentRouteNamed('backend.projects.index')
-			|| Route::currentRouteNamed('backend.projects.create')
-			|| Route::currentRouteNamed('backend.projects.edit')
-			|| Route::currentRouteNamed('backend.projects.show')
-			|| Route::currentRouteNamed('backend.folios.index')
-			|| Route::currentRouteNamed('backend.folios.create')
-			|| Route::currentRouteNamed('backend.folios.edit')
-			|| Route::currentRouteNamed('backend.folios.show')
-			) open active @endif">
-				<a href="javascript:void(0);">
-					<span class="title">{{ trans('projects.title') }}</span><span class="arrow @if (
-			Route::currentRouteNamed('backend.projects.index')
-			|| Route::currentRouteNamed('backend.projects.create')
-			|| Route::currentRouteNamed('backend.projects.edit')
-			|| Route::currentRouteNamed('backend.projects.show')
-			|| Route::currentRouteNamed('backend.folios.index')
-			|| Route::currentRouteNamed('backend.folios.create')
-			|| Route::currentRouteNamed('backend.folios.edit')
-			|| Route::currentRouteNamed('backend.folios.show')
-			) open active @endif"></span>
-				</a>
-				<span class="@if (
-			Route::currentRouteNamed('backend.projects.index')
-			|| Route::currentRouteNamed('backend.projects.create')
-			|| Route::currentRouteNamed('backend.projects.edit')
-			|| Route::currentRouteNamed('backend.projects.show')
-			|| Route::currentRouteNamed('backend.folios.index')
-			|| Route::currentRouteNamed('backend.folios.create')
-			|| Route::currentRouteNamed('backend.folios.edit')
-			|| Route::currentRouteNamed('backend.folios.show')
-			) bg-primary @endif icon-thumbnail"><i class="fa fa-code"></i></span>
-				<ul class="sub-menu">
-					<li class="@if (
-					Route::currentRouteNamed('backend.projects.index')
-					|| Route::currentRouteNamed('backend.projects.create')
-					|| Route::currentRouteNamed('backend.projects.edit')
-					|| Route::currentRouteNamed('backend.projects.show')
-					) active @endif">
-						<a href="{{ route('backend.projects.index') }}">{{ trans('projects.title') }}</a>
-						<span class="@if (Route::currentRouteNamed('backend.projects.index')) bg-primary @endif icon-thumbnail"><i class="fa fa-code"></i></span>
-					</li>
-					<li class="@if (
-					Route::currentRouteNamed('backend.folios.index')
-					|| Route::currentRouteNamed('backend.folios.create')
-					|| Route::currentRouteNamed('backend.folios.edit')
-					|| Route::currentRouteNamed('backend.folios.show')
-					) active @endif">
-						<a href="{{ route('backend.folios.index') }}">{{ trans('folios.title') }}</a>
-						<span class="@if (Route::currentRouteNamed('backend.folios.index')) bg-primary @endif icon-thumbnail"><i class="fa fa-file-code-o"></i></span>
-					</li>
-				</ul>
-			</li>
-
-			{{--<li class="">--}}
-				{{--<a href="{{ route('backend.files.index') }}" class="detailed">--}}
-					{{--<span class="title">Customers</span>--}}
-				{{--</a>--}}
-				{{--<span class="@if (Route::currentRouteNamed('backend.files.index')) bg-primary @endif icon-thumbnail"><i class="fa fa-building"></i></span>--}}
-			{{--</li>--}}
-
-			<li class="@if (
 			Route::currentRouteNamed('backend.users.index')
 			|| Route::currentRouteNamed('backend.users.create')
 			|| Route::currentRouteNamed('backend.users.edit')

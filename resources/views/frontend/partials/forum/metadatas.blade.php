@@ -47,6 +47,4 @@
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
 <link href="{{ mix('assets/themes/gameforest/css/core-gameforest.css') }}" rel="stylesheet">
 @yield('css')
-<script>
-	addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});
-</script>
+@include('partials.analytics')
