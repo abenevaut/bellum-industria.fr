@@ -2,8 +2,8 @@
 
 return [
 
-	'success_title' => 'Succès !',
-	'error_title'   => 'Erreur !',
+	'success_title' => 'Success !',
+	'error_title'   => 'Error !',
 	'warning_title' => 'Attention !',
 
 ];

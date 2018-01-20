@@ -1,6 +1,6 @@
 <?php
 
-namespace bellumindustria\Http\Request\Frontend\Contact;
+namespace bellumindustria\Http\Request\Frontend\Contacts;
 
 use bellumindustria\Infrastructure\Contracts\Request\RequestAbstract;
 
@@ -23,6 +23,7 @@ class ContactRequest extends RequestAbstract
 	 */
 	public function rules() {
 		$rules = [
+			'civility'     => 'required',
 			'first_name' => 'required',
 			'last_name'  => 'required',
 			'email'      => 'required|email',
