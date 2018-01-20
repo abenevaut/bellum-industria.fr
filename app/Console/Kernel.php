@@ -3,6 +3,7 @@
 namespace bellumindustria\Console;
 
 use bellumindustria\Console\Commands\BellumIndustriaVersionCommand;
+use bellumindustria\Console\Commands\Websockets\MatchBotServerCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -17,6 +18,8 @@ class Kernel extends ConsoleKernel
 		\bellumindustria\Console\Commands\BellumIndustriaProductionPostDeployCommand::class,
 		\bellumindustria\Console\Commands\BellumIndustriaProductionPreDeployCommand::class,
 		\bellumindustria\Console\Commands\BellumIndustriaVersionCommand::class,
+		\bellumindustria\Console\Commands\Websockets\MatchsBotServerCommand::class,
+		\bellumindustria\Console\Commands\Websockets\MatchsBotTestServerCommand::class,
         \bellumindustria\Console\Commands\Sitemap\GenerateSitemap::class,
     ];
 
