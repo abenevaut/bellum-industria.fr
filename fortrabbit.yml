@@ -1,7 +1,7 @@
 version: 2
 
 # Pre composer execution
-pre: artisan bellumindustria:production-pre-deploy
+#pre: artisan bellumindustria:production-pre-deploy
 
 # Composer settings
 composer:
