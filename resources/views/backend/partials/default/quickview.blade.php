@@ -268,7 +268,7 @@
 									<!-- BEGIN Alert Item Set Animation using data-view-animation !-->
 									<a href="javascript:;" class="p-t-10 p-b-10" data-navigate="view" data-view-port="#chat" data-view-animation="push-parrallax">
 										<p class="col-xs-height col-middle">
-											<span class="text-complete fs-10"><i class="fa fa-circle"></i></span>
+											<span class="text-primary fs-10"><i class="fa fa-circle"></i></span>
 										</p>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12 overflow-ellipsis fs-12">
 											<span class="text-master link">Jame Smith commented on your status<br></span>
@@ -283,7 +283,7 @@
 									<!-- BEGIN Alert Item Set Animation using data-view-animation !-->
 									<a href="javascript:;" class="p-t-10 p-b-10" data-navigate="view" data-view-port="#chat" data-view-animation="push-parrallax">
 										<p class="col-xs-height col-middle">
-											<span class="text-complete fs-10"><i class="fa fa-circle"></i></span>
+											<span class="text-primary fs-10"><i class="fa fa-circle"></i></span>
 										</p>
 										<p class="p-l-10 col-xs-height col-middle col-xs-12 overflow-ellipsis fs-12">
 											<span class="text-master link">Jame Smith commented on your status<br></span>

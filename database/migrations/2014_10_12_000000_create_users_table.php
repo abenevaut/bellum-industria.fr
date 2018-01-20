@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
 			$table->string('uniqid', 13)->unique()->index();
 			$table->enum('role', [
 				UserRolesInterface::ROLE_ADMINISTRATOR,
-				UserRolesInterface::ROLE_CUSTOMER,
-			])->default(UserRolesInterface::ROLE_CUSTOMER)->index();
+				UserRolesInterface::ROLE_GAMER,
+			])->default(UserRolesInterface::ROLE_GAMER)->index();
 			$table->enum('civility', [
 				UserCivilitiesInterface::CIVILITY_MADAM,
 				UserCivilitiesInterface::CIVILITY_MISS,

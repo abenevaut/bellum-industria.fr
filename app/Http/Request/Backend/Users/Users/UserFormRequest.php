@@ -36,7 +36,7 @@ class UserFormRequest extends RequestAbstract
 					? ',' . $id
 					: ''
 				),
-			'role' => 'required|in:' . User::ROLE_ADMINISTRATOR . ',' . User::ROLE_CUSTOMER . ',' . User::ROLE_ACCOUNTANT,
+			'role' => 'required|in:' . User::ROLE_ADMINISTRATOR . ',' . User::ROLE_GAMER . ',' . User::ROLE_ACCOUNTANT,
 			'civility' => 'required|in:' . User::CIVILITY_MADAM . ',' . User::CIVILITY_MISS . ',' . User::CIVILITY_MISTER,
 			'locale' => 'required|in:' . collect(User::LOCALES)->implode(','),
 			'timezone' => 'required|in:' . collect(timezones())->implode(','),

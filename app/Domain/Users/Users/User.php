@@ -110,23 +110,13 @@ class User extends AuthenticatableModelAbstract implements UserCivilitiesInterfa
 	}
 
 	/**
-	 * Is the user customer ?
+	 * Is the user a gamer ?
 	 *
 	 * @return bool
 	 */
-	public function getIsCustomerAttribute()
+	public function getIsGamerAttribute()
 	{
-		return self::ROLE_CUSTOMER === $this->role;
-	}
-
-	/**
-	 * Is the user accountant ?
-	 *
-	 * @return bool
-	 */
-	public function getIsAccountantAttribute()
-	{
-		return self::ROLE_ACCOUNTANT === $this->role;
+		return self::ROLE_GAMER === $this->role;
 	}
 
 	/**

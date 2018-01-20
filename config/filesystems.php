@@ -43,25 +43,32 @@ return [
 
     'disks' => [
 
-        'local' => [
-            'driver' => 'local',
-            'root' => storage_path('app'),
-        ],
+		'local' => [
+			'driver' => 'local',
+			'root' => storage_path('app'),
+		],
 
-        'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
-        ],
+		'backups' => [
+			'driver' => 'local',
+			'root' => storage_path('app/bellumindustria'),
+		],
 
-        's3' => [
-            'driver' => 's3',
-            'key' => env('AWS_KEY'),
-            'secret' => env('AWS_SECRET'),
-            'region' => env('AWS_REGION'),
-            'bucket' => env('AWS_BUCKET'),
-        ],
+		'documentations' => [
+			'driver' => 'local',
+			'root' => storage_path('app/documentations'),
+		],
+
+		'public' => [
+			'driver' => 'local',
+			'root' => storage_path('app/public'),
+			'url' => env('APP_URL').'/storage',
+			'visibility' => 'public',
+		],
+
+		'users' => [
+			'driver' => 'local',
+			'root' => storage_path('app/users'),
+		],
 
     ],
 

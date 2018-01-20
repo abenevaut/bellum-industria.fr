@@ -13,10 +13,10 @@
 
 Route::group(
 	[
-		'as' => 'customer.',
+		'as' => 'gamer.',
 		'namespace' => 'Customer',
 		'prefix' => 'gamer',
-		'middleware' => ['auth', 'role:'.\bellumindustria\Domain\Users\Users\User::ROLE_CUSTOMER],
+		'middleware' => ['auth', 'role:'.\bellumindustria\Domain\Users\Users\User::ROLE_GAMER],
 	], function () {
 
 	/**

@@ -114,8 +114,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	{
 		return collect([
 			User::ROLE_ADMINISTRATOR => trans('users.role.' . User::ROLE_ADMINISTRATOR),
-			User::ROLE_ACCOUNTANT => trans('users.role.' . User::ROLE_ACCOUNTANT),
-			User::ROLE_CUSTOMER => trans('users.role.' . User::ROLE_CUSTOMER),
+			User::ROLE_GAMER => trans('users.role.' . User::ROLE_GAMER),
 		]);
 	}
 
@@ -236,7 +235,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	 *
 	 * @throws \Prettus\Validator\Exceptions\ValidatorException
 	 */
-	public function createUser($civility, $first_name, $last_name, $email, $role = User::ROLE_CUSTOMER, $locale = User::DEFAULT_LOCALE, $timezone = User::DEFAULT_TZ)
+	public function createUser($civility, $first_name, $last_name, $email, $role = User::ROLE_GAMER, $locale = User::DEFAULT_LOCALE, $timezone = User::DEFAULT_TZ)
 	{
 		return $this
 			->create(
@@ -253,6 +252,51 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 			->addProfile()
 			->sendCreatedAccountByAdministratorNotification()
 		;
+	}
+
+	/**
+	 * Get a validator for an incoming registration request.
+	 *
+	 * @param array $data Incoming data from registration form
+	 *
+	 * @return \Illuminate\Contracts\Validation\Validator
+	 * @seealso bellumindustria\Http\Controllers\Auth\RegisterController
+	 * @seealso authRegistration
+	 */
+	public function authRegistrationValidator(array $data) {
+		return \Validator::make(
+			$data,
+			[
+				'email'    => 'required|string|email|max:255|unique:users',
+				'password' => 'required|string|min:6|confirmed',
+			]
+		);
+	}
+
+	/**
+	 * Create a new user instance after a valid registration.
+	 *
+	 * @param array $data Incoming data from registration form
+	 *
+	 * @return User
+	 * @seealso bellumindustria\Http\Controllers\Auth\RegisterController
+	 * @seealso authRegistrationValidator
+	 */
+	public function authRegistration(array $data) {
+
+		$new_user = $this->create($data);
+
+		return $new_user;
+	}
+
+	/**
+	 * Show the application registration form.
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|\Illuminate\Http\Response
+	 * @seealso bellumindustria\Http\Controllers\Auth\RegisterController
+	 */
+	public function frontendShowRegistrationForm() {
+		return view('auth.register');
 	}
 
 	/**
@@ -460,7 +504,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
 	public function ajaxIndexJson(RequestAbstract $request)
 	{
 		if (
-			\Gate::allows(User::ROLE_CUSTOMER, \Auth::user())
+			\Gate::allows(User::ROLE_GAMER, \Auth::user())
 			|| \Gate::allows(User::ROLE_ADMINISTRATOR, \Auth::user())
 		) {
 			return abort(403);

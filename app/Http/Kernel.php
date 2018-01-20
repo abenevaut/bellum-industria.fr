@@ -58,9 +58,9 @@ class Kernel extends HttpKernel
 			'auth',
 			'role:' => UserRolesInterface::ROLE_ADMINISTRATOR,
 		],
-		UserRolesInterface::ROLE_CUSTOMER => [
+		UserRolesInterface::ROLE_GAMER => [
 			'auth',
-			'role:' => UserRolesInterface::ROLE_CUSTOMER,
+			'role:' => UserRolesInterface::ROLE_GAMER,
 		],
     ];
 

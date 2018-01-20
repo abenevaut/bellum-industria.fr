@@ -23,10 +23,13 @@
 			@if (Auth::check())
 				<div class="nav-profile dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-						<img src="assets/images/user/avatar.png" alt=""> <span>{{ Auth::user()->profile->first_name }}</span>
+						<img src="assets/images/user/avatar.png" alt=""> <span>{{ Auth::user()->full_name }}</span>
 					</a>
 					<ul class="dropdown-menu">
-						{{--<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>--}}
+						@if (Gate::allows(\bellumindustria\Domain\Users\Users\User::ROLE_ADMINISTRATOR, Auth::user()))
+							<li><a href="{{ route('backend.dashboard.index') }}"><i class="fa fa-dashboard"></i> Administration</a></li>
+							<li class="divider"></li>
+						@endif
 						{{--<li><a href="#"><i class="fa fa-heart"></i> Likes <span class="label label-info">32</span></a></li>--}}
 						{{--<li><a href="#"><i class="fa fa-gamepad"></i> Games</a></li>--}}
 						{{--<li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>--}}

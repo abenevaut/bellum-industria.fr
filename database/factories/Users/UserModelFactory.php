@@ -22,7 +22,7 @@ $factory
 			'timezone' => $faker->randomElement(timezones()),
 			'role' => $faker->randomElement([
 				\bellumindustria\Domain\Users\Users\User::ROLE_ADMINISTRATOR,
-				\bellumindustria\Domain\Users\Users\User::ROLE_CUSTOMER,
+				\bellumindustria\Domain\Users\Users\User::ROLE_GAMER,
 			]),
 			'civility' => $faker->randomElement([
 				\bellumindustria\Domain\Users\Users\User::CIVILITY_MADAM,
@@ -39,8 +39,8 @@ $factory
 	->state(bellumindustria\Domain\Users\Users\User::class, \bellumindustria\Domain\Users\Users\User::ROLE_ADMINISTRATOR, [
 		'role' => \bellumindustria\Domain\Users\Users\User::ROLE_ADMINISTRATOR,
 	])
-	->state(bellumindustria\Domain\Users\Users\User::class, \bellumindustria\Domain\Users\Users\User::ROLE_CUSTOMER, [
-		'role' => \bellumindustria\Domain\Users\Users\User::ROLE_CUSTOMER,
+	->state(bellumindustria\Domain\Users\Users\User::class, \bellumindustria\Domain\Users\Users\User::ROLE_GAMER, [
+		'role' => \bellumindustria\Domain\Users\Users\User::ROLE_GAMER,
 	])
 	->state(bellumindustria\Domain\Users\Users\User::class, \bellumindustria\Domain\Users\Users\User::DEFAULT_LOCALE, [
 		'locale' => \bellumindustria\Domain\Users\Users\User::DEFAULT_LOCALE,
