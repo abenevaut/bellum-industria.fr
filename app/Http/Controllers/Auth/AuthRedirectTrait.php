@@ -10,7 +10,7 @@ trait AuthRedirectTrait
 	 *
 	 * @var string
 	 */
-	protected $redirectTo = '/customer/dashboard';
+	protected $redirectTo = '/';
 
 	/**
 	 * Where to redirect administrators after login.

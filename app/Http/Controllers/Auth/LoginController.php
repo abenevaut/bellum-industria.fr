@@ -7,8 +7,10 @@ use Illuminate\{
 	Support\Facades\Auth
 };
 use Invisnik\LaravelSteamAuth\SteamAuth;
-use Laravel\Socialite\Facades\Socialite;
 use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use bellumindustria\Http\Controllers\Auth\AuthRedirectTrait;
+use bellumindustria\Domain\Users\ProvidersTokens\ProviderToken;
+use bellumindustria\Domain\Users\ProvidersTokens\Repositories\ProvidersTokensRepositoryEloquent;
 
 class LoginController extends ControllerAbstract
 {
@@ -25,13 +27,12 @@ class LoginController extends ControllerAbstract
 	*/
 
 	use AuthenticatesUsers;
+	use AuthRedirectTrait;
 
 	/**
-	 * Where to redirect users after login.
-	 *
-	 * @var string
+	 * @var ProvidersTokensRepositoryEloquent|null
 	 */
-	protected $redirectTo = '/';
+	protected $r_providers_tokens = null;
 
 	/**
 	 * @var SteamAuth
@@ -43,11 +44,17 @@ class LoginController extends ControllerAbstract
 	 *
 	 * @return void
 	 */
-	public function __construct(SteamAuth $steam) {
-		$this
-			->middleware('guest')
-			->except('logout');
+	public function __construct(ProvidersTokensRepositoryEloquent $r_providers_tokens, SteamAuth $steam)
+	{
+		$this->middleware('guest', [
+			'except' => [
+				'logout',
+				'redirectToProvider',
+				'handleProviderCallback'
+			]
+		]);
 
+		$this->r_providers_tokens = $r_providers_tokens;
 		$this->steam = $steam;
 	}
 
@@ -58,8 +65,12 @@ class LoginController extends ControllerAbstract
 	 *
 	 * @return mixed
 	 */
-	public function redirectToProvider($provider) {
-		return Socialite::driver($provider)->redirect();
+	public function redirectToProvider($provider)
+	{
+		if (ProviderToken::STEAM === $provider) {
+			return $this->steam->redirect();
+		}
+		return \Socialite::driver($provider)->redirect();
 	}
 
 	/**
@@ -69,57 +80,74 @@ class LoginController extends ControllerAbstract
 	 *
 	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
 	 */
-	public function handleProviderCallback($provider) {
-		$user = Socialite::driver($provider)->user();
-
-		dd($user);
-
-		$authUser = $this->findOrCreateUser($user, $provider);
-		Auth::login($authUser, true);
-
-		return redirect($this->redirectTo);
-	}
-
-	/**
-	 * Redirect the user to the OAuth Steam.
-	 *
-	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-	 */
-	public function redirectToSteam() {
-		return $this->steam->redirect(); // redirect to Steam login page
-	}
-
-	/**
-	 * Obtain the user information from steam provider.
-	 *
-	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|void
-	 */
-	public function handleSteamCallback() {
-		if ($this->steam->validate())
-		{
-
-			$info = $this->steam->getUserInfo();
-
-			dd($info);
-
-			if (!is_null($info))
-			{
-				$user = User::where('steamid', $info->steamID64)->first();
-				if (is_null($user))
-				{
-					$user = User::create([
-						'username' => $info->personaname,
-						'avatar'   => $info->avatarfull,
-						'steamid'  => $info->steamID64
-					]);
-				}
-
-				Auth::login($user, true);
-
-				return redirect('/'); // redirect to site
+	public function handleProviderCallback($provider)
+	{
+		if (ProviderToken::STEAM === $provider) {
+			if (!$this->steam->validate()) {
+				return abort(403);
 			}
+
+			$providerUser = $this->steam->getUserInfo();
+			$providerUser->id = $providerUser->steamID64;
+			$providerUser->token = null;
+		} else {
+			$providerUser = \Socialite::driver($provider)->user();
 		}
 
-		return abort(403);
+		if (!empty($providerUser) && \Auth::check()) {
+
+			$isTokenAvailableForUser = $this
+				->r_providers_tokens
+				->checkIfTokenIsAvailableForUser(\Auth::user(), $providerUser->id, $provider);
+
+			if ($isTokenAvailableForUser) {
+				$this
+					->r_providers_tokens
+					->saveUserTokenForProvider(\Auth::user(), $provider, $providerUser->id, $providerUser->token);
+
+				return redirect($this->redirectTo())
+					->with(
+						'message-success',
+						sprintf(trans('auth.link_provider_success'), ucfirst(strtolower($provider)))
+					);
+			}
+
+			return redirect($this->redirectTo())
+				->with(
+					'message-error',
+					sprintf(trans('auth.link_provider_failed'), ucfirst(strtolower($provider)))
+				);
+		}
+
+		$providerToken = $this
+			->r_providers_tokens
+			->findUserForProvider($providerUser->id, $provider);
+
+		if (!is_null($providerToken)) {
+
+			$this
+				->r_providers_tokens
+				->update(
+					[
+						'provider_token' => $providerUser->token
+					],
+					$providerToken->id
+				);
+
+			\Auth::login($providerToken->user, true);
+
+			return redirect($this->redirectTo());
+		}
+
+		/*
+		 * @xabe todo : try to link account via provider user mail, create token and login the user
+		 * @xabe todo : if no account found redirect to registration form
+		 */
+
+		return redirect(route('login'))
+			->with(
+				'message-error',
+				sprintf(trans('auth.login_with_provider_failed'), ucfirst(strtolower($provider)))
+			);
 	}
 }

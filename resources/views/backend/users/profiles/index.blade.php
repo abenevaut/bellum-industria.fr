@@ -68,6 +68,10 @@
                             <div class="col-sm-9">
                                 <div class="row">
                                     <div class="col-sm-4">
+                                        <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::STEAM]) }}">
+                                            <span class="pull-left"><i class="fa fa-twitter"></i></span>
+                                            <span class="bold">Lier Steam</span>
+                                        </a>
                                         <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::TWITTER]) }}">
                                             <span class="pull-left"><i class="fa fa-twitter"></i></span>
                                             <span class="bold">Lier Twitter</span>

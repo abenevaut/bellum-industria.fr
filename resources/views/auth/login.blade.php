@@ -34,10 +34,18 @@
                         </div>
                         <div class="panel-body">
 
-                            <a class="btn btn-block btn-social btn-steam" href="{{ route('login_provider', ['provider' => 'steam']) }}"><i class="fa fa-steam"></i> Se connecter avec Steam</a>
-                            <a class="btn btn-block btn-social btn-facebook" href="{{ route('login_provider', ['provider' => 'facebook']) }}"><i class="fa fa-facebook"></i> Se connecter avec Facebook</a>
-                            <a class="btn btn-block btn-social btn-twitter" href="{{ route('login_provider', ['provider' => 'twitter']) }}"><i class="fa fa-twitter"></i> Se connecter avec Twitter</a>
-                            {{--<a class="btn btn-block btn-social btn-google-plus" href="{{ route('login_provider', ['provider' => 'google']) }}"><i class="fa fa-google-plus"></i> Se connecter avec Google</a>--}}
+                            <a class="btn btn-block btn-social btn-steam" href="{{ route('login_provider', ['provider' => \bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::STEAM]) }}">
+                                <i class="fa fa-steam"></i> Se connecter avec Steam
+                            </a>
+                            <a class="btn btn-block btn-social btn-facebook" href="{{ route('login_provider', ['provider' => \bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::FACEBOOK]) }}">
+                                <i class="fa fa-facebook"></i> Se connecter avec Facebook
+                            </a>
+                            <a class="btn btn-block btn-social btn-twitter" href="{{ route('login_provider', ['provider' => \bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::TWITTER]) }}">
+                                <i class="fa fa-twitter"></i> Se connecter avec Twitter
+                            </a>
+                            <a class="btn btn-block btn-social btn-google-plus" href="{{ route('login_provider', ['provider' => \bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::GOOGLE]) }}">
+                                <i class="fa fa-google-plus"></i> Se connecter avec Google
+                            </a>
 
                             <div class="separator"><span>ou</span></div>
 
