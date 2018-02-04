@@ -180,7 +180,7 @@ return [
 		Spatie\Backup\BackupServiceProvider::class,
 		NotificationChannels\FacebookPoster\FacebookPosterServiceProvider::class,
 		NotificationChannels\Twitter\TwitterServiceProvider::class,
-//		Lab404\Impersonate\ImpersonateServiceProvider::class,
+		Lab404\Impersonate\ImpersonateServiceProvider::class,
 
 		/*
 		 * Application Service Providers...

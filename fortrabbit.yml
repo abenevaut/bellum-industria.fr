@@ -1,7 +1,7 @@
 version: 2
 
 # Pre composer execution
-pre: artisan bellumindustria:production-pre-deploy
+#pre: artisan bellumindustria:production-pre-deploy
 
 # Composer settings
 composer:
@@ -12,4 +12,4 @@ composer:
     classmap-authoritative: true
 
 # Post composer execution
-post: artisan bellumindustria:production-post-deploy
+#post: artisan bellumindustria:production-post-deploy
