@@ -13,6 +13,8 @@
 					<li><a href="{{ route('frontend.home') }}">Accueil</a></li>
 					<li class="active"><a href="{{ route('frontend.documentations.index') }}">Documentations</a></li>
 					<li><a href="{{ route('frontend.contact.index') }}">Contact</a></li>
+					<li><a href="{{ route('frontend.cgu') }}">Conditions générales d'utilisations</a></li>
+					<li><a href="{{ route('frontend.terms') }}">Mentions légales</a></li>
 				</ul>
 			</div>
 		</div>

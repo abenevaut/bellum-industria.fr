@@ -18,6 +18,8 @@
 								<li><a href="{{ route('register') }}">Créer un compte</a></li>
 							@endif
 							<li><a href="{{ route('frontend.contact.index') }}">Contact</a></li>
+							<li><a href="{{ route('frontend.cgu') }}">Conditions générales d'utilisations</a></li>
+							<li><a href="{{ route('frontend.terms') }}">Mentions légales</a></li>
 						</ul>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
