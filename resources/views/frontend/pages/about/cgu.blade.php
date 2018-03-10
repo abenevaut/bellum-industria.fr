@@ -25,7 +25,7 @@
 								</p>
 								<h4>Google Analytics</h4>
 								<p>
-									Ce site utilise Google Analytics, un service d’analyse de site internet fourni par Google Inc. (« Google »). Google Analytics utilise des cookies.
+									Ce site utilise Google Analytics, un service d’analyse de site internet fourni par Google Inc. (« Google »). Google Analytics utilise des cookies (<a href="https://www.google.com/policies/privacy/partners/" target="_blank" rel="noopener">plus d'information ici</a>).
 								</p>
 								<h4>Disqus</h4>
 								<p>
