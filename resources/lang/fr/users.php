@@ -11,8 +11,7 @@ return [
 	'roles' => 'Rôles',
 	'role' => 'Rôle',
 	'role.administrator' => 'Administrateur',
-	'role.accountant' => 'Comptable',
-	'role.customer' => 'Client',
+	'role.gamer' => 'Gameur',
 
 	'locale' => 'Langue',
 	'timezone' => 'Fuseau horaire',
