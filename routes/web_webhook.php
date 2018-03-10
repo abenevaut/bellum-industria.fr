@@ -17,7 +17,7 @@
 Route::group(['namespace' => 'Webhook', 'prefix' => 'webhook'], function ()
 {
 	Route::group(['prefix' => 'facebook'], function () {
-		Route::group(['prefix' => 'v2.11'], function () {
+		Route::group(['prefix' => 'v2.12'], function () {
 			Route::post('cancel-subscription-to-app', 'FacebookController@cancelSubscriptionToApp');
 		});
 	});
