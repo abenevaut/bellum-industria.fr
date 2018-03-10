@@ -85,21 +85,6 @@ class FilesRepository
 		return $this->generateElFinderFilesManagerConnector($roots);
 	}
 
-	/**
-	 * @return \Symfony\Component\HttpFoundation\Response
-	 */
-	public function accountantShowConnector()
-	{
-		$roots = $this->app->config->get('elfinder.roots', []);
-
-		if (empty($roots)) {
-			$roots = array_merge($roots, $this->listElFinderDirectories());
-			$roots = array_merge($roots, $this->listElFinderDisks('elfinder.disks.' . User::ROLE_ACCOUNTANT));
-		}
-
-		return $this->generateElFinderFilesManagerConnector($roots);
-	}
-
 	protected function listElFinderDirectories($config = 'elfinder.dir')
 	{
 		$roots = [];
