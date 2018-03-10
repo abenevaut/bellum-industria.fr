@@ -35,8 +35,8 @@
 						{{--<li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>--}}
 						{{--<li class="divider"></li>--}}
 						<li><a href="{{ route('logout') }}"><i class="fa fa-power-off"></i> Se déconnecter</a></li>
-						<li class="divider"></li>
 						@impersonating
+						<li class="divider"></li>
 						<li>
 							<a href="{{ route('impersonate.leave') }}">
 								<i class="fa fa-user-times"></i> {{ trans('global.stop_impersonation') }}

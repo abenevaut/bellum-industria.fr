@@ -35,19 +35,19 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
-	'facebook' => [
+	\bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::FACEBOOK => [
 		'client_id' => env('FACEBOOK_CONSUMER_KEY'),
 		'client_secret' => env('FACEBOOK_CONSUMER_SECRET'),
 		'redirect' => env('FACEBOOK_CALLBACK_URL'),
 	],
 
-	'twitter' => [
+	\bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::TWITTER => [
 		'client_id' => env('TWITTER_CONSUMER_KEY'),
 		'client_secret' => env('TWITTER_CONSUMER_SECRET'),
 		'redirect' => env('TWITTER_CALLBACK_URL'),
 	],
 
-	'google' => [
+	\bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface::GOOGLE => [
 		'client_id' => env('GOOGLE_CLIENT_ID'),
 		'client_secret' => env('GOOGLE_CLIENT_SECRET'),
 		'redirect' => env('GOOGLE_CALLBACK_URL'),
