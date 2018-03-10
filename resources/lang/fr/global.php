@@ -45,5 +45,7 @@ return [
 	'connect' => 'Se connecter',
 	'date_format' => 'd/m/Y',
 	'datetime_format' => 'd/m/Y H\hi',
+	'impersonate' => 'Imiter',
+	'stop_impersonation' => 'Session admin',
 
 ];

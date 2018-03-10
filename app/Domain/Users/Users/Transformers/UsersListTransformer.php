@@ -42,6 +42,10 @@ class UsersListTransformer extends TransformerAbstract
 				'language' => $model->locale,
 				'timezone' => $model->timezone,
 			],
+			'impersonation' => [
+				'can_impersonate' => $model->canImpersonate(),
+				'can_be_impersonated' => $model->canBeImpersonated()
+			],
 		];
 
 		if ($model->lead instanceof Lead) {

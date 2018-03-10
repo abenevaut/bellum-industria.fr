@@ -55,9 +55,13 @@
                                 </td>
                                 <td class="v-align-middle semi-bold text-center">{{ $user['email'] }}</td>
                                 <td class="v-align-middle text-center">
-                                    @canBeImpersonated($user)
-                                    <a href="{{ route('impersonate', $user->id) }}" class="btn btn-primary">Impersonate this user</a>
-                                    @endCanBeImpersonated
+                                    @canImpersonate
+                                    @if ($user['impersonation']['can_be_impersonated'])
+                                        <a href="{{ route('impersonate', $user['id']) }}" class="btn btn-primary">
+                                            <i class="fa fa-user-secret"></i> {{ trans('global.impersonate') }}
+                                        </a>
+                                    @endif
+                                    @endCanImpersonate
                                     <a href="{{ route('backend.users.edit', ['id' => $user['id']]) }}"
                                        class="btn btn-primary">
                                         <i class="fa fa-edit"></i> {!! trans('global.edit') !!}

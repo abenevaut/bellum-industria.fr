@@ -31,6 +31,13 @@
 								Mon espace
 							</a>
 						</li>
+						@impersonating
+						<li>
+							<a href="{{ route('impersonate.leave') }}">
+								<i class="fa fa-user-times"></i> {{ trans('global.stop_impersonation') }}
+							</a>
+						</li>
+						@endImpersonating
 					@else
 						<li class="hero"><a href="{{ route('login') }}">Se connecter</a></li>
 					@endif

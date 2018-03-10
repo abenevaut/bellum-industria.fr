@@ -40,3 +40,8 @@ Route::group(['namespace' => 'Auth'], function ()
 		Route::post('reset', 'ResetPasswordController@reset');
 	});
 });
+
+/**
+ * Impersonate routes.
+ */
+Route::impersonate();

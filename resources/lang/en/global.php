@@ -45,5 +45,7 @@ return [
 	'connect' => 'Log in',
 	'date_format' => 'm/d/Y',
 	'datetime_format' => 'm/d/Y H\hi',
+	'impersonate' => 'Impersonate',
+	'stop_impersonation' => 'Leave impersonation',
 
 ];
