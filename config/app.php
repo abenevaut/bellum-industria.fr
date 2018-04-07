@@ -249,6 +249,7 @@ return [
 		'Sentry'       => Sentry\SentryLaravel\SentryFacade::class,
 		'Socialite'    => Laravel\Socialite\Facades\Socialite::class,
 		'Analytics' => Spatie\Analytics\AnalyticsFacade::class,
+		'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
 
 	],
 

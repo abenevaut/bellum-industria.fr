@@ -9,6 +9,7 @@
         "ext-bcmath": "*",
         "barryvdh/laravel-dompdf": "^0.8.1",
         "barryvdh/laravel-elfinder": "^0.3.11",
+        "graham-campbell/markdown": "^10.0",
         "invisnik/laravel-steam-auth": "3.2.*",
         "lab404/laravel-impersonate": "^1.2",
         "laravel-notification-channels/facebook-poster": "^1.1",
