@@ -20,8 +20,11 @@
 		</p>
 	</div>
 	<ul class="social-icons">
-		<li><a href="https://twitter.com/bellumindustria" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
-		<li><a href="https://www.facebook.com/bellumindustria" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
+		<li><a href="https://twitter.com/bellumindustria" target="_blank" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="" data-original-title="Follow us on Twitter"><i class="fa fa-twitter"></i></a></li>
+		<li><a href="https://www.facebook.com/bellumindustria" target="_blank" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="" data-original-title="Follow us on Facebook"><i class="fa fa-facebook"></i></a></li>
+		<li><a href="https://steamcommunity.com/groups/bellumindustria" target="_blank" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="" data-original-title="Follow us on Steam"><i class="fa fa-steam"></i></a></li>
+		<li><a href="https://www.youtube.com/channel/UCSBq3Ozx_nY6eQ4RJDvxSCA" target="_blank" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="" data-original-title="Follow us on Youtube"><i class="fa fa-youtube-square"></i></a></li>
+		<li><a href="https://twitch.tv/bellumindustria" target="_blank" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="" data-original-title="Follow us on Twitch.tv"><i class="fa fa-twitch"></i></a></li>
 	</ul>
 @endsection
 
