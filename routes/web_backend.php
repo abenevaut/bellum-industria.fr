@@ -61,8 +61,12 @@ Route::group(
 	 *
 	 */
 
-	Route::get('files', ['as' => 'files.index', 'uses' => 'FilesController@index']);
-	Route::get('files/ckeditor', ['as' => 'files.ckeditor', 'uses' => 'FilesController@ckeditor']);
-	Route::any('files/connector', ['as' => 'files.connector', 'uses' => 'FilesController@connector']);
+	Route::group(['namespace' => 'Files'], function () {
+
+		Route::get('files', ['as' => 'files.index', 'uses' => 'FilesController@index']);
+		Route::get('files/ckeditor', ['as' => 'files.ckeditor', 'uses' => 'FilesController@ckeditor']);
+		Route::any('files/connector', ['as' => 'files.connector', 'uses' => 'FilesController@connector']);
+
+	});
 
 });

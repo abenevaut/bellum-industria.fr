@@ -1,4 +1,4 @@
-<?php namespace bellumindustria\Http\Controllers\Backend;
+<?php namespace bellumindustria\Http\Controllers\Backend\Files;
 
 use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
 use bellumindustria\Domain\Files\Files\Repositories\FilesRepository;
