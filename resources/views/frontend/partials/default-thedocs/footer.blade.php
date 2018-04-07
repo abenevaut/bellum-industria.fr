@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-md-6 col-sm-6">
 				<p>
-					© 2016-{{ date('Y') }} <a href="{{ route('frontend.home') }}">www.benevaut.fr</a> - {{ config('versiongenerated.version') }}. All rights reserved.<br>
+					© 2016-{{ date('Y') }} <a href="{{ route('frontend.home') }}">www.bellum-industria.fr</a> - {{ config('versiongenerated.version') }}. All rights reserved.<br>
 					<a href="{{ route('frontend.terms') }}">Mentions légales</a> - <a href="{{ route('frontend.cgu') }}">Conditions générales d'utilisations</a>
 				</p>
 			</div>

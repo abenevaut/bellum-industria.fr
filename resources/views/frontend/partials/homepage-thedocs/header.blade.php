@@ -45,7 +45,7 @@
 			</div>
 		</div>
 	</nav>
-	<div class="banner banner-full-height overlay-black" style="background-image: url(/assets/images/thedocs-home-banner.jpeg);">
+	<div class="banner banner-full-height overlay-black" style="background-image: url(/assets/images/thedocs-home-banner.png);">
 		@yield('banner')
 	</div>
 </header>
