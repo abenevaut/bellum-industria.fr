@@ -249,7 +249,7 @@ $.validator.addMethod(
                     }
 
                     $
-						.get('/ajax/users/users/check-user-email', parameters)
+						.post('/ajax/users/users/check-user-email', parameters)
 						.done(function (data) {
                             fulfill(0 === Number(data.data.count));
                         })

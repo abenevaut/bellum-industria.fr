@@ -38,7 +38,7 @@ Route::group(['prefix' => 'ajax', 'as' => 'ajax.', 'namespace' => 'Ajax'], funct
 			Route::put('change-sidebar-pin-status', ['as' => 'change_sidebar_pin_status', 'uses' => 'ProfilesController@ajaxChangeSidebarPinStatus']);
 		});
 		Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
-			Route::get('check-user-email', ['as' => 'check_user_email', 'uses' => 'UsersController@ajaxCheckUserEmail']);
+			Route::post('check-user-email', ['as' => 'check_user_email', 'uses' => 'UsersController@ajaxCheckUserEmail']);
 		});
 		Route::resource('users', 'UsersController');
 	});
