@@ -3,7 +3,6 @@
 /public/storage
 /storage/*.key
 /vendor
-/.idea
 /.vagrant
 Homestead.json
 Homestead.yaml
@@ -13,3 +12,4 @@ resources/assets/bower
 deploy.yml
 storage/docker/
 public/sitemap.xml
+.blackfire.travis.ini

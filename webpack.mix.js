@@ -151,11 +151,11 @@ mix
 	/**
 	 * Frontend Home - Gameforest
 	 */
-    .copyDirectory('resources/assets/bower/owl-carousel/assets/ico', 'public/assets/css/frontend/home/')
-    .copyDirectory('resources/assets/bower/owl-carousel/assets/img', 'public/assets/css/frontend/home/')
+    // .copyDirectory('resources/assets/bower/owl.carousel/src/ico', 'public/assets/css/frontend/home/')
+    .copyDirectory('resources/assets/bower/owl.carousel/src/img', 'public/assets/css/frontend/home/')
 	.styles(
 		[
-			'resources/assets/bower/owl-carousel/owl-carousel/owl.carousel.css',
+			'resources/assets/bower/owl.carousel/dist/assets/owl.carousel.css',
 			'resources/assets/css/frontend/home/index.css'
 		],
 		'public/assets/css/frontend/home/index.css'
@@ -164,7 +164,7 @@ mix
 		[
 			'resources/assets/bower/masonry/dist/masonry.pkgd.js',
 			'resources/assets/bower/imagesloaded/imagesloaded.pkgd.js',
-			'resources/assets/bower/owl-carousel/owl-carousel/owl.carousel.js',
+			'resources/assets/bower/owl.carousel/owl-carousel/owl.carousel.js',
 			'resources/assets/js/frontend/home/index.js'
 		],
 		'public/assets/js/frontend/home/index.js'
@@ -406,7 +406,7 @@ if (mix.config.inProduction) {
                         imageminMozjpeg({
                             quality: 65,
                             // Set the maximum memory to use in kbytes
-                            maxmemory: 1000 * 512
+                            maxmMmory: 1000 * 512
                         })
                     ]
                 })

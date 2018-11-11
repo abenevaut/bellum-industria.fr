@@ -1,4 +1,4 @@
-[![build status](https://gitlab.com/bellum-industria/www/badges/master/build.svg)](https://gitlab.com/bellum-industria/www/commits/master)
+[![Build Status](https://travis-ci.org/bellumindustria/www.svg?branch=master)](https://travis-ci.org/bellumindustria/www)
 
 ## Docker
 
