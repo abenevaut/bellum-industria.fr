@@ -43,7 +43,7 @@ before_install:
 #        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 #        chmod +x ./cc-test-reporter
 #    fi
-#  - cp .env.dusk.testing .env
+  - cp .env.example .env
   - nvm install
   - nvm use
 
@@ -53,6 +53,7 @@ install:
   - travis_retry npm run bower
 
 before_script:
+  - php artisan key:generate
 #  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 #  - php artisan serve &
 #  - |
