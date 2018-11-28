@@ -22,7 +22,7 @@
         "league/glide": "^1.2",
         "madcoda/php-youtube-api": "^1.2",
         "ollyxar/laravel-auth": "^1.1",
-        "ollyxar/websockets": "^1.2",
+        "ollyxar/websockets": "^2.2",
         "predis/predis": "^1.1",
         "prettus/l5-repository": "^2.6",
         "pusher/pusher-php-server": "^3.0",
