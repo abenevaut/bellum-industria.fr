@@ -18,7 +18,7 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
-        "league/fractal": "^0.16.0",
+        "league/fractal": "^0.17.0",
         "league/glide": "^1.2",
         "madcoda/php-youtube-api": "^1.2",
         "ollyxar/laravel-auth": "^1.1",
