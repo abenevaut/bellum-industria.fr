@@ -11,7 +11,7 @@
     "bower": "node_modules/bower/bin/bower install"
   },
   "devDependencies": {
-    "laravel-mix": "^2.1.14",
+    "laravel-mix": "^3.0.0",
     "bower": "^1.8.2",
     "copy-webpack-plugin": "^4.0.1",
     "imagemin-mozjpeg": "^8.0.0",
