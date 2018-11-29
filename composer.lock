@@ -1817,22 +1817,22 @@
         },
         {
             "name": "laravel-notification-channels/twitter",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-notification-channels/twitter.git",
-                "reference": "1cf00994f69633b69ee91925a44f2fd0b11381f9"
+                "reference": "cda62758f93aef76168f1376647d8f0246a2092d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-notification-channels/twitter/zipball/1cf00994f69633b69ee91925a44f2fd0b11381f9",
-                "reference": "1cf00994f69633b69ee91925a44f2fd0b11381f9",
+                "url": "https://api.github.com/repos/laravel-notification-channels/twitter/zipball/cda62758f93aef76168f1376647d8f0246a2092d",
+                "reference": "cda62758f93aef76168f1376647d8f0246a2092d",
                 "shasum": ""
             },
             "require": {
                 "abraham/twitteroauth": "^0.7.2",
-                "illuminate/notifications": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*",
-                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*",
+                "illuminate/notifications": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*",
                 "kylewm/brevity": "^0.2.9",
                 "php": ">=5.6.4"
             },
@@ -1868,7 +1868,7 @@
             ],
             "description": "This package makes it easy to send notifications via Twitter with Laravel 5.4",
             "homepage": "https://github.com/laravel-notification-channels/twitter",
-            "time": "2018-02-10T16:21:28+00:00"
+            "time": "2018-09-10T05:55:51+00:00"
         },
         {
             "name": "laravel/framework",
