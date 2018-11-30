@@ -16,7 +16,7 @@
     "copy-webpack-plugin": "^4.0.1",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-webpack-plugin": "^2.3.0",
-    "ajv": "^6.5.5",
+    "ajv": "^6.6.1",
     "cross-env": "^5.2.0"
   },
   "dependencies": {
