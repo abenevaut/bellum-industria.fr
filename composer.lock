@@ -3049,16 +3049,16 @@
         },
         {
             "name": "ollyxar/laravel-auth",
-            "version": "1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ollyxar/laravel-auth.git",
-                "reference": "1e7c1abb592d0b5ce159a914afa9ad718b7ac02e"
+                "reference": "1fbeb4a2527392c4e83512fd3ad5ee7d3c97851c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ollyxar/laravel-auth/zipball/1e7c1abb592d0b5ce159a914afa9ad718b7ac02e",
-                "reference": "1e7c1abb592d0b5ce159a914afa9ad718b7ac02e",
+                "url": "https://api.github.com/repos/ollyxar/laravel-auth/zipball/1fbeb4a2527392c4e83512fd3ad5ee7d3c97851c",
+                "reference": "1fbeb4a2527392c4e83512fd3ad5ee7d3c97851c",
                 "shasum": ""
             },
             "require": {
@@ -3089,7 +3089,7 @@
                 "laravel",
                 "library"
             ],
-            "time": "2017-12-22T11:24:08+00:00"
+            "time": "2018-08-11T17:10:04+00:00"
         },
         {
             "name": "ollyxar/websockets",
