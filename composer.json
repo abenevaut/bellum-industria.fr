@@ -39,7 +39,7 @@
         "barryvdh/laravel-debugbar": "^2.3",
         "barryvdh/laravel-ide-helper": "^2.3",
         "blackfire/php-sdk": "^1.8",
-        "deployer/deployer": "^5.0",
+        "deployer/deployer": "^6.3",
         "doctrine/dbal": "^2.6",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
