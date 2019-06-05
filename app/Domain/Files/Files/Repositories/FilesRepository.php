@@ -139,12 +139,12 @@ class FilesRepository
 			$session = null;
 		}
 
-		$rootOptions = $this->app->config->get('elfinder.root_options', array());
+		$rootOptions = $this->app->config->get('elfinder.root_options', []);
 		foreach ($roots as $key => $root) {
 			$roots[$key] = array_merge($rootOptions, $root);
 		}
 
-		$opts = $this->app->config->get('elfinder.options', array());
+		$opts = $this->app->config->get('elfinder.options', []);
 		$opts = array_merge($opts, ['roots' => $roots, 'session' => $session]);
 
 		// run elFinder

@@ -128,7 +128,7 @@ class TwitterTextFormatter {
 	private static function parse_tweet_text($tweet, $configs) {
 
 		// Collects the set of entities
-		$entity_holder = array();
+		$entity_holder = [];
 
 		// Hashtags
 		if (isset($tweet->entities->hashtags)) {
