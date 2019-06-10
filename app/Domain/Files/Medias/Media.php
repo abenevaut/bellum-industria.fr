@@ -1,6 +1,6 @@
 <?php namespace bellumindustria\Domain\Files\Medias;
 
-use Spatie\MediaLibrary\Media as SpatieMedia;
+use Spatie\MediaLibrary\Models\Media as SpatieMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Media extends SpatieMedia
