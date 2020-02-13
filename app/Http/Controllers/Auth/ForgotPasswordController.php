@@ -1,12 +1,14 @@
 <?php
 
-namespace bellumindustria\Http\Controllers\Auth;
+namespace template\Http\Controllers\Auth;
 
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
-use bellumindustria\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use template\Infrastructure\Contracts\Controllers\ControllerAbstract;
 
 class ForgotPasswordController extends ControllerAbstract
 {
+    use SendsPasswordResetEmails;
+
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
@@ -17,8 +19,6 @@ class ForgotPasswordController extends ControllerAbstract
     | your application to your users. Feel free to explore this trait.
     |
     */
-
-    use SendsPasswordResetEmails;
 
     /**
      * Create a new controller instance.

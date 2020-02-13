@@ -1,6 +1,6 @@
 <?php
 
-namespace bellumindustria\App\Notifications\Messages;
+namespace template\App\Notifications\Messages;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -8,16 +8,17 @@ use Illuminate\Queue\SerializesModels;
 
 class MailableMessage extends Mailable
 {
-	use Queueable;
-	use SerializesModels;
 
-	/**
-	 * Build the message.
-	 *
-	 * @return $this
-	 */
-	public function build()
-	{
-		return $this;
-	}
+    use Queueable;
+    use SerializesModels;
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this;
+    }
 }

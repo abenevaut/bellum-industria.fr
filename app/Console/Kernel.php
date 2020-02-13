@@ -1,39 +1,40 @@
 <?php
 
-namespace bellumindustria\Console;
+namespace template\Console;
 
-use bellumindustria\Console\Commands\BellumIndustriaVersionCommand;
-use bellumindustria\Console\Commands\Websockets\MatchBotServerCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use template\Console\Commands\{
+    GenerateSitemapCommand,
+    TestLaravelEchoCommand
+};
 
 class Kernel extends ConsoleKernel
 {
+
     /**
      * The Artisan commands provided by your application.
      *
      * @var array
      */
     protected $commands = [
-		\bellumindustria\Console\Commands\BellumIndustriaProductionPostDeployCommand::class,
-		\bellumindustria\Console\Commands\BellumIndustriaProductionPreDeployCommand::class,
-		\bellumindustria\Console\Commands\BellumIndustriaVersionCommand::class,
-		\bellumindustria\Console\Commands\Websockets\MatchsBotServerCommand::class,
-		\bellumindustria\Console\Commands\Websockets\MatchsBotTestServerCommand::class,
-        \bellumindustria\Console\Commands\Sitemap\GenerateSitemap::class,
+        GenerateSitemapCommand::class,
+        TestLaravelEchoCommand::class,
     ];
 
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
+     *
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
         $schedule
             ->command('sitemap:generate')
-            ->daily();
+            ->hourly()
+            ->withoutOverlapping();
     }
 
     /**

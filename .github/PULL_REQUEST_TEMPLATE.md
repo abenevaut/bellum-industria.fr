@@ -1,9 +1,8 @@
 | Q | A |
 | :--- | :---: |
-| Issue ? | https://github.com/bellumindustria/www/issues/<NUMBER> |
+| Issue ? | https://github.com/abenevaut/www-template/issues/<NUMBER> |
 | Depends on pull requests ? | No / #PR1[, #PR2...] |
 | Embeds pull requests ? | No / #PR1[, PR2...] |
-| Should it be manually tested (QA) ? | Yes / No |
 | Is it automatically tested ? | Yes / No |
 | Contains unit tests ? | Yes / No |
 | Contains functional tests ? | Yes / No |

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use bellumindustria\Infrastructure\Interfaces\Domain\Locale\LocalesInterface;
+use template\Infrastructure\Interfaces\Domain\Locale\LocalesInterface;
 
 class AlterUsersTableToAddLocale extends Migration
 {
@@ -14,23 +14,24 @@ class AlterUsersTableToAddLocale extends Migration
      */
     public function up()
     {
-		Schema::table('users', function (Blueprint $table) {
-			$table->enum('locale', [
-				LocalesInterface::FRENCH,
-				LocalesInterface::ENGLISH,
-			])->default(LocalesInterface::DEFAULT_LOCALE)->after('uniqid')->index();
-		});
-	}
+        Schema::table('users', function (Blueprint $table) {
+            $table
+                ->enum('locale', LocalesInterface::LOCALES)
+                ->default(LocalesInterface::DEFAULT_LOCALE)
+                ->after('uniqid')
+                ->index();
+        });
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::table('users', function (Blueprint $table) {
-			$table->dropColumn('locale');
-		});
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('locale');
+        });
     }
 }

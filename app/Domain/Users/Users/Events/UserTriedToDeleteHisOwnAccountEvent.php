@@ -1,27 +1,27 @@
 <?php
 
-namespace bellumindustria\Domain\Users\Users\Events;
+namespace template\Domain\Users\Users\Events;
 
-use bellumindustria\Infractucture\Contracts\Events\EventAbstract;
-use bellumindustria\Domain\Users\Users\User;
+use template\Infractucture\Contracts\Events\EventAbstract;
+use template\Domain\Users\Users\User;
 
 class UserTriedToDeleteHisOwnAccountEvent extends EventAbstract
 {
 
-	/**
-	 * The current user.
-	 *
-	 * @var User|null
-	 */
-	public $user = null;
+    /**
+     * The current user.
+     *
+     * @var User|null
+     */
+    public $user = null;
 
-	/**
-	 * TrainingCreatedEvent constructor.
-	 *
-	 * @param User $training
-	 */
-	public function __construct(User $user)
-	{
-		$this->user = $user;
-	}
+    /**
+     * TrainingCreatedEvent constructor.
+     *
+     * @param User $training
+     */
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
 }

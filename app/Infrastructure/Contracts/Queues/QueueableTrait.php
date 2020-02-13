@@ -1,8 +1,9 @@
-<?php namespace bellumindustria\Infrastructure\Contracts\Queues;
+<?php namespace template\Infrastructure\Contracts\Queues;
 
 use Illuminate\Bus\Queueable;
 
 trait QueueableTrait
 {
-	use Queueable;
+
+    use Queueable;
 }

@@ -1,14 +1,14 @@
 <?php
 
-namespace bellumindustria\Infrastructure\Interfaces\Domain\Locale;
+namespace template\Infrastructure\Interfaces\Domain\Locale;
 
 interface LocalesInterface
 {
-	const FRENCH = 'fr';
-	const ENGLISH = 'en';
-	const DEFAULT_LOCALE = self::FRENCH;
-	const LOCALES = [
-		self::FRENCH,
-		self::ENGLISH,
-	];
+    const FRENCH = 'fr';
+    const ENGLISH = 'en';
+    const DEFAULT_LOCALE = self::FRENCH;
+    const LOCALES = [
+        self::FRENCH,
+        self::ENGLISH,
+    ];
 }

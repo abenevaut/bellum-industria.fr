@@ -216,7 +216,7 @@ return [
             'orderBy'      => 'orderBy',
             'sortedBy'     => 'sortedBy',
             'with'         => 'with',
-            'searchJoin'   => 'searchJoin'            
+            'searchJoin'   => 'searchJoin'
         ]
     ],
     /*
@@ -227,7 +227,7 @@ return [
     */
     'generator'  => [
         'basePath'      => app()->path('Domain'),
-        'rootNamespace' => 'bellumindustria\\Domain\\',
+        'rootNamespace' => 'template\\Domain\\',
         'stubsOverridePath' => app()->path('Domain'),
         'paths'         => [
             'models'       => 'Entities',

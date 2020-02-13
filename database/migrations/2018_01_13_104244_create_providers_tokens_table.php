@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use bellumindustria\Infrastructure\Interfaces\Domain\Providers\ProvidersInterface;
+use template\Infrastructure\Interfaces\Domain\Users\ProvidersTokens\ProvidersInterface;
 
 class CreateProvidersTokensTable extends Migration
 {
@@ -16,17 +16,17 @@ class CreateProvidersTokensTable extends Migration
     {
         Schema::create('providers_tokens', function (Blueprint $table) {
             $table->increments('id');
-			$table->unsignedInteger('user_id')->nullable(false)->index();
-			$table->enum('provider', ProvidersInterface::PROVIDERS)->nullable(false)->index();
-			$table->string('provider_id')->nullable(false)->index();
-			$table->text('provider_token')->nullable(false);
+            $table->unsignedInteger('user_id')->nullable(false)->index();
+            $table->enum('provider', ProvidersInterface::PROVIDERS)->nullable(false)->index();
+            $table->string('provider_id')->nullable(false)->index();
+            $table->text('provider_token')->nullable(false);
             $table->timestampsTz();
-			$table
-				->foreign('user_id')
-				->references('id')
-				->on('users')
-				->onUpdate('cascade')
-				->onDelete('cascade');
+            $table
+                ->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

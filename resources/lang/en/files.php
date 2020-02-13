@@ -2,6 +2,6 @@
 
 return [
 
-	'title' => 'Files',
+    'title' => 'Files',
 
 ];

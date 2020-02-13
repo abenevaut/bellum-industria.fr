@@ -26,25 +26,13 @@ return [
 	|    ]
 	*/
 	'disks' => [
-		\bellumindustria\Domain\Users\Users\User::ROLE_ADMINISTRATOR => [
-			'backups' => [
-				'alias' => 'Backups',
-				'accessControl' => 'bellumindustria\Domain\Files\Files\Access\ReadOnly::checkAccess'
-			],
-			'documentations' => [
-				'alias' => 'Documentations',
-				'accessControl' => 'Barryvdh\Elfinder\Elfinder::checkAccess'
-			],
+		\template\Domain\Users\Users\User::ROLE_ADMINISTRATOR => [
 			'public' => [
 				'alias' => 'Public',
 				'accessControl' => 'Barryvdh\Elfinder\Elfinder::checkAccess',
-				'URL' => 'medias/documents',
+				'URL' => 'files/document',
 				'tmbURL' => env('APP_URL'),
-				'glideURL' => 'medias/thumbnails',
-			],
-			'users' => [
-				'alias' => 'Users',
-				'accessControl' => 'Barryvdh\Elfinder\Elfinder::checkAccess',
+				'glideURL' => 'files/thumbnail',
 			],
 		],
 	],

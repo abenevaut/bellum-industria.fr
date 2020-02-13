@@ -12,39 +12,47 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory
-	->define(bellumindustria\Domain\Users\Users\User::class, function (Faker\Generator $faker) {
-		static $password;
 
-		return [
-			'uniqid' => uniqid(),
-			'locale' => $faker->randomElement(\bellumindustria\Domain\Users\Users\User::LOCALES),
-			'timezone' => $faker->randomElement(timezones()),
-			'role' => $faker->randomElement([
-				\bellumindustria\Domain\Users\Users\User::ROLE_ADMINISTRATOR,
-				\bellumindustria\Domain\Users\Users\User::ROLE_GAMER,
-			]),
-			'civility' => $faker->randomElement([
-				\bellumindustria\Domain\Users\Users\User::CIVILITY_MADAM,
-				\bellumindustria\Domain\Users\Users\User::CIVILITY_MISS,
-				\bellumindustria\Domain\Users\Users\User::CIVILITY_MISTER,
-			]),
-			'first_name' => $faker->firstName,
-			'last_name' => $faker->lastName,
-			'email' => $faker->unique()->safeEmail,
-			'password' => $password ?: $password = bcrypt('secret'),
-			'remember_token' => str_random(10),
-		];
-	})
-	->state(bellumindustria\Domain\Users\Users\User::class, \bellumindustria\Domain\Users\Users\User::ROLE_ADMINISTRATOR, [
-		'role' => \bellumindustria\Domain\Users\Users\User::ROLE_ADMINISTRATOR,
-	])
-	->state(bellumindustria\Domain\Users\Users\User::class, \bellumindustria\Domain\Users\Users\User::ROLE_GAMER, [
-		'role' => \bellumindustria\Domain\Users\Users\User::ROLE_GAMER,
-	])
-	->state(bellumindustria\Domain\Users\Users\User::class, \bellumindustria\Domain\Users\Users\User::DEFAULT_LOCALE, [
-		'locale' => \bellumindustria\Domain\Users\Users\User::DEFAULT_LOCALE,
-	])
-	->state(bellumindustria\Domain\Users\Users\User::class, \bellumindustria\Domain\Users\Users\User::DEFAULT_TZ, [
-		'timezone' => \bellumindustria\Domain\Users\Users\User::DEFAULT_TZ,
-	]);
+use template\Domain\Users\Users\User;
+
+$factory
+    ->define(User::class, function (Faker\Generator $faker) {
+        static $password;
+
+        return [
+            'uniqid' => uniqid(),
+            'locale' => $faker->randomElement(User::LOCALES),
+            'timezone' => $faker->randomElement(timezones()),
+            'role' => $faker->randomElement(User::ROLES),
+            'civility' => $faker->randomElement(User::CIVILITIES),
+            'first_name' => $faker->firstName,
+            'last_name' => $faker->lastName,
+            'email' => $faker->unique()->safeEmail,
+            'password' => $password ?: $password = bcrypt('secret'),
+            'remember_token' => str_random(10),
+        ];
+    })
+    ->state(User::class, 'deleted', [
+        'deleted_at' => now(),
+    ])
+    ->state(User::class, 'password_null', [
+        'password' => null,
+    ])
+    ->state(User::class, 'uniqid_null', [
+        'uniqid' => null,
+    ])
+    ->state(User::class, User::ROLE_ADMINISTRATOR, [
+        'role' => User::ROLE_ADMINISTRATOR,
+    ])
+    ->state(User::class, User::ROLE_CUSTOMER, [
+        'role' => User::ROLE_CUSTOMER,
+    ])
+    ->state(User::class, User::ROLE_ACCOUNTANT, [
+        'role' => User::ROLE_ACCOUNTANT,
+    ])
+    ->state(User::class, User::DEFAULT_LOCALE, [
+        'locale' => User::DEFAULT_LOCALE,
+    ])
+    ->state(User::class, User::DEFAULT_TZ, [
+        'timezone' => User::DEFAULT_TZ,
+    ]);

@@ -1,12 +1,13 @@
 <?php
 
-namespace bellumindustria\Http;
+namespace template\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use bellumindustria\Infrastructure\Interfaces\Domain\Users\Users\UserRolesInterface;
+use template\Infrastructure\Interfaces\Domain\Users\Users\UserRolesInterface;
 
 class Kernel extends HttpKernel
 {
+
     /**
      * The application's global HTTP middleware stack.
      *
@@ -17,8 +18,9 @@ class Kernel extends HttpKernel
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        \bellumindustria\Http\Middleware\TrimStrings::class,
+        \template\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \template\Http\Middleware\TrustProxies::class,
     ];
 
     /**
@@ -27,41 +29,47 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middlewareGroups = [
-		'web' => [
-			\bellumindustria\Http\Middleware\EncryptCookies::class,
-			\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-			\Illuminate\Session\Middleware\StartSession::class,
-			// \Illuminate\Session\Middleware\AuthenticateSession::class,
-			\Illuminate\View\Middleware\ShareErrorsFromSession::class,
-			\bellumindustria\Http\Middleware\VerifyCsrfToken::class,
-			\Illuminate\Routing\Middleware\SubstituteBindings::class,
-			\bellumindustria\Http\Middleware\Locale::class,
-			\bellumindustria\Http\Middleware\TimeZones::class,
-		],
-		'ajax' => [
-			\bellumindustria\Http\Middleware\EncryptCookies::class,
-			\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-			\Illuminate\Session\Middleware\StartSession::class,
-			// \Illuminate\Session\Middleware\AuthenticateSession::class,
-			\Illuminate\View\Middleware\ShareErrorsFromSession::class,
-			\bellumindustria\Http\Middleware\VerifyCsrfToken::class,
-			\Illuminate\Routing\Middleware\SubstituteBindings::class,
-			\bellumindustria\Http\Middleware\AllowOnlyAjaxRequests::class,
-			\bellumindustria\Http\Middleware\Locale::class,
-			\bellumindustria\Http\Middleware\TimeZones::class,
-		],
-		'api' => [
-			'throttle:60,1',
-			'bindings',
-		],
-		UserRolesInterface::ROLE_ADMINISTRATOR => [
-			'auth',
-			'role:' => UserRolesInterface::ROLE_ADMINISTRATOR,
-		],
-		UserRolesInterface::ROLE_GAMER => [
-			'auth',
-			'role:' => UserRolesInterface::ROLE_GAMER,
-		],
+        'web' => [
+            \template\Http\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            // \Illuminate\Session\Middleware\AuthenticateSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \template\Http\Middleware\VerifyCsrfToken::class,
+            \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \template\Http\Middleware\Locale::class,
+            \template\Http\Middleware\TimeZones::class,
+        ],
+        'ajax' => [
+            \template\Http\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            // \Illuminate\Session\Middleware\AuthenticateSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \template\Http\Middleware\VerifyCsrfToken::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \template\Http\Middleware\AllowOnlyAjaxRequests::class,
+            \template\Http\Middleware\Locale::class,
+            \template\Http\Middleware\TimeZones::class,
+        ],
+        'api' => [
+            \Barryvdh\Cors\HandleCors::class,
+            'throttle:60,1',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
+        UserRolesInterface::ROLE_ADMINISTRATOR => [
+            \Illuminate\Auth\Middleware\Authenticate::class,
+            'role:' => UserRolesInterface::ROLE_ADMINISTRATOR,
+        ],
+        UserRolesInterface::ROLE_CUSTOMER => [
+            \Illuminate\Auth\Middleware\Authenticate::class,
+            'role:' => UserRolesInterface::ROLE_CUSTOMER,
+        ],
+        UserRolesInterface::ROLE_ACCOUNTANT => [
+            \Illuminate\Auth\Middleware\Authenticate::class,
+            'role:' => UserRolesInterface::ROLE_ACCOUNTANT,
+        ],
     ];
 
     /**
@@ -72,12 +80,13 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-		'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
-		'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-		'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
-		'can' => \Illuminate\Auth\Middleware\Authorize::class,
-		'guest' => \bellumindustria\Http\Middleware\RedirectIfAuthenticated::class,
-		'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-		'role' => \bellumindustria\Http\Middleware\AuthenticatedUserHasRole::class,
+        'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
+        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        'can' => \Illuminate\Auth\Middleware\Authorize::class,
+        'guest' => \template\Http\Middleware\RedirectIfAuthenticated::class,
+        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'role' => \template\Http\Middleware\AuthenticatedUserHasRole::class,
+        'cors' => \Barryvdh\Cors\HandleCors::class,
     ];
 }

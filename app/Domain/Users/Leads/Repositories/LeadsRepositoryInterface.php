@@ -1,8 +1,6 @@
-<?php
+<?php namespace template\Domain\Users\Leads\Repositories;
 
-namespace bellumindustria\Domain\Users\Leads\Repositories;
-
-use bellumindustria\Infrastructure\Interfaces\Repositories\RepositoryInterface;
+use template\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 
 interface LeadsRepositoryInterface extends RepositoryInterface
 {

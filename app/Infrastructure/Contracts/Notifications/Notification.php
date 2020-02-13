@@ -1,4 +1,4 @@
-<?php namespace bellumindustria\Infrastructure\Contracts\Notifications;
+<?php namespace template\Infrastructure\Contracts\Notifications;
 
 use Illuminate\Notifications\Notification as IlluminateNotification;
 

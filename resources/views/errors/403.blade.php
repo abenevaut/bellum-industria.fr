@@ -1,22 +1,45 @@
-@extends('frontend.layouts.errors')
+@extends('anonymous.default')
+
 @section('title', trans('errors.403_title'))
 
 @section('content')
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <h1>{{ trans('errors.403_title') }}</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="error-page">
+            <h2 class="headline text-warning">403</h2>
+            <div class="error-content">
+                <h3>
+                    <i class="fas fa-exclamation-triangle text-warning"></i> {{ trans('errors.403_title') }}
+                </h3>
+                <p>
+                    {{ trans('errors.403_description') }}
+                </p>
 
-	<section class="error-404" style="background-image: url(assets/images/content/404.jpg);">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="title">
-						<h1><i class="fa fa-bug"></i> {{ trans('errors.403_title') }}</h1>
-					</div>
-					<p>{{ trans('errors.403_description') }}</p>
-					@include('frontend.partials.errors.embeded_video')
-					@include('frontend.partials.errors.search')
-					<a href="{{ route('frontend.home') }}" class="btn btn-primary btn-lg margin-top-20 btn-shadow btn-rounded">Accueil</a>
-				</div>
-			</div>
-		</div>
-	</section>
+                {{--                <form class="search-form">--}}
+                {{--                    <div class="input-group">--}}
+                {{--                        <input type="text" name="search" class="form-control" placeholder="Search">--}}
+                {{--                        <div class="input-group-append">--}}
+                {{--                            <button type="submit" name="submit" class="btn btn-warning"><i class="fas fa-search"></i>--}}
+                {{--                            </button>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                </form>--}}
 
+                @if (app()->bound('sentry') && !empty(app('sentry')->getLastEventID()))
+                    <div>Error ID: {{ app('sentry')->getLastEventID() }}</div>
+                @endif
+                <p>
+                    <a class="btn btn-primary btn-sm" href="{{ route('anonymous.dashboard') }}">{{ trans('home') }}</a>
+                </p>
+            </div>
+        </div>
+    </section>
 @endsection

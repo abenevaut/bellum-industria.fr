@@ -1,86 +1,67 @@
-<?php
+<?php namespace template\Infrastructure\Contracts\Repositories;
 
-namespace bellumindustria\Infrastructure\Contracts\Repositories;
-
+use template\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 use Illuminate\Container\Container as Application;
-use Illuminate\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Builder;
-use Prettus\Repository\Eloquent\BaseRepository;
+use Illuminate\Pagination\Paginator;
+use Prettus\Repository\Contracts\CacheableInterface;
 use Prettus\Repository\Criteria\RequestCriteria;
-use bellumindustria\Infrastructure\Interfaces\Repositories\RepositoryInterface;
+use Prettus\Repository\Eloquent\BaseRepository;
+use Prettus\Repository\Exceptions\RepositoryException;
+use Prettus\Repository\Traits\CacheableRepository;
 
-abstract class RepositoryEloquentAbstract extends BaseRepository implements RepositoryInterface
+abstract class RepositoryEloquentAbstract extends BaseRepository implements RepositoryInterface, CacheableInterface
 {
 
-	/**
-	 * RepositoryEloquentAbstract constructor.
-	 */
-	public function __construct(Application $app) {
-		parent::__construct($app);
-	}
+    use CacheableRepository;
 
-	/**
-	 * Boot up the repository, pushing criteria
-	 */
-	public function boot() {
-		$this->pushCriteria(app(RequestCriteria::class));
-	}
+    /**
+     * RepositoryEloquentAbstract constructor.
+     */
+    public function __construct(Application $app)
+    {
+        parent::__construct($app);
+    }
 
-	/**
-	 * Count all item, based on active criterias.
-	 *
-	 * @param array $columns
-	 *
-	 * @return int
-	 */
-	public function count($columns = ['*']) {
-		$this->applyCriteria();
-		$this->applyScope();
+    /**
+     * Boot up the repository, pushing criteria.
+     *
+     * @throws RepositoryException
+     */
+    public function boot()
+    {
+        $this->pushCriteria(app(RequestCriteria::class));
+    }
 
-		if ($this->model instanceof Builder)
-		{
-			$results = $this->model->get($columns)->count();
-		}
-		else
-		{
-			$results = $this->model->count($columns);
-		}
+    /**
+     * Set the current page for paginated request.
+     *
+     * @param int $currentPage
+     *
+     * @return $this
+     */
+    public function paginationOffset(int $currentPage): self
+    {
+        Paginator::currentPageResolver(function () use ($currentPage) {
+            return $currentPage;
+        });
 
-		$this->resetModel();
-		$this->resetScope();
+        return $this;
+    }
 
-		return $results;
-	}
+    /**
+     * Get params to set the current page for a paginated request.
+     *
+     * @param string $currentPageParams
+     *
+     * @return $this
+     */
+    public function paginationOffsetFromRequestParams(string $currentPageParams = 'page'): self
+    {
+        Paginator::currentPageResolver(function () use ($currentPageParams) {
+            return request()->input($currentPageParams);
+        });
 
-	/**
-	 * Set the current page for paginated request.
-	 *
-	 * @param integer $currentPage
-	 *
-	 * @return $this
-	 */
-	public function paginationOffset($currentPage) {
-		Paginator::currentPageResolver(function() use ($currentPage)
-		{
-			return $currentPage;
-		});
-
-		return $this;
-	}
-
-	/**
-	 * Get params to set the current page for a paginated request.
-	 *
-	 * @param integer $currentPage
-	 *
-	 * @return $this
-	 */
-	public function paginationOffsetFromRequestParams($currentPageParams = 'page') {
-		Paginator::currentPageResolver(function() use ($currentPageParams)
-		{
-			return request()->input($currentPageParams);
-		});
-
-		return $this;
-	}
+        return $this;
+    }
 }

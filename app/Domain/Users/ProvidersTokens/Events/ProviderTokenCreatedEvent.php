@@ -1,25 +1,25 @@
 <?php
 
-namespace bellumindustria\Domain\Users\ProvidersTokens\Events;
+namespace template\Domain\Users\ProvidersTokens\Events;
 
-use bellumindustria\Infractucture\Contracts\Events\EventAbstract;
-use bellumindustria\Domain\Users\ProvidersTokens\ProviderToken;
+use template\Infractucture\Contracts\Events\EventAbstract;
+use template\Domain\Users\ProvidersTokens\ProviderToken;
 
 class ProviderTokenCreatedEvent extends EventAbstract
 {
 
-	/**
-	 * @var ProviderToken|null
-	 */
-	public $provider_token = null;
+    /**
+     * @var ProviderToken|null
+     */
+    public $provider_token = null;
 
-	/**
-	 * ProviderTokenUpdatedEvent constructor.
-	 *
-	 * @param ProviderToken $provider_token
-	 */
-	public function __construct(ProviderToken $provider_token)
-	{
-		$this->provider_token = $provider_token;
-	}
+    /**
+     * ProviderTokenUpdatedEvent constructor.
+     *
+     * @param ProviderToken $provider_token
+     */
+    public function __construct(ProviderToken $provider_token)
+    {
+        $this->provider_token = $provider_token;
+    }
 }

@@ -1,12 +1,20 @@
 <?php
 
-namespace bellumindustria\App\Providers;
+namespace template\App\Providers;
 
-use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\{
+    Facades\URL,
+    ServiceProvider
+};
+use Barryvdh\{
+    Debugbar\ServiceProvider as DebugbarServiceProvider,
+    LaravelIdeHelper\IdeHelperServiceProvider
+};
+use Sentry\Laravel\ServiceProvider as SentryServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+
     /**
      * Bootstrap any application services.
      *
@@ -14,10 +22,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-		if ($this->app->environment('production'))
-		{
-			\URL::forceScheme('https');
-		}
+        // @codeCoverageIgnoreStart
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
+        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -27,14 +36,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-		if ($this->app->environment('local'))
-		{
-			$this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
-			$this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
-			AliasLoader::getInstance([
-				'Debugbar' => \Barryvdh\Debugbar\Facade::class
-			])
-				->register();
-		}
+        // @codeCoverageIgnoreStart
+        if ($this->app->environment('local')) {
+            $this->app->register(IdeHelperServiceProvider::class);
+            $this->app->register(DebugbarServiceProvider::class);
+        } elseif ($this->app->environment('production')) {
+            $this->app->register(SentryServiceProvider::class);
+        }
+        // @codeCoverageIgnoreEnd
     }
 }

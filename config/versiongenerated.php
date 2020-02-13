@@ -1,1 +1,0 @@
-<?php return ['version' => 'v0.3.1-dev.61d1f330'];

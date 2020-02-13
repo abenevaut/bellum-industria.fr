@@ -1,11 +1,10 @@
 <?php
 
-namespace bellumindustria\Domain\Files\Medias\Repositories;
+namespace template\Domain\Files\Medias\Repositories;
 
-use bellumindustria\Infrastructure\Interfaces\Repositories\RepositoryInterface;
+use template\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 
 interface MediasRepository extends RepositoryInterface
 {
 
-	//
 }

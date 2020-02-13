@@ -13,3 +13,39 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::group(
+    [
+        'prefix' => 'oauth',
+        'namespace' => 'OAuth',
+    ],
+    function () {
+        Route::post('login', 'LoginController@login');
+        Route::post('register', 'RegisterController@register');
+        Route::group(
+            [
+                'middleware' => 'auth:api'
+            ],
+            function () {
+                Route::get('logout', 'LoginController@logout');
+            });
+    });
+
+Route::group(
+    [
+        'prefix' => 'v1',
+        'namespace' => 'Api\V1',
+        'middleware' => 'auth:api'
+    ],
+    function () {
+        Route::group(['namespace' => 'Users'], function () {
+            Route::model('profile', \template\Domain\Users\Users\User::class);
+            Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
+                Route::group(['prefix' => 'profiles', 'as' => 'profiles.'], function () {
+                    Route::get('family-situations', 'ProfilesController@familySituations');
+                });
+                Route::resource('profiles', 'ProfilesController', ['only' => ['update']]);
+                Route::get('user', 'UsersController@user');
+            });
+            Route::resource('users', 'UsersController', ['only' => ['show']]);
+        });
+    });

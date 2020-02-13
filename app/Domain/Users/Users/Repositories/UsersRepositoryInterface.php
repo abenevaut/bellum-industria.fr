@@ -1,8 +1,6 @@
-<?php
+<?php namespace template\Domain\Users\Users\Repositories;
 
-namespace bellumindustria\Domain\Users\Users\Repositories;
-
-use bellumindustria\Infrastructure\Interfaces\Repositories\RepositoryInterface;
+use template\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 
 interface UsersRepositoryInterface extends RepositoryInterface
 {

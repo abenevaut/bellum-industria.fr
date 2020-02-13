@@ -27,7 +27,6 @@ return [
                  * You can specify individual files as well.
                  */
                 'exclude' => [
-					storage_path('app/bellumindustria'),
 					storage_path('app/thumbnails'),
                 ],
 
@@ -134,7 +133,7 @@ return [
 
         /*
          * Here you can specify the ways you want to be notified when certain
-         * events take place. Possible values are "log", "mail", "slack", 
+         * events take place. Possible values are "log", "mail", "slack",
          * "pushover", and "telegram".
          *
          * Slack requires the installation of the maknz/slack package.
@@ -177,7 +176,7 @@ return [
                 'error'   => env('PUSHOVER_SOUND_ERROR', 'siren'),
             ],
         ],
-        
+
         /*
          * Here you can specify how messages should be sent to Telegram Bot API.
          */

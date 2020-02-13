@@ -1,12 +1,13 @@
 <?php
 
-namespace bellumindustria\App\Providers;
+namespace template\App\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
+
     /**
      * This namespace is applied to your controller routes.
      *
@@ -14,7 +15,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'bellumindustria\Http\Controllers';
+    protected $namespace = 'template\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -23,8 +24,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
     }
 
@@ -35,51 +34,21 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        $this->mapApiRoutes();
-
-        $this->mapWebRoutes();
-
-        //
-    }
-
-    /**
-     * Define the "web" routes for the application.
-     *
-     * These routes all receive session state, CSRF protection, etc.
-     *
-     * @return void
-     */
-    protected function mapWebRoutes()
-    {
-		Route::middleware('web')
-			->namespace($this->namespace)
-			->group(base_path('routes/web_auth.php'));
-		Route::middleware('ajax')
-			->namespace($this->namespace)
-			->group(base_path('routes/web_ajax.php'));
-		Route::middleware('web')
-			->namespace($this->namespace)
-			->group(base_path('routes/web_frontend.php'));
-		Route::middleware('web')
-			->namespace($this->namespace)
-			->group(base_path('routes/web_backend.php'));
-		Route::middleware('web')
-			->namespace($this->namespace)
-			->group(base_path('routes/web_webhook.php'));
-    }
-
-    /**
-     * Define the "api" routes for the application.
-     *
-     * These routes are typically stateless.
-     *
-     * @return void
-     */
-    protected function mapApiRoutes()
-    {
         Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/api.php'));
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web_administrator.php'));
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web_anonymous.php'));
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web_auth.php'));
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web_customer.php'));
     }
 }

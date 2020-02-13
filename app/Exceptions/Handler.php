@@ -1,6 +1,4 @@
-<?php
-
-namespace bellumindustria\Exceptions;
+<?php namespace template\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;
@@ -9,7 +7,7 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 class Handler extends ExceptionHandler
 {
 
-	private $sentryID;
+    private $sentryID;
 
     /**
      * A list of the exception types that should not be reported.
@@ -30,43 +28,53 @@ class Handler extends ExceptionHandler
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
-     * @param  \Exception  $exception
-     * @return void
+     * @param Exception $exception
+     *
+     * @return mixed|void
+     * @throws Exception
      */
     public function report(Exception $exception)
     {
-		if (
-			!app()->environment('local')
-			&& app()->bound('sentry')
-			&& $this->shouldReport($exception)
-		) {
-			// bind the event ID for Feedback
-			$this->sentryID = app('sentry')
-				->captureException($exception);
-		}
-		parent::report($exception);
+        // @codeCoverageIgnoreStart
+        if (
+            !app()->environment('local')
+            && app()->bound('sentry')
+            && $this->shouldReport($exception)
+        ) {
+            // bind the event ID for Feedback
+            $this->sentryID = app('sentry')
+                ->captureException($exception);
+        }
+        // @codeCoverageIgnoreEnd
+
+        parent::report($exception);
     }
 
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param Exception $exception
+     *
+     * @return \Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response
      */
     public function render($request, Exception $exception)
     {
-		if (!app()->environment('local') && $this->shouldReport($exception))
-		{
-			return response()
-				->view(
-					'errors.500',
-					[
-						'sentryID' => $this->sentryID,
-					],
-					500
-				);
-		}
+        // @codeCoverageIgnoreStart
+        if (
+            !app()->environment('local')
+            && $this->shouldReport($exception)
+        ) {
+            return response()
+                ->view(
+                    'errors.500',
+                    [
+                        'sentryID' => $this->sentryID,
+                    ],
+                    500
+                );
+        }
+        // @codeCoverageIgnoreEnd
 
         return parent::render($request, $exception);
     }
@@ -74,14 +82,18 @@ class Handler extends ExceptionHandler
     /**
      * Convert an authentication exception into an unauthenticated response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Illuminate\Auth\AuthenticationException  $exception
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Auth\AuthenticationException $exception
+     *
      * @return \Illuminate\Http\Response
      */
-    protected function unauthenticated($request, AuthenticationException $exception)
-    {
+    protected function unauthenticated(
+        $request,
+        AuthenticationException $exception
+    ) {
         if ($request->expectsJson()) {
-            return response()->json(['error' => 'Unauthenticated.'], 401);
+            return response()
+                ->json(['error' => 'Unauthenticated.'], 401);
         }
 
         return redirect()->guest(route('login'));

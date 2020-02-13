@@ -5,7 +5,7 @@ plugins:
     enabled: true
     config:
       file_extensions: "php"
-      standard: "PSR2"
+      standard: "PSR12"
   phpmd:
     enabled: true
     config:
@@ -16,17 +16,29 @@ plugins:
     enabled: true
   eslint:
     enabled: true
-    channel: "eslint-5"
+    config:
+      config: .eslintrc
     extensions:
       - .js
-  csslint:
+      - .vue
+  scss-lint:
     enabled: true
+    scss_files: 'resources/sass/*.scss'
 exclude_patterns:
-  - bootstrap
-  - database
-  - laradock
-  - node_modules
-  - public
-  - routes
-  - storage
-  - vendor
+  - "./*.js"
+  - "bootstrap/"
+  - "database/"
+  - "laradock/"
+  - "node_modules/"
+  - "public/"
+  - "routes/"
+  - "scripts/"
+  - "storage/"
+  - "tests/"
+  - "vendor/"
+  - "resrouces/clip/"
+  - "resrouces/gameforest/"
+  - "resrouces/img/"
+  - "resources/lang/"
+  - "resrouces/pages/"
+  - "resrouces/views/"

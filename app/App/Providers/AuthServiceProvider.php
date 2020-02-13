@@ -1,20 +1,21 @@
 <?php
 
-namespace bellumindustria\App\Providers;
+namespace template\App\Providers;
 
-use Illuminate\Support\Facades\Gate;
+use Laravel\Passport\Passport;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
+use template\Infrastructure\Interfaces\Domain\Users\Users\UserRolesInterface;
 
 class AuthServiceProvider extends ServiceProvider
 {
+
     /**
      * The policy mappings for the application.
      *
      * @var array
      */
-    protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
-    ];
+    protected $policies = [];
 
     /**
      * Register any authentication / authorization services.
@@ -25,14 +26,18 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-		Gate::define(\bellumindustria\Domain\Users\Users\User::ROLE_ADMINISTRATOR, function ($user)
-		{
-			return $user->is_administrator;
-		});
+        Passport::routes();
 
-		Gate::define(\bellumindustria\Domain\Users\Users\User::ROLE_GAMER, function ($user)
-		{
-			return $user->is_gamer;
-		});
+        Gate::define(UserRolesInterface::ROLE_ACCOUNTANT, function ($user) {
+            return $user->is_accountant;
+        });
+
+        Gate::define(UserRolesInterface::ROLE_ADMINISTRATOR, function ($user) {
+            return $user->is_administrator;
+        });
+
+        Gate::define(UserRolesInterface::ROLE_CUSTOMER, function ($user) {
+            return $user->is_customer;
+        });
     }
 }

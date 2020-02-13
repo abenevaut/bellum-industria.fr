@@ -1,12 +1,15 @@
 <?php
 
-namespace bellumindustria\App\Providers;
+namespace template\App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Broadcast;
+use Illuminate\Support\{
+    Facades\Broadcast,
+    ServiceProvider
+};
 
 class BroadcastServiceProvider extends ServiceProvider
 {
+
     /**
      * Bootstrap any application services.
      *

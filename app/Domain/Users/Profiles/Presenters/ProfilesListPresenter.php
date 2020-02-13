@@ -1,20 +1,20 @@
 <?php
 
-namespace bellumindustria\Domain\Users\Profiles\Presenters;
+namespace template\Domain\Users\Profiles\Presenters;
 
-use bellumindustria\Infrastructure\Contracts\Presenters\PresenterAbstract;
-use bellumindustria\Domain\Users\Profiles\Transformers\ProfilesListTransformer;
+use template\Infrastructure\Contracts\Presenters\PresenterAbstract;
+use template\Domain\Users\Profiles\Transformers\ProfilesListTransformer;
 
 class ProfilesListPresenter extends PresenterAbstract
 {
 
-	/**
-	 * Transformer
-	 *
-	 * @return \League\Fractal\TransformerAbstract
-	 */
-	public function getTransformer()
-	{
-		return new ProfilesListTransformer();
-	}
+    /**
+     * Transformer
+     *
+     * @return \League\Fractal\TransformerAbstract
+     */
+    public function getTransformer()
+    {
+        return new ProfilesListTransformer();
+    }
 }

@@ -1,25 +1,25 @@
 <?php
 
-namespace bellumindustria\Domain\Users\Users\Events;
+namespace template\Domain\Users\Users\Events;
 
-use bellumindustria\Infractucture\Contracts\Events\EventAbstract;
-use bellumindustria\Domain\Users\Users\User;
+use template\Infractucture\Contracts\Events\EventAbstract;
+use template\Domain\Users\Users\User;
 
 class UserUpdatedEvent extends EventAbstract
 {
 
-	/**
-	 * @var User|null
-	 */
-	public $user = null;
+    /**
+     * @var User|null
+     */
+    public $user = null;
 
-	/**
-	 * UserUpdatedEvent constructor.
-	 *
-	 * @param User $user
-	 */
-	public function __construct(User $user)
-	{
-		$this->user = $user;
-	}
+    /**
+     * UserUpdatedEvent constructor.
+     *
+     * @param User $user
+     */
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
 }
