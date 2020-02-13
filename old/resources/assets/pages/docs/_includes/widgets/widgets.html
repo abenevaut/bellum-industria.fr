@@ -1,0 +1,106 @@
+<section id="widgets">
+    <h3 class="page-title">Widgets Market</h3>
+    <hr>
+    <p>Starting from Pages v2.0.0, we will be publishing a new widget every week through our Widget Marketplace. Yes, that's a promise we give to our loyal customers! We believe, doing this will make your life even easier as it introduces various pre-built widgets that you can easily copy-paste into your existing dashboard and visualize data in a snap. We are hoping to release widgets for various categories such as social, commerce and finance.</p>
+
+</section>
+<section>
+    <h4>
+          How to use Pages Widgets
+          </h4>
+    <p>
+        You may be noticing a new link appearing in the sidebar of demo dashboard (<code>demo/html/index.html</code>) already, titled 'Widgets'. This link will take you to the Widget marketplace where you can search and preview the widgets published by us. Once you decide which widget to add to your dashboard please follow the steps below:</p>
+
+        <h5 class="semi-bold">Step one</h5>
+        <p>Open the extracted bundle folder then go to <code>widgets</code> sub-folder. Then open <code>index.html</code> of your preferred widget and copy the markup of the widget into your dashboard. This example will show how to add <code>widget_plain_live_widget</code> into the demo dashboard at <code>demo/html/index.html</code></p>
+
+<pre><code class="xml">&lt;div class=&quot;ar-1-1 widget-1-wrapper&quot;&gt;
+    &lt;div class=&quot;widget-3 panel no-border bg-complete no-margin widget-loader-bar&quot;&gt;
+        &lt;div class=&quot;panel-body no-padding&quot;&gt;
+            &lt;div class=&quot;metro live-tile&quot; data-mode=&quot;carousel&quot; data-start-now=&quot;true&quot; data-delay=&quot;3000&quot;&gt;
+                &lt;div class=&quot;slide-front tiles slide active&quot;&gt;
+                    &lt;div class=&quot;padding-30&quot;&gt;
+                        &lt;div class=&quot;pull-top&quot;&gt;
+                            &lt;div class=&quot;pull-left visible-lg visible-xlg&quot;&gt;
+                                &lt;i class=&quot;pg-map&quot;&gt;&lt;/i&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;pull-right&quot;&gt;
+                                &lt;ul class=&quot;list-inline &quot;&gt;
+                                    &lt;li&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;no-decoration&quot;&gt;&lt;i class=&quot;pg-comment&quot;&gt;&lt;/i&gt;
+                                        &lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;widget-3-fav no-decoration&quot;&gt;&lt;i class=&quot;pg-like&quot;&gt;&lt;/i&gt;
+                                        &lt;/a&gt;
+                                    &lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;clearfix&quot;&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;pull-bottom p-b-30&quot;&gt;
+                            &lt;p class=&quot;p-t-10 fs-12 p-b-5 hint-text&quot;&gt;21 Jan&lt;/p&gt;
+                            &lt;h3 class=&quot;no-margin text-white p-b-10&quot;&gt;Carefully
+                                &lt;br&gt;designed for a
+                                &lt;br&gt;great
+                                &lt;span class=&quot;semi-bold&quot;&gt;experience&lt;/span&gt;
+                            &lt;/h3&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;slide-back tiles&quot;&gt;
+                    &lt;div class=&quot;padding-30&quot;&gt;
+                        &lt;div class=&quot;pull-top&quot;&gt;
+                            &lt;div class=&quot;pull-left visible-lg visible-xlg&quot;&gt;
+                                &lt;i class=&quot;pg-map&quot;&gt;&lt;/i&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;pull-right&quot;&gt;
+                                &lt;ul class=&quot;list-inline &quot;&gt;
+                                    &lt;li&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;no-decoration&quot;&gt;&lt;i class=&quot;pg-comment&quot;&gt;&lt;/i&gt;
+                                        &lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;widget-3-fav no-decoration&quot;&gt;&lt;i class=&quot;pg-like&quot;&gt;&lt;/i&gt;
+                                        &lt;/a&gt;
+                                    &lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;clearfix&quot;&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;pull-bottom p-b-30&quot;&gt;
+                            &lt;p class=&quot;p-t-10 fs-12 p-b-5 hint-text&quot;&gt;21 Jan&lt;/p&gt;
+                            &lt;h3 class=&quot;no-margin text-white p-b-10&quot;&gt;A whole new
+                                &lt;br&gt;
+                                &lt;span class=&quot;semi-bold&quot;&gt;page&lt;/span&gt;
+                            &lt;/h3&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h5 class="semi-bold">Step two</h5>
+<p>Check if the widget has any dependencies that dashboard hasn't included already. If you spot any, include them in your dashboard.</p>
+<p>Widget in example above depends on MetroJS. Make sure you correct the path in the dependencies relative to the dashboard file</p>
+<pre><code class="xml">&lt;script src=&quot;../plugins/jquery-metrojs/MetroJs.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code></pre>
+
+<h5 class="semi-bold">Step three</h5>
+<p>Open <code>js/widget.js</code> and copy the JS into your custom JS file used in the dashboard</p>
+<pre><code class="js">/*
+    Widget specific JS (ie: init scripts of 
+    plugins used in the widget) go here
+*/
+$(".widget-3 .metro").liveTile();
+</code></pre>
+
+<h5 class="semi-bold">Step four</h5>
+<p>Open <code>css/widget.css</code> and copy the CSS into your custom CSS file used in the dashboard</p>
+<pre><code class="css">/* 
+    Widget specific styles go here
+*/
+</code></pre>
+
+</section>

@@ -1,0 +1,96 @@
+<section id="treeview">
+    <h3 class="page-title">Tree View</h3>
+    <hr>
+    <h3 class="section-sep">jQuery users</h3>
+    <p>Tree view in Pages are powered by <a href="http://wwwendt.de/tech/dynatree/doc/samples.html" target="_blank">jQuery Dynatree </a>, which is a Drag &amp; drop hierarchical list with mouse and touch compatibility Follow these steps to initialize nestables in your page</p>
+    <h5 class="semi-bold m-t-25">Step one</h5>
+    <p>Include the following stylesheet inside the <code>&lt;head&gt;</code>
+        <pre><code class="xml">&lt;link href=&quot;assets/plugins/jquery-dynatree/skin/ui.dynatree.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;screen&quot;/&gt;</code></pre>
+    </p>
+    <h5 class="semi-bold m-t-25">Step two</h5>
+    <p>
+        Include the relevant javascript files inside the <code>&lt;body&gt;</code> before core template script inclusions
+        <pre><code class="xml">&lt;script src=&quot;assets/plugins/jquery-dynatree/jquery.dynatree.min.js&quot; type=&quot;text/javascript&quot;&gt;</code></pre>
+    </p>
+    <h5 class="semi-bold m-t-25">Step three</h5>
+    <ol class="fs-13 p-l-20">
+        <li>Create a DIV and give it a unique ID, we are going to use this to initialize the plugin</li>
+        <li>Inside this DIV, create a list of unordered items using UL LI </li>
+        <li>Make sure you have unique ID for each of UL and LI tags</li>
+    </ol>
+    <pre><code class="xml">&lt;div class=&quot;m-b-20&quot; id=&quot;default-tree&quot;&gt;
+  &lt;ul id=&quot;treeData&quot; style=&quot;display: none;&quot;&gt;
+    &lt;li id=&quot;id1&quot; title=&quot;Look, a tool tip!&quot;&gt;item1 with key and tooltip
+    &lt;/li&gt;
+    &lt;li id=&quot;id2&quot;&gt;item2
+    &lt;/li&gt;
+    &lt;li class=&quot;folder&quot; id=&quot;id3&quot;&gt;Folder with some children
+      &lt;ul&gt;
+        &lt;li id=&quot;id3.1&quot;&gt;Sub-item 3.1
+          &lt;ul&gt;
+            &lt;li id=&quot;id3.1.1&quot;&gt;Sub-item 3.1.1
+            &lt;/li&gt;
+            &lt;li id=&quot;id3.1.2&quot;&gt;Sub-item 3.1.2
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li id=&quot;id3.2&quot;&gt;Sub-item 3.2
+          &lt;ul&gt;
+            &lt;li id=&quot;id3.2.1&quot;&gt;Sub-item 3.2.1
+            &lt;/li&gt;
+            &lt;li id=&quot;id3.2.2&quot;&gt;Sub-item 3.2.2
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;expanded&quot; id=&quot;id4&quot;&gt;Document with some children (expanded on
+    init)
+      &lt;ul&gt;
+        &lt;li class=&quot;active focused&quot; id=&quot;id4.1&quot;&gt;Sub-item 4.1 (active and focus on
+        init)
+          &lt;ul&gt;
+            &lt;li id=&quot;id4.1.1&quot;&gt;Sub-item 4.1.1
+            &lt;/li&gt;
+            &lt;li id=&quot;id4.1.2&quot;&gt;Sub-item 4.1.2
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li id=&quot;id4.2&quot;&gt;Sub-item 4.2
+          &lt;ul&gt;
+            &lt;li id=&quot;id4.2.1&quot;&gt;Sub-item 4.2.1
+            &lt;/li&gt;
+            &lt;li id=&quot;id4.2.2&quot;&gt;Sub-item 4.2.2
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+    </p>
+    <h5 class="semi-bold m-t-25">Step Four</h5>
+    <p>
+        Initialize the plugin, Please view <a href="{# ROOT #}partials/js_rules.html">JQuery plugin inlude guidline rules</a>
+        <pre><code class="xml">&lt;script&gt;
+$(document).ready(function() {
+      $(&quot;#default-tree&quot;).dynatree({
+       fx: { height: &quot;toggle&quot;, duration: 200 }//Slide down animation
+    });
+});
+&lt;/script&gt;</code></pre>
+    </p>
+</section>
+<div class="well bs-ref clearfix">
+    <span class="pull-left">For Further Options </span><a href="http://wwwendt.de/tech/dynatree/doc/samples.html" target="_blank" class="btn btn-primary pull-right ">JQuery DynaTree Documentation</a>
+</div>
+<section>
+    <h5 class="semi-bold">Step three</h5>
+    <p>Add following markup to your page</p>
+    <pre><code class="xml">&lt;abn-tree tree-data=&quot;example_treedata&quot;&gt;&lt;/abn-tree&gt;</code></pre>
+</section>
+<p>Other Useful resources thay you may find:</p>
+<ul class="other-ref">
+    <li><a href="js_rule.html">JQuery Plugin Include Rules</a></li>
+    <li><a href="css_rule.html">Third Party CSS Include Rule</a></li>
+</ul>

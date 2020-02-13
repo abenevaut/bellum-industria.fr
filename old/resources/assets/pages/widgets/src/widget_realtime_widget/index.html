@@ -1,0 +1,12 @@
+{% extends WIDGET_PATH + "src/layout.html" %}
+{% block vendor_css %}
+   <link href="{# PLUGINS_PATH #}rickshaw/rickshaw.min.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block vendor_js %}
+<script src="{# PLUGINS_PATH #}nvd3/lib/d3.v3.js" type="text/javascript"></script>
+  <script src="{# PLUGINS_PATH #}rickshaw/rickshaw.min.js"></script>
+{% endblock %}
+
+{% block content %}
+        {% include PATH + "pages/dashboard/_widget/widget_realtimeWidget.tpl" %}
+{% endblock %}

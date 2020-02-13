@@ -1,0 +1,158 @@
+
+
+<section id="mobile_views">
+    <h3 class="page-title">Views</h3>
+    <hr>
+    <p>
+        Views are pre-made view ports which comes in handy for HTML5 mobile hybrid apps, These elements help in the navigation of your app with a touch of some cool pre-built animations, see the demo below
+    </p>
+</section>
+<section>
+    <div class="phone-wireframe">
+        <iframe id="iphone" src="{# ROOT #}/mobile_view/mobile_view_transitions.html">
+        </iframe>
+    </div>
+</section>
+<section>
+    <h4>1. Basic HTML Tag Structure</h4>
+    <p>The below code is a basic structure for a view to work, you need to have all your <code>view</code> wrapped in a <code>view-port</code>
+    </p>
+    <pre><code class="xml"> &lt;!-- BEGIN View Port !--&gt;
+ &lt;div class=&quot;view-port clearfix&quot; id=&quot;myViewPort&quot;&gt;
+  &lt;!-- BEGIN View !--&gt;
+  &lt;div class=&quot;view bg-white&quot;&gt;
+
+  &lt;/div&gt;
+  &lt;!-- END View !--&gt;
+
+  &lt;!-- BEGIN View !--&gt;
+  &lt;div class=&quot;view bg-white&quot;&gt;
+
+  &lt;/div&gt;
+  &lt;!-- END View !--&gt;
+ &lt;/div&gt;
+ &lt;!-- END View Port !--&gt;</code></pre>
+</section>
+<section>
+    <h4>2. How to Navigate</h4>
+    <p>You can navigate with a simple HTML link and the following attributes in it
+    </p>
+    <pre><code class="xml">&lt;a data-view-animation=&quot;push-parrallax&quot; data-view-port=&quot;#myViewPort&quot; data-navigate=&quot;view&quot; class=&quot;&quot; href=&quot;#&quot;&gt;
+Go to View
+&lt;/a&gt;</code></pre>
+    <p>
+        <br>
+        <code>data-view-animation</code> : Defines animation - push-parrallax / push / from-top
+        <br>
+        <br>
+        <code>data-view-port</code> : Defines Parent View Port - ID of parent view port. Eg : "#myViewPort"
+        <br>
+        <br>
+        <code>data-navigate</code> : Enables to toggle back and forth form two views in a view port
+        <br>
+        <br>
+    </p>
+</section>
+<section>
+    <h4>3. One to Many Navigation</h4>
+    <p>There is an option where you can navigate from one view to different views, the structure will be the following
+    </p>
+    <br>
+    <h5>3.1. HTML</h5>
+    <pre><code class="xml"> &lt;!-- BEGIN View Port !--&gt;
+ &lt;div class=&quot;view-port clearfix&quot; id=&quot;myViewPort&quot;&gt;
+  &lt;!-- BEGIN View !--&gt;
+  &lt;div class=&quot;view bg-white&quot;&gt;
+
+  &lt;/div&gt;
+  &lt;!-- END View !--&gt;
+
+  &lt;!-- BEGIN View !--&gt;
+  &lt;div class=&quot;view bg-white&quot;&gt;
+    &lt;div class=&quot;view bg-white&quot; id=&quot;subView1&quot;&gt;
+      Your Content One
+    &lt;/div&gt;
+    &lt;div class=&quot;view bg-white&quot; id=&quot;subView2&quot;&gt;
+      Your Content Two
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- END View !--&gt;
+ &lt;/div&gt;
+ &lt;!-- END View Port !--&gt;</code></pre>
+    <h5>Link</h5>
+    <p>To link to the subview add the attribute called <code>data-toggle-view</code> this defines the ID of your subview</p>
+    <pre><code class="xml">&lt;a data-view-animation=&quot;push-parrallax&quot; data-view-port=&quot;#myViewPort&quot; data-navigate=&quot;view&quot; data-toggle-view=&quot;#subView1&quot; class=&quot;&quot; href=&quot;#&quot;&gt;
+Go to View
+&lt;/a&gt;</code></pre>
+</section>
+<h4>4. Multi Level Navigation</h4>
+<p>You can navigate up to unlimited levels by nesting
+    <cod>views-ports </code> under <code>views</code>
+</p>
+<br>
+<h5>4.1. HTML Structure</h5>
+<pre><code class="xml"> &lt;!-- BEGIN View Port !--&gt;
+ &lt;div class=&quot;view-port clearfix&quot; id=&quot;myViewPort&quot;&gt;
+  &lt;!-- BEGIN View !--&gt;
+  &lt;div class=&quot;view bg-white&quot;&gt;
+    Your Content
+  &lt;/div&gt;
+  &lt;!-- END View !--&gt;
+
+  &lt;!-- BEGIN View !--&gt;
+  &lt;div class=&quot;view bg-white&quot;&gt;
+     &lt;!-- BEGIN View Port !--&gt;
+     &lt;div class=&quot;view-port clearfix&quot; id=&quot;myNestedViewPort&quot;&gt;
+      &lt;!-- BEGIN View !--&gt;
+      &lt;div class=&quot;view bg-white&quot;&gt;
+        Level One
+      &lt;/div&gt;
+      &lt;!-- END View !--&gt;
+
+      &lt;!-- BEGIN View !--&gt;
+      &lt;div class=&quot;view bg-white&quot;&gt;
+        Level Two
+      &lt;/div&gt;
+      &lt;!-- END View !--&gt;
+     &lt;/div&gt;
+     &lt;!-- END View Port !--&gt;
+  &lt;/div&gt;
+  &lt;!-- END View !--&gt;
+ &lt;/div&gt;
+ &lt;!-- END View Port !--&gt;</code></pre>
+<h5>4.2. Sample with Navigation Links</h5>
+<pre><code class="xml">&lt;div class=&quot;view-port clearfix&quot; id=&quot;myViewPort&quot;&gt;
+    &lt;!-- BEGIN View !--&gt;
+
+    &lt;div class=&quot;view bg-white&quot;&gt;
+        &lt;a class=&quot;&quot; data-navigate=&quot;view&quot; data-view-animation=&quot;push-parrallax&quot;
+        data-view-port=&quot;#myViewPort&quot; href=&quot;#&quot;&gt;Go To Level One&lt;/a&gt;
+    &lt;/div&gt;&lt;!-- END View !--&gt;
+    &lt;!-- BEGIN View !--&gt;
+
+    &lt;div class=&quot;view bg-white&quot;&gt;
+        &lt;!-- BEGIN View Port !--&gt;
+
+        &lt;div class=&quot;view-port clearfix&quot; id=&quot;myNestedViewPort&quot;&gt;
+            &lt;!-- BEGIN View !--&gt;
+
+            &lt;div class=&quot;view bg-white&quot;&gt;
+                &lt;p&gt;Level One&lt;/p&gt;&lt;br&gt;
+                &lt;a class=&quot;&quot; data-navigate=&quot;view&quot; data-view-animation=
+                &quot;push-parrallax&quot; data-view-port=&quot;#myNestedViewPort&quot; href=&quot;#&quot;&gt;Go
+                To Level Two&lt;/a&gt; &lt;a class=&quot;&quot; data-navigate=&quot;view&quot;
+                data-view-animation=&quot;push-parrallax&quot; data-view-port=
+                &quot;#myViewPort&quot; href=&quot;#&quot;&gt;Go Back&lt;/a&gt;
+            &lt;/div&gt;&lt;!-- END View !--&gt;
+            &lt;!-- BEGIN View !--&gt;
+
+            &lt;div class=&quot;view bg-white&quot;&gt;
+                &lt;p&gt;Level Two&lt;/p&gt;&lt;br&gt;
+                &lt;a class=&quot;&quot; data-navigate=&quot;view&quot; data-view-animation=
+                &quot;push-parrallax&quot; data-view-port=&quot;#myNestedViewPort&quot; href=&quot;#&quot;&gt;Go
+                Back&lt;/a&gt;
+            &lt;/div&gt;&lt;!-- END View !--&gt;
+        &lt;/div&gt;&lt;!-- END View Port !--&gt;
+    &lt;/div&gt;&lt;!-- END View !--&gt;
+&lt;/div&gt;&lt;!-- END View Port !--&gt;</code></pre>
+</section>

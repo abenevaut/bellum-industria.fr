@@ -1,0 +1,13 @@
+{% set TITLE = "- Blank Page" %}
+{% set ASSETS = "assets" %}
+{% set ASSETS_PLUGINS = "assets/plugins" %}
+{% set BODY_CLASS ="menu-pin" %}
+{% set PAGES_CORE = "pages" %}
+{% set THEME ="themes/light" %}
+{% set active_parent = "ui" %}
+{% extends PATH + "layouts/light_layout.html" %}
+{% block css_dependencies %}{% endblock %}
+	{% block page %}
+	{% include PATH + "pages/ui/buttons/buttons.tpl"%}
+	{% endblock %}
+{% block js_dependencies %}{% endblock %}

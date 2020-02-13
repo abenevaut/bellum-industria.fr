@@ -1,0 +1,75 @@
+<section id="meteor">
+    <h3 class="page-title">MeteorJS</h3>
+    <hr>
+    <p>Pages Admin now officially supports runs on MeteorJS 1.5, we have took the time integrate all Pages demo components and widgets to
+    a MeteorJS but this is under Beta with new layouts. Any contribution on Meteorjs is welcome.</p>
+    <br>
+    <p class="bold">Dependencies Required to be installed from <a href=
+    "https://atmospherejs.com/">Atmosphere</a></p>
+    <ul class="fs-13 p-l-25">
+        <li>kadira:blaze-layout</li>
+        <li>kadira:flow-router</li>
+        <li>zimme:active-route</li>
+        <li>less</li>
+        <li>abpetkov:switchery</li>
+        <li>rgnevashev:select2</li>
+        <li>summernote:summernote</li>
+        <li>vansonhk:bootstrap3-datepicker</li>
+        <li>gilbertwat:bootstrap3-daterangepicker</li>
+        <li>rcy:nouislider</li>
+        <li>postrednik:meteor-rangeslider</li>
+        <li>themeteorchef:jquery-validation</li>
+        <li>ryanswapp:interactjs</li>
+        <li>isotope:isotope</li>
+        <li>iamkevingreen:imagesloaded</li>
+        <li>snamoah:bootstrap-wizard</li>
+        <li>coursierprive:tether</li>
+        <li> momentjs:moment@2.8.4</li>
+        <li>cwaring:modernizr</li>
+        <li>gromo:jquery.scrollbar</li>
+        <li>fortawesome:fontawesome</li>
+    </ul><br>
+
+
+    <h4>Quide</h4>
+    <h5 class="semi-bold">Router</h5>
+    <p>Router is located in <code>imports/startup/client/routes.js</code>
+        BlazeLayout render layout name to change layouts
+    </p>
+
+    <h5 class="semi-bold">Layouts</h5>
+    <p>Router is located in <code>imports/ui/layouts/</code>
+    Some layouts may use extra classes like horizontal. Therefore in the routes.js file on your route code and this extra callbacks
+    on route. Remeber to add the appropriate classs
+    <pre>
+        <code>  triggersEnter: [function() {
+      $("body").addClass("horizontal-app-menu");
+  }],
+  triggersExit: [function() {
+      $("body").removeClass("horizontal-app-menu");
+  }]
+</code>
+</pre>
+
+    </p>
+    <br>
+    <h5 class="semi-bold">Components</h5>
+    <p>Each components like sidebar, horizontal nav, search and quick view can be found in 
+        <code>imports/ui/components/</code>
+    </p>
+     <br>
+    <h5 class="semi-bold">LESS and Styles</h5>
+    <p> All LESS files in Pages are available in 
+        <code>imports/ui/stylesheets/</code>
+    To change a theme go to 
+    <code>client/main.less</code> and change the varriable
+    <code>@theme-name</code>
+</p> <br>
+
+    <h5 class="semi-bold">Demo Files</h5>
+    <p>Demo files are localed in <code>client/views</code></p>
+     <br> <br>
+    <h5>Facing Problems and Issues </h5>
+    <p> If you have any problems please don't hesitate to contact us at support@revox.io. We will be glad to help you out. There will be constant updates to meteorjs to make it 100% compatible with all 5 layouts</p>
+
+</section>

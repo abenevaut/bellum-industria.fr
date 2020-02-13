@@ -1,0 +1,9 @@
+{% if mode =='horizontal_menu' %} no-padding  {% endif %}
+
+{% if mode =='horizontal_menu' %} 
+              <div class="container">
+            {% endif %}
+
+{% if mode =='horizontal_menu' %} 
+                </div>
+              {% endif %}

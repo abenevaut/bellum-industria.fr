@@ -1,0 +1,282 @@
+
+
+<section id="tabs">
+    <h3 class="page-title">Tabs</h3>
+    <hr>
+    <p>
+        Tabs are created using <a href="#">Bootstrap Native Tabs</a>, they will work as the same way how it works in bootstrap, but it is styled to pages color scheme. To run a Bootstrap Tabs, there is no depencies, <a href="#">you do not have to include extra JS or CSS files</a>,To add a Tabs to pages please reffer following guidelines
+    </p>
+    <a href="http://getbootstrap.com/javascript/#tabs" target="_blank" class="btn btn-complete">Bootstrap Tabs Guideline</a>
+    <br>
+    <br>
+    <div class="text-center">
+    </div>
+</section>
+<section>
+    <h4><a href="#createtab" id="createtab">
+           Creating a Tab
+            </a>
+          </h4>
+    <p class="m-b-15">
+        Place this HTML code in any "Pages" html file
+    </p>
+    <div class="alert alert-info">
+        <strong><i class="fa fa-lightbulb-o"></i> Tip : Tabs</strong>
+        <br> Make sure you keep the tab pane ID's unquie
+    </div>
+   
+    <pre><code class="xml">&lt;div class=&quot;panel&quot;&gt;
+  &lt;ul class=&quot;nav nav-tabs nav-tabs-simple&quot;&gt;
+    &lt;li class=&quot;active&quot;&gt;
+      &lt;a data-toggle=&quot;tab&quot; href=&quot;#tab2hellowWorld&quot;&gt;Hello World&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a data-toggle=&quot;tab&quot; href=&quot;#tab2FollowUs&quot;&gt;Hello Two&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a data-toggle=&quot;tab&quot; href=&quot;#tab2Inspire&quot;&gt;Hello Three&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class=&quot;tab-content&quot;&gt;
+    &lt;div class=&quot;tab-pane active&quot; id=&quot;tab2hellowWorld&quot;&gt;
+      &lt;div class=&quot;row column-seperation&quot;&gt;
+        &lt;div class=&quot;col-md-6&quot;&gt;
+          &lt;h3&gt;
+            &lt;span class=&quot;semi-bold&quot;&gt;Sometimes&lt;/span&gt; Small things in life means
+            the most
+          &lt;/h3&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-md-6&quot;&gt;
+          &lt;h3 class=&quot;semi-bold&quot;&gt;
+            great tabs
+          &lt;/h3&gt;
+          &lt;p&gt;
+            Native boostrap tabs customized to Pages look and feel, simply
+            changing class name you can change color as well as its animations
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;tab-pane&quot; id=&quot;tab2FollowUs&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-md-12&quot;&gt;
+          &lt;h3&gt;
+            &ldquo; Nothing is &lt;span class=&quot;semi-bold&quot;&gt;impossible&lt;/span&gt;, the word
+            itself says 'I'm &lt;span class=&quot;semi-bold&quot;&gt;possible&lt;/span&gt;'! &rdquo;
+          &lt;/h3&gt;
+          &lt;p&gt;
+            A style represents visual customizations on top of a layout. By
+            editing a style, you can use Squarespace's visual interface to
+            customize your...
+          &lt;/p&gt;&lt;br&gt;
+          &lt;p class=&quot;pull-right&quot;&gt;
+            &lt;button class=&quot;btn btn-white btn-cons&quot; type=&quot;button&quot;&gt;White&lt;/button&gt;
+            &lt;button class=&quot;btn btn-success btn-cons&quot; type=
+            &quot;button&quot;&gt;Success&lt;/button&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;tab-pane&quot; id=&quot;tab2Inspire&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-md-12&quot;&gt;
+          &lt;h3&gt;
+            Follow us &amp;amp; get updated!
+          &lt;/h3&gt;
+          &lt;p&gt;
+            Instantly connect to what's most important to you. Follow your
+            friends, experts, favorite celebrities, and breaking news.
+          &lt;/p&gt;&lt;br&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</section>
+<section>
+    <h4><a href="#taborientation" id="taborientation">
+           Tab Orientaion
+            </a>
+          </h4>
+    <p class="m-b-15">
+        To change tab orientation, create a tab like before using the above code, add the class
+        <code>nav-tabs-left</code> or <code>nav-tabs-left</code> to <code> nav nav-tabs </code> UL element
+    </p>
+  
+    <pre><code class="xml">&lt;!-- LEFT ORIENTATION --&gt;
+&lt;div class=&quot;panel&quot;&gt;
+  &lt;ul class=&quot;nav nav-tabs nav-tabs-left nav-tabs-simple&quot;&gt;
+  ....
+  &lt;/ul&gt;
+  &lt;div class=&quot;tab-content&quot;&gt;
+  ....
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- RIGHT ORIENTATION --&gt;
+&lt;div class=&quot;panel&quot;&gt;
+  &lt;ul class=&quot;nav nav-tabs nav-tabs-right nav-tabs-simple&quot;&gt;
+  ....
+  &lt;/ul&gt;
+  &lt;div class=&quot;tab-content&quot;&gt;
+  ....
+  &lt;/div&gt;
+&lt;/div&gt;</code></section>
+
+        <section>
+          <h4><a href="#tabstyles" id="tabstyles">
+           Tab Styles
+            </a>
+          </h4>
+          <p class="m-b-15">
+            To change tab styles, create a tab like before using the first code in <a href="#createtab">Create Tab</a> section, add the class
+            <code>nav-tabs-linetriangle</code> or <code>nav-tabs-fillup</code> to <code> nav nav-tabs </code> UL element
+          </p>
+          <div class="alert alert-info">
+            <strong><i class="fa fa-lightbulb-o"></i> Tip : Tabs</strong><br>
+            You can try different orientation with tab styles
+          </div>
+           
+<pre><code class="xml">&lt;!-- LINE TRIANGLE --&gt;
+&lt;div class=&quot;panel&quot;&gt;
+  &lt;ul class=&quot;nav nav-tabs nav-tabs-linetriangle nav-tabs-simple&quot;&gt;
+  ....
+  &lt;/ul&gt;
+  &lt;div class=&quot;tab-content&quot;&gt;
+  ....
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- FILL UP ANIMATION --&gt;
+&lt;div class=&quot;panel&quot;&gt;
+  &lt;ul class=&quot;nav nav-tabs nav-tabs-fillup nav-tabs-simple&quot;&gt;
+  ....
+  &lt;/ul&gt;
+  &lt;div class=&quot;tab-content&quot;&gt;
+  ....
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</section>
+<section>
+    <h4>Sliding Tabs</h4>
+    <p>Append <code>slide-left</code> or <code>slide-right</code> to <code>tab-pane</code> to reveal tab content with a sliding effect</p>
+    <pre><code class="xml">&lt;!-- Nav tabs --&gt;
+&lt;ul class=&quot;nav nav-tabs&quot;&gt;
+    &lt;li class=&quot;active&quot;&gt;
+        &lt;a data-toggle=&quot;tab&quot; href=&quot;#slide1&quot;&gt;
+            &lt;span&gt;Home&lt;/span&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a data-toggle=&quot;tab&quot; href=&quot;#slide2&quot;&gt;
+            &lt;span&gt;Profile&lt;/span&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- Tab panes --&gt;
+&lt;div class=&quot;tab-content&quot;&gt;
+    &lt;div class=&quot;tab-pane slide-left active&quot; id=&quot;slide1&quot;&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div class=&quot;tab-pane slide-right&quot; id=&quot;slide2&quot;&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section>
+    <h4>Responsive Tabs</h4>
+    <p>Repsosive tabs are not built on to bootstrap by default, We have integrated 3 options to choose from </p>
+    <ul class="fs-12">
+      <li>Tabs to Accordian</li>
+      <li>Dropdown</li>
+      <li>Horizontal Scroll</li>
+    </u>
+    <br>
+    <h5>1. Tabs to Accordian </h5>
+    <p>Tabs automatically converts in to an accordian on Mobile</p>
+    <br>
+    <strong>Dependency</strong>
+    <pre><code class="xml">&lt;script src=&quot;assets/plugins/bootstrap-collapse/bootstrap-tabcollapse.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code></pre>
+    <br>
+    <strong>HTML</strong>
+    <p>Add the <code>data-init-reponsive-tabs="collapse"</code> attribute to your <code>nav-tabs</code> <code>ul</code> element </p>
+    <pre><code class="xml">&lt;div class=&quot;panel&quot;&gt;
+  &lt;ul class=&quot;nav nav-tabs nav-tabs-simple&quot; data-init-reponsive-tabs=&quot;collapse&quot;&gt;
+    &lt;li class=&quot;active&quot;&gt;
+      &lt;a data-toggle=&quot;tab&quot; href=&quot;#tab2hellowWorld&quot;&gt;Hello World&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a data-toggle=&quot;tab&quot; href=&quot;#tab2FollowUs&quot;&gt;Hello Two&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a data-toggle=&quot;tab&quot; href=&quot;#tab2Inspire&quot;&gt;Hello Three&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class=&quot;tab-content&quot;&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+    <br>
+    <h5>2. Dropdowns </h5>
+    <p>Tabs automatically converts in to an SelectFx Dropdown on Mobile</p>
+    <br>
+    <strong>Dependency</strong>
+    <p>No Dependencies</p>
+    <br>
+    <strong>HTML</strong>
+    <p>Add the <code>data-init-reponsive-tabs="dropdownfx"</code> attribute to your <code>nav-tabs</code> <code>ul</code> element </p>
+    <pre><code class="xml">&lt;div class=&quot;panel&quot;&gt;
+  &lt;ul class=&quot;nav nav-tabs nav-tabs-simple&quot; data-init-reponsive-tabs=&quot;dropdownfx&quot;&gt;
+    &lt;li class=&quot;active&quot;&gt;
+      &lt;a data-toggle=&quot;tab&quot; href=&quot;#tab2hellowWorld&quot;&gt;Hello World&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a data-toggle=&quot;tab&quot; href=&quot;#tab2FollowUs&quot;&gt;Hello Two&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a data-toggle=&quot;tab&quot; href=&quot;#tab2Inspire&quot;&gt;Hello Three&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class=&quot;tab-content&quot;&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+    <br>
+    <h5>3. Horizontal Scroll </h5>
+    <p>You can horizontally scroll your tab navigation on Mobile</p>
+    <br>
+    <strong>Dependency</strong>
+    <p>No Dependencies</p>
+    <br>
+    <strong>HTML</strong>
+    <p>Wrap <code>nav-tabs</code> with div <code>nav-tabs-header nav-tabs-linetriangle</code> </p>
+    <pre><code class="xml">&lt;div class=&quot;panel&quot;&gt;
+  &lt;div class=&quot;nav-tabs-header nav-tabs-linetriangle&quot;&gt;
+    &lt;ul class=&quot;nav nav-tabs nav-tabs-linetriangle&quot;&gt;
+      &lt;li class=&quot;active&quot;&gt;
+        &lt;a data-toggle=&quot;tab&quot; href=&quot;#fade1&quot;&gt;&lt;span&gt;Hello World&lt;/span&gt;&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a data-toggle=&quot;tab&quot; href=&quot;#fade2&quot;&gt;&lt;span&gt;Hello Two&lt;/span&gt;&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a data-toggle=&quot;tab&quot; href=&quot;#fade3&quot;&gt;&lt;span&gt;Hello Three&lt;/span&gt;&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;tab-content&quot;&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</section>
+<div class="well bs-ref clearfix">
+    <span class="pull-left">For native Bootstrap Tab Options</span><a href="http://getbootstrap.com/javascript/#tabs" target="_blank" class="btn btn-primary pull-right ">Bootstrap Documentation</a>
+</div>
+<p>Other Useful resources thay you may find:</p>
+<ul class="other-ref">
+    <li><a href="{# ROOT #}partials/accordians.html.html">Accordians</a></li>
+    <li><a href="{# ROOT #}partials/form_wizard.html">Form Wizards</a></li>
+</ul>

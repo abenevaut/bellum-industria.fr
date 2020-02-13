@@ -1,0 +1,103 @@
+/*------------------------------------------------------------------
+[22. Hover]
+*/
+.hover-push {
+  background: #000;
+  position: relative;
+  cursor: pointer;
+}
+.hover-push:hover .hover-backdrop {
+  opacity: .6;
+}
+.hover-push:hover .hover-caption {
+  -webkit-transform: translate3d(0, -20px, 0);
+  transform: translate3d(0, -20px, 0);
+}
+.hover-push:hover .hover-caption a {
+  opacity: 1;
+}
+.hover-push:hover .hover-caption a:after {
+  -webkit-transform: translate3d(0, 40px, 0);
+  transform: translate3d(0, 40px, 0);
+  opacity: 1;
+}
+.hover-push .hover-backdrop {
+  opacity: .8;
+  background-size: cover !important;
+  background-position: center !important;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.hover-push .hover-caption {
+  position: relative;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.hover-push .hover-caption a {
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.hover-push .hover-caption a:after {
+  position: absolute;
+  bottom: 32px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  content: '';
+  -webkit-transform: translate3d(0, 80px, 0);
+  transform: translate3d(0, 80px, 0);
+  opacity: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.hover-zoom {
+  cursor: pointer;
+  position: relative;
+}
+.hover-zoom .inner {
+  z-index: 1;
+}
+.hover-zoom:hover [data-pages-bg-image] {
+  transform: scale(1.1);
+}
+.hover-zoom:hover [data-pages-bg-image] .bg-overlay {
+  opacity: .3 !important;
+}
+.hover-zoom [data-pages-bg-image] {
+  transition: all .3s ease;
+}
+.hover-zoom [data-pages-bg-image] .bg-overlay {
+  transition: all .3s ease;
+}
+.hover-zoom-simple {
+  cursor: pointer;
+  position: relative;
+}
+.hover-zoom-simple [data-pages-bg-image] {
+  background-position: center center;
+  transition: background-size 0.3s ease;
+  -webkit-transition: background-size 0.3s ease;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.hover-zoom-simple [data-pages-bg-image]:hover {
+  background-size: 110%;
+}
+.hover-zoom-simple [data-pages-bg-image] .bg-overlay {
+  transition: all .3s ease;
+}
+.hover-zoom-simple [data-pages-bg-image]:hover .bg-overlay {
+  opacity: .6 !important;
+}

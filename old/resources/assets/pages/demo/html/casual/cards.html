@@ -1,0 +1,16 @@
+{% set TITLE = "- Cards" %}
+{% set ASSETS = "assets" %}
+{% set ASSETS_PLUGINS = "assets/plugins" %}
+{% set PAGES_CORE = "pages" %} {% set THEME = "themes/modern" %}
+{% set mode = "horizontal_menu" %} {% set breadcrumb = "breadcrumb-alt" %}
+{% set page_title = "cards" %}
+{% set active_parent = "cards" %}
+{% extends PATH + "layouts/horizontal_condensed_layout.html" %}
+{% block css_dependencies %}{% endblock %}
+  {% block page %}
+  {% include PATH + "pages/cards/cards.tpl"%}
+  {% endblock %}
+{% block page_js_dependencies %}{% endblock %}
+{% block addition_js %}
+    <script src="assets/js/card.js" type="text/javascript"></script>
+{% endblock %}

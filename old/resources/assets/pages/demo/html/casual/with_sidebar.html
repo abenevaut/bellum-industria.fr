@@ -1,0 +1,25 @@
+{% set TITLE = "- Blank Page" %}
+{% set ASSETS = "assets" %}
+{% set ASSETS_PLUGINS = "assets/plugins" %}
+{% set PAGES_CORE = "pages" %} {% set THEME = "themes/modern" %}
+{% set mode = "horizontal_menu" %} {% set breadcrumb = "breadcrumb-alt" %}
+{% set page_title = "blank" %}
+
+{% extends PATH + "layouts/horizontal_condensed_layout_with_sidebar.html" %}
+{% block css_dependencies %}{% endblock %}
+	{% block page %}
+          <div class="jumbotron bg-transparent" data-pages="parallax">
+            <div class="sm-p-l-0 sm-p-r-0">
+                <!-- START BREADCRUMB -->
+                {% if breadcrumb != 'breadcrumb-alt' %} <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">UI Elements</a></li>
+                  <li class="breadcrumb-item active">Color</li>
+                </ol>
+                <!-- END BREADCRUMB --> {% endif %}
+            </div>
+          </div>
+          <div class="">
+
+          </div>
+	{% endblock %}
+{% block js_dependencies %}{% endblock %}

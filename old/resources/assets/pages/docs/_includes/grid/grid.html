@@ -1,0 +1,124 @@
+
+
+<section id="grid">
+    <h3 class="page-title">
+            Grid
+          </h3>
+    <hr>
+    <h5>
+Bootstrap grid includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. It includes predefined classes for easy layout options, as well as powerful mixins for generating more semantic layouts
+          </h5>
+    <h3 id="grid-intro">Introduction</h3>
+    <p>Grid systems are used for creating page layouts through a series of rows and columns that house your content. Here's how the Bootstrap grid system works:</p>
+    <ul class="fs-13 p-l-25">
+        <li>You must start with <code>row</code></li>
+        <li>There are pre-define classes of columns starting from 1 to 12, example <code>col-md-1</code> to <code>col-md-12</code></li>
+        <li>Each of these value represent a percentage of the screen, 1 being the smallest and 12 being 100%</li>
+        <li>You can create different grid pattern that finally forms 12 </li>
+        <p class="all-caps fs-12 bold">
+            example :
+        </p>
+        <pre><code class="xml">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;
+  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;
+  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;
+  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;
+  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;
+  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;
+  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;
+  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;
+  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;
+  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;
+  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;
+  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-md-8&quot;&gt;.col-md-8&lt;/div&gt;
+  &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
+  &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
+  &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-md-6&quot;&gt;.col-md-6&lt;/div&gt;
+  &lt;div class=&quot;col-md-6&quot;&gt;.col-md-6&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <br>
+        <li>There different grids for different screen sizes, "col-md" md stands for medium screen, the following table explains</li>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>
+                            Extra small devices
+                            <small>Phones (&lt;768px)</small>
+                        </th>
+                        <th>
+                            Small devices
+                            <small>Tablets (≥768px)</small>
+                        </th>
+                        <th>
+                            Medium devices
+                            <small>Desktops (≥992px)</small>
+                        </th>
+                        <th>
+                            Large devices
+                            <small>Desktops (≥1200px)</small>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="text-nowrap">Grid behavior</th>
+                        <td>Horizontal at all times</td>
+                        <td colspan="3">Collapsed to start, horizontal above breakpoints</td>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap">Container width</th>
+                        <td>None (auto)</td>
+                        <td>750px</td>
+                        <td>970px</td>
+                        <td>1170px</td>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap">Class prefix</th>
+                        <td><code>.col-xs-</code></td>
+                        <td><code>.col-sm-</code></td>
+                        <td><code>.col-md-</code></td>
+                        <td><code>.col-lg-</code></td>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap"># of columns</th>
+                        <td colspan="4">12</td>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap">Column width</th>
+                        <td class="text-muted">Auto</td>
+                        <td>~62px</td>
+                        <td>~81px</td>
+                        <td>~97px</td>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap">Gutter width</th>
+                        <td colspan="4">30px (15px on each side of a column)</td>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap">Nestable</th>
+                        <td colspan="4">Yes</td>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap">Offsets</th>
+                        <td colspan="4">Yes</td>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap">Column ordering</th>
+                        <td colspan="4">Yes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </ul>
+</section>

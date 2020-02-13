@@ -1,0 +1,122 @@
+
+
+
+<section id="notifications">
+    <h3 class="page-title">Notifications</h3>
+<hr>
+    <h4>Pages Notification Plugin</h4>
+    <p>Use Pages Notification plugin that has been custom-made to suit overall theme, to add unique notifications of various styles</p>
+    <p>Show a sliding bar from top or bottom that fits the screen width</p>
+    <pre><code class="xml">&lt;script&gt;
+$(document).ready(function() {
+    // Apply the plugin to the body 
+   $('body').pgNotification(options).show();
+});
+&lt;/script&gt;</code></pre>
+    <h5>Options</h5>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 100px;">Name</th>
+                    <th style="width: 100px;">Type</th>
+                    <th style="width: 50px;">Default</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>style</td>
+                    <td>string</td>
+                    <td>'simple'</td>
+                    <td>Sets the style of the notification. Styles available are 'bar', 'flip', 'circle', 'simple'</td>
+                </tr>
+                <tr>
+                    <td>message</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>
+                        <p>Message to be displayed inside the notification.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>position</td>
+                    <td>string</td>
+                    <td>'top-right'</td>
+                    <td>
+                        <p>Where to place the notification. Positions available are:</p>
+                        <ul class="m-l-20">
+                            <li>top</li>
+                            <li>bottom</li>
+                            <li>top-right</li>
+                            <li>top-left</li>
+                            <li>bottom-right</li>
+                            <li>bottom-left</li>
+                        </ul>
+                        Note: Use 'top' and 'bottom' only for positioning 'bar' notification
+                    </td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>string</td>
+                    <td>'info'</td>
+                    <td>
+                        <p>Sets the type of the notification - 'info', 'warning', 'success', 'danger'.</p>
+                        <p>Changing the type will change the background color and font color of the notification</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>showClose</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>
+                        <p>Show/Hide the close button</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>timeout</td>
+                    <td>number</td>
+                    <td>4000</td>
+                    <td>
+                        <p>Decides for how long the notification should be visible on the screen in miliseconds. Setting timeout <code>0</code> will keep notification forever. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>onShown</td>
+                    <td>function</td>
+                    <td>null</td>
+                    <td>
+                        <p>Callback function fired after the notification is shown</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>onClose</td>
+                    <td>function</td>
+                    <td>null</td>
+                    <td>
+                        <p>Callback function fired after the notification is closed</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>
+                        <p>Only available for style 'circle'. Sets the title of the notification</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>thumbnail</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>
+                        <p>Only available for style 'circle'. Shows a thumbnail image together with the message</p>
+                        <p>Any <code>img</code> can be passed. The following structure is recommended</p>
+                        <code>&lt;img width=&quot;40&quot; height=&quot;40&quot; style=&quot;display: inline-block;&quot; src=&quot;assets/img/profiles/avatar2x.jpg&quot; data-src=&quot;assets/img/profiles/avatar.jpg&quot; data-src-retina=&quot;assets/img/profiles/avatar2x.jpg&quot; alt=&quot;&quot;&gt;
+</code>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

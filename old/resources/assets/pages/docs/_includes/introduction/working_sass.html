@@ -1,0 +1,214 @@
+
+
+<section id="working_sass">
+    <h3 class="page-title">
+            Working with Sass 
+          </h3>
+    <hr>
+    <p>Sass is a CSS pre-processor, meaning that it extends the CSS language, adding features that allow variables, mixins, functions. Pages supports Sass and is pure built on top of Sass </p>
+    <p> Sass Files are found under <code>pages/src/sass</code>
+    </p>
+    <div class="m-b-20" id="g-tree">
+        <ul id="gdata" style="display: none;">
+            <li class="folder expanded" id="gid3">sass
+                <ul>
+                    <li class="folder" id="gid3">modules
+                    </li>
+                    <li class="folder" id="gid5">themes
+                        <ul>
+                            <li id="gid54.1.1" class="folder ">default
+                                <ul>
+                                    <li id="gid2">var.scss</li>
+                                    <li id="gid2">theme.scss</li>
+                                </ul>
+                            </li>
+                            <li id="gid54.1.2" class="folder ">simple
+                                <ul>
+                                    <li id="gid2">var.scss</li>
+                                    <li id="gid2">theme.scss</li>
+                                </ul>
+                            </li>
+                            <li id="gid54.1.2" class="folder ">corporate
+                                <ul>
+                                    <li id="gid2">var.scss</li>
+                                    <li id="gid2">theme.scss</li>
+                                </ul>
+                            </li>
+                            <li id="gid54.1.2" class="folder ">retro
+                                <ul>
+                                    <li id="gid2">var.scss</li>
+                                    <li id="gid2">theme.scss</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="gid2">mixin.scss</li>
+                    <li id="gid2">modules.scss</li>
+                    <li id="gid2">pages.scss</li>
+                    <li id="gid2">responsive.scss</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <h5 class="semi-bold">
+Modules</h5>
+    <p>
+        The seperation of modules help you to remove whats not necessary and build your own custom pages css</p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-condensed table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>layout.scss</td>
+                    <td>The core layout styles for pages</td>
+                </tr>
+                <tr>
+                    <td>respnsive.scss</td>
+                    <td>The responsive handlers</td>
+                </tr>
+                <tr>
+                    <td>cards.scss</td>
+                    <td>Bootstrap cards over-written classes</td>
+                </tr>
+                <tr>
+                    <td>typography.scss</td>
+                    <td>Contains all typo related styles included bg-color</td>
+                </tr>
+                <tr>
+                    <td>button.scss</td>
+                    <td>Bootstrap button over-written classes and pages dropdown</td>
+                </tr>
+                <tr>
+                    <td>alerts.scss</td>
+                    <td>Bootstrap alert messages over-written classes</td>
+                </tr>
+                <tr>
+                    <td>notifications.scss</td>
+                    <td>Pages notifications, bootstrap badges, popovers</td>
+                </tr>
+                <tr>
+                    <td>progress_indicators.scss</td>
+                    <td>Pages progress bars, bootstrap native progress</td>
+                </tr>
+                <tr>
+                    <td>modals.scss</td>
+                    <td>Bootstrap Modal Classes</td>
+                </tr>
+                <tr>
+                    <td>tabs_accordian.scss</td>
+                    <td>Bootstrap tabs and accordains</td>
+                </tr>
+                <tr>
+                    <td>sliders.scss</td>
+                    <td>Class for sliders</td>
+                </tr>
+                <tr>
+                    <td>treeview.scss</td>
+                    <td>Class for treeview</td>
+                </tr>
+                <tr>
+                    <td>treeview.scss</td>
+                    <td>Class for nestables</td>
+                </tr>
+                <tr>
+                    <td>form_elements.scss</td>
+                    <td>All form related class including layouts & validations</td>
+                </tr>
+                <tr>
+                    <td>tables.scss</td>
+                    <td>Classes for bootstrap tables and datatables</td>
+                </tr>
+                <tr>
+                    <td>tables.scss</td>
+                    <td>Classes for bootstrap tables and datatables</td>
+                </tr>
+                <tr>
+                    <td>vector_map.scss</td>
+                    <td>Classes for mapplic plugin</td>
+                </tr>
+                <tr>
+                    <td>Charts.scss</td>
+                    <td>All chart related classes</td>
+                </tr>
+                <tr>
+                    <td>print.scss</td>
+                    <td>Print media query for invoice</td>
+                </tr>
+                <tr>
+                    <td>lockscreen.scss</td>
+                    <td>Class for lockscreen</td>
+                </tr>
+                <tr>
+                    <td>calendar.scss</td>
+                    <td>Pages Calendar plugin</td>
+                </tr>
+                <tr>
+                    <td>social.scss</td>
+                    <td>Pages Social</td>
+                </tr>
+                <tr>
+                    <td>email.scss</td>
+                    <td>Pages email</td>
+                </tr>
+                <tr>
+                    <td>misc.scss</td>
+                    <td>All other utilities and helper classes</td>
+                </tr>
+                <tr>
+                    <td>z-index.scss</td>
+                    <td>To maintian heierachchy and order for layers</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <h5 class="semi-bold">
+Varriables</h5>
+    <p>
+        Varriables help to generate themes, you can custom build you very own theme. The varriables will be include inside a specific theme
+        <br>e.g:
+        <code>scss/themes/default/var.scss</code> by changing the a few 5 main color varrables you can create your own color palette
+    </p>
+    <br>
+    <h5>Creating your own Color Pallete</h5>
+    <p>
+        By simply changing the following varriables the entire color palete mention here will change
+        <a href="{# ROOT #}partials/color.html" target="_blank">Color Palette</a>
+        <br>
+        <br>
+        <strong>Main Base color</strong>
+        <br>
+        <code>$color-master</code>
+        <br>
+        <strong>Primary Colors</strong>
+        <br>
+        <code>$color-success</code>
+        <br>
+        <code>$color-complete</code>
+        <br>
+        <code>$color-primary</code>
+        <br>
+        <code>$color-warning</code>
+        <br>
+        <code>$color-danger</code>
+        <br>
+        <code>$color-info</code>
+    </p>
+    <br>
+    <h5 class="semi-bold">
+Mixins</h5>
+    <p>
+        We have made a wide varraity of mixins that can be used in scss,
+        <br>mixins can be found under <code>pages/src/scss/mixin.scss</code>
+    </p>
+</section>

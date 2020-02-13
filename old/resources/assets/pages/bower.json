@@ -1,0 +1,40 @@
+{
+  "name": "pages-admin-dashboard",
+  "version": "2.1.6",
+  "homepage": "https://github.com/revoxltd/pages",
+  "authors": [
+    "malith@revox.io"
+  ],
+  "description": "Pages Admin UI Framework",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+  	"jquery": "~2.2.2",
+  	"bootstrap":"3.3.4",
+    "jquery.scrollbar":"*", 
+    "select2":"3.5.3",
+    "switchery":"0.8.1",
+    "moment":"*",
+    "modernizr":"2.8.3",
+    "jqueryui":"*", 
+    "unveil":"*", 
+    "bez":"*",
+    "jquery-validation":"*",
+    "typeahead.js":"*",
+    "bootstrap-daterangepicker":"*",
+    "bootstrap-datepicker":"*",
+    "tagsinput":"*",
+    "autoNumeric":"*",
+    "jquery.inputmask":"*",
+    "bootstrap3-wysihtml5-bower":"*",
+    "summernote":"*",
+    "dropzone":"*",
+    "twitter-bootstrap-wizard":"*",
+    "datatables":"*",
+    "nvd3":"*",
+    "sparkline":"*",
+    "jquery.dynatree":"*",
+    "skycons-html5":"*"
+  }
+}
+

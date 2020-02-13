@@ -1,0 +1,20 @@
+## Customize the test machine
+machine:
+  node:
+    version: 6.0.0
+  # Add some environment variables
+  environment:
+    CIRCLE_ENV: test
+
+## Customize dependencies
+dependencies:
+  pre:
+    - gem install sass
+    - npm install 
+
+## Customize test commands
+test:
+  override:
+    - grunt test
+    - grunt jsvalidate
+## Customize deployment commands

@@ -1,0 +1,210 @@
+
+
+<section id="form_layouts">
+    <h3 class="page-title">Form Layouts</h3>
+    <hr>
+    <p>
+        This section of the documentation will guide you how to apply different form styles for your need, There 3 different new styles that you an use, Please follow the steps in achieving this. There is no need of external JS or CSS libraries.
+    </p>
+</section>
+<section>
+    <h3 class="#standardbsform" id="standardbsform">
+            Creating a Standard Bootstrap Form
+          </h3>
+    <hr>
+    <p>
+        To create a native bootstrap form, the following tags are a must, It is the standard procedure in Bootstrap
+        <ol class="fs-13 p-l-25">
+            <li>You should have a form tag</li>
+            <li>A label for your input is conditional</li>
+            <li>Both label and input should be wrapped in <code>form-group</code></li>
+        </ol>
+    </p>
+    <p class="all-caps fs-12 bold">
+        example :
+    </p>
+    <pre><code class="xml">&lt;form role=&quot;form&quot;&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;exampleInputEmail1&quot;&gt;Email address&lt;/label&gt;
+    &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;exampleInputEmail1&quot; placeholder=&quot;Enter email&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;exampleInputPassword1&quot;&gt;Password&lt;/label&gt;
+    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;exampleInputPassword1&quot; placeholder=&quot;Password&quot;&gt;
+  &lt;/div&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+    <br>
+    <p>For more detailed documentation of Bootstrap forms
+        <br>
+        <br>
+        <a href="http://getbootstrap.com/css/#forms" target="_blank" class="btn btn-complete">Bootstrap Form Guideline</a>
+    </p>
+</section>
+<section>
+    <h3 id="defaultform">
+            Pages Default Form Layout
+          </h3>
+    <hr>
+    <p>
+        To create a pages default form layout, append the class <code>form-group-default</code> to <code>form-group</code>. But first you must create a bootstrap form <a href="#standardbsform">Click here to see</a>
+    </p>
+    <div class="example m-t-15">
+        <p class="all-caps fs-12 bold">
+            example :
+        </p>
+        <form role="form">
+            <div class="form-group form-group-default ">
+                <label>Project</label>
+                <input type="email" class="form-control" required>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group form-group-default">
+                        <label>First name</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group form-group-default">
+                        <label>Last name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group form-group-default">
+                <label>Password</label>
+                <input type="password" class="form-control" required>
+            </div>
+            <div class="form-group form-group-default">
+                <label>Placeholder</label>
+                <input type="email" class="form-control" placeholder="ex: some@example.com" required>
+            </div>
+            <div class="form-group form-group-default disabled">
+                <label>Disabled</label>
+                <input type="email" class="form-control" value="You can put anything here" disabled>
+            </div>
+        </form>
+    </div>
+    <pre><code class="xml">&lt;form role=&quot;form&quot;&gt;
+    
+    &lt;div class=&quot;form-group form-group-default &quot;&gt;
+        &lt;label&gt;Project&lt;/label&gt;
+        &lt;input type=&quot;email&quot; class=&quot;form-control&quot; required&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-6&quot;&gt;
+            &lt;div class=&quot;form-group form-group-default&quot;&gt;
+                &lt;label&gt;First name&lt;/label&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; required&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-sm-6&quot;&gt;
+            &lt;div class=&quot;form-group form-group-default&quot;&gt;
+                &lt;label&gt;Last name&lt;/label&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-group form-group-default&quot;&gt;
+        &lt;label&gt;Password&lt;/label&gt;
+        &lt;input type=&quot;password&quot; class=&quot;form-control&quot; required&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-group form-group-default&quot;&gt;
+        &lt;label&gt;Placeholder&lt;/label&gt;
+        &lt;input type=&quot;email&quot; class=&quot;form-control&quot; placeholder=&quot;ex: some@example.com&quot; required&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-group form-group-default disabled&quot;&gt;
+        &lt;label&gt;Disabled&lt;/label&gt;
+        &lt;input type=&quot;email&quot; class=&quot;form-control&quot; value=&quot;You can put anything here&quot; disabled&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+    <br>
+</section>
+<section>
+    <h3 class="#attachedform">
+            Pages Attached Form Layout
+          </h3>
+    <hr>
+    <p>
+        To create a attached form layout follow the following steps
+        <ol class="fs-13 p-l-25">
+            <li>Create a form following the <a href="#defaultform">Pages Default Form layout</a>. Attached layout can ONLY be applied to the Pages Default style.</li>
+            <li>Wrap a set of <code>form-group-default</code> elements with <code>form-group-attached</code></li>
+        </ol>
+    </p>
+    <div class="example m-t-15">
+        <p class="all-caps fs-12 bold">
+            example :
+        </p>
+        <form role="form">
+            <div class="form-group-attached">
+                <div class="form-group form-group-default required">
+                    <label>Project name</label>
+                    <input type="text" class="form-control" name="projectName" required>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label>First name</label>
+                            <input type="text" class="form-control" name="firstName" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default">
+                            <label>Last name</label>
+                            <input type="text" class="form-control" name="lastName">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <pre><code class="xml">&lt;form role=&quot;form&quot;&gt;
+    &lt;div class=&quot;form-group-attached&quot;&gt;
+        &lt;div class=&quot;form-group form-group-default required&quot;&gt;
+            &lt;label&gt;Project name&lt;/label&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;projectName&quot; required&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;row clearfix&quot;&gt;
+            &lt;div class=&quot;col-sm-6&quot;&gt;
+                &lt;div class=&quot;form-group form-group-default required&quot;&gt;
+                    &lt;label&gt;First name&lt;/label&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;firstName&quot; required&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-sm-6&quot;&gt;
+                &lt;div class=&quot;form-group form-group-default&quot;&gt;
+                    &lt;label&gt;Last name&lt;/label&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;lastName&quot;&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+</section>
+<section>
+    <h3 class="#form_horizontal" id="form_horizontal">
+            Pages Horizontal Form Layout
+          </h3>
+    <hr>
+    <p>
+        To create a pages default form layout, add the class <code>form-horizontal</code>. First you must create a bootstrap form <a href="#standardbsform">Click here to see</a>
+    </p>
+    <p class="all-caps fs-12 bold">
+        example :
+    </p>
+    <pre><code class="xml">&lt;form class=&quot;form-horizontal&quot; role=&quot;form&quot;&gt;
+...
+&lt;/form&gt;</code></pre>
+</section>
+<p>Other Useful resources thay you may find:</p>
+<ul class="other-ref">
+    <li><a href="http://getbootstrap.com/css/#grid">Bootstrap Grid</a></li>
+    <li><a href="{# ROOT #}partials/form_elements.html">Form Elements</a></li>
+    <li><a href="{# ROOT #}partials/form_validation.html">Form Validation</a></li>
+</ul>

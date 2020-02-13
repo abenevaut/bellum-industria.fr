@@ -1,0 +1,153 @@
+<div class="sidebar">
+<div class="pg_scrollable">
+    <ul class="navb">
+        <li {% if active_page =="home" %} class="active" {% endif %}>
+            <h6>Introduction</h6>
+            <ul class="navb" style="overflow: hidden; display: block;">
+                <li {% if active_page =="home" %} class="active" {% endif %}>
+                    <a href="{# ROOT #}index.html">Getting Started</a>
+                </li>
+                <li {% if active_page =="less" %} class="active" {% endif %}>
+                    <a href="{# ROOT #}partials/less.html">LESS</a>
+                </li>
+                 <li {% if active_page =="sass" %} class="active" {% endif %}>
+                    <a href="{# ROOT #}partials/sass.html">SASS</a>
+                </li>
+                <li {% if active_page =="grunt" %} class="active" {% endif %}>
+                    <a href="{# ROOT #}partials/grunt.html">Grunt</a>
+                </li>
+                <li {% if active_page =="gulp" %} class="active" {% endif %}>
+                    <a href="{# ROOT #}partials/gulp.html">Gulp</a>
+                </li>
+                <li {% if active_page =="browser_support" %} class="active" {% endif %}>
+                    <a href="{# ROOT #}partials/browser_support.html">Browser Support</a>
+                </li>
+                <li {% if active_page =="meteor_js" %} class="active" {% endif %}>
+                    <a href="{# ROOT #}partials/meteor_js.html">MeteorJS support</a>
+                </li>
+
+                <li {% if active_page =="rails" %} class="active" {% endif %}>
+                    <a href="{# ROOT #}partials/rails.html">Ruby on Rails support</a>
+                </li>
+            </ul>
+        </li>
+        <li {% if active_page =="layouts" %} class="active" {% endif %}>
+            <a href="{# ROOT #}partials/layouts.html">Layouts</a>
+        </li>
+        <li {% if active_page =="api" %} class="active" {% endif %}>
+            <a href="{# ROOT #}partials/api.html">API Reference</a>
+        </li>
+        <li>
+            <h6>Apps</h6>
+            <ul class="navb">
+                <li {% if active_page =="calendar" %} class="active" {% endif %}> <a href="{# ROOT #}partials/calendar.html"> Calendar </a></li>
+                <li {% if active_page =="social" %} class="active" {% endif %}> <a href="{# ROOT #}partials/social.html"> Social </a></li>
+                <li {% if active_page =="email" %} class="active" {% endif %}> <a href="{# ROOT #}partials/email.html"> Email </a></li>
+            </ul>
+        </li>
+        <li {% if active_page =="layouts" %} class="active" {% endif %}>
+            <a href="{# ROOT #}partials/layouts.html">Layouts</a>
+        </li>
+        <li {% if active_page =="content" %} class="active" {% endif %}>
+            <a href="{# ROOT #}partials/content.html">Content</a>
+        </li>
+        <li {% if active_page =="themes" %} class="active" {% endif %}>
+            <a href="{# ROOT #}partials/themes.html">Themes</a>
+        </li>
+        <li {% if active_page =="grid" %} class="active" {% endif %}>
+            <a href="{# ROOT #}partials/grid.html">Grid</a>
+        </li>
+        <li {% if active_page =="views" %} class="active" {% endif %}>
+            <a href="{# ROOT #}partials/views.html">Views</a>
+        </li>
+        <li {% if active_page =="helpers" %} class="active" {% endif %}>
+            <a href="{# ROOT #}partials/helpers.html">Helpers</a>
+        </li>
+        <li {% if active_page =="portlets" %} class="active" {% endif %}>
+            <a href="{# ROOT #}partials/cards.html">Cards</a>
+        </li>
+        <li>
+            <h6>UI Elements</h6>
+            <ul class="navb">
+                <li {% if active_page =="color" %} class="active" {% endif %}> <a href="{# ROOT #}partials/color.html"> Color </a>
+                </li>
+                <li {% if active_page =="typo" %} class="active" {% endif %}> <a href="{# ROOT #}partials/typo.html"> Typography </a>
+                </li>
+                <li {% if active_page =="icons" %} class="active" {% endif %}> <a href="{# ROOT #}partials/icons.html">Icons</a>
+                </li>
+                <li {% if active_page =="buttons" %} class="active" {% endif %}> <a href="{# ROOT #}partials/buttons.html">Buttons</a>
+                </li>
+                <li {% if active_page =="notification" %} class="active" {% endif %}> <a href="{# ROOT #}partials/notification.html"> Notifications </a>
+                </li>
+                <li {% if active_page =="modals" %} class="active" {% endif %}> <a href="{# ROOT #}partials/modals.html"> Modals </a>
+                </li>
+                <li {% if active_page =="progress" %} class="active" {% endif %}> <a href="{# ROOT #}partials/progress.html"> Progress &amp; Activity </a>
+                </li>
+                <li {% if active_page =="accordians" %} class="active" {% endif %}> <a href="{# ROOT #}partials/accordians.html">Accordians </a> </li>
+                <li {% if active_page =="tabs" %} class="active" {% endif %}> <a href="{# ROOT #}partials/tabs.html"> Tabs </a>
+                </li>
+                <li {% if active_page =="sliders" %} class="active" {% endif %}> <a href="{# ROOT #}partials/sliders.html">Sliders</a>
+                </li>
+                <li {% if active_page =="treeview" %} class="active" {% endif %}> <a href="{# ROOT #}partials/treeview.html">Tree View</a>
+                </li>
+                <li {% if active_page =="nestable" %} class="active" {% endif %}> <a href="{# ROOT #}partials/nestable.html">Nestable </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h6>Forms</h6>
+            <ul class="navb">
+                <li {% if active_page =="form_elements" %} class="active" {% endif %}>
+                    <a href="{# ROOT #}partials/form_elements.html">Form Elements</a>
+                </li>
+                <li {% if active_page =="form_layouts" %} class="active" {% endif %}>
+                    <a href="{# ROOT #}partials/form_layouts.html">Form Layouts</a>
+                </li>
+                <li {% if active_page =="form_validation" %} class="active" {% endif %}>
+                    <a href="{# ROOT #}partials/form_validation.html">Form Validation</a>
+                </li>
+                <li {% if active_page =="form_wizard" %} class="active" {% endif %}>
+                    <a href="{# ROOT #}partials/form_wizard.html">Form Wizard</a>
+                </li>
+            </ul>
+        </li>
+        <li {% if active_page =="charts" %} class="active" {% endif %}>
+            <a href="{# ROOT #}partials/charts.html">Charts</a>
+        </li>
+        <li>
+            <h6>Maps</h6>
+            <ul class="navb">
+                <li {% if active_page =="google_maps" %} class="active" {% endif %}>
+                    <a href="{# ROOT #}partials/google_maps.html">Google Maps</a>
+                </li>
+                <li {% if active_page =="vector_maps" %} class="active" {% endif %}>
+                    <a href="{# ROOT #}partials/vector_maps.html">Vector Maps</a>
+                </li>
+            </ul>
+        </li>
+        <li {% if active_page =="tables" %} class="active" {% endif %}>
+            <a href="{# ROOT #}partials/tables.html">Tables</a>
+        </li>
+        <li>
+            <h6>Extras</h6>
+            <ul class="navb">
+                <li {% if active_page =="timeline" %} class="active" {% endif %}>
+                    <a href="{# ROOT #}partials/timeline.html">Timeline</a>
+                </li>
+            </ul>
+        </li>
+        <li {% if active_page =="troubleshooting" %} class="active" {% endif %}>
+            <a href="{# ROOT #}partials/troubleshooting.html">Troubleshooting</a>
+        </li>
+        <li {% if active_page =="changelog" %} class="active" {% endif %}>
+            <a href="http://changelog.pages.revox.io/">Changelog</a>
+        </li>
+        <li {% if active_page =="changelog" %} class="active" {% endif %}>
+            <a href="https://trello.com/b/Ju0iDcIh/pages-admin">Road Map</a>
+        </li>
+        <li {% if active_page =="support" %} class="active" {% endif %}>
+            <a href="{# ROOT #}partials/support.html">Support</a>
+        </li>
+    </ul>
+</div>
+</div>

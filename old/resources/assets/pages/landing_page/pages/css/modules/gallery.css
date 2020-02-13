@@ -1,0 +1,65 @@
+/*------------------------------------------------------------------
+[17. Gallery]
+*/
+.gallery {
+  margin: auto;
+}
+.gallery-item {
+  overflow: hidden;
+  cursor: default;
+  background-color: #000;
+  position: relative;
+}
+.gallery-item:hover {
+  cursor: pointer;
+}
+.gallery-item[data-width="1"] {
+  width: 24.98%;
+}
+.gallery-item[data-width="2"] {
+  width: 49.96%!important;
+}
+.gallery-item > img {
+  opacity: 1;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+.gallery-item > .live-tile img {
+  opacity: 1;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+.gallery-item .rating {
+  margin-top: -5px;
+  color: rgba(255, 255, 255, 0.3);
+}
+.gallery-item .rating > .rated {
+  color: #ffffff;
+}
+.gallery-item .item-info {
+  -webkit-transform: translate3d(0, 40%, 0);
+  transform: translate3d(0, 40%, 0);
+  -webkit-transition: -webkit-transform 0.35s, color 0.35s;
+  transition: transform 0.35s, color 0.35s;
+}
+.gallery-item .item-info.more-content {
+  -webkit-transform: translate3d(0, 32%, 0);
+  transform: translate3d(0, 32%, 0);
+}
+.gallery-item:hover .item-info {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.gallery-item:hover > img {
+  opacity: 0.6;
+}
+.gallery-item:hover > .live-tile img {
+  opacity: 0.6;
+}
+.gallery-item:active .item-info {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.gallery-item:active > img {
+  opacity: 0.6;
+}

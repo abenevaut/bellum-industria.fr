@@ -1,0 +1,16 @@
+{% set TITLE = "- Color" %}
+{% set ASSETS = "assets" %}
+{% set ASSETS_PLUGINS = "assets/plugins" %}
+{% set PAGES_CORE = "pages" %}
+{% set THEME ="pages" %}
+{% set mode = "horizontal_menu" %}
+{% set page_title = "color" %}
+{% set active_parent = "ui" %}
+{% set mode = "horizontal_menu" %}
+
+{% extends PATH + "layouts/horizontal_app_layout.html" %}
+{% block css_dependencies %}{% endblock %}
+	{% block page %}
+	{% include PATH + "pages/ui/color/color.tpl"%}
+	{% endblock %}
+{% block js_dependencies %}{% endblock %}

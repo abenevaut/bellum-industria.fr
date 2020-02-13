@@ -1,0 +1,89 @@
+<section id="timeline">
+    <h3 class="page-title">Timeline</h3>
+    <hr>
+    <p>Pages timeline has been adapted from <a href="http://codyhouse.co/gem/vertical-timeline/">CodyHouse Timeline example</a>.
+    </p>
+    <h5 class="semi-bold">Step one</h5>
+    <p>Start by creating the markup for the timeline. We recommend that you use the same card elements which were introduced in <a href="{# ROOT #}partials/social.html">Pages Social app</a> for each post of the timeline
+    </p>
+    <pre>
+<code class="xml">&lt;div class=&quot;timeline-container&quot;&gt;
+    &lt;section class=&quot;timeline&quot;&gt;
+        &lt;div class=&quot;timeline-block&quot;&gt;
+            &lt;div class=&quot;timeline-point success&quot;&gt;
+                &lt;i class=&quot;pg-map&quot;&gt;&lt;/i&gt;
+            &lt;/div&gt;
+            &lt;!-- timeline-point --&gt;
+            &lt;div class=&quot;timeline-content&quot;&gt;
+                &lt;!-- START CARD ELEMENT --&gt;
+                &lt;div class=&quot;card share full-width&quot;&gt;
+                    &lt;div class=&quot;circle&quot; data-toggle=&quot;tooltip&quot; title=&quot;Label&quot;&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;card-header clearfix&quot;&gt;
+                        &lt;div class=&quot;user-pic&quot;&gt;
+                            &lt;img alt=&quot;Profile Image&quot; width=&quot;33&quot; height=&quot;33&quot; data-src-retina=&quot;assets/img/profiles/8x.jpg&quot; data-src=&quot;assets/img/profiles/8.jpg&quot; src=&quot;assets/img/profiles/8x.jpg&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;h5&gt;Jeff Curtis&lt;/h5&gt;
+                        &lt;h6&gt;Shared a Tweet
+                                &lt;span class=&quot;location semi-bold&quot;&gt;&lt;i class=&quot;fa fa-map-marker&quot;&gt;&lt;/i&gt; SF, California&lt;/span&gt;
+                            &lt;/h6&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;card-description&quot;&gt;
+                        &lt;p&gt;What you think, you become. What you feel, you attract. What you imagine, you create - Buddha. &lt;a href=&quot;#&quot;&gt;#quote&lt;/a&gt; &lt;/p&gt;
+                        &lt;div class=&quot;via&quot;&gt;via Twitter&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;!-- END CARD ELEMENT --&gt;
+                &lt;div class=&quot;event-date&quot;&gt;
+                    &lt;h6 class=&quot;font-montserrat all-caps hint-text m-t-0&quot;&gt;Apple Inc&lt;/h6&gt;
+                    &lt;small class=&quot;fs-12 hint-text&quot;&gt;15 January 2015, 06:50 PM&lt;/small&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!-- timeline-content --&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;timeline-block&quot;&gt;
+          ...
+        &lt;/div&gt;
+
+    &lt;/section&gt;
+    &lt;!-- timeline --&gt;
+&lt;/div&gt;
+</code></pre>
+    <h5 class="semi-bold">Step one</h5>
+    <p>Add the following snippet to make the posts appear on scroll with a nice fade in effect. </p>
+    <pre>
+<code class="xml">jQuery(document).ready(function($){
+    var $timeline_block = $('.timeline-block');
+
+    //hide timeline blocks which are outside the viewport
+    $timeline_block.each(function(){
+        if($(this).offset().top > $(window).scrollTop()+$(window).height()*0.75) {
+            $(this).find('.timeline-point, .timeline-content').addClass('is-hidden');
+        }
+    });
+
+    //on scolling, show/animate timeline blocks when enter the viewport
+    $(window).on('scroll', function(){
+        $timeline_block.each(function(){
+            if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.timeline-point').hasClass('is-hidden') ) {
+                $(this).find('.timeline-point, .timeline-content').removeClass('is-hidden').addClass('bounce-in');
+            }
+        });
+    });
+});</code></pre>
+    <h5 class="semi-bold">Aligning elements</h5>
+    <p>
+        By default the posts will be spread on both sides of a vertical axis for larger screens. For small/medium screens the posts will be aligned to left automatically. Explicity specifying either <code>left</code> or <code>center</code> classes in the <code>timeline-container</code> element, posts will be forced not to change the layout type relevant to screen size.
+    </p>
+    <pre>
+<code class="xml">&lt;!-- ALIGN timeline-block ITEMS TO LEFT --&gt;
+    &lt;div class=&quot;timeline-container left&quot;&gt;
+    &lt;section class=&quot;timeline&quot;&gt;
+        
+        &lt;div class=&quot;timeline-block&quot;&gt;
+          ...
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;!-- timeline --&gt;
+&lt;/div&gt;</code></pre>

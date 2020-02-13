@@ -1,0 +1,122 @@
+
+
+<section id="angularjs">
+    <h3 class="page-title">
+            AngularJS support
+          </h3>
+    <hr>
+    <br>
+    <h4>Folder structure</h4>
+    <p>Use Pages AngularJS boilerplate code to kickstart your project in no time. In your downloaded bundle locate to <code>getting_started/angular</code>. You will find a folder structure similar to the following.</p>
+    <div class="m-b-20" id="angular-tree">
+        <ul id="gdata" style="display: none;">
+            <li class="folder expanded">getting_started
+                <ul>
+                    <li class="folder expanded">angular
+                        <ul>
+                            <li class="folder expanded">assets
+                                <ul>
+                                    <li class="folder expanded">css
+                                        <ul>
+                                            <li>style.css</li>
+                                            <li>style.min.css</li>
+                                        </ul>
+                                    </li>
+                                    <li class="folder expanded">js
+                                        <ul>
+                                            <li class="folder expanded">controllers
+                                                <ul>
+                                                    <li>home.js</li>
+                                                    <li>search.js</li>
+                                                </ul>
+                                            </li>
+                                            <li class="folder expanded">directives
+                                                <ul>
+                                                    <li>cs-select.js</li>
+                                                    <li>pg-dropdown.js</li>
+                                                    <li>pg-form-group.js</li>
+                                                    <li>pg-navigate.js</li>
+                                                    <li>pg-portlet.js</li>
+                                                    <li>pg-search.js</li>
+                                                    <li>pg-sidebar.js</li>
+                                                    <li>pg-tab.js</li>
+                                                    <li>skycons.js</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="folder">img
+                                    </li>
+                                    <li class="folder">less
+                                    </li>
+                                    <li class="folder">plugins
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="folder">pages
+                                <ul>
+                                    <li class="folder expanded">css
+                                        <ul>
+                                            <li>pages.css</li>
+                                            <li>pages.min.css</li>
+                                        </ul>
+                                    </li>
+                                    <li class="folder expanded">js
+                                        <ul>
+                                            <li>pages.js</li>
+                                            <li>pages.min.js</li>
+                                        </ul>
+                                    </li>
+                                    <li class="folder">img
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="folder expanded">tpl
+                                <ul>
+                                    <li class="folder">blocks
+                                    </li>
+                                    <li>app.html</li>
+                                    <li>home.html</li>
+                                </ul>
+                            </li>
+                            <li>index.html
+                            </li>
+                            <li>index.haml
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <h5>index.html</h5>
+    <p>It is recommended that you keep the default JS/CSS file loading order intact. If you want to load page specific JS/CSS files you can use
+        <code>ocLazyLoad</code> module to do so (read below). You must NOT remove/change the location of <pre><code>&lt;link id=&quot;lazyload_placeholder&quot;&gt;</code></pre> found inside &lt;head&gt; tag. It acts as a placeholder for all the lazy loaded files (they are added above this line) </p>
+    <br>
+    <h5>Lazy loading</h5>
+    <p>Use <code>assets/js/config.js</code> to define your routes. For each route you can set which libraries, controllers or directives that need to be loaded on demand, using <a href="https://github.com/ocombe/ocLazyLoad">ocLazyLoad</a></p>
+    <pre><code class="js">.state('app.dashboard', {
+    url: &quot;/home&quot;,
+    templateUrl: &quot;tpl/home.html&quot;,
+    controller: 'HomeCtrl',
+    resolve: {
+        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+            return $ocLazyLoad.load([
+                    /* 
+                        Load any ocLazyLoad module here
+                        ex: 'wysihtml5'
+                        Open config.lazyload.js for available modules
+                    */
+                ], {
+                    insertBefore: '#lazyload_placeholder'
+                })
+                .then(function() {
+                    return $ocLazyLoad.load([
+                        'assets/js/controllers/home.js'
+                    ]);
+                });
+        }]
+    }
+})</code></pre>
+</section>

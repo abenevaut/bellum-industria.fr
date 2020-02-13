@@ -1,0 +1,16 @@
+{% set ROOT = "../" %}
+{% extends "docs/_layouts/default.html" %}
+{% block page %}
+<section id="cssrules">
+    <h3 class="page-title">
+           CSS Rules
+          </h3>
+    <hr>
+    <br>
+    <p>A few basic rules when you are including third party plugins or custom css over writes</p>
+    <ul class="fs-12">
+    	<li>CSS Plugins should always be included before pages.css</li>
+    	<li>Custom css files should be included after pages.css</li>
+    	<li>CSS files should be included in the head tag of your HTML</li>
+</section>
+{% endblock %}

@@ -1,0 +1,129 @@
+
+
+<section id="progress_bars">
+    
+<h3 class="page-title">Progress Bars</h3>
+<hr>
+    <h4>Linear Progress</h4>
+    <h5>Indeterminate progress</h5>
+    <p>Indicates a running process where the progress is unknown using an animated <i>svg</i>. ex: AJAX form submission. Simply wrap <code>.progress-bar-indeterminate</code> with Bootstrap's <code>.progress</code>. The progress bar will automatically expand to get the width of its parent <code>&lt;div&gt;</code></p>
+    <div class="example m-t-15">
+        <p class="all-caps fs-12 bold">
+            example :
+        </p>
+        <div style="width:50%">
+            <div class="progress">
+                <div class="progress-bar-indeterminate"></div>
+            </div>
+        </div>
+    </div>
+    <pre><code class="xml">&lt;div style=&quot;width:50%&quot;&gt;
+    &lt;div class=&quot;progress&quot;&gt;
+        &lt;div class=&quot;progress-bar-indeterminate&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    <h5>Color options</h5>
+    <p>In addition to Bootstrap's contextual progress bar classes, Pages has introduced two new classes, <code>.progress-bar-success</code> and <code>.progress-bar-complete</code> if you want to add more color to your project</p>
+    <div class="example m-t-15">
+        <p class="all-caps fs-12 bold">
+            example :
+        </p>
+        <div style="width:50%">
+            <div class="progress">
+                <div class="progress-bar progress-bar-primary" style="width: 35%;"></div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-complete" style="width: 45%;"></div>
+            </div>
+        </div>
+    </div>
+    <pre><code class="xml">&lt;div style=&quot;width:50%&quot;&gt;
+    &lt;div class=&quot;progress&quot;&gt;
+        &lt;div class=&quot;progress-bar progress-bar-primary&quot; style=&quot;width: 35%;&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;progress&quot;&gt;
+        &lt;div class=&quot;progress-bar progress-bar-complete&quot; style=&quot;width: 45%;&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    <h5>Size options</h5>
+    <p>Append <code>.progress-small</code> to <code>.progress</code> to make the progress bars thinner than the usual height</p>
+    <div class="example m-t-15">
+        <p class="all-caps fs-12 bold">
+            example :
+        </p>
+        <div style="width:50%">
+            <!-- Thinner progress bar -->
+            <div class="progress progress-small">
+                <div style="width: 45%;" class="progress-bar progress-bar-success"></div>
+            </div>
+            <!-- Default height -->
+            <div class="progress">
+                <div style="width: 45%;" class="progress-bar progress-bar-success"></div>
+            </div>
+        </div>
+    </div>
+    <pre><code class="xml">&lt;div style=&quot;width:50%&quot;&gt;
+    &lt;!-- Thinner progress bar --&gt;
+    &lt;div class=&quot;progress progress-small&quot;&gt;
+        &lt;div style=&quot;width: 45%;&quot; class=&quot;progress-bar progress-bar-success&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Default height --&gt;
+    &lt;div class=&quot;progress&quot;&gt;
+        &lt;div style=&quot;width: 45%;&quot; class=&quot;progress-bar progress-bar-success&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</section>
+<section>
+    <h4>Circular Progress</h4>
+    <p>
+        Don't like the linear style? Try circular progress indicators instead. These also come with determinate and inderminate options
+    </p>
+    <h5>Indeterminate progress</h5>
+    <div class="example m-t-15">
+        <p class="all-caps fs-12 bold">
+            example :
+        </p>
+        <div class="progress-circle-indeterminate"></div>
+    </div>
+    <pre><code class="xml">&lt;div class=&quot;progress-circle-indeterminate&quot;&gt;&lt;/div&gt;</code></pre>
+    <h5>Determinate progress</h5>
+    <p>A determinate circular progress indicator can be initialized without writing a single line of Javascript code by simply including markup below. Pass any percentage value (0-100) into the <code>value</code> field to set the progress</p>
+    <div class="example m-t-15">
+        <p class="all-caps fs-12 bold">
+            example :
+        </p>
+        <!-- Show 75% of progress -->
+        <input class="progress-circle" data-pages-progress="circle" value="75" type="hidden">
+    </div>
+    <pre><code class="xml">&lt;!-- Show 75% of progress --&gt;
+&lt;input class=&quot;progress-circle&quot; data-pages-progress=&quot;circle&quot; value=&quot;75&quot; type=&quot;hidden&quot; data-color=&quot;complete&quot;&gt;</code></pre>
+    <h5>Color options</h5>
+    <p>Color options can be set using the <code>data-color</code> attribute. Any contextual color can be included. </p>
+    <div class="example m-t-15">
+        <p class="all-caps fs-12 bold">
+            example :
+        </p>
+        <input class="progress-circle" data-pages-progress="circle" value="45" type="hidden" data-color="complete">
+        <br>
+        <input class="progress-circle" data-pages-progress="circle" value="65" type="hidden" data-color="primary">
+        <br>
+        <input class="progress-circle" data-pages-progress="circle" value="75" type="hidden" data-color="success">
+    </div>
+    <pre><code class="xml">&lt;input class=&quot;progress-circle&quot; data-pages-progress=&quot;circle&quot; value=&quot;45&quot; type=&quot;hidden&quot; data-color=&quot;complete&quot;&gt;
+&lt;input class=&quot;progress-circle&quot; data-pages-progress=&quot;circle&quot; value=&quot;65&quot; type=&quot;hidden&quot; data-color=&quot;primary&quot;&gt;
+&lt;input class=&quot;progress-circle&quot; data-pages-progress=&quot;circle&quot; value=&quot;75&quot; type=&quot;hidden&quot; data-color=&quot;success&quot;&gt;</code></pre>
+    <h5>Size options</h5>
+    <p>Stroke of the circle can be made thicker by setting <code>data-thick="true"</code></p>
+    <div class="example m-t-15">
+        <p class="all-caps fs-12 bold">
+            example :
+        </p>
+        <input class="progress-circle" data-pages-progress="circle" value="75" type="hidden" data-thick="true">
+    </div>
+    <pre><code class="xml">&lt;input class=&quot;progress-circle&quot; data-pages-progress=&quot;circle&quot; value=&quot;75&quot; type=&quot;hidden&quot; data-thick=&quot;true&quot;&gt;
+</code></pre>
+</section>
+<div class="well bs-ref clearfix">
+    <span class="pull-left">For native Bootstrap progress bar classes </span><a class="btn btn-primary pull-right " target="_blank" href="http://getbootstrap.com/components/#progress">Bootstrap Documentation</a>
+</div>

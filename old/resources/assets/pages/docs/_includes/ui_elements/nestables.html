@@ -1,0 +1,64 @@
+<section id="nestables">
+    <h3 class="page-title">Nestable</h3>
+    <hr>
+    <h3 class="section-sep">jQuery users</h3>
+    <p>Nestables in Pages are powered by <a href="https://github.com/dbushell/Nestable">jQuery Dynatree</a>, which is a Drag &amp; drop hierarchical list with mouse and touch compatibility Follow these steps to initialize nestables in your page</p>
+    <h5 class="semi-bold">Step one</h5>
+    <p>Include the stylesheet <code>jquery.nestable.css</code> inside the <code>&lt;head&gt;</code>
+        <pre><code class="xml">&lt;link media=&quot;screen&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;assets/plugins/jquery-nestable/jquery.nestable.css&quot;&gt;</code></pre>
+    </p>
+    <h5 class="semi-bold">Step two</h5>
+    <p>
+        Include the relevant javascript files inside the <code>&lt;body&gt;</code> before core template script inclusions
+        <pre><code class="xml">&lt;script type=&quot;text/javascript&quot; src=&quot;assets/plugins/jquery-nestable/jquery.nestable.js&quot;&gt;&lt;/script&gt;</code></pre>
+    </p>
+    <h5 class="semi-bold">Step three</h5>
+    <p>
+        Apply the plugin to your desired element
+    </p>
+    <pre>
+<code class="xml">&lt;!-- Element to be used with the plugin --&gt;
+&lt;div class=&quot;dd&quot; id=&quot;basic_example&quot;&gt;
+    &lt;ol class=&quot;dd-list&quot;&gt;
+        &lt;li class=&quot;dd-item&quot; data-id=&quot;1&quot;&gt;
+            &lt;div class=&quot;dd-handle&quot;&gt;
+                Item 1
+            &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;dd-item&quot; data-id=&quot;2&quot;&gt;
+            &lt;div class=&quot;dd-handle&quot;&gt;
+                Item 2
+            &lt;/div&gt;
+            &lt;ol class=&quot;dd-list&quot;&gt;
+                &lt;li class=&quot;dd-item&quot; data-id=&quot;3&quot;&gt;
+                    &lt;div class=&quot;dd-handle&quot;&gt;
+                        Item 3
+                    &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;dd-item&quot; data-id=&quot;4&quot;&gt;
+                    &lt;div class=&quot;dd-handle&quot;&gt;
+                        Item 4
+                    &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;dd-item&quot; data-id=&quot;5&quot;&gt;
+                    &lt;div class=&quot;dd-handle&quot;&gt;
+                        Item 5
+                    &lt;/div&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+$(document).ready(function() {
+    // Apply the plugin to the element
+     $('#basic_example').nestable();
+});
+&lt;/script&gt;</code></pre>
+</section>
+
+<p>Other useful resources</p>
+<ul class="other-ref">
+    <li><a target="_blank" href="https://github.com/dbushell/Nestable">jQuery Nestables Documentation</a></li>
+</ul>

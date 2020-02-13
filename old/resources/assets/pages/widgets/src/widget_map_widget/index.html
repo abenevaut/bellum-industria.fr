@@ -1,0 +1,16 @@
+{% set ASSETS="http://pages.revox.io/dashboard/latest/assets" %}
+{% extends WIDGET_PATH + "src/layout.html" %}
+{% block vendor_css %}
+<link href="{# PLUGINS_PATH #}mapplic/css/mapplic.css" rel="stylesheet" type="text/css" media="screen" />
+{% endblock %}
+{% block vendor_js %}
+<script src="{# PLUGINS_PATH #}mapplic/js/hammer.js"></script>
+<script src="{# PLUGINS_PATH #}mapplic/js/jquery.mousewheel.js"></script>
+<script src="{# PLUGINS_PATH #}mapplic/js/mapplic.js"></script>
+{% endblock %}
+
+{% block content %}
+
+        {% include PATH + "pages/dashboard/_widget/widget_mapWidget.tpl" %}
+
+{% endblock %}

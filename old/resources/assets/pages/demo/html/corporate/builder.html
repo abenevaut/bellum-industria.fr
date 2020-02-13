@@ -1,0 +1,18 @@
+{% set TITLE = "- Blank Page" %}
+{% set ASSETS = "assets" %}
+{% set ASSETS_PLUGINS = "assets/plugins" %}
+{% set BODY_CLASS ="menu-pin menu-behind" %}
+{% set PAGES_CORE = "pages" %}
+{% set THEME ="themes/corporate" %}
+{% set active_parent = "builder" %}
+
+{% extends PATH + "layouts/builderLayout.html" %}
+  {% block page %}
+  {% include PATH + "pages/builder/builder.tpl"%}
+  {% endblock %}
+  {% block buildOptions %}
+  {% include PATH + "pages/builder/_builderOptionsOpenMenu.tpl" %}
+   {% endblock %}
+{% block addition_js %}
+  <script src="assets/js/demo.js" type="text/javascript"></script>
+{% endblock %}
