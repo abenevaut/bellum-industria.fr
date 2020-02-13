@@ -1,8 +1,0 @@
-	{% if THEME =="" %}
-		{% set THEME ="pages" %}
-	{% endif %}
-	{% if BODY_CLASS =="rtl" %}
-		{% set THEME =THEME+".rtl" %}
-	{% endif %}
-    <link href="{# PAGES_CORE #}/css/pages-icons.css" rel="stylesheet" type="text/css">
-    <link class="main-stylesheet" href="{# PAGES_CORE #}/css/{# THEME #}.css" rel="stylesheet" type="text/css" />
