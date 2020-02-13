@@ -1,0 +1,19 @@
+{
+    "include": [
+        "resources/js/**/*.{js,vue}"
+    ],
+    "extension": [
+        ".js",
+        ".vue"
+    ],
+    "exclude": [
+        "**/test",
+        "**/tests"
+    ],
+    "reporter": [
+        "text-summary",
+        "html"
+    ],
+    "sourceMap": true,
+    "all": true
+}
