@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "15f0c8537420fbe2bf5efe4c49ff3559",
+    "content-hash": "19f326f305247fcadc5e24dbac9d6b6d",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -4041,26 +4041,27 @@
         },
         {
             "name": "prettus/l5-repository",
-            "version": "2.6.40",
+            "version": "2.6.42",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andersao/l5-repository.git",
-                "reference": "48ed6d347941bf04927a3cd490df7bba7a02ca36"
+                "reference": "24c473c08ab46759a2ebe8bb1ec6de1d7c9e9d1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/48ed6d347941bf04927a3cd490df7bba7a02ca36",
-                "reference": "48ed6d347941bf04927a3cd490df7bba7a02ca36",
+                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/24c473c08ab46759a2ebe8bb1ec6de1d7c9e9d1e",
+                "reference": "24c473c08ab46759a2ebe8bb1ec6de1d7c9e9d1e",
                 "shasum": ""
             },
             "require": {
-                "illuminate/config": "~5.0|~6.0",
-                "illuminate/console": "~5.0|~6.0",
-                "illuminate/database": "~5.0|~6.0",
-                "illuminate/filesystem": "~5.0|~6.0",
-                "illuminate/http": "~5.0|~6.0",
-                "illuminate/pagination": "~5.0|~6.0",
-                "illuminate/support": "~5.0|~6.0",
+                "illuminate/config": "~5.0|~6.0|~7.0",
+                "illuminate/console": "~5.0|~6.0|~7.0",
+                "illuminate/database": "~5.0|~6.0|~7.0",
+                "illuminate/filesystem": "~5.0|~6.0|~7.0",
+                "illuminate/http": "~5.0|~6.0|~7.0",
+                "illuminate/pagination": "~5.0|~6.0|~7.0",
+                "illuminate/support": "~5.0|~6.0|~7.0",
+                "illuminate/validation": "~5.0|~6.0|~7.0",
                 "prettus/laravel-validation": "~1.1|~1.2"
             },
             "suggest": {
@@ -4102,25 +4103,25 @@
                 "model",
                 "repository"
             ],
-            "time": "2019-12-22T13:53:50+00:00"
+            "time": "2020-03-14T18:53:21+00:00"
         },
         {
             "name": "prettus/laravel-validation",
-            "version": "1.2.0",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andersao/laravel-validator.git",
-                "reference": "5ffa053baae31d11fa34da013b940d85c99ba253"
+                "reference": "3d43037c2f497df3f8fbf3d8c16954a83c72e530"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andersao/laravel-validator/zipball/5ffa053baae31d11fa34da013b940d85c99ba253",
-                "reference": "5ffa053baae31d11fa34da013b940d85c99ba253",
+                "url": "https://api.github.com/repos/andersao/laravel-validator/zipball/3d43037c2f497df3f8fbf3d8c16954a83c72e530",
+                "reference": "3d43037c2f497df3f8fbf3d8c16954a83c72e530",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "~5.4|^6.0",
-                "illuminate/validation": "~5.4|^6.0",
+                "illuminate/support": "~5.4|^6.0|^7.0",
+                "illuminate/validation": "~5.4|^6.0|^7.0",
                 "php": ">=5.4.0"
             },
             "type": "library",
@@ -4145,7 +4146,7 @@
                 "service",
                 "validation"
             ],
-            "time": "2019-09-11T12:19:42+00:00"
+            "time": "2020-03-14T19:28:36+00:00"
         },
         {
             "name": "psr/cache",
