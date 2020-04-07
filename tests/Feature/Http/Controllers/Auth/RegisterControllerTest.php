@@ -1,5 +1,9 @@
-<?php namespace Tests\Feature\Http\Controllers\Auth;
+<?php
 
+namespace Tests\Feature\Http\Controllers\Auth;
+
+use Illuminate\Support\Facades\Route;
+use template\Domain\Users\Profiles\Profile;
 use template\Domain\Users\Users\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
@@ -8,38 +12,66 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class RegisterControllerTest extends TestCase
 {
-
     use DatabaseMigrations;
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testIfRegisterIsCorrectlyDisplayed()
+    public function testToVisitRegister()
     {
+        if (!Route::has('register')) {
+            $this->markTestSkipped('route "register" is not defined');
+        }
+
         $this
             ->get('/register')
-            ->assertSuccessful();
+            ->assertSuccessful()
+            ->assertSeeText('Registration Form')
+            ->assertSee('Email')
+            ->assertSee('Password')
+            ->assertSee('Confirm password')
+            ->assertSeeText('Register');
     }
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testRegistration()
+    public function testToSubmitRegister()
     {
-        $this->markTestSkipped('https://github.com/obsession-city/www/issues/40');
-        $user = factory(User::class)->states(User::ROLE_CUSTOMER)->make();
+        if (!Route::has('register')) {
+            $this->markTestSkipped('route "register" is not defined');
+        }
 
+        $email = $this->faker->email;
+        $profile = factory(Profile::class)->make();
         $this
-            ->post('/register', $user->toArray() + [
+            ->from('/register')
+            ->post('/register', $profile->toArray() + [
+                    'email' => $email,
                     'password' => $this->getDefaultPassword(),
                     'password_confirmation' => $this->getDefaultPassword()
-                ]
-            )
+                ])
             ->assertStatus(302)
-            ->assertRedirect('/dashboard');
+            ->assertRedirect('/');
+        $this->assertDatabaseHas('users', [
+            'email' => $email,
+        ]);
+    }
+
+    public function testToSubmitRegisterWithInvalidEmail()
+    {
+        if (!Route::has('register')) {
+            $this->markTestSkipped('route "register" is not defined');
+        }
+
+        $email = $this->faker->word;
+        $profile = factory(Profile::class)->make();
+        $this
+            ->followingRedirects()
+            ->from('/register')
+            ->post('/register', $profile->toArray() + [
+                    'email' => $email,
+                    'password' => $this->getDefaultPassword(),
+                    'password_confirmation' => $this->getDefaultPassword()
+                ])
+            ->assertSuccessful()
+            ->assertSeeText('The email must be a valid email address.');
+        $this->assertDatabaseMissing('users', [
+            'email' => $email,
+        ]);
     }
 }

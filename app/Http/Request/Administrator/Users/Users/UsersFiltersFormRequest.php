@@ -1,4 +1,6 @@
-<?php namespace template\Http\Request\Administrator\Users\Users;
+<?php
+
+namespace template\Http\Request\Administrator\Users\Users;
 
 use template\Infrastructure\Contracts\Request\RequestAbstract;
 
@@ -22,11 +24,9 @@ class UsersFiltersFormRequest extends RequestAbstract
      */
     public function rules()
     {
-        $rules = [
-            'name' => 'max:255',
+        return [
+            'full_name' => 'max:255',
             'email' => 'max:255',
         ];
-
-        return $rules;
     }
 }

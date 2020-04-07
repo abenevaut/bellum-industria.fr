@@ -1,15 +1,14 @@
-<?php namespace template\Domain\Users\Users\Repositories;
+<?php
+
+namespace template\Domain\Users\Users\Repositories;
 
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Contracts\Validation\Validator as ContractsValidator;
 use template\Infrastructure\Contracts\
 {
     Repositories\RepositoryEloquentAbstract,
     Request\RequestAbstract
 };
 use template\Domain\Users\Users\{
-    Repositories\UsersRepositoryInterface,
     User,
     Criterias\EmailLikeCriteria,
     Criterias\FullNameLikeCriteria,
@@ -22,15 +21,12 @@ use template\Domain\Users\Users\{
     Events\UserTriedToDeleteHisOwnAccountEvent,
     Presenters\UsersListPresenter
 };
-use template\Domain\Users\Leads\Lead;
 
 class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements UsersRepositoryInterface
 {
 
     /**
-     * Specify Model class name.
-     *
-     * @return string
+     * {@inheritdoc}
      */
     public function model(): string
     {
@@ -38,12 +34,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * Create User request and fire event "UserCreatedEvent".
-     *
-     * @param array $attributes
-     *
-     * @event template\Domain\Users\Users\Events\UserCreatedEvent
-     * @return \template\Domain\Users\Users\User
+     * {@inheritdoc}
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
     public function create(array $attributes): User
@@ -78,13 +69,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * Update User request and fire event "UserUpdatedEvent".
-     *
-     * @param array $attributes
-     * @param integer $id
-     *
-     * @event template\Domain\Users\Users\Events\UserUpdatedEvent
-     * @return \template\Domain\Users\Users\User
+     * {@inheritdoc}
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
     public function update(array $attributes, $id): User
@@ -97,12 +82,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * Delete User request and fire event "UserDeletedEvent".
-     *
-     * @param integer $id
-     *
-     * @event template\Domain\Users\Users\Events\UserDeletedEvent
-     * @return \template\Domain\Users\Users\User
+     * {@inheritdoc}
      */
     public function delete($id): User
     {
@@ -116,7 +96,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * @param User $user
+     * {@inheritdoc}
      */
     public function refreshSession(User $user): void
     {
@@ -124,31 +104,23 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * @return Collection
+     * {@inheritdoc}
      */
     public function getRoles(): Collection
     {
-        return collect([
-            User::ROLE_ADMINISTRATOR => trans('users.role.' . User::ROLE_ADMINISTRATOR),
-            User::ROLE_ACCOUNTANT => trans('users.role.' . User::ROLE_ACCOUNTANT),
-            User::ROLE_CUSTOMER => trans('users.role.' . User::ROLE_CUSTOMER),
-        ]);
+        return collect(User::ROLES);
     }
 
     /**
-     * @return Collection
+     * {@inheritdoc}
      */
     public function getCivilities(): Collection
     {
-        return collect([
-            User::CIVILITY_MADAM => trans('users.civility.' . User::CIVILITY_MADAM),
-            User::CIVILITY_MISS => trans('users.civility.' . User::CIVILITY_MISS),
-            User::CIVILITY_MISTER => trans('users.civility.' . User::CIVILITY_MISTER),
-        ]);
+        return collect(User::CIVILITIES);
     }
 
     /**
-     * @return Collection
+     * {@inheritdoc}
      */
     public function getLocales(): Collection
     {
@@ -156,7 +128,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * @return Collection
+     * {@inheritdoc}
      */
     public function getTimezones(): Collection
     {
@@ -164,9 +136,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * Get the list of all users, active and soft deleted users.
-     *
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     * {@inheritdoc}
      */
     public function allWithTrashed()
     {
@@ -174,9 +144,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * Get only users that was soft deleted.
-     *
-     * @return Collection
+     * {@inheritdoc}
      */
     public function onlyTrashed(): Collection
     {
@@ -184,14 +152,10 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * Filter users by uniqid.
-     *
-     * @param string $uniqid The user uniqid
-     *
-     * @return self
+     * {@inheritdoc}
      * @throws \Prettus\Repository\Exceptions\RepositoryException
      */
-    public function filterByUniqueId(string $uniqid): self
+    public function filterByUniqueId(?string $uniqid): UsersRepositoryInterface
     {
         if (!is_null($uniqid) && !empty($uniqid)) {
             $this->pushCriteria(new WhereUniqIdIsCriteria($uniqid));
@@ -201,14 +165,10 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * Filter users by uniqid different than the one as argument.
-     *
-     * @param string $uniqid The user uniqid
-     *
-     * @return UsersRepositoryEloquent
+     * {@inheritdoc}
      * @throws \Prettus\Repository\Exceptions\RepositoryException
      */
-    public function filterByUniqueIdDifferentThan(string $uniqid): self
+    public function filterByUniqueIdDifferentThan(?string $uniqid): UsersRepositoryInterface
     {
         if (!is_null($uniqid) && !empty($uniqid)) {
             $this->pushCriteria(new WhereUniqIdIsDifferentCriteria($uniqid));
@@ -218,15 +178,10 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     *
-     * Filter users by name.
-     *
-     * @param string $name The user last name or lead first name
-     *
-     * @return UsersRepositoryEloquent
+     * {@inheritdoc}
      * @throws \Prettus\Repository\Exceptions\RepositoryException
      */
-    public function filterByName(string $name): self
+    public function filterByName(?string $name): UsersRepositoryInterface
     {
         if (!is_null($name) && !empty($name)) {
             $this->pushCriteria(new FullNameLikeCriteria($name));
@@ -236,14 +191,10 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * Filter users by emails.
-     *
-     * @param string $email The user email
-     *
-     * @return UsersRepositoryEloquent
+     * {@inheritdoc}
      * @throws \Prettus\Repository\Exceptions\RepositoryException
      */
-    public function filterByEmail(string $email): self
+    public function filterByEmail(?string $email): UsersRepositoryInterface
     {
         if (!is_null($email) && !empty($email)) {
             $this->pushCriteria(new EmailLikeCriteria($email));
@@ -253,17 +204,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * Create a new user.
-     *
-     * @param string $civility
-     * @param string $first_name
-     * @param string $last_name
-     * @param string $email
-     * @param string $role
-     * @param string $locale
-     * @param string $timezone
-     *
-     * @return User
+     * {@inheritdoc}
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
     public function createUser(
@@ -292,7 +233,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * @return array
+     * {@inheritdoc}
      * @throws \Exception
      */
     public function getPaginatedUsers(): array
@@ -304,9 +245,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * @param RequestAbstract $request
-     *
-     * @return array
+     * {@inheritdoc}
      * @throws \Exception
      */
     public function getPaginatedAndFilteredUsers(RequestAbstract $request): array
@@ -351,24 +290,19 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * @param $id
-     *
-     * @return array
+     * {@inheritdoc}
      * @throws \Exception
      */
-    public function getUser($id): array
+    public function getUser(int $id): array
     {
         return $this
-            ->with(['lead'])
+            ->with(['lead', 'profile'])
             ->setPresenter(new UsersListPresenter())
             ->find($id);
     }
 
     /**
-     * @param User $currentUser
-     * @param User $user
-     *
-     * @return bool
+     * {@inheritdoc}
      */
     public function isUserDeletingHisAccount(
         User $currentUser,
@@ -384,12 +318,10 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
     }
 
     /**
-     * @param RequestAbstract $request
-     *
-     * @return array
+     * {@inheritdoc}
      * @throws \Prettus\Repository\Exceptions\RepositoryException
      */
-    public function isUserEmailExists(RequestAbstract $request)
+    public function isUserEmailExists(RequestAbstract $request): array
     {
         $data = ['data' => ['count' => 0]];
         $data['data']['count'] = $this

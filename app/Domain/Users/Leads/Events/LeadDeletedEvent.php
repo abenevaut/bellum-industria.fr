@@ -1,6 +1,8 @@
-<?php namespace template\Domain\Users\Leads\Events;
+<?php
 
-use template\Infractucture\Contracts\Events\EventAbstract;
+namespace template\Domain\Users\Leads\Events;
+
+use template\Infrastructure\Contracts\Events\EventAbstract;
 use template\Domain\Users\Leads\Lead;
 
 class LeadDeletedEvent extends EventAbstract

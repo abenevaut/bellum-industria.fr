@@ -1,4 +1,6 @@
-<?php namespace template\Infrastructure\Contracts\Repositories;
+<?php
+
+namespace template\Infrastructure\Contracts\Repositories;
 
 use template\Infrastructure\Interfaces\Repositories\RepositoryInterface;
 use Illuminate\Container\Container as Application;
@@ -12,7 +14,6 @@ use Prettus\Repository\Traits\CacheableRepository;
 
 abstract class RepositoryEloquentAbstract extends BaseRepository implements RepositoryInterface, CacheableInterface
 {
-
     use CacheableRepository;
 
     /**

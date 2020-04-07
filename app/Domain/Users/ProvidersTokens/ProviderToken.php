@@ -1,4 +1,6 @@
-<?php namespace template\Domain\Users\ProvidersTokens;
+<?php
+
+namespace template\Domain\Users\ProvidersTokens;
 
 use template\Infrastructure\Interfaces\Domain\Users\ProvidersTokens\ProvidersInterface;
 use template\Infrastructure\Contracts\{
@@ -11,7 +13,6 @@ use template\Domain\Users\Users\User;
 
 class ProviderToken extends ModelAbstract implements ProvidersInterface
 {
-
     use Notifiable;
     use IdentifiableTrait;
     use TimeStampsTz;

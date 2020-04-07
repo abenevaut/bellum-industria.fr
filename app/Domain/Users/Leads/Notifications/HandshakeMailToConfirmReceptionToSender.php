@@ -1,4 +1,6 @@
-<?php namespace template\Domain\Users\Leads\Notifications;
+<?php
+
+namespace template\Domain\Users\Leads\Notifications;
 
 use template\Infrastructure\Interfaces\Domain\Users\Users\HandshakableInterface;
 use template\Infrastructure\Interfaces\Queues\ShouldQueueInterface;
@@ -69,7 +71,7 @@ class HandshakeMailToConfirmReceptionToSender extends Notification
     public function toMail($notifiable)
     {
         return (new CustomerMailMessage())
-            ->subject(trans('leads.handshake_subject', [
+            ->subject(trans('users.leads.handshake_subject', [
                 'subject' => $this->subject,
             ]))
             ->view(
@@ -89,7 +91,7 @@ class HandshakeMailToConfirmReceptionToSender extends Notification
     public function toAdministrator($notifiable)
     {
         return (new MailableMessage())
-            ->subject(trans('leads.handshake_subject', [
+            ->subject(trans('users.leads.handshake_subject', [
                 'subject' => $this->subject,
             ]))
             ->view(

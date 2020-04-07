@@ -1,4 +1,6 @@
-<?php namespace template\Exceptions;
+<?php
+
+namespace template\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;
@@ -37,7 +39,7 @@ class Handler extends ExceptionHandler
     {
         // @codeCoverageIgnoreStart
         if (
-            !app()->environment('local')
+            app()->environment('production')
             && app()->bound('sentry')
             && $this->shouldReport($exception)
         ) {
@@ -62,7 +64,7 @@ class Handler extends ExceptionHandler
     {
         // @codeCoverageIgnoreStart
         if (
-            !app()->environment('local')
+            app()->environment('production')
             && $this->shouldReport($exception)
         ) {
             return response()
@@ -85,15 +87,14 @@ class Handler extends ExceptionHandler
      * @param  \Illuminate\Http\Request $request
      * @param  \Illuminate\Auth\AuthenticationException $exception
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
      */
     protected function unauthenticated(
         $request,
         AuthenticationException $exception
     ) {
         if ($request->expectsJson()) {
-            return response()
-                ->json(['error' => 'Unauthenticated.'], 401);
+            return response()->json(['error' => 'Unauthenticated.'], 401);
         }
 
         return redirect()->guest(route('login'));

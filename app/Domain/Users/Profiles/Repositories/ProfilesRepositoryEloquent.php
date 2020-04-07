@@ -2,16 +2,14 @@
 
 namespace template\Domain\Users\Profiles\Repositories;
 
+use Carbon\Carbon;
 use Illuminate\Container\Container as Application;
 use Illuminate\Support\Collection;
-use template\Infrastructure\Contracts\
-{
+use template\Infrastructure\Contracts\{
     Request\RequestAbstract,
     Repositories\RepositoryEloquentAbstract
 };
-use Carbon\Carbon;
-use template\Domain\Users\Users\
-{
+use template\Domain\Users\Users\{
     User,
     Repositories\UsersRepositoryEloquent
 };
@@ -23,6 +21,13 @@ use template\Domain\Users\Profiles\{
 
 class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements ProfilesRepository
 {
+
+    /**
+     * @var array
+     */
+    protected $fieldSearchable = [
+        'user.gid' => 'like',
+    ];
 
     /**
      * @var UsersRepositoryEloquent|null
@@ -54,29 +59,19 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
     }
 
     /**
-     * Create user profile.
-     *
-     * @param array $attributes
-     *
-     * @return Profile
+     * {@inheritdoc}
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function create(array $attributes)
+    public function create(array $attributes): Profile
     {
         return parent::create($attributes);
     }
 
     /**
-     * Update user profile.
-     *
-     * @param array $attributes
-     * @param integer $id
-     *
-     * @event ProfileUpdatedEvent
-     * @return Profile
+     * {@inheritdoc}
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(array $attributes, $id)
+    public function update(array $attributes, $id): Profile
     {
         $profile = parent::update($attributes, $id);
 
@@ -86,14 +81,9 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
     }
 
     /**
-     * Delete user profile.
-     *
-     * @param $id
-     *
-     * @event None
-     * @return int
+     * {@inheritdoc}
      */
-    public function delete($id)
+    public function delete($id): int
     {
         $profile = parent::delete($id);
 
@@ -101,7 +91,7 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * {@inheritdoc}
      */
     public function getFamilySituations(): Collection
     {
@@ -109,10 +99,7 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
     }
 
     /**
-     * @param User $user
-     * @param array $parameters
-     *
-     * @return User
+     * {@inheritdoc}
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
     public function createUserProfile(
@@ -125,10 +112,7 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
     }
 
     /**
-     * @param User $user
-     * @param array $parameters
-     *
-     * @return User
+     * {@inheritdoc}
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
     public function updateUserProfile(
@@ -141,11 +125,9 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
     }
 
     /**
-     * @param User $user
-     *
-     * @return ProfilesRepositoryEloquent
+     * {@inheritdoc}
      */
-    public function deleteUserProfile(User $user): self
+    public function deleteUserProfile(User $user): ProfilesRepository
     {
         $user->profile->delete();
 
@@ -153,7 +135,7 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
     }
 
     /**
-     * @return Collection
+     * {@inheritdoc}
      */
     public function getCivilities(): Collection
     {
@@ -161,7 +143,7 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
     }
 
     /**
-     * @return Collection
+     * {@inheritdoc}
      */
     public function getLocales(): Collection
     {
@@ -169,7 +151,7 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
     }
 
     /**
-     * @return Collection
+     * {@inheritdoc}
      */
     public function getTimezones(): Collection
     {
@@ -177,10 +159,10 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
     }
 
     /**
-     * @return Profile
+     * {@inheritdoc}
      * @throws \Exception
      */
-    public function getUserProfile(User $user)
+    public function getUserProfile(User $user): array
     {
         return $this
             ->setPresenter(new ProfilesListPresenter())
@@ -188,15 +170,13 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
     }
 
     /**
-     * @param RequestAbstract $request
-     * @param $id
-     *
+     * {@inheritdoc}
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
     public function updateUserProfileWithRequest(
         RequestAbstract $request,
-        $id
-    ) {
+        User $user
+    ): void {
         $data = [
             'birth_date' => $request->has('birth_date')
                 ? Carbon::createFromFormat(
@@ -208,20 +188,33 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
             'maiden_name' => $request->get('maiden_name'),
             'is_sidebar_pined' => $request->get('is_sidebar_pined'),
         ];
-        $data = array_filter($data, function($v) { return !is_null($v); });
+        $data = array_filter(
+            $data,
+            function ($v) {
+                return !is_null($v);
+            }
+        );
 
-        $profile = $this->update($data, $id);
+        if ($data) {
+            $this->update($data, $user->profile->id);
+        }
 
         $data = [
             'timezone' => $request->get('timezone'),
             'locale' => $request->get('locale'),
+            'civility' => $request->get('civility'),
+            'first_name' => $request->get('first_name'),
+            'last_name' => $request->get('last_name'),
         ];
-        $data = array_filter($data, function($v) { return !is_null($v); });
+        $data = array_filter(
+            $data,
+            function ($v) {
+                return !is_null($v);
+            }
+        );
 
         if ($data) {
-            $user = $this
-                ->r_users
-                ->update($data, $profile->user->id);
+            $user = $this->r_users->update($data, $user->id);
             $this->r_users->refreshSession($user);
         }
     }
